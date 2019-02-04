@@ -1,0 +1,53 @@
+@import "./styles/main";
+
+.App {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.App--Header {
+  background: $junction-black;
+  border-bottom: 1px solid $junction-white;
+  flex-shrink: 0;
+  padding: $padding-base;
+  text-align: center;
+
+  header {
+    color: $junction-white;
+  }
+}
+
+.App--Main {
+  background: $junction-black;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+
+  &_logo {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &_body,
+  &_title {
+    text-align: center;
+    max-width: 600px;
+  }
+}
+
+.App--Footer {
+  background: $color-lightgrey;
+  flex-shrink: 0;
+  text-align: center;
+  padding: $padding-base;
+
+  footer {
+
+    small {
+      color: $junction-black;
+    }
+  }
+}

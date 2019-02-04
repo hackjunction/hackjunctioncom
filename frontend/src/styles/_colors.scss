@@ -1,0 +1,19 @@
+/* Junction brand colors */
+
+$junction-blue: #35e2df;
+$junction-magenta: #ff33ff;
+$junction-green: #a8ff00;
+$junction-lightgreen: #00ff99;
+$junction-black: #232323;
+$junction-white: #fbfbfb;
+
+/* Misc */
+
+$color-warning: #ff6700;
+$color-error: #cc0000;
+$color-lightgrey: #ececec;
+
+body, 
+html {
+	background: $junction-black;
+}
