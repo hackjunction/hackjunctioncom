@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "npm install -g yarn && yarn install && cd backend && yarn install && cd ../frontend && yarn install && cd ..",
     "dev": "concurrently --kill-others \"npm run frontend\" \"npm run backend\"",
     "backend": "cd backend && strapi start",
     "frontend": "cd frontend && npm run start",
