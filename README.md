@@ -7,10 +7,7 @@ An isomorphic React + Strapi app boilerplate, with most of the tedious setup alr
 git clone git@github.com:hackjunction/react-strapi-starter.git
 cd react-strapi-starter
 rm -rf .git
-<<<<<<< HEAD
 yarn setup
-=======
->>>>>>> c73b5106de1ed222fe17a6db65684f6360143250
 ```
 
 # Config
