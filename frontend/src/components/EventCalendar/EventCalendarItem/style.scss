@@ -1,0 +1,15 @@
+.EventCalendarItem {
+	display: flex;
+	flex-direction: row;
+
+	&_Date {
+		display: flex;
+		flex-direction: column;
+		min-width: 100px;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&_Info {
+	}
+}

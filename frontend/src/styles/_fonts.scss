@@ -16,7 +16,6 @@ html {
 .font-title,
 %font-title {
 	font-family: $montserrat;
-	font-size: 32px;
 	color: $junction-white;
 }
 
@@ -41,27 +40,29 @@ html {
 	color: $junction-white;
 }
 
+.font-link,
+%font-link {
+	font-family: $lato;
+	font-size: 13px;
+	color: $junction-blue;
+	cursor: pointer;
+	opacity: 0.8;
+	transition: opacity 0.2s ease;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
 /* Define sensible defaults for common elements */
 
-h1 {
-	@extend %font-title;
-}
-
+h1,
 h2,
-h3 {
-	@extend %font-title;
-	font-size: 28px;
-}
-
+h3,
 h4,
-h5 {
-	@extend %font-title;
-	font-size: 22px;
-}
-
+h5,
 h6 {
 	@extend %font-title;
-	font-size: 20px;
 }
 
 p,
@@ -73,7 +74,8 @@ th {
 }
 
 label,
-small {
+small,
+i {
 	@extend %font-secondary;
 }
 
@@ -83,7 +85,5 @@ textarea {
 }
 
 a {
-	text-decoration: underline;
-	color: $junction-blue;
-
+	@extend %font-link;
 }

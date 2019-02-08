@@ -1,0 +1,66 @@
+@import '../../../styles/main';
+
+.NavStack {
+	align-self: stretch;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	height: 60px;
+	width: 120px;
+	cursor: pointer;
+
+	&_Top {
+
+	}
+
+	&_Items {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 60px;
+		background: purple;
+		z-index: 200;
+
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+
+		transition: all 0.3s ease;
+		/* Animation (hidden state) */
+		background: transparent;
+
+		.NavStack_Item {
+			transition: all 0.3s ease;
+			transition-delay: calc(var(--n) * 0.1s);
+			transform: translateY(10px);
+			background: $junction-white;
+			margin-top: 1px;
+			opacity: 0;
+			color: $junction-black;
+		}
+	}
+
+	&_Item {
+		@extend %font-title;
+		padding: $padding-base;
+		text-align: center;
+		text-decoration: none;
+		color: $junction-white;
+		text-transform: uppercase;
+
+		/* Animation (hidden state) */
+	}
+
+	&:hover {
+		.NavStack_Items {
+			opacity: 1;
+
+			.NavStack_Item {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+	}
+}

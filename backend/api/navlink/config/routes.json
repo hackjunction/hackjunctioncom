@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/navlinks",
+      "handler": "Navlink.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/navlinks/count",
+      "handler": "Navlink.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/navlinks/:_id",
+      "handler": "Navlink.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/navlinks",
+      "handler": "Navlink.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/api/navlinks/:_id",
+      "handler": "Navlink.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/navlinks/:_id",
+      "handler": "Navlink.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

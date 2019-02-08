@@ -1,0 +1,68 @@
+{
+  "connection": "default",
+  "collectionName": "event",
+  "info": {
+    "name": "event",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "default": "",
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "JunctionX",
+        " Pre-event",
+        " HelTech",
+        " Workshop",
+        " Other"
+      ]
+    },
+    "begins": {
+      "default": "",
+      "type": "date",
+      "required": true
+    },
+    "ends": {
+      "default": "",
+      "type": "date"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "shortDescription": {
+      "default": "",
+      "maxLength": 400,
+      "minLength": 50,
+      "type": "text",
+      "required": true
+    },
+    "linkToEventSite": {
+      "default": "",
+      "type": "string"
+    },
+    "latitude": {
+      "default": "",
+      "type": "decimal"
+    },
+    "longitude": {
+      "default": "",
+      "type": "decimal"
+    },
+    "linkToTickets": {
+      "default": "",
+      "type": "string"
+    }
+  }
+}
