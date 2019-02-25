@@ -1,0 +1,21 @@
+@import '../../styles/main';
+
+.StatBlock {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 40px;
+	
+	&--value {
+		@extend %font-title;
+		font-size: 80px;
+		font-weight: bold;
+		margin: 0;
+	}
+
+	&--label {
+		@extend %font-title;
+		font-size: 28px;
+		font-family: $montserrat;
+	}
+}

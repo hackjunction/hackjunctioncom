@@ -24,4 +24,3 @@ In production mode, you should only run the backend which serves a static produc
 Other than that, deployment works exactly as documented in the official Strapi guide: https://strapi.io/documentation/3.x.x/guides/deployment.html
 
 Heroku-specific deployment instructions to be added later.
-

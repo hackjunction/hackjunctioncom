@@ -1,0 +1,11 @@
+.HeaderImage {
+	width: 100%;
+	height: 900px;
+	background: red;
+
+	&--img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}

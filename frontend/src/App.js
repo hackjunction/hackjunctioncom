@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './App.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import EventsPage from './pages/Events'
+import HomePage from './pages/Home'
 
 import Header from './components/Header'
 
@@ -16,7 +16,10 @@ class App extends Component {
         <div className="App">
           <Header />
           <div className="App--Main">
-            <Route path="/" component={EventsPage} />
+            <Switch>
+              <Route path="/" component={HomePage} />
+              <Route path="*" component={null} />
+            </Switch>
           </div>
           <div className="App--Footer">
             <footer>

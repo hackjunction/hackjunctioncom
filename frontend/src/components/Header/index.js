@@ -1,50 +1,21 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import './style.scss'
 
-import _ from 'lodash'
+import NavMenu from './NavMenu';
 
-import NavLinkService from '../../services/navlinks'
-import NavStack from './NavStack'
+const Header = () => {
 
-class Header extends Component {
+	const [menuOpen, setMenuOpen] = useState(false)
 
-	constructor(props) {
-		super(props)
-
-		this.state = {
-			navlinks: []
-		}
-	}
-
-	componentDidMount() {
-		NavLinkService.getAll().then(navlinks => {
-			this.setState({ navlinks })
-		})
-	}
-
-	renderNavLinks() {
-		const { navlinks } = this.state
-
-		const topLevel = _.filter(navlinks, n => !n.parent)
-
-		return _.map(topLevel, navlink => {
-			return <NavStack navlink={navlink} />
-		})
-	}
-
-	render() {
-		return (
-			<div className="Header">
-				<div className="Header_Branding">
-					<img className="Header_Branding--logo" src={require('../../assets/logos/text_white.png')} alt="Junction logo" />
-				</div>
-				<div className="Header_Nav">
-					{this.renderNavLinks()}
-				</div>
+	return (
+		<div className="Header">
+			<div className="Header--menu-button" onClick={() => setMenuOpen(true)}>
+				<i className="Header--menu-button fas fa-bars"></i>
 			</div>
-		)
-	}
+			<img className="Header--emblem" src={require('../../assets/logos/emblem_white.png')} alt="Junction logo" />
+			<NavMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+		</div>
+	)
 }
 
 export default Header

@@ -1,14 +1,21 @@
 @import "./styles/main";
 
+.Page {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
 .App {
   height: 100%;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .App--Header {
   background: $junction-black;
-  border-bottom: 1px solid $junction-white;
   flex-shrink: 0;
   padding: $padding-base;
   text-align: center;
@@ -23,7 +30,7 @@
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   margin-bottom: 100px;
 
   &_logo {

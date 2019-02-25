@@ -1,0 +1,81 @@
+@import '../../../styles/main.scss';
+
+.NavMenuWrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none;
+}
+
+.NavMenuOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	pointer-events: none;
+	transition: all 0.4s ease;
+	z-index: 2;
+
+	&-open {
+		background: rgba($junction-black, 0.75);
+		pointer-events: all;
+	}
+}
+
+.NavMenu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 3;
+	width: 100%;
+	max-width: 600px;
+	background: $junction-white;
+	display: flex;
+	flex-direction: column;
+	padding-top: 200px;
+	justify-content: flex-start;
+	align-items: center;
+	pointer-events: all;
+	transform: translateX(-120%);
+	transition: all 0.4s ease-in-out;
+
+	&-open {
+		transform: translateX(0);
+	}
+
+	&--inner {
+		width: 300px;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+
+		&__logo {
+			width: 100%;
+		}
+
+		&__menu {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+
+			&-item {
+				color: $junction-black;
+				font-size: 20px;
+				text-decoration: none;
+			}
+
+			&-title {
+				color: $lightgrey;
+				font-size: 20px;
+				line-height: 24px;
+				font-weight: bold;
+				margin-top: 30px;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
