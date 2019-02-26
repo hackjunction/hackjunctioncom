@@ -1,0 +1,25 @@
+@import '../../../styles/main';
+
+.InputLabel {
+	opacity: 0;
+	font-size: 14px;
+	line-height: 14px;
+	height: 14px;
+	color: rgba($junction-white, 0.4);
+	transform: translateY(10px);
+	transition: all 0.2s ease;
+
+	&-show {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	&-has-mb {
+		margin-bottom: 20px;
+	}
+
+	&-large {
+		font-size: 18px;
+		line-height: 18px;
+	}
+}

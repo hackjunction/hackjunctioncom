@@ -1,0 +1,31 @@
+@import '../../../styles/main';
+
+.TextInput {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+
+	&--error {
+		margin-top: 10px;
+		opacity: 1;
+		font-size: 14px;
+		line-height: 18px;
+		color: $color-error;
+	}
+
+	&--input {
+		height: 38px;
+		background: transparent;
+		border: none;
+		border-bottom: 1px solid rgba($junction-white, 0.6);
+		color: rgba($junction-white, 0.6);
+		font-size: 18px;
+		transition: all 0.2s ease;
+
+		&:focus {
+			outline: none;
+			border-color: $junction-white;
+			color: $junction-white;
+		}
+	}
+}

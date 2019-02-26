@@ -1,0 +1,47 @@
+@import '../../../styles/main';
+
+.TextArea {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	align-items: stretch;
+
+	&-show-label {
+		.TextArea--label {
+			opacity: 1;
+			transform: translateY(0)
+		}
+	}
+
+	&--label {
+		opacity: 0;
+		font-size: 14px;
+		line-height: 14px;
+		height: 14px;
+		color: rgba($junction-white, 0.4);
+		transform: translateY(10px);
+		transition: all 0.2s ease;
+	}
+
+	&--input {
+		margin-top: 6px;
+		font-size: 18px;
+		line-height: 26px;
+		resize:none;
+		background: transparent;
+		border: none;
+		border-bottom: 1px solid rgba($junction-white, 0.6);
+		color: rgba($junction-white, 0.6);
+		font-size: 18px;
+		min-width: 100%;
+		max-width: 100%;
+		transition: color 0.2s ease, border-color 0.2s ease;
+
+		&:focus,
+		&:hover {
+			outline: none;
+			border-color: $junction-white;
+			color: $junction-white;
+		}
+	}
+}

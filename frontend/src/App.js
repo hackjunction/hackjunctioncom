@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import HomePage from './pages/Home'
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 class App extends Component {
 
@@ -21,11 +22,7 @@ class App extends Component {
               <Route path="*" component={null} />
             </Switch>
           </div>
-          <div className="App--Footer">
-            <footer>
-              <small>Powered by Junction</small>
-            </footer>
-          </div>
+          <Footer />
         </div>
       </Router>
     );

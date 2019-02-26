@@ -1,0 +1,32 @@
+@import '../../../styles/main';
+
+.SubmitButton {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+
+	&--button {
+		background: transparent;
+		min-width: 300px;
+		border-radius: 7px;
+		border: 2px solid $junction-white;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		
+		&:hover,
+		&:focus {
+			outline: none;
+			background: $junction-white;
+
+			.SubmitButton--button__text {
+				color: $junction-black;
+			}
+		}
+
+		&__text {
+			transition: all 0.2s ease;
+		}
+	}
+}

@@ -1,0 +1,85 @@
+@import '../../styles/main';
+
+.Footer {
+	align-items: center;
+	justify-content: flex-start;
+	padding: 140px;
+	background: $junction-white;
+
+	.FooterInner {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		max-width: 1200px;
+		width: 100%;
+		margin: 0 auto;
+
+		&--left {
+			display: flex;
+			flex-direction: column;
+			width: 320px;
+
+			&__logo {
+				width: 100%;
+			}
+
+			&__slogan {
+				color: $junction-black;
+				font-size: 24px;
+			}
+
+			&__contact {
+				color: $junction-black;
+				text-decoration: none;
+				font-size: 20px;
+			}
+		}
+
+		&--separator {
+			margin-top: 20px;
+			height: 150px;
+			width: 2px;
+			margin-left: 110px;
+			margin-right: 110px;
+			background: $lightgrey;
+		}
+
+		&--right {
+			flex: 1;
+			display: flex;
+			flex-direction: row;
+
+			&__section {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				margin-bottom: 30px;
+
+				&-title {
+					color: $lightgrey; 
+					margin-top: 0;
+				}
+
+				&-link {
+					color: $junction-black;
+					text-decoration: none;
+					font-size: 16px;
+					line-height: 22px;
+				}
+			}
+		}
+	}
+
+	.FooterBottom {
+		width: 100%;
+		max-width: 1200px;
+		text-align: center;
+		margin: 0 auto;
+		margin-top: 140px;
+
+		&--text {
+			@extend %font-title;
+			color: $lightgrey;
+		}
+	}
+}

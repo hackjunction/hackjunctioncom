@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  align-items: stretch;
 }
 
 .App--Header {
@@ -42,19 +43,5 @@
   &_title {
     text-align: center;
     max-width: 600px;
-  }
-}
-
-.App--Footer {
-  background: $color-lightgrey;
-  flex-shrink: 0;
-  text-align: center;
-  padding: $padding-base;
-
-  footer {
-
-    small {
-      color: $junction-black;
-    }
   }
 }
