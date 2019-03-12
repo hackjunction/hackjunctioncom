@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import { ConnectedRouter } from 'connected-react-router'
 
 import HomePage from './pages/Home'
 import ParticipantsPage from './pages/Participants'
@@ -20,7 +21,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <ConnectedRouter history={this.props.history}>
         <div className="App">
           <Header />
           <div className="App--Main">
@@ -42,7 +43,7 @@ class App extends Component {
           </div>
           <Footer />
         </div>
-      </Router>
+      </ConnectedRouter>
     );
   }
 }

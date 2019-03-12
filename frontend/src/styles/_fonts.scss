@@ -47,12 +47,7 @@ html {
 	font-size: 13px;
 	color: $junction-blue;
 	cursor: pointer;
-	opacity: 0.8;
-	transition: opacity 0.2s ease;
-
-	&:hover {
-		opacity: 1;
-	}
+	text-decoration: none;
 }
 
 /* Define sensible defaults for common elements */
