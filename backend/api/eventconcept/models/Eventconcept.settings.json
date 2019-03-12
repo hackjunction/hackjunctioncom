@@ -1,0 +1,44 @@
+{
+  "connection": "default",
+  "collectionName": "eventconcept",
+  "info": {
+    "name": "eventconcept",
+    "description": "Detailed description of the event concept (JunctionX, Hel Tech, etc...)"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "events": {
+      "collection": "event",
+      "via": "eventconcept"
+    },
+    "timedescription": {
+      "default": "",
+      "type": "string"
+    },
+    "locationdescription": {
+      "default": "",
+      "type": "string"
+    },
+    "shortdescription": {
+      "default": "",
+      "type": "text"
+    },
+    "longdescription": {
+      "default": "",
+      "type": "text",
+      "required": true
+    },
+    "eventcategory": {
+      "model": "eventcategory",
+      "via": "eventconcepts"
+    }
+  }
+}

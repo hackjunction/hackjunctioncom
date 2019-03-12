@@ -14,18 +14,6 @@
       "type": "string",
       "required": true
     },
-    "type": {
-      "default": "",
-      "type": "enumeration",
-      "required": true,
-      "enum": [
-        "JunctionX",
-        " Pre-event",
-        " HelTech",
-        " Workshop",
-        " Other"
-      ]
-    },
     "begins": {
       "default": "",
       "type": "date",
@@ -61,6 +49,18 @@
       "type": "decimal"
     },
     "linkToTickets": {
+      "default": "",
+      "type": "string"
+    },
+    "eventconcept": {
+      "model": "eventconcept",
+      "via": "events"
+    },
+    "eventcategory": {
+      "model": "eventcategory",
+      "via": "events"
+    },
+    "locationdescription": {
       "default": "",
       "type": "string"
     }

@@ -14,22 +14,22 @@ const NavMenu = ({ isOpen, onClose }) => {
 					<div className="NavMenu--inner__menu">
 						<h6 className="NavMenu--inner__menu-title">Info</h6>
 						<Link className="NavMenu--inner__menu-item" to="/">Story</Link>
-						<Link className="NavMenu--inner__menu-item" to="/">Calendar</Link>
-						<Link className="NavMenu--inner__menu-item" to="/">Team</Link>
+						<Link className="NavMenu--inner__menu-item" to="/calendar">Calendar</Link>
+						<Link className="NavMenu--inner__menu-item" to="/team">Team</Link>
 
-						<h6 className="NavMenu--inner__menu-title">Events & Concepts</h6>
-						<Link className="NavMenu--inner__menu-item" to="/">Junction 2019</Link>
-						<Link className="NavMenu--inner__menu-item" to="/">Hel Tech</Link>
-						<Link className="NavMenu--inner__menu-item" to="/">Hack Talks</Link>
-						<Link className="NavMenu--inner__menu-item" to="/">JunctionX</Link>
-						<Link className="NavMenu--inner__menu-item" to="/">Hack Tour</Link>
-						<Link className="NavMenu--inner__menu-item" to="/">Tech Race</Link>
+						<Link to="/concepts"><h6 className="NavMenu--inner__menu-title">Events & Concepts</h6></Link>
+						<Link className="NavMenu--inner__menu-item" to="/concepts/junction">Junction 2019</Link>
+						<Link className="NavMenu--inner__menu-item" to="/concepts/heltech">Hel Tech</Link>
+						<Link className="NavMenu--inner__menu-item" to="/concepts/hacktalks">Hack Talks</Link>
+						<Link className="NavMenu--inner__menu-item" to="/concepts/junction-x">JunctionX</Link>
+						<Link className="NavMenu--inner__menu-item" to="/concepts/hacktour">Hack Tour</Link>
+						<Link className="NavMenu--inner__menu-item" to="/concepts/techrace">Tech Race</Link>
 
 						<h6 className="NavMenu--inner__menu-title">Community</h6>
-						<Link className="NavMenu--inner__menu-item" to="/">For partners</Link>
-						<Link className="NavMenu--inner__menu-item" to="/">For participants</Link>
-						<Link className="NavMenu--inner__menu-item" to="/">For volunteers</Link>
-						<Link className="NavMenu--inner__menu-item" to="/">For organisers</Link>
+						<Link className="NavMenu--inner__menu-item" to="/partners">For partners</Link>
+						<Link className="NavMenu--inner__menu-item" to="/participants">For participants</Link>
+						<Link className="NavMenu--inner__menu-item" to="/volunteers">For volunteers</Link>
+						<Link className="NavMenu--inner__menu-item" to="/organisers">For organisers</Link>
 
 						<h6 className="NavMenu--inner__menu-title">Contact</h6>
 					</div>

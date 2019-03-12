@@ -3,7 +3,7 @@ import './style.scss'
 
 import NavMenu from './NavMenu';
 
-const Header = () => {
+const Header = ({ staticPages }) => {
 
 	const [menuOpen, setMenuOpen] = useState(false)
 
@@ -13,7 +13,7 @@ const Header = () => {
 				<i className="Header--menu-button fas fa-bars"></i>
 			</div>
 			<img className="Header--emblem" src={require('../../assets/logos/emblem_white.png')} alt="Junction logo" />
-			<NavMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+			<NavMenu staticPages={staticPages} isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
 		</div>
 	)
 }

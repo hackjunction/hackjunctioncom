@@ -1,0 +1,35 @@
+{
+  "connection": "default",
+  "collectionName": "eventtype",
+  "info": {
+    "name": "eventcategory",
+    "description": "Types of events (Hackathons, online, meetups, speaker events, etc...)"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "hexColor": {
+      "default": "",
+      "maxLength": 7,
+      "unique": true,
+      "minLength": 7,
+      "type": "string",
+      "required": true
+    },
+    "events": {
+      "collection": "event",
+      "via": "eventcategory"
+    },
+    "eventconcepts": {
+      "collection": "eventconcept",
+      "via": "eventcategory"
+    }
+  }
+}

@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import './style.scss'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
+import moment from 'moment-timezone'
 
 import IconText from '../IconText'
-import EventCalendarItem from './EventCalendarItem'
+import EventCalendarYear from './EventCalendarYear'
 
 import EventService from '../../services/events'
 
@@ -52,20 +54,26 @@ class EventCalendar extends Component {
 	renderEvents() {
 
 		const { events } = this.state
+		const sorted = _.sortBy(events, e => e.begins)
+		const groupedByYear = _.groupBy(sorted, e => moment(e.begins).format('YYYY'))
 
-		return _.map(events, (event) => <EventCalendarItem event={event} />)
+		const calendarYears = [];
+
+		_.forOwn(groupedByYear, (events, year) => {
+			calendarYears.push(
+				<EventCalendarYear year={year} events={events} />
+			)
+		})
+
+		return calendarYears;
 	}
 
 	render() {
 
-		const { eventsLoading, eventsError } = this.state;
-
 		return (
 			<div className="EventCalendar">
-				{eventsLoading ? <IconText icon="fas fa-spinner fa-spin" text="Loading events" /> : null}
-				{eventsError ? <IconText icon="fas fa-skull-crossbones" text="Couldn't get events" cta="Try again" onClick={this.updateEvents} /> : null}
-				<div className="EventCalendar_Events">
-					{!eventsLoading && !eventsError ? this.renderEvents() : null}
+				<div className="EventCalendar--events">
+					{this.renderEvents()}
 				</div>
 			</div>
 		)

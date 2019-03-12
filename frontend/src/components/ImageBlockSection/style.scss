@@ -1,0 +1,44 @@
+.ImageBlockSection {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	margin-top: 50px;
+
+	&--left {
+		width: 310px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin-right: 25px;
+	}
+
+	&--image {
+		width: 310px;
+		height: 310px;
+		border-radius: 50%;
+	}
+
+	&--right {
+		width: 620px;
+		flex-direction: column;
+		align-items: flex-start;
+		margin-left: 25px;
+
+		&__top {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&__body {
+			margin: 0;
+			font-size: 18px;
+			line-height: 32px;
+		}
+	}
+
+	&--title {
+		margin: 0;
+		font-size: 22px;
+	}
+}

@@ -11,7 +11,7 @@ const HomePage = (props) => {
 
 	return (
 		<div className="HomePage">
-			<HeaderImage src={'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_the_Soviet_Union.svg'} />
+			<HeaderImage src={require('../../assets/images/junction1.jpg')} />
 			<BlockSection title="Who are we?">
 				<p style={{ margin: 0 }}>
 					Vivamus non eleifend ipsum. Cras felis est, varius vitae lorem non, sodales mollis magna. Ut id sapien eros. Suspendisse in nisi accumsan, pulvinar elit vel, gravida nisl. Aliquam lectus tortor, fermentum non elit aliquet, tristique viverra eros. Sed eget vulputate eros. Aenean congue volutpat neque, scelerisque gravida felis lobortis nec. Duis sed pretium ante, at porttitor risus. Nam tellus tortor, consectetur sed elementum non, consectetur varius libero. Aliquam venenatis lacus luctus, eleifend libero commodo, suscipit nisi. Aliquam erat volutpat. Vivamus dignissim eros quis gravida vulputate. Nam viverra massa ut purus dapibus, eget dapibus eros vulputate.
