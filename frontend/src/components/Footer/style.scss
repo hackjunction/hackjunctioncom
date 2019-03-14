@@ -32,6 +32,10 @@
 			width: 100%;
 			max-width: 320px;
 
+			@include bp-full {
+				align-items: flex-start;
+			}
+
 			&__logo {
 				width: 100%;
 			}
@@ -40,6 +44,10 @@
 				color: $junction-black;
 				font-size: 24px;
 				text-align: center;
+
+				@include bp-full {
+					text-align: left;
+				}
 			}
 
 			&__contact {
@@ -47,6 +55,10 @@
 				text-decoration: none;
 				font-size: 20px;
 				text-align: center;
+
+				@include bp-full {
+					text-align: left;
+				}
 			}
 		}
 

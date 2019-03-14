@@ -1,6 +1,9 @@
 import React from 'react'
 import './style.scss'
 
+import SocialMediaIcons from '../SocialMediaIcons';
+import Divider from '../Divider'
+
 const Footer = () => {
 	return (
 		<footer className="Footer">
@@ -9,6 +12,41 @@ const Footer = () => {
 					<img className="FooterInner--left__logo" src={require('../../assets/logos/text_black.png')} alt="Junction logo" />
 					<p className="FooterInner--left__slogan">We empower people to create with technology.</p>
 					<a className="FooterInner--left__contact" href="mailto:hello@hackjunction.com">hello@hackjunction.com</a>
+					<Divider sm />
+					<SocialMediaIcons
+						iconProps={[
+							{
+								alt: 'LinkedIn',
+								imageSrc: require('../../assets/logos/social/linkedin.png'),
+								link: 'https://google.com',
+							},
+							{
+								alt: 'Youtube',
+								imageSrc: require('../../assets/logos/social/youtube.png'),
+								link: 'https://google.com',
+							},
+							{
+								alt: 'Facebook',
+								imageSrc: require('../../assets/logos/social/facebook.png'),
+								link: 'https://google.com',
+							},
+							{
+								alt: 'Twitter',
+								imageSrc: require('../../assets/logos/social/twitter.png'),
+								link: 'https://google.com',
+							},
+							{
+								alt: 'Instagram',
+								imageSrc: require('../../assets/logos/social/instagram.png'),
+								link: 'https://google.com',
+							},
+							{
+								alt: 'Medium',
+								imageSrc: require('../../assets/logos/social/linkedin.png'),
+								link: 'https://google.com',
+							}
+						]}
+					/>
 				</div>
 				<div className="FooterInner--separator" />
 				<div className="FooterInner--right">

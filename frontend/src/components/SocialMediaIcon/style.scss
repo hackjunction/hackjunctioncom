@@ -1,0 +1,16 @@
+.SocialMediaIcon {
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&--image {
+		width: 30px;
+		height: 30px;
+		object-fit: contain;
+	}
+}

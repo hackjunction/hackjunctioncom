@@ -32,10 +32,12 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts, eventConceptsSho
 					<span className="NavMenu--close__text">Close</span>
 				</div>
 				<div className="NavMenu--inner">
-					<img className="NavMenu--inner__logo" src={require('../../../assets/logos/text_black.png')} alt="Junction text logo" />
+					<Link to="/">
+						<img className="NavMenu--inner__logo" src={require('../../../assets/logos/text_black.png')} alt="Junction text logo" />
+					</Link>
 					<div className="NavMenu--inner__menu">
-						<h6 className="NavMenu--inner__menu-title">Info</h6>
-						<Link className="NavMenu--inner__menu-item" to="/">Story</Link>
+						<Link to="/"><h6 className="NavMenu--inner__menu-title">Home</h6></Link>
+						<Link className="NavMenu--inner__menu-item" to="/story">Story</Link>
 						<Link className="NavMenu--inner__menu-item" to="/calendar">Calendar</Link>
 						<Link className="NavMenu--inner__menu-item" to="/team">Team</Link>
 
