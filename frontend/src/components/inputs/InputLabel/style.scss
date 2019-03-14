@@ -4,10 +4,10 @@
 	opacity: 0;
 	font-size: 14px;
 	line-height: 14px;
-	height: 14px;
 	color: rgba($junction-white, 0.4);
 	transform: translateY(10px);
 	transition: all 0.2s ease;
+	text-align: left;
 
 	&-show {
 		opacity: 1;

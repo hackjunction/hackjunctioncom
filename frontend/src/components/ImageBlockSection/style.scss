@@ -1,16 +1,30 @@
+@import '../../styles/main';
+
 .ImageBlockSection {
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: flex-start;
 	margin-top: 50px;
 
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 0 $padding-double;
+
+	@include bp-full {
+		flex-direction: row;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
 	&--left {
-		width: 310px;
+		width: 100%;
+		max-width: 310px;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		margin-right: 25px;
+
+		@include bp-full {
+			margin-right: 25px;
+		}
 	}
 
 	&--image {
@@ -20,14 +34,27 @@
 	}
 
 	&--right {
-		width: 620px;
+		width: 100%;
+		max-width: 620px;
 		flex-direction: column;
 		align-items: flex-start;
-		margin-left: 25px;
+		margin-top: 50px;
+
+		@include bp-full {
+			margin-left: 25px;
+			margin-top: 0;
+		}
 
 		&__top {
 			display: flex;
 			flex-direction: column;
+			align-items: center;
+			text-align: center;
+
+			@include bp-full {
+				align-items: flex-start;
+				text-align: left;
+			}
 		}
 
 		&__body {

@@ -1,16 +1,19 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import { persistStore, persistReducer, purgeStoredState } from 'redux-persist'
+import { createStore, applyMiddleware } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import thunk from 'redux-thunk'
 import { routerMiddleware } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
 
 import createRootReducer from './rootReducer'
 
 const persistConfig = {
 	key: 'hackjunctioncom',
 	storage,
-	blacklist: ['router']
+	blacklist: ['router'],
+	stateReconciler: autoMergeLevel2,
 }
 
 export const history = createBrowserHistory()
@@ -21,7 +24,7 @@ export default (preloadedState) => {
 	const store = createStore(
 		persistedReducer,
 		preloadedState,
-		compose(
+		composeWithDevTools(
 			applyMiddleware(
 				routerMiddleware(history), // for dispatching history actions
 				thunk,

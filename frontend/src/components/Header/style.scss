@@ -5,35 +5,73 @@
 	width: 100%;
 	top: 0;
 	left: 0;
-	padding: 40px;
 	z-index: 100;
-	background: transparent;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	pointer-events: none;
 
+	padding: 20px;
+	background: $junction-black;
+
+	@include bp-med {
+		padding: 30px;
+		background: transparent;
+	}
+
+	@include bp-full {
+		padding: 40px;
+	}
+
 	&--menu-button {
-		width: 60px;
-		height: 60px;
+		width: 40px;
+		height: 40px;
 		cursor: pointer;
 		transition: all 0.2s ease;
 		pointer-events: all;
+
+		@include bp-med {
+			width: 50px;
+			height: 50px;
+		}
+
+		@include bp-full {
+			width: 60px;
+			height: 60px;
+		}
 
 		&:hover {
 			background: rgba($junction-white, 0.1);
 		}
 
 		i {
-			font-size: 48px;
+			font-size: 32px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
+			@include bp-med {
+				font-size: 40px;
+			}
+
+			@include bp-full {
+				font-size: 48px;
+			}
 		}
 	}
 
 	&--emblem {
-		height: 60px;
-		width: 60px;
+		height: 40px;
+		width: 40px;
+
+		@include bp-med {
+			height: 50px;
+			width: 50px;
+		}
+
+		@include bp-full {
+			width: 60px;
+			height: 60px;
+		}
 	}
 }

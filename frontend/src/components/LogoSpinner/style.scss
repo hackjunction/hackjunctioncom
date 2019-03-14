@@ -1,0 +1,33 @@
+.LogoSpinner {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: all 0.5s ease;
+
+	&-loaded {
+		opacity: 1;
+	}
+
+	&--logo {
+		width: 50px;
+		height: 50px;
+		animation: rotate;
+		animation-duration: 1.5s;
+		animation-delay: 0.3s;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-in-out;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg)
+	}
+
+
+	100% {
+		transform: rotate(360deg)
+	}
+}

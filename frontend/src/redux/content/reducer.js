@@ -1,6 +1,6 @@
 import * as ActionTypes from './actionTypes'
 
-const initialState = {
+export const initialState = {
 	events: {
 		data: [],
 		loading: false,
@@ -8,6 +8,12 @@ const initialState = {
 		lastUpdate: 0,
 	},
 	eventconcepts: {
+		data: [],
+		loading: false,
+		error: false,
+		lastUpdate: 0,
+	},
+	teammembers: {
 		data: [],
 		loading: false,
 		error: false,
@@ -76,6 +82,38 @@ export default function reducer(state = initialState, action) {
 				...state,
 				eventconcepts: {
 					...state.eventconcepts,
+					loading: false,
+					error: true,
+				}
+			}
+		}
+
+		case ActionTypes.SET_TEAM_MEMBERS: {
+			return {
+				...state,
+				teammembers: {
+					...state.teammembers,
+					loading: false,
+					data: action.payload,
+					lastUpdate: Date.now()
+				}
+			}
+		}
+		case ActionTypes.SET_TEAM_MEMBERS_LOADING: {
+			return {
+				...state,
+				teammembers: {
+					...state.teammembers,
+					loading: true,
+					error: false,
+				}
+			}
+		}
+		case ActionTypes.SET_TEAM_MEMBERS_ERROR: {
+			return {
+				...state,
+				teammembers: {
+					...state.teammembers,
 					loading: false,
 					error: true,
 				}

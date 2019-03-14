@@ -1,8 +1,13 @@
+@import '../../../styles/main';
+
 .FormRow {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	margin-bottom: 30px;
 
+	@include bp-med {
+		flex-direction: row;
+	}
 
 	&--spacer {
 		width: 50px;

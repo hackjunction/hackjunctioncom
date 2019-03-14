@@ -1,21 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './style.scss'
+
+import { connect } from 'react-redux'
 
 import NavMenu from './NavMenu';
 
-const Header = ({ staticPages }) => {
+import * as NavActions from '../../redux/nav/actions'
 
-	const [menuOpen, setMenuOpen] = useState(false)
+const Header = ({ toggleSidebar }) => {
 
 	return (
 		<div className="Header">
-			<div className="Header--menu-button" onClick={() => setMenuOpen(true)}>
+			<div className="Header--menu-button" onClick={() => toggleSidebar(true)}>
 				<i className="Header--menu-button fas fa-bars"></i>
 			</div>
 			<img className="Header--emblem" src={require('../../assets/logos/emblem_white.png')} alt="Junction logo" />
-			<NavMenu staticPages={staticPages} isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+			<NavMenu />
 		</div>
 	)
 }
 
-export default Header
+const mapStateToProps = (state) => ({
+
+})
+const mapDispatchToProps = (dispatch) => ({
+	toggleSidebar: (open) => dispatch(NavActions.toggleSidebar(open))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

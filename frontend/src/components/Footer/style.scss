@@ -3,7 +3,7 @@
 .Footer {
 	align-items: center;
 	justify-content: flex-start;
-	padding: 140px;
+	padding: 140px 50px;
 	background: $junction-white;
 
 	.FooterInner {
@@ -14,10 +14,23 @@
 		width: 100%;
 		margin: 0 auto;
 
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+
+		@include bp-full {
+			flex-direction: row;
+			justify-content: center;
+			align-items: flex-start;
+		}
+
 		&--left {
 			display: flex;
 			flex-direction: column;
-			width: 320px;
+			align-items: center;
+			width: 100%;
+			max-width: 320px;
 
 			&__logo {
 				width: 100%;
@@ -26,38 +39,82 @@
 			&__slogan {
 				color: $junction-black;
 				font-size: 24px;
+				text-align: center;
 			}
 
 			&__contact {
 				color: $junction-black;
 				text-decoration: none;
 				font-size: 20px;
+				text-align: center;
 			}
 		}
 
 		&--separator {
 			margin-top: 20px;
-			height: 150px;
-			width: 2px;
-			margin-left: 110px;
-			margin-right: 110px;
+			// height: 150px;
+			// width: 2px;
+			// margin-left: 110px;
+			// margin-right: 110px;
 			background: $lightgrey;
+
+			width: 320px;
+			height: 2px;
+			margin: 60px 0;
+
+			@include bp-full {
+				height: 150px;
+				width: 2px;
+				margin: 0 90px;
+			}
 		}
 
 		&--right {
 			flex: 1;
 			display: flex;
+			// flex-direction: row;
+			// justify-content: space-between;
+			// flex-wrap: wrap;
+			// max-width: 600px;
+
 			flex-direction: row;
+			align-items: flex-start;
+			justify-content: center;
+			flex-wrap: wrap;
+			align-self: stretch;
+
+			// @include bp-med {
+			// 	flex-direction: row;
+			// 	align-items: flex-start;
+			// 	justify-content: center;
+			// }
+
+			@include bp-full {
+				justify-content: flex-end;
+			}
 
 			&__section {
-				flex: 1;
 				display: flex;
 				flex-direction: column;
 				margin-bottom: 30px;
+				width: 100%;
+				max-width: 200px;
+				min-width: 150px;
+				align-items: center;
+
+				@include bp-full {
+					align-items: flex-start;
+					flex: 1;
+				}
 
 				&-title {
 					color: $lightgrey; 
 					margin-top: 0;
+					text-align: center;
+
+					@include bp-full {
+						text-align: left;
+					}
 				}
 
 				&-link {
@@ -65,6 +122,11 @@
 					text-decoration: none;
 					font-size: 16px;
 					line-height: 22px;
+					text-align: center;
+
+					@include bp-full {
+						text-align: left;
+					}
 				}
 			}
 		}

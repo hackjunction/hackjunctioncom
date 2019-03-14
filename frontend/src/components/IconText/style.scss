@@ -27,7 +27,7 @@
 		}
 	}
 
-	@include for-phone-only {
+	@include bp-small-only {
 		flex-direction: row;
 	}
 }

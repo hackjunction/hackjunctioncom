@@ -30,6 +30,12 @@
     "eventconcepts": {
       "collection": "eventconcept",
       "via": "eventcategory"
+    },
+    "slug": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
     }
   }
 }

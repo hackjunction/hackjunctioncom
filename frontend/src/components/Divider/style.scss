@@ -1,0 +1,23 @@
+@import '../../styles/main';
+
+.Divider {
+	&-sm {
+		height: 50px;
+	}
+
+	&-md {
+		height: 100px;
+	}
+
+	&-lg {
+		height: 100px;
+
+		@include bp-med {
+			height: 150px;
+		}
+
+		@include bp-full {
+			height: 200px;
+		}
+	}
+}

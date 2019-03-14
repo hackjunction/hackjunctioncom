@@ -2,7 +2,8 @@ import React from 'react'
 import './style.scss'
 
 import HeaderImage from '../../components/HeaderImage'
-import EventCalendar from '../../components/EventCalendar';
+import EventCalendar from '../../components/EventCalendar'
+import Divider from '../../components/Divider'
 
 const CalendarPage = () => {
 	return (
@@ -15,6 +16,7 @@ const CalendarPage = () => {
 				bodyText={'Junction organises events - hackathnos, speaker events, mini hackathons and other - all over the world. Here is a calendar view of what is coming up next.'}
 			/>
 			<EventCalendar />
+			<Divider lg />
 		</div>
 	)
 }

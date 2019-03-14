@@ -2,11 +2,20 @@
 
 .HeaderImage {
 	width: 100%;
-	height: 900px;
+	height: 480px;
 	position: relative;
 	overflow: hidden;
 	z-index: 0;
 	background: black;
+	transition: height 0.2s ease;
+
+	@include bp-med {
+		height: 600px;
+	}
+
+	@include bp-full {
+		height: 900px;
+	}
 
 	&-loaded {
 		.HeaderImage--img {
@@ -80,27 +89,42 @@
 		z-index: 3;
 		display: flex;
 		flex-direction: column;
-		align-items: stretch;
+		align-items: center;
+
+		@include bp-full {
+			align-items: stretch;
+		}
 
 		&__title {
 			flex: 1;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			align-items: flex-start;
+			align-items: center;
 			width: 100%;
 			max-width: 650px;
 			margin: 0;
-			align-self: flex-start;
-			font-size: 60px;
 			transform: translateX(-50px);
 			opacity: 0;
-			transition: all 0.5s ease;
+			transition: transform 0.5s ease;
+			text-align: center;
+			font-size: 40px;
+			padding: $padding-double;
+
+			@include bp-med {
+				text-align: center;
+				font-size: 60px;
+			}
+
+			@include bp-full {
+				text-align: left;
+				align-items: flex-start;
+				align-self: flex-start;
+			}
 		}
 
 		&__body {
 			flex: 1;
-			display: flex;
 			flex-direction: column;
 			justify-content: flex-start;
 			align-items: flex-end;
@@ -111,6 +135,11 @@
 			transform: translateY(50px);
 			opacity: 0;
 			transition: all 0.8s ease;
+			display: none;
+
+			@include bp-full {
+				display: flex;
+			}
 		}
 	}
 }

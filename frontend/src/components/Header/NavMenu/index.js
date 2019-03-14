@@ -1,14 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
 
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-const NavMenu = ({ isOpen, onClose }) => {
+import * as ContentSelectors from '../../../redux/content/selectors'
+import * as ContentActions from '../../../redux/content/actions'
+
+import * as NavSelectors from '../../../redux/nav/selectors'
+import * as NavActions from '../../../redux/nav/actions'
+
+const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts, eventConceptsShouldUpdate, updateEventConcepts }) => {
+
+	useEffect(() => {
+		if (eventConceptsShouldUpdate) {
+			updateEventConcepts()
+		}
+	}, [])
+
+	function renderConceptLinks() {
+		return eventConcepts.map(concept => {
+			return <Link key={concept.slug} className="NavMenu--inner__menu-item" to={`/concepts/${concept.slug}`}>{concept.name}</Link>
+		})
+	}
 
 	return (
 		<div className="NavMenuWrapper">
-			<div className={`NavMenuOverlay ${isOpen ? 'NavMenuOverlay-open' : ''}`} onClick={onClose} />
-			<div className={`NavMenu ${isOpen ? 'NavMenu-open' : ''}`}>
+			<div className={`NavMenuOverlay ${isSidebarOpen ? 'NavMenuOverlay-open' : ''}`} onClick={() => toggleSidebar(false)} />
+			<div className={`NavMenu ${isSidebarOpen ? 'NavMenu-open' : ''}`}>
+				<div className="NavMenu--close" onClick={() => toggleSidebar(false)}>
+					<span className="NavMenu--close__text">Close</span>
+				</div>
 				<div className="NavMenu--inner">
 					<img className="NavMenu--inner__logo" src={require('../../../assets/logos/text_black.png')} alt="Junction text logo" />
 					<div className="NavMenu--inner__menu">
@@ -18,12 +40,7 @@ const NavMenu = ({ isOpen, onClose }) => {
 						<Link className="NavMenu--inner__menu-item" to="/team">Team</Link>
 
 						<Link to="/concepts"><h6 className="NavMenu--inner__menu-title">Events & Concepts</h6></Link>
-						<Link className="NavMenu--inner__menu-item" to="/concepts/junction">Junction 2019</Link>
-						<Link className="NavMenu--inner__menu-item" to="/concepts/heltech">Hel Tech</Link>
-						<Link className="NavMenu--inner__menu-item" to="/concepts/hacktalks">Hack Talks</Link>
-						<Link className="NavMenu--inner__menu-item" to="/concepts/junction-x">JunctionX</Link>
-						<Link className="NavMenu--inner__menu-item" to="/concepts/hacktour">Hack Tour</Link>
-						<Link className="NavMenu--inner__menu-item" to="/concepts/techrace">Tech Race</Link>
+						{renderConceptLinks()}
 
 						<h6 className="NavMenu--inner__menu-title">Community</h6>
 						<Link className="NavMenu--inner__menu-item" to="/partners">For partners</Link>
@@ -39,4 +56,15 @@ const NavMenu = ({ isOpen, onClose }) => {
 	)
 }
 
-export default NavMenu
+const mapStateToProps = (state) => ({
+	eventConcepts: ContentSelectors.eventconcepts(state),
+	eventConceptsShouldUpdate: ContentSelectors.eventconceptsShouldUpdate(state),
+	isSidebarOpen: NavSelectors.isSidebarOpen(state),
+})
+
+const mapDispatchToProps = (dispatch) => ({
+	updateEventConcepts: () => dispatch(ContentActions.updateEventConcepts()),
+	toggleSidebar: (open) => dispatch(NavActions.toggleSidebar(open))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavMenu)

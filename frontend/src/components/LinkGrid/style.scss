@@ -2,9 +2,14 @@
 
 .LinkGrid {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	align-items: center;
 	flex-wrap: wrap;
 	justify-content: space-between;
+
+	@include bp-med {
+		flex-direction: row;	
+	}
 
 	&--item {
 		width: 290px;

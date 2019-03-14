@@ -11,7 +11,7 @@ const EventCalendarMonth = ({ month, year, events }) => {
 	function renderEvents() {
 		return _.map(events, e => {
 			return (
-				<EventCalendarEvent event={e} />
+				<EventCalendarEvent key={e.name} event={e} />
 			)
 		})
 	}

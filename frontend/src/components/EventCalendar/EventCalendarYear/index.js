@@ -14,7 +14,7 @@ const EventCalendarYear = ({ year, events }) => {
 
 		_.forOwn(groupedByMonth, (events, month) => {
 			calendarMonths.push(
-				<EventCalendarMonth year={year} month={month} events={events} />
+				<EventCalendarMonth key={month} year={year} month={month} events={events} />
 			)
 		})
 

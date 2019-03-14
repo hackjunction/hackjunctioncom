@@ -4,7 +4,7 @@ import './style.scss'
 const ImageBlockSection = ({ imageSrc, imageAlt, title, subtitle, children, offset }) => {
 
 	return (
-		<div className={`ImageBlockSection ImageBlockSection-offset${offset}`}>
+		<div className={`ImageBlockSection ImageBlockSection-offset-${offset}`}>
 			<div className="ImageBlockSection--left">
 				<img className="ImageBlockSection--image" src={imageSrc} alt={imageAlt} />
 			</div>

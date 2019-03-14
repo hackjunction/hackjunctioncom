@@ -9,7 +9,7 @@ const RomanNumeralList = ({ items }) => {
 	function renderListItems() {
 		return _.map(items, (item, index) => {
 			return (
-				<li className="RomanNumeralList--list-item">
+				<li key={item} className="RomanNumeralList--list-item">
 					<div className="RomanNumeralList--list-item__bullet">
 						<span className="RomanNumeralList--list-item__bullet-text">{toRomanNumeral(index + 1)}</span>
 					</div>

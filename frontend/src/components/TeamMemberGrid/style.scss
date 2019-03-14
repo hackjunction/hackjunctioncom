@@ -5,13 +5,15 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
 
 	&--item {
 		width: 280px;
 		display: flex;
 		flex-direction: column;
 		align-items: stretch;
+		margin-left: 20px;
+		margin-right: 20px;
 		margin-bottom: 80px;
 		position: relative;
 		overflow: hidden;
@@ -36,7 +38,6 @@
 			width: 100%;
 			height: 100%;
 			transition: 0.6s;
-			transition-delay: 0.2s;
 			transform-style: preserve-3d;
 			position: relative;
 
@@ -56,20 +57,22 @@
 
 			&-back {
 				transform: rotateY(180deg);
+				display: flex;
+				align-items: center;
+				justify-content: center;
 			}
 		}
 
 		&__image {
 			width: 100%;
 			height: 100%;
+			object-fit: cover;
 		}
 
 		&__gif {
-			width: 90%;
-			height: 90%;
-			margin: 5%;
-			opacity: 0;
-			transition: all 0.5s ease;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
 		}
 
 		&__bottom {

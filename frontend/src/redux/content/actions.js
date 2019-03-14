@@ -2,6 +2,7 @@ import * as ActionTypes from './actionTypes'
 
 import EventService from '../../services/events'
 import EventConceptService from '../../services/eventconcepts'
+import TeamMemberService from '../../services/teammembers'
 
 const setEventsLoading = () => dispatch => dispatch({ type: ActionTypes.SET_EVENTS_LOADING })
 const setEventsError = () => dispatch => dispatch({ type: ActionTypes.SET_EVENTS_ERROR })
@@ -32,5 +33,21 @@ export const updateEventConcepts = () => dispatch => {
 	}).catch(error => {
 		console.log('Error in updateEventConcepts', error)
 		dispatch(setEventConceptsError())
+	})
+}
+
+const setTeamMembersLoading = () => dispatch => dispatch({ type: ActionTypes.SET_TEAM_MEMBERS_LOADING })
+const setTeamMembersError = () => dispatch => dispatch({ type: ActionTypes.SET_TEAM_MEMBERS_ERROR })
+
+export const updateTeamMembers = () => dispatch => {
+	dispatch(setTeamMembersLoading())
+	TeamMemberService.getAll().then(teammembers => {
+		dispatch({
+			type: ActionTypes.SET_TEAM_MEMBERS,
+			payload: teammembers
+		})
+	}).catch(error => {
+		console.log('Error in updateTeamMembers', error)
+		dispatch(setTeamMembersError())
 	})
 }

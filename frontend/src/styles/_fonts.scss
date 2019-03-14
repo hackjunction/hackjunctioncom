@@ -1,3 +1,5 @@
+@import 'sizes';
+
 /* Import Montserrat and Lato fonts */
 @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Montserrat:400,400i,700,700i');
 
@@ -22,9 +24,16 @@ html {
 .font-body,
 %font-body {
 	font-family: $lato;
-	font-size: 18px;
-	line-height: 32px;
+	font-size: 16px;
+	line-height: 26px;
 	color: $junction-white;
+	text-align: justify;
+
+	@include bp-full {
+		font-size: 18px;
+		line-height: 32px;
+		text-align: left;
+	}
 }
 
 .font-secondary,

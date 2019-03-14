@@ -1,13 +1,29 @@
 import React from 'react'
 import './style.scss'
 
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import moment from 'moment-timezone'
 
-const EventCalendarEvent = ({ event }) => {
+import * as ContentSelectors from '../../../redux/content/selectors'
+
+const DEFAULT_IMAGE = null
+
+const EventCalendarEvent = ({ event, getDefaultImage }) => {
 
 	function getEventColor() {
 		return event.eventcategory ? event.eventcategory.hexColor : '#ffffff'
+	}
+
+	//TODO: Apply this image
+	let image = DEFAULT_IMAGE
+
+	if (event.eventconcept) {
+		let conceptDefault = getDefaultImage(event.eventconcept.slug)
+		image = conceptDefault ? conceptDefault.url : image
+	}
+
+	if (event.image) {
+		image = event.image.url
 	}
 
 	return (
@@ -32,4 +48,8 @@ const EventCalendarEvent = ({ event }) => {
 	)
 }
 
-export default EventCalendarEvent
+const mapStateToProps = (state) => ({
+	getDefaultImage: (slug) => ContentSelectors.eventconceptImage(slug)
+})
+
+export default connect(mapStateToProps)(EventCalendarEvent)

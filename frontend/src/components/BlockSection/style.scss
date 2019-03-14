@@ -1,20 +1,39 @@
+@import '../../styles/main';
+
 .BlockSection {
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: flex-start;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 	margin-top: 50px;
+	padding: 0 $padding-double;
+
+	@include bp-full {
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: center;
+	}
 
 	&--left {
-		width: 310px;
+		width: 100%;
+		max-width: 310px;
 		display: flex;
 		flex-direction: column;
-		align-items: flex-start;
-		margin-right: 25px;
+		align-items: center;
+		
+		@include bp-full {
+			margin-right: 25px;
+			align-items: flex-start;
+		}
 
 		&__title {
 			margin: 0;
 			font-size: 40px;
+			text-align: center;
+
+			@include bp-full {
+				text-align: left;
+			}
 		}
 
 		&__subtitle {
@@ -23,15 +42,19 @@
 	}
 
 	&--right {
-		width: 620px;
+		width: 100%;
+		max-width: 620px;
 		flex-direction: column;
 		align-items: flex-start;
-		margin-left: 25px;
+		margin-top: 50px;
 
-		&__body {
+		@include bp-full {
+			margin-left: 25px;
+			margin-top: 0;
+		}
+
+		& > p {
 			margin: 0;
-			font-size: 18px;
-			line-height: 32px;
 		}
 	}
 }
