@@ -20,6 +20,7 @@ import StoryPage from './pages/Story'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import GlobalLifecycle from './GlobalLifecycle'
 
 class App extends Component {
 
@@ -50,6 +51,7 @@ class App extends Component {
           </div>
           <Footer />
           <ScrollToTop />
+          <GlobalLifecycle />
         </div>
       </ConnectedRouter>
     );

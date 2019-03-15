@@ -1,25 +1,25 @@
 import React from 'react'
 import './style.scss'
 
+import { connect } from 'react-redux'
+import * as StaticContentSelectors from '../../redux/static/selectors'
+import KEYS from '../../redux/static/keys'
+
 import HeaderImage from '../../components/HeaderImage'
 import BlockSection from '../../components/BlockSection'
 import StatBlocks from '../../components/StatBlocks'
 import LinkGrid from '../../components/LinkGrid'
 import ContactForm from '../../components/ContactForm'
 import Divider from '../../components/Divider'
+import Markdown from '../../components/Markdown'
 
-const HomePage = (props) => {
+const HomePage = ({ content }) => {
 
 	return (
 		<div className="HomePage">
 			<HeaderImage src={require('../../assets/images/junction1.jpg')} />
-			<BlockSection title="Who are we?">
-				<p>
-					Vivamus non eleifend ipsum. Cras felis est, varius vitae lorem non, sodales mollis magna. Ut id sapien eros. Suspendisse in nisi accumsan, pulvinar elit vel, gravida nisl. Aliquam lectus tortor, fermentum non elit aliquet, tristique viverra eros. Sed eget vulputate eros. Aenean congue volutpat neque, scelerisque gravida felis lobortis nec. Duis sed pretium ante, at porttitor risus. Nam tellus tortor, consectetur sed elementum non, consectetur varius libero. Aliquam venenatis lacus luctus, eleifend libero commodo, suscipit nisi. Aliquam erat volutpat. Vivamus dignissim eros quis gravida vulputate. Nam viverra massa ut purus dapibus, eget dapibus eros vulputate.
-					<br />
-					<br />
-					Sed eget erat aliquet, blandit purus venenatis, pulvinar lorem.
-				</p>
+			<BlockSection title={content.whoAreWe} subtitle={content.whoAreWeSubtitle}>
+				<Markdown source={content.whoAreWeBody} />
 				<StatBlocks
 					blocks={[
 						{
@@ -34,7 +34,8 @@ const HomePage = (props) => {
 				/>
 			</BlockSection>
 			<Divider lg />
-			<BlockSection title="What is it that we do?" subtitle="Vivamus non eleifend ipsum. Cras felis est, varius vitae lorem non, sodales mollis magna. Ut id sapien eros.">
+			<BlockSection title={content.whatWeDo} subtitle={content.whatWeDoSubtitle}>
+				<Markdown source={content.whatWeDoBody} />
 				<LinkGrid
 					links={[
 						{
@@ -57,7 +58,7 @@ const HomePage = (props) => {
 				/>
 			</BlockSection>
 			<Divider lg />
-			<BlockSection title="Join the community" subtitle="Vivamus non eleifend ipsum. Cras felis est, varius vitae lorem non, sodales mollis magna. Ut id sapien eros.">
+			<BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody} >
 				<ContactForm />
 			</BlockSection>
 			<Divider lg />
@@ -65,4 +66,17 @@ const HomePage = (props) => {
 	)
 }
 
-export default HomePage
+const mapStateToProps = (state) => ({
+	content: StaticContentSelectors.objectWithKeys([
+		KEYS.whoAreWe,
+		KEYS.whoAreWeBody,
+		KEYS.whoAreWeSubtitle,
+		KEYS.whatWeDo,
+		KEYS.whatWeDoBody,
+		KEYS.whatWeDoSubtitle,
+		KEYS.joinCommunity,
+		KEYS.joinCommunityBody
+	])(state),
+})
+
+export default connect(mapStateToProps)(HomePage)

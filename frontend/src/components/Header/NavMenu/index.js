@@ -1,22 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './style.scss'
 
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import * as ContentSelectors from '../../../redux/content/selectors'
-import * as ContentActions from '../../../redux/content/actions'
 
 import * as NavSelectors from '../../../redux/nav/selectors'
 import * as NavActions from '../../../redux/nav/actions'
 
-const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts, eventConceptsShouldUpdate, updateEventConcepts }) => {
+const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts }) => {
 
-	useEffect(() => {
-		if (eventConceptsShouldUpdate) {
-			updateEventConcepts()
-		}
-	}, [])
 
 	function renderConceptLinks() {
 		return eventConcepts.map(concept => {
@@ -60,12 +54,10 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts, eventConceptsSho
 
 const mapStateToProps = (state) => ({
 	eventConcepts: ContentSelectors.eventconcepts(state),
-	eventConceptsShouldUpdate: ContentSelectors.eventconceptsShouldUpdate(state),
 	isSidebarOpen: NavSelectors.isSidebarOpen(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-	updateEventConcepts: () => dispatch(ContentActions.updateEventConcepts()),
 	toggleSidebar: (open) => dispatch(NavActions.toggleSidebar(open))
 })
 

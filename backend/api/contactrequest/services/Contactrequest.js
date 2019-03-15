@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Navlink.js service
+ * Contactrequest.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -12,21 +12,21 @@ const _ = require('lodash');
 module.exports = {
 
   /**
-   * Promise to fetch all navlinks.
+   * Promise to fetch all contactrequests.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('navlink', params);
+    const filters = strapi.utils.models.convertParams('contactrequest', params);
     // Select field to populate.
-    const populate = Navlink.associations
+    const populate = Contactrequest.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Navlink
+    return Contactrequest
       .find()
       .where(filters.where)
       .sort(filters.sort)
@@ -36,90 +36,90 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an navlink.
+   * Promise to fetch a/an contactrequest.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Navlink.associations
+    const populate = Contactrequest.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Navlink
-      .findOne(_.pick(params, _.keys(Navlink.schema.paths)))
+    return Contactrequest
+      .findOne(_.pick(params, _.keys(Contactrequest.schema.paths)))
       .populate(populate);
   },
 
   /**
-   * Promise to count navlinks.
+   * Promise to count contactrequests.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('navlink', params);
+    const filters = strapi.utils.models.convertParams('contactrequest', params);
 
-    return Navlink
+    return Contactrequest
       .count()
       .where(filters.where);
   },
 
   /**
-   * Promise to add a/an navlink.
+   * Promise to add a/an contactrequest.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Navlink.associations.map(ast => ast.alias));
-    const data = _.omit(values, Navlink.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Contactrequest.associations.map(ast => ast.alias));
+    const data = _.omit(values, Contactrequest.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Navlink.create(data);
+    const entry = await Contactrequest.create(data);
 
     // Create relational data and return the entry.
-    return Navlink.updateRelations({ _id: entry.id, values: relations });
+    return Contactrequest.updateRelations({ _id: entry.id, values: relations });
   },
 
   /**
-   * Promise to edit a/an navlink.
+   * Promise to edit a/an contactrequest.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Navlink.associations.map(a => a.alias));
-    const data = _.omit(values, Navlink.associations.map(a => a.alias));
+    const relations = _.pick(values, Contactrequest.associations.map(a => a.alias));
+    const data = _.omit(values, Contactrequest.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Navlink.update(params, data, { multi: true });
+    const entry = await Contactrequest.update(params, data, { multi: true });
 
     // Update relational data and return the entry.
-    return Navlink.updateRelations(Object.assign(params, { values: relations }));
+    return Contactrequest.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an navlink.
+   * Promise to remove a/an contactrequest.
    *
    * @return {Promise}
    */
 
   remove: async params => {
     // Select field to populate.
-    const populate = Navlink.associations
+    const populate = Contactrequest.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Navlink
+    const data = await Contactrequest
       .findOneAndRemove(params, {})
       .populate(populate);
 
@@ -128,7 +128,7 @@ module.exports = {
     }
 
     await Promise.all(
-      Navlink.associations.map(async association => {
+      Contactrequest.associations.map(async association => {
         if (!association.via || !data._id) {
           return true;
         }
@@ -149,22 +149,22 @@ module.exports = {
   },
 
   /**
-   * Promise to search a/an navlink.
+   * Promise to search a/an contactrequest.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('navlink', params);
+    const filters = strapi.utils.models.convertParams('contactrequest', params);
     // Select field to populate.
-    const populate = Navlink.associations
+    const populate = Contactrequest.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    const $or = Object.keys(Navlink.attributes).reduce((acc, curr) => {
-      switch (Navlink.attributes[curr].type) {
+    const $or = Object.keys(Contactrequest.attributes).reduce((acc, curr) => {
+      switch (Contactrequest.attributes[curr].type) {
         case 'integer':
         case 'float':
         case 'decimal':
@@ -188,7 +188,7 @@ module.exports = {
       }
     }, []);
 
-    return Navlink
+    return Contactrequest
       .find({ $or })
       .sort(filters.sort)
       .skip(filters.start)

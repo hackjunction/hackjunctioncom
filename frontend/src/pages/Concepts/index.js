@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './style.scss'
 
 import { connect } from 'react-redux'
@@ -7,16 +7,11 @@ import HeaderImage from '../../components/HeaderImage'
 import BlockSection from '../../components/BlockSection'
 import Divider from '../../components/Divider'
 
-import * as ContentActions from '../../redux/content/actions'
 import * as ContentSelectors from '../../redux/content/selectors'
+import * as StaticContentSelectors from '../../redux/static/selectors'
+import KEYS from '../../redux/static/keys'
 
-const ConceptsPage = ({ eventconcepts, loading, updateEventConcepts, shouldUpdate }) => {
-
-	useEffect(() => {
-		if (shouldUpdate) {
-			updateEventConcepts()
-		}
-	}, [])
+const ConceptsPage = ({ eventconcepts, loading, content }) => {
 
 	function buildSubtitleItems(concept) {
 		const items = []
@@ -71,8 +66,8 @@ const ConceptsPage = ({ eventconcepts, loading, updateEventConcepts, shouldUpdat
 				src={require('../../assets/images/junction1.jpg')}
 				alt="Header image"
 				navTitle={'Concepts.'}
-				mainTitle={'Empowering everywhere.'}
-				bodyText={'In a mere three years Junction has created a vibrant community of over 20 000 enthusiastic tech talents. Along the journey we have connected our partners with new audiences and helped them to build their own developer community. Along the journey we have connected our partners with new audiences and helped them to build their own developer community. Junction has grown into an access point to emerging top tech talents from all over the world.'}
+				mainTitle={content.conceptsPageTitle}
+				bodyText={content.conceptsPageSubtitle}
 			/>
 			<Divider lg />
 			{renderConcepts()}
@@ -82,13 +77,12 @@ const ConceptsPage = ({ eventconcepts, loading, updateEventConcepts, shouldUpdat
 }
 
 const mapStateToProps = (state) => ({
-	eventconcepts: ContentSelectors.eventconcepts(state),
+	content: StaticContentSelectors.objectWithKeys([
+		KEYS.conceptsPageTitle,
+		KEYS.conceptsPageSubtitle,
+	])(state),
 	loading: ContentSelectors.eventconceptsLoading(state),
-	shouldUpdate: ContentSelectors.eventconceptsShouldUpdate(state),
+	eventconcepts: ContentSelectors.eventconcepts(state)
 })
 
-const mapDispatchToProps = (dispatch) => ({
-	updateEventConcepts: () => dispatch(ContentActions.updateEventConcepts()),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ConceptsPage)
+export default connect(mapStateToProps)(ConceptsPage)

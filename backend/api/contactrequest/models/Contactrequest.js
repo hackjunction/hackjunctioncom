@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `Navlink` model.
+ * Lifecycle callbacks for the `Contactrequest` model.
  */
 
 module.exports = {

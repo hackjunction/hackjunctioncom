@@ -13,6 +13,7 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-map-gl": "^4.0.10",
+    "react-markdown": "^4.0.6",
     "react-on-screen": "^2.1.1",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",

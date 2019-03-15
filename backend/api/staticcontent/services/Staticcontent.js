@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Page.js service
+ * Staticcontent.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -12,21 +12,21 @@ const _ = require('lodash');
 module.exports = {
 
   /**
-   * Promise to fetch all pages.
+   * Promise to fetch all staticcontents.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('page', params);
+    const filters = strapi.utils.models.convertParams('staticcontent', params);
     // Select field to populate.
-    const populate = Page.associations
+    const populate = Staticcontent.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Page
+    return Staticcontent
       .find()
       .where(filters.where)
       .sort(filters.sort)
@@ -36,90 +36,90 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an page.
+   * Promise to fetch a/an staticcontent.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Page.associations
+    const populate = Staticcontent.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Page
-      .findOne(_.pick(params, _.keys(Page.schema.paths)))
+    return Staticcontent
+      .findOne(_.pick(params, _.keys(Staticcontent.schema.paths)))
       .populate(populate);
   },
 
   /**
-   * Promise to count pages.
+   * Promise to count staticcontents.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('page', params);
+    const filters = strapi.utils.models.convertParams('staticcontent', params);
 
-    return Page
+    return Staticcontent
       .count()
       .where(filters.where);
   },
 
   /**
-   * Promise to add a/an page.
+   * Promise to add a/an staticcontent.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Page.associations.map(ast => ast.alias));
-    const data = _.omit(values, Page.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Staticcontent.associations.map(ast => ast.alias));
+    const data = _.omit(values, Staticcontent.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Page.create(data);
+    const entry = await Staticcontent.create(data);
 
     // Create relational data and return the entry.
-    return Page.updateRelations({ _id: entry.id, values: relations });
+    return Staticcontent.updateRelations({ _id: entry.id, values: relations });
   },
 
   /**
-   * Promise to edit a/an page.
+   * Promise to edit a/an staticcontent.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Page.associations.map(a => a.alias));
-    const data = _.omit(values, Page.associations.map(a => a.alias));
+    const relations = _.pick(values, Staticcontent.associations.map(a => a.alias));
+    const data = _.omit(values, Staticcontent.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Page.update(params, data, { multi: true });
+    const entry = await Staticcontent.update(params, data, { multi: true });
 
     // Update relational data and return the entry.
-    return Page.updateRelations(Object.assign(params, { values: relations }));
+    return Staticcontent.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an page.
+   * Promise to remove a/an staticcontent.
    *
    * @return {Promise}
    */
 
   remove: async params => {
     // Select field to populate.
-    const populate = Page.associations
+    const populate = Staticcontent.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Page
+    const data = await Staticcontent
       .findOneAndRemove(params, {})
       .populate(populate);
 
@@ -128,7 +128,7 @@ module.exports = {
     }
 
     await Promise.all(
-      Page.associations.map(async association => {
+      Staticcontent.associations.map(async association => {
         if (!association.via || !data._id) {
           return true;
         }
@@ -149,22 +149,22 @@ module.exports = {
   },
 
   /**
-   * Promise to search a/an page.
+   * Promise to search a/an staticcontent.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('page', params);
+    const filters = strapi.utils.models.convertParams('staticcontent', params);
     // Select field to populate.
-    const populate = Page.associations
+    const populate = Staticcontent.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    const $or = Object.keys(Page.attributes).reduce((acc, curr) => {
-      switch (Page.attributes[curr].type) {
+    const $or = Object.keys(Staticcontent.attributes).reduce((acc, curr) => {
+      switch (Staticcontent.attributes[curr].type) {
         case 'integer':
         case 'float':
         case 'decimal':
@@ -188,7 +188,7 @@ module.exports = {
       }
     }, []);
 
-    return Page
+    return Staticcontent
       .find({ $or })
       .sort(filters.sort)
       .skip(filters.start)

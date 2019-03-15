@@ -1,0 +1,33 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "contactrequest",
+    "description": "Each time someone submits the contact form, one of these is created. Don't make these via the admin panel :)"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "firstName": {
+      "default": "",
+      "type": "string"
+    },
+    "lastName": {
+      "default": "",
+      "type": "string"
+    },
+    "email": {
+      "default": "",
+      "type": "email"
+    },
+    "reason": {
+      "default": "",
+      "type": "string"
+    },
+    "message": {
+      "default": "",
+      "type": "text"
+    }
+  }
+}

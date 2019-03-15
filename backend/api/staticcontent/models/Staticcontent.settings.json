@@ -1,0 +1,81 @@
+{
+  "connection": "default",
+  "collectionName": "staticcontent",
+  "info": {
+    "name": "staticcontent",
+    "description": "Miscellaneous static content "
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "key": {
+      "enum": [
+        "siteSlogan",
+        "\nsiteContactEmail",
+        "\nlinkedinLink",
+        "\nyoutubeLink",
+        "\nfacebookLink",
+        "\ntwitterLink",
+        "\ninstagramLink",
+        "\nmediumLink",
+        "\nwhoAreWe",
+        "\nwhoAreWeBody",
+        "\nwhoAreWeSubtitle",
+        "\nwhatWeDo",
+        "\nwhatWeDoBody",
+        "\nwhatWeDoSubtitle",
+        "\njoinCommunity",
+        "\njoinCommunityBody",
+        "\nstoryPageTitle",
+        "\nstoryPageSubtitle",
+        "\nwhatIsJunctionTitle",
+        "\nwhatIsJunctionSubtitle",
+        "\nwhatIsJunctionBody",
+        "\nstoryPagePersonImage",
+        "\nstoryPagePersonTitle",
+        "\nstoryPagePersonSubtitle",
+        "\nstoryPagePersonBody",
+        "\njunction2019",
+        "\njunction2019Body",
+        "\njunction2019Subtitle",
+        "\ncalendarPageTitle",
+        "\ncalendarPageSubtitle",
+        "\nconceptsPageTitle",
+        "\nconceptsPageSubtitle",
+        "\npartnersPageTitle",
+        "\npartnersPageSubtitle",
+        "\npartnersPageFirstTitle",
+        "\npartnersPageFirstSubtitle",
+        "\npartnersPageFirstBody",
+        "\nwhyPartnerWithUsTitle",
+        "\nwhyPartnerWithUsFirstTitle",
+        "\nwhyPartnerWithUsFirstBody",
+        "\nwhyPartnerWithUsSecondTitle",
+        "\nwhyPartnerWithUsSecondBody",
+        "\nwhyPartnerWithUsThirdTitle",
+        "\nwhyPartnerWithUsThirdBody",
+        "\nwhatMakesUsDifferentTitle",
+        "\nwhatMakesUsDifferentSubtitle",
+        "\nwhatMakesUsDifferentBody",
+        "\npreviousPartnersTitle",
+        "\npreviousPartnersSubtitle",
+        "\npreviousPartnersBody",
+        "\nvolunteersPageTitle",
+        "\nvolunteersPageSubtitle",
+        "\nvolunteeringTitle",
+        "\nvolunteeringSubtitle",
+        "\nvolunteeringBody",
+        ""
+      ],
+      "default": "",
+      "unique": true,
+      "type": "enumeration",
+      "required": true
+    },
+    "content": {
+      "default": "",
+      "type": "text"
+    }
+  }
+}

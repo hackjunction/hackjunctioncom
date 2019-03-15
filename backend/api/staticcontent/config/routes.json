@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/api/navlinks",
-      "handler": "Navlink.find",
+      "path": "/api/staticcontents",
+      "handler": "Staticcontent.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/api/navlinks/count",
-      "handler": "Navlink.count",
+      "path": "/api/staticcontents/count",
+      "handler": "Staticcontent.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/api/navlinks/:_id",
-      "handler": "Navlink.findOne",
+      "path": "/api/staticcontents/:_id",
+      "handler": "Staticcontent.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/api/navlinks",
-      "handler": "Navlink.create",
+      "path": "/api/staticcontents",
+      "handler": "Staticcontent.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/api/navlinks/:_id",
-      "handler": "Navlink.update",
+      "path": "/api/staticcontents/:_id",
+      "handler": "Staticcontent.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/api/navlinks/:_id",
-      "handler": "Navlink.destroy",
+      "path": "/api/staticcontents/:_id",
+      "handler": "Staticcontent.destroy",
       "config": {
         "policies": []
       }

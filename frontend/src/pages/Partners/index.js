@@ -1,6 +1,11 @@
 import React from 'react'
 import './style.scss'
 
+import { connect } from 'react-redux'
+
+import * as StaticContentSelectors from '../../redux/static/selectors'
+import KEYS from '../../redux/static/keys'
+
 import HeaderImage from '../../components/HeaderImage'
 import BlockSection from '../../components/BlockSection/';
 import ImageBlockSection from '../../components/ImageBlockSection/';
@@ -8,10 +13,10 @@ import SingleColumnSection from '../../components/SingleColumnSection/';
 import BorderedSection from '../../components/BorderedSection/';
 import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks'
-
 import Divider from '../../components/Divider'
+import Markdown from '../../components/Markdown'
 
-const PartnersPage = () => {
+const PartnersPage = ({ content }) => {
 
 	return (
 		<div className="PartnersPage">
@@ -19,13 +24,11 @@ const PartnersPage = () => {
 				src={require('../../assets/images/junction1.jpg')}
 				alt="Header image"
 				navTitle={'For partners.'}
-				mainTitle={'Unlock the hackerworld.'}
-				bodyText={'Junction provides a unique opportunity to work and interact with thousands of developers for your company. In a mere three years Junction has created a vibrant community of over 20 000 enthusiastic tech talents. Along the journey we have connected our partners with new audiences and helped them to build their own developer community. Junction has grown into an access point to emerging top tech talents from all over the world. In a mere three years Junction has created a vibrant community of over 20 000 enthusiastic tech talents. Along the journey we have connected our partners with new audiences and helped them to build their own developer community.'}
+				mainTitle={content.partnersPageTitle}
+				bodyText={content.partnersPageSubtitle}
 			/>
-			<BlockSection title="The Junction." subtitle="Hackathon = The goal of a hackathon is to create usable software or hardware with the goal of creating a functioning product by the end of the event.">
-				<p>
-					Nam tellus tortor, consectetur sed elementum non, consectetur varius libero. Aliquam venenatis lacus luctus, eleifend libero commodo, suscipit nisi. Aliquam erat volutpat. Vivamus dignissim eros quis gravida vulputate. Nam viverra massa ut purus dapibus, eget dapibus eros vulputate. Sed eget erat aliquet, blandit purus venenatis, pulvinar lorem. Aliquam lectus tortor, fermentum non elit aliquet, tristique viverra eros. Sed eget vulputate eros. Aenean congue volutpat neque, scelerisque gravida felis lobortis nec. Duis sed pretium ante, at porttitor risus.
-				</p>
+			<BlockSection title={content.partnersPageFirstTitle} subtitle={content.partnersPageFirstSubtitle}>
+				<Markdown source={content.partnersPageFirstBody} />
 				<StatBlocks
 					blocks={[
 						{
@@ -51,10 +54,10 @@ const PartnersPage = () => {
 				</p>
 			</ImageBlockSection>
 			<Divider lg />
-			<SingleColumnSection title="Why partner with us?">
-				<BorderedSection title="Recruiting" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
-				<BorderedSection title="Creativity" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
-				<BorderedSection title="Recognition" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+			<SingleColumnSection title={content.whyPartnerWithUsTitle}>
+				<BorderedSection title={content.whyPartnerWithUsFirstTitle} content={content.whyPartnerWithUsFirstBody} />
+				<BorderedSection title={content.whyPartnerWithUsSecondTitle} content={content.whyPartnerWithUsSecondBody} />
+				<BorderedSection title={content.whyPartnerWithUsThirdTitle} content={content.whyPartnerWithUsThirdBody} />
 			</SingleColumnSection>
 			<Divider lg />
 			<ImageBlockSection
@@ -68,19 +71,15 @@ const PartnersPage = () => {
 				</p>
 			</ImageBlockSection>
 			<Divider lg />
-			<BlockSection title="What makes us different?" >
-				<p>
-					Nam tellus tortor, consectetur sed elementum non, consectetur varius libero. Aliquam venenatis lacus luctus, eleifend libero commodo, suscipit nisi. Aliquam erat volutpat. Vivamus dignissim eros quis gravida vulputate. Nam viverra massa ut purus dapibus, eget dapibus eros vulputate. Sed eget erat aliquet, blandit purus venenatis, pulvinar lorem. Aliquam lectus tortor, fermentum non elit aliquet, tristique viverra eros. Sed eget vulputate eros. Aenean congue volutpat neque, scelerisque gravida felis lobortis nec. Duis sed pretium ante, at porttitor risus.
-				</p>
+			<BlockSection title={content.whatMakesUsDifferentTitle} subtitle={content.whatMakesUsDifferentSubtitle}>
+				<Markdown source={content.whatMakesUsDifferentBody} />
 			</BlockSection>
 			<Divider lg />
-			<BlockSection title="Partners" subtitle="Some of our partners from previous years" >
-				<p>
-					Nam tellus tortor, consectetur sed elementum non, consectetur varius libero. Aliquam venenatis lacus luctus, eleifend libero commodo, suscipit nisi. Aliquam erat volutpat. Vivamus dignissim eros quis gravida vulputate. Nam viverra massa ut purus dapibus, eget dapibus eros vulputate. Sed eget erat aliquet, blandit purus venenatis, pulvinar lorem. Aliquam lectus tortor, fermentum non elit aliquet, tristique viverra eros. Sed eget vulputate eros. Aenean congue volutpat neque, scelerisque gravida felis lobortis nec. Duis sed pretium ante, at porttitor risus.
-				</p>
+			<BlockSection title={content.previousPartnersTitle} subtitle={content.previousPartnersSubtitle} >
+				<Markdown source={content.previousPartnersBody} />
 			</BlockSection>
 			<Divider lg />
-			<BlockSection title="Join the community" subtitle="Shoot us a message! We'll be sure to answer asap." >
+			<BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody} >
 				<ContactForm />
 			</BlockSection>
 			<Divider lg />
@@ -88,4 +87,29 @@ const PartnersPage = () => {
 	)
 }
 
-export default PartnersPage
+const mapStateToProps = (state) => ({
+	content: StaticContentSelectors.objectWithKeys([
+		KEYS.partnersPageTitle,
+		KEYS.partnersPageSubtitle,
+		KEYS.partnersPageFirstTitle,
+		KEYS.partnersPageFirstSubtitle,
+		KEYS.partnersPageFirstBody,
+		KEYS.whyPartnerWithUsTitle,
+		KEYS.whyPartnerWithUsFirstTitle,
+		KEYS.whyPartnerWithUsFirstBody,
+		KEYS.whyPartnerWithUsSecondTitle,
+		KEYS.whyPartnerWithUsSecondBody,
+		KEYS.whyPartnerWithUsThirdTitle,
+		KEYS.whyPartnerWithUsThirdBody,
+		KEYS.whatMakesUsDifferentTitle,
+		KEYS.whatMakesUsDifferentSubtitle,
+		KEYS.whatMakesUsDifferentBody,
+		KEYS.previousPartnersTitle,
+		KEYS.previousPartnersSubtitle,
+		KEYS.previousPartnersBody,
+		KEYS.joinCommunity,
+		KEYS.joinCommunityBody
+	])(state)
+})
+
+export default connect(mapStateToProps)(PartnersPage)

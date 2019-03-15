@@ -1,49 +1,63 @@
 import React from 'react'
 import './style.scss'
 
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+
+import * as StaticContentSelectors from '../../redux/static/selectors'
+import * as ContentSelectors from '../../redux/content/selectors'
+import KEYS from '../../redux/static/keys'
+
 import SocialMediaIcons from '../SocialMediaIcons';
 import Divider from '../Divider'
 
-const Footer = () => {
+const Footer = ({ content, eventConcepts }) => {
+
+	function renderConceptLinks() {
+		return eventConcepts.map(concept => {
+			return <Link key={concept.slug} className="FooterInner--right__section-link" to={`/concepts/${concept.slug}`}>{concept.name}</Link>
+		})
+	}
+
 	return (
 		<footer className="Footer">
 			<div className="FooterInner">
 				<div className="FooterInner--left">
 					<img className="FooterInner--left__logo" src={require('../../assets/logos/text_black.png')} alt="Junction logo" />
-					<p className="FooterInner--left__slogan">We empower people to create with technology.</p>
-					<a className="FooterInner--left__contact" href="mailto:hello@hackjunction.com">hello@hackjunction.com</a>
+					<p className="FooterInner--left__slogan">{content.siteSlogan}</p>
+					<a className="FooterInner--left__contact" href={`mailto:${content.siteContactEmail}`}>{content.siteContactEmail}</a>
 					<Divider sm />
 					<SocialMediaIcons
 						iconProps={[
 							{
 								alt: 'LinkedIn',
 								imageSrc: require('../../assets/logos/social/linkedin.png'),
-								link: 'https://google.com',
+								link: content.linkedinLink,
 							},
 							{
 								alt: 'Youtube',
 								imageSrc: require('../../assets/logos/social/youtube.png'),
-								link: 'https://google.com',
+								link: content.youtubeLink,
 							},
 							{
 								alt: 'Facebook',
 								imageSrc: require('../../assets/logos/social/facebook.png'),
-								link: 'https://google.com',
+								link: content.facebookLink,
 							},
 							{
 								alt: 'Twitter',
 								imageSrc: require('../../assets/logos/social/twitter.png'),
-								link: 'https://google.com',
+								link: content.twitterLink,
 							},
 							{
 								alt: 'Instagram',
 								imageSrc: require('../../assets/logos/social/instagram.png'),
-								link: 'https://google.com',
+								link: content.instagramLink,
 							},
 							{
 								alt: 'Medium',
 								imageSrc: require('../../assets/logos/social/linkedin.png'),
-								link: 'https://google.com',
+								link: content.mediumLink,
 							}
 						]}
 					/>
@@ -51,28 +65,22 @@ const Footer = () => {
 				<div className="FooterInner--separator" />
 				<div className="FooterInner--right">
 					<div className="FooterInner--right__section">
-						<h5 className="FooterInner--right__section-title">Concepts</h5>
-						<a className="FooterInner--right__section-link" href="#">Junction 2019</a>
-						<a className="FooterInner--right__section-link" href="#">Hel Tech</a>
-						<a className="FooterInner--right__section-link" href="#">Hack Talks</a>
-						<a className="FooterInner--right__section-link" href="#">JunctionX</a>
-						<a className="FooterInner--right__section-link" href="#">Hack Tour</a>
-						<a className="FooterInner--right__section-link" href="#">Tech Race</a>
+						<Link to="/concepts"><h5 className="FooterInner--right__section-title">Concepts</h5></Link>
+						{renderConceptLinks()}
 					</div>
 					<div className="FooterInner--right__section">
 						<h5 className="FooterInner--right__section-title">Community</h5>
-						<a className="FooterInner--right__section-link" href="#">For partners</a>
-						<a className="FooterInner--right__section-link" href="#">For participants</a>
-						<a className="FooterInner--right__section-link" href="#">For volunteers</a>
-						<a className="FooterInner--right__section-link" href="#">For organisers</a>
+						<Link className="FooterInner--right__section-link" to="/partners">For partners</Link>
+						<Link className="FooterInner--right__section-link" to="/participants">For participants</Link>
+						<Link className="FooterInner--right__section-link" to="/volunteers">For volunteers</Link>
+						<Link className="FooterInner--right__section-link" to="/organisers">For organisers</Link>
 					</div>
 					<div className="FooterInner--right__section">
-						<h5 className="FooterInner--right__section-title">Press Kit</h5>
-						<h5 className="FooterInner--right__section-title">Photo Gallery</h5>
-						<h5 className="FooterInner--right__section-title">Legal</h5>
-						<a className="FooterInner--right__section-link" href="#">Privacy Policy</a>
-						<a className="FooterInner--right__section-link" href="#">Terms & Conditions</a>
-						<a className="FooterInner--right__section-link" href="#">MLH Code of Conduct</a>
+						<Link to="/press"><h5 className="FooterInner--right__section-title">Press Kit</h5></Link>
+						<Link to="/gallery"><h5 className="FooterInner--right__section-title">Photo Gallery</h5></Link>
+						<Link to="/legal"><h5 className="FooterInner--right__section-title">Legal</h5></Link>
+						<Link className="FooterInner--right__section-link" to="/privacy">Privacy Policy</Link>
+						<Link className="FooterInner--right__section-link" to="/terms">Terms & Conditions</Link>
 					</div>
 				</div>
 			</div>
@@ -83,4 +91,19 @@ const Footer = () => {
 	)
 }
 
-export default Footer
+const mapStateToProps = (state) => ({
+	content: StaticContentSelectors.objectWithKeys([
+		KEYS.linkedinLink,
+		KEYS.youtubeLink,
+		KEYS.facebookLink,
+		KEYS.twitterLink,
+		KEYS.instagramLink,
+		KEYS.mediumLink,
+		KEYS.siteSlogan,
+		KEYS.siteContactEmail,
+	])(state),
+	eventConcepts: ContentSelectors.eventconcepts(state),
+})
+
+
+export default connect(mapStateToProps)(Footer)

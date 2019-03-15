@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const BASE_URL = '/api/navlinks'
+const BASE_URL = '/api/staticcontents'
 
-const NavLinkService = {
+const StaticContentService = {
 
 	count: () => {
 		return axios.get(`${BASE_URL}/count`).then(res => res.data)
@@ -17,4 +17,4 @@ const NavLinkService = {
 	}
 }
 
-export default NavLinkService
+export default StaticContentService
