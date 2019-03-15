@@ -1,5 +1,75 @@
+@import '../../../styles/main';
+
 .Form {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
+	position: relative;
+
+	&--loading-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		background: $junction-black;
+		pointer-events: none;
+		z-index: 100;
+		transition: opacity 0.2s ease;
+	}
+
+	&--error-banner {
+		background: rgba($color-error, 0.5);
+		padding: $padding-base;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		border-radius: 7px;
+		display: none;
+
+		&__title {
+			@extend %font-title;
+			font-weight: bold;
+		}
+	}
+
+	&--success {
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background: $junction-black;
+		
+		&__title {
+			@extend %font-title;
+			font-weight: bold;
+		}
+	}
+
+	&-loading {
+		.Form--loading-overlay {
+			opacity: 1;
+		}
+	}
+
+	&-success {
+		.Form--success {
+			display: flex;
+		}
+
+		.Form--Inner {
+			display: none;	
+		}
+	}
+
+	&-error {
+		.Form--error-banner {
+			display: flex;
+		}
+	}
 }

@@ -1,17 +1,22 @@
 import React from 'react'
-import message from 'vanilla-antd-message'
 import './style.scss'
-
 import _ from 'lodash'
+
+import LogoSpinner from '../../LogoSpinner'
 
 const Form = ({
 	children,
 	onSuccess = () => { },
 	onError = () => { },
 	fields,
-	successMsg = 'Success!',
-	errorMsg = 'Oops, something went wrong',
 	msgDuration = 3000,
+	loading = false,
+	success = false,
+	successTitle = '',
+	successMessage = '',
+	error = false,
+	errorTitle = '',
+	errorMessage = ''
 }) => {
 
 	function handleSubmit(e) {
@@ -33,17 +38,34 @@ const Form = ({
 		})
 
 		if (!_.isEmpty(errors)) {
-			message.error(errorMsg, msgDuration)
 			onError(errors)
 		} else {
-			message.error(successMsg, msgDuration)
 			onSuccess(formData)
 		}
 	}
 
+	let className = 'Form'
+
+	if (loading) className += ' Form-loading'
+	if (error) className += ' Form-error'
+	if (success) className += ' Form-success'
+
 	return (
-		<form className="Form" onSubmit={handleSubmit}>
-			{children}
+		<form className={className} onSubmit={handleSubmit}>
+			<div className="Form--loading-overlay">
+				<LogoSpinner />
+			</div>
+			<div className="Form--success">
+				<span className="Form--success__title">{successTitle}</span>
+				<span className="Form--success__message">{successMessage}</span>
+			</div>
+			<div className="Form--Inner">
+				{children}
+			</div>
+			<div className="Form--error-banner">
+				<span className="Form--error-banner__title">{errorTitle}</span>
+				<span className="Form--error-banner__message">{errorMessage}</span>
+			</div>
 		</form>
 	)
 }

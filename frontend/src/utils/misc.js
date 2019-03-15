@@ -11,3 +11,20 @@ export const toRomanNumeral = (num) => {
 		roman = (key[+digits.pop() + (i * 10)] || "") + roman;
 	return Array(+digits.join("") + 1).join("M") + roman;
 }
+
+export const delay = (ms) => {
+	return new Promise(function (resolve, reject) {
+		setTimeout(function () {
+			resolve()
+		}, ms)
+	})
+}
+
+export const minDelay = (promise, ms) => {
+	return Promise.all([
+		promise,
+		delay(ms)
+	]).then(([result]) => {
+		return result
+	})
+}

@@ -10,6 +10,9 @@ import SubmitButton from '../inputs/SubmitButton'
 
 import { useFormField } from '../../hooks/formhooks'
 import { isEmail } from '../../utils/regex'
+import { minDelay, delay } from '../../utils/misc'
+
+import ContactRequestService from '../../services/contactrequests'
 
 const ContactForm = () => {
 
@@ -76,9 +79,24 @@ const ContactForm = () => {
 	}
 
 	const [formLoading, setFormLoading] = useState(false)
+	const [formError, setFormError] = useState(false)
+	const [formSuccess, setFormSuccess] = useState(false)
 
-	function handleFormSuccess(data) {
-		console.log('SUCCESS', data)
+	async function handleFormSuccess(data) {
+		setFormLoading(true)
+
+		minDelay(
+			ContactRequestService.create(data),
+			1000
+		).then((res) => {
+			console.log('Form submitted', res)
+			setFormSuccess(true)
+			setFormLoading(false)
+		}).catch(e => {
+			console.log('Form error', e)
+			setFormError(true)
+			setFormLoading(false)
+		})
 	}
 
 	function handleFormError(errors) {
@@ -90,6 +108,13 @@ const ContactForm = () => {
 			fields={fields}
 			onError={handleFormError}
 			onSuccess={handleFormSuccess}
+			loading={formLoading}
+			error={formError}
+			success={formSuccess}
+			errorTitle={'Oops, something went wrong'}
+			errorMessage={'Are you connected to the internet? Please try again.'}
+			successTitle={'Thanks for getting in touch!'}
+			successMessage={'We\'ll get back to you A.S.A.P'}
 		>
 			<FormRow>
 				<TextInput
