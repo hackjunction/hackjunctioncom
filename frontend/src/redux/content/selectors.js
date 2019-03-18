@@ -4,6 +4,7 @@ import _ from 'lodash'
 const EVENTS_UPDATE_INTERVAL = 0 //5 * 60 * 1000 //5 minutes
 const EVENT_CONCEPTS_UPDATE_INTERVAL = 0 //5 * 60 * 1000 //5 minutes
 const TEAM_MEMBERS_UPDATE_INTERVAL = 0 //5 * 60 * 1000 //15 minutes
+const TESTIMONIALS_UPDATE_INTERVAL = 0 //5 * 60 * 1000 //15 minutes
 
 export const events = state => state.content.events.data
 export const eventsLoading = state => state.content.events.loading
@@ -89,5 +90,24 @@ export const teammembersShouldUpdate = createSelector(
 	teammembersUpdated,
 	(updated) => {
 		return Date.now() - updated > TEAM_MEMBERS_UPDATE_INTERVAL
+	}
+)
+
+export const testimonials = state => state.content.testimonials.data
+export const testimonialsLoading = state => state.content.testimonials.loading
+export const testimonialsError = state => state.content.testimonials.error
+export const testimonialsUpdated = state => state.content.testimonials.lastUpdate
+
+export const testimonialsShouldUpdate = createSelector(
+	testimonialsUpdated,
+	(updated) => {
+		return Date.now() - updated > TESTIMONIALS_UPDATE_INTERVAL
+	}
+)
+
+export const testimonialsOfType = (type) => createSelector(
+	testimonials,
+	(testimonials) => {
+		return _.filter(testimonials, t => t.type === type)
 	}
 )

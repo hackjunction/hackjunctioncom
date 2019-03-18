@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "testimonial",
   "info": {
     "name": "testimonial",
     "description": "Testimonials from volunteers, partners, etc"
@@ -16,22 +16,22 @@
         "volunteer",
         "partner",
         "organiser",
-        ""
+        "participant"
       ]
     },
-    "Name": {
+    "name": {
       "default": "",
       "type": "string"
     },
-    "Subtitle": {
+    "subtitle": {
       "default": "",
       "type": "string"
     },
-    "Quote": {
+    "quote": {
       "default": "",
       "type": "text"
     },
-    "Image": {
+    "image": {
       "model": "file",
       "via": "related",
       "plugin": "upload",

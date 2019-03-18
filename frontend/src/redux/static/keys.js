@@ -72,6 +72,19 @@ const CONTENT_KEYS = {
 	volunteeringSubtitle: 'volunteeringSubtitle',
 	volunteeringBody: 'volunteeringBody',
 
+	/* Participants page */
+	participantsPageTitle: 'participantsPageTitle',
+	participantsPageSubtitle: 'participantsPageSubtitle',
+	howToJoinTitle: 'howToJoinTitle',
+	howToJoinSubtitle: 'howToJoinSubtitle',
+	howToJoinStepOne: 'howToJoinStepOne',
+	howToJoinStepTwo: 'howToJoinStepTwo',
+	howToJoinStepThree: 'howToJoinStepThree',
+	howToJoinStepFour: 'howToJoinStepFour',
+	howToJoinStepFive: 'howToJoinStepFive',
+	getHiredTitle: 'getHiredTitle',
+	getHiredSubtitle: 'getHiredSubtitle',
+	getHiredBody: 'getHiredBody',
 }
 
 export default CONTENT_KEYS

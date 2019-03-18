@@ -1,5 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
+
+import { connect } from 'react-redux'
+
+import * as ContentActions from '../../redux/content/actions'
+import * as ContentSelectors from '../../redux/content/selectors'
+import * as StaticContentSelectors from '../../redux/static/selectors'
+import KEYS from '../../redux/static/keys'
 
 import HeaderImage from '../../components/HeaderImage'
 import BlockSection from '../../components/BlockSection'
@@ -7,8 +14,24 @@ import RomanNumeralList from '../../components/RomanNumeralList'
 import ImageBlockSection from '../../components/ImageBlockSection'
 import ContactForm from '../../components/ContactForm'
 import Divider from '../../components/Divider'
+import Markdown from '../../components/Markdown'
 
-const ParticipantsPage = () => {
+const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials }) => {
+
+	useEffect(() => {
+		if (testimonialsShouldUpdate) {
+			updateTestimonials()
+		}
+	}, [])
+	const testimonial = testimonials.length > 0 ? testimonials[0] : null
+
+	const howToJoinItems = []
+
+	if (content.howToJoinStepOne) howToJoinItems.push(content.howToJoinStepOne)
+	if (content.howToJoinStepTwo) howToJoinItems.push(content.howToJoinStepTwo)
+	if (content.howToJoinStepThree) howToJoinItems.push(content.howToJoinStepThree)
+	if (content.howToJoinStepFour) howToJoinItems.push(content.howToJoinStepFour)
+	if (content.howToJoinStepFive) howToJoinItems.push(content.howToJoinStepFive)
 
 	return (
 		<div className="ParticipantsPage">
@@ -16,49 +39,33 @@ const ParticipantsPage = () => {
 				src={require('../../assets/images/junction1.jpg')}
 				alt="Header image"
 				navTitle={'For participants.'}
-				mainTitle={'Believe in the unbelievable.'}
-				bodyText={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'}
+				mainTitle={content.participantsPageTitle}
+				bodyText={content.participantsPageSubtitle}
 			/>
-			<BlockSection title="How to join?" subtitle="From event specific pages you can find more detailed info about participating in each event">
+			<BlockSection title={content.howToJoinTitle} subtitle={content.howToJoinSubtitle}>
 				<RomanNumeralList
-					items={[
-						'Find the event that is most appealing to you',
-						'Apply or register to be part of the event',
-						'Congratulations! You are part of the Junction community',
-						'Some 4th thing here',
-						'Some nth thing here',
-						'Some nth thing here',
-						'Some nth thing here',
-						'Some nth thing here',
-						'Some nth thing here',
-					]}
+					items={howToJoinItems}
 				/>
 			</BlockSection>
 			<Divider lg />
-			<ImageBlockSection
-				imageSrc={require('../../assets/images/teemu.png')}
-				imageAlt="Teemu Lemetti"
-				title="Facillisis Pellentesque"
-				subtitle="Helsinki, Finland"
-			>
-				<p>
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-				</p>
-			</ImageBlockSection>
-			<Divider lg />
-			<BlockSection title="Get hired.">
-				<p>
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-					<br />
-					<br />
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-					<br />
-					<br />
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-				</p>
+			{testimonial ? (
+				<React.Fragment>
+					<ImageBlockSection
+						imageSrc={testimonial.image.url}
+						imageAlt={testimonial.name}
+						title={testimonial.name}
+						subtitle={testimonial.subtitle}
+					>
+						<p>{testimonial.quote}</p>
+					</ImageBlockSection>
+					<Divider lg />
+				</React.Fragment>
+			) : null}
+			<BlockSection title={content.getHiredTitle} subtitle={content.getHiredSubtitle}>
+				<Markdown source={content.getHiredBody} />
 			</BlockSection>
 			<Divider lg />
-			<BlockSection title="Join the community" subtitle="Vivamus non eleifend ipsum. Cras felis est, varius vitae lorem non, sodales mollis magna. Ut id sapien eros.">
+			<BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>
 				<ContactForm />
 			</BlockSection>
 			<Divider lg />
@@ -66,4 +73,29 @@ const ParticipantsPage = () => {
 	)
 }
 
-export default ParticipantsPage
+const mapStateToProps = (state) => ({
+	content: StaticContentSelectors.objectWithKeys([
+		KEYS.participantsPageTitle,
+		KEYS.participantsPageSubtitle,
+		KEYS.howToJoinTitle,
+		KEYS.howToJoinSubtitle,
+		KEYS.howToJoinStepOne,
+		KEYS.howToJoinStepTwo,
+		KEYS.howToJoinStepThree,
+		KEYS.howToJoinStepFour,
+		KEYS.howToJoinStepFive,
+		KEYS.getHiredTitle,
+		KEYS.getHiredSubtitle,
+		KEYS.getHiredBody,
+		KEYS.joinCommunity,
+		KEYS.joinCommunityBody
+	])(state),
+	testimonials: ContentSelectors.testimonialsOfType('participant')(state),
+	testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state)
+})
+
+const mapDispatchToProps = (dispatch) => ({
+	updateTestimonials: () => dispatch(ContentActions.updateTestimonials())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ParticipantsPage)

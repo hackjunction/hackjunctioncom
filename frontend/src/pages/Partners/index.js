@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
 
 import { connect } from 'react-redux'
 
+import * as ContentActions from '../../redux/content/actions'
+
 import * as StaticContentSelectors from '../../redux/static/selectors'
+import * as ContentSelectors from '../../redux/content/selectors'
 import KEYS from '../../redux/static/keys'
 
 import HeaderImage from '../../components/HeaderImage'
@@ -16,7 +19,18 @@ import StatBlocks from '../../components/StatBlocks'
 import Divider from '../../components/Divider'
 import Markdown from '../../components/Markdown'
 
-const PartnersPage = ({ content }) => {
+const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials }) => {
+
+	console.log('Testimonials', testimonials)
+
+	useEffect(() => {
+		if (testimonialsShouldUpdate) {
+			updateTestimonials()
+		}
+	}, [])
+
+	const firstTestimonial = testimonials.length > 0 ? testimonials[0] : null
+	const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null
 
 	return (
 		<div className="PartnersPage">
@@ -43,34 +57,38 @@ const PartnersPage = ({ content }) => {
 				/>
 			</BlockSection>
 			<Divider lg />
-			<ImageBlockSection
-				imageSrc={require('../../assets/images/teemu.png')}
-				imageAlt="Teemu Lemetti"
-				title="Facillisis Pellentesque"
-				subtitle="Helsinki, Finland"
-			>
-				<p>
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-				</p>
-			</ImageBlockSection>
-			<Divider lg />
+			{firstTestimonial ? (
+				<React.Fragment>
+					<ImageBlockSection
+						imageSrc={firstTestimonial.image.url}
+						imageAlt={firstTestimonial.name}
+						title={firstTestimonial.name}
+						subtitle={firstTestimonial.subtitle}
+					>
+						<p>{firstTestimonial.quote}</p>
+					</ImageBlockSection>
+					<Divider lg />
+				</React.Fragment>
+			) : null}
 			<SingleColumnSection title={content.whyPartnerWithUsTitle}>
 				<BorderedSection title={content.whyPartnerWithUsFirstTitle} content={content.whyPartnerWithUsFirstBody} />
 				<BorderedSection title={content.whyPartnerWithUsSecondTitle} content={content.whyPartnerWithUsSecondBody} />
 				<BorderedSection title={content.whyPartnerWithUsThirdTitle} content={content.whyPartnerWithUsThirdBody} />
 			</SingleColumnSection>
 			<Divider lg />
-			<ImageBlockSection
-				imageSrc={require('../../assets/images/teemu.png')}
-				imageAlt="Teemu Lemetti"
-				title="Facillisis Pellentesque"
-				subtitle="Helsinki, Finland"
-			>
-				<p>
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-				</p>
-			</ImageBlockSection>
-			<Divider lg />
+			{secondTestimonial ? (
+				<React.Fragment>
+					<ImageBlockSection
+						imageSrc={secondTestimonial.image.url}
+						imageAlt={secondTestimonial.name}
+						title={secondTestimonial.name}
+						subtitle={secondTestimonial.subtitle}
+					>
+						<p>{secondTestimonial.quote}</p>
+					</ImageBlockSection>
+					<Divider lg />
+				</React.Fragment>
+			) : null}
 			<BlockSection title={content.whatMakesUsDifferentTitle} subtitle={content.whatMakesUsDifferentSubtitle}>
 				<Markdown source={content.whatMakesUsDifferentBody} />
 			</BlockSection>
@@ -109,7 +127,13 @@ const mapStateToProps = (state) => ({
 		KEYS.previousPartnersBody,
 		KEYS.joinCommunity,
 		KEYS.joinCommunityBody
-	])(state)
+	])(state),
+	testimonials: ContentSelectors.testimonialsOfType('partner')(state),
+	testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
 })
 
-export default connect(mapStateToProps)(PartnersPage)
+const mapDispatchToProps = (dispatch) => ({
+	updateTestimonials: () => dispatch(ContentActions.updateTestimonials())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PartnersPage)

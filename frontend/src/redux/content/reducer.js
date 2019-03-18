@@ -18,6 +18,12 @@ export const initialState = {
 		loading: false,
 		error: false,
 		lastUpdate: 0,
+	},
+	testimonials: {
+		data: [],
+		loading: false,
+		error: false,
+		lastUpdate: 0
 	}
 }
 
@@ -114,6 +120,37 @@ export default function reducer(state = initialState, action) {
 				...state,
 				teammembers: {
 					...state.teammembers,
+					loading: false,
+					error: true,
+				}
+			}
+		}
+		case ActionTypes.SET_TESTIMONIALS: {
+			return {
+				...state,
+				testimonials: {
+					...state.testimonials,
+					loading: false,
+					data: action.payload,
+					lastUpdate: Date.now()
+				}
+			}
+		}
+		case ActionTypes.SET_TESTIMONIALS_LOADING: {
+			return {
+				...state,
+				testimonials: {
+					...state.testimonials,
+					loading: true,
+					error: false,
+				}
+			}
+		}
+		case ActionTypes.SET_TESTIMONIALS_ERROR: {
+			return {
+				...state,
+				testimonials: {
+					...state.testimonials,
 					loading: false,
 					error: true,
 				}
