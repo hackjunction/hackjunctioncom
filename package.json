@@ -1,5 +1,5 @@
 {
-  "name": "React-Strapi",
+  "name": "Hackjunction.com",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,10 @@
     "dev": "concurrently --kill-others \"npm run frontend\" \"npm run backend\"",
     "backend": "cd backend && strapi start",
     "frontend": "cd frontend && npm run start",
-    "build": "cd frontend && npm run build"
+    "build": "cd frontend && npm run build",
+    "heroku-postbuild": "cd frontend && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "postinstall": "cd backend && npm install",
+    "start": "cd backend && npm start"
   },
   "author": "Juuso Lappalainen",
   "license": "ISC",
