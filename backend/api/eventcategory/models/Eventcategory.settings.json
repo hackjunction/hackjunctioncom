@@ -25,7 +25,8 @@
     },
     "events": {
       "collection": "event",
-      "via": "eventcategory"
+      "via": "eventcategory",
+      "columnName": ""
     },
     "eventconcepts": {
       "collection": "eventconcept",

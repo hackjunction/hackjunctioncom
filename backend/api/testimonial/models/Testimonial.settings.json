@@ -1,0 +1,41 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "testimonial",
+    "description": "Testimonials from volunteers, partners, etc"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "type": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "volunteer",
+        "partner",
+        "organiser",
+        ""
+      ]
+    },
+    "Name": {
+      "default": "",
+      "type": "string"
+    },
+    "Subtitle": {
+      "default": "",
+      "type": "string"
+    },
+    "Quote": {
+      "default": "",
+      "type": "text"
+    },
+    "Image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

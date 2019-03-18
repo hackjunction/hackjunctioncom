@@ -17,7 +17,8 @@
     },
     "events": {
       "collection": "event",
-      "via": "eventconcept"
+      "via": "eventconcept",
+      "columnName": ""
     },
     "timedescription": {
       "default": "",

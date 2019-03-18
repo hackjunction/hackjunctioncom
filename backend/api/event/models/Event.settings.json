@@ -3,7 +3,7 @@
   "collectionName": "event",
   "info": {
     "name": "event",
-    "description": ""
+    "description": "Singular events with a name, date, location, etc."
   },
   "options": {
     "timestamps": true
