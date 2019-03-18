@@ -8,10 +8,12 @@ import BlockSection from '../../components/BlockSection'
 import ContactForm from '../../components/ContactForm'
 import Divider from '../../components/Divider'
 
+import * as StaticContentSelectors from '../../redux/static/selectors'
 import * as ContentSelectors from '../../redux/content/selectors'
 import * as ContentActions from '../../redux/content/actions'
+import KEYS from '../../redux/static/keys'
 
-const TeamPage = ({ teamMembers, shouldUpdate, updateTeamMembers }) => {
+const TeamPage = ({ content, teamMembers, shouldUpdate, updateTeamMembers }) => {
 
 	useEffect(() => {
 		if (shouldUpdate) {
@@ -25,12 +27,12 @@ const TeamPage = ({ teamMembers, shouldUpdate, updateTeamMembers }) => {
 				src={require('../../assets/images/junction1.jpg')}
 				alt="Header image"
 				navTitle={'Team.'}
-				mainTitle={'It\'s a team.'}
-				bodyText={'We are Junction – a volunteer-lead community effort around the world. Our headquarters is located at Startup Sauna in Finland but the whole Junction team spreads out to several different places, world-wide. The thing that keeps us together? Passion for empowering people to create with technology.'}
+				mainTitle={content.teamPageTitle}
+				bodyText={content.teamPageSubtitle}
 			/>
 			<TeamMemberGrid teamMembers={teamMembers} />
 			<Divider lg />
-			<BlockSection title="Join the community" subtitle="Vivamus non eleifend ipsum. Cras felis est, varius vitae lorem non, sodales mollis magna. Ut id sapien eros.">
+			<BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>
 				<ContactForm />
 			</BlockSection>
 			<Divider lg />
@@ -39,6 +41,12 @@ const TeamPage = ({ teamMembers, shouldUpdate, updateTeamMembers }) => {
 }
 
 const mapStateToProps = (state) => ({
+	content: StaticContentSelectors.objectWithKeys([
+		KEYS.teamPageTitle,
+		KEYS.teamPageSubtitle,
+		KEYS.joinCommunity,
+		KEYS.joinCommunityBody,
+	])(state),
 	teamMembers: ContentSelectors.teammembers(state),
 	shouldUpdate: ContentSelectors.teammembersShouldUpdate(state),
 })

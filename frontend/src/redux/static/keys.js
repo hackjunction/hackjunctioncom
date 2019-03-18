@@ -85,6 +85,10 @@ const CONTENT_KEYS = {
 	getHiredTitle: 'getHiredTitle',
 	getHiredSubtitle: 'getHiredSubtitle',
 	getHiredBody: 'getHiredBody',
+
+	/* Team page */
+	teamPageTitle: 'teamPageTitle',
+	teamPageSubtitle: 'teamPageSubtitle',
 }
 
 export default CONTENT_KEYS
