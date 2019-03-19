@@ -105,8 +105,8 @@
 		left: 100px;
 		right: 100px;
 		text-align: center;
-		margin: 40px 0 0 0;
-		height: 60px;
+		margin: 30px 0 0 0;
+		height: 40px;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -116,6 +116,11 @@
 
 		@include bp-med {
 			visibility: visible;
+			height: 50px;
+		}
+
+		@include bp-full {
+			height: 60px;
 		}
 	}
 
