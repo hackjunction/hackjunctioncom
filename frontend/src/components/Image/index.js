@@ -4,7 +4,7 @@ import { Image as CloudinaryImage } from 'cloudinary-react'
 
 const Image = ({ image = {}, alt, className, width, height, crop = 'fill', gravity = 'center', onLoad }) => {
 
-	if (image.public_id) {
+	if (image && image.public_id) {
 		return (
 			<CloudinaryImage
 				className={className}
@@ -21,7 +21,7 @@ const Image = ({ image = {}, alt, className, width, height, crop = 'fill', gravi
 
 	return (
 		<img
-			src={image.url ? image.url : require('../../assets/images/default_image.jpg')}
+			src={image && image.url ? image.url : require('../../assets/images/default_image.jpg')}
 			alt={alt}
 			className={className}
 			width={width}
