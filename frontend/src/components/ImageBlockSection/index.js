@@ -1,12 +1,14 @@
 import React from 'react'
 import './style.scss'
 
-const ImageBlockSection = ({ imageSrc, imageAlt, title, subtitle, children, offset }) => {
+import Image from '../Image'
+
+const ImageBlockSection = ({ image, imageAlt, publicId, title, subtitle, children, offset }) => {
 
 	return (
 		<div className={`ImageBlockSection ImageBlockSection-offset-${offset}`}>
 			<div className="ImageBlockSection--left">
-				<img className="ImageBlockSection--image" src={imageSrc} alt={imageAlt} />
+				<Image className="ImageBlockSection--image" image={image} alt={imageAlt} width={400} height={400} />
 			</div>
 			<div className="ImageBlockSection--right">
 				<div className="ImageBlockSection--right__top">

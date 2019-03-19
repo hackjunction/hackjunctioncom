@@ -13,6 +13,7 @@
       "enum": [
         "siteSlogan",
         "\nsiteContactEmail",
+        "\nhomePageHeaderVideoLink",
         "\nlinkedinLink",
         "\nyoutubeLink",
         "\nfacebookLink",

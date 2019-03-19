@@ -2,6 +2,7 @@ const CONTENT_KEYS = {
 	/* Sitewide */
 	siteSlogan: 'siteSlogan',
 	siteContactEmail: 'siteContactEmail',
+	homePageHeaderVideoLink: 'homePageHeaderVideoLink',
 
 	/* Social */
 	linkedinLink: 'linkedinLink',

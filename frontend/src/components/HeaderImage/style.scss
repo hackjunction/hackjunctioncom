@@ -2,14 +2,16 @@
 
 .HeaderImage {
 	width: 100%;
-	height: 480px;
+	height: 380px;
 	position: relative;
 	overflow: hidden;
 	z-index: 0;
 	background: black;
 	transition: height 0.2s ease;
+	margin-top: 60px;
 
 	@include bp-med {
+		margin-top: 0;
 		height: 600px;
 	}
 
@@ -20,6 +22,10 @@
 	&-loaded {
 		.HeaderImage--img {
 			opacity: 0.4;
+		}
+
+		.HeaderImage--vid {
+			opacity: 1;
 		}
 
 		.HeaderImage--main-content {
@@ -45,6 +51,35 @@
 		object-position: center;
 		opacity: 0;
 		transition: opacity 0.5s ease;
+
+		&-visible {
+			opacity: 1;
+		}
+	}
+
+	&--vid {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: none;
+		object-position: center;
+		transition: opacity 1.5s ease;
+		opacity: 0;
+
+		&-visible {
+			opacity: 1;
+		}
+
+		 video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
 	}
 
 	&--wave-overlay {
@@ -77,6 +112,11 @@
 		align-items: center;
 		justify-content: center;
 		font-size: 18px;
+		visibility: hidden;
+
+		@include bp-med {
+			visibility: visible;
+		}
 	}
 
 	&--main-content {

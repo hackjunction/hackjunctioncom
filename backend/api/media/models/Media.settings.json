@@ -1,0 +1,39 @@
+{
+  "connection": "default",
+  "collectionName": "media",
+  "info": {
+    "name": "media",
+    "description": "Static images & videos on the site "
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "key": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "homePageHeaderImage",
+        "\npartnerPageHeaderImage",
+        "\nvolunteerPageHeaderImage",
+        "\norganiserPageHeaderImage",
+        "\nparticipantPageHeaderImage",
+        "\nstoryPageHeaderImage",
+        "\ncalendarPageHeaderImage",
+        "\nteamPageHeaderImage",
+        "\nconceptsPageHeaderImage",
+        "\nerrorPageHeaderImage",
+        "\nnotFoundPageHeaderImage",
+        ""
+      ],
+      "required": true,
+      "unique": true
+    },
+    "media": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

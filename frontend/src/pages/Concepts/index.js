@@ -9,9 +9,11 @@ import Divider from '../../components/Divider'
 
 import * as ContentSelectors from '../../redux/content/selectors'
 import * as StaticContentSelectors from '../../redux/static/selectors'
+import * as MediaSelectors from '../../redux/media/selectors'
 import KEYS from '../../redux/static/keys'
+import MEDIA_KEYS from '../../redux/media/keys'
 
-const ConceptsPage = ({ eventconcepts, loading, content }) => {
+const ConceptsPage = ({ eventconcepts, loading, content, headerImage }) => {
 
 	function buildSubtitleItems(concept) {
 		const items = []
@@ -63,7 +65,7 @@ const ConceptsPage = ({ eventconcepts, loading, content }) => {
 	return (
 		< div className="ConceptsPage" >
 			<HeaderImage
-				src={require('../../assets/images/junction1.jpg')}
+				image={headerImage}
 				alt="Header image"
 				navTitle={'Concepts.'}
 				mainTitle={content.conceptsPageTitle}
@@ -82,7 +84,8 @@ const mapStateToProps = (state) => ({
 		KEYS.conceptsPageSubtitle,
 	])(state),
 	loading: ContentSelectors.eventconceptsLoading(state),
-	eventconcepts: ContentSelectors.eventconcepts(state)
+	eventconcepts: ContentSelectors.eventconcepts(state),
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.conceptsPageHeaderImage)(state)
 })
 
 export default connect(mapStateToProps)(ConceptsPage)

@@ -12,6 +12,10 @@ export const toRomanNumeral = (num) => {
 	return Array(+digits.join("") + 1).join("M") + roman;
 }
 
+export const isCloudinaryUrl = (url) => {
+	return url.indexOf('cloudinary') !== -1
+}
+
 export const delay = (ms) => {
 	return new Promise(function (resolve, reject) {
 		setTimeout(function () {

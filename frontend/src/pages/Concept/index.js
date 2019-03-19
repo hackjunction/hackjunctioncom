@@ -40,7 +40,7 @@ const ConceptPage = ({ match, shouldUpdate, updateConcepts, loading, error, getC
 	return (
 		<div className="ConceptPage">
 			<HeaderImage
-				src={require('../../assets/images/junction1.jpg')}
+				src={require('../../assets/images/default_image.jpg')}
 				alt="Header image"
 				navTitle={concept.name}
 				mainTitle={concept.punchline}

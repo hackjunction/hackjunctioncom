@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 
@@ -6,6 +6,8 @@ import * as ContentActions from './redux/content/actions'
 import * as ContentSelectors from './redux/content/selectors'
 import * as StaticContentActions from './redux/static/actions'
 import * as StaticContentSelectors from './redux/static/selectors'
+import * as MediaActions from './redux/media/actions'
+import * as MediaSelectors from './redux/media/selectors'
 
 /* A component with the same lifecycle as the app in general. Use this
   to e.g. dispatch any Redux actions that you want to dispatch on every page load.
@@ -13,7 +15,7 @@ import * as StaticContentSelectors from './redux/static/selectors'
   Remember to render this in App.js
 */
 
-class GlobalLifecycle extends Component {
+class GlobalLifecycle extends React.Component {
 
 	componentDidMount() {
 		if (this.props.staticContentShouldUpdate) {
@@ -22,6 +24,10 @@ class GlobalLifecycle extends Component {
 
 		if (this.props.eventConceptsShouldUpdate) {
 			this.props.updateEventConcepts()
+		}
+
+		if (this.props.mediaShouldUpdate) {
+			this.props.updateMedia()
 		}
 	}
 
@@ -33,10 +39,12 @@ class GlobalLifecycle extends Component {
 const mapStateToProps = (state) => ({
 	staticContentShouldUpdate: StaticContentSelectors.contentShouldUpdate(state),
 	eventConceptsShouldUpdate: ContentSelectors.eventconceptsShouldUpdate(state),
+	mediaShouldUpdate: MediaSelectors.mediaShouldUpdate(state)
 })
 const mapDispatchToProps = (dispatch) => ({
 	updateStaticContent: () => dispatch(StaticContentActions.updateStaticContent()),
-	updateEventConcepts: () => dispatch(ContentActions.updateEventConcepts())
+	updateEventConcepts: () => dispatch(ContentActions.updateEventConcepts()),
+	updateMedia: () => dispatch(MediaActions.updateMedia())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(GlobalLifecycle)

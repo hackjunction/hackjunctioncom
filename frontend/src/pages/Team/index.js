@@ -11,9 +11,11 @@ import Divider from '../../components/Divider'
 import * as StaticContentSelectors from '../../redux/static/selectors'
 import * as ContentSelectors from '../../redux/content/selectors'
 import * as ContentActions from '../../redux/content/actions'
+import * as MediaSelectors from '../../redux/media/selectors'
 import KEYS from '../../redux/static/keys'
+import MEDIA_KEYS from '../../redux/media/keys'
 
-const TeamPage = ({ content, teamMembers, shouldUpdate, updateTeamMembers }) => {
+const TeamPage = ({ content, teamMembers, shouldUpdate, updateTeamMembers, headerImage }) => {
 
 	useEffect(() => {
 		if (shouldUpdate) {
@@ -24,7 +26,7 @@ const TeamPage = ({ content, teamMembers, shouldUpdate, updateTeamMembers }) => 
 	return (
 		<div className="TeamPage">
 			<HeaderImage
-				src={require('../../assets/images/junction1.jpg')}
+				image={headerImage}
 				alt="Header image"
 				navTitle={'Team.'}
 				mainTitle={content.teamPageTitle}
@@ -49,6 +51,7 @@ const mapStateToProps = (state) => ({
 	])(state),
 	teamMembers: ContentSelectors.teammembers(state),
 	shouldUpdate: ContentSelectors.teammembersShouldUpdate(state),
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.teamPageHeaderImage)(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({

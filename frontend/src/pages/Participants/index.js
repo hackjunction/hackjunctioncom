@@ -6,7 +6,9 @@ import { connect } from 'react-redux'
 import * as ContentActions from '../../redux/content/actions'
 import * as ContentSelectors from '../../redux/content/selectors'
 import * as StaticContentSelectors from '../../redux/static/selectors'
+import * as MediaSelectors from '../../redux/media/selectors'
 import KEYS from '../../redux/static/keys'
+import MEDIA_KEYS from '../../redux/media/keys'
 
 import HeaderImage from '../../components/HeaderImage'
 import BlockSection from '../../components/BlockSection'
@@ -16,7 +18,7 @@ import ContactForm from '../../components/ContactForm'
 import Divider from '../../components/Divider'
 import Markdown from '../../components/Markdown'
 
-const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials }) => {
+const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage }) => {
 
 	useEffect(() => {
 		if (testimonialsShouldUpdate) {
@@ -36,7 +38,7 @@ const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, upd
 	return (
 		<div className="ParticipantsPage">
 			<HeaderImage
-				src={require('../../assets/images/junction1.jpg')}
+				image={headerImage}
 				alt="Header image"
 				navTitle={'For participants.'}
 				mainTitle={content.participantsPageTitle}
@@ -51,7 +53,7 @@ const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, upd
 			{testimonial ? (
 				<React.Fragment>
 					<ImageBlockSection
-						imageSrc={testimonial.image.url}
+						image={testimonial.image}
 						imageAlt={testimonial.name}
 						title={testimonial.name}
 						subtitle={testimonial.subtitle}
@@ -91,7 +93,8 @@ const mapStateToProps = (state) => ({
 		KEYS.joinCommunityBody
 	])(state),
 	testimonials: ContentSelectors.testimonialsOfType('participant')(state),
-	testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state)
+	testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.participantPageHeaderImage)(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({

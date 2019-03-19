@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
 
 import { connect } from 'react-redux'
 
 import * as StaticContentSelectors from '../../redux/static/selectors'
+import * as ContentSelectors from '../../redux/content/selectors'
+import * as ContentActions from '../../redux/content/actions'
+import * as MediaSelectors from '../../redux/media/selectors'
 import KEYS from '../../redux/static/keys'
+import MEDIA_KEYS from '../../redux/media/keys'
 
 import HeaderImage from '../../components/HeaderImage'
 import ImageBlockSection from '../../components/ImageBlockSection'
@@ -13,28 +17,39 @@ import Divider from '../../components/Divider'
 import ContactForm from '../../components/ContactForm'
 import Markdown from '../../components/Markdown'
 
-const VolunteersPage = ({ content }) => {
+
+const VolunteersPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage }) => {
+
+	useEffect(() => {
+		if (testimonialsShouldUpdate) {
+			updateTestimonials()
+		}
+	}, [])
+
+	const testimonial = testimonials.length > 0 ? testimonials[0] : null
 
 	return (
 		<div className="VolunteersPage">
 			<HeaderImage
-				src={require('../../assets/images/junction1.jpg')}
+				image={headerImage}
 				alt="Header image"
 				navTitle={'For volunteers.'}
 				mainTitle={content.volunteersPageTitle}
 				bodyText={content.volunteersPageSubtitle}
 			/>
-			<ImageBlockSection
-				imageSrc={require('../../assets/images/teemu.png')}
-				imagAlt={'Teemu Lemetti'}
-				title="Facilisis Pellentesque"
-				subtitle="Helsinki, Finland."
-			>
-				<p>
-					Facilisis Pellentesque Helsinki, Finland. “Diam eleifend at eleifend quis, rhoncus ac tellus. Aenean pellentesque tempus urna euismod imperdiet. Suspendisse ornare eu metus nec semper. Vivamus eu congue nisi, ut consectetur risus. Donec non lectus quis risus posuere commodo. Sed tristique lorem vel mi eleifend, eu dapibus dolor tristique. Vestibulum elit orci, fringilla sed dignissim sit amet, hendrerit porttitor justo. Etiam cursus lorem nec velit tempus laoreet. Ut eu faucibus nisi.”
-				</p>
-			</ImageBlockSection>
-			<Divider lg />
+			{testimonial ? (
+				<React.Fragment>
+					<ImageBlockSection
+						image={testimonial.image}
+						imageAlt={testimonial.name}
+						title={testimonial.name}
+						subtitle={testimonial.subtitle}
+					>
+						<p>{testimonial.quote}</p>
+					</ImageBlockSection>
+					<Divider lg />
+				</React.Fragment>
+			) : null}
 			<BlockSection title={content.volunteeringTitle} subtitle={content.volunteeringSubtitle}>
 				<Markdown source={content.volunteeringBody} />
 			</BlockSection>
@@ -56,8 +71,15 @@ const mapStateToProps = (state) => ({
 		KEYS.volunteeringBody,
 		KEYS.joinCommunity,
 		KEYS.joinCommunityBody
-	])(state)
+	])(state),
+	testimonials: ContentSelectors.testimonialsOfType('volunteer')(state),
+	testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.volunteerPageHeaderImage)(state)
+})
+
+const mapDispatchToProps = (dispatch) => ({
+	updateTestimonials: () => dispatch(ContentActions.updateTestimonials())
 })
 
 
-export default connect(mapStateToProps)(VolunteersPage)
+export default connect(mapStateToProps, mapDispatchToProps)(VolunteersPage)

@@ -1,15 +1,21 @@
 import React from 'react'
 import './style.scss'
 
+import { connect } from 'react-redux'
+
 import HeaderImage from '../../components/HeaderImage'
 import Divider from '../../components/Divider'
 
-const ErrorPage = () => {
+
+import * as MediaSelectors from '../../redux/media/selectors'
+import MEDIA_KEYS from '../../redux/media/keys'
+
+const ErrorPage = ({ headerImage }) => {
 
 	return (
 		<div className="ErrorPage">
 			<HeaderImage
-				src={require('../../assets/images/junction1.jpg')}
+				image={headerImage}
 				alt="Header image"
 				navTitle={'Error.'}
 				mainTitle={'Oops, something went wrong'}
@@ -20,4 +26,8 @@ const ErrorPage = () => {
 	)
 }
 
-export default ErrorPage
+const mapStateToProps = (state) => ({
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.errorPageHeaderImage)(state)
+})
+
+export default connect(mapStateToProps)(ErrorPage)

@@ -3,17 +3,19 @@ import './style.scss'
 
 import { connect } from 'react-redux'
 import * as StaticContentSelectors from '../../redux/static/selectors'
+import * as MediaSelectors from '../../redux/media/selectors'
 import KEYS from '../../redux/static/keys'
+import MEDIA_KEYS from '../../redux/media/keys'
 
 import HeaderImage from '../../components/HeaderImage'
 import EventCalendar from '../../components/EventCalendar'
 import Divider from '../../components/Divider'
 
-const CalendarPage = ({ content }) => {
+const CalendarPage = ({ content, headerImage }) => {
 	return (
 		<div className="CalendarPage">
 			<HeaderImage
-				src={require('../../assets/images/junction1.jpg')}
+				image={headerImage}
 				alt="Header image"
 				navTitle={'Calendar.'}
 				mainTitle={content.calendarPageTitle}
@@ -29,7 +31,8 @@ const mapStateToProps = (state) => ({
 	content: StaticContentSelectors.objectWithKeys([
 		KEYS.calendarPageTitle,
 		KEYS.calendarPageSubtitle,
-	])(state)
+	])(state),
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.calendarPageHeaderImage)(state)
 })
 
 export default connect(mapStateToProps)(CalendarPage)

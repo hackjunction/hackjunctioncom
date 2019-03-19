@@ -7,7 +7,9 @@ import * as ContentActions from '../../redux/content/actions'
 
 import * as StaticContentSelectors from '../../redux/static/selectors'
 import * as ContentSelectors from '../../redux/content/selectors'
+import * as MediaSelectors from '../../redux/media/selectors'
 import KEYS from '../../redux/static/keys'
+import MEDIA_KEYS from '../../redux/media/keys'
 
 import HeaderImage from '../../components/HeaderImage'
 import BlockSection from '../../components/BlockSection/';
@@ -19,9 +21,7 @@ import StatBlocks from '../../components/StatBlocks'
 import Divider from '../../components/Divider'
 import Markdown from '../../components/Markdown'
 
-const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials }) => {
-
-	console.log('Testimonials', testimonials)
+const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage }) => {
 
 	useEffect(() => {
 		if (testimonialsShouldUpdate) {
@@ -35,7 +35,7 @@ const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateT
 	return (
 		<div className="PartnersPage">
 			<HeaderImage
-				src={require('../../assets/images/junction1.jpg')}
+				image={headerImage}
 				alt="Header image"
 				navTitle={'For partners.'}
 				mainTitle={content.partnersPageTitle}
@@ -60,7 +60,7 @@ const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateT
 			{firstTestimonial ? (
 				<React.Fragment>
 					<ImageBlockSection
-						imageSrc={firstTestimonial.image.url}
+						image={firstTestimonial.image}
 						imageAlt={firstTestimonial.name}
 						title={firstTestimonial.name}
 						subtitle={firstTestimonial.subtitle}
@@ -79,7 +79,7 @@ const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateT
 			{secondTestimonial ? (
 				<React.Fragment>
 					<ImageBlockSection
-						imageSrc={secondTestimonial.image.url}
+						image={secondTestimonial.image}
 						imageAlt={secondTestimonial.name}
 						title={secondTestimonial.name}
 						subtitle={secondTestimonial.subtitle}
@@ -130,6 +130,7 @@ const mapStateToProps = (state) => ({
 	])(state),
 	testimonials: ContentSelectors.testimonialsOfType('partner')(state),
 	testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.partnerPageHeaderImage)(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -893,6 +893,22 @@
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.2.tgz#e13182e1b69871a422d7863e11a4a6f5b814a4bd"
 
+"@u-wave/react-vimeo@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@u-wave/react-vimeo/-/react-vimeo-0.6.0.tgz#483e8c1a36ed486d2e5df58b0faea9a364eea25a"
+  integrity sha512-pxtN+GMb7QpJjV8NO1h7UOFiJnjbuFVQImlDyLJcyTB8x79YX6ar8eq+2m2l6RYUQS9BLS04weQRGLnvbtubWQ==
+  dependencies:
+    "@vimeo/player" "^2.6.1"
+    prop-types "^15.6.1"
+
+"@vimeo/player@^2.6.1":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@vimeo/player/-/player-2.8.2.tgz#0e69e34ad9c9da4805a6dfa04ac833949de8be23"
+  integrity sha512-OVD+WLW7mP9R7h+QZ5qeVJsTa3uvQ83nQE2rLFQkhhJ2zl5CnSWr3ctFedn4ggZrykyve6zbovZ8f6Xc0EIJHw==
+  dependencies:
+    native-promise-only "0.8.1"
+    weakmap-polyfill "2.0.0"
+
 "@webassemblyjs/ast@1.7.6":
   version "1.7.6"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.7.6.tgz#3ef8c45b3e5e943a153a05281317474fef63e21e"
@@ -2142,6 +2158,19 @@ clone-deep@^2.0.1:
     is-plain-object "^2.0.4"
     kind-of "^6.0.0"
     shallow-clone "^1.0.0"
+
+cloudinary-core@^2.3.0:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.6.2.tgz#e034877e65bab554e23e5ef215f091f27630e507"
+  integrity sha512-oS+qniwbRVrDO6va4BNStkyunVbr1YQJarFlas19208tLUZE8DOxFO0fSE6Mx9zNfcwU6Cpm8x9FtVdtiwB/MA==
+
+cloudinary-react@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/cloudinary-react/-/cloudinary-react-1.1.0.tgz#fc31c678c26bafb46b1967563aee5dbf9d915d41"
+  integrity sha512-7o29x7VnQ9fLwZ+cyupYC4wf5Mn63bbcvBQduyayPFxEo6OoNkDxLGKN6b1JyKdjiVxcRfpZjTPFKNWDbiQDmQ==
+  dependencies:
+    cloudinary-core "^2.3.0"
+    prop-types "^15.6.2"
 
 co@^4.6.0:
   version "4.6.0"
@@ -6051,6 +6080,11 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+native-promise-only@0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/native-promise-only/-/native-promise-only-0.8.1.tgz#20a318c30cb45f71fe7adfbf7b21c99c1472ef11"
+  integrity sha1-IKMYwwy0X3H+et+/eyHJnBRy7xE=
+
 natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
@@ -9508,6 +9542,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   resolved "https://registry.yarnpkg.com/wbuf/-/wbuf-1.7.3.tgz#c1d8d149316d3ea852848895cb6a0bfe887b87df"
   dependencies:
     minimalistic-assert "^1.0.0"
+
+weakmap-polyfill@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/weakmap-polyfill/-/weakmap-polyfill-2.0.0.tgz#8f28f935e3853896ad40747e5258db578d9dc8de"
+  integrity sha1-jyj5NeOFOJatQHR+UljbV42dyN4=
 
 webidl-conversions@^4.0.2:
   version "4.0.2"

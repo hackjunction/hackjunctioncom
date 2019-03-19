@@ -3,7 +3,9 @@ import './style.scss'
 
 import { connect } from 'react-redux'
 import * as StaticContentSelectors from '../../redux/static/selectors'
+import * as MediaSelectors from '../../redux/media/selectors'
 import KEYS from '../../redux/static/keys'
+import MEDIA_KEYS from '../../redux/media/keys'
 
 import HeaderImage from '../../components/HeaderImage'
 import BlockSection from '../../components/BlockSection/'
@@ -15,12 +17,13 @@ import Markdown from '../../components/Markdown'
 
 import Divider from '../../components/Divider'
 
-const StoryPage = ({ content }) => {
+
+const StoryPage = ({ content, headerImage }) => {
 
 	return (
 		<div className="StoryPage">
 			<HeaderImage
-				src={require('../../assets/images/junction1.jpg')}
+				image={headerImage}
 				alt="Header image"
 				navTitle={'Story.'}
 				mainTitle={content.storyPageTitle}
@@ -43,7 +46,7 @@ const StoryPage = ({ content }) => {
 			</BlockSection>
 			<Divider lg />
 			<ImageBlockSection
-				imageSrc={content.storyPagePersonImage}
+				image={{}}
 				imageAlt={content.storyPagePersonTitle}
 				title={content.storyPagePersonTitle}
 				subtitle={content.storyPagePersonSubtitle}
@@ -62,19 +65,19 @@ const StoryPage = ({ content }) => {
 			<ImageLinks
 				links={[
 					{
-						imageSrc: require('../../assets/images/junction1.jpg'),
+						imageSrc: require('../../assets/images/default_image.jpg'),
 						imageAlt: 'Link',
 						linkTo: '/partners',
 						linkText: 'For partners'
 					},
 					{
-						imageSrc: require('../../assets/images/junction1.jpg'),
+						imageSrc: require('../../assets/images/default_image.jpg'),
 						imageAlt: 'Link',
 						linkTo: '/volunteers',
 						linkText: 'For volunteers'
 					},
 					{
-						imageSrc: require('../../assets/images/junction1.jpg'),
+						imageSrc: require('../../assets/images/default_image.jpg'),
 						imageAlt: 'Link',
 						linkTo: '/calendar',
 						linkText: 'Calendar'
@@ -100,7 +103,8 @@ const mapStateToProps = (state) => ({
 		KEYS.junction2019Body,
 		KEYS.joinCommunity,
 		KEYS.joinCommunityBody
-	])(state)
+	])(state),
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.storyPageHeaderImage)(state)
 })
 
 export default connect(mapStateToProps)(StoryPage)

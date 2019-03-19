@@ -5,10 +5,12 @@ import { connectRouter } from 'connected-react-router'
 import content from './content/reducer'
 import nav from './nav/reducer'
 import staticContent from './static/reducer'
+import media from './media/reducer'
 
 export default (history) => combineReducers({
 	router: connectRouter(history),
 	content,
 	nav,
-	static: staticContent
+	static: staticContent,
+	media
 });

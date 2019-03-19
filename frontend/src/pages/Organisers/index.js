@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
+
+import { connect } from 'react-redux'
 
 import HeaderImage from '../../components/HeaderImage'
 import BlockSection from '../../components/BlockSection/';
@@ -8,15 +10,28 @@ import SingleColumnSection from '../../components/SingleColumnSection/';
 import BorderedSection from '../../components/BorderedSection/';
 import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks'
-
 import Divider from '../../components/Divider'
 
-const OrganisersPage = () => {
+import * as ContentSelectors from '../../redux/content/selectors'
+import * as ContentActions from '../../redux/content/actions'
+import * as MediaSelectors from '../../redux/media/selectors'
+import MEDIA_KEYS from '../../redux/media/keys'
+
+const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage }) => {
+
+	useEffect(() => {
+		if (testimonialsShouldUpdate) {
+			updateTestimonials()
+		}
+	}, [])
+
+	const testimonial = testimonials.length > 0 ? testimonials[0] : null
+	const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null
 
 	return (
 		<div className="OrganisersPage">
 			<HeaderImage
-				src={require('../../assets/images/junction1.jpg')}
+				image={headerImage}
 				alt="Header image"
 				navTitle={'For organisers.'}
 				mainTitle={'Bring JunctionX to your city.'}
@@ -40,34 +55,38 @@ const OrganisersPage = () => {
 				/>
 			</BlockSection>
 			<Divider lg />
-			<ImageBlockSection
-				imageSrc={require('../../assets/images/teemu.png')}
-				imageAlt="Teemu Lemetti"
-				title="Facillisis Pellentesque"
-				subtitle="Helsinki, Finland"
-			>
-				<p>
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-				</p>
-			</ImageBlockSection>
-			<Divider lg />
+			{testimonial ? (
+				<React.Fragment>
+					<ImageBlockSection
+						image={testimonial.image}
+						imageAlt={testimonial.name}
+						title={testimonial.name}
+						subtitle={testimonial.subtitle}
+					>
+						<p>{testimonial.quote}</p>
+					</ImageBlockSection>
+					<Divider lg />
+				</React.Fragment>
+			) : null}
 			<SingleColumnSection title="Why partner with us?">
 				<BorderedSection title="Recruiting" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
 				<BorderedSection title="Creativity" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
 				<BorderedSection title="Recognition" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
 			</SingleColumnSection>
 			<Divider lg />
-			<ImageBlockSection
-				imageSrc={require('../../assets/images/teemu.png')}
-				imageAlt="Teemu Lemetti"
-				title="Facillisis Pellentesque"
-				subtitle="Helsinki, Finland"
-			>
-				<p>
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-				</p>
-			</ImageBlockSection>
-			<Divider lg />
+			{secondTestimonial ? (
+				<React.Fragment>
+					<ImageBlockSection
+						image={secondTestimonial.image}
+						imageAlt={secondTestimonial.name}
+						title={secondTestimonial.name}
+						subtitle={secondTestimonial.subtitle}
+					>
+						<p>{secondTestimonial.quote}</p>
+					</ImageBlockSection>
+					<Divider lg />
+				</React.Fragment>
+			) : null}
 			<BlockSection title="What makes us different?" >
 				<p>
 					Nam tellus tortor, consectetur sed elementum non, consectetur varius libero. Aliquam venenatis lacus luctus, eleifend libero commodo, suscipit nisi. Aliquam erat volutpat. Vivamus dignissim eros quis gravida vulputate. Nam viverra massa ut purus dapibus, eget dapibus eros vulputate. Sed eget erat aliquet, blandit purus venenatis, pulvinar lorem. Aliquam lectus tortor, fermentum non elit aliquet, tristique viverra eros. Sed eget vulputate eros. Aenean congue volutpat neque, scelerisque gravida felis lobortis nec. Duis sed pretium ante, at porttitor risus.
@@ -88,4 +107,14 @@ const OrganisersPage = () => {
 	)
 }
 
-export default OrganisersPage
+const mapStateToProps = (state) => ({
+	testimonials: ContentSelectors.testimonialsOfType('organiser')(state),
+	testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.organiserPageHeaderImage)(state)
+})
+
+const mapDispatchToProps = (dispatch) => ({
+	updateTestimonials: () => dispatch(ContentActions.updateTestimonials())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrganisersPage)

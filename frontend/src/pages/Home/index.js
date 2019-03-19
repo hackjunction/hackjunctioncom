@@ -3,9 +3,11 @@ import './style.scss'
 
 import { connect } from 'react-redux'
 import * as StaticContentSelectors from '../../redux/static/selectors'
+import * as MediaSelectors from '../../redux/media/selectors'
 import KEYS from '../../redux/static/keys'
+import MEDIA_KEYS from '../../redux/media/keys'
 
-import HeaderImage from '../../components/HeaderImage'
+import HeaderVideo from '../../components/HeaderImage/HeaderVideo'
 import BlockSection from '../../components/BlockSection'
 import StatBlocks from '../../components/StatBlocks'
 import LinkGrid from '../../components/LinkGrid'
@@ -13,11 +15,12 @@ import ContactForm from '../../components/ContactForm'
 import Divider from '../../components/Divider'
 import Markdown from '../../components/Markdown'
 
-const HomePage = ({ content }) => {
+const HomePage = ({ content, headerImage }) => {
 
 	return (
 		<div className="HomePage">
-			<HeaderImage src={require('../../assets/images/junction1.jpg')} />
+
+			<HeaderVideo videoSource={content.homePageHeaderVideoLink} posterImage={headerImage} alt="Video" navTitle="Hack the Future." />
 			<BlockSection title={content.whoAreWe} subtitle={content.whoAreWeSubtitle}>
 				<Markdown source={content.whoAreWeBody} />
 				<StatBlocks
@@ -75,8 +78,10 @@ const mapStateToProps = (state) => ({
 		KEYS.whatWeDoBody,
 		KEYS.whatWeDoSubtitle,
 		KEYS.joinCommunity,
-		KEYS.joinCommunityBody
+		KEYS.joinCommunityBody,
+		KEYS.homePageHeaderVideoLink,
 	])(state),
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.homePageHeaderImage)(state)
 })
 
 export default connect(mapStateToProps)(HomePage)

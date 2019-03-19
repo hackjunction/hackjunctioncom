@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@u-wave/react-vimeo": "^0.6.0",
     "axios": "^0.18.0",
+    "cloudinary-react": "^1.1.0",
     "connected-react-router": "^6.3.2",
     "history": "^4.7.2",
     "lodash": "^4.17.11",

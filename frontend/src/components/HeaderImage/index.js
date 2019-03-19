@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import './style.scss'
 
+import Image from '../Image'
 
-
-const HeaderImage = ({ src, alt, title, body, navTitle, mainTitle, bodyText }) => {
+const HeaderImage = ({ image, alt, title, body, navTitle, mainTitle, bodyText }) => {
 
 	const [imageLoaded, setImageLoaded] = useState(false)
 
@@ -13,7 +13,7 @@ const HeaderImage = ({ src, alt, title, body, navTitle, mainTitle, bodyText }) =
 
 	return (
 		<div className={`HeaderImage ${imageLoaded ? 'HeaderImage-loaded' : ''}`}>
-			{src ? <img className="HeaderImage--img" src={src} alt={alt} onLoad={handleLoad} /> : null}
+			<Image image={image} width={1920} height={900} alt={alt} className="HeaderImage--img" onLoad={handleLoad} />
 			<img className="HeaderImage--wave-overlay" src={require('../../assets/misc/wave-ltr.png')} alt="Wave overlay" />
 			{navTitle ? <h1 className="HeaderImage--nav-title">{navTitle}</h1> : null}
 			<div className="HeaderImage--main-content">
