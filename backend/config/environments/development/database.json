@@ -4,14 +4,14 @@
     "default": {
       "connector": "strapi-hook-mongoose",
       "settings": {
-        "uri": "${process.env.MONGODB_URI}",
         "client": "mongo",
-        "host": "",
-        "port": "",
-        "database": "",
+        "host": "127.0.0.1",
+        "port": 27017,
+        "database": "backend",
         "username": "",
         "password": ""
-      }
+      },
+      "options": {}
     }
   }
 }
