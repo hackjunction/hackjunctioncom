@@ -1,0 +1,55 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "eventconcept",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "events": {
+      "collection": "event",
+      "via": "eventconcept"
+    },
+    "timedescription": {
+      "default": "",
+      "type": "string"
+    },
+    "locationdescription": {
+      "default": "",
+      "type": "string"
+    },
+    "shortdescription": {
+      "default": "",
+      "type": "text"
+    },
+    "longdescription": {
+      "default": "",
+      "type": "text"
+    },
+    "eventcategory": {
+      "model": "eventcategory",
+      "via": "eventconcepts"
+    },
+    "slug": {
+      "default": "",
+      "type": "string"
+    },
+    "punchline": {
+      "default": "",
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/eventconcepts",
+      "handler": "Eventconcept.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/eventconcepts/count",
+      "handler": "Eventconcept.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/eventconcepts/:_id",
+      "handler": "Eventconcept.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/eventconcepts",
+      "handler": "Eventconcept.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/eventconcepts/:_id",
+      "handler": "Eventconcept.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/eventconcepts/:_id",
+      "handler": "Eventconcept.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

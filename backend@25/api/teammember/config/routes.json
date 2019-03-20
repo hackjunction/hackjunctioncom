@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/teammembers",
+      "handler": "Teammember.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/teammembers/count",
+      "handler": "Teammember.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/teammembers/:_id",
+      "handler": "Teammember.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/teammembers",
+      "handler": "Teammember.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/teammembers/:_id",
+      "handler": "Teammember.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/teammembers/:_id",
+      "handler": "Teammember.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
