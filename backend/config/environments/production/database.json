@@ -5,12 +5,9 @@
       "connector": "strapi-hook-mongoose",
       "settings": {
         "client": "mongo",
-        "uri": "${process.env.MONGODB_URI || ''}"
+        "uri": "${process.env.MONGODB_URI}"
       },
-      "options": {
-        "ssl": "${process.env.DATABASE_SSL || false}",
-        "authenticationDatabase": "${process.env.DATABASE_AUTHENTICATION_DATABASE || ''}"
-      }
+      "options": {}
     }
   }
 }

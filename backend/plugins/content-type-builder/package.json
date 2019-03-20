@@ -21,7 +21,7 @@
   "_resolved": "https://registry.npmjs.org/strapi-plugin-content-type-builder/-/strapi-plugin-content-type-builder-3.0.0-alpha.25.tgz",
   "_shasum": "2baeb78ba9adc3be84f33de51b685552c0f02b7e",
   "_spec": "strapi-plugin-content-type-builder@3.0.0-alpha.25",
-  "_where": "/Users/juuso/hackjunction/strapiAlpha25",
+  "_where": "/Users/juuso/hackjunction/hackjunctioncom/backend@25",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",

@@ -21,7 +21,7 @@
   "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-alpha.25.tgz",
   "_shasum": "96ba2c1682b8c613f9de4a0c1d4d3210d0dafbda",
   "_spec": "strapi-plugin-content-manager@3.0.0-alpha.25",
-  "_where": "/Users/juuso/hackjunction/strapiAlpha25",
+  "_where": "/Users/juuso/hackjunction/hackjunctioncom/backend@25",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",

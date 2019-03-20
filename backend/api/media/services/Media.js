@@ -64,7 +64,7 @@ module.exports = {
     const filters = strapi.utils.models.convertParams('media', params);
 
     return Media
-      .count()
+      .countDocuments()
       .where(filters.where);
   },
 
@@ -98,7 +98,7 @@ module.exports = {
     const data = _.omit(values, Media.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Media.update(params, data, { multi: true });
+    const entry = await Media.updateOne(params, data, { multi: true });
 
     // Update relational data and return the entry.
     return Media.updateRelations(Object.assign(params, { values: relations }));

@@ -1,9 +1,9 @@
 {
   "connection": "default",
-  "collectionName": "testimonial",
+  "collectionName": "",
   "info": {
     "name": "testimonial",
-    "description": "Testimonials from volunteers, partners, etc"
+    "description": ""
   },
   "options": {
     "timestamps": true

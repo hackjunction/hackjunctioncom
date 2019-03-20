@@ -21,7 +21,7 @@
   "_resolved": "https://registry.npmjs.org/strapi-plugin-users-permissions/-/strapi-plugin-users-permissions-3.0.0-alpha.25.tgz",
   "_shasum": "6a2079e494a88d7c295d7c1544ca38dcf8d69d0b",
   "_spec": "strapi-plugin-users-permissions@3.0.0-alpha.25",
-  "_where": "/Users/juuso/hackjunction/strapiAlpha25",
+  "_where": "/Users/juuso/hackjunction/hackjunctioncom/backend@25",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",

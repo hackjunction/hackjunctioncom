@@ -1,9 +1,9 @@
 {
   "connection": "default",
-  "collectionName": "teammember",
+  "collectionName": "",
   "info": {
     "name": "teammember",
-    "description": "Team members with a name, email, title, etc."
+    "description": ""
   },
   "options": {
     "timestamps": true

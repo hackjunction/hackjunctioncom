@@ -103,8 +103,7 @@ node_modules
 testApp
 coverage
 
-
 ############################
-# Custom
+# Frontend build
 ############################
-/build
+build/

@@ -1,9 +1,9 @@
 {
   "connection": "default",
-  "collectionName": "event",
+  "collectionName": "",
   "info": {
     "name": "event",
-    "description": "Singular events with a name, date, location, etc."
+    "description": ""
   },
   "options": {
     "timestamps": true
@@ -11,13 +11,11 @@
   "attributes": {
     "name": {
       "default": "",
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "begins": {
       "default": "",
-      "type": "date",
-      "required": true
+      "type": "date"
     },
     "ends": {
       "default": "",
@@ -31,38 +29,23 @@
     },
     "shortDescription": {
       "default": "",
-      "maxLength": 400,
-      "minLength": 50,
-      "type": "text",
-      "required": true
+      "type": "text"
     },
     "linkToEventSite": {
       "default": "",
       "type": "string"
     },
-    "latitude": {
-      "default": "",
-      "type": "decimal"
-    },
-    "longitude": {
-      "default": "",
-      "type": "decimal"
-    },
     "linkToTickets": {
+      "default": "",
+      "type": "string"
+    },
+    "locationDescription": {
       "default": "",
       "type": "string"
     },
     "eventconcept": {
       "model": "eventconcept",
       "via": "events"
-    },
-    "eventcategory": {
-      "model": "eventcategory",
-      "via": "events"
-    },
-    "locationdescription": {
-      "default": "",
-      "type": "string"
     }
   }
 }

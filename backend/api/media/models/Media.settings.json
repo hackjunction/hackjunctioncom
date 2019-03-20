@@ -3,7 +3,7 @@
   "collectionName": "media",
   "info": {
     "name": "media",
-    "description": "Static images & videos on the site "
+    "description": ""
   },
   "options": {
     "timestamps": true
@@ -12,6 +12,7 @@
     "key": {
       "default": "",
       "type": "enumeration",
+      "required": true,
       "enum": [
         "homePageHeaderImage",
         "\npartnerPageHeaderImage",
@@ -26,7 +27,6 @@
         "\nnotFoundPageHeaderImage",
         ""
       ],
-      "required": true,
       "unique": true
     },
     "media": {

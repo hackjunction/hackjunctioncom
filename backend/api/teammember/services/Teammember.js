@@ -64,7 +64,7 @@ module.exports = {
     const filters = strapi.utils.models.convertParams('teammember', params);
 
     return Teammember
-      .count()
+      .countDocuments()
       .where(filters.where);
   },
 
@@ -98,7 +98,7 @@ module.exports = {
     const data = _.omit(values, Teammember.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Teammember.update(params, data, { multi: true });
+    const entry = await Teammember.updateOne(params, data, { multi: true });
 
     // Update relational data and return the entry.
     return Teammember.updateRelations(Object.assign(params, { values: relations }));

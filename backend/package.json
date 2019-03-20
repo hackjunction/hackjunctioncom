@@ -16,14 +16,13 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-react": "^7.7.0",
-    "nodemon": "^1.18.9"
+    "eslint-plugin-react": "^7.7.0"
   },
   "dependencies": {
     "koa-static": "^5.0.0",
     "lodash": "^4.17.5",
-    "strapi": "^3.0.0-alpha.25",
-    "strapi-hook-mongoose": "^3.0.0-alpha.25"
+    "strapi": "3.0.0-alpha.25",
+    "strapi-hook-mongoose": "3.0.0-alpha.25"
   },
   "author": {
     "name": "juuso",
@@ -39,7 +38,7 @@
   ],
   "strapi": {
     "packageManager": "npm",
-    "uuid": "a640da51-7142-4add-981b-a4500330533c"
+    "uuid": "0b26aee1-4603-4035-97f0-9e5c83d3157d"
   },
   "engines": {
     "node": ">= 10.0.0",

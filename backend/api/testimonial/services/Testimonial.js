@@ -64,7 +64,7 @@ module.exports = {
     const filters = strapi.utils.models.convertParams('testimonial', params);
 
     return Testimonial
-      .count()
+      .countDocuments()
       .where(filters.where);
   },
 
@@ -98,7 +98,7 @@ module.exports = {
     const data = _.omit(values, Testimonial.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Testimonial.update(params, data, { multi: true });
+    const entry = await Testimonial.updateOne(params, data, { multi: true });
 
     // Update relational data and return the entry.
     return Testimonial.updateRelations(Object.assign(params, { values: relations }));

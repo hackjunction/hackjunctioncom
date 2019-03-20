@@ -64,7 +64,7 @@ module.exports = {
     const filters = strapi.utils.models.convertParams('eventcategory', params);
 
     return Eventcategory
-      .count()
+      .countDocuments()
       .where(filters.where);
   },
 
@@ -98,7 +98,7 @@ module.exports = {
     const data = _.omit(values, Eventcategory.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Eventcategory.update(params, data, { multi: true });
+    const entry = await Eventcategory.updateOne(params, data, { multi: true });
 
     // Update relational data and return the entry.
     return Eventcategory.updateRelations(Object.assign(params, { values: relations }));

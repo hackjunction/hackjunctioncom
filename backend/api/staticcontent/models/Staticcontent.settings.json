@@ -1,14 +1,18 @@
 {
   "connection": "default",
-  "collectionName": "staticcontent",
+  "collectionName": "",
   "info": {
     "name": "staticcontent",
-    "description": "Miscellaneous static content "
+    "description": ""
   },
   "options": {
     "timestamps": true
   },
   "attributes": {
+    "content": {
+      "default": "",
+      "type": "text"
+    },
     "key": {
       "enum": [
         "siteSlogan",
@@ -87,10 +91,6 @@
       "unique": true,
       "type": "enumeration",
       "required": true
-    },
-    "content": {
-      "default": "",
-      "type": "text"
     }
   }
 }

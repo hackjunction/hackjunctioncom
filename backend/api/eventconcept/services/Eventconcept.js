@@ -64,7 +64,7 @@ module.exports = {
     const filters = strapi.utils.models.convertParams('eventconcept', params);
 
     return Eventconcept
-      .count()
+      .countDocuments()
       .where(filters.where);
   },
 
@@ -98,7 +98,7 @@ module.exports = {
     const data = _.omit(values, Eventconcept.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Eventconcept.update(params, data, { multi: true });
+    const entry = await Eventconcept.updateOne(params, data, { multi: true });
 
     // Update relational data and return the entry.
     return Eventconcept.updateRelations(Object.assign(params, { values: relations }));
