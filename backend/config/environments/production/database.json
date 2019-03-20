@@ -7,7 +7,9 @@
         "client": "mongo",
         "uri": "${process.env.MONGODB_URI}"
       },
-      "options": {}
+      "options": {
+        "ssl": true
+      }
     }
   }
 }
