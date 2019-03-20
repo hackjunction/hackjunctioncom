@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/contactrequests",
+      "path": "/api/contactrequests",
       "handler": "Contactrequest.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/contactrequests/count",
+      "path": "/api/contactrequests/count",
       "handler": "Contactrequest.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/contactrequests/:_id",
+      "path": "/api/contactrequests/:_id",
       "handler": "Contactrequest.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/contactrequests",
+      "path": "/api/contactrequests",
       "handler": "Contactrequest.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/contactrequests/:_id",
+      "path": "/api/contactrequests/:_id",
       "handler": "Contactrequest.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/contactrequests/:_id",
+      "path": "/api/contactrequests/:_id",
       "handler": "Contactrequest.destroy",
       "config": {
         "policies": []

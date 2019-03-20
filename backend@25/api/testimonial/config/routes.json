@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/testimonials",
+      "path": "/api/testimonials",
       "handler": "Testimonial.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/testimonials/count",
+      "path": "/api/testimonials/count",
       "handler": "Testimonial.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/testimonials/:_id",
+      "path": "/api/testimonials/:_id",
       "handler": "Testimonial.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/testimonials",
+      "path": "/api/testimonials",
       "handler": "Testimonial.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/testimonials/:_id",
+      "path": "/api/testimonials/:_id",
       "handler": "Testimonial.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/testimonials/:_id",
+      "path": "/api/testimonials/:_id",
       "handler": "Testimonial.destroy",
       "config": {
         "policies": []

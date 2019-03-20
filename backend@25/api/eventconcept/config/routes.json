@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/eventconcepts",
+      "path": "/api/eventconcepts",
       "handler": "Eventconcept.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/eventconcepts/count",
+      "path": "/api/eventconcepts/count",
       "handler": "Eventconcept.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/eventconcepts/:_id",
+      "path": "/api/eventconcepts/:_id",
       "handler": "Eventconcept.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/eventconcepts",
+      "path": "/api/eventconcepts",
       "handler": "Eventconcept.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/eventconcepts/:_id",
+      "path": "/api/eventconcepts/:_id",
       "handler": "Eventconcept.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/eventconcepts/:_id",
+      "path": "/api/eventconcepts/:_id",
       "handler": "Eventconcept.destroy",
       "config": {
         "policies": []

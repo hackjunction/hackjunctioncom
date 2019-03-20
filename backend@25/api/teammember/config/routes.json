@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/teammembers",
+      "path": "/api/teammembers",
       "handler": "Teammember.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/teammembers/count",
+      "path": "/api/teammembers/count",
       "handler": "Teammember.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/teammembers/:_id",
+      "path": "/api/teammembers/:_id",
       "handler": "Teammember.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/teammembers",
+      "path": "/api/teammembers",
       "handler": "Teammember.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/teammembers/:_id",
+      "path": "/api/teammembers/:_id",
       "handler": "Teammember.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/teammembers/:_id",
+      "path": "/api/teammembers/:_id",
       "handler": "Teammember.destroy",
       "config": {
         "policies": []

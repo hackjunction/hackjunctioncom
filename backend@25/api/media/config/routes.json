@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/media",
+      "path": "/api/media",
       "handler": "Media.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/media/count",
+      "path": "/api/media/count",
       "handler": "Media.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/media/:_id",
+      "path": "/api/media/:_id",
       "handler": "Media.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/media",
+      "path": "/api/media",
       "handler": "Media.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/media/:_id",
+      "path": "/api/media/:_id",
       "handler": "Media.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/media/:_id",
+      "path": "/api/media/:_id",
       "handler": "Media.destroy",
       "config": {
         "policies": []

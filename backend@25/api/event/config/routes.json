@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/events",
+      "path": "/api/events",
       "handler": "Event.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/events/count",
+      "path": "/api/events/count",
       "handler": "Event.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/events/:_id",
+      "path": "/api/events/:_id",
       "handler": "Event.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/events",
+      "path": "/api/events",
       "handler": "Event.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/events/:_id",
+      "path": "/api/events/:_id",
       "handler": "Event.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/events/:_id",
+      "path": "/api/events/:_id",
       "handler": "Event.destroy",
       "config": {
         "policies": []
