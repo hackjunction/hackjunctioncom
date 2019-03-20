@@ -11,7 +11,7 @@
 process.chdir(__dirname);
 
 (() => {
-  require('dotenv').config()
   const strapi = require('strapi');
+  strapi.app.use(require('koa-static')('./build'));
   strapi.start();
 })();
