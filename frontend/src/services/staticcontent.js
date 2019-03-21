@@ -1,19 +1,20 @@
 import axios from 'axios'
+import BASE_URL from './baseUrl'
 
-const BASE_URL = '/api/staticcontents'
+const URL = BASE_URL + '/api/staticcontents'
 
 const StaticContentService = {
 
 	count: () => {
-		return axios.get(`${BASE_URL}/count`).then(res => res.data)
+		return axios.get(`${URL}/count`).then(res => res.data)
 	},
 
 	getAll: () => {
-		return axios.get(BASE_URL).then(res => res.data)
+		return axios.get(URL).then(res => res.data)
 	},
 
 	getOne: (id) => {
-		return axios.get(`${BASE_URL}/${id}`).then(res => res.data)
+		return axios.get(`${URL}/${id}`).then(res => res.data)
 	}
 }
 
