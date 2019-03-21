@@ -8,7 +8,7 @@
     "setup": "npm install -g yarn && yarn install && cd backend && yarn install && cd ../frontend && yarn install && cd ..",
     "dev": "concurrently --kill-others \"npm run frontend\" \"npm run backend\"",
     "backend": "cd backend && strapi start",
-    "frontend": "cd frontend && npm run start",
+    "frontend": "cd frontend && yarn dev",
     "build": "cd backend && npm install && npm run setup",
     "heroku-prebuild": "cd backend && npm install",
     "heroku-postbuild": "cd frontend && npm install && npm install --only=dev --no-shrinkwrap && npm run build",

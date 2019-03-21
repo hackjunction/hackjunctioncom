@@ -17,7 +17,7 @@ const EventCalendar = ({ events, eventsWithFilters, loading, error, updateEvents
 		if (shouldUpdate && !loading) {
 			updateEvents()
 		}
-	})
+	}, [])
 
 	function renderEvents() {
 		const filtered = eventsWithFilters(concept, category)

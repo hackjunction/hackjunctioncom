@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
+import ReactPixel from 'react-facebook-pixel';
 
 import * as ContentActions from './redux/content/actions'
 import * as ContentSelectors from './redux/content/selectors'
@@ -29,6 +29,9 @@ class GlobalLifecycle extends React.Component {
 		if (this.props.mediaShouldUpdate) {
 			this.props.updateMedia()
 		}
+
+		ReactPixel.init('1999365573713460', {}, { autoConfig: true, debug: false })
+		ReactPixel.pageView()
 	}
 
 	render() {
