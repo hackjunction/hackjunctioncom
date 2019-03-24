@@ -18,6 +18,8 @@ import ContactForm from '../../components/ContactForm'
 import Divider from '../../components/Divider'
 import Markdown from '../../components/Markdown'
 
+import Page from '../PageHOC'
+
 const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage }) => {
 
 	useEffect(() => {
@@ -36,7 +38,7 @@ const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, upd
 	if (content.howToJoinStepFive) howToJoinItems.push(content.howToJoinStepFive)
 
 	return (
-		<div className="ParticipantsPage">
+		<Page className="ParticipantsPage" pageTitle="For participants">
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"
@@ -71,7 +73,7 @@ const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, upd
 				<ContactForm />
 			</BlockSection>
 			<Divider lg />
-		</div>
+		</Page>
 	)
 }
 

@@ -10,6 +10,8 @@ import HeaderImage from '../../components/HeaderImage'
 import EventCalendar from '../../components/EventCalendar'
 import Divider from '../../components/Divider'
 
+import Page from '../PageHOC'
+
 import * as ContentSelectors from '../../redux/content/selectors'
 import * as ContentActions from '../../redux/content/actions'
 
@@ -38,7 +40,7 @@ const ConceptPage = ({ match, shouldUpdate, updateConcepts, loading, error, getC
 	}
 
 	return (
-		<div className="ConceptPage">
+		<Page className="ConceptPage" pageTitle={concept.name}>
 			<HeaderImage
 				src={require('../../assets/images/default_image.jpg')}
 				alt="Header image"
@@ -48,7 +50,7 @@ const ConceptPage = ({ match, shouldUpdate, updateConcepts, loading, error, getC
 			/>
 			<EventCalendar concept={concept.slug} />
 			<Divider lg />
-		</div>
+		</Page>
 	)
 }
 

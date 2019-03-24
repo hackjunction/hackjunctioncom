@@ -17,11 +17,13 @@ import Markdown from '../../components/Markdown'
 
 import Divider from '../../components/Divider'
 
+import Page from '../PageHOC'
+
 
 const StoryPage = ({ content, headerImage }) => {
 
 	return (
-		<div className="StoryPage">
+		<Page className="StoryPage" pageTitle="Our story">
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"
@@ -84,7 +86,7 @@ const StoryPage = ({ content, headerImage }) => {
 					}
 				]}
 			/>
-		</div>
+		</Page>
 	)
 }
 

@@ -11,9 +11,11 @@ import HeaderImage from '../../components/HeaderImage'
 import EventCalendar from '../../components/EventCalendar'
 import Divider from '../../components/Divider'
 
+import Page from '../PageHOC'
+
 const CalendarPage = ({ content, headerImage }) => {
 	return (
-		<div className="CalendarPage">
+		<Page className="CalendarPage" pageTitle="Calendar">
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"
@@ -23,7 +25,7 @@ const CalendarPage = ({ content, headerImage }) => {
 			/>
 			<EventCalendar />
 			<Divider lg />
-		</div>
+		</Page>
 	)
 }
 

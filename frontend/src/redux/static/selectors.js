@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect'
 import _ from 'lodash'
+import config from '../../services/config'
 
 const CONTENT_UPDATE_INTERVAL = 0 //5 * 60 * 1000 //5 minutes
 
@@ -23,7 +24,7 @@ export const objectWithKeys = (selectKeys = []) => createSelector(
 		_.each(selectKeys, selectKey => {
 			if (typeof selectKey == 'undefined') throw new Error('Trying to get undefined content key')
 			const item = _.find(data, ({ key, content }) => key.trim() === selectKey)
-			res[selectKey] = item ? item.content : null
+			res[selectKey] = item ? item.content : (config.IS_DEBUG ? `{${selectKey}}` : null)
 		})
 
 		return res

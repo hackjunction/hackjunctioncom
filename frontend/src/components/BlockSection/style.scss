@@ -30,6 +30,7 @@
 			margin: 0;
 			font-size: 40px;
 			text-align: center;
+			word-break: break-word;
 
 			@include bp-full {
 				text-align: left;

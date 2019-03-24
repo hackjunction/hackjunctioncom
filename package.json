@@ -5,13 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "setup": "npm install -g yarn && yarn install && cd backend && yarn install && cd ../frontend && yarn install && cd ..",
-    "dev": "concurrently --kill-others \"npm run frontend\" \"npm run backend\"",
-    "start": "node server.js",
-    "backend": "cd backend && strapi start",
-    "frontend": "cd frontend && yarn dev",
-    "build": "cd backend && npm install && npm run setup",
-    "heroku-postbuild": "cd frontend && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "setup": "npm install -g yarn && yarn install && cd backend && npm install && cd ../frontend && yarn install && cd ..",
+    "dev": "concurrently --kill-others \"npm run dev-frontend\" \"npm run dev-backend\"",
+    "dev-backend": "cd backend && strapi start",
+    "dev-frontend": "cd frontend && yarn start",
+    "heroku-postbuild": "cd frontend && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "start": "node server.js"
   },
   "author": "Juuso Lappalainen",
   "license": "ISC",

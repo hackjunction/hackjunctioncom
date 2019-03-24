@@ -17,6 +17,8 @@ import Divider from '../../components/Divider'
 import ContactForm from '../../components/ContactForm'
 import Markdown from '../../components/Markdown'
 
+import Page from '../PageHOC'
+
 
 const VolunteersPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage }) => {
 
@@ -29,7 +31,7 @@ const VolunteersPage = ({ content, testimonials, testimonialsShouldUpdate, updat
 	const testimonial = testimonials.length > 0 ? testimonials[0] : null
 
 	return (
-		<div className="VolunteersPage">
+		<Page className="VolunteersPage" pageTitle="For volunteers">
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"
@@ -58,7 +60,7 @@ const VolunteersPage = ({ content, testimonials, testimonialsShouldUpdate, updat
 				<ContactForm />
 			</BlockSection>
 			<Divider lg />
-		</div>
+		</Page>
 	)
 }
 

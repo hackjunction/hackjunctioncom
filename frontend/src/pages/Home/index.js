@@ -15,11 +15,12 @@ import ContactForm from '../../components/ContactForm'
 import Divider from '../../components/Divider'
 import Markdown from '../../components/Markdown'
 
+import Page from '../PageHOC'
+
 const HomePage = ({ content, headerImage }) => {
 
 	return (
-		<div className="HomePage">
-
+		<Page className="HomePage" pageTitle="Hack the Future">
 			<HeaderVideo videoSource={content.homePageHeaderVideoLink} posterImage={headerImage} alt="Video" navTitle="Hack the Future." />
 			<BlockSection title={content.whoAreWe} subtitle={content.whoAreWeSubtitle}>
 				<Markdown source={content.whoAreWeBody} />
@@ -65,7 +66,7 @@ const HomePage = ({ content, headerImage }) => {
 				<ContactForm />
 			</BlockSection>
 			<Divider lg />
-		</div>
+		</Page>
 	)
 }
 

@@ -12,6 +12,8 @@ import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks'
 import Divider from '../../components/Divider'
 
+import Page from '../PageHOC'
+
 import * as ContentSelectors from '../../redux/content/selectors'
 import * as ContentActions from '../../redux/content/actions'
 import * as MediaSelectors from '../../redux/media/selectors'
@@ -29,7 +31,7 @@ const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimon
 	const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null
 
 	return (
-		<div className="OrganisersPage">
+		<Page className="OrganisersPage" pageTitle="For organisers">
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"
@@ -103,7 +105,7 @@ const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimon
 				<ContactForm />
 			</BlockSection>
 			<Divider lg />
-		</div>
+		</Page>
 	)
 }
 

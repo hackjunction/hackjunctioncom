@@ -21,6 +21,8 @@ import StatBlocks from '../../components/StatBlocks'
 import Divider from '../../components/Divider'
 import Markdown from '../../components/Markdown'
 
+import Page from '../PageHOC'
+
 const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage }) => {
 
 	useEffect(() => {
@@ -33,7 +35,7 @@ const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateT
 	const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null
 
 	return (
-		<div className="PartnersPage">
+		<Page className="PartnersPage" pageTitle="For partners">
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"
@@ -101,7 +103,7 @@ const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateT
 				<ContactForm />
 			</BlockSection>
 			<Divider lg />
-		</div>
+		</Page>
 	)
 }
 

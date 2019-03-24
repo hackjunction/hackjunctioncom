@@ -7,6 +7,8 @@ import HeaderImage from '../../components/HeaderImage'
 import BlockSection from '../../components/BlockSection'
 import Divider from '../../components/Divider'
 
+import Page from '../PageHOC'
+
 import * as ContentSelectors from '../../redux/content/selectors'
 import * as StaticContentSelectors from '../../redux/static/selectors'
 import * as MediaSelectors from '../../redux/media/selectors'
@@ -63,7 +65,7 @@ const ConceptsPage = ({ eventconcepts, loading, content, headerImage }) => {
 
 
 	return (
-		< div className="ConceptsPage" >
+		<Page className="ConceptsPage" pageTitle="Concepts">
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"
@@ -74,7 +76,7 @@ const ConceptsPage = ({ eventconcepts, loading, content, headerImage }) => {
 			<Divider lg />
 			{renderConcepts()}
 			<Divider lg />
-		</div >
+		</Page>
 	)
 }
 

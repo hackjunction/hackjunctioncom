@@ -13,7 +13,6 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts }) => {
 
 
 	function renderConceptLinks() {
-		console.log('CONCEPTS', eventConcepts)
 		return eventConcepts.map(concept => {
 			return <Link key={concept.slug} className="NavMenu--inner__menu-item" to={`/concepts/${concept.slug}`}>{concept.name}</Link>
 		})

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Image as CloudinaryImage } from 'cloudinary-react'
 
-
 const Image = ({ image = {}, alt, className, width, height, crop = 'fill', gravity = 'center', onLoad }) => {
 
 	if (image !== null && image.public_id) {

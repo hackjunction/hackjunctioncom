@@ -8,6 +8,8 @@ import BlockSection from '../../components/BlockSection'
 import ContactForm from '../../components/ContactForm'
 import Divider from '../../components/Divider'
 
+import Page from '../PageHOC'
+
 import * as StaticContentSelectors from '../../redux/static/selectors'
 import * as ContentSelectors from '../../redux/content/selectors'
 import * as ContentActions from '../../redux/content/actions'
@@ -24,7 +26,7 @@ const TeamPage = ({ content, teamMembers, shouldUpdate, updateTeamMembers, heade
 	}, [])
 
 	return (
-		<div className="TeamPage">
+		<Page className="TeamPage" pageTitle="Team">
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"
@@ -38,7 +40,7 @@ const TeamPage = ({ content, teamMembers, shouldUpdate, updateTeamMembers, heade
 				<ContactForm />
 			</BlockSection>
 			<Divider lg />
-		</div>
+		</Page>
 	)
 }
 
