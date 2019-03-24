@@ -20,7 +20,11 @@ import Page from '../PageHOC'
 const HomePage = ({ content, headerImage }) => {
 
 	return (
-		<Page className="HomePage" pageTitle="Hack the Future">
+		<Page
+			className="HomePage"
+			pageTitle="Hack the Future"
+			metaDesc={content.whoAreWeBody}
+		>
 			<HeaderVideo videoSource={content.homePageHeaderVideoLink} posterImage={headerImage} alt="Video" navTitle="Hack the Future." />
 			<BlockSection title={content.whoAreWe} subtitle={content.whoAreWeSubtitle}>
 				<Markdown source={content.whoAreWeBody} />
