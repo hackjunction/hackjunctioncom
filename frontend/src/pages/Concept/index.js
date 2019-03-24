@@ -40,7 +40,11 @@ const ConceptPage = ({ match, shouldUpdate, updateConcepts, loading, error, getC
 	}
 
 	return (
-		<Page className="ConceptPage" pageTitle={concept.name}>
+		<Page
+			className="ConceptPage"
+			pageTitle={concept.name}
+			metaDesc={concept.shortDescription}
+		>
 			<HeaderImage
 				src={require('../../assets/images/default_image.jpg')}
 				alt="Header image"

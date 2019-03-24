@@ -65,7 +65,11 @@ const ConceptsPage = ({ eventconcepts, loading, content, headerImage }) => {
 
 
 	return (
-		<Page className="ConceptsPage" pageTitle="Concepts">
+		<Page
+			className="ConceptsPage"
+			pageTitle="Concepts"
+			metaDesc={content.conceptsPageSubtitle}
+		>
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"

@@ -35,7 +35,11 @@ const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateT
 	const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null
 
 	return (
-		<Page className="PartnersPage" pageTitle="For partners">
+		<Page
+			className="PartnersPage"
+			pageTitle="For partners"
+			metaDesc={content.partnersPageSubtitle}
+		>
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"

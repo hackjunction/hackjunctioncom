@@ -15,7 +15,10 @@ import Page from '../PageHOC'
 
 const CalendarPage = ({ content, headerImage }) => {
 	return (
-		<Page className="CalendarPage" pageTitle="Calendar">
+		<Page
+			className="CalendarPage"
+			pageTitle="Calendar"
+			metaDesc={content.calendarPageSubtitle}>
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"

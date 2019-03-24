@@ -23,7 +23,11 @@ import Page from '../PageHOC'
 const StoryPage = ({ content, headerImage }) => {
 
 	return (
-		<Page className="StoryPage" pageTitle="Our story">
+		<Page
+			className="StoryPage"
+			pageTitle="Our story"
+			metaDesc={content.storyPageSubtitle}
+		>
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"

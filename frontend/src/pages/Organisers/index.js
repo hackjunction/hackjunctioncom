@@ -31,7 +31,11 @@ const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimon
 	const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null
 
 	return (
-		<Page className="OrganisersPage" pageTitle="For organisers">
+		<Page
+			className="OrganisersPage"
+			pageTitle="For organisers"
+			metaDesc={''}
+		>
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"

@@ -38,7 +38,11 @@ const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, upd
 	if (content.howToJoinStepFive) howToJoinItems.push(content.howToJoinStepFive)
 
 	return (
-		<Page className="ParticipantsPage" pageTitle="For participants">
+		<Page
+			className="ParticipantsPage"
+			pageTitle="For participants"
+			metaDesc={content.participantsPageSubtitle}
+		>
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"

@@ -31,7 +31,11 @@ const VolunteersPage = ({ content, testimonials, testimonialsShouldUpdate, updat
 	const testimonial = testimonials.length > 0 ? testimonials[0] : null
 
 	return (
-		<Page className="VolunteersPage" pageTitle="For volunteers">
+		<Page
+			className="VolunteersPage"
+			pageTitle="For volunteers"
+			metaDesc={content.volunteersPageSubtitle}
+		>
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"

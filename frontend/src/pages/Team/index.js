@@ -26,7 +26,11 @@ const TeamPage = ({ content, teamMembers, shouldUpdate, updateTeamMembers, heade
 	}, [])
 
 	return (
-		<Page className="TeamPage" pageTitle="Team">
+		<Page
+			className="TeamPage"
+			pageTitle="Team"
+			metaDesc={content.teamPageSubtitle}
+		>
 			<HeaderImage
 				image={headerImage}
 				alt="Header image"

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-const PageHOC = ({ className, children, pageTitle }) => {
+const PageHOC = ({ className, children, pageTitle, metaDesc }) => {
 
 	return (
 		<div className={className}>
@@ -10,6 +10,7 @@ const PageHOC = ({ className, children, pageTitle }) => {
 				titleTemplate="Junction | %s"
 			>
 				<title>{pageTitle}</title>
+				{metaDesc ? <meta name="description" content={metaDesc} /> : null}
 			</Helmet>
 			{children}
 		</div>
