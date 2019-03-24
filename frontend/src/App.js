@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <ConnectedRouter history={this.props.history}>
-        <div className="App">
+        <main className="App">
           <Header />
           <div className="App--Main">
             <Switch>
@@ -52,7 +52,7 @@ class App extends Component {
           <Footer />
           <ScrollToTop />
           <GlobalLifecycle />
-        </div>
+        </main>
       </ConnectedRouter>
     );
   }

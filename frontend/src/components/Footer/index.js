@@ -63,7 +63,7 @@ const Footer = ({ content, eventConcepts }) => {
 					/>
 				</div>
 				<div className="FooterInner--separator" />
-				<div className="FooterInner--right">
+				<nav className="FooterInner--right">
 					<div className="FooterInner--right__section">
 						<Link to="/concepts"><h5 className="FooterInner--right__section-title">Concepts</h5></Link>
 						{renderConceptLinks()}
@@ -82,7 +82,7 @@ const Footer = ({ content, eventConcepts }) => {
 						<Link className="FooterInner--right__section-link" to="/privacy">Privacy Policy</Link>
 						<Link className="FooterInner--right__section-link" to="/terms">Terms & Conditions</Link>
 					</div>
-				</div>
+				</nav>
 			</div>
 			<div className="FooterBottom">
 				<span className="FooterBottom--text">Designed and developed with <span role="img" aria-label="love">💕</span> & <span role="img" aria-label="coffee">☕</span> by the amazing Junction Team.</span>

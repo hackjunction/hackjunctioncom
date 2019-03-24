@@ -29,7 +29,7 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts }) => {
 					<Link to="/">
 						<img className="NavMenu--inner__logo" src={require('../../../assets/logos/text_black.png')} alt="Junction text logo" />
 					</Link>
-					<div className="NavMenu--inner__menu">
+					<nav className="NavMenu--inner__menu">
 						<Link to="/"><h6 className="NavMenu--inner__menu-title">Home</h6></Link>
 						<Link className="NavMenu--inner__menu-item" to="/story">Story</Link>
 						<Link className="NavMenu--inner__menu-item" to="/calendar">Calendar</Link>
@@ -45,7 +45,7 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts }) => {
 						<Link className="NavMenu--inner__menu-item" to="/organisers">For organisers</Link>
 
 						<h6 className="NavMenu--inner__menu-title">Contact</h6>
-					</div>
+					</nav>
 				</div>
 			</div>
 		</div>
