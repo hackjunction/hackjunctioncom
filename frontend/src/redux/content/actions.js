@@ -5,6 +5,7 @@ import EventConceptService from '../../services/eventconcepts'
 import TeamMemberService from '../../services/teammembers'
 import TestimonialService from '../../services/testimonials'
 import SocialMediaService from '../../services/socialmedias'
+import KpiService from '../../services/kpis'
 
 /**
  * Events
@@ -103,5 +104,25 @@ export const updateSocialMedias = () => dispatch => {
 	}).catch(error => {
 		console.log('Error in updateSocialMedias', error)
 		dispatch(setSocialMediasError())
+	})
+}
+
+/**
+ * KPI's
+ */
+
+const setKpisLoading = () => dispatch => dispatch({ type: ActionTypes.SET_KPIS_LOADING })
+const setKpisError = () => dispatch => dispatch({ type: ActionTypes.SET_KPIS_ERROR })
+
+export const updateKpis = () => dispatch => {
+	dispatch(setKpisLoading())
+	KpiService.getAll().then(kpis => {
+		dispatch({
+			type: ActionTypes.SET_KPIS,
+			payload: kpis
+		})
+	}).catch(error => {
+		console.log('Error in updateKpis', error)
+		dispatch(setKpisError())
 	})
 }

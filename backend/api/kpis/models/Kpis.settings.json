@@ -1,0 +1,35 @@
+{
+  "connection": "default",
+  "collectionName": "kpis",
+  "info": {
+    "name": "kpis",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "type": {
+      "enum": [
+        "generic",
+        "\nvolunteer",
+        "\npartner",
+        "\norganiser",
+        "\nparticipant",
+        ""
+      ],
+      "default": "",
+      "type": "enumeration"
+    },
+    "label": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "number": {
+      "default": "",
+      "type": "string",
+      "required": true
+    }
+  }
+}

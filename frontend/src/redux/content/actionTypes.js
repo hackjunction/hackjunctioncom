@@ -17,3 +17,7 @@ export const SET_TESTIMONIALS_ERROR = 'content/SET_TESTIMONIALS_ERROR'
 export const SET_SOCIAL_MEDIAS = 'content/SET_SOCIAL_MEDIAS'
 export const SET_SOCIAL_MEDIAS_LOADING = 'content/SET_SOCIAL_MEDIAS_LOADING'
 export const SET_SOCIAL_MEDIAS_ERROR = 'content/SET_SOCIAL_MEDIAS_ERROR'
+
+export const SET_KPIS = 'content/SET_KPIS'
+export const SET_KPIS_LOADING = 'content/SET_KPIS_LOADING'
+export const SET_KPIS_ERROR = 'content/SET_KPIS_ERROR'

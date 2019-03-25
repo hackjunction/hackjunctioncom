@@ -1,198 +1,89 @@
 import * as ActionTypes from './actionTypes'
 
+/* All content has the same state structure, so let's define a generic object for that
+ * instead of duplicating that for each type of content.
+*/
+const initialSubState = {
+	data: [],
+	loading: false,
+	error: false,
+	lastUpdate: 0,
+}
+
 export const initialState = {
-	events: {
-		data: [],
-		loading: false,
-		error: false,
-		lastUpdate: 0,
-	},
-	eventconcepts: {
-		data: [],
-		loading: false,
-		error: false,
-		lastUpdate: 0,
-	},
-	teammembers: {
-		data: [],
-		loading: false,
-		error: false,
-		lastUpdate: 0,
-	},
-	testimonials: {
-		data: [],
-		loading: false,
-		error: false,
-		lastUpdate: 0,
-	},
-	socialmedias: {
-		data: [],
-		loading: false,
-		error: false,
-		lastUpdate: 0,
+	events: initialSubState,
+	eventconcepts: initialSubState,
+	teammembers: initialSubState,
+	testimonials: initialSubState,
+	socialmedias: initialSubState,
+	kpis: initialSubState
+}
+
+/** All content has the same actions (set content, set loading, set error, ...)
+ * so let's define some generic helper functions to perform state updates to them instead
+ * of duplicating the code every time.
+ */
+function setData(state, key, payload) {
+	return {
+		...state,
+		[key]: {
+			...state[key],
+			data: payload,
+			loading: false,
+			lastUpdate: Date.now()
+		}
+	}
+}
+
+function setLoading(state, key) {
+	return {
+		...state,
+		[key]: {
+			...state[key],
+			loading: true,
+			error: false,
+		}
+	}
+}
+
+function setError(state, key) {
+	return {
+		...state,
+		[key]: {
+			...state[key],
+			loading: false,
+			error: true,
+		}
 	}
 }
 
 export default function reducer(state = initialState, action) {
 
 	switch (action.type) {
-		case ActionTypes.SET_EVENTS: {
-			return {
-				...state,
-				events: {
-					...state.events,
-					data: action.payload,
-					loading: false,
-					lastUpdate: Date.now(),
-				}
-			}
-		}
-		case ActionTypes.SET_EVENTS_LOADING: {
-			return {
-				...state,
-				events: {
-					...state.events,
-					loading: true,
-					error: false
-				}
-			}
-		}
-		case ActionTypes.SET_EVENTS_ERROR: {
-			return {
-				...state,
-				events: {
-					...state.events,
-					loading: false,
-					error: true,
-				}
-			}
-		}
+		case ActionTypes.SET_EVENTS: return setData(state, 'events', action.payload)
+		case ActionTypes.SET_EVENTS_LOADING: return setLoading(state, 'events')
+		case ActionTypes.SET_EVENTS_ERROR: return setError(state, 'events')
 
-		case ActionTypes.SET_EVENT_CONCEPTS: {
-			return {
-				...state,
-				eventconcepts: {
-					...state.eventconcepts,
-					data: action.payload,
-					loading: false,
-					lastUpdate: Date.now()
-				}
-			}
-		}
-		case ActionTypes.SET_EVENT_CONCEPTS_LOADING: {
-			return {
-				...state,
-				eventconcepts: {
-					...state.eventconcepts,
-					loading: true,
-					error: false,
-				}
-			}
-		}
-		case ActionTypes.SET_EVENT_CONCEPTS_ERROR: {
-			return {
-				...state,
-				eventconcepts: {
-					...state.eventconcepts,
-					loading: false,
-					error: true,
-				}
-			}
-		}
+		case ActionTypes.SET_EVENT_CONCEPTS: return setData(state, 'eventconcepts', action.payload)
+		case ActionTypes.SET_EVENT_CONCEPTS_LOADING: return setLoading(state, 'eventconcepts')
+		case ActionTypes.SET_EVENT_CONCEPTS_ERROR: return setError(state, 'eventconcepts')
 
-		case ActionTypes.SET_TEAM_MEMBERS: {
-			return {
-				...state,
-				teammembers: {
-					...state.teammembers,
-					loading: false,
-					data: action.payload,
-					lastUpdate: Date.now()
-				}
-			}
-		}
-		case ActionTypes.SET_TEAM_MEMBERS_LOADING: {
-			return {
-				...state,
-				teammembers: {
-					...state.teammembers,
-					loading: true,
-					error: false,
-				}
-			}
-		}
-		case ActionTypes.SET_TEAM_MEMBERS_ERROR: {
-			return {
-				...state,
-				teammembers: {
-					...state.teammembers,
-					loading: false,
-					error: true,
-				}
-			}
-		}
-		case ActionTypes.SET_TESTIMONIALS: {
-			return {
-				...state,
-				testimonials: {
-					...state.testimonials,
-					loading: false,
-					data: action.payload,
-					lastUpdate: Date.now()
-				}
-			}
-		}
-		case ActionTypes.SET_TESTIMONIALS_LOADING: {
-			return {
-				...state,
-				testimonials: {
-					...state.testimonials,
-					loading: true,
-					error: false,
-				}
-			}
-		}
-		case ActionTypes.SET_TESTIMONIALS_ERROR: {
-			return {
-				...state,
-				testimonials: {
-					...state.testimonials,
-					loading: false,
-					error: true,
-				}
-			}
-		}
-		case ActionTypes.SET_SOCIAL_MEDIAS: {
-			return {
-				...state,
-				socialmedias: {
-					...state.socialmedias,
-					loading: false,
-					data: action.payload,
-					lastUpdate: Date.now()
-				}
-			}
-		}
-		case ActionTypes.SET_SOCIAL_MEDIAS_LOADING: {
-			return {
-				...state,
-				socialmedias: {
-					...state.socialmedias,
-					loading: true,
-					error: false,
-				}
-			}
-		}
-		case ActionTypes.SET_SOCIAL_MEDIAS_ERROR: {
-			return {
-				...state,
-				socialmedias: {
-					...state.socialmedias,
-					loading: false,
-					error: true,
-				}
-			}
-		}
+		case ActionTypes.SET_TEAM_MEMBERS: return setData(state, 'teammembers', action.payload)
+		case ActionTypes.SET_TEAM_MEMBERS_LOADING: return setLoading(state, 'teammembers')
+		case ActionTypes.SET_TEAM_MEMBERS_ERROR: return setError(state, 'teammembers')
+
+		case ActionTypes.SET_TESTIMONIALS: return setData(state, 'testimonials', action.payload)
+		case ActionTypes.SET_TESTIMONIALS_LOADING: return setLoading(state, 'testimonials')
+		case ActionTypes.SET_TESTIMONIALS_ERROR: return setError(state, 'testimonials')
+
+		case ActionTypes.SET_SOCIAL_MEDIAS: return setData(state, 'socialmedias', action.payload)
+		case ActionTypes.SET_SOCIAL_MEDIAS_LOADING: return setLoading(state, 'socialmedias')
+		case ActionTypes.SET_SOCIAL_MEDIAS_ERROR: return setError(state, 'socialmedias')
+
+		case ActionTypes.SET_KPIS: return setData(state, 'kpis', action.payload)
+		case ActionTypes.SET_KPIS_LOADING: return setLoading(state, 'kpis')
+		case ActionTypes.SET_KPIS_ERROR: return setError(state, 'kpis')
+
 		default: return state
 	}
 }

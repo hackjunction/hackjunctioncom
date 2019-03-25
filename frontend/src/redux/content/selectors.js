@@ -13,6 +13,7 @@ const EVENT_CONCEPTS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 5 * 60 * 1000 //5 m
 const TEAM_MEMBERS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000 //15 minutes
 const TESTIMONIALS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000 //15 minutes
 const SOCIAL_MEDIAS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000 //15 minutes 
+const KPIS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000 //15 minutes
 
 export const events = state => state.content.events.data
 export const eventsLoading = state => state.content.events.loading
@@ -129,5 +130,24 @@ export const socialMediasShouldUpdate = createSelector(
 	socialmediasUpdated,
 	(updated) => {
 		return Date.now() - updated > SOCIAL_MEDIAS_UPDATE_INTERVAL
+	}
+)
+
+export const kpis = state => state.content.kpis.data
+export const kpisLoading = state => state.content.kpis.loading
+export const kpisError = state => state.content.kpis.error
+export const kpisUpdated = state => state.content.kpis.lastUpdate
+
+export const kpisShouldUpdate = createSelector(
+	kpisUpdated,
+	(updated) => {
+		return Date.now() - updated > KPIS_UPDATE_INTERVAL
+	}
+)
+
+export const kpisOfType = (type) => createSelector(
+	kpis,
+	(kpis) => {
+		return _.filter(kpis, t => t.type === type)
 	}
 )
