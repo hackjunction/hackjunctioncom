@@ -11,7 +11,7 @@ import KEYS from '../../redux/static/keys'
 import SocialMediaIcons from '../SocialMediaIcons';
 import Divider from '../Divider'
 
-const Footer = ({ content, eventConcepts }) => {
+const Footer = ({ content, eventConcepts, socialMedias }) => {
 
 	function renderConceptLinks() {
 		return eventConcepts.map(concept => {
@@ -28,38 +28,7 @@ const Footer = ({ content, eventConcepts }) => {
 					<a className="FooterInner--left__contact" href={`mailto:${content.siteContactEmail}`}>{content.siteContactEmail}</a>
 					<Divider sm />
 					<SocialMediaIcons
-						iconProps={[
-							{
-								alt: 'LinkedIn',
-								imageSrc: require('../../assets/logos/social/linkedin.png'),
-								link: content.linkedinLink,
-							},
-							{
-								alt: 'Youtube',
-								imageSrc: require('../../assets/logos/social/youtube.png'),
-								link: content.youtubeLink,
-							},
-							{
-								alt: 'Facebook',
-								imageSrc: require('../../assets/logos/social/facebook.png'),
-								link: content.facebookLink,
-							},
-							{
-								alt: 'Twitter',
-								imageSrc: require('../../assets/logos/social/twitter.png'),
-								link: content.twitterLink,
-							},
-							{
-								alt: 'Instagram',
-								imageSrc: require('../../assets/logos/social/instagram.png'),
-								link: content.instagramLink,
-							},
-							{
-								alt: 'Medium',
-								imageSrc: require('../../assets/logos/social/linkedin.png'),
-								link: content.mediumLink,
-							}
-						]}
+						data={socialMedias}
 					/>
 				</div>
 				<div className="FooterInner--separator" />
@@ -93,16 +62,11 @@ const Footer = ({ content, eventConcepts }) => {
 
 const mapStateToProps = (state) => ({
 	content: StaticContentSelectors.objectWithKeys([
-		KEYS.linkedinLink,
-		KEYS.youtubeLink,
-		KEYS.facebookLink,
-		KEYS.twitterLink,
-		KEYS.instagramLink,
-		KEYS.mediumLink,
 		KEYS.siteSlogan,
 		KEYS.siteContactEmail,
 	])(state),
 	eventConcepts: ContentSelectors.eventconcepts(state),
+	socialMedias: ContentSelectors.socialmedias(state),
 })
 
 

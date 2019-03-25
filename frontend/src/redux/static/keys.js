@@ -4,14 +4,6 @@ const CONTENT_KEYS = {
 	siteContactEmail: 'siteContactEmail',
 	homePageHeaderVideoLink: 'homePageHeaderVideoLink',
 
-	/* Social */
-	linkedinLink: 'linkedinLink',
-	facebookLink: 'facebookLink',
-	instagramLink: 'instagramLink',
-	mediumLink: 'mediumLink',
-	youtubeLink: 'youtubeLink',
-	twitterLink: 'twitterLink',
-
 	/* Contact form */
 	joinCommunity: 'joinCommunity',
 	joinCommunityBody: 'joinCommunityBody',

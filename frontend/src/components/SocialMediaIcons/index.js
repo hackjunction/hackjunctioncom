@@ -3,12 +3,16 @@ import './style.scss'
 
 import SocialMediaIcon from '../SocialMediaIcon/';
 
-const SocialMediaIcons = ({ iconProps }) => {
+const SocialMediaIcons = ({ data = [] }) => {
 
 	function renderIcons() {
-		return iconProps.map(icon => {
+		return data.map(item => {
 			return (
-				<SocialMediaIcon key={icon.alt + '-' + icon.link} {...icon} />
+				<SocialMediaIcon
+					image={item.icon}
+					alt={item.alt}
+					link={item.link}
+				/>
 			)
 		})
 	}

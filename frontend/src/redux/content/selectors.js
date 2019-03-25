@@ -1,10 +1,18 @@
 import { createSelector } from 'reselect'
 import _ from 'lodash'
+import config from '../../services/config'
 
-const EVENTS_UPDATE_INTERVAL = 0 //5 * 60 * 1000 //5 minutes
-const EVENT_CONCEPTS_UPDATE_INTERVAL = 0 //5 * 60 * 1000 //5 minutes
-const TEAM_MEMBERS_UPDATE_INTERVAL = 0 //5 * 60 * 1000 //15 minutes
-const TESTIMONIALS_UPDATE_INTERVAL = 0 //5 * 60 * 1000 //15 minutes
+
+/* How often to update a given content type?
+ *
+ * If site is being used in DEBUG mode, update always when possible.
+*/
+
+const EVENTS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 5 * 60 * 1000 //5 minutes
+const EVENT_CONCEPTS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 5 * 60 * 1000 //5 minutes
+const TEAM_MEMBERS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000 //15 minutes
+const TESTIMONIALS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000 //15 minutes
+const SOCIAL_MEDIAS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000 //15 minutes 
 
 export const events = state => state.content.events.data
 export const eventsLoading = state => state.content.events.loading
@@ -109,5 +117,17 @@ export const testimonialsOfType = (type) => createSelector(
 	testimonials,
 	(testimonials) => {
 		return _.filter(testimonials, t => t.type === type)
+	}
+)
+
+export const socialmedias = state => state.content.socialmedias.data
+export const socialmediasLoading = state => state.content.socialmedias.loading
+export const socialmediasError = state => state.content.socialmedias.error
+export const socialmediasUpdated = state => state.content.socialmedias.lastUpdate
+
+export const socialMediasShouldUpdate = createSelector(
+	socialmediasUpdated,
+	(updated) => {
+		return Date.now() - updated > SOCIAL_MEDIAS_UPDATE_INTERVAL
 	}
 )

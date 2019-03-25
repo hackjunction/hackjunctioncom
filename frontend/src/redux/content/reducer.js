@@ -23,7 +23,13 @@ export const initialState = {
 		data: [],
 		loading: false,
 		error: false,
-		lastUpdate: 0
+		lastUpdate: 0,
+	},
+	socialmedias: {
+		data: [],
+		loading: false,
+		error: false,
+		lastUpdate: 0,
 	}
 }
 
@@ -151,6 +157,37 @@ export default function reducer(state = initialState, action) {
 				...state,
 				testimonials: {
 					...state.testimonials,
+					loading: false,
+					error: true,
+				}
+			}
+		}
+		case ActionTypes.SET_SOCIAL_MEDIAS: {
+			return {
+				...state,
+				socialmedias: {
+					...state.socialmedias,
+					loading: false,
+					data: action.payload,
+					lastUpdate: Date.now()
+				}
+			}
+		}
+		case ActionTypes.SET_SOCIAL_MEDIAS_LOADING: {
+			return {
+				...state,
+				socialmedias: {
+					...state.socialmedias,
+					loading: true,
+					error: false,
+				}
+			}
+		}
+		case ActionTypes.SET_SOCIAL_MEDIAS_ERROR: {
+			return {
+				...state,
+				socialmedias: {
+					...state.socialmedias,
 					loading: false,
 					error: true,
 				}

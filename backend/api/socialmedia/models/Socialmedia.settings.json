@@ -1,0 +1,32 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "socialmedia",
+    "description": "Social media links & icons"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "uniqueId": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "link": {
+      "default": "",
+      "type": "string"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

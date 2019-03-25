@@ -4,6 +4,11 @@ import EventService from '../../services/events'
 import EventConceptService from '../../services/eventconcepts'
 import TeamMemberService from '../../services/teammembers'
 import TestimonialService from '../../services/testimonials'
+import SocialMediaService from '../../services/socialmedias'
+
+/**
+ * Events
+ */
 
 const setEventsLoading = () => dispatch => dispatch({ type: ActionTypes.SET_EVENTS_LOADING })
 const setEventsError = () => dispatch => dispatch({ type: ActionTypes.SET_EVENTS_ERROR })
@@ -21,6 +26,10 @@ export const updateEvents = () => dispatch => {
 	})
 }
 
+/**
+ * Event concepts
+ */
+
 const setEventConceptsLoading = () => dispatch => dispatch({ type: ActionTypes.SET_EVENT_CONCEPTS_LOADING })
 const setEventConceptsError = () => dispatch => dispatch({ type: ActionTypes.SET_EVENT_CONCEPTS_ERROR })
 
@@ -36,6 +45,10 @@ export const updateEventConcepts = () => dispatch => {
 		dispatch(setEventConceptsError())
 	})
 }
+
+/**
+ * Team members
+ */
 
 const setTeamMembersLoading = () => dispatch => dispatch({ type: ActionTypes.SET_TEAM_MEMBERS_LOADING })
 const setTeamMembersError = () => dispatch => dispatch({ type: ActionTypes.SET_TEAM_MEMBERS_ERROR })
@@ -53,6 +66,10 @@ export const updateTeamMembers = () => dispatch => {
 	})
 }
 
+/**
+ * Testimonials
+ */
+
 const setTestimonialsLoading = () => dispatch => dispatch({ type: ActionTypes.SET_TESTIMONIALS_LOADING })
 const setTestimonialsError = () => dispatch => dispatch({ type: ActionTypes.SET_TESTIMONIALS_ERROR })
 
@@ -66,5 +83,25 @@ export const updateTestimonials = () => dispatch => {
 	}).catch(error => {
 		console.log('Error in updateTestimonials', error)
 		dispatch(setTestimonialsError())
+	})
+}
+
+/**
+ * Social media links
+ */
+
+const setSocialMediasLoading = () => dispatch => dispatch({ type: ActionTypes.SET_SOCIAL_MEDIAS_LOADING })
+const setSocialMediasError = () => dispatch => dispatch({ type: ActionTypes.SET_SOCIAL_MEDIAS_ERROR })
+
+export const updateSocialMedias = () => dispatch => {
+	dispatch(setSocialMediasLoading())
+	SocialMediaService.getAll().then(socialmedias => {
+		dispatch({
+			type: ActionTypes.SET_SOCIAL_MEDIAS,
+			payload: socialmedias
+		})
+	}).catch(error => {
+		console.log('Error in updateSocialMedias', error)
+		dispatch(setSocialMediasError())
 	})
 }

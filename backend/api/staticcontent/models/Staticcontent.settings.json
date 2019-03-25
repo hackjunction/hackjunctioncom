@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "staticcontent",
   "info": {
     "name": "staticcontent",
     "description": ""
@@ -18,12 +18,6 @@
         "siteSlogan",
         "\nsiteContactEmail",
         "\nhomePageHeaderVideoLink",
-        "\nlinkedinLink",
-        "\nyoutubeLink",
-        "\nfacebookLink",
-        "\ntwitterLink",
-        "\ninstagramLink",
-        "\nmediumLink",
         "\nwhoAreWe",
         "\nwhoAreWeBody",
         "\nwhoAreWeSubtitle",

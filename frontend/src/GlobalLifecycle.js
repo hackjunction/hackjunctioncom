@@ -18,6 +18,8 @@ import * as MediaSelectors from './redux/media/selectors'
 
   Also renders any dynamic changes to the HTML <head/> with react-helmet
 
+  Also initalizes any 3rd party services, such as Google Analytics etc.
+
   Remember to render this in App.js
 */
 
@@ -31,6 +33,8 @@ class GlobalLifecycle extends React.Component {
 			console.log('CONFIG:', config)
 		}
 
+		/* Update various globally needed content from the API */
+
 		if (this.props.staticContentShouldUpdate) {
 			this.props.updateStaticContent()
 		}
@@ -42,6 +46,12 @@ class GlobalLifecycle extends React.Component {
 		if (this.props.mediaShouldUpdate) {
 			this.props.updateMedia()
 		}
+
+		if (this.props.socialMediasShouldUpdate) {
+			this.props.updateSocialMedias()
+		}
+
+		/* Initialize 3rd party analytics services if config is present */
 
 		if (config.FACEBOOK_PIXEL_ID) {
 			ReactPixel.init(config.FACEBOOK_PIXEL_ID, {}, { autoConfig: true, debug: false })
@@ -85,12 +95,14 @@ class GlobalLifecycle extends React.Component {
 const mapStateToProps = (state) => ({
 	staticContentShouldUpdate: StaticContentSelectors.contentShouldUpdate(state),
 	eventConceptsShouldUpdate: ContentSelectors.eventconceptsShouldUpdate(state),
-	mediaShouldUpdate: MediaSelectors.mediaShouldUpdate(state)
+	mediaShouldUpdate: MediaSelectors.mediaShouldUpdate(state),
+	socialMediasShouldUpdate: ContentSelectors.socialMediasShouldUpdate(state)
 })
 const mapDispatchToProps = (dispatch) => ({
 	updateStaticContent: () => dispatch(StaticContentActions.updateStaticContent()),
 	updateEventConcepts: () => dispatch(ContentActions.updateEventConcepts()),
-	updateMedia: () => dispatch(MediaActions.updateMedia())
+	updateMedia: () => dispatch(MediaActions.updateMedia()),
+	updateSocialMedias: () => dispatch(ContentActions.updateSocialMedias())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(GlobalLifecycle)

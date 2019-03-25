@@ -1,11 +1,20 @@
 import React from 'react'
 import './style.scss'
 
-const SocialMediaIcon = ({ imageSrc, link, alt }) => {
+import Image from '../Image'
+
+const SocialMediaIcon = ({ image, link, alt }) => {
 
 	return (
-		<a className="SocialMediaIcon" href={link} alt={alt}>
-			<img className="SocialMediaIcon--image" src={imageSrc} alt={alt} />
+		<a className="SocialMediaIcon" href={link} alt={alt} target="_blank" rel="noopener noreferrer">
+			<Image
+				image={image}
+				alt={alt}
+				className="SocialMediaIcon--image"
+				width={30}
+				height={30}
+				crop={'contain'}
+			/>
 		</a>
 	)
 }
