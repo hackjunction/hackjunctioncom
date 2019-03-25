@@ -1,4 +1,4 @@
-const DEBUG_HOSTNAMES = ['localhost', 'herokuapp']
+const DEBUG_HOSTNAMES = ['localhost', 'hackjunctionsite.herokuapp.com']
 
 const config = {
 	API_BASE_URL: process.env.REACT_APP_API_BASE_URL || 'http://locahost:1337',
