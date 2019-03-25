@@ -1,5 +1,9 @@
 'use strict';
 
+const htmlCreator = require('html-creator');
+const sanitizeHtml = require('sanitize-html');
+
+
 /**
  * Lifecycle callbacks for the `Contactrequest` model.
  */
@@ -34,7 +38,105 @@ module.exports = {
 
   // After creating a value.
   // Fired after an `insert` query.
-  // afterCreate: async (model, result) => {},
+  afterCreate: async (model, result) => {
+
+    const name = sanitizeHtml(model.firstName + ' ' + model.lastName);
+    const email = sanitizeHtml(model.email);
+    const reason = sanitizeHtml(model.reason);
+    const message = sanitizeHtml(model.message);
+
+    const msg = new htmlCreator([
+      {
+        type: 'body',
+        content: [
+          {
+            type: 'div',
+            content: [
+              {
+                type: 'h4',
+                content: 'Someone filled the contact form at hackjunction.com :--)',
+              },
+              {
+                type: 'ul',
+                content: [
+                  {
+                    type: 'li',
+                    content: [
+                      {
+                        type: 'span',
+                        content: [
+                          {
+                            type: 'strong',
+                            content: 'Name: '
+                          },
+                          {
+                            type: 'span',
+                            content: name
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    type: 'li',
+                    content: [
+                      {
+                        type: 'span',
+                        content: [
+                          {
+                            type: 'strong',
+                            content: 'Email: '
+                          },
+                          {
+                            type: 'span',
+                            content: email
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    type: 'li',
+                    content: [
+                      {
+                        type: 'span',
+                        content: [
+                          {
+                            type: 'strong',
+                            content: 'Interested in: '
+                          },
+                          {
+                            type: 'span',
+                            content: reason
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+              },
+              {
+                type: 'h4',
+                content: 'message: '
+              },
+              {
+                type: 'p',
+                content: '"' + message + '"'
+              }
+            ],
+          },
+        ],
+      },
+    ]);
+
+    strapi.plugins['email'].services.email.send({
+      to: 'hello@hackjunction.com',
+      from: 'contact-form@hackjunction.com',
+      replyTo: 'no-reply@hackjunction.com',
+      subject: 'Hackjunction.com | Hello from ' + name,
+      html: msg.renderHTML(),
+    });
+  },
 
   // Before updating a value.
   // Fired before an `update` query.

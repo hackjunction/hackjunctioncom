@@ -53,7 +53,7 @@ const ContactForm = () => {
 				return null
 			}),
 		},
-		contactReason: {
+		reason: {
 			...useFormField(null, (value) => {
 				if (!value) {
 					return 'Please choose one'
@@ -138,7 +138,7 @@ const ContactForm = () => {
 			<FormRow>
 				<RadioButtons
 					label="I would like to be contacted regarding..."
-					{...fields.contactReason}
+					{...fields.reason}
 					buttons={[
 						{
 							value: 'partnerships',
