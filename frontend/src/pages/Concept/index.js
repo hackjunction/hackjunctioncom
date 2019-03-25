@@ -9,11 +9,13 @@ import NotFoundPage from '../NotFound'
 import HeaderImage from '../../components/HeaderImage'
 import EventCalendar from '../../components/EventCalendar'
 import Divider from '../../components/Divider'
+import Markdown from '../../components/Markdown'
 
 import Page from '../PageHOC'
 
 import * as ContentSelectors from '../../redux/content/selectors'
 import * as ContentActions from '../../redux/content/actions'
+import CenteredBlock from '../../components/CenteredBlock';
 
 const ConceptPage = ({ match, shouldUpdate, updateConcepts, loading, error, getConcept }) => {
 
@@ -52,6 +54,9 @@ const ConceptPage = ({ match, shouldUpdate, updateConcepts, loading, error, getC
 				mainTitle={concept.punchline}
 				bodyText={concept.shortdescription}
 			/>
+			<CenteredBlock>
+				<Markdown source={concept.longdescription} />
+			</CenteredBlock>
 			<EventCalendar concept={concept.slug} />
 			<Divider lg />
 		</Page>

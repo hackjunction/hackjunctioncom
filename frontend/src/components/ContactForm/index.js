@@ -69,7 +69,7 @@ const ContactForm = () => {
 					return 'Please enter a message :)'
 				}
 
-				if (value.length > 200) {
+				if (value.length > 500) {
 					return 'Message can be at most 500 characters'
 				}
 
@@ -89,7 +89,6 @@ const ContactForm = () => {
 			ContactRequestService.create(data),
 			1000
 		).then((res) => {
-			console.log('Form submitted', res)
 			setFormSuccess(true)
 			setFormLoading(false)
 		}).catch(e => {
