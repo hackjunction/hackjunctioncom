@@ -117,7 +117,7 @@ export const testimonialsShouldUpdate = createSelector(
 export const testimonialsOfType = (type) => createSelector(
 	testimonials,
 	(testimonials) => {
-		return _.filter(testimonials, t => t.type === type)
+		return _.filter(testimonials, t => t.type.trim() === type)
 	}
 )
 
@@ -148,6 +148,6 @@ export const kpisShouldUpdate = createSelector(
 export const kpisOfType = (type) => createSelector(
 	kpis,
 	(kpis) => {
-		return _.filter(kpis, t => t.type === type)
+		return _.filter(kpis, t => t.type.trim() === type)
 	}
 )

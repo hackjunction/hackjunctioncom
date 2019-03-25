@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "testimonial",
   "info": {
     "name": "testimonial",
     "description": ""
@@ -16,7 +16,8 @@
         "volunteer",
         "partner",
         "organiser",
-        "participant"
+        "participant",
+        "generic"
       ]
     },
     "name": {

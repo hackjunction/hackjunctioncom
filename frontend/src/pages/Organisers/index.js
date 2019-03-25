@@ -11,6 +11,7 @@ import BorderedSection from '../../components/BorderedSection/';
 import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks'
 import Divider from '../../components/Divider'
+import DebugPlaceholder from '../../components/DebugPlaceholder'
 
 import Page from '../PageHOC'
 
@@ -19,7 +20,9 @@ import * as ContentActions from '../../redux/content/actions'
 import * as MediaSelectors from '../../redux/media/selectors'
 import MEDIA_KEYS from '../../redux/media/keys'
 
-const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage }) => {
+import config from '../../services/config'
+
+const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage, kpis = [] }) => {
 
 	useEffect(() => {
 		if (testimonialsShouldUpdate) {
@@ -29,6 +32,16 @@ const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimon
 
 	const testimonial = testimonials.length > 0 ? testimonials[0] : null
 	const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null
+
+	function buildStatBlocks() {
+		return kpis.slice(0, 2).map(kpi => {
+			return {
+				id: kpi.label + '-' + kpi.number,
+				label: kpi.label,
+				value: kpi.number
+			}
+		})
+	}
 
 	return (
 		<Page
@@ -48,16 +61,7 @@ const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimon
 					Nam tellus tortor, consectetur sed elementum non, consectetur varius libero. Aliquam venenatis lacus luctus, eleifend libero commodo, suscipit nisi. Aliquam erat volutpat. Vivamus dignissim eros quis gravida vulputate. Nam viverra massa ut purus dapibus, eget dapibus eros vulputate. Sed eget erat aliquet, blandit purus venenatis, pulvinar lorem. Aliquam lectus tortor, fermentum non elit aliquet, tristique viverra eros. Sed eget vulputate eros. Aenean congue volutpat neque, scelerisque gravida felis lobortis nec. Duis sed pretium ante, at porttitor risus.
 				</p>
 				<StatBlocks
-					blocks={[
-						{
-							value: 72,
-							label: 'attendees'
-						},
-						{
-							value: 3500,
-							label: 'attendees'
-						}
-					]}
+					blocks={buildStatBlocks()}
 				/>
 			</BlockSection>
 			<Divider lg />
@@ -73,7 +77,12 @@ const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimon
 					</ImageBlockSection>
 					<Divider lg />
 				</React.Fragment>
-			) : null}
+			) : (
+					<DebugPlaceholder
+						title="Organiser testimonial"
+						description="The first testimonial of type 'organiser' will be shown here"
+					/>
+				)}
 			<SingleColumnSection title="Why partner with us?">
 				<BorderedSection title="Recruiting" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
 				<BorderedSection title="Creativity" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
@@ -92,7 +101,12 @@ const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimon
 					</ImageBlockSection>
 					<Divider lg />
 				</React.Fragment>
-			) : null}
+			) : (
+					<DebugPlaceholder
+						title="Organiser testimonial"
+						description="The second testimonial of type 'organiser' will be shown here"
+					/>
+				)}
 			<BlockSection title="What makes us different?" >
 				<p>
 					Nam tellus tortor, consectetur sed elementum non, consectetur varius libero. Aliquam venenatis lacus luctus, eleifend libero commodo, suscipit nisi. Aliquam erat volutpat. Vivamus dignissim eros quis gravida vulputate. Nam viverra massa ut purus dapibus, eget dapibus eros vulputate. Sed eget erat aliquet, blandit purus venenatis, pulvinar lorem. Aliquam lectus tortor, fermentum non elit aliquet, tristique viverra eros. Sed eget vulputate eros. Aenean congue volutpat neque, scelerisque gravida felis lobortis nec. Duis sed pretium ante, at porttitor risus.
@@ -116,7 +130,8 @@ const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimon
 const mapStateToProps = (state) => ({
 	testimonials: ContentSelectors.testimonialsOfType('organiser')(state),
 	testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
-	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.organiserPageHeaderImage)(state)
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.organiserPageHeaderImage)(state),
+	kpis: ContentSelectors.kpisOfType('organiser')(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({

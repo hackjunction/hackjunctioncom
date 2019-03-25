@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import HeaderImage from '../../components/HeaderImage'
 import BlockSection from '../../components/BlockSection'
 import Divider from '../../components/Divider'
+import DebugPlaceholder from '../../components/DebugPlaceholder'
 
 import Page from '../PageHOC'
 
@@ -45,6 +46,15 @@ const ConceptsPage = ({ eventconcepts, loading, content, headerImage }) => {
 	}
 
 	function renderConcepts() {
+
+		if (!Array.isArray(eventconcepts) || eventconcepts.length === 0) {
+			return (
+				<DebugPlaceholder
+					title="Event concepts"
+					description="Add event concepts to show them here"
+				/>
+			)
+		}
 
 		return eventconcepts.map(concept => {
 			return (

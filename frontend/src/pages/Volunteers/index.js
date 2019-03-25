@@ -16,6 +16,7 @@ import BlockSection from '../../components/BlockSection'
 import Divider from '../../components/Divider'
 import ContactForm from '../../components/ContactForm'
 import Markdown from '../../components/Markdown'
+import DebugPlaceholder from '../../components/DebugPlaceholder'
 
 import Page from '../PageHOC'
 
@@ -55,7 +56,12 @@ const VolunteersPage = ({ content, testimonials, testimonialsShouldUpdate, updat
 					</ImageBlockSection>
 					<Divider lg />
 				</React.Fragment>
-			) : null}
+			) : (
+					<DebugPlaceholder
+						title="Volunteer testimonial"
+						description="Add a testimonial of type 'volunteer' to show it here"
+					/>
+				)}
 			<BlockSection title={content.volunteeringTitle} subtitle={content.volunteeringSubtitle}>
 				<Markdown source={content.volunteeringBody} />
 			</BlockSection>

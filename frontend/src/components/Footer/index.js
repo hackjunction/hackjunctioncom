@@ -10,13 +10,41 @@ import KEYS from '../../redux/static/keys'
 
 import SocialMediaIcons from '../SocialMediaIcons';
 import Divider from '../Divider'
+import DebugPlaceholder from '../DebugPlaceholder';
 
 const Footer = ({ content, eventConcepts, socialMedias }) => {
 
 	function renderConceptLinks() {
+
+		if (!Array.isArray(eventConcepts) || eventConcepts.length === 0) {
+			return (
+				<DebugPlaceholder
+					title="Event concepts"
+					description="Add event concepts"
+				/>
+			)
+		}
+
 		return eventConcepts.map(concept => {
 			return <Link key={concept.slug} className="FooterInner--right__section-link" to={`/concepts/${concept.slug}`}>{concept.name}</Link>
 		})
+	}
+
+	function renderSocialMedias() {
+		if (!Array.isArray(socialMedias) || socialMedias.length === 0) {
+			return (
+				<DebugPlaceholder
+					title="SoMe links"
+					description="Add social media links"
+				/>
+			)
+		}
+
+		return (
+			<SocialMediaIcons
+				data={socialMedias}
+			/>
+		)
 	}
 
 	return (
@@ -27,9 +55,7 @@ const Footer = ({ content, eventConcepts, socialMedias }) => {
 					<p className="FooterInner--left__slogan">{content.siteSlogan}</p>
 					<a className="FooterInner--left__contact" href={`mailto:${content.siteContactEmail}`}>{content.siteContactEmail}</a>
 					<Divider sm />
-					<SocialMediaIcons
-						data={socialMedias}
-					/>
+					{renderSocialMedias()}
 				</div>
 				<div className="FooterInner--separator" />
 				<nav className="FooterInner--right">

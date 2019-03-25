@@ -51,14 +51,18 @@ class GlobalLifecycle extends React.Component {
 			this.props.updateSocialMedias()
 		}
 
-		/* Initialize 3rd party analytics services if config is present */
+		if (this.props.kpisShouldUpdate) {
+			this.props.updateKpis()
+		}
+
+		/* Initialize 3rd party analytics services if config for them is present */
 
 		if (config.FACEBOOK_PIXEL_ID) {
 			ReactPixel.init(config.FACEBOOK_PIXEL_ID, {}, { autoConfig: true, debug: false })
 			ReactPixel.pageView()
 		} else {
 			if (config.IS_DEBUG) {
-				console.log('DEBUG: config variable FACEBOOK_PIXEL_ID undefined, not initializing FB pixel tracking')
+				console.log('DEBUG: config variable FACEBOOK_PIXEL_ID undefined, not initializing FB pixel analytics')
 			}
 		}
 
@@ -66,7 +70,7 @@ class GlobalLifecycle extends React.Component {
 			ReactGA.initialize(config.GOOGLE_ANALYTICS_ID);
 		} else {
 			if (config.IS_DEBUG) {
-				console.log('DEBUG: config variable GOOGLE_ANALYTICS_ID undefined, not initializing GA tracking')
+				console.log('DEBUG: config variable GOOGLE_ANALYTICS_ID undefined, not initializing GA analytics')
 			}
 		}
 
@@ -74,13 +78,13 @@ class GlobalLifecycle extends React.Component {
 			hotjar.initialize(config.HOTJAR_ID, config.HOTJAR_SV);
 		} else {
 			if (config.IS_DEBUG) {
-				console.log('DEBUG: config variable HOTJAR_ID or HOTJAR_SV undefined, not initializing Hotjar tracking')
+				console.log('DEBUG: config variable HOTJAR_ID or HOTJAR_SV undefined, not initializing Hotjar analytics')
 			}
 		}
 	}
 
 	render() {
-		// Return sitewide react-helmet configuration ("default"). You can override this per-page in the PageHOC component.
+		// Return sitewide react-helmet configuration ("default"). You can override/make additions per-page in the PageHOC component.
 		return (
 			<Helmet
 				titleTemplate="Junction | %s"
@@ -96,13 +100,15 @@ const mapStateToProps = (state) => ({
 	staticContentShouldUpdate: StaticContentSelectors.contentShouldUpdate(state),
 	eventConceptsShouldUpdate: ContentSelectors.eventconceptsShouldUpdate(state),
 	mediaShouldUpdate: MediaSelectors.mediaShouldUpdate(state),
-	socialMediasShouldUpdate: ContentSelectors.socialMediasShouldUpdate(state)
+	socialMediasShouldUpdate: ContentSelectors.socialMediasShouldUpdate(state),
+	kpisShouldUpdate: ContentSelectors.kpisShouldUpdate(state)
 })
 const mapDispatchToProps = (dispatch) => ({
 	updateStaticContent: () => dispatch(StaticContentActions.updateStaticContent()),
 	updateEventConcepts: () => dispatch(ContentActions.updateEventConcepts()),
 	updateMedia: () => dispatch(MediaActions.updateMedia()),
-	updateSocialMedias: () => dispatch(ContentActions.updateSocialMedias())
+	updateSocialMedias: () => dispatch(ContentActions.updateSocialMedias()),
+	updateKpis: () => dispatch(ContentActions.updateKpis())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(GlobalLifecycle)

@@ -1,12 +1,24 @@
 import React from 'react'
 import './style.scss'
 
+import DebugPlaceholder from '../DebugPlaceholder'
+
 const DEFAULT_GIF = require('../../assets/logos/emblem_white.png')
 const DEFAULT_IMG = require('../../assets/logos/emblem_white.png')
 
 const TeamMemberGrid = ({ teamMembers }) => {
 
 	function renderTeamMembers() {
+
+		if (!Array.isArray(teamMembers) || teamMembers.length === 0) {
+			return (
+				<DebugPlaceholder
+					title="Team members"
+					description="Add team members"
+				/>
+			)
+		}
+
 		return teamMembers.map(person => {
 			return (
 				<div className="TeamMemberGrid--item" key={person.fullName + '-' + person.email}>

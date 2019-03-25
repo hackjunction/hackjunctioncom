@@ -4,6 +4,8 @@ import './style.scss'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import DebugPlaceholder from '../../DebugPlaceholder'
+
 import * as ContentSelectors from '../../../redux/content/selectors'
 
 import * as NavSelectors from '../../../redux/nav/selectors'
@@ -13,6 +15,16 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts }) => {
 
 
 	function renderConceptLinks() {
+
+		if (!Array.isArray(eventConcepts) || eventConcepts.length === 0) {
+			return (
+				<DebugPlaceholder
+					title="Event concept links"
+					description="Add event concepts"
+				/>
+			)
+		}
+
 		return eventConcepts.map(concept => {
 			return <Link key={concept.slug} className="NavMenu--inner__menu-item" to={`/concepts/${concept.slug}`}>{concept.name}</Link>
 		})

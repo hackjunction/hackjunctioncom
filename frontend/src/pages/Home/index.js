@@ -4,6 +4,7 @@ import './style.scss'
 import { connect } from 'react-redux'
 import * as StaticContentSelectors from '../../redux/static/selectors'
 import * as MediaSelectors from '../../redux/media/selectors'
+import * as ContentSelectors from '../../redux/content/selectors'
 import KEYS from '../../redux/static/keys'
 import MEDIA_KEYS from '../../redux/media/keys'
 
@@ -16,8 +17,19 @@ import Divider from '../../components/Divider'
 import Markdown from '../../components/Markdown'
 
 import Page from '../PageHOC'
+import { kpisOfType } from '../../redux/content/selectors';
 
-const HomePage = ({ content, headerImage }) => {
+const HomePage = ({ content, headerImage, kpis = [] }) => {
+
+	function buildStatBlocks() {
+		return kpis.slice(0, 2).map(kpi => {
+			return {
+				id: kpi.label + '-' + kpi.number,
+				label: kpi.label,
+				value: kpi.number
+			}
+		})
+	}
 
 	return (
 		<Page
@@ -29,16 +41,7 @@ const HomePage = ({ content, headerImage }) => {
 			<BlockSection title={content.whoAreWe} subtitle={content.whoAreWeSubtitle}>
 				<Markdown source={content.whoAreWeBody} />
 				<StatBlocks
-					blocks={[
-						{
-							value: 72,
-							label: 'attendees'
-						},
-						{
-							value: 3500,
-							label: 'attendees'
-						}
-					]}
+					blocks={buildStatBlocks()}
 				/>
 			</BlockSection>
 			<Divider lg />
@@ -86,7 +89,8 @@ const mapStateToProps = (state) => ({
 		KEYS.joinCommunityBody,
 		KEYS.homePageHeaderVideoLink,
 	])(state),
-	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.homePageHeaderImage)(state)
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.homePageHeaderImage)(state),
+	kpis: ContentSelectors.kpisOfType('generic')(state)
 })
 
 export default connect(mapStateToProps)(HomePage)

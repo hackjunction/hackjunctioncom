@@ -20,10 +20,11 @@ import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks'
 import Divider from '../../components/Divider'
 import Markdown from '../../components/Markdown'
+import DebugPlaceholder from '../../components/DebugPlaceholder'
 
 import Page from '../PageHOC'
 
-const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage }) => {
+const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage, kpis = [] }) => {
 
 	useEffect(() => {
 		if (testimonialsShouldUpdate) {
@@ -33,6 +34,32 @@ const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateT
 
 	const firstTestimonial = testimonials.length > 0 ? testimonials[0] : null
 	const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null
+
+	function renderStatBlocks() {
+		if (Array.isArray(kpis) && kpis.length > 0) {
+
+			const blocks = kpis.slice(0, 2).map(kpi => {
+				return {
+					id: kpi.label + '-' + kpi.number,
+					value: kpi.number,
+					label: kpi.label,
+				}
+			})
+
+			return (
+				<StatBlocks
+					blocks={blocks}
+				/>
+			)
+		}
+
+		return (
+			<DebugPlaceholder
+				title="Partner KPI's"
+				description="Add (up to two) KPI's of type 'partner' to show them here"
+			/>
+		)
+	}
 
 	return (
 		<Page
@@ -49,18 +76,7 @@ const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateT
 			/>
 			<BlockSection title={content.partnersPageFirstTitle} subtitle={content.partnersPageFirstSubtitle}>
 				<Markdown source={content.partnersPageFirstBody} />
-				<StatBlocks
-					blocks={[
-						{
-							value: 72,
-							label: 'attendees'
-						},
-						{
-							value: 3500,
-							label: 'attendees'
-						}
-					]}
-				/>
+				{renderStatBlocks()}
 			</BlockSection>
 			<Divider lg />
 			{firstTestimonial ? (
@@ -75,7 +91,12 @@ const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateT
 					</ImageBlockSection>
 					<Divider lg />
 				</React.Fragment>
-			) : null}
+			) : (
+					<DebugPlaceholder
+						title="Partner testimonial"
+						description="The first testimonial of type 'partner' will be shown here"
+					/>
+				)}
 			<SingleColumnSection title={content.whyPartnerWithUsTitle}>
 				<BorderedSection title={content.whyPartnerWithUsFirstTitle} content={content.whyPartnerWithUsFirstBody} />
 				<BorderedSection title={content.whyPartnerWithUsSecondTitle} content={content.whyPartnerWithUsSecondBody} />
@@ -94,7 +115,12 @@ const PartnersPage = ({ content, testimonials, testimonialsShouldUpdate, updateT
 					</ImageBlockSection>
 					<Divider lg />
 				</React.Fragment>
-			) : null}
+			) : (
+					<DebugPlaceholder
+						title="Partner testimonial"
+						description="The second testimonial of type 'partner' will be shown here"
+					/>
+				)}
 			<BlockSection title={content.whatMakesUsDifferentTitle} subtitle={content.whatMakesUsDifferentSubtitle}>
 				<Markdown source={content.whatMakesUsDifferentBody} />
 			</BlockSection>
@@ -136,7 +162,8 @@ const mapStateToProps = (state) => ({
 	])(state),
 	testimonials: ContentSelectors.testimonialsOfType('partner')(state),
 	testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
-	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.partnerPageHeaderImage)(state)
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.partnerPageHeaderImage)(state),
+	kpis: ContentSelectors.kpisOfType('partner')(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({

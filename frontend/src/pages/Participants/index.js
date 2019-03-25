@@ -17,6 +17,7 @@ import ImageBlockSection from '../../components/ImageBlockSection'
 import ContactForm from '../../components/ContactForm'
 import Divider from '../../components/Divider'
 import Markdown from '../../components/Markdown'
+import DebugPlaceholder from '../../components/DebugPlaceholder'
 
 import Page from '../PageHOC'
 
@@ -68,7 +69,12 @@ const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, upd
 					</ImageBlockSection>
 					<Divider lg />
 				</React.Fragment>
-			) : null}
+			) : (
+					<DebugPlaceholder
+						title="Participant testimonial"
+						description="Add a testimonial of type 'participant' to show it here"
+					/>
+				)}
 			<BlockSection title={content.getHiredTitle} subtitle={content.getHiredSubtitle}>
 				<Markdown source={content.getHiredBody} />
 			</BlockSection>

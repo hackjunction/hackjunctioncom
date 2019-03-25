@@ -4,6 +4,7 @@ import './style.scss'
 import { connect } from 'react-redux'
 import * as StaticContentSelectors from '../../redux/static/selectors'
 import * as MediaSelectors from '../../redux/media/selectors'
+import * as ContentSelectors from '../../redux/content/selectors'
 import KEYS from '../../redux/static/keys'
 import MEDIA_KEYS from '../../redux/media/keys'
 
@@ -18,9 +19,35 @@ import Markdown from '../../components/Markdown'
 import Divider from '../../components/Divider'
 
 import Page from '../PageHOC'
+import DebugPlaceholder from '../../components/DebugPlaceholder'
 
+const StoryPage = ({ content, headerImage, kpis = [], testimonials = [] }) => {
 
-const StoryPage = ({ content, headerImage }) => {
+	const testimonial = testimonials && testimonials.length > 0 ? testimonials[0] : null
+
+	function renderStatBlocks() {
+		if (Array.isArray(kpis) && kpis.length > 0) {
+			const blocks = kpis.slice(0, 2).map(kpi => {
+				return {
+					id: kpi.label + '-' + kpi.number,
+					label: kpi.label,
+					value: kpi.number
+				}
+			})
+			return (
+				<StatBlocks
+					blocks={blocks}
+				/>
+			)
+		}
+
+		return (
+			<DebugPlaceholder
+				title="Generic KPI's"
+				description="Add KPI's of type 'generic' to show them here"
+			/>
+		)
+	}
 
 	return (
 		<Page
@@ -37,29 +64,27 @@ const StoryPage = ({ content, headerImage }) => {
 			/>
 			<BlockSection title={content.whatIsJunctionTitle} subtitle={content.whatIsJunctionSubtitle}>
 				<Markdown source={content.whatIsJunctionBody} />
-				<StatBlocks
-					blocks={[
-						{
-							value: 72,
-							label: 'attendees'
-						},
-						{
-							value: 3500,
-							label: 'attendees'
-						}
-					]}
-				/>
+				{renderStatBlocks()}
 			</BlockSection>
 			<Divider lg />
-			<ImageBlockSection
-				image={{}}
-				imageAlt={content.storyPagePersonTitle}
-				title={content.storyPagePersonTitle}
-				subtitle={content.storyPagePersonSubtitle}
-			>
-				<Markdown source={content.storyPagePersonBody} />
-			</ImageBlockSection>
-			<Divider lg />
+			{testimonial ? (
+				<React.Fragment>
+					<ImageBlockSection
+						image={testimonial.image}
+						imageAlt={testimonial.name}
+						title={testimonial.name}
+						subtitle={testimonial.subtitle}
+					>
+						<p>{testimonial.quote}</p>
+					</ImageBlockSection>
+					<Divider lg />
+				</React.Fragment>
+			) : (
+					<DebugPlaceholder
+						title="Generic testimonial"
+						description="Add a testimonial of type 'generic' to show it here"
+					/>
+				)}
 			<BlockSection title={content.junction2019}>
 				<Markdown source={content.junction2019Body} />
 			</BlockSection>
@@ -110,7 +135,9 @@ const mapStateToProps = (state) => ({
 		KEYS.joinCommunity,
 		KEYS.joinCommunityBody
 	])(state),
-	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.storyPageHeaderImage)(state)
+	headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.storyPageHeaderImage)(state),
+	kpis: ContentSelectors.kpisOfType('generic')(state),
+	testimonials: ContentSelectors.testimonialsOfType('generic')(state)
 })
 
 export default connect(mapStateToProps)(StoryPage)
