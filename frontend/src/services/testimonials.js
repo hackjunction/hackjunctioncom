@@ -1,7 +1,7 @@
 import axios from 'axios'
-import BASE_URL from './baseUrl'
+import config from './config'
 
-const URL = BASE_URL + '/api/testimonials'
+const URL = config.API_BASE_URL + '/api/testimonials'
 
 const TestimonialService = {
 

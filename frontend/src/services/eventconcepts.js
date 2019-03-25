@@ -1,7 +1,6 @@
 import axios from 'axios'
-import BASE_URL from './baseUrl'
-
-const URL = BASE_URL + '/api/eventconcepts'
+import config from './config'
+const URL = config.API_BASE_URL + '/api/eventconcepts'
 
 const EventConceptService = {
 
