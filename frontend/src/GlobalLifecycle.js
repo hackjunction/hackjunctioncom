@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import ReactPixel from 'react-facebook-pixel'
 import { Helmet } from 'react-helmet'
 import ReactGA from 'react-ga';
+import { hotjar } from 'react-hotjar';
 import config from './services/config'
 
 import * as ContentActions from './redux/content/actions'
@@ -59,14 +60,22 @@ class GlobalLifecycle extends React.Component {
 			}
 		}
 
-
+		if (config.HOTJAR_ID && config.HOTJAR_SV) {
+			hotjar.initialize(config.HOTJAR_ID, config.HOTJAR_SV);
+		} else {
+			if (config.IS_DEBUG) {
+				console.log('DEBUG: config variable HOTJAR_ID or HOTJAR_SV undefined, not initializing Hotjar tracking')
+			}
+		}
 	}
 
 	render() {
+		// Return sitewide react-helmet configuration ("default"). You can override this per-page in the PageHOC component.
 		return (
 			<Helmet
 				titleTemplate="Junction | %s"
 			>
+				{/* Default page title -> Junction | Hack the Future */}
 				<title>Hack the Future</title>
 			</Helmet>
 		)

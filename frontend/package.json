@@ -17,6 +17,7 @@
     "react-facebook-pixel": "^0.1.2",
     "react-ga": "^2.5.7",
     "react-helmet": "6.0.0-beta",
+    "react-hotjar": "^2.0.0",
     "react-map-gl": "^4.0.10",
     "react-markdown": "^4.0.6",
     "react-on-screen": "^2.1.1",
