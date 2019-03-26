@@ -91,6 +91,13 @@ export const eventconceptsShouldUpdate = createSelector(
     }
 );
 
+export const eventconceptsByPriority = createSelector(
+    eventconcepts,
+    concepts => {
+        return _.sortBy(concepts, 'priority');
+    }
+);
+
 export const eventconceptBySlug = slug =>
     createSelector(
         eventconcepts,

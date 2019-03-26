@@ -1,76 +1,100 @@
-import React from 'react'
-import './style.scss'
+import React from 'react';
+import './style.scss';
 
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import DebugPlaceholder from '../../DebugPlaceholder'
+import DebugPlaceholder from '../../DebugPlaceholder';
 
-import * as ContentSelectors from '../../../redux/content/selectors'
+import * as ContentSelectors from '../../../redux/content/selectors';
 
-import * as NavSelectors from '../../../redux/nav/selectors'
-import * as NavActions from '../../../redux/nav/actions'
+import * as NavSelectors from '../../../redux/nav/selectors';
+import * as NavActions from '../../../redux/nav/actions';
 
 const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts }) => {
+    function renderConceptLinks() {
+        if (!Array.isArray(eventConcepts) || eventConcepts.length === 0) {
+            return <DebugPlaceholder title="Event concept links" description="Add event concepts" />;
+        }
 
+        return eventConcepts.map(concept => {
+            return (
+                <Link key={concept.slug} className="NavMenu--inner__menu-item" to={`/concepts/${concept.slug}`}>
+                    {concept.name}
+                </Link>
+            );
+        });
+    }
 
-	function renderConceptLinks() {
+    return (
+        <div className="NavMenuWrapper">
+            <div
+                className={`NavMenuOverlay ${isSidebarOpen ? 'NavMenuOverlay-open' : ''}`}
+                onClick={() => toggleSidebar(false)}
+            />
+            <div className={`NavMenu ${isSidebarOpen ? 'NavMenu-open' : ''}`}>
+                <div className="NavMenu--close" onClick={() => toggleSidebar(false)}>
+                    <span className="NavMenu--close__text">Close</span>
+                </div>
+                <div className="NavMenu--inner">
+                    <Link to="/">
+                        <img
+                            className="NavMenu--inner__logo"
+                            src={require('../../../assets/logos/text_black.png')}
+                            alt="Junction text logo"
+                        />
+                    </Link>
+                    <nav className="NavMenu--inner__menu">
+                        <Link to="/">
+                            <h6 className="NavMenu--inner__menu-title">Home</h6>
+                        </Link>
+                        <Link className="NavMenu--inner__menu-item" to="/story">
+                            Story
+                        </Link>
+                        <Link className="NavMenu--inner__menu-item" to="/calendar">
+                            Calendar
+                        </Link>
+                        <Link className="NavMenu--inner__menu-item" to="/team">
+                            Team
+                        </Link>
 
-		if (!Array.isArray(eventConcepts) || eventConcepts.length === 0) {
-			return (
-				<DebugPlaceholder
-					title="Event concept links"
-					description="Add event concepts"
-				/>
-			)
-		}
+                        <Link to="/concepts">
+                            <h6 className="NavMenu--inner__menu-title">Events & Concepts</h6>
+                        </Link>
+                        {renderConceptLinks()}
 
-		return eventConcepts.map(concept => {
-			return <Link key={concept.slug} className="NavMenu--inner__menu-item" to={`/concepts/${concept.slug}`}>{concept.name}</Link>
-		})
-	}
+                        <h6 className="NavMenu--inner__menu-title">Community</h6>
+                        <Link className="NavMenu--inner__menu-item" to="/partners">
+                            For partners
+                        </Link>
+                        <Link className="NavMenu--inner__menu-item" to="/participants">
+                            For participants
+                        </Link>
+                        <Link className="NavMenu--inner__menu-item" to="/volunteers">
+                            For volunteers
+                        </Link>
+                        <Link className="NavMenu--inner__menu-item" to="/organisers">
+                            For organisers
+                        </Link>
 
-	return (
-		<div className="NavMenuWrapper">
-			<div className={`NavMenuOverlay ${isSidebarOpen ? 'NavMenuOverlay-open' : ''}`} onClick={() => toggleSidebar(false)} />
-			<div className={`NavMenu ${isSidebarOpen ? 'NavMenu-open' : ''}`}>
-				<div className="NavMenu--close" onClick={() => toggleSidebar(false)}>
-					<span className="NavMenu--close__text">Close</span>
-				</div>
-				<div className="NavMenu--inner">
-					<Link to="/">
-						<img className="NavMenu--inner__logo" src={require('../../../assets/logos/text_black.png')} alt="Junction text logo" />
-					</Link>
-					<nav className="NavMenu--inner__menu">
-						<Link to="/"><h6 className="NavMenu--inner__menu-title">Home</h6></Link>
-						<Link className="NavMenu--inner__menu-item" to="/story">Story</Link>
-						<Link className="NavMenu--inner__menu-item" to="/calendar">Calendar</Link>
-						<Link className="NavMenu--inner__menu-item" to="/team">Team</Link>
+                        <h6 className="NavMenu--inner__menu-title">Contact</h6>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    );
+};
 
-						<Link to="/concepts"><h6 className="NavMenu--inner__menu-title">Events & Concepts</h6></Link>
-						{renderConceptLinks()}
+const mapStateToProps = state => ({
+    eventConcepts: ContentSelectors.eventconceptsByPriority(state),
+    isSidebarOpen: NavSelectors.isSidebarOpen(state)
+});
 
-						<h6 className="NavMenu--inner__menu-title">Community</h6>
-						<Link className="NavMenu--inner__menu-item" to="/partners">For partners</Link>
-						<Link className="NavMenu--inner__menu-item" to="/participants">For participants</Link>
-						<Link className="NavMenu--inner__menu-item" to="/volunteers">For volunteers</Link>
-						<Link className="NavMenu--inner__menu-item" to="/organisers">For organisers</Link>
+const mapDispatchToProps = dispatch => ({
+    toggleSidebar: open => dispatch(NavActions.toggleSidebar(open))
+});
 
-						<h6 className="NavMenu--inner__menu-title">Contact</h6>
-					</nav>
-				</div>
-			</div>
-		</div>
-	)
-}
-
-const mapStateToProps = (state) => ({
-	eventConcepts: ContentSelectors.eventconcepts(state),
-	isSidebarOpen: NavSelectors.isSidebarOpen(state),
-})
-
-const mapDispatchToProps = (dispatch) => ({
-	toggleSidebar: (open) => dispatch(NavActions.toggleSidebar(open))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavMenu)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(NavMenu);
