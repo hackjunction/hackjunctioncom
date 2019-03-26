@@ -9,4 +9,16 @@
     a {
         font-weight: bold;
     }
+
+    &--youtube {
+        width: 100%;
+
+        &__video {
+            width: 100%;
+        }
+    }
+
+    &--image {
+        width: 100%;
+    }
 }

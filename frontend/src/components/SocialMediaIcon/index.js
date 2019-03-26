@@ -6,7 +6,7 @@ import Image from '../Image';
 const SocialMediaIcon = ({ image, link, alt }) => {
     return (
         <a className="SocialMediaIcon" href={link} alt={alt} target="_blank" rel="noopener noreferrer">
-            <Image image={image} alt={alt} className="SocialMediaIcon--image" width={30} height={30} crop={'fit'} />
+            <Image image={image} alt={alt} className="SocialMediaIcon--image" width={100} />
         </a>
     );
 };
