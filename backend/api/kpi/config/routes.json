@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/kpis",
+      "handler": "Kpi.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/kpis/count",
+      "handler": "Kpi.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/kpis/:_id",
+      "handler": "Kpi.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/kpis",
+      "handler": "Kpi.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/kpis/:_id",
+      "handler": "Kpi.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/kpis/:_id",
+      "handler": "Kpi.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
