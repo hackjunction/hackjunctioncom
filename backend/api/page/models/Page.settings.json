@@ -1,0 +1,35 @@
+{
+  "connection": "default",
+  "collectionName": "page",
+  "info": {
+    "name": "page",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "navTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "pageTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "pageSubtitle": {
+      "default": "",
+      "type": "string"
+    },
+    "body": {
+      "default": "",
+      "type": "text"
+    },
+    "slug": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
+    }
+  }
+}

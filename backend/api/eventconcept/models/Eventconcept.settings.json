@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "eventconcept",
   "info": {
     "name": "eventconcept",
     "description": ""
@@ -50,6 +50,10 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "priority": {
+      "default": 10,
+      "type": "integer"
     }
   }
 }
