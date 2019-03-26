@@ -37,6 +37,18 @@ export const pageBySlug = slug =>
         }
     );
 
+export const pagesByNavSection = section =>
+    createSelector(
+        pages,
+        pages => {
+            let filtered = _.filter(pages, page => {
+                return page.navSection.trim() === section;
+            });
+
+            return _.sortBy(filtered, 'navPriority');
+        }
+    );
+
 export const events = state => state.content.events.data;
 export const eventsLoading = state => state.content.events.loading;
 export const eventsError = state => state.content.events.error;

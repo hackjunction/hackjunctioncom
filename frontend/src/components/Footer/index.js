@@ -12,7 +12,7 @@ import SocialMediaIcons from '../SocialMediaIcons';
 import Divider from '../Divider';
 import DebugPlaceholder from '../DebugPlaceholder';
 
-const Footer = ({ content, eventConcepts, socialMedias }) => {
+const Footer = ({ content, eventConcepts, socialMedias, extraPages }) => {
     function renderConceptLinks() {
         if (!Array.isArray(eventConcepts) || eventConcepts.length === 0) {
             return <DebugPlaceholder title="Event concepts" description="Add event concepts" />;
@@ -35,6 +35,20 @@ const Footer = ({ content, eventConcepts, socialMedias }) => {
         return <SocialMediaIcons data={socialMedias} />;
     }
 
+    function renderExtraPageLinks(pages) {
+        if (!Array.isArray(pages) || pages.length === 0) {
+            return null;
+        }
+
+        return pages.map(page => {
+            return (
+                <Link key={page.slug} className="FooterInner--right__section-link" to={`/${page.slug}`}>
+                    {page.navTitle}
+                </Link>
+            );
+        });
+    }
+
     return (
         <footer className="Footer">
             <div className="FooterInner">
@@ -55,9 +69,10 @@ const Footer = ({ content, eventConcepts, socialMedias }) => {
                 <nav className="FooterInner--right">
                     <div className="FooterInner--right__section">
                         <Link to="/concepts">
-                            <h5 className="FooterInner--right__section-title">Concepts</h5>
+                            <h5 className="FooterInner--right__section-title">Events & Concepts</h5>
                         </Link>
                         {renderConceptLinks()}
+                        {renderExtraPageLinks(extraPages.events)}
                     </div>
                     <div className="FooterInner--right__section">
                         <h5 className="FooterInner--right__section-title">Community</h5>
@@ -73,6 +88,7 @@ const Footer = ({ content, eventConcepts, socialMedias }) => {
                         <Link className="FooterInner--right__section-link" to="/organisers">
                             For organisers
                         </Link>
+                        {renderExtraPageLinks(extraPages.community)}
                     </div>
                     <div className="FooterInner--right__section">
                         <Link to="/press">
@@ -112,6 +128,11 @@ const Footer = ({ content, eventConcepts, socialMedias }) => {
 
 const mapStateToProps = state => ({
     content: StaticContentSelectors.objectWithKeys([KEYS.siteSlogan, KEYS.siteContactEmail])(state),
+    extraPages: {
+        home: ContentSelectors.pagesByNavSection('home')(state),
+        events: ContentSelectors.pagesByNavSection('events')(state),
+        community: ContentSelectors.pagesByNavSection('community')(state)
+    },
     eventConcepts: ContentSelectors.eventconceptsByPriority(state),
     socialMedias: ContentSelectors.socialmedias(state)
 });

@@ -33,6 +33,10 @@ class GlobalLifecycle extends React.Component {
 
         /* Update various globally needed content from the API */
 
+        if (this.props.pagesShouldUpdate) {
+            this.props.updatePages();
+        }
+
         if (this.props.staticContentShouldUpdate) {
             this.props.updateStaticContent();
         }
@@ -101,14 +105,16 @@ const mapStateToProps = state => ({
     eventConceptsShouldUpdate: ContentSelectors.eventconceptsShouldUpdate(state),
     mediaShouldUpdate: MediaSelectors.mediaShouldUpdate(state),
     socialMediasShouldUpdate: ContentSelectors.socialMediasShouldUpdate(state),
-    kpisShouldUpdate: ContentSelectors.kpisShouldUpdate(state)
+    kpisShouldUpdate: ContentSelectors.kpisShouldUpdate(state),
+    pagesShouldUpdate: ContentSelectors.pagesShouldUpdate(state)
 });
 const mapDispatchToProps = dispatch => ({
     updateStaticContent: () => dispatch(StaticContentActions.updateStaticContent()),
     updateEventConcepts: () => dispatch(ContentActions.updateEventConcepts()),
     updateMedia: () => dispatch(MediaActions.updateMedia()),
     updateSocialMedias: () => dispatch(ContentActions.updateSocialMedias()),
-    updateKpis: () => dispatch(ContentActions.updateKpis())
+    updateKpis: () => dispatch(ContentActions.updateKpis()),
+    updatePages: () => dispatch(ContentActions.updatePages())
 });
 
 export default connect(

@@ -11,7 +11,7 @@ import * as ContentSelectors from '../../../redux/content/selectors';
 import * as NavSelectors from '../../../redux/nav/selectors';
 import * as NavActions from '../../../redux/nav/actions';
 
-const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts }) => {
+const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts, extraPages }) => {
     function renderConceptLinks() {
         if (!Array.isArray(eventConcepts) || eventConcepts.length === 0) {
             return <DebugPlaceholder title="Event concept links" description="Add event concepts" />;
@@ -21,6 +21,20 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts }) => {
             return (
                 <Link key={concept.slug} className="NavMenu--inner__menu-item" to={`/concepts/${concept.slug}`}>
                     {concept.name}
+                </Link>
+            );
+        });
+    }
+
+    function renderExtraPageLinks(pages) {
+        if (!Array.isArray(pages) || pages.length === 0) {
+            return null;
+        }
+
+        return pages.map(page => {
+            return (
+                <Link key={page.slug} className="NavMenu--inner__menu-item" to={'/' + page.slug}>
+                    {page.navTitle}
                 </Link>
             );
         });
@@ -57,11 +71,13 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts }) => {
                         <Link className="NavMenu--inner__menu-item" to="/team">
                             Team
                         </Link>
+                        {renderExtraPageLinks(extraPages.home)}
 
                         <Link to="/concepts">
                             <h6 className="NavMenu--inner__menu-title">Events & Concepts</h6>
                         </Link>
                         {renderConceptLinks()}
+                        {renderExtraPageLinks(extraPages.events)}
 
                         <h6 className="NavMenu--inner__menu-title">Community</h6>
                         <Link className="NavMenu--inner__menu-item" to="/partners">
@@ -76,6 +92,7 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts }) => {
                         <Link className="NavMenu--inner__menu-item" to="/organisers">
                             For organisers
                         </Link>
+                        {renderExtraPageLinks(extraPages.community)}
 
                         <h6 className="NavMenu--inner__menu-title">Contact</h6>
                     </nav>
@@ -87,6 +104,11 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts }) => {
 
 const mapStateToProps = state => ({
     eventConcepts: ContentSelectors.eventconceptsByPriority(state),
+    extraPages: {
+        home: ContentSelectors.pagesByNavSection('home')(state),
+        events: ContentSelectors.pagesByNavSection('events')(state),
+        community: ContentSelectors.pagesByNavSection('community')(state)
+    },
     isSidebarOpen: NavSelectors.isSidebarOpen(state)
 });
 
