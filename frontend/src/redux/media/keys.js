@@ -1,16 +1,17 @@
 const MEDIA_KEYS = {
-	homePageHeaderImage: 'homePageHeaderImage',
-	partnerPageHeaderImage: 'partnerPageHeaderImage',
-	volunteerPageHeaderImage: 'volunteerPageHeaderImage',
-	organiserPageHeaderImage: 'organiserPageHeaderImage',
-	participantPageHeaderImage: 'participantPageHeaderImage',
-	storyPageHeaderImage: 'storyPageHeaderImage',
-	calendarPageHeaderImage: 'calendarPageHeaderImage',
-	teamPageHeaderImage: 'teamPageHeaderImage',
-	conceptsPageHeaderImage: 'conceptsPageHeaderImage',
-	errorPageHeaderImage: 'errorPageHeaderImage',
-	notFoundPageHeaderImage: 'notFoundPageHeaderImage',
-	defaultBackgroundImage: 'defaultBackgroundImage',
-}
+    homePageHeaderImage: 'homePageHeaderImage',
+    partnerPageHeaderImage: 'partnerPageHeaderImage',
+    volunteerPageHeaderImage: 'volunteerPageHeaderImage',
+    organiserPageHeaderImage: 'organiserPageHeaderImage',
+    participantPageHeaderImage: 'participantPageHeaderImage',
+    storyPageHeaderImage: 'storyPageHeaderImage',
+    calendarPageHeaderImage: 'calendarPageHeaderImage',
+    teamPageHeaderImage: 'teamPageHeaderImage',
+    conceptsPageHeaderImage: 'conceptsPageHeaderImage',
+    errorPageHeaderImage: 'errorPageHeaderImage',
+    notFoundPageHeaderImage: 'notFoundPageHeaderImage',
+    defaultBackgroundImage: 'defaultBackgroundImage',
+    interestedInOrganisingImage: 'interestedInOrganisingImage'
+};
 
-export default MEDIA_KEYS
+export default MEDIA_KEYS;

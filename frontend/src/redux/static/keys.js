@@ -81,7 +81,25 @@ const CONTENT_KEYS = {
 
     /* Team page */
     teamPageTitle: 'teamPageTitle',
-    teamPageSubtitle: 'teamPageSubtitle'
+    teamPageSubtitle: 'teamPageSubtitle',
+
+    /* Organisers page */
+    organisersPageTitle: 'organisersPageTitle',
+    organisersPageSubtitle: 'organisersPageSubtitle',
+    whatIsJunctionXTitle: 'whatIsJunctionXTitle',
+    whatIsJunctionXSubtitle: 'whatIsJunctionXSubtitle',
+    whatIsJunctionXBody: 'whatIsJunctionXBody',
+    whatDoesJunctionXOfferTitle: 'whatDoesJunctionXOfferTitle',
+    whatDoesJunctionXOfferSubtitle: 'whatDoesJunctionXOfferSubtitle',
+    whatDoesJunctionXOfferFirstTitle: 'whatDoesJunctionXOfferFirstTitle',
+    whatDoesJunctionXOfferFirstBody: 'whatDoesJunctionXOfferFirstBody',
+    whatDoesJunctionXOfferSecondTitle: 'whatDoesJunctionXOfferSecondTitle',
+    whatDoesJunctionXOfferSecondBody: 'whatDoesJunctionXOfferSecondBody',
+    whatDoesJunctionXOfferThirdTitle: 'whatDoesJunctionXOfferThirdTitle',
+    whatDoesJunctionXOfferThirdBody: 'whatDoesJunctionXOfferThirdBody',
+    interestedInOrganisingTitle: 'interestedInOrganisingTitle',
+    interestedInOrganisingSubtitle: 'interestedInOrganisingSubtitle',
+    interestedInOrganisingBody: 'interestedInOrganisingBody'
 };
 
 export default CONTENT_KEYS;

@@ -12,15 +12,26 @@ import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks';
 import Divider from '../../components/Divider';
 import DebugPlaceholder from '../../components/DebugPlaceholder';
+import Markdown from '../../components/Markdown';
 
 import Page from '../PageHOC';
 
 import * as ContentSelectors from '../../redux/content/selectors';
 import * as ContentActions from '../../redux/content/actions';
 import * as MediaSelectors from '../../redux/media/selectors';
+import * as StaticContentSelectors from '../../redux/static/selectors';
 import MEDIA_KEYS from '../../redux/media/keys';
+import KEYS from '../../redux/static/keys';
 
-const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage, kpis = [] }) => {
+const OrganisersPage = ({
+    content,
+    testimonials,
+    testimonialsShouldUpdate,
+    updateTestimonials,
+    headerImage,
+    interestedInOrganisingImage,
+    kpis = []
+}) => {
     useEffect(() => {
         if (testimonialsShouldUpdate) {
             updateTestimonials();
@@ -28,7 +39,6 @@ const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimon
     }, []);
 
     const testimonial = testimonials.length > 0 ? testimonials[0] : null;
-    const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null;
 
     function buildStatBlocks() {
         return kpis.slice(0, 2).map(kpi => {
@@ -46,19 +56,11 @@ const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimon
                 image={headerImage}
                 alt="Header image"
                 navTitle={'For organisers.'}
-                mainTitle={'Bring JunctionX to your city.'}
-                bodyText={
-                    'Junction provides a unique opportunity to work and interact with thousands of developers for your company. In a mere three years Junction has created a vibrant community of over 20 000 enthusiastic tech talents. Along the journey we have connected our partners with new audiences and helped them to build their own developer community. Junction has grown into an access point to emerging top tech talents from all over the world. In a mere three years Junction has created a vibrant community of over 20 000 enthusiastic tech talents. Along the journey we have connected our partners with new audiences and helped them to build their own developer community.'
-                }
+                mainTitle={content.organisersPageTitle}
+                bodyText={content.organisersPageSubtitle}
             />
-            <BlockSection title="What is JunctionX?" subtitle="">
-                <p>
-                    JunctionX is the entry point on your path to creating your own hackathon. We want to provide you
-                    with the necessary tools, guidelines, and especially our JunctionX brand to help you avoid the
-                    biggest pitfalls. This way you can concentrate on making your own JunctionX unique for participants,
-                    partners and especially for your organising team. We want people to join our community and to
-                    empower more people to use technology as a tool to solve problems and face challenges.
-                </p>
+            <BlockSection title={content.whatIsJunctionXTitle} subtitle={content.whatIsJunctionXSubtitle}>
+                <Markdown source={content.whatIsJunctionXBody} />
                 <StatBlocks blocks={buildStatBlocks()} />
             </BlockSection>
             <Divider lg />
@@ -80,62 +82,34 @@ const OrganisersPage = ({ testimonials, testimonialsShouldUpdate, updateTestimon
                     description="The first testimonial of type 'organiser' will be shown here"
                 />
             )}
-            <SingleColumnSection title="What does JunctionX offer?">
+            <SingleColumnSection
+                title={content.whatDoesJunctionXOfferTitle}
+                subtitle={content.whatDoesJunctionXOfferSubtitle}
+            >
                 <BorderedSection
-                    title="1. Organizers handbook"
-                    content="Tap into all of our knowledge on our way of organizing a Junction hackathon. It contains practical information and instructions on all aspects of the hackathon."
+                    title={content.whatDoesJunctionXOfferFirstTitle}
+                    content={content.whatDoesJunctionXOfferFirstBody}
                 />
                 <BorderedSection
-                    title="2. Use of our Brand"
-                    content="We have built our brand to a point where it is one of the most recognised hackathons in the world. The JunctionX brand will ease your job in many ways, such as reaching applicants and partners from our global community. Being able to show what we have created in the Nordics will be really valuable on making your own JunctionX a ground-breaking event."
+                    title={content.whatDoesJunctionXOfferSecondTitle}
+                    content={content.whatDoesJunctionXOfferSecondBody}
                 />
                 <BorderedSection
-                    title="3. Templates to ease your life"
-                    content="Website template and design templates such as poster designs, so you can get your event viral straight away."
+                    title={content.whatDoesJunctionXOfferThirdTitle}
+                    content={content.whatDoesJunctionXOfferThirdBody}
                 />
             </SingleColumnSection>
             <Divider lg />
-            {secondTestimonial ? (
-                <React.Fragment>
-                    <ImageBlockSection
-                        image={secondTestimonial.image}
-                        imageAlt={secondTestimonial.name}
-                        title={secondTestimonial.name}
-                        subtitle={secondTestimonial.subtitle}
-                    >
-                        <p>{secondTestimonial.quote}</p>
-                    </ImageBlockSection>
-                    <Divider lg />
-                </React.Fragment>
-            ) : (
-                <DebugPlaceholder
-                    title="Organiser testimonial"
-                    description="The second testimonial of type 'organiser' will be shown here"
-                />
-            )}
-            <BlockSection title="What makes us different?">
-                <p>
-                    Nam tellus tortor, consectetur sed elementum non, consectetur varius libero. Aliquam venenatis lacus
-                    luctus, eleifend libero commodo, suscipit nisi. Aliquam erat volutpat. Vivamus dignissim eros quis
-                    gravida vulputate. Nam viverra massa ut purus dapibus, eget dapibus eros vulputate. Sed eget erat
-                    aliquet, blandit purus venenatis, pulvinar lorem. Aliquam lectus tortor, fermentum non elit aliquet,
-                    tristique viverra eros. Sed eget vulputate eros. Aenean congue volutpat neque, scelerisque gravida
-                    felis lobortis nec. Duis sed pretium ante, at porttitor risus.
-                </p>
-            </BlockSection>
+            <ImageBlockSection
+                image={interestedInOrganisingImage}
+                imageAlt={content.interestedInOrganisingTitle}
+                title={content.interestedInOrganisingTitle}
+                subtitle={content.interestedInOrganisingSubtitle}
+            >
+                <Markdown source={content.interestedInOrganisingBody} />
+            </ImageBlockSection>
             <Divider lg />
-            <BlockSection title="Partners" subtitle="Some of our partners from previous years">
-                <p>
-                    Nam tellus tortor, consectetur sed elementum non, consectetur varius libero. Aliquam venenatis lacus
-                    luctus, eleifend libero commodo, suscipit nisi. Aliquam erat volutpat. Vivamus dignissim eros quis
-                    gravida vulputate. Nam viverra massa ut purus dapibus, eget dapibus eros vulputate. Sed eget erat
-                    aliquet, blandit purus venenatis, pulvinar lorem. Aliquam lectus tortor, fermentum non elit aliquet,
-                    tristique viverra eros. Sed eget vulputate eros. Aenean congue volutpat neque, scelerisque gravida
-                    felis lobortis nec. Duis sed pretium ante, at porttitor risus.
-                </p>
-            </BlockSection>
-            <Divider lg />
-            <BlockSection title="Join the community" subtitle="Shoot us a message! We'll be sure to answer asap.">
+            <BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>
                 <ContactForm />
             </BlockSection>
             <Divider lg />
@@ -147,7 +121,28 @@ const mapStateToProps = state => ({
     testimonials: ContentSelectors.testimonialsOfType('organiser')(state),
     testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
     headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.organiserPageHeaderImage)(state),
-    kpis: ContentSelectors.kpisOfType('organiser')(state)
+    interestedInOrganisingImage: MediaSelectors.mediaByKey(MEDIA_KEYS.interestedInOrganisingImage)(state),
+    kpis: ContentSelectors.kpisOfType('organiser')(state),
+    content: StaticContentSelectors.objectWithKeys([
+        KEYS.organisersPageTitle,
+        KEYS.organisersPageSubtitle,
+        KEYS.whatIsJunctionXTitle,
+        KEYS.whatIsJunctionXSubtitle,
+        KEYS.whatIsJunctionXBody,
+        KEYS.whatDoesJunctionXOfferTitle,
+        KEYS.whatDoesJunctionXOfferSubtitle,
+        KEYS.whatDoesJunctionXOfferFirstTitle,
+        KEYS.whatDoesJunctionXOfferFirstBody,
+        KEYS.whatDoesJunctionXOfferSecondTitle,
+        KEYS.whatDoesJunctionXOfferSecondBody,
+        KEYS.whatDoesJunctionXOfferThirdTitle,
+        KEYS.whatDoesJunctionXOfferThirdBody,
+        KEYS.interestedInOrganisingTitle,
+        KEYS.interestedInOrganisingSubtitle,
+        KEYS.interestedInOrganisingBody,
+        KEYS.joinCommunity,
+        KEYS.joinCommunityBody
+    ])(state)
 });
 
 const mapDispatchToProps = dispatch => ({
