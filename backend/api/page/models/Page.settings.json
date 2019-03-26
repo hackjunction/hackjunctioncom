@@ -30,6 +30,22 @@
       "unique": true,
       "type": "string",
       "required": true
+    },
+    "navPriority": {
+      "default": 10,
+      "type": "integer",
+      "required": true
+    },
+    "navSection": {
+      "default": "",
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "home",
+        "events",
+        "community",
+        "none"
+      ]
     }
   }
 }
