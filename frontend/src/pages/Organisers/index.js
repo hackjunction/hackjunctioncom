@@ -13,6 +13,8 @@ import StatBlocks from '../../components/StatBlocks';
 import Divider from '../../components/Divider';
 import DebugPlaceholder from '../../components/DebugPlaceholder';
 import Markdown from '../../components/Markdown';
+import Image from '../../components/Image';
+import CenteredBlock from '../../components/CenteredBlock';
 
 import Page from '../PageHOC';
 
@@ -30,6 +32,7 @@ const OrganisersPage = ({
     updateTestimonials,
     headerImage,
     interestedInOrganisingImage,
+    junctionXTimelineImage,
     kpis = []
 }) => {
     useEffect(() => {
@@ -100,6 +103,15 @@ const OrganisersPage = ({
                 />
             </SingleColumnSection>
             <Divider lg />
+            <CenteredBlock>
+                <Image
+                    className="OrganisersPage--junctionx-timeline-image"
+                    alt="JunctionX timeline"
+                    image={junctionXTimelineImage}
+                    width={980}
+                />
+            </CenteredBlock>
+            <Divider lg />
             <ImageBlockSection
                 image={interestedInOrganisingImage}
                 imageAlt={content.interestedInOrganisingTitle}
@@ -122,6 +134,7 @@ const mapStateToProps = state => ({
     testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
     headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.organiserPageHeaderImage)(state),
     interestedInOrganisingImage: MediaSelectors.mediaByKey(MEDIA_KEYS.interestedInOrganisingImage)(state),
+    junctionXTimelineImage: MediaSelectors.mediaByKey(MEDIA_KEYS.junctionXTimelineImage)(state),
     kpis: ContentSelectors.kpisOfType('organiser')(state),
     content: StaticContentSelectors.objectWithKeys([
         KEYS.organisersPageTitle,

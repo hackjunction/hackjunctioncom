@@ -11,7 +11,8 @@ const MEDIA_KEYS = {
     errorPageHeaderImage: 'errorPageHeaderImage',
     notFoundPageHeaderImage: 'notFoundPageHeaderImage',
     defaultBackgroundImage: 'defaultBackgroundImage',
-    interestedInOrganisingImage: 'interestedInOrganisingImage'
+    interestedInOrganisingImage: 'interestedInOrganisingImage',
+    junctionXTimelineImage: 'junctionXTimelineImage'
 };
 
 export default MEDIA_KEYS;

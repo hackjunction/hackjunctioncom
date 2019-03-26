@@ -25,7 +25,8 @@
         "\nconceptsPageHeaderImage",
         "\nerrorPageHeaderImage",
         "\nnotFoundPageHeaderImage",
-        ""
+        "\ninterestedInOrganisingImage",
+        "\njunctionXTimelineImage"
       ],
       "unique": true
     },
