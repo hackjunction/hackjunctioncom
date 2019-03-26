@@ -1,87 +1,87 @@
 const CONTENT_KEYS = {
-	/* Sitewide */
-	siteSlogan: 'siteSlogan',
-	siteContactEmail: 'siteContactEmail',
-	homePageHeaderVideoLink: 'homePageHeaderVideoLink',
+    /* Sitewide */
+    siteSlogan: 'siteSlogan',
+    siteContactEmail: 'siteContactEmail',
+    homePageHeaderVideoLink: 'homePageHeaderVideoLink',
 
-	/* Contact form */
-	joinCommunity: 'joinCommunity',
-	joinCommunityBody: 'joinCommunityBody',
+    /* Contact form */
+    joinCommunity: 'joinCommunity',
+    joinCommunityBody: 'joinCommunityBody',
 
-	/* Home page */
-	whoAreWe: 'whoAreWe',
-	whoAreWeBody: 'whoAreWeBody',
-	whoAreWeSubtitle: 'whoAreWeSubtitle',
-	whatWeDo: 'whatWeDo',
-	whatWeDoBody: 'whatWeDoBody',
-	whatWeDoSubtitle: 'whatWeDoSubtitle',
+    /* Home page */
+    whoAreWe: 'whoAreWe',
+    whoAreWeBody: 'whoAreWeBody',
+    whoAreWeSubtitle: 'whoAreWeSubtitle',
+    whatWeDo: 'whatWeDo',
+    whatWeDoBody: 'whatWeDoBody',
+    whatWeDoSubtitle: 'whatWeDoSubtitle',
 
-	/* Story page */
-	storyPageTitle: 'storyPageTitle',
-	storyPageSubtitle: 'storyPageSubtitle',
-	whatIsJunctionTitle: 'whatIsJunctionTitle',
-	whatIsJunctionSubtitle: 'whatIsJunctionSubtitle',
-	whatIsJunctionBody: 'whatIsJunctionBody',
-	storyPagePersonImage: 'storyPagePersonImage',
-	storyPagePersonTitle: 'storyPagePersonTitle',
-	storyPagePersonSubtitle: 'storyPagePersonSubtitle',
-	storyPagePersonBody: 'storyPagePersonBody',
-	junction2019: 'junction2019',
-	junction2019Body: 'junction2019Body',
-	junction2019Subtitle: 'junction2019Subtitle',
+    /* Story page */
+    storyPageTitle: 'storyPageTitle',
+    storyPageSubtitle: 'storyPageSubtitle',
+    whatIsJunctionTitle: 'whatIsJunctionTitle',
+    whatIsJunctionSubtitle: 'whatIsJunctionSubtitle',
+    whatIsJunctionBody: 'whatIsJunctionBody',
+    storyPagePersonImage: 'storyPagePersonImage',
+    storyPagePersonTitle: 'storyPagePersonTitle',
+    storyPagePersonSubtitle: 'storyPagePersonSubtitle',
+    storyPagePersonBody: 'storyPagePersonBody',
+    junction2019: 'junction2019',
+    junction2019Body: 'junction2019Body',
+    junction2019Subtitle: 'junction2019Subtitle',
 
-	/* Calendar page */
-	calendarPageTitle: 'calendarPageTitle',
-	calendarPageSubtitle: 'calendarPageSubtitle',
+    /* Calendar page */
+    calendarPageTitle: 'calendarPageTitle',
+    calendarPageSubtitle: 'calendarPageSubtitle',
 
-	/* Concepts page */
-	conceptsPageTitle: 'conceptsPageTitle',
-	conceptsPageSubtitle: 'conceptsPageSubtitle',
+    /* Concepts page */
+    conceptsPageTitle: 'conceptsPageTitle',
+    conceptsPageSubtitle: 'conceptsPageSubtitle',
 
-	/* Partners page */
-	partnersPageTitle: 'partnersPageTitle',
-	partnersPageSubtitle: 'partnersPageSubtitle',
-	partnersPageFirstTitle: 'partnersPageFirstTitle',
-	partnersPageFirstSubtitle: 'partnersPageFirstSubtitle',
-	partnersPageFirstBody: 'partnersPageFirstBody',
-	whyPartnerWithUsTitle: 'whyPartnerWithUsTitle',
-	whyPartnerWithUsFirstTitle: 'whyPartnerWithUsFirstTitle',
-	whyPartnerWithUsFirstBody: 'whyPartnerWithUsFirstBody',
-	whyPartnerWithUsSecondTitle: 'whyPartnerWithUsSecondTitle',
-	whyPartnerWithUsSecondBody: 'whyPartnerWithUsSecondBody',
-	whyPartnerWithUsThirdTitle: 'whyPartnerWithUsThirdTitle',
-	whyPartnerWithUsThirdBody: 'whyPartnerWithUsThirdBody',
-	whatMakesUsDifferentTitle: 'whatMakesUsDifferentTitle',
-	whatMakesUsDifferentSubtitle: 'whatMakesUsDifferentSubtitle',
-	whatMakesUsDifferentBody: 'whatMakesUsDifferentBody',
-	previousPartnersTitle: 'previousPartnersTitle',
-	previousPartnersSubtitle: 'previousPartnersSubtitle',
-	previousPartnersBody: 'previousPartnersBody',
+    /* Partners page */
+    partnersPageTitle: 'partnersPageTitle',
+    partnersPageSubtitle: 'partnersPageSubtitle',
+    partnersPageFirstTitle: 'partnersPageFirstTitle',
+    partnersPageFirstSubtitle: 'partnersPageFirstSubtitle',
+    partnersPageFirstBody: 'partnersPageFirstBody',
+    whyPartnerWithUsTitle: 'whyPartnerWithUsTitle',
+    whyPartnerWithUsFirstTitle: 'whyPartnerWithUsFirstTitle',
+    whyPartnerWithUsFirstBody: 'whyPartnerWithUsFirstBody',
+    whyPartnerWithUsSecondTitle: 'whyPartnerWithUsSecondTitle',
+    whyPartnerWithUsSecondBody: 'whyPartnerWithUsSecondBody',
+    whyPartnerWithUsThirdTitle: 'whyPartnerWithUsThirdTitle',
+    whyPartnerWithUsThirdBody: 'whyPartnerWithUsThirdBody',
+    whatMakesUsDifferentTitle: 'whatMakesUsDifferentTitle',
+    whatMakesUsDifferentSubtitle: 'whatMakesUsDifferentSubtitle',
+    whatMakesUsDifferentBody: 'whatMakesUsDifferentBody',
+    previousPartnersTitle: 'previousPartnersTitle',
+    previousPartnersSubtitle: 'previousPartnersSubtitle',
+    previousPartnersBody: 'previousPartnersBody',
 
-	/* Volunteers page */
-	volunteersPageTitle: 'volunteersPageTitle',
-	volunteersPageSubtitle: 'volunteersPageSubtitle',
-	volunteeringTitle: 'volunteeringTitle',
-	volunteeringSubtitle: 'volunteeringSubtitle',
-	volunteeringBody: 'volunteeringBody',
+    /* Volunteers page */
+    volunteersPageTitle: 'volunteersPageTitle',
+    volunteersPageSubtitle: 'volunteersPageSubtitle',
+    volunteeringTitle: 'volunteeringTitle',
+    volunteeringSubtitle: 'volunteeringSubtitle',
+    volunteeringBody: 'volunteeringBody',
 
-	/* Participants page */
-	participantsPageTitle: 'participantsPageTitle',
-	participantsPageSubtitle: 'participantsPageSubtitle',
-	howToJoinTitle: 'howToJoinTitle',
-	howToJoinSubtitle: 'howToJoinSubtitle',
-	howToJoinStepOne: 'howToJoinStepOne',
-	howToJoinStepTwo: 'howToJoinStepTwo',
-	howToJoinStepThree: 'howToJoinStepThree',
-	howToJoinStepFour: 'howToJoinStepFour',
-	howToJoinStepFive: 'howToJoinStepFive',
-	getHiredTitle: 'getHiredTitle',
-	getHiredSubtitle: 'getHiredSubtitle',
-	getHiredBody: 'getHiredBody',
+    /* Participants page */
+    participantsPageTitle: 'participantsPageTitle',
+    participantsPageSubtitle: 'participantsPageSubtitle',
+    howToJoinTitle: 'howToJoinTitle',
+    howToJoinSubtitle: 'howToJoinSubtitle',
+    howToJoinStepOne: 'howToJoinStepOne',
+    howToJoinStepTwo: 'howToJoinStepTwo',
+    howToJoinStepThree: 'howToJoinStepThree',
+    howToJoinStepFour: 'howToJoinStepFour',
+    howToJoinStepFive: 'howToJoinStepFive',
+    getHiredTitle: 'getHiredTitle',
+    getHiredSubtitle: 'getHiredSubtitle',
+    getHiredBody: 'getHiredBody',
 
-	/* Team page */
-	teamPageTitle: 'teamPageTitle',
-	teamPageSubtitle: 'teamPageSubtitle',
-}
+    /* Team page */
+    teamPageTitle: 'teamPageTitle',
+    teamPageSubtitle: 'teamPageSubtitle'
+};
 
-export default CONTENT_KEYS
+export default CONTENT_KEYS;
