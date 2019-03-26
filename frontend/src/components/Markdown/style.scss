@@ -1,5 +1,11 @@
+@import '../../styles/main';
+
 .Markdown {
-	p {
-		margin-top: 0;
-	}
-}	
+    p {
+        @extend %font-body;
+        margin-top: 0;
+    }
+
+    a {
+    }
+}

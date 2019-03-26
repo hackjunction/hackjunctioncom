@@ -7,56 +7,56 @@ $montserrat: 'Montserrat', sans-serif;
 $lato: 'Lato', sans-serif;
 
 html {
-	font-size: 16px;
+    font-size: 16px;
 }
 
 /* Default to Lato on all elements */
 * {
-	font-family: $lato;
+    font-family: $lato;
 }
 
 .font-title,
 %font-title {
-	font-family: $montserrat;
-	color: $junction-white;
+    font-family: $montserrat;
+    color: $junction-white;
 }
 
 .font-body,
 %font-body {
-	font-family: $lato;
-	font-size: 16px;
-	line-height: 26px;
-	color: $junction-white;
-	text-align: justify;
+    font-family: $lato;
+    font-size: 16px;
+    line-height: 26px;
+    color: $junction-white;
+    text-align: justify;
 
-	@include bp-full {
-		font-size: 18px;
-		line-height: 32px;
-		text-align: left;
-	}
+    @include bp-full {
+        font-size: 18px;
+        line-height: 32px;
+        text-align: left;
+    }
 }
 
 .font-secondary,
 %font-secondary {
-	font-family: $lato;
-	font-size: 13px;
-	color: $color-lightgrey;
+    font-family: $lato;
+    font-size: 13px;
+    color: $color-lightgrey;
 }
 
 .font-input,
 %font-input {
-	font-family: $lato;
-	font-size: 16px;
-	color: $junction-white;
+    font-family: $lato;
+    font-size: 16px;
+    color: $junction-white;
 }
 
 .font-link,
 %font-link {
-	font-family: $lato;
-	font-size: 13px;
-	color: $junction-blue;
-	cursor: pointer;
-	text-decoration: none;
+    @extend %font-body;
+    color: $junction-blue;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 /* Define sensible defaults for common elements */
@@ -67,7 +67,7 @@ h3,
 h4,
 h5,
 h6 {
-	@extend %font-title;
+    @extend %font-title;
 }
 
 p,
@@ -75,20 +75,20 @@ span,
 li,
 td,
 th {
-	@extend %font-body;
+    @extend %font-body;
 }
 
 label,
 small,
 i {
-	@extend %font-secondary;
+    @extend %font-secondary;
 }
 
 input,
 textarea {
-	@extend %font-input;
+    @extend %font-input;
 }
 
 a {
-	@extend %font-link;
+    @extend %font-link;
 }
