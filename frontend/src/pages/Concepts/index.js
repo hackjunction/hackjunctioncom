@@ -22,21 +22,21 @@ const ConceptsPage = ({ eventconcepts, loading, content, headerImage }) => {
 
         if (concept.eventcategory) {
             items.push({
-                icon: 'foo',
+                icon: require('../../assets/icons/star.png'),
                 text: concept.eventcategory.name
             });
         }
 
         if (concept.timedescription) {
             items.push({
-                icon: 'foo',
+                icon: require('../../assets/icons/calendar.png'),
                 text: concept.timedescription
             });
         }
 
         if (concept.locationdescription) {
             items.push({
-                icon: 'foo',
+                icon: require('../../assets/icons/pointer.png'),
                 text: concept.locationdescription
             });
         }

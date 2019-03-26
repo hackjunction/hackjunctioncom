@@ -1,60 +1,84 @@
-import React from 'react'
-import './style.scss'
+import React from 'react';
+import './style.scss';
 
-import { connect } from 'react-redux'
-import moment from 'moment-timezone'
+import { connect } from 'react-redux';
+import moment from 'moment-timezone';
 
-import * as ContentSelectors from '../../../redux/content/selectors'
+import Image from '../../Image';
 
-const DEFAULT_IMAGE = null
+import * as ContentSelectors from '../../../redux/content/selectors';
+
+const DEFAULT_IMAGE = null;
 
 const EventCalendarEvent = ({ event, getDefaultImage }) => {
+    function getEventColor() {
+        return event.eventcategory ? event.eventcategory.hexColor : '#ffffff';
+    }
 
-	function getEventColor() {
-		return event.eventcategory ? event.eventcategory.hexColor : '#ffffff'
-	}
+    //TODO: Apply this image
+    let image = DEFAULT_IMAGE;
 
-	//TODO: Apply this image
-	let image = DEFAULT_IMAGE
+    if (event.eventconcept) {
+        let conceptDefault = getDefaultImage(event.eventconcept.slug);
+        image = conceptDefault ? conceptDefault.url : image;
+    }
 
-	if (event.eventconcept) {
-		let conceptDefault = getDefaultImage(event.eventconcept.slug)
-		image = conceptDefault ? conceptDefault.url : image
-	}
+    if (event.image) {
+        image = event.image.url;
+    }
 
-	if (event.image) {
-		image = event.image.url
-	}
+    console.log('EVENT', event);
 
-	return (
-		<div
-			className="EventCalendarEvent"
-			style={{ '--theme-color': getEventColor() }}
-			itemscope
-			itemtype="http://schema.org/Event"
-		>
-			<h4 className="EventCalendarEvent--name" itemprop="name">{event.name}</h4>
-			<div className="EventCalendarEvent--details">
-				<div className="EventCalendarEvent--detail">
-					<i className="EventCalendarEvent--detail__icon"></i>
-					<span className="EventCalendarEvent--detail__text" itemprop="startDate">{moment(event.begins).format('DD.MM.YYYY')}</span>
-				</div>
-				<div className="EventCalendarEvent--detail">
-					<div className="EventCalendarEvent--detail__icon">
-						<i className="EventCalendarEvent--detail__icon-inner"></i>
-					</div>
-					<span className="EventCalendarEvent--detail__text" itemprop="location">{event.locationdescription}</span>
-				</div>
-			</div>
-			<a className="EventCalendarEvent--pagelink" itemprop="url" href={event.linkToEventSite}>
-				<span className="EventCalendarEvent--pagelink__text">Event page</span>
-			</a>
-		</div>
-	)
-}
+    return (
+        <div className="EventCalendarEvent">
+            <Image className="EventCalendarEvent--image" image={event.image} width={600} height={300} />
+            <div className="EventCalendarEvent--top">
+                <h4 className="EventCalendarEvent--title">{event.name}</h4>
+                <div className="EventCalendarEvent--detail">
+                    <img
+                        className="EventCalendarEvent--detail__icon"
+                        src={require('../../../assets/icons/calendar.png')}
+                        alt="Calendar icon"
+                    />
+                    <span className="EventCalendarEvent--detail__text">
+                        {moment(event.begins).format('DD.MM.YYYY')}
+                    </span>
+                </div>
+            </div>
+            <div className="EventCalendarEvent--bottom">
+                <div className="EventCalendarEvent--detail">
+                    <img
+                        className="EventCalendarEvent--detail__icon"
+                        src={require('../../../assets/icons/pointer.png')}
+                        alt="Location icon"
+                    />
+                    <span className="EventCalendarEvent--detail__text">{event.locationDescription}</span>
+                </div>
+            </div>
+            {/* <h4 className="EventCalendarEvent--name">{event.name}</h4>
+            <div className="EventCalendarEvent--details">
+                <div className="EventCalendarEvent--detail">
+                    <i className="EventCalendarEvent--detail__icon" />
+                    <span className="EventCalendarEvent--detail__text">
+                        {moment(event.begins).format('DD.MM.YYYY')}
+                    </span>
+                </div>
+                <div className="EventCalendarEvent--detail">
+                    <div className="EventCalendarEvent--detail__icon">
+                        <i className="EventCalendarEvent--detail__icon-inner" />
+                    </div>
+                    <span className="EventCalendarEvent--detail__text">{event.locationdescription}</span>
+                </div>
+            </div>
+            <a className="EventCalendarEvent--pagelink" href={event.linkToEventSite}>
+                <span className="EventCalendarEvent--pagelink__text">Event page</span>
+            </a> */}
+        </div>
+    );
+};
 
-const mapStateToProps = (state) => ({
-	getDefaultImage: (slug) => ContentSelectors.eventconceptImage(slug)
-})
+const mapStateToProps = state => ({
+    getDefaultImage: slug => ContentSelectors.eventconceptImage(slug)
+});
 
-export default connect(mapStateToProps)(EventCalendarEvent)
+export default connect(mapStateToProps)(EventCalendarEvent);

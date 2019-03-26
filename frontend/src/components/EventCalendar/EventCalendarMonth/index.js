@@ -1,30 +1,25 @@
-import React from 'react'
-import './style.scss'
+import React from 'react';
+import './style.scss';
 
-import _ from 'lodash'
+import _ from 'lodash';
 
-import BlockSection from '../../BlockSection'
-import EventCalendarEvent from '../EventCalendarEvent'
+import BlockSection from '../../BlockSection';
+import EventCalendarEvent from '../EventCalendarEvent';
 
 const EventCalendarMonth = ({ month, year, events }) => {
+    function renderEvents() {
+        return _.map(events, e => {
+            return <EventCalendarEvent key={e.name} event={e} />;
+        });
+    }
 
-	function renderEvents() {
-		return _.map(events, e => {
-			return (
-				<EventCalendarEvent key={e.name} event={e} />
-			)
-		})
-	}
+    return (
+        <div className="EventCalendarMonth">
+            <BlockSection title={month} subtitle={year}>
+                <div className="EventCalendarMonth--events">{renderEvents()}</div>
+            </BlockSection>
+        </div>
+    );
+};
 
-	return (
-		<div className="EventCalendarMonth">
-			<BlockSection title={month} subtitle={year}>
-				<div className="EventCalendarMonth--events">
-					{renderEvents()}
-				</div>
-			</BlockSection>
-		</div>
-	)
-}
-
-export default EventCalendarMonth
+export default EventCalendarMonth;

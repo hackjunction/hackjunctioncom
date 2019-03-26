@@ -1,0 +1,17 @@
+.IconTextRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &--icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 15px;
+
+        &__image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
