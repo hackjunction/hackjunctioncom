@@ -75,7 +75,7 @@ const OrganisersPage = ({
                         title={testimonial.name}
                         subtitle={testimonial.subtitle}
                     >
-                        <p>{testimonial.quote}</p>
+                        <Markdown source={testimonial.quote} />
                     </ImageBlockSection>
                     <Divider lg />
                 </React.Fragment>
