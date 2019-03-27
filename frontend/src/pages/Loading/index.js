@@ -1,15 +1,15 @@
-import React from 'react'
-import './style.scss'
+import React from 'react';
+import './style.scss';
 
-import LogoSpinner from '../../components/LogoSpinner'
+import LogoSpinner from '../../components/LogoSpinner';
+import Page from '../PageHOC';
 
 const LoadingPage = () => {
+    return (
+        <Page className="LoadingPage">
+            <LogoSpinner />
+        </Page>
+    );
+};
 
-	return (
-		<div className="LoadingPage">
-			<LogoSpinner />
-		</div>
-	)
-}
-
-export default LoadingPage
+export default LoadingPage;

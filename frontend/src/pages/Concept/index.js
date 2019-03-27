@@ -45,7 +45,6 @@ const ConceptPage = ({ match, shouldUpdate, updateConcepts, loading, error, getC
             <HeaderImage
                 image={concept.image}
                 alt="Header image"
-                navTitle={concept.name}
                 mainTitle={concept.punchline}
                 bodyText={concept.shortdescription}
             />

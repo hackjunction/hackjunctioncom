@@ -67,7 +67,6 @@ const PartnersPage = ({
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                navTitle={'For partners.'}
                 mainTitle={content.partnersPageTitle}
                 bodyText={content.partnersPageSubtitle}
             />

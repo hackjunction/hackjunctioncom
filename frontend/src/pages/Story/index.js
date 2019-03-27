@@ -44,7 +44,6 @@ const StoryPage = ({ content, headerImage, kpis = [], testimonials = [] }) => {
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                navTitle={'Story.'}
                 mainTitle={content.storyPageTitle}
                 bodyText={content.storyPageSubtitle}
             />

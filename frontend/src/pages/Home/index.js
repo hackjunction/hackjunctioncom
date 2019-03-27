@@ -31,7 +31,7 @@ const HomePage = ({ content, headerImage, kpis = [] }) => {
 
     return (
         <Page className="HomePage" pageTitle="Hack the Future" metaDesc={content.whoAreWeBody}>
-            <HeaderVideo navTitle="Hack the Future." />
+            <HeaderVideo />
             <BlockSection title={content.whoAreWe} subtitle={content.whoAreWeSubtitle}>
                 <Markdown source={content.whoAreWeBody} />
                 <StatBlocks blocks={buildStatBlocks()} />

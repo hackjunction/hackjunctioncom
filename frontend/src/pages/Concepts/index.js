@@ -66,7 +66,6 @@ const ConceptsPage = ({ eventconcepts, loading, content, headerImage }) => {
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                navTitle={'Concepts.'}
                 mainTitle={content.conceptsPageTitle}
                 bodyText={content.conceptsPageSubtitle}
             />

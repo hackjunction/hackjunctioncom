@@ -42,7 +42,6 @@ const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, upd
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                navTitle={'For participants.'}
                 mainTitle={content.participantsPageTitle}
                 bodyText={content.participantsPageSubtitle}
             />

@@ -1,77 +1,72 @@
 @import '../../styles/main';
 
 .Header {
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 100;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	pointer-events: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    pointer-events: none;
 
-	padding: 20px;
-	background: $junction-black;
+    padding: 10px;
+    background: #000000;
+    transition: all 0.2s ease;
 
-	@include bp-med {
-		padding: 30px;
-		background: transparent;
-	}
+    &-is-transparent {
+        background: rgba(#000000, 0.2);
+        padding: 20px;
+    }
 
-	@include bp-full {
-		padding: 40px;
-	}
+    &--menu-button {
+        width: 50px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        pointer-events: all;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
 
-	&--menu-button {
-		width: 40px;
-		height: 40px;
-		cursor: pointer;
-		transition: all 0.2s ease;
-		pointer-events: all;
+        &:hover {
+            i {
+                background: rgba($junction-white, 0.1);
+            }
+        }
 
-		@include bp-med {
-			width: 50px;
-			height: 50px;
-		}
+        i {
+            padding: 5px;
+            font-size: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 
-		@include bp-full {
-			width: 60px;
-			height: 60px;
-		}
+    &--nav-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-		&:hover {
-			background: rgba($junction-white, 0.1);
-		}
+        &__text {
+            font-size: 18px;
+            margin: 0;
+        }
+    }
 
-		i {
-			font-size: 32px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+    &--emblem {
+        width: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
 
-			@include bp-med {
-				font-size: 40px;
-			}
-
-			@include bp-full {
-				font-size: 48px;
-			}
-		}
-	}
-
-	&--emblem {
-		height: 40px;
-		width: 40px;
-
-		@include bp-med {
-			height: 50px;
-			width: 50px;
-		}
-
-		@include bp-full {
-			width: 60px;
-			height: 60px;
-		}
-	}
+        &__image {
+            transition: all 0.2s ease;
+            height: 40px;
+            width: 40px;
+        }
+    }
 }

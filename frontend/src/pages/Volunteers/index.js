@@ -34,7 +34,6 @@ const VolunteersPage = ({ content, testimonials, testimonialsShouldUpdate, updat
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                navTitle={'For volunteers.'}
                 mainTitle={content.volunteersPageTitle}
                 bodyText={content.volunteersPageSubtitle}
             />

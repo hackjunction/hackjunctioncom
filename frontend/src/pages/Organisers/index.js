@@ -54,11 +54,10 @@ const OrganisersPage = ({
     }
 
     return (
-        <Page className="OrganisersPage" pageTitle="For organisers" metaDesc={''}>
+        <Page className="OrganisersPage" pageTitle="For organisers" metaDesc={content.organisersPageSubtitle}>
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                navTitle={'For organisers.'}
                 mainTitle={content.organisersPageTitle}
                 bodyText={content.organisersPageSubtitle}
             />
