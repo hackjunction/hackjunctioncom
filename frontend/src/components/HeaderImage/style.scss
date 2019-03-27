@@ -8,7 +8,6 @@
     position: relative;
     overflow: hidden;
     z-index: 0;
-    background: black;
     transition: height 0.2s ease;
 
     @include bp-med {
@@ -51,6 +50,12 @@
         object-position: center;
         opacity: 0;
         transition: opacity 0.5s ease;
+        mask-image: url('../../assets/misc/wave-mask.png');
+        mask-size: cover;
+        mask-position: top;
+        -webkit-mask-image: url('../../assets/misc/wave-mask.png');
+        -webkit-mask-size: cover;
+        -webkit-mask-position: top;
 
         &-visible {
             opacity: 1;

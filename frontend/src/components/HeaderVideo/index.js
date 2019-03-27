@@ -22,12 +22,6 @@ const HeaderVideo = ({ videoSource, posterImage, alt, navTitle }) => {
                     type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
                 />
             </video>
-            <img
-                className="HeaderVideo--wave-overlay"
-                src={require('../../assets/misc/wave-ltr.png')}
-                alt="Wave overlay"
-            />
-            {/* {navTitle ? <h1 className="HeaderVideo--nav-title">{navTitle}</h1> : null} */}
         </div>
     );
 };
