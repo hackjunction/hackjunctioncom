@@ -43,6 +43,9 @@ const CONTENT_KEYS = [
 const StoryPage = ({ allContent, allMedia, kpis = [], testimonials = [] }) => {
     const content = objectWithKeys(allContent, CONTENT_KEYS);
     const headerImage = mediaByKey(allMedia, MEDIA_KEYS.storyPageHeaderImage);
+    const partnerLinkImage = mediaByKey(allMedia, MEDIA_KEYS.partnerPageHeaderImage);
+    const volunteerLinkImage = mediaByKey(allMedia, MEDIA_KEYS.volunteerPageHeaderImage);
+    const calendarLinkImage = mediaByKey(allMedia, MEDIA_KEYS.calendarPageHeaderImage);
     const testimonial = testimonials && testimonials.length > 0 ? testimonials[0] : null;
 
     function renderStatBlocks() {
@@ -102,19 +105,19 @@ const StoryPage = ({ allContent, allMedia, kpis = [], testimonials = [] }) => {
             <ImageLinks
                 links={[
                     {
-                        imageSrc: require('../../assets/images/default_image.jpg'),
+                        image: partnerLinkImage,
                         imageAlt: 'Link',
                         linkTo: '/partners',
                         linkText: 'For partners'
                     },
                     {
-                        imageSrc: require('../../assets/images/default_image.jpg'),
+                        image: volunteerLinkImage,
                         imageAlt: 'Link',
                         linkTo: '/volunteers',
                         linkText: 'For volunteers'
                     },
                     {
-                        imageSrc: require('../../assets/images/default_image.jpg'),
+                        image: calendarLinkImage,
                         imageAlt: 'Link',
                         linkTo: '/calendar',
                         linkText: 'Calendar'

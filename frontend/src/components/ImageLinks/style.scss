@@ -1,13 +1,15 @@
 @import '../../styles/main';
 
 .ImageLinks {
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: -$padding-page;
+    margin-right: -$padding-page;
 
-	@include bp-full {
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-	}
+    @include bp-full {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 }
