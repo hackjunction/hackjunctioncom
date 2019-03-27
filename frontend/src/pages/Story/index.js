@@ -50,7 +50,7 @@ const StoryPage = ({ allContent, allMedia, kpis = [], testimonials = [] }) => {
 
     function renderStatBlocks() {
         if (Array.isArray(kpis) && kpis.length > 0) {
-            const blocks = kpis.slice(0, 2).map(kpi => {
+            const blocks = kpis.map(kpi => {
                 return {
                     id: kpi.label + '-' + kpi.number,
                     label: kpi.label,
@@ -59,8 +59,6 @@ const StoryPage = ({ allContent, allMedia, kpis = [], testimonials = [] }) => {
             });
             return <StatBlocks blocks={blocks} />;
         }
-
-        return <DebugPlaceholder title="Generic KPI's" description="Add KPI's of type 'generic' to show them here" />;
     }
 
     return (

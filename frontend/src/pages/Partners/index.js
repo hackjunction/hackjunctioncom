@@ -70,7 +70,7 @@ const PartnersPage = ({
 
     function renderStatBlocks() {
         if (Array.isArray(kpis) && kpis.length > 0) {
-            const blocks = kpis.slice(0, 2).map(kpi => {
+            const blocks = kpis.map(kpi => {
                 return {
                     id: kpi.label + '-' + kpi.number,
                     value: kpi.number,

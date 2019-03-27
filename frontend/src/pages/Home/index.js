@@ -32,7 +32,7 @@ const CONTENT_KEYS = [
 const HomePage = ({ allContent, kpis = [] }) => {
     const content = objectWithKeys(allContent, CONTENT_KEYS);
     function buildStatBlocks() {
-        return kpis.slice(0, 2).map(kpi => {
+        return kpis.map(kpi => {
             return {
                 id: kpi.label + '-' + kpi.number,
                 label: kpi.label,

@@ -73,7 +73,7 @@ const OrganisersPage = ({
     }, []);
 
     function buildStatBlocks() {
-        return kpis.slice(0, 2).map(kpi => {
+        return kpis.map(kpi => {
             return {
                 id: kpi.label + '-' + kpi.number,
                 label: kpi.label,
