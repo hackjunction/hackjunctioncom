@@ -4,6 +4,8 @@ import './style.scss';
 import { connect } from 'react-redux';
 import * as StaticContentSelectors from '../../redux/static/selectors';
 import * as MediaSelectors from '../../redux/media/selectors';
+import { objectWithKeys } from '../../redux/static/helpers';
+import { mediaByKey } from '../../redux/media/helpers';
 import KEYS from '../../redux/static/keys';
 import MEDIA_KEYS from '../../redux/media/keys';
 
@@ -13,7 +15,11 @@ import Divider from '../../components/Divider';
 
 import Page from '../PageHOC';
 
-const CalendarPage = ({ content, headerImage }) => {
+const CONTENT_KEYS = [KEYS.calendarPageTitle, KEYS.calendarPageSubtitle];
+
+const CalendarPage = ({ allContent, allMedia }) => {
+    const content = objectWithKeys(allContent, CONTENT_KEYS);
+    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.calendarPageHeaderImage);
     return (
         <Page className="CalendarPage" pageTitle="Calendar" metaDesc={content.calendarPageSubtitle}>
             <HeaderImage
@@ -29,8 +35,8 @@ const CalendarPage = ({ content, headerImage }) => {
 };
 
 const mapStateToProps = state => ({
-    content: StaticContentSelectors.objectWithKeys([KEYS.calendarPageTitle, KEYS.calendarPageSubtitle])(state),
-    headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.calendarPageHeaderImage)(state)
+    allContent: StaticContentSelectors.content(state),
+    allMedia: MediaSelectors.media(state)
 });
 
 export default connect(mapStateToProps)(CalendarPage);

@@ -7,12 +7,17 @@ import { Link } from 'react-router-dom';
 import * as StaticContentSelectors from '../../redux/static/selectors';
 import * as ContentSelectors from '../../redux/content/selectors';
 import KEYS from '../../redux/static/keys';
+import { objectWithKeys } from '../../redux/static/helpers';
 
 import SocialMediaIcons from '../SocialMediaIcons';
 import Divider from '../Divider';
 import DebugPlaceholder from '../DebugPlaceholder';
 
-const Footer = ({ content, eventConcepts, socialMedias, extraPages }) => {
+const CONTENT_KEYS = [KEYS.siteSlogan, KEYS.siteContactEmail];
+
+const Footer = ({ allContent, eventConcepts, socialMedias, extraPages }) => {
+    const content = objectWithKeys(allContent, CONTENT_KEYS);
+
     function renderConceptLinks() {
         if (!Array.isArray(eventConcepts) || eventConcepts.length === 0) {
             return <DebugPlaceholder title="Event concepts" description="Add event concepts" />;
@@ -127,11 +132,11 @@ const Footer = ({ content, eventConcepts, socialMedias, extraPages }) => {
 };
 
 const mapStateToProps = state => ({
-    content: StaticContentSelectors.objectWithKeys([KEYS.siteSlogan, KEYS.siteContactEmail])(state),
+    allContent: StaticContentSelectors.content(state),
     extraPages: {
-        home: ContentSelectors.pagesByNavSection('home')(state),
-        events: ContentSelectors.pagesByNavSection('events')(state),
-        community: ContentSelectors.pagesByNavSection('community')(state)
+        home: ContentSelectors.homePages(state),
+        events: ContentSelectors.eventPages(state),
+        community: ContentSelectors.communityPages(state)
     },
     eventConcepts: ContentSelectors.eventconceptsByPriority(state),
     socialMedias: ContentSelectors.socialmedias(state)

@@ -19,15 +19,29 @@ import Markdown from '../../components/Markdown';
 import DebugPlaceholder from '../../components/DebugPlaceholder';
 
 import Page from '../PageHOC';
+import { objectWithKeys } from '../../redux/static/helpers';
+import { mediaByKey } from '../../redux/media/helpers';
 
-const VolunteersPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage }) => {
+const CONTENT_KEYS = [
+    KEYS.volunteersPageTitle,
+    KEYS.volunteersPageSubtitle,
+    KEYS.volunteeringTitle,
+    KEYS.volunteeringSubtitle,
+    KEYS.volunteeringBody,
+    KEYS.joinCommunity,
+    KEYS.joinCommunityBody
+];
+
+const VolunteersPage = ({ allContent, allMedia, testimonials, testimonialsShouldUpdate, updateTestimonials }) => {
+    const content = objectWithKeys(allContent, CONTENT_KEYS);
+    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.volunteerPageHeaderImage);
+    const testimonial = testimonials.length > 0 ? testimonials[0] : null;
+
     useEffect(() => {
         if (testimonialsShouldUpdate) {
             updateTestimonials();
         }
     }, []);
-
-    const testimonial = testimonials.length > 0 ? testimonials[0] : null;
 
     return (
         <Page className="VolunteersPage" pageTitle="For volunteers" metaDesc={content.volunteersPageSubtitle}>
@@ -68,18 +82,10 @@ const VolunteersPage = ({ content, testimonials, testimonialsShouldUpdate, updat
 };
 
 const mapStateToProps = state => ({
-    content: StaticContentSelectors.objectWithKeys([
-        KEYS.volunteersPageTitle,
-        KEYS.volunteersPageSubtitle,
-        KEYS.volunteeringTitle,
-        KEYS.volunteeringSubtitle,
-        KEYS.volunteeringBody,
-        KEYS.joinCommunity,
-        KEYS.joinCommunityBody
-    ])(state),
-    testimonials: ContentSelectors.testimonialsOfType('volunteer')(state),
-    testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
-    headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.volunteerPageHeaderImage)(state)
+    allContent: StaticContentSelectors.content(state),
+    allMedia: MediaSelectors.media(state),
+    testimonials: ContentSelectors.volunteerTestimonials(state),
+    testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state)
 });
 
 const mapDispatchToProps = dispatch => ({

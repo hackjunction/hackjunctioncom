@@ -9,8 +9,10 @@ import Page from '../PageHOC';
 
 import * as MediaSelectors from '../../redux/media/selectors';
 import MEDIA_KEYS from '../../redux/media/keys';
+import { mediaByKey } from '../../redux/media/helpers';
 
-const ErrorPage = ({ headerImage }) => {
+const ErrorPage = ({ allMedia }) => {
+    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.errorPageHeaderImage);
     return (
         <Page className="ErrorPage" pageTitle="Error" metaDesc="">
             <HeaderImage
@@ -27,7 +29,7 @@ const ErrorPage = ({ headerImage }) => {
 };
 
 const mapStateToProps = state => ({
-    headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.errorPageHeaderImage)(state)
+    allMedia: MediaSelectors.media(state)
 });
 
 export default connect(mapStateToProps)(ErrorPage);

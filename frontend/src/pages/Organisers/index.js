@@ -24,24 +24,53 @@ import * as MediaSelectors from '../../redux/media/selectors';
 import * as StaticContentSelectors from '../../redux/static/selectors';
 import MEDIA_KEYS from '../../redux/media/keys';
 import KEYS from '../../redux/static/keys';
+import { objectWithKeys } from '../../redux/static/helpers';
+import { mediaObjectWithKeys } from '../../redux/media/helpers';
+
+const CONTENT_KEYS = [
+    KEYS.organisersPageTitle,
+    KEYS.organisersPageSubtitle,
+    KEYS.whatIsJunctionXTitle,
+    KEYS.whatIsJunctionXSubtitle,
+    KEYS.whatIsJunctionXBody,
+    KEYS.whatDoesJunctionXOfferTitle,
+    KEYS.whatDoesJunctionXOfferSubtitle,
+    KEYS.whatDoesJunctionXOfferFirstTitle,
+    KEYS.whatDoesJunctionXOfferFirstBody,
+    KEYS.whatDoesJunctionXOfferSecondTitle,
+    KEYS.whatDoesJunctionXOfferSecondBody,
+    KEYS.whatDoesJunctionXOfferThirdTitle,
+    KEYS.whatDoesJunctionXOfferThirdBody,
+    KEYS.interestedInOrganisingTitle,
+    KEYS.interestedInOrganisingSubtitle,
+    KEYS.interestedInOrganisingBody,
+    KEYS.joinCommunity,
+    KEYS.joinCommunityBody
+];
+
+const SELECT_MEDIA_KEYS = [
+    MEDIA_KEYS.organiserPageHeaderImage,
+    MEDIA_KEYS.interestedInOrganisingImage,
+    MEDIA_KEYS.junctionXTimelineImage
+];
 
 const OrganisersPage = ({
-    content,
+    allContent,
+    allMedia,
     testimonials,
     testimonialsShouldUpdate,
     updateTestimonials,
-    headerImage,
-    interestedInOrganisingImage,
-    junctionXTimelineImage,
     kpis = []
 }) => {
+    const content = objectWithKeys(allContent, CONTENT_KEYS);
+    const media = mediaObjectWithKeys(allMedia, SELECT_MEDIA_KEYS);
+    const testimonial = testimonials.length > 0 ? testimonials[0] : null;
+
     useEffect(() => {
         if (testimonialsShouldUpdate) {
             updateTestimonials();
         }
     }, []);
-
-    const testimonial = testimonials.length > 0 ? testimonials[0] : null;
 
     function buildStatBlocks() {
         return kpis.slice(0, 2).map(kpi => {
@@ -56,7 +85,7 @@ const OrganisersPage = ({
     return (
         <Page className="OrganisersPage" pageTitle="For organisers" metaDesc={content.organisersPageSubtitle}>
             <HeaderImage
-                image={headerImage}
+                image={media.organiserPageHeaderImage}
                 alt="Header image"
                 mainTitle={content.organisersPageTitle}
                 bodyText={content.organisersPageSubtitle}
@@ -106,13 +135,13 @@ const OrganisersPage = ({
                 <Image
                     className="OrganisersPage--junctionx-timeline-image"
                     alt="JunctionX timeline"
-                    image={junctionXTimelineImage}
+                    image={media.junctionXTimelineImage}
                     width={980}
                 />
             </CenteredBlock>
             <Divider lg />
             <ImageBlockSection
-                image={interestedInOrganisingImage}
+                image={media.interestedInOrganisingImage}
                 imageAlt={content.interestedInOrganisingTitle}
                 title={content.interestedInOrganisingTitle}
                 subtitle={content.interestedInOrganisingSubtitle}
@@ -129,32 +158,11 @@ const OrganisersPage = ({
 };
 
 const mapStateToProps = state => ({
-    testimonials: ContentSelectors.testimonialsOfType('organiser')(state),
+    testimonials: ContentSelectors.organiserTestimonials(state),
     testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
-    headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.organiserPageHeaderImage)(state),
-    interestedInOrganisingImage: MediaSelectors.mediaByKey(MEDIA_KEYS.interestedInOrganisingImage)(state),
-    junctionXTimelineImage: MediaSelectors.mediaByKey(MEDIA_KEYS.junctionXTimelineImage)(state),
-    kpis: ContentSelectors.kpisOfType('organiser')(state),
-    content: StaticContentSelectors.objectWithKeys([
-        KEYS.organisersPageTitle,
-        KEYS.organisersPageSubtitle,
-        KEYS.whatIsJunctionXTitle,
-        KEYS.whatIsJunctionXSubtitle,
-        KEYS.whatIsJunctionXBody,
-        KEYS.whatDoesJunctionXOfferTitle,
-        KEYS.whatDoesJunctionXOfferSubtitle,
-        KEYS.whatDoesJunctionXOfferFirstTitle,
-        KEYS.whatDoesJunctionXOfferFirstBody,
-        KEYS.whatDoesJunctionXOfferSecondTitle,
-        KEYS.whatDoesJunctionXOfferSecondBody,
-        KEYS.whatDoesJunctionXOfferThirdTitle,
-        KEYS.whatDoesJunctionXOfferThirdBody,
-        KEYS.interestedInOrganisingTitle,
-        KEYS.interestedInOrganisingSubtitle,
-        KEYS.interestedInOrganisingBody,
-        KEYS.joinCommunity,
-        KEYS.joinCommunityBody
-    ])(state)
+    kpis: ContentSelectors.organiserKpis(state),
+    allContent: StaticContentSelectors.content(state),
+    allMedia: MediaSelectors.media(state)
 });
 
 const mapDispatchToProps = dispatch => ({

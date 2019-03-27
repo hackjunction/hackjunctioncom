@@ -7,27 +7,22 @@ import moment from 'moment-timezone';
 import Image from '../../Image';
 
 import * as ContentSelectors from '../../../redux/content/selectors';
+import { getConceptBySlug } from '../../../redux/content/helpers';
 
 const DEFAULT_IMAGE = null;
 
-const EventCalendarEvent = ({ event, getDefaultImage }) => {
-    function getEventColor() {
-        return event.eventcategory ? event.eventcategory.hexColor : '#ffffff';
-    }
-
+const EventCalendarEvent = React.memo(({ event, concepts }) => {
     //TODO: Apply this image
     let image = DEFAULT_IMAGE;
 
     if (event.eventconcept) {
-        let conceptDefault = getDefaultImage(event.eventconcept.slug);
-        image = conceptDefault ? conceptDefault.url : image;
+        let concept = getConceptBySlug(event.eventconcept.slug);
+        image = concept.image ? concept.image.url : image;
     }
 
     if (event.image) {
         image = event.image.url;
     }
-
-    console.log('EVENT', event);
 
     return (
         <div className="EventCalendarEvent">
@@ -75,10 +70,10 @@ const EventCalendarEvent = ({ event, getDefaultImage }) => {
             </a> */}
         </div>
     );
-};
+});
 
 const mapStateToProps = state => ({
-    getDefaultImage: slug => ContentSelectors.eventconceptImage(slug)
+    concepts: ContentSelectors.eventconcepts(state)
 });
 
 export default connect(mapStateToProps)(EventCalendarEvent);

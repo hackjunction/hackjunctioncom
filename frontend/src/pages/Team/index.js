@@ -16,8 +16,14 @@ import * as ContentActions from '../../redux/content/actions';
 import * as MediaSelectors from '../../redux/media/selectors';
 import KEYS from '../../redux/static/keys';
 import MEDIA_KEYS from '../../redux/media/keys';
+import { objectWithKeys } from '../../redux/static/helpers';
+import { mediaByKey } from '../../redux/media/helpers';
 
-const TeamPage = ({ content, teamMembers, shouldUpdate, updateTeamMembers, headerImage }) => {
+const CONTENT_KEYS = [KEYS.teamPageTitle, KEYS.teamPageSubtitle, KEYS.joinCommunity, KEYS.joinCommunityBody];
+
+const TeamPage = ({ allContent, allMedia, teamMembers, shouldUpdate, updateTeamMembers }) => {
+    const content = objectWithKeys(allContent, CONTENT_KEYS);
+    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.teamPageHeaderImage);
     useEffect(() => {
         if (shouldUpdate) {
             updateTeamMembers();
@@ -43,15 +49,10 @@ const TeamPage = ({ content, teamMembers, shouldUpdate, updateTeamMembers, heade
 };
 
 const mapStateToProps = state => ({
-    content: StaticContentSelectors.objectWithKeys([
-        KEYS.teamPageTitle,
-        KEYS.teamPageSubtitle,
-        KEYS.joinCommunity,
-        KEYS.joinCommunityBody
-    ])(state),
+    allContent: StaticContentSelectors.content(state),
+    allMedia: MediaSelectors.media(state),
     teamMembers: ContentSelectors.teammembers(state),
-    shouldUpdate: ContentSelectors.teammembersShouldUpdate(state),
-    headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.teamPageHeaderImage)(state)
+    shouldUpdate: ContentSelectors.teammembersShouldUpdate(state)
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -20,8 +20,29 @@ import Divider from '../../components/Divider';
 
 import Page from '../PageHOC';
 import DebugPlaceholder from '../../components/DebugPlaceholder';
+import { objectWithKeys } from '../../redux/static/helpers';
+import { mediaByKey } from '../../redux/media/helpers';
 
-const StoryPage = ({ content, headerImage, kpis = [], testimonials = [] }) => {
+const CONTENT_KEYS = [
+    KEYS.storyPageTitle,
+    KEYS.storyPageSubtitle,
+    KEYS.whatIsJunctionTitle,
+    KEYS.whatIsJunctionSubtitle,
+    KEYS.whatIsJunctionBody,
+    KEYS.storyPagePersonImage,
+    KEYS.storyPagePersonTitle,
+    KEYS.storyPagePersonSubtitle,
+    KEYS.storyPagePersonBody,
+    KEYS.junction2019,
+    KEYS.junction2019Subtitle,
+    KEYS.junction2019Body,
+    KEYS.joinCommunity,
+    KEYS.joinCommunityBody
+];
+
+const StoryPage = ({ allContent, allMedia, kpis = [], testimonials = [] }) => {
+    const content = objectWithKeys(allContent, CONTENT_KEYS);
+    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.storyPageHeaderImage);
     const testimonial = testimonials && testimonials.length > 0 ? testimonials[0] : null;
 
     function renderStatBlocks() {
@@ -105,25 +126,10 @@ const StoryPage = ({ content, headerImage, kpis = [], testimonials = [] }) => {
 };
 
 const mapStateToProps = state => ({
-    content: StaticContentSelectors.objectWithKeys([
-        KEYS.storyPageTitle,
-        KEYS.storyPageSubtitle,
-        KEYS.whatIsJunctionTitle,
-        KEYS.whatIsJunctionSubtitle,
-        KEYS.whatIsJunctionBody,
-        KEYS.storyPagePersonImage,
-        KEYS.storyPagePersonTitle,
-        KEYS.storyPagePersonSubtitle,
-        KEYS.storyPagePersonBody,
-        KEYS.junction2019,
-        KEYS.junction2019Subtitle,
-        KEYS.junction2019Body,
-        KEYS.joinCommunity,
-        KEYS.joinCommunityBody
-    ])(state),
-    headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.storyPageHeaderImage)(state),
-    kpis: ContentSelectors.kpisOfType('generic')(state),
-    testimonials: ContentSelectors.testimonialsOfType('generic')(state)
+    allContent: StaticContentSelectors.content(state),
+    allMedia: MediaSelectors.media(state),
+    kpis: ContentSelectors.genericKpis(state),
+    testimonials: ContentSelectors.genericTestimonials(state)
 });
 
 export default connect(mapStateToProps)(StoryPage);

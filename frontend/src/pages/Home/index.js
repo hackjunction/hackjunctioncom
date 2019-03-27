@@ -3,10 +3,8 @@ import './style.scss';
 
 import { connect } from 'react-redux';
 import * as StaticContentSelectors from '../../redux/static/selectors';
-import * as MediaSelectors from '../../redux/media/selectors';
 import * as ContentSelectors from '../../redux/content/selectors';
 import KEYS from '../../redux/static/keys';
-import MEDIA_KEYS from '../../redux/media/keys';
 
 import HeaderVideo from '../../components/HeaderVideo';
 import BlockSection from '../../components/BlockSection';
@@ -17,8 +15,22 @@ import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
 
 import Page from '../PageHOC';
+import { objectWithKeys } from '../../redux/static/helpers';
 
-const HomePage = ({ content, headerImage, kpis = [] }) => {
+const CONTENT_KEYS = [
+    KEYS.whoAreWe,
+    KEYS.whoAreWeBody,
+    KEYS.whoAreWeSubtitle,
+    KEYS.whatWeDo,
+    KEYS.whatWeDoBody,
+    KEYS.whatWeDoSubtitle,
+    KEYS.joinCommunity,
+    KEYS.joinCommunityBody,
+    KEYS.homePageHeaderVideoLink
+];
+
+const HomePage = ({ allContent, kpis = [] }) => {
+    const content = objectWithKeys(allContent, CONTENT_KEYS);
     function buildStatBlocks() {
         return kpis.slice(0, 2).map(kpi => {
             return {
@@ -70,19 +82,8 @@ const HomePage = ({ content, headerImage, kpis = [] }) => {
 };
 
 const mapStateToProps = state => ({
-    content: StaticContentSelectors.objectWithKeys([
-        KEYS.whoAreWe,
-        KEYS.whoAreWeBody,
-        KEYS.whoAreWeSubtitle,
-        KEYS.whatWeDo,
-        KEYS.whatWeDoBody,
-        KEYS.whatWeDoSubtitle,
-        KEYS.joinCommunity,
-        KEYS.joinCommunityBody,
-        KEYS.homePageHeaderVideoLink
-    ])(state),
-    headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.homePageHeaderImage)(state),
-    kpis: ContentSelectors.kpisOfType('generic')(state)
+    allContent: StaticContentSelectors.content(state),
+    kpis: ContentSelectors.genericKpis(state)
 });
 
 export default connect(mapStateToProps)(HomePage);

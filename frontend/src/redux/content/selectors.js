@@ -27,17 +27,7 @@ export const pagesShouldUpdate = createSelector(
     }
 );
 
-export const pageBySlug = slug =>
-    createSelector(
-        pages,
-        pages => {
-            return _.find(pages, page => {
-                return page.slug === slug;
-            });
-        }
-    );
-
-export const pagesByNavSection = section =>
+const pagesByNavSection = section =>
     createSelector(
         pages,
         pages => {
@@ -48,6 +38,10 @@ export const pagesByNavSection = section =>
             return _.sortBy(filtered, 'navPriority');
         }
     );
+
+export const homePages = pagesByNavSection('home');
+export const eventPages = pagesByNavSection('events');
+export const communityPages = pagesByNavSection('community');
 
 export const events = state => state.content.events.data;
 export const eventsLoading = state => state.content.events.loading;
@@ -60,36 +54,6 @@ export const eventsShouldUpdate = createSelector(
         return Date.now() - updated > EVENTS_UPDATE_INTERVAL;
     }
 );
-
-export const eventsWithFilters = (concept = null, category = null) =>
-    createSelector(
-        events,
-        events => {
-            return events.filter(event => {
-                if (concept) {
-                    if (!event.eventconcept) {
-                        return false;
-                    }
-
-                    if (event.eventconcept.slug !== concept) {
-                        return false;
-                    }
-                }
-
-                if (category) {
-                    if (!event.eventcategory) {
-                        return false;
-                    }
-
-                    if (event.eventcategory.slug !== category) {
-                        return false;
-                    }
-                }
-
-                return true;
-            });
-        }
-    );
 
 export const eventconcepts = state => state.content.eventconcepts.data;
 export const eventconceptsLoading = state => state.content.eventconcepts.loading;
@@ -109,28 +73,6 @@ export const eventconceptsByPriority = createSelector(
         return _.sortBy(concepts, 'priority');
     }
 );
-
-export const eventconceptBySlug = slug =>
-    createSelector(
-        eventconcepts,
-        concepts => {
-            return _.find(concepts, concept => {
-                return concept.slug === slug;
-            });
-        }
-    );
-
-export const eventconceptImage = slug =>
-    createSelector(
-        eventconcepts,
-        concepts => {
-            let concept = _.find(concepts, concept => {
-                return concept.slug === slug;
-            });
-
-            return concept ? concept.image : null;
-        }
-    );
 
 export const teammembers = state => state.content.teammembers.data;
 export const teammembersLoading = state => state.content.teammebers.loading;
@@ -156,13 +98,23 @@ export const testimonialsShouldUpdate = createSelector(
     }
 );
 
-export const testimonialsOfType = type =>
+/* Don't use this directly in mapStateToProps - performance implications!
+ * https://github.com/reduxjs/reselect#q-how-do-i-create-a-selector-that-takes-an-argument
+ */
+const testimonialsOfType = type =>
     createSelector(
         testimonials,
         testimonials => {
             return _.filter(testimonials, t => t.type.trim() === type);
         }
     );
+
+/* Build selectors with pre-defined filters instead */
+export const organiserTestimonials = testimonialsOfType('organiser');
+export const partnerTestimonials = testimonialsOfType('partner');
+export const volunteerTestimonials = testimonialsOfType('volunteer');
+export const participantTestimonials = testimonialsOfType('participant');
+export const genericTestimonials = testimonialsOfType('generic');
 
 export const socialmedias = state => state.content.socialmedias.data;
 export const socialmediasLoading = state => state.content.socialmedias.loading;
@@ -188,10 +140,20 @@ export const kpisShouldUpdate = createSelector(
     }
 );
 
-export const kpisOfType = type =>
+/* Don't use this directly in mapStateToProps - performance implications!
+ * https://github.com/reduxjs/reselect#q-how-do-i-create-a-selector-that-takes-an-argument
+ */
+const kpisOfType = type =>
     createSelector(
         kpis,
         kpis => {
             return _.filter(kpis, t => t.type.trim() === type);
         }
     );
+
+/* Build selectors with pre-defined filters instead */
+export const genericKpis = kpisOfType('generic');
+export const partnerKpis = kpisOfType('partner');
+export const participantKpis = kpisOfType('participant');
+export const organiserKpis = kpisOfType('organiser');
+export const volunteerKpis = kpisOfType('volunteer');

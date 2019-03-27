@@ -23,23 +23,50 @@ import Markdown from '../../components/Markdown';
 import DebugPlaceholder from '../../components/DebugPlaceholder';
 
 import Page from '../PageHOC';
+import { objectWithKeys } from '../../redux/static/helpers';
+import { mediaByKey } from '../../redux/media/helpers';
+
+const CONTENT_KEYS = [
+    KEYS.partnersPageTitle,
+    KEYS.partnersPageSubtitle,
+    KEYS.partnersPageFirstTitle,
+    KEYS.partnersPageFirstSubtitle,
+    KEYS.partnersPageFirstBody,
+    KEYS.whyPartnerWithUsTitle,
+    KEYS.whyPartnerWithUsFirstTitle,
+    KEYS.whyPartnerWithUsFirstBody,
+    KEYS.whyPartnerWithUsSecondTitle,
+    KEYS.whyPartnerWithUsSecondBody,
+    KEYS.whyPartnerWithUsThirdTitle,
+    KEYS.whyPartnerWithUsThirdBody,
+    KEYS.whatMakesUsDifferentTitle,
+    KEYS.whatMakesUsDifferentSubtitle,
+    KEYS.whatMakesUsDifferentBody,
+    KEYS.previousPartnersTitle,
+    KEYS.previousPartnersSubtitle,
+    KEYS.previousPartnersBody,
+    KEYS.joinCommunity,
+    KEYS.joinCommunityBody
+];
 
 const PartnersPage = ({
-    content,
+    allContent,
+    allMedia,
     testimonials,
     testimonialsShouldUpdate,
     updateTestimonials,
-    headerImage,
     kpis = []
 }) => {
+    const content = objectWithKeys(allContent, CONTENT_KEYS);
+    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.partnerPageHeaderImage);
+    const firstTestimonial = testimonials.length > 0 ? testimonials[0] : null;
+    const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null;
+
     useEffect(() => {
         if (testimonialsShouldUpdate) {
             updateTestimonials();
         }
     }, []);
-
-    const firstTestimonial = testimonials.length > 0 ? testimonials[0] : null;
-    const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null;
 
     function renderStatBlocks() {
         if (Array.isArray(kpis) && kpis.length > 0) {
@@ -143,32 +170,11 @@ const PartnersPage = ({
 };
 
 const mapStateToProps = state => ({
-    content: StaticContentSelectors.objectWithKeys([
-        KEYS.partnersPageTitle,
-        KEYS.partnersPageSubtitle,
-        KEYS.partnersPageFirstTitle,
-        KEYS.partnersPageFirstSubtitle,
-        KEYS.partnersPageFirstBody,
-        KEYS.whyPartnerWithUsTitle,
-        KEYS.whyPartnerWithUsFirstTitle,
-        KEYS.whyPartnerWithUsFirstBody,
-        KEYS.whyPartnerWithUsSecondTitle,
-        KEYS.whyPartnerWithUsSecondBody,
-        KEYS.whyPartnerWithUsThirdTitle,
-        KEYS.whyPartnerWithUsThirdBody,
-        KEYS.whatMakesUsDifferentTitle,
-        KEYS.whatMakesUsDifferentSubtitle,
-        KEYS.whatMakesUsDifferentBody,
-        KEYS.previousPartnersTitle,
-        KEYS.previousPartnersSubtitle,
-        KEYS.previousPartnersBody,
-        KEYS.joinCommunity,
-        KEYS.joinCommunityBody
-    ])(state),
-    testimonials: ContentSelectors.testimonialsOfType('partner')(state),
+    allContent: StaticContentSelectors.content(state),
+    allMedia: MediaSelectors.media(state),
+    testimonials: ContentSelectors.partnerTestimonials(state),
     testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
-    headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.partnerPageHeaderImage)(state),
-    kpis: ContentSelectors.kpisOfType('partner')(state)
+    kpis: ContentSelectors.partnerKpis(state)
 });
 
 const mapDispatchToProps = dispatch => ({

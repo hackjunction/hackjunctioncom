@@ -9,14 +9,21 @@ import Divider from '../../components/Divider';
 import DebugPlaceholder from '../../components/DebugPlaceholder';
 
 import Page from '../PageHOC';
+import LoadingPage from '../Loading';
 
 import * as ContentSelectors from '../../redux/content/selectors';
 import * as StaticContentSelectors from '../../redux/static/selectors';
 import * as MediaSelectors from '../../redux/media/selectors';
 import KEYS from '../../redux/static/keys';
 import MEDIA_KEYS from '../../redux/media/keys';
+import { objectWithKeys } from '../../redux/static/helpers';
+import { mediaByKey } from '../../redux/media/helpers';
 
-const ConceptsPage = ({ eventconcepts, loading, content, headerImage }) => {
+const CONTENT_KEYS = [KEYS.conceptsPageTitle, KEYS.conceptsPageSubtitle];
+
+const ConceptsPage = ({ eventconcepts, loading, allContent, allMedia }) => {
+    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.conceptsPageHeaderImage);
+    const content = objectWithKeys(allContent, CONTENT_KEYS);
     function buildSubtitleItems(concept) {
         const items = [];
 
@@ -61,6 +68,10 @@ const ConceptsPage = ({ eventconcepts, loading, content, headerImage }) => {
         });
     }
 
+    if (loading) {
+        return <LoadingPage />;
+    }
+
     return (
         <Page className="ConceptsPage" pageTitle="Concepts" metaDesc={content.conceptsPageSubtitle}>
             <HeaderImage
@@ -77,10 +88,10 @@ const ConceptsPage = ({ eventconcepts, loading, content, headerImage }) => {
 };
 
 const mapStateToProps = state => ({
-    content: StaticContentSelectors.objectWithKeys([KEYS.conceptsPageTitle, KEYS.conceptsPageSubtitle])(state),
+    allContent: StaticContentSelectors.content(state),
+    allMedia: MediaSelectors.media(state),
     loading: ContentSelectors.eventconceptsLoading(state),
-    eventconcepts: ContentSelectors.eventconceptsByPriority(state),
-    headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.conceptsPageHeaderImage)(state)
+    eventconcepts: ContentSelectors.eventconceptsByPriority(state)
 });
 
 export default connect(mapStateToProps)(ConceptsPage);

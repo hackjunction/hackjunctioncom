@@ -20,13 +20,29 @@ import Markdown from '../../components/Markdown';
 import DebugPlaceholder from '../../components/DebugPlaceholder';
 
 import Page from '../PageHOC';
+import { objectWithKeys } from '../../redux/static/helpers';
+import { mediaByKey } from '../../redux/media/helpers';
 
-const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, updateTestimonials, headerImage }) => {
-    useEffect(() => {
-        if (testimonialsShouldUpdate) {
-            updateTestimonials();
-        }
-    }, []);
+const CONTENT_KEYS = [
+    KEYS.participantsPageTitle,
+    KEYS.participantsPageSubtitle,
+    KEYS.howToJoinTitle,
+    KEYS.howToJoinSubtitle,
+    KEYS.howToJoinStepOne,
+    KEYS.howToJoinStepTwo,
+    KEYS.howToJoinStepThree,
+    KEYS.howToJoinStepFour,
+    KEYS.howToJoinStepFive,
+    KEYS.getHiredTitle,
+    KEYS.getHiredSubtitle,
+    KEYS.getHiredBody,
+    KEYS.joinCommunity,
+    KEYS.joinCommunityBody
+];
+
+const ParticipantsPage = ({ allContent, allMedia, testimonials, testimonialsShouldUpdate, updateTestimonials }) => {
+    const content = objectWithKeys(allContent, CONTENT_KEYS);
+    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.participantPageHeaderImage);
     const testimonial = testimonials.length > 0 ? testimonials[0] : null;
 
     const howToJoinItems = [];
@@ -36,6 +52,12 @@ const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, upd
     if (content.howToJoinStepThree) howToJoinItems.push(content.howToJoinStepThree);
     if (content.howToJoinStepFour) howToJoinItems.push(content.howToJoinStepFour);
     if (content.howToJoinStepFive) howToJoinItems.push(content.howToJoinStepFive);
+
+    useEffect(() => {
+        if (testimonialsShouldUpdate) {
+            updateTestimonials();
+        }
+    }, []);
 
     return (
         <Page className="ParticipantsPage" pageTitle="For participants" metaDesc={content.participantsPageSubtitle}>
@@ -80,25 +102,10 @@ const ParticipantsPage = ({ content, testimonials, testimonialsShouldUpdate, upd
 };
 
 const mapStateToProps = state => ({
-    content: StaticContentSelectors.objectWithKeys([
-        KEYS.participantsPageTitle,
-        KEYS.participantsPageSubtitle,
-        KEYS.howToJoinTitle,
-        KEYS.howToJoinSubtitle,
-        KEYS.howToJoinStepOne,
-        KEYS.howToJoinStepTwo,
-        KEYS.howToJoinStepThree,
-        KEYS.howToJoinStepFour,
-        KEYS.howToJoinStepFive,
-        KEYS.getHiredTitle,
-        KEYS.getHiredSubtitle,
-        KEYS.getHiredBody,
-        KEYS.joinCommunity,
-        KEYS.joinCommunityBody
-    ])(state),
-    testimonials: ContentSelectors.testimonialsOfType('participant')(state),
-    testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
-    headerImage: MediaSelectors.mediaByKey(MEDIA_KEYS.participantPageHeaderImage)(state)
+    allContent: StaticContentSelectors.content(state),
+    allMedia: MediaSelectors.media(state),
+    testimonials: ContentSelectors.participantTestimonials(state),
+    testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state)
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -17,10 +17,15 @@ import * as ContentSelectors from '../../redux/content/selectors';
 import * as ContentActions from '../../redux/content/actions';
 import CenteredBlock from '../../components/CenteredBlock';
 
-const ConceptPage = ({ match, shouldUpdate, updateConcepts, loading, error, getConcept }) => {
+import { getConceptBySlug } from '../../redux/content/helpers';
+
+const ConceptPage = React.memo(props => {
+    const { match, loading, error, concepts } = props;
+
     const slug = match.params.slug;
 
     useEffect(() => {
+        const { shouldUpdate, updateConcepts } = props;
         if (shouldUpdate) {
             updateConcepts();
         }
@@ -34,7 +39,7 @@ const ConceptPage = ({ match, shouldUpdate, updateConcepts, loading, error, getC
         return <ErrorPage />;
     }
 
-    const concept = getConcept(slug);
+    const concept = getConceptBySlug(concepts, slug);
 
     if (!concept) {
         return <NotFoundPage />;
@@ -55,10 +60,10 @@ const ConceptPage = ({ match, shouldUpdate, updateConcepts, loading, error, getC
             <Divider lg />
         </Page>
     );
-};
+});
 
 const mapStateToProps = state => ({
-    getConcept: slug => ContentSelectors.eventconceptBySlug(slug)(state),
+    concepts: ContentSelectors.eventconcepts(state),
     loading: ContentSelectors.eventconceptsLoading(state),
     error: ContentSelectors.eventconceptsError(state),
     shouldUpdate: ContentSelectors.eventconceptsShouldUpdate(state)

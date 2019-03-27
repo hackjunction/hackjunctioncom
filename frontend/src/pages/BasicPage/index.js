@@ -16,7 +16,9 @@ import * as ContentSelectors from '../../redux/content/selectors';
 import * as ContentActions from '../../redux/content/actions';
 import CenteredBlock from '../../components/CenteredBlock';
 
-const BasicPage = ({ match, shouldUpdate, updatePages, loading, error, getPage }) => {
+import { getPageBySlug } from '../../redux/content/helpers';
+
+const BasicPage = ({ match, shouldUpdate, updatePages, loading, error, pages }) => {
     const slug = match.params.slug;
 
     useEffect(() => {
@@ -33,7 +35,7 @@ const BasicPage = ({ match, shouldUpdate, updatePages, loading, error, getPage }
         return <ErrorPage />;
     }
 
-    const page = getPage(slug);
+    const page = getPageBySlug(pages, slug);
 
     if (!page) {
         return <NotFoundPage />;
@@ -57,7 +59,7 @@ const BasicPage = ({ match, shouldUpdate, updatePages, loading, error, getPage }
 };
 
 const mapStateToProps = state => ({
-    getPage: slug => ContentSelectors.pageBySlug(slug)(state),
+    pages: ContentSelectors.pages(state),
     loading: ContentSelectors.pagesLoading(state),
     error: ContentSelectors.pagesError(state),
     shouldUpdate: ContentSelectors.pagesShouldUpdate(state)

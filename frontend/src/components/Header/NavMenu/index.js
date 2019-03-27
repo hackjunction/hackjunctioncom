@@ -105,9 +105,9 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts, extraPages }) =>
 const mapStateToProps = state => ({
     eventConcepts: ContentSelectors.eventconceptsByPriority(state),
     extraPages: {
-        home: ContentSelectors.pagesByNavSection('home')(state),
-        events: ContentSelectors.pagesByNavSection('events')(state),
-        community: ContentSelectors.pagesByNavSection('community')(state)
+        home: ContentSelectors.homePages(state),
+        events: ContentSelectors.eventPages(state),
+        community: ContentSelectors.communityPages(state)
     },
     isSidebarOpen: NavSelectors.isSidebarOpen(state)
 });
