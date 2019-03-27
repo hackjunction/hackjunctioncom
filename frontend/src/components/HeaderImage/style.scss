@@ -1,190 +1,186 @@
 @import '../../styles/main.scss';
 
 .HeaderImage {
-	width: 100%;
-	height: 380px;
-	position: relative;
-	overflow: hidden;
-	z-index: 0;
-	background: black;
-	transition: height 0.2s ease;
-	margin-top: 60px;
+    width: 100%;
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    background: black;
+    transition: height 0.2s ease;
+    margin-top: 60px;
 
-	@include bp-med {
-		margin-top: 0;
-		height: 600px;
-	}
+    @include bp-med {
+        margin-top: 0;
+        height: 600px;
+    }
 
-	@include bp-full {
-		height: 900px;
-	}
+    @include bp-full {
+        height: 900px;
+    }
 
-	&-loaded {
-		.HeaderImage--img {
-			opacity: 0.4;
-		}
+    &-loaded {
+        .HeaderImage--img {
+            opacity: 0.4;
+        }
 
-		.HeaderImage--vid {
-			opacity: 1;
-		}
+        .HeaderImage--vid {
+            opacity: 1;
+        }
 
-		.HeaderImage--main-content {
-			&__title {
-				transform: translateX(0);
-				opacity: 1;
-			}
+        .HeaderImage--main-content {
+            &__title {
+                transform: translateX(0);
+                opacity: 1;
+            }
 
-			&__body {
-				transform: translateY(0);
-				opacity: 1;
-			}
-		}
-	}
- 
-	&--img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: none;
-		object-position: center;
-		opacity: 0;
-		transition: opacity 0.5s ease;
+            &__body {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    }
 
-		&-visible {
-			opacity: 1;
-		}
-	}
+    &--img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: none;
+        object-position: center;
+        opacity: 0;
+        transition: opacity 0.5s ease;
 
-	&--vid {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: none;
-		object-position: center;
-		transition: opacity 1.5s ease;
-		opacity: 0;
+        &-visible {
+            opacity: 1;
+        }
+    }
 
-		&-visible {
-			opacity: 1;
-		}
+    &--youtube {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: none;
+        object-position: center;
+        transition: opacity 1.5s ease;
+        opacity: 0;
 
-		 video {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
-	}
+        &-visible {
+            opacity: 1;
+        }
 
-	&--wave-overlay {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		transform: translateY(50%);
-	}
+        &__video {
+            width: 100%;
+            height: 100%;
+        }
+    }
 
-	&--content {
-		position: absolute;
-		z-index: 2;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
+    &--wave-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(50%);
+    }
 
-	&--nav-title {
-		position: absolute;
-		top: 0;
-		left: 100px;
-		right: 100px;
-		text-align: center;
-		margin: 30px 0 0 0;
-		height: 40px;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		font-size: 18px;
-		visibility: hidden;
+    &--content {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 
-		@include bp-med {
-			visibility: visible;
-			height: 50px;
-		}
+    &--nav-title {
+        position: absolute;
+        top: 0;
+        left: 100px;
+        right: 100px;
+        text-align: center;
+        margin: 30px 0 0 0;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        visibility: hidden;
 
-		@include bp-full {
-			height: 60px;
-		}
-	}
+        @include bp-med {
+            visibility: visible;
+            height: 50px;
+        }
 
-	&--main-content {
-		margin: 0 auto;
-		padding-top: 100px;
-		max-width: 980px;
-		width: 100%;
-		height: 100%;
-		position: relative;
-		z-index: 3;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+        @include bp-full {
+            height: 60px;
+        }
+    }
 
-		@include bp-full {
-			align-items: stretch;
-		}
+    &--main-content {
+        margin: 0 auto;
+        padding-top: 100px;
+        max-width: 980px;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-		&__title {
-			flex: 1;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-			max-width: 650px;
-			margin: 0;
-			transform: translateX(-50px);
-			opacity: 0;
-			transition: transform 0.5s ease;
-			text-align: center;
-			font-size: 40px;
-			padding: $padding-double;
+        @include bp-full {
+            align-items: stretch;
+        }
 
-			@include bp-med {
-				text-align: center;
-				font-size: 60px;
-			}
+        &__title {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 650px;
+            margin: 0;
+            transform: translateX(-50px);
+            opacity: 0;
+            transition: transform 0.5s ease;
+            text-align: center;
+            font-size: 40px;
+            padding: $padding-double;
 
-			@include bp-full {
-				text-align: left;
-				align-items: flex-start;
-				align-self: flex-start;
-			}
-		}
+            @include bp-med {
+                text-align: center;
+                font-size: 60px;
+            }
 
-		&__body {
-			flex: 1;
-			flex-direction: column;
-			justify-content: flex-start;
-			align-items: flex-end;
-			width: 100%;
-			max-width: 650px;
-			align-self: flex-end;
-			margin: 0;
-			transform: translateY(50px);
-			opacity: 0;
-			transition: all 0.8s ease;
-			display: none;
+            @include bp-full {
+                text-align: left;
+                align-items: flex-start;
+                align-self: flex-start;
+            }
+        }
 
-			@include bp-full {
-				display: flex;
-			}
-		}
-	}
+        &__body {
+            flex: 1;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            width: 100%;
+            max-width: 650px;
+            align-self: flex-end;
+            margin: 0;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s ease;
+            display: none;
+
+            @include bp-full {
+                display: flex;
+            }
+        }
+    }
 }

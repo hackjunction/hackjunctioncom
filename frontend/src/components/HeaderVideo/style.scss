@@ -1,0 +1,67 @@
+@import '../../styles/main.scss';
+
+.HeaderVideo {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    background: black;
+    transition: height 0.2s ease;
+    margin-top: 60px;
+    height: 380px;
+
+    @include bp-med {
+        margin-top: 0;
+        height: 600px;
+    }
+
+    @include bp-full {
+        height: 900px;
+    }
+
+    &--video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 1.5s ease;
+        opacity: 1;
+
+        &-visible {
+            opacity: 1;
+        }
+    }
+
+    &--wave-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(50%);
+    }
+
+    &--nav-title {
+        position: absolute;
+        top: 0;
+        left: 100px;
+        right: 100px;
+        text-align: center;
+        margin: 30px 0 0 0;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        visibility: hidden;
+
+        @include bp-med {
+            visibility: visible;
+            height: 50px;
+        }
+
+        @include bp-full {
+            height: 60px;
+        }
+    }
+}
