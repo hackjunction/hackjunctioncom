@@ -52,7 +52,6 @@ html {
 
 .font-link,
 %font-link {
-    @extend %font-body;
     color: $junction-blue;
     cursor: pointer;
     text-decoration: none;
