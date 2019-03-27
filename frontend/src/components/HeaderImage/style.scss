@@ -4,7 +4,7 @@
     align-self: stretch;
     margin-left: -$padding-page;
     margin-right: -$padding-page;
-    height: 380px;
+    height: 480px;
     position: relative;
     overflow: hidden;
     z-index: 0;
@@ -103,7 +103,6 @@
 
     &--main-content {
         margin: 0 auto;
-        padding-top: 100px;
         max-width: 980px;
         width: 100%;
         height: 100%;

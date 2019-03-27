@@ -20,6 +20,10 @@
         align-items: center;
         justify-content: center;
 
+        @include bp-med {
+            width: 220px;
+        }
+
         @include bp-full {
             width: 320px;
         }
