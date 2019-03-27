@@ -96,16 +96,14 @@ const Footer = ({ allContent, eventConcepts, socialMedias, extraPages }) => {
                         {renderExtraPageLinks(extraPages.community)}
                     </div>
                     <div className="FooterInner--right__section">
-                        <Link to="/press">
+                        {/* <Link to="/press">
                             <h5 className="FooterInner--right__section-title">Press Kit</h5>
-                        </Link>
-                        <Link to="/gallery">
+                        </Link> */}
+                        <a href="https://www.flickr.com/photos/151708924@N07/albums/" alt="flickr">
                             <h5 className="FooterInner--right__section-title">Photo Gallery</h5>
-                        </Link>
-                        <Link to="/legal">
-                            <h5 className="FooterInner--right__section-title">Legal</h5>
-                        </Link>
-                        <Link className="FooterInner--right__section-link" to="/privacy">
+                        </a>
+                        <h5 className="FooterInner--right__section-title">Legal</h5>
+                        <Link className="FooterInner--right__section-link" to="/policy">
                             Privacy Policy
                         </Link>
                         <Link className="FooterInner--right__section-link" to="/terms">

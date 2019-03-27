@@ -18,7 +18,7 @@ import CenteredBlock from '../../components/CenteredBlock';
 
 import { getPageBySlug } from '../../redux/content/helpers';
 
-const BasicPage = ({ match, shouldUpdate, updatePages, loading, error, pages }) => {
+const BasicPage = React.memo(({ match, shouldUpdate, updatePages, loading, error, pages }) => {
     const slug = match.params.slug;
 
     useEffect(() => {
@@ -42,7 +42,7 @@ const BasicPage = ({ match, shouldUpdate, updatePages, loading, error, pages }) 
     }
 
     return (
-        <Page className="BasicPage" pageTitle={page.pageTitle} metaDesc={page.pageSubtitle}>
+        <Page className="BasicPage" pageTitle={page.navTitle || page.pageTitle} metaDesc={page.pageSubtitle}>
             <HeaderImage
                 src={require('../../assets/images/default_image.jpg')}
                 alt="Header image"
@@ -56,7 +56,7 @@ const BasicPage = ({ match, shouldUpdate, updatePages, loading, error, pages }) 
             <Divider lg />
         </Page>
     );
-};
+});
 
 const mapStateToProps = state => ({
     pages: ContentSelectors.pages(state),
