@@ -1,72 +1,75 @@
 @import '../../styles/main';
 
 .ImageBlockSection {
-	display: flex;
-	margin-top: 50px;
+    display: flex;
+    margin-top: 50px;
 
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-start;
-	padding: 0 $padding-double;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 
-	@include bp-full {
-		flex-direction: row;
-		justify-content: center;
-		align-items: flex-start;
-	}
+    @include bp-full {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
 
-	&--left {
-		width: 100%;
-		max-width: 310px;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
+    &--left {
+        width: 100%;
+        max-width: 310px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
 
-		@include bp-full {
-			margin-right: 25px;
-		}
-	}
+        @include bp-full {
+            margin-right: 25px;
+        }
+    }
 
-	&--image {
-		width: 310px;
-		height: 310px;
-		border-radius: 50%;
-		object-fit: cover;
-	}
+    &--image {
+        width: 310px;
+        height: 310px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
 
-	&--right {
-		width: 100%;
-		max-width: 620px;
-		flex-direction: column;
-		align-items: flex-start;
-		margin-top: 50px;
+    &--right {
+        width: 100%;
+        max-width: 620px;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 50px;
 
-		@include bp-full {
-			margin-left: 25px;
-			margin-top: 0;
-		}
+        @include bp-full {
+            margin-left: 25px;
+            margin-top: 0;
+        }
 
-		&__top {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
+        &__top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
 
-			@include bp-full {
-				align-items: flex-start;
-				text-align: left;
-			}
-		}
+            @include bp-full {
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
 
-		&__body {
-			margin: 0;
-			font-size: 18px;
-			line-height: 32px;
-		}
-	}
+        &__body {
+            margin: 0;
+            font-size: 18px;
+            line-height: 32px;
+        }
 
-	&--title {
-		margin: 0;
-		font-size: 22px;
-	}
+        &__bottom {
+            margin-top: 30px;
+        }
+    }
+
+    &--title {
+        margin: 0;
+        font-size: 22px;
+    }
 }

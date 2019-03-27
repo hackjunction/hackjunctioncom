@@ -1,7 +1,9 @@
 @import '../../styles/main.scss';
 
 .HeaderVideo {
-    width: 100%;
+    align-self: stretch;
+    margin-left: -$padding-page;
+    margin-right: -$padding-page;
     height: auto;
     position: relative;
     overflow: hidden;
@@ -35,9 +37,10 @@
     &--wave-overlay {
         position: absolute;
         bottom: 0;
-        left: 0;
-        width: 100%;
+        left: -1%;
+        width: 102%;
         transform: translateY(50%);
+        object-fit: cover;
     }
 
     &--nav-title {

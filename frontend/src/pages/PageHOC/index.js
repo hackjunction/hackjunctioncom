@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './style.scss';
 import { Helmet } from 'react-helmet';
 import ReactGA from 'react-ga';
 import { connect } from 'react-redux';
@@ -11,7 +12,6 @@ const DEFAULT_OG_IMAGE = require('../../assets/images/default_image.jpg');
 
 const PageHOC = ({ className, children, pageTitle, metaDesc, setNavTitle }) => {
     useEffect(() => {
-        console.log('SETTING PAGETITLE');
         if (pageTitle) {
             setNavTitle(pageTitle);
         }
@@ -28,7 +28,7 @@ const PageHOC = ({ className, children, pageTitle, metaDesc, setNavTitle }) => {
     const canonicalUrl = 'https://' + window.location.hostname + window.location.pathname;
 
     return (
-        <div className={className}>
+        <div className={'Page--wrapper ' + className}>
             <Helmet defaultTitle="Junction" titleTemplate="Junction | %s">
                 <link rel="canonical" href={canonicalUrl} />
 

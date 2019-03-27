@@ -18,7 +18,7 @@ html {
 .font-title,
 %font-title {
     font-family: $montserrat;
-    color: $junction-white;
+    color: $text-primary;
 }
 
 .font-body,
@@ -26,7 +26,7 @@ html {
     font-family: $lato;
     font-size: 16px;
     line-height: 26px;
-    color: $junction-white;
+    color: $text-primary;
     text-align: justify;
 
     @include bp-full {
@@ -40,7 +40,7 @@ html {
 %font-secondary {
     font-family: $lato;
     font-size: 13px;
-    color: $color-lightgrey;
+    color: $text-secondary;
 }
 
 .font-input,

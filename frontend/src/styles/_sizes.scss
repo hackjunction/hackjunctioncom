@@ -4,29 +4,30 @@ $bp-med: 620px;
 $bp-large: 1000px;
 
 @mixin bp-small-only {
-  @media (max-width: $bp-med - 1) {
-    @content;
-  }
+    @media (max-width: $bp-med - 1) {
+        @content;
+    }
 }
 
 @mixin bp-med {
-  @media (min-width: $bp-med) {
-    @content;
-  }
+    @media (min-width: $bp-med) {
+        @content;
+    }
 }
 
 @mixin bp-full {
-  @media (min-width: $bp-large) {
-    @content;
-  }
+    @media (min-width: $bp-large) {
+        @content;
+    }
 }
 
 $padding-base: 10px;
 $padding-double: 20px;
+$padding-page: 30px;
 
 html,
 body,
 #root {
-	height: 100%;
-	margin: 0;
+    height: 100%;
+    margin: 0;
 }
