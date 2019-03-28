@@ -10,7 +10,7 @@ import HeaderVideo from '../../components/HeaderVideo';
 import BlockSection from '../../components/BlockSection';
 import StatBlocks from '../../components/StatBlocks';
 import LinkGrid from '../../components/LinkGrid';
-import ContactForm from '../../components/ContactForm';
+import NewsLetterForm from '../../components/NewsLetterForm';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
 
@@ -74,7 +74,7 @@ const HomePage = ({ allContent, kpis = [] }) => {
             </BlockSection>
             <Divider lg />
             <BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>
-                <ContactForm />
+                <NewsLetterForm />
             </BlockSection>
             <Divider lg />
         </Page>

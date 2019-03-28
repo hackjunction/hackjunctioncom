@@ -1,28 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.scss';
+import 'cloudinary-video-player';
+import '../../../node_modules/cloudinary-video-player/dist/cld-video-player.min.css';
 import cloudinary from 'cloudinary-core';
+
+import config from '../../services/config';
 
 import Image from '../Image';
 
-const VIDEO_URL = 'https://res.cloudinary.com/hackjunction/video/upload/v1553772854/Video_from_2018_aftermovie_medium.mpd';
-var cloud = cloudinary.Cloudinary.new({ cloud_name: "my-cloudname", secure: true });
+const cloud = cloudinary.Cloudinary.new({ cloud_name: config.CLOUDINARY_CLOUD_NAME, secure: true });
 
 
 const HeaderVideo = ({ videoSource, posterImage, alt, navTitle }) => {
     const [videoLoaded, setVideoLoaded] = useState(false);
+    let player = null;
+
+    useEffect(() => {
+        player = cloud.videoPlayer('header-video', {
+            loop: true,
+            controls: false,
+        })
+        player.source('mainevent2018aftermovieedit', {
+            sourceTypes: ['hls'],
+            transformation: {
+                streaming_profile: 'hd',
+            }
+        })
+    }, [])
 
     return (
-        <div className="HeaderVideo">
+        <div className={`HeaderVideo ${videoLoaded ? 'HeaderVideo-visible' : ''}`} >
             <video
-                id="my-demo-player"
+                id="header-video"
+                onPlay={() => setVideoLoaded(true)}
                 autoPlay
-                loop
                 muted
                 playsInline
-                poster="https://staging.hackjunction.com/wp-content/uploads/2017/08/front.jpg"
-                class="cld-video-player HeaderVideo--video">
+                preload="auto"
+                className={`cld-video-player HeaderVideo--video`}
+            >
             </video>
-        </div>
+        </div >
     );
 };
 
