@@ -5,6 +5,9 @@ import { Helmet } from 'react-helmet';
 import ReactGA from 'react-ga';
 import { hotjar } from 'react-hotjar';
 import config from './services/config';
+import cloudinary from 'cloudinary-core';
+import 'cloudinary-video-player';
+import '../node_modules/cloudinary-video-player/dist/cld-video-player.min.css';
 
 import * as ContentActions from './redux/content/actions';
 import * as ContentSelectors from './redux/content/selectors';
@@ -95,6 +98,7 @@ class GlobalLifecycle extends React.Component {
                 <title>Hack the Future</title>
                 {/* Stop engines from crawling any non-public urls where the app is deployed */}
                 {config.IS_DEBUG ? <meta name="robots" content="noindex,nofollow" /> : null}
+
             </Helmet>
         );
     }

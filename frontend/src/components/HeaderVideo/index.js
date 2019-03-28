@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import './style.scss';
+import cloudinary from 'cloudinary-core';
 
 import Image from '../Image';
-import Youtube from 'react-youtube';
+
+const VIDEO_URL = 'https://res.cloudinary.com/hackjunction/video/upload/v1553772854/Video_from_2018_aftermovie_medium.mpd';
+var cloud = cloudinary.Cloudinary.new({ cloud_name: "my-cloudname", secure: true });
+
 
 const HeaderVideo = ({ videoSource, posterImage, alt, navTitle }) => {
     const [videoLoaded, setVideoLoaded] = useState(false);
@@ -10,17 +14,13 @@ const HeaderVideo = ({ videoSource, posterImage, alt, navTitle }) => {
     return (
         <div className="HeaderVideo">
             <video
-                className="HeaderVideo--video"
+                id="my-demo-player"
                 autoPlay
                 loop
                 muted
                 playsInline
                 poster="https://staging.hackjunction.com/wp-content/uploads/2017/08/front.jpg"
-            >
-                <source
-                    src="https://staging.hackjunction.com/wp-content/uploads/2018/06/Junction_brandmovie.mp4"
-                    type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
-                />
+                class="cld-video-player HeaderVideo--video">
             </video>
         </div>
     );

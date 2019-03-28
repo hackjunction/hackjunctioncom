@@ -23,15 +23,16 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center;
         transition: opacity 1.5s ease;
         opacity: 1;
 
         mask-image: url('../../assets/misc/wave-mask.png');
         mask-size: cover;
-        mask-position: top;
+        mask-position: bottom;
         -webkit-mask-image: url('../../assets/misc/wave-mask.png');
         -webkit-mask-size: cover;
-        -webkit-mask-position: top;
+        -webkit-mask-position: bottom;
 
         &-visible {
             opacity: 1;

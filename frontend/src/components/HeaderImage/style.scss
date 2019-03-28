@@ -42,20 +42,20 @@
 
     &--img {
         position: absolute;
-        top: 0;
+        bottom: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: none;
+        object-fit: cover;
         object-position: center;
         opacity: 0;
         transition: opacity 0.5s ease;
         mask-image: url('../../assets/misc/wave-mask.png');
         mask-size: cover;
-        mask-position: top;
+        mask-position: bottom;
         -webkit-mask-image: url('../../assets/misc/wave-mask.png');
         -webkit-mask-size: cover;
-        -webkit-mask-position: top;
+        -webkit-mask-position: bottom;
 
         &-visible {
             opacity: 1;
