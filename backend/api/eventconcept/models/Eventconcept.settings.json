@@ -25,10 +25,6 @@
       "default": "",
       "type": "string"
     },
-    "shortdescription": {
-      "default": "",
-      "type": "text"
-    },
     "longdescription": {
       "default": "",
       "type": "text"
@@ -54,6 +50,28 @@
     "priority": {
       "default": 10,
       "type": "integer"
+    },
+    "website": {
+      "default": "",
+      "type": "string"
+    },
+    "topSectionTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "topSectionSubtitle": {
+      "default": "",
+      "type": "text"
+    },
+    "topSectionBody": {
+      "default": "",
+      "type": "text"
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }
