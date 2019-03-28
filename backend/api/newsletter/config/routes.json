@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/newsletter",
+      "handler": "Newsletter.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/newsletter",
+      "handler": "Newsletter.create",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

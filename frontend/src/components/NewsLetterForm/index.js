@@ -6,13 +6,16 @@ import RadioButtons from '../inputs/RadioButtons'
 import TextInput from '../inputs/TextInput'
 import TextArea from '../inputs/TextArea'
 import FormRow from '../inputs/FormRow'
+import DropDown from '../inputs/DropDown'
 import SubmitButton from '../inputs/SubmitButton'
 
 import { useFormField } from '../../hooks/formhooks'
 import { isEmail } from '../../utils/regex'
+import { isCountry } from '../../utils/misc'
 import { minDelay, delay } from '../../utils/misc'
 
-import ContactRequestService from '../../services/contactrequests'
+import NewsLetterService from '../../services/newsletter'
+import countries from '../../data/countries.json'
 
 const NewsLetterForm = () => {
 
@@ -28,6 +31,10 @@ const NewsLetterForm = () => {
 		},
 		country: {
 			...useFormField('', value => {
+				if (!isCountry(value)) {
+					return 'Please choose a country'
+				}
+
 				return null;
 			})
 		}
@@ -38,12 +45,27 @@ const NewsLetterForm = () => {
 	const [formSuccess, setFormSuccess] = useState(false)
 
 	async function handleFormSuccess(data) {
-		console.log('SUXXESS', data)
+		setFormLoading(true)
+
+		minDelay(NewsLetterService.create(data), 1000).then(() => {
+			setFormSuccess(true);
+			setFormLoading(false);
+		}).catch(e => {
+			console.log('Form error', e)
+			setFormError(true);
+			setFormLoading(false);
+		})
 	}
 
 	function handleFormError(errors) {
 		console.log('ERROR', errors)
 	}
+
+	function buildOptionArray() {
+		return countries.map()
+	}
+
+	const options = countries.map(c => ({ value: c, label: c }))
 
 	return (
 		<Form
@@ -55,8 +77,8 @@ const NewsLetterForm = () => {
 			success={formSuccess}
 			errorTitle={'Oops, something went wrong'}
 			errorMessage={'Are you connected to the internet? Please try again.'}
-			successTitle={'Thanks for getting in touch!'}
-			successMessage={'We\'ll get back to you A.S.A.P'}
+			successTitle={'Thanks for subscribing!'}
+			successMessage={''}
 		>
 			<FormRow>
 				<TextInput
@@ -64,9 +86,10 @@ const NewsLetterForm = () => {
 					label="Email"
 					{...fields.email}
 				/>
-				<TextInput
-					placeholder="Country"
+				<DropDown
+					placeholder="Choose country"
 					label="Country"
+					options={options}
 					{...fields.country}
 				/>
 			</FormRow>

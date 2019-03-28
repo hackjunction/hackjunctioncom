@@ -108,4 +108,4 @@ coverage
 # Frontend build
 ############################
 /build/
-
+.env

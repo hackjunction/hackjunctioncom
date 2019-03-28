@@ -1,3 +1,5 @@
+import countries from '../data/countries';
+
 export const toRomanNumeral = (num) => {
 	if (isNaN(num))
 		return NaN;
@@ -14,6 +16,10 @@ export const toRomanNumeral = (num) => {
 
 export const isCloudinaryUrl = (url) => {
 	return url.indexOf('cloudinary') !== -1
+}
+
+export const isCountry = (country) => {
+	return countries.indexOf(country) !== -1
 }
 
 export const delay = (ms) => {
