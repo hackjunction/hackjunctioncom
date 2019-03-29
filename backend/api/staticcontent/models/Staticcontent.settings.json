@@ -96,7 +96,9 @@
         "\ninterestedInOrganisingSubtitle",
         "\ninterestedInOrganisingBody",
         "\nnewsletterFormTitle",
-        "\nnewsletterFormSubtitle"
+        "\nnewsletterFormSubtitle",
+        "\ncontactFormTitle",
+        "\ncontactFormSubtitle"
       ],
       "default": "",
       "unique": true,

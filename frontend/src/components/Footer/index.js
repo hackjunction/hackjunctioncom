@@ -72,6 +72,21 @@ const Footer = ({ allContent, eventConcepts, socialMedias, extraPages }) => {
                 <div className="FooterInner--separator" />
                 <nav className="FooterInner--right">
                     <div className="FooterInner--right__section">
+                        <Link to="/">
+                            <h5 className="FooterInner--right__section-title">Home</h5>
+                        </Link>
+                        <Link className="FooterInner--right__section-link" to="/story">
+                            Story
+                        </Link>
+                        <Link className="FooterInner--right__section-link" to="/calendar">
+                            Calendar
+                        </Link>
+                        <Link className="FooterInner--right__section-link" to="/team">
+                            Team
+                        </Link>
+                        {renderExtraPageLinks(extraPages.home)}
+                    </div>
+                    <div className="FooterInner--right__section">
                         <Link to="/concepts">
                             <h5 className="FooterInner--right__section-title">Events & Concepts</h5>
                         </Link>
