@@ -72,6 +72,10 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "shortdescription": {
+      "default": "",
+      "type": "text"
     }
   }
 }

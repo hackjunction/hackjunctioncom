@@ -13,15 +13,12 @@
     }
 
     blockquote {
-        @extend %font-title;
         display: flex;
         flex-direction: column;
         align-items: center;
 
         * {
-            font-size: 40   px;
             text-align: center;
-            font-weight: bold;
         }
     }
 
