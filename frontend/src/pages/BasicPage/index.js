@@ -46,7 +46,7 @@ const BasicPage = React.memo(({ match, shouldUpdate, updatePages, loading, error
     return (
         <Page className="BasicPage" pageTitle={page.navTitle || page.pageTitle} metaDesc={page.pageSubtitle}>
             <HeaderImage
-                src={require('../../assets/images/default_image.jpg')}
+                image={page.headerImage}
                 alt="Header image"
             >
                 <BasicHeader title={page.pageTitle} body={page.pageSubtitle} />

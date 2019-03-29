@@ -58,6 +58,12 @@
     "topSectionBody": {
       "default": "",
       "type": "text"
+    },
+    "headerImage": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }
