@@ -17,7 +17,7 @@ import ImageBlockSection from '../../components/ImageBlockSection';
 import Divider from '../../components/Divider';
 import ContactForm from '../../components/ContactForm';
 import Markdown from '../../components/Markdown';
-import DebugPlaceholder from '../../components/DebugPlaceholder';
+import NewsLetterForm from '../../components/NewsLetterForm';
 
 import Page from '../PageHOC';
 import { objectWithKeys } from '../../redux/static/helpers';
@@ -64,19 +64,12 @@ const VolunteersPage = ({ allContent, allMedia, testimonials, testimonialsShould
                     </ImageBlockSection>
                     <Divider lg />
                 </React.Fragment>
-            ) : (
-                    <DebugPlaceholder
-                        title="Volunteer testimonial"
-                        description="Add a testimonial of type 'volunteer' to show it here"
-                    />
-                )}
+            ) : null}
             <BlockSection title={content.volunteeringTitle} subtitle={content.volunteeringSubtitle}>
                 <Markdown source={content.volunteeringBody} />
             </BlockSection>
             <Divider lg />
-            <BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>
-                <ContactForm />
-            </BlockSection>
+            <NewsLetterForm />
             <Divider lg />
         </Page>
     );

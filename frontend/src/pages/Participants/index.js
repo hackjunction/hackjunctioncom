@@ -18,7 +18,7 @@ import ImageBlockSection from '../../components/ImageBlockSection';
 import ContactForm from '../../components/ContactForm';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
-import DebugPlaceholder from '../../components/DebugPlaceholder';
+import NewsLetterForm from '../../components/NewsLetterForm';
 
 import Page from '../PageHOC';
 import { objectWithKeys } from '../../redux/static/helpers';
@@ -84,19 +84,12 @@ const ParticipantsPage = ({ allContent, allMedia, testimonials, testimonialsShou
                     </ImageBlockSection>
                     <Divider lg />
                 </React.Fragment>
-            ) : (
-                    <DebugPlaceholder
-                        title="Participant testimonial"
-                        description="Add a testimonial of type 'participant' to show it here"
-                    />
-                )}
+            ) : null}
             <BlockSection title={content.getHiredTitle} subtitle={content.getHiredSubtitle}>
                 <Markdown source={content.getHiredBody} />
             </BlockSection>
             <Divider lg />
-            <BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>
-                <ContactForm />
-            </BlockSection>
+            <NewsLetterForm />
             <Divider lg />
         </Page>
     );

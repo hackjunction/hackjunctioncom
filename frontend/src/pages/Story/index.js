@@ -16,11 +16,11 @@ import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks';
 import ImageLinks from '../../components/ImageLinks';
 import Markdown from '../../components/Markdown';
+import NewsLetterForm from '../../components/NewsLetterForm';
 
 import Divider from '../../components/Divider';
 
 import Page from '../PageHOC';
-import DebugPlaceholder from '../../components/DebugPlaceholder';
 import { objectWithKeys } from '../../redux/static/helpers';
 import { mediaByKey } from '../../redux/media/helpers';
 
@@ -87,19 +87,12 @@ const StoryPage = ({ allContent, allMedia, kpis = [], testimonials = [] }) => {
                     </ImageBlockSection>
                     <Divider lg />
                 </React.Fragment>
-            ) : (
-                    <DebugPlaceholder
-                        title="Generic testimonial"
-                        description="Add a testimonial of type 'generic' to show it here"
-                    />
-                )}
+            ) : null}
             <BlockSection title={content.junction2019} subtitle={content.junction2019Subtitle}>
                 <Markdown source={content.junction2019Body} />
             </BlockSection>
             <Divider lg />
-            <BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>
-                <ContactForm />
-            </BlockSection>
+            <NewsLetterForm />
             <Divider lg />
             <ImageLinks
                 links={[

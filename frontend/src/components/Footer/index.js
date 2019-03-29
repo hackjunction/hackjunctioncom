@@ -11,7 +11,6 @@ import { objectWithKeys } from '../../redux/static/helpers';
 
 import SocialMediaIcons from '../SocialMediaIcons';
 import Divider from '../Divider';
-import DebugPlaceholder from '../DebugPlaceholder';
 
 const CONTENT_KEYS = [KEYS.siteSlogan, KEYS.siteContactEmail];
 
@@ -20,7 +19,7 @@ const Footer = ({ allContent, eventConcepts, socialMedias, extraPages }) => {
 
     function renderConceptLinks() {
         if (!Array.isArray(eventConcepts) || eventConcepts.length === 0) {
-            return <DebugPlaceholder title="Event concepts" description="Add event concepts" />;
+            return null;
         }
 
         return eventConcepts.map(concept => {
@@ -34,7 +33,7 @@ const Footer = ({ allContent, eventConcepts, socialMedias, extraPages }) => {
 
     function renderSocialMedias() {
         if (!Array.isArray(socialMedias) || socialMedias.length === 0) {
-            return <DebugPlaceholder title="SoMe links" description="Add social media links" />;
+            return null;
         }
 
         return <SocialMediaIcons data={socialMedias} />;

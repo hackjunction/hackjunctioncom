@@ -21,7 +21,6 @@ import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
-import DebugPlaceholder from '../../components/DebugPlaceholder';
 
 import Page from '../PageHOC';
 import { objectWithKeys } from '../../redux/static/helpers';
@@ -80,12 +79,7 @@ const PartnersPage = ({
             return <StatBlocks blocks={blocks} />;
         }
 
-        return (
-            <DebugPlaceholder
-                title="Partner KPI's"
-                description="Add (up to two) KPI's of type 'partner' to show them here"
-            />
-        );
+        return null;
     }
 
     return (
@@ -113,13 +107,7 @@ const PartnersPage = ({
                     </ImageBlockSection>
                     <Divider lg />
                 </React.Fragment>
-            ) : (
-                    <DebugPlaceholder
-                        title="Partner testimonial"
-                        description="The first testimonial of type 'partner' will be shown here"
-                    />
-                )
-            }
+            ) : null}
             <SingleColumnSection title={content.whyPartnerWithUsTitle}>
                 <BorderedSection
                     title={content.whyPartnerWithUsFirstTitle}
@@ -147,13 +135,7 @@ const PartnersPage = ({
                     </ImageBlockSection>
                     <Divider lg />
                 </React.Fragment>
-            ) : (
-                    <DebugPlaceholder
-                        title="Partner testimonial"
-                        description="The second testimonial of type 'partner' will be shown here"
-                    />
-                )
-            }
+            ) : null}
             <BlockSection title={content.whatMakesUsDifferentTitle} subtitle={content.whatMakesUsDifferentSubtitle}>
                 <Markdown source={content.whatMakesUsDifferentBody} />
             </BlockSection>

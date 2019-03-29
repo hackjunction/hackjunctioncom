@@ -12,7 +12,7 @@ import BorderedSection from '../../components/BorderedSection/';
 import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks';
 import Divider from '../../components/Divider';
-import DebugPlaceholder from '../../components/DebugPlaceholder';
+import NewsLetterForm from '../../components/NewsLetterForm';
 import Markdown from '../../components/Markdown';
 import Image from '../../components/Image';
 import CenteredBlock from '../../components/CenteredBlock';
@@ -108,12 +108,7 @@ const OrganisersPage = ({
                     </ImageBlockSection>
                     <Divider lg />
                 </React.Fragment>
-            ) : (
-                    <DebugPlaceholder
-                        title="Organiser testimonial"
-                        description="The first testimonial of type 'organiser' will be shown here"
-                    />
-                )}
+            ) : null}
             <SingleColumnSection
                 title={content.whatDoesJunctionXOfferTitle}
                 subtitle={content.whatDoesJunctionXOfferSubtitle}
@@ -150,9 +145,7 @@ const OrganisersPage = ({
                 <Markdown source={content.interestedInOrganisingBody} />
             </ImageBlockSection>
             <Divider lg />
-            <BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>
-                <ContactForm />
-            </BlockSection>
+            <NewsLetterForm />
             <Divider lg />
         </Page>
     );

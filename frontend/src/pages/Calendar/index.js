@@ -13,6 +13,7 @@ import HeaderImage from '../../components/HeaderImage';
 import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import EventCalendar from '../../components/EventCalendar';
 import Divider from '../../components/Divider';
+import NewsLetterForm from '../../components/NewsLetterForm';
 
 import Page from '../PageHOC';
 
@@ -30,6 +31,8 @@ const CalendarPage = ({ allContent, allMedia }) => {
                 <BasicHeader title={content.calendarPageTitle} body={content.calendarPageSubtitle} />
             </HeaderImage>
             <EventCalendar />
+            <Divider lg />
+            <NewsLetterForm />
             <Divider lg />
         </Page>
     );

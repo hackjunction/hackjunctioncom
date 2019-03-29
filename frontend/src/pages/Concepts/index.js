@@ -7,7 +7,7 @@ import HeaderImage from '../../components/HeaderImage';
 import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import BlockSection from '../../components/BlockSection';
 import Divider from '../../components/Divider';
-import DebugPlaceholder from '../../components/DebugPlaceholder';
+import NewsLetterForm from '../../components/NewsLetterForm';
 import Markdown from '../../components/Markdown';
 
 import Page from '../PageHOC';
@@ -55,7 +55,7 @@ const ConceptsPage = ({ eventconcepts, loading, allContent, allMedia }) => {
 
     function renderConcepts() {
         if (!Array.isArray(eventconcepts) || eventconcepts.length === 0) {
-            return <DebugPlaceholder title="Event concepts" description="Add event concepts to show them here" />;
+            return null;
         }
 
         return eventconcepts.map(concept => {
@@ -84,6 +84,8 @@ const ConceptsPage = ({ eventconcepts, loading, allContent, allMedia }) => {
             </HeaderImage>
             <Divider lg />
             {renderConcepts()}
+            <Divider lg />
+            <NewsLetterForm />
             <Divider lg />
         </Page>
     );
