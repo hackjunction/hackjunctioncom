@@ -8,6 +8,7 @@ import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import BlockSection from '../../components/BlockSection';
 import Divider from '../../components/Divider';
 import DebugPlaceholder from '../../components/DebugPlaceholder';
+import Markdown from '../../components/Markdown';
 
 import Page from '../PageHOC';
 import LoadingPage from '../Loading';
@@ -61,7 +62,7 @@ const ConceptsPage = ({ eventconcepts, loading, allContent, allMedia }) => {
             return (
                 <React.Fragment key={concept.slug}>
                     <BlockSection title={concept.name} subtitleItems={buildSubtitleItems(concept)}>
-                        <p>{concept.shortdescription}</p>
+                        <Markdown source={concept.shortdescription} />
                     </BlockSection>
                     <Divider md />
                 </React.Fragment>

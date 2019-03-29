@@ -9,10 +9,10 @@ import KEYS from '../../redux/static/keys';
 import HeaderVideo from '../../components/HeaderVideo';
 import BlockSection from '../../components/BlockSection';
 import StatBlocks from '../../components/StatBlocks';
-import LinkGrid from '../../components/LinkGrid';
 import NewsLetterForm from '../../components/NewsLetterForm';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
+import ConceptsPreview from '../../components/ConceptsPreview';
 
 import Page from '../PageHOC';
 import { objectWithKeys } from '../../redux/static/helpers';
@@ -51,26 +51,7 @@ const HomePage = ({ allContent, kpis = [] }) => {
             <Divider lg />
             <BlockSection title={content.whatWeDo} subtitle={content.whatWeDoSubtitle}>
                 <Markdown source={content.whatWeDoBody} />
-                <LinkGrid
-                    links={[
-                        {
-                            id: 1,
-                            title: 'Hackathons'
-                        },
-                        {
-                            id: 2,
-                            title: 'Speaker events'
-                        },
-                        {
-                            id: 3,
-                            title: 'Tech meetups'
-                        },
-                        {
-                            id: 4,
-                            title: 'More -->'
-                        }
-                    ]}
-                />
+                <ConceptsPreview />
             </BlockSection>
             <Divider lg />
             <BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 import IconText from '../IconText';
 import EventCalendarYear from './EventCalendarYear';
+import LinkButton from '../LinkButton';
 
 import * as ContentSelectors from '../../redux/content/selectors';
 import * as ContentActions from '../../redux/content/actions';
@@ -19,8 +20,9 @@ const EventCalendar = ({ events, loading, error, updateEvents, shouldUpdate, con
         }
     }, []);
 
+    const filtered = getEventsFiltered(events, concept, category);
+
     function renderEvents() {
-        const filtered = getEventsFiltered(events, concept, category);
 
         if (filtered.length === 0) {
             return (
@@ -45,13 +47,11 @@ const EventCalendar = ({ events, loading, error, updateEvents, shouldUpdate, con
 
     return (
         <div className="EventCalendar">
-            <h3 className="EventCalendar--title">{title}</h3>
+            {filtered.length > 0 ? <h3 className="EventCalendar--title">{title}</h3> : null}
             <div className="EventCalendar--events">{renderEvents()}</div>
             <div className="EventCalendar--more">
                 {concept || category ? (
-                    <Link className="EventCalendar--more__link" to="/calendar">
-                        See all events
-                    </Link>
+                    <LinkButton to="/calendar" text="See all events" />
                 ) : null}
             </div>
         </div>

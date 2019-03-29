@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/partners",
+      "handler": "Partner.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/partners/count",
+      "handler": "Partner.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/partners/:_id",
+      "handler": "Partner.findOne",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

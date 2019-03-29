@@ -9,7 +9,8 @@
 
 	&--button {
 		background: transparent;
-		min-width: 300px;
+		width: 280px;
+		height: 42px;
 		border-radius: 7px;
 		border: 2px solid $junction-white;
 		cursor: pointer;
@@ -27,6 +28,7 @@
 
 		&__text {
 			transition: all 0.2s ease;
+			font-weight: bold;
 		}
 	}
 }
