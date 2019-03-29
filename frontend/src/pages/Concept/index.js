@@ -63,7 +63,7 @@ const ConceptPage = React.memo(props => {
                 />
             </HeaderImage>
             <BlockSection title={concept.topSectionTitle} subtitle={concept.topSectionSubtitle}>
-                <Markdown source={concept.topSectionBody} />
+                {concept.topSectionBody ? <Markdown source={concept.topSectionBody} /> : null}
             </BlockSection>
             <Divider lg />
             <CenteredBlock>

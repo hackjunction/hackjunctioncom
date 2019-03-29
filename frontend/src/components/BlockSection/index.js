@@ -19,6 +19,10 @@ const BlockSection = ({ title, subtitle, children, subtitleItems }) => {
 		})
 	}
 
+	if (!title && !subtitle && !children && !subtitleItems) {
+		return null;
+	}
+
 	return (
 		<div className="BlockSection">
 			<div className="BlockSection--left">

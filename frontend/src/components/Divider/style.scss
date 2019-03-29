@@ -6,18 +6,10 @@
 	}
 
 	&-md {
-		height: 100px;
+		height: 90px;
 	}
 
 	&-lg {
-		height: 100px;
-
-		@include bp-med {
-			height: 150px;
-		}
-
-		@include bp-full {
-			height: 200px;
-		}
+		height: 130px;
 	}
 }

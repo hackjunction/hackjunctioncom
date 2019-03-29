@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 
 import HomePage from './pages/Home';
@@ -31,6 +31,9 @@ class App extends Component {
                     <Header />
                     <div className="App--Main">
                         <Switch>
+                            {/* Redirects */}
+                            <Redirect path="/privacy" to="/policy" />
+
                             {/* Static pages */}
                             <Route exact path="/" component={HomePage} />
                             <Route exact path="/story" component={StoryPage} />

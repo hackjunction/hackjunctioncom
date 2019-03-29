@@ -52,7 +52,7 @@ const BasicPage = React.memo(({ match, shouldUpdate, updatePages, loading, error
                 <BasicHeader title={page.pageTitle} body={page.pageSubtitle} />
             </HeaderImage>
             <BlockSection title={page.topSectionTitle} subtitle={page.topSectionSubtitle}>
-                <Markdown source={page.topSectionBody} />
+                {page.topSectionBody ? <Markdown source={page.topSectionBody} /> : null}
             </BlockSection>
             <Divider lg />
             <CenteredBlock>
