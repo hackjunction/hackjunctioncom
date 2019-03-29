@@ -34,15 +34,15 @@
         object-fit: cover;
         object-position: center;
         pointer-events: none;
+        mask-image: url('../../assets/misc/wave-mask.png');
+        mask-size: cover;
+        mask-position: bottom;
+        -webkit-mask-image: url('../../assets/misc/wave-mask.png');
+        -webkit-mask-size: cover;
+        -webkit-mask-position: bottom;
 
         video {
             object-fit: cover;
-            mask-image: url('../../assets/misc/wave-mask.png');
-            mask-size: cover;
-            mask-position: bottom;
-            -webkit-mask-image: url('../../assets/misc/wave-mask.png');
-            -webkit-mask-size: cover;
-            -webkit-mask-position: bottom;
         }
 
         &-visible {
