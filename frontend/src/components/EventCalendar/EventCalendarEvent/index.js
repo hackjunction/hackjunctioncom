@@ -27,47 +27,11 @@ const EventCalendarEvent = React.memo(({ event, concepts }) => {
     return (
         <div className="EventCalendarEvent">
             <Image className="EventCalendarEvent--image" image={event.image} width={600} height={300} />
-            <div className="EventCalendarEvent--top">
-                <h4 className="EventCalendarEvent--title">{event.name}</h4>
-                <div className="EventCalendarEvent--detail">
-                    <img
-                        className="EventCalendarEvent--detail__icon"
-                        src={require('../../../assets/icons/calendar.png')}
-                        alt="Calendar icon"
-                    />
-                    <span className="EventCalendarEvent--detail__text">
-                        {moment(event.begins).format('DD.MM.YYYY')}
-                    </span>
-                </div>
+            <div className="EventCalendarEvent--content">
+                <span className="EventCalendarEvent--content__date">{moment(event.begins).format('DD.MM.YYYY')}</span>
+                <span className="EventCalendarEvent--content__title">{event.name}</span>
+                <span className="EventCalendarEvent--content__location">{event.locationDescription}</span>
             </div>
-            <div className="EventCalendarEvent--bottom">
-                <div className="EventCalendarEvent--detail">
-                    <img
-                        className="EventCalendarEvent--detail__icon"
-                        src={require('../../../assets/icons/pointer.png')}
-                        alt="Location icon"
-                    />
-                    <span className="EventCalendarEvent--detail__text">{event.locationDescription}</span>
-                </div>
-            </div>
-            {/* <h4 className="EventCalendarEvent--name">{event.name}</h4>
-            <div className="EventCalendarEvent--details">
-                <div className="EventCalendarEvent--detail">
-                    <i className="EventCalendarEvent--detail__icon" />
-                    <span className="EventCalendarEvent--detail__text">
-                        {moment(event.begins).format('DD.MM.YYYY')}
-                    </span>
-                </div>
-                <div className="EventCalendarEvent--detail">
-                    <div className="EventCalendarEvent--detail__icon">
-                        <i className="EventCalendarEvent--detail__icon-inner" />
-                    </div>
-                    <span className="EventCalendarEvent--detail__text">{event.locationdescription}</span>
-                </div>
-            </div>
-            <a className="EventCalendarEvent--pagelink" href={event.linkToEventSite}>
-                <span className="EventCalendarEvent--pagelink__text">Event page</span>
-            </a> */}
         </div>
     );
 });

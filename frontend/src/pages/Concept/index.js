@@ -69,7 +69,8 @@ const ConceptPage = React.memo(props => {
             <CenteredBlock>
                 <Markdown source={concept.longdescription} />
             </CenteredBlock>
-            <EventCalendar concept={concept.slug} />
+            <Divider lg />
+            <EventCalendar title={`Upcoming ${concept.name} events`} concept={concept.slug} />
             <Divider lg />
         </Page>
     );

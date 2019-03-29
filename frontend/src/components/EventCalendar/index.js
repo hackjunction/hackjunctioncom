@@ -12,7 +12,7 @@ import * as ContentSelectors from '../../redux/content/selectors';
 import * as ContentActions from '../../redux/content/actions';
 import { getEventsFiltered } from '../../redux/content/helpers';
 
-const EventCalendar = ({ events, loading, error, updateEvents, shouldUpdate, concept = null, category = null }) => {
+const EventCalendar = ({ events, loading, error, updateEvents, shouldUpdate, concept = null, category = null, title }) => {
     useEffect(() => {
         if (shouldUpdate && !loading) {
             updateEvents();
@@ -45,6 +45,7 @@ const EventCalendar = ({ events, loading, error, updateEvents, shouldUpdate, con
 
     return (
         <div className="EventCalendar">
+            <h3 className="EventCalendar--title">{title}</h3>
             <div className="EventCalendar--events">{renderEvents()}</div>
             <div className="EventCalendar--more">
                 {concept || category ? (
