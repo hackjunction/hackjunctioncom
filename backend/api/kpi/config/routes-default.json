@@ -23,6 +23,30 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/api/kpis",
+      "handler": "Kpi.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/api/kpis/:_id",
+      "handler": "Kpi.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/kpis/:_id",
+      "handler": "Kpi.destroy",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

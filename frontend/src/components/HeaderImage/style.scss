@@ -4,7 +4,7 @@
     align-self: stretch;
     margin-left: -$padding-page;
     margin-right: -$padding-page;
-    height: 480px;
+    height: 600px;
     position: relative;
     overflow: hidden;
     z-index: 0;
@@ -54,6 +54,7 @@
         height: 100%;
         overflow: hidden;
         padding: $padding-page;
+        padding-bottom: $padding-page * 4;
     }
 }
 
@@ -122,7 +123,6 @@
 
 .LogoHeader {
     margin: 0 auto;
-    max-width: 460px;
     width: 100%;
     height: 100%;
     position: relative;
@@ -133,13 +133,15 @@
     align-items: center;
 
     &--logo {
-        width: 100%;
         margin-bottom: 40px;
+        max-width: 80%;
+        max-height: 150px;
     }
 
     &--punchline {
         font-size: 24px;
         margin-bottom: 40px;
+        text-align: center; 
     }
 
     &--link {

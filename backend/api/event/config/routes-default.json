@@ -23,6 +23,30 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "handler": "Event.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/api/events/:_id",
+      "handler": "Event.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/events/:_id",
+      "handler": "Event.destroy",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

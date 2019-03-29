@@ -23,6 +23,30 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/api/teammembers",
+      "handler": "Teammember.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/api/teammembers/:_id",
+      "handler": "Teammember.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/teammembers/:_id",
+      "handler": "Teammember.destroy",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

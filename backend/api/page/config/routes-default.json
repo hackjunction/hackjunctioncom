@@ -23,6 +23,30 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/api/pages",
+      "handler": "Page.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/api/pages/:_id",
+      "handler": "Page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/pages/:_id",
+      "handler": "Page.destroy",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

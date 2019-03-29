@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "contactrequest",
   "info": {
     "name": "contactrequest",
     "description": ""
@@ -21,13 +21,13 @@
       "default": "",
       "type": "email"
     },
-    "reason": {
-      "default": "",
-      "type": "string"
-    },
     "message": {
       "default": "",
       "type": "text"
+    },
+    "company": {
+      "default": "",
+      "type": "string"
     }
   }
 }

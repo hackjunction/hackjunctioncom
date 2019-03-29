@@ -23,6 +23,30 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/api/eventcategories",
+      "handler": "Eventcategory.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/api/eventcategories/:_id",
+      "handler": "Eventcategory.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/eventcategories/:_id",
+      "handler": "Eventcategory.destroy",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

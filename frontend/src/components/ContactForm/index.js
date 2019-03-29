@@ -53,14 +53,16 @@ const ContactForm = () => {
 				return null
 			}),
 		},
-		reason: {
-			...useFormField(null, (value) => {
-				if (!value) {
-					return 'Please choose one'
+		company: {
+			...useFormField('', (value) => {
+				if (!value || value.length === 0) {
+					return 'This field is required'
 				}
 
-				return null
-			}),
+				if (value.length > 100) {
+					return "That's a pretty long company name... Something shorter, please."
+				}
+			})
 		},
 		message: {
 			...useFormField('', (value) => {
@@ -133,29 +135,10 @@ const ContactForm = () => {
 					label="Email"
 					{...fields.email}
 				/>
-			</FormRow>
-			<FormRow>
-				<RadioButtons
-					label="I would like to be contacted regarding..."
-					{...fields.reason}
-					buttons={[
-						{
-							value: 'partnerships',
-							label: 'partnerships'
-						},
-						{
-							value: 'volunteering',
-							label: 'volunteering'
-						},
-						{
-							value: 'participating',
-							label: 'participating'
-						},
-						{
-							value: 'organizing',
-							label: 'organizing'
-						}
-					]}
+				<TextInput
+					placeholder="Company"
+					label="Company"
+					{...fields.company}
 				/>
 			</FormRow>
 			<FormRow>

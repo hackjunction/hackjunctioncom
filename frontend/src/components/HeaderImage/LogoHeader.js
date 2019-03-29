@@ -8,11 +8,13 @@ const LogoHeader = ({ logo, punchline, link, linkText }) => {
 	return (
 		<div className="LogoHeader">
 			<Image
+				className="LogoHeader--logo"
 				image={logo}
 				alt="logo"
-				width={460}
+				height={250}
+				width={600}
+				crop={'fit'}
 			/>
-			<img className="LogoHeader--logo" />
 			<span className="LogoHeader--punchline">{punchline}</span>
 			{link ? (
 				<a className="LogoHeader--link" href={link}>

@@ -129,13 +129,15 @@ module.exports = {
       },
     ]);
 
-    strapi.plugins['email'].services.email.send({
-      to: 'hello@hackjunction.com',
-      from: 'contact-form@hackjunction.com',
-      replyTo: 'no-reply@hackjunction.com',
-      subject: 'Hackjunction.com | Hello from ' + name,
-      html: msg.renderHTML(),
-    });
+    if (strapi.config.currentEnvironment.partnerFormEmail) {
+      strapi.plugins['email'].services.email.send({
+        to: strapi.config.currentEnvironment.partnerFormEmail,
+        from: 'contact-form@hackjunction.com',
+        replyTo: 'no-reply@hackjunction.com',
+        subject: 'Hackjunction.com | Hello from ' + name,
+        html: msg.renderHTML(),
+      });
+    }
   },
 
   // Before updating a value.

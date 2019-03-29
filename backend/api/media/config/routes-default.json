@@ -23,6 +23,30 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/api/media",
+      "handler": "Media.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/api/media/:_id",
+      "handler": "Media.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/media/:_id",
+      "handler": "Media.destroy",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

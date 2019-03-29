@@ -1,5 +1,6 @@
 {
   "myCustomConfiguration": "This configuration is accessible through strapi.config.environments.development.myCustomConfiguration",
   "sendgridApiKey": "${process.env.SG_API_KEY}",
-  "sendgridEmailList": "${process.env.SG_EMAIL_LIST}"
+  "sendgridEmailList": "${process.env.SG_EMAIL_LIST}",
+  "partnerFormEmail": "${process.env.PARTNER_FORM_EMAIL}"
 }
