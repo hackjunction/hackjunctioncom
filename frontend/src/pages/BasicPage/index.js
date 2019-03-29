@@ -10,6 +10,7 @@ import HeaderImage from '../../components/HeaderImage';
 import BasicHeader from '../../components/HeaderImage/BasicHeader'
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
+import BlockSection from '../../components/BlockSection';
 
 import Page from '../PageHOC';
 
@@ -50,6 +51,10 @@ const BasicPage = React.memo(({ match, shouldUpdate, updatePages, loading, error
             >
                 <BasicHeader title={page.pageTitle} body={page.pageSubtitle} />
             </HeaderImage>
+            <BlockSection title={page.topSectionTitle} subtitle={page.topSectionSubtitle}>
+                <Markdown source={page.topSectionBody} />
+            </BlockSection>
+            <Divider lg />
             <CenteredBlock>
                 <Markdown source={page.body} />
             </CenteredBlock>

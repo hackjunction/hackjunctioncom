@@ -46,6 +46,18 @@
         "community",
         "none"
       ]
+    },
+    "topSectionTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "topSectionSubtitle": {
+      "default": "",
+      "type": "text"
+    },
+    "topSectionBody": {
+      "default": "",
+      "type": "text"
     }
   }
 }

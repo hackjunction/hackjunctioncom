@@ -12,6 +12,13 @@
         font-size: inherit;
     }
 
+    blockquote {
+        @extend %font-title;
+        text-align: center;
+        font-weight: bold;
+        font-size: 32px;
+    }
+
     &--youtube {
         width: 100%;
         position: relative;
