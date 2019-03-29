@@ -13,6 +13,7 @@ import NewsLetterForm from '../../components/NewsLetterForm';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
 import ConceptsPreview from '../../components/ConceptsPreview';
+import LinkGrid from '../../components/LinkGrid';
 
 import Page from '../PageHOC';
 import { objectWithKeys } from '../../redux/static/helpers';
@@ -27,7 +28,7 @@ const CONTENT_KEYS = [
     KEYS.homePageHeaderVideoLink
 ];
 
-const HomePage = ({ allContent, kpis = [] }) => {
+const HomePage = ({ allContent, kpis = [], partners = [], stories = [] }) => {
     const content = objectWithKeys(allContent, CONTENT_KEYS);
     function buildStatBlocks() {
         return kpis.map(kpi => {
@@ -52,6 +53,26 @@ const HomePage = ({ allContent, kpis = [] }) => {
                 <ConceptsPreview />
             </BlockSection>
             <Divider lg />
+            <BlockSection title="Partners" subtitle="Some of our previous partners" >
+                <LinkGrid links={partners.map(p => {
+                    return {
+                        image: p.logo,
+                        alt: p.name,
+                        url: p.website
+                    }
+                })} />
+            </BlockSection>
+            <Divider lg />
+            <BlockSection title="Stories about us">
+                <LinkGrid links={stories.map(s => {
+                    return {
+                        image: s.logo,
+                        alt: s.name,
+                        url: s.website
+                    }
+                })} />
+            </BlockSection>
+            <Divider lg />
             <NewsLetterForm />
             <Divider lg />
         </Page>
@@ -60,7 +81,9 @@ const HomePage = ({ allContent, kpis = [] }) => {
 
 const mapStateToProps = state => ({
     allContent: StaticContentSelectors.content(state),
-    kpis: ContentSelectors.genericKpis(state)
+    kpis: ContentSelectors.genericKpis(state),
+    partners: ContentSelectors.partners(state),
+    stories: ContentSelectors.stories(state)
 });
 
 export default connect(mapStateToProps)(HomePage);

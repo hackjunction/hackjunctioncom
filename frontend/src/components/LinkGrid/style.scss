@@ -1,0 +1,23 @@
+@import '../../styles/main';
+
+.LinkGrid {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	
+	&--item {
+		width: 50%;
+		min-width: 300px;
+		margin-bottom: $padding-page;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&__image {
+			width: 80%;
+			object-fit: contain;
+			object-position: center;
+		}
+	}
+}

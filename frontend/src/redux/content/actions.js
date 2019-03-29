@@ -7,6 +7,8 @@ import TeamMemberService from '../../services/teammembers';
 import TestimonialService from '../../services/testimonials';
 import SocialMediaService from '../../services/socialmedias';
 import KpiService from '../../services/kpis';
+import PartnerService from '../../services/partners';
+import StoriesService from '../../services/stories';
 
 /**
  * Pages

@@ -57,6 +57,14 @@ class GlobalLifecycle extends React.Component {
             this.props.updateKpis();
         }
 
+        if (this.props.partnersShouldUpdate) {
+            this.props.updatePartners();
+        }
+
+        if (this.props.storiesShouldUpdate) {
+            this.props.updateStories();
+        }
+
         /* Initialize 3rd party analytics services if config for them is present */
 
         if (config.FACEBOOK_PIXEL_ID) {
@@ -107,7 +115,9 @@ const mapStateToProps = state => ({
     mediaShouldUpdate: MediaSelectors.mediaShouldUpdate(state),
     socialMediasShouldUpdate: ContentSelectors.socialMediasShouldUpdate(state),
     kpisShouldUpdate: ContentSelectors.kpisShouldUpdate(state),
-    pagesShouldUpdate: ContentSelectors.pagesShouldUpdate(state)
+    pagesShouldUpdate: ContentSelectors.pagesShouldUpdate(state),
+    storiesShouldUpdate: ContentSelectors.storiesShouldUpdate(state),
+    partnersShouldUpdate: ContentSelectors.partnersShouldUpdate(state),
 });
 const mapDispatchToProps = dispatch => ({
     updateStaticContent: () => dispatch(StaticContentActions.updateStaticContent()),
@@ -115,7 +125,9 @@ const mapDispatchToProps = dispatch => ({
     updateMedia: () => dispatch(MediaActions.updateMedia()),
     updateSocialMedias: () => dispatch(ContentActions.updateSocialMedias()),
     updateKpis: () => dispatch(ContentActions.updateKpis()),
-    updatePages: () => dispatch(ContentActions.updatePages())
+    updatePages: () => dispatch(ContentActions.updatePages()),
+    updatePartners: () => dispatch(ContentActions.updatePartners()),
+    updateStories: () => dispatch(ContentActions.updateStories())
 });
 
 export default connect(
