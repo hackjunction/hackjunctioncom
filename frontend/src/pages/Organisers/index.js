@@ -44,9 +44,7 @@ const CONTENT_KEYS = [
     KEYS.whatDoesJunctionXOfferThirdBody,
     KEYS.interestedInOrganisingTitle,
     KEYS.interestedInOrganisingSubtitle,
-    KEYS.interestedInOrganisingBody,
-    KEYS.joinCommunity,
-    KEYS.joinCommunityBody
+    KEYS.interestedInOrganisingBody
 ];
 
 const SELECT_MEDIA_KEYS = [

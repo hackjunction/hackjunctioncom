@@ -32,6 +32,9 @@ const EventCalendarEvent = React.memo(({ event, concepts }) => {
                 <span className="EventCalendarEvent--content__title">{event.name}</span>
                 <span className="EventCalendarEvent--content__location">{event.locationDescription}</span>
             </div>
+            {event.linkToEventSite ? (
+                <a className="EventCalendarEvent--link" href={event.linkToEventSite} alt="Event site" />
+            ) : null}
         </div>
     );
 });
