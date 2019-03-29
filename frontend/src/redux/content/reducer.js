@@ -17,7 +17,9 @@ export const initialState = {
     teammembers: initialSubState,
     testimonials: initialSubState,
     socialmedias: initialSubState,
-    kpis: initialSubState
+    kpis: initialSubState,
+    partners: initialSubState,
+    stories: initialSubState
 };
 
 /** All content has the same actions (set content, set loading, set error, ...)
@@ -108,6 +110,20 @@ export default function reducer(state = initialState, action) {
             return setLoading(state, 'kpis');
         case ActionTypes.SET_KPIS_ERROR:
             return setError(state, 'kpis');
+
+        case ActionTypes.SET_PARTNERS:
+            return setData(state, 'partners', action.payload);
+        case ActionTypes.SET_PARTNERS_LOADING:
+            return setLoading(state, 'partners');
+        case ActionTypes.SET_PARTNERS_ERROR:
+            return setError(state, 'partners');
+
+        case ActionTypes.SET_STORIES:
+            return setData(state, 'stories', action.payload);
+        case ActionTypes.SET_STORIES_LOADING:
+            return setLoading(state, 'stories');
+        case ActionTypes.SET_STORIES_ERROR:
+            return setError(state, 'stories');
 
         default:
             return state;

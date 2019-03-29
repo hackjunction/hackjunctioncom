@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/newsstories",
+      "path": "/api/newsstories",
       "handler": "Newsstory.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/newsstories/count",
+      "path": "/api/newsstories/count",
       "handler": "Newsstory.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/newsstories/:_id",
+      "path": "/api/newsstories/:_id",
       "handler": "Newsstory.findOne",
       "config": {
         "policies": []

@@ -5,8 +5,6 @@ const CONTENT_KEYS = {
     homePageHeaderVideoLink: 'homePageHeaderVideoLink',
 
     /* Contact form */
-    joinCommunity: 'joinCommunity',
-    joinCommunityBody: 'joinCommunityBody',
     newsletterFormTitle: 'newsletterFormTitle',
     newsletterFormSubtitle: 'newsletterFormSubtitle',
     contactFormTitle: 'contactFormTitle',
@@ -26,10 +24,7 @@ const CONTENT_KEYS = {
     whatIsJunctionTitle: 'whatIsJunctionTitle',
     whatIsJunctionSubtitle: 'whatIsJunctionSubtitle',
     whatIsJunctionBody: 'whatIsJunctionBody',
-    storyPagePersonImage: 'storyPagePersonImage',
-    storyPagePersonTitle: 'storyPagePersonTitle',
-    storyPagePersonSubtitle: 'storyPagePersonSubtitle',
-    storyPagePersonBody: 'storyPagePersonBody',
+    storyPageContent: 'storyPageContent',
     junction2019: 'junction2019',
     junction2019Body: 'junction2019Body',
     junction2019Subtitle: 'junction2019Subtitle',

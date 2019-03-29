@@ -18,12 +18,14 @@ import { minDelay, delay } from '../../utils/misc'
 import ContactRequestService from '../../services/contactrequests'
 
 import * as StaticContentSelectors from '../../redux/static/selectors';
-import { objectWithKeys } from '../../redux/static/helpers';
 import KEYS from '../../redux/static/keys';
+import { objectWithKeys } from '../../redux/static/helpers';
 
 const ContactForm = ({ allContent }) => {
 
 	const content = objectWithKeys(allContent, [KEYS.contactFormTitle, KEYS.contactFormSubtitle]);
+
+	console.log(content)
 
 	const fields = {
 		firstName: {
@@ -167,7 +169,7 @@ const ContactForm = ({ allContent }) => {
 }
 
 const mapStateToProps = (state) => ({
-	content: StaticContentSelectors.content(state)
+	allContent: StaticContentSelectors.content(state),
 })
 
 export default connect(mapStateToProps)(ContactForm)

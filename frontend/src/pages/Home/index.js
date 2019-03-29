@@ -24,8 +24,6 @@ const CONTENT_KEYS = [
     KEYS.whatWeDo,
     KEYS.whatWeDoBody,
     KEYS.whatWeDoSubtitle,
-    KEYS.joinCommunity,
-    KEYS.joinCommunityBody,
     KEYS.homePageHeaderVideoLink
 ];
 

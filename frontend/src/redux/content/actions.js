@@ -161,3 +161,47 @@ export const updateKpis = () => dispatch => {
             dispatch(setKpisError());
         });
 };
+
+/**
+ * Partners
+ */
+
+const setPartnersLoading = () => dispatch => dispatch({ type: ActionTypes.SET_PARTNERS_LOADING });
+const setPartnersError = () => dispatch => dispatch({ type: ActionTypes.SET_PARTNERS_ERROR });
+
+export const updatePartners = () => dispatch => {
+    dispatch(setPartnersLoading())
+    PartnerService.getAll()
+        .then(partners => {
+            dispatch({
+                type: ActionTypes.SET_PARTNERS,
+                payload: partners
+            })
+        })
+        .catch(error => {
+            console.log('Error in updatePartners', error);
+            dispatch(setPartnersError())
+        })
+}
+
+/**
+ * News stories
+ */
+
+const setStoriesLoading = () => dispatch => dispatch({ type: ActionTypes.SET_STORIES_LOADING });
+const setStoriesError = () => dispatch => dispatch({ type: ActionTypes.SET_STORIES_ERROR });
+
+export const updateStories = () => dispatch => {
+    dispatch(setStoriesLoading())
+    StoriesService.getAll()
+        .then(stories => {
+            dispatch({
+                type: ActionTypes.SET_STORIES,
+                payload: stories
+            })
+        })
+        .catch(error => {
+            console.log('Error in updateStories', error)
+            dispatch(setStoriesError())
+        })
+}

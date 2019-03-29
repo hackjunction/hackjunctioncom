@@ -36,9 +36,7 @@ const CONTENT_KEYS = [
     KEYS.howToJoinStepFive,
     KEYS.getHiredTitle,
     KEYS.getHiredSubtitle,
-    KEYS.getHiredBody,
-    KEYS.joinCommunity,
-    KEYS.joinCommunityBody
+    KEYS.getHiredBody
 ];
 
 const ParticipantsPage = ({ allContent, allMedia, testimonials, testimonialsShouldUpdate, updateTestimonials }) => {

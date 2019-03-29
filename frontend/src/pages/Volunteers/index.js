@@ -29,8 +29,6 @@ const CONTENT_KEYS = [
     KEYS.volunteeringTitle,
     KEYS.volunteeringSubtitle,
     KEYS.volunteeringBody,
-    KEYS.joinCommunity,
-    KEYS.joinCommunityBody
 ];
 
 const VolunteersPage = ({ allContent, allMedia, testimonials, testimonialsShouldUpdate, updateTestimonials }) => {

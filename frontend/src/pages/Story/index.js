@@ -23,6 +23,7 @@ import Divider from '../../components/Divider';
 import Page from '../PageHOC';
 import { objectWithKeys } from '../../redux/static/helpers';
 import { mediaByKey } from '../../redux/media/helpers';
+import CenteredBlock from '../../components/CenteredBlock/index';
 
 const CONTENT_KEYS = [
     KEYS.storyPageTitle,
@@ -30,15 +31,10 @@ const CONTENT_KEYS = [
     KEYS.whatIsJunctionTitle,
     KEYS.whatIsJunctionSubtitle,
     KEYS.whatIsJunctionBody,
-    KEYS.storyPagePersonImage,
-    KEYS.storyPagePersonTitle,
-    KEYS.storyPagePersonSubtitle,
-    KEYS.storyPagePersonBody,
+    KEYS.storyPageContent,
     KEYS.junction2019,
     KEYS.junction2019Subtitle,
-    KEYS.junction2019Body,
-    KEYS.joinCommunity,
-    KEYS.joinCommunityBody
+    KEYS.junction2019Body
 ];
 
 const StoryPage = ({ allContent, allMedia, kpis = [], testimonials = [] }) => {
@@ -75,19 +71,9 @@ const StoryPage = ({ allContent, allMedia, kpis = [], testimonials = [] }) => {
                 {renderStatBlocks()}
             </BlockSection>
             <Divider lg />
-            {testimonial ? (
-                <React.Fragment>
-                    <ImageBlockSection
-                        image={testimonial.image}
-                        imageAlt={testimonial.name}
-                        title={testimonial.name}
-                        subtitle={testimonial.subtitle}
-                    >
-                        <Markdown source={testimonial.quote} />
-                    </ImageBlockSection>
-                    <Divider lg />
-                </React.Fragment>
-            ) : null}
+            <CenteredBlock>
+                <Markdown source={content.storyPageContent} />
+            </CenteredBlock>
             <BlockSection title={content.junction2019} subtitle={content.junction2019Subtitle}>
                 <Markdown source={content.junction2019Body} />
             </BlockSection>

@@ -14,6 +14,8 @@ const TEAM_MEMBERS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000; //15 
 const TESTIMONIALS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000; //15 minutes
 const SOCIAL_MEDIAS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000; //15 minutes
 const KPIS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000; //15 minutes
+const PARTNERS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000; //15 minutes
+const STORIES_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000; //15 minutes
 
 export const pages = state => state.content.pages.data;
 export const pagesLoading = state => state.content.pages.loading;
@@ -157,3 +159,28 @@ export const partnerKpis = kpisOfType('partner');
 export const participantKpis = kpisOfType('participant');
 export const organiserKpis = kpisOfType('organiser');
 export const volunteerKpis = kpisOfType('volunteer');
+
+
+export const partners = state => state.content.partners.data;
+export const partnersLoading = state => state.content.partners.loading;
+export const partnersError = state => state.content.partners.error;
+export const partnersUpdated = state => state.content.partners.lastUpdate;
+
+export const partnersShouldUpdate = createSelector(
+    partnersUpdated,
+    updated => {
+        return Date.now() - updated > PARTNERS_UPDATE_INTERVAL;
+    }
+)
+
+export const stories = state => state.content.stories.data;
+export const storiesLoading = state => state.content.stories.loading;
+export const storiesError = state => state.content.stories.error;
+export const storiesUpdated = state => state.content.stories.lastUpdate;
+
+export const storiesShouldUpdate = createSelector(
+    storiesUpdated,
+    updated => {
+        return Date.now() - updated > STORIES_UPDATE_INTERVAL;
+    }
+)

@@ -20,7 +20,7 @@ import MEDIA_KEYS from '../../redux/media/keys';
 import { objectWithKeys } from '../../redux/static/helpers';
 import { mediaByKey } from '../../redux/media/helpers';
 
-const CONTENT_KEYS = [KEYS.teamPageTitle, KEYS.teamPageSubtitle, KEYS.joinCommunity, KEYS.joinCommunityBody];
+const CONTENT_KEYS = [KEYS.teamPageTitle, KEYS.teamPageSubtitle];
 
 const TeamPage = ({ allContent, allMedia, teamMembers, shouldUpdate, updateTeamMembers }) => {
     const content = objectWithKeys(allContent, CONTENT_KEYS);
@@ -41,9 +41,8 @@ const TeamPage = ({ allContent, allMedia, teamMembers, shouldUpdate, updateTeamM
             </HeaderImage>
             <TeamMemberGrid teamMembers={teamMembers} />
             <Divider lg />
-            <BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>
-                <ContactForm />
-            </BlockSection>
+            <ContactForm />
+
             <Divider lg />
         </Page>
     );

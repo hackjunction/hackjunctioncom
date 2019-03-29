@@ -25,3 +25,11 @@ export const SET_SOCIAL_MEDIAS_ERROR = 'content/SET_SOCIAL_MEDIAS_ERROR';
 export const SET_KPIS = 'content/SET_KPIS';
 export const SET_KPIS_LOADING = 'content/SET_KPIS_LOADING';
 export const SET_KPIS_ERROR = 'content/SET_KPIS_ERROR';
+
+export const SET_PARTNERS = 'content/SET_PARTNERS';
+export const SET_PARTNERS_LOADING = 'content/SET_PARTNERS_LOADING';
+export const SET_PARTNERS_ERROR = 'content/SET_PARTNERS_ERROR';
+
+export const SET_STORIES = 'content/SET_STORIES';
+export const SET_STORIES_LOADING = 'content/SET_STORIES_LOADING';
+export const SET_STORIES_ERROR = 'content/SET_STORIES_ERROR';
