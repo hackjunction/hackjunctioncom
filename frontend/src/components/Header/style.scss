@@ -20,6 +20,10 @@
         padding: 20px;
     }
 
+    &-is-hidden {
+        transform: translateY(-100px);
+    }
+
     &--menu-button {
         width: 50px;
         cursor: pointer;

@@ -7,6 +7,10 @@ const CONTENT_KEYS = {
     /* Contact form */
     joinCommunity: 'joinCommunity',
     joinCommunityBody: 'joinCommunityBody',
+    newsletterFormTitle: 'newsletterFormTitle',
+    newsletterFormSubtitle: 'newsletterFormSubtitle',
+    contactFormTitle: 'contactFormTitle',
+    contactFormSubtitle: 'contactFormSubtitle',
 
     /* Home page */
     whoAreWe: 'whoAreWe',

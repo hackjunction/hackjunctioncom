@@ -94,7 +94,9 @@
         "\nwhatDoesJunctionXOfferThirdBody",
         "\ninterestedInOrganisingTitle",
         "\ninterestedInOrganisingSubtitle",
-        "\ninterestedInOrganisingBody"
+        "\ninterestedInOrganisingBody",
+        "\nnewsletterFormTitle",
+        "\nnewsletterFormSubtitle"
       ],
       "default": "",
       "unique": true,

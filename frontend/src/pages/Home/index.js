@@ -54,9 +54,7 @@ const HomePage = ({ allContent, kpis = [] }) => {
                 <ConceptsPreview />
             </BlockSection>
             <Divider lg />
-            <BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>
-                <NewsLetterForm />
-            </BlockSection>
+            <NewsLetterForm />
             <Divider lg />
         </Page>
     );

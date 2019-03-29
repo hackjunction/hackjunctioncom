@@ -46,8 +46,6 @@ const CONTENT_KEYS = [
     KEYS.previousPartnersTitle,
     KEYS.previousPartnersSubtitle,
     KEYS.previousPartnersBody,
-    KEYS.joinCommunity,
-    KEYS.joinCommunityBody
 ];
 
 const PartnersPage = ({
@@ -164,9 +162,7 @@ const PartnersPage = ({
                 <Markdown source={content.previousPartnersBody} />
             </BlockSection>
             <Divider lg />
-            <BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>
-                <ContactForm />
-            </BlockSection>
+            <ContactForm />
             <Divider lg />
         </Page >
     );
