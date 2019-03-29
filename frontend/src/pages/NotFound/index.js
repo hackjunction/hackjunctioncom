@@ -4,6 +4,7 @@ import './style.scss';
 import { connect } from 'react-redux';
 
 import HeaderImage from '../../components/HeaderImage';
+import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import Divider from '../../components/Divider';
 import Page from '../PageHOC';
 
@@ -18,9 +19,9 @@ const NotFoundPage = ({ allMedia }) => {
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                mainTitle={'Page not found'}
-                bodyText={"It seems like the page you were looking for doesn't exist..."}
-            />
+            >
+                <BasicHeader title={'Page not found'} body={"It seems like the page you were looking for doesn't exist..."} />
+            </HeaderImage>
             <Divider lg />
         </Page>
     );

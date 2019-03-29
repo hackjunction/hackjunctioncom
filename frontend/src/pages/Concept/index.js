@@ -7,9 +7,11 @@ import ErrorPage from '../Error';
 import NotFoundPage from '../NotFound';
 
 import HeaderImage from '../../components/HeaderImage';
+import LogoHeader from '../../components/HeaderImage/LogoHeader';
 import EventCalendar from '../../components/EventCalendar';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
+import BlockSection from '../../components/BlockSection';
 
 import Page from '../PageHOC';
 
@@ -52,7 +54,18 @@ const ConceptPage = React.memo(props => {
                 alt="Header image"
                 mainTitle={concept.punchline}
                 bodyText={concept.shortdescription}
-            />
+            >
+                <LogoHeader
+                    logo={concept.logo}
+                    punchline={concept.punchline}
+                    link={concept.website}
+                    linkText={'Event website'}
+                />
+            </HeaderImage>
+            <BlockSection title={concept.topSectionTitle} subtitle={concept.topSectionSubtitle}>
+                <Markdown source={concept.topSectionBody} />
+            </BlockSection>
+            <Divider lg />
             <CenteredBlock>
                 <Markdown source={concept.longdescription} />
             </CenteredBlock>

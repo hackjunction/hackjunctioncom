@@ -3,6 +3,7 @@ import './style.scss';
 import { connect } from 'react-redux';
 
 import HeaderImage from '../../components/HeaderImage';
+import BasicHeader from '../../components/HeaderImage/BasicHeader'
 import TeamMemberGrid from '../../components/TeamMemberGrid';
 import BlockSection from '../../components/BlockSection';
 import ContactForm from '../../components/ContactForm';
@@ -35,9 +36,9 @@ const TeamPage = ({ allContent, allMedia, teamMembers, shouldUpdate, updateTeamM
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                mainTitle={content.teamPageTitle}
-                bodyText={content.teamPageSubtitle}
-            />
+            >
+                <BasicHeader title={content.teamPageTitle} bodyText={content.teamPageSubtitle} />
+            </HeaderImage>
             <TeamMemberGrid teamMembers={teamMembers} />
             <Divider lg />
             <BlockSection title={content.joinCommunity} subtitle={content.joinCommunityBody}>

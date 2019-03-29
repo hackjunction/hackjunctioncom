@@ -11,6 +11,7 @@ import KEYS from '../../redux/static/keys';
 import MEDIA_KEYS from '../../redux/media/keys';
 
 import HeaderImage from '../../components/HeaderImage';
+import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import BlockSection from '../../components/BlockSection';
 import RomanNumeralList from '../../components/RomanNumeralList';
 import ImageBlockSection from '../../components/ImageBlockSection';
@@ -64,9 +65,9 @@ const ParticipantsPage = ({ allContent, allMedia, testimonials, testimonialsShou
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                mainTitle={content.participantsPageTitle}
-                bodyText={content.participantsPageSubtitle}
-            />
+            >
+                <BasicHeader title={content.participantsPageTitle} body={content.participantsPageSubtitle} />
+            </HeaderImage>
             <BlockSection title={content.howToJoinTitle} subtitle={content.howToJoinSubtitle}>
                 <RomanNumeralList items={howToJoinItems} />
             </BlockSection>
@@ -84,11 +85,11 @@ const ParticipantsPage = ({ allContent, allMedia, testimonials, testimonialsShou
                     <Divider lg />
                 </React.Fragment>
             ) : (
-                <DebugPlaceholder
-                    title="Participant testimonial"
-                    description="Add a testimonial of type 'participant' to show it here"
-                />
-            )}
+                    <DebugPlaceholder
+                        title="Participant testimonial"
+                        description="Add a testimonial of type 'participant' to show it here"
+                    />
+                )}
             <BlockSection title={content.getHiredTitle} subtitle={content.getHiredSubtitle}>
                 <Markdown source={content.getHiredBody} />
             </BlockSection>

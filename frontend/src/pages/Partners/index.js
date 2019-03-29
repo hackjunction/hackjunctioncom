@@ -12,6 +12,7 @@ import KEYS from '../../redux/static/keys';
 import MEDIA_KEYS from '../../redux/media/keys';
 
 import HeaderImage from '../../components/HeaderImage';
+import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import BlockSection from '../../components/BlockSection/';
 import ImageBlockSection from '../../components/ImageBlockSection/';
 import SingleColumnSection from '../../components/SingleColumnSection/';
@@ -94,9 +95,9 @@ const PartnersPage = ({
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                mainTitle={content.partnersPageTitle}
-                bodyText={content.partnersPageSubtitle}
-            />
+            >
+                <BasicHeader title={content.partnersPageTitle} body={content.partnersPageSubtitle} />
+            </HeaderImage>
             <BlockSection title={content.partnersPageFirstTitle} subtitle={content.partnersPageFirstSubtitle}>
                 <Markdown source={content.partnersPageFirstBody} />
                 {renderStatBlocks()}
@@ -115,11 +116,12 @@ const PartnersPage = ({
                     <Divider lg />
                 </React.Fragment>
             ) : (
-                <DebugPlaceholder
-                    title="Partner testimonial"
-                    description="The first testimonial of type 'partner' will be shown here"
-                />
-            )}
+                    <DebugPlaceholder
+                        title="Partner testimonial"
+                        description="The first testimonial of type 'partner' will be shown here"
+                    />
+                )
+            }
             <SingleColumnSection title={content.whyPartnerWithUsTitle}>
                 <BorderedSection
                     title={content.whyPartnerWithUsFirstTitle}
@@ -148,11 +150,12 @@ const PartnersPage = ({
                     <Divider lg />
                 </React.Fragment>
             ) : (
-                <DebugPlaceholder
-                    title="Partner testimonial"
-                    description="The second testimonial of type 'partner' will be shown here"
-                />
-            )}
+                    <DebugPlaceholder
+                        title="Partner testimonial"
+                        description="The second testimonial of type 'partner' will be shown here"
+                    />
+                )
+            }
             <BlockSection title={content.whatMakesUsDifferentTitle} subtitle={content.whatMakesUsDifferentSubtitle}>
                 <Markdown source={content.whatMakesUsDifferentBody} />
             </BlockSection>
@@ -165,7 +168,7 @@ const PartnersPage = ({
                 <ContactForm />
             </BlockSection>
             <Divider lg />
-        </Page>
+        </Page >
     );
 };
 

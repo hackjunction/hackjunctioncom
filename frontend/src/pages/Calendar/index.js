@@ -10,6 +10,7 @@ import KEYS from '../../redux/static/keys';
 import MEDIA_KEYS from '../../redux/media/keys';
 
 import HeaderImage from '../../components/HeaderImage';
+import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import EventCalendar from '../../components/EventCalendar';
 import Divider from '../../components/Divider';
 
@@ -25,9 +26,9 @@ const CalendarPage = ({ allContent, allMedia }) => {
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                mainTitle={content.calendarPageTitle}
-                bodyText={content.calendarPageSubtitle}
-            />
+            >
+                <BasicHeader title={content.calendarPageTitle} body={content.calendarPageSubtitle} />
+            </HeaderImage>
             <EventCalendar />
             <Divider lg />
         </Page>

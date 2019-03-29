@@ -7,6 +7,7 @@ import ErrorPage from '../Error';
 import NotFoundPage from '../NotFound';
 
 import HeaderImage from '../../components/HeaderImage';
+import BasicHeader from '../../components/HeaderImage/BasicHeader'
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
 
@@ -46,10 +47,9 @@ const BasicPage = React.memo(({ match, shouldUpdate, updatePages, loading, error
             <HeaderImage
                 src={require('../../assets/images/default_image.jpg')}
                 alt="Header image"
-                navTitle={page.navTitle}
-                mainTitle={page.pageTitle}
-                bodyText={page.pageSubtitle}
-            />
+            >
+                <BasicHeader title={page.pageTitle} body={page.pageSubtitle} />
+            </HeaderImage>
             <CenteredBlock>
                 <Markdown source={page.body} />
             </CenteredBlock>

@@ -11,8 +11,9 @@ import KEYS from '../../redux/static/keys';
 import MEDIA_KEYS from '../../redux/media/keys';
 
 import HeaderImage from '../../components/HeaderImage';
-import ImageBlockSection from '../../components/ImageBlockSection';
+import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import BlockSection from '../../components/BlockSection';
+import ImageBlockSection from '../../components/ImageBlockSection';
 import Divider from '../../components/Divider';
 import ContactForm from '../../components/ContactForm';
 import Markdown from '../../components/Markdown';
@@ -48,9 +49,9 @@ const VolunteersPage = ({ allContent, allMedia, testimonials, testimonialsShould
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                mainTitle={content.volunteersPageTitle}
-                bodyText={content.volunteersPageSubtitle}
-            />
+            >
+                <BasicHeader title={content.volunteersPageTitle} body={content.volunteersPageSubtitle} />
+            </HeaderImage>
             {testimonial ? (
                 <React.Fragment>
                     <ImageBlockSection
@@ -64,11 +65,11 @@ const VolunteersPage = ({ allContent, allMedia, testimonials, testimonialsShould
                     <Divider lg />
                 </React.Fragment>
             ) : (
-                <DebugPlaceholder
-                    title="Volunteer testimonial"
-                    description="Add a testimonial of type 'volunteer' to show it here"
-                />
-            )}
+                    <DebugPlaceholder
+                        title="Volunteer testimonial"
+                        description="Add a testimonial of type 'volunteer' to show it here"
+                    />
+                )}
             <BlockSection title={content.volunteeringTitle} subtitle={content.volunteeringSubtitle}>
                 <Markdown source={content.volunteeringBody} />
             </BlockSection>

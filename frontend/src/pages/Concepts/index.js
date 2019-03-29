@@ -4,6 +4,7 @@ import './style.scss';
 import { connect } from 'react-redux';
 
 import HeaderImage from '../../components/HeaderImage';
+import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import BlockSection from '../../components/BlockSection';
 import Divider from '../../components/Divider';
 import DebugPlaceholder from '../../components/DebugPlaceholder';
@@ -77,9 +78,9 @@ const ConceptsPage = ({ eventconcepts, loading, allContent, allMedia }) => {
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                mainTitle={content.conceptsPageTitle}
-                bodyText={content.conceptsPageSubtitle}
-            />
+            >
+                <BasicHeader title={content.conceptsPageTitle} body={content.conceptsPageSubtitle} />
+            </HeaderImage>
             <Divider lg />
             {renderConcepts()}
             <Divider lg />

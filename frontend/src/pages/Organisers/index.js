@@ -4,6 +4,7 @@ import './style.scss';
 import { connect } from 'react-redux';
 
 import HeaderImage from '../../components/HeaderImage';
+import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import BlockSection from '../../components/BlockSection/';
 import ImageBlockSection from '../../components/ImageBlockSection/';
 import SingleColumnSection from '../../components/SingleColumnSection/';
@@ -87,9 +88,9 @@ const OrganisersPage = ({
             <HeaderImage
                 image={media.organiserPageHeaderImage}
                 alt="Header image"
-                mainTitle={content.organisersPageTitle}
-                bodyText={content.organisersPageSubtitle}
-            />
+            >
+                <BasicHeader title={content.organisersPageTitle} body={content.organisersPageSubtitle} />
+            </HeaderImage>
             <BlockSection title={content.whatIsJunctionXTitle} subtitle={content.whatIsJunctionXSubtitle}>
                 <Markdown source={content.whatIsJunctionXBody} />
                 <StatBlocks blocks={buildStatBlocks()} />
@@ -108,11 +109,11 @@ const OrganisersPage = ({
                     <Divider lg />
                 </React.Fragment>
             ) : (
-                <DebugPlaceholder
-                    title="Organiser testimonial"
-                    description="The first testimonial of type 'organiser' will be shown here"
-                />
-            )}
+                    <DebugPlaceholder
+                        title="Organiser testimonial"
+                        description="The first testimonial of type 'organiser' will be shown here"
+                    />
+                )}
             <SingleColumnSection
                 title={content.whatDoesJunctionXOfferTitle}
                 subtitle={content.whatDoesJunctionXOfferSubtitle}

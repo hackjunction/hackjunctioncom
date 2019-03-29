@@ -22,22 +22,6 @@
         .HeaderImage--img {
             opacity: 0.4;
         }
-
-        .HeaderImage--vid {
-            opacity: 1;
-        }
-
-        .HeaderImage--main-content {
-            &__title {
-                transform: translateX(0);
-                opacity: 1;
-            }
-
-            &__body {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
     }
 
     &--img {
@@ -62,105 +46,127 @@
         }
     }
 
-    &--youtube {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: none;
-        object-position: center;
-        transition: opacity 1.5s ease;
-        opacity: 0;
-
-        &-visible {
-            opacity: 1;
-        }
-
-        &__video {
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    &--wave-overlay {
-        position: absolute;
-        bottom: 0;
-        left: -1%;
-        width: 102%;
-        transform: translateY(50%);
-        object-fit: cover;
-    }
-
     &--content {
         position: absolute;
-        z-index: 2;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        overflow: hidden;
+        padding: $padding-page;
+    }
+}
+
+.BasicHeader {
+    margin: 0 auto;
+    max-width: 980px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+     @include bp-full {
+        align-items: stretch;
     }
 
-    &--main-content {
-        margin: 0 auto;
-        max-width: 980px;
+    &--title {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        height: 100%;
-        position: relative;
-        z-index: 3;
+        max-width: 650px;
+        margin: 0;
+        transform: translateX(-50px);
+        opacity: 0;
+        transition: transform 0.5s ease;
+        text-align: center;
+        font-size: 40px;
+        padding: $padding-double;
+
+        @include bp-med {
+            text-align: center;
+            font-size: 60px;
+        }
+
+        @include bp-full {
+            text-align: left;
+            align-items: flex-start;
+            align-self: flex-start;
+        }
+    }
+
+    &--body {
+        flex: 1;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        width: 100%;
+        max-width: 650px;
+        align-self: flex-end;
+        margin: 0;
+        transform: translateY(50px);
+        opacity: 0;
+        transition: all 0.8s ease;
+        display: none;
+
+        @include bp-full {
+            display: flex;
+        }
+    }
+}
+
+.LogoHeader {
+    margin: 0 auto;
+    max-width: 460px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--logo {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    &--punchline {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+
+    &--link {
+        height: 40px;
+        width: 280px;
+        background: $junction-white;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        border-radius: 7px;
 
-        @include bp-full {
-            align-items: stretch;
-        }
-
-        &__title {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            max-width: 650px;
-            margin: 0;
-            transform: translateX(-50px);
-            opacity: 0;
-            transition: transform 0.5s ease;
+        &__text {
             text-align: center;
-            font-size: 40px;
-            padding: $padding-double;
-
-            @include bp-med {
-                text-align: center;
-                font-size: 60px;
-            }
-
-            @include bp-full {
-                text-align: left;
-                align-items: flex-start;
-                align-self: flex-start;
-            }
+            color: $junction-black; 
         }
+    }
+}
 
-        &__body {
-            flex: 1;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-end;
-            width: 100%;
-            max-width: 650px;
-            align-self: flex-end;
-            margin: 0;
-            transform: translateY(50px);
-            opacity: 0;
-            transition: all 0.8s ease;
-            display: none;
+.HeaderImage-loaded {
+    .BasicHeader--title {
+        transform: translateX(0);
+        opacity: 1;
+    }
 
-            @include bp-full {
-                display: flex;
-            }
-        }
+    .BasicHeader--body {
+        transform: translateY(0);
+        opacity: 1;
     }
 }

@@ -9,6 +9,7 @@ import KEYS from '../../redux/static/keys';
 import MEDIA_KEYS from '../../redux/media/keys';
 
 import HeaderImage from '../../components/HeaderImage';
+import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import BlockSection from '../../components/BlockSection/';
 import ImageBlockSection from '../../components/ImageBlockSection/';
 import ContactForm from '../../components/ContactForm/';
@@ -66,9 +67,9 @@ const StoryPage = ({ allContent, allMedia, kpis = [], testimonials = [] }) => {
             <HeaderImage
                 image={headerImage}
                 alt="Header image"
-                mainTitle={content.storyPageTitle}
-                bodyText={content.storyPageSubtitle}
-            />
+            >
+                <BasicHeader title={content.storyPageTitle} body={content.storyPageSubtitle} />
+            </HeaderImage>
             <BlockSection title={content.whatIsJunctionTitle} subtitle={content.whatIsJunctionSubtitle}>
                 <Markdown source={content.whatIsJunctionBody} />
                 {renderStatBlocks()}
@@ -87,11 +88,11 @@ const StoryPage = ({ allContent, allMedia, kpis = [], testimonials = [] }) => {
                     <Divider lg />
                 </React.Fragment>
             ) : (
-                <DebugPlaceholder
-                    title="Generic testimonial"
-                    description="Add a testimonial of type 'generic' to show it here"
-                />
-            )}
+                    <DebugPlaceholder
+                        title="Generic testimonial"
+                        description="Add a testimonial of type 'generic' to show it here"
+                    />
+                )}
             <BlockSection title={content.junction2019} subtitle={content.junction2019Subtitle}>
                 <Markdown source={content.junction2019Body} />
             </BlockSection>

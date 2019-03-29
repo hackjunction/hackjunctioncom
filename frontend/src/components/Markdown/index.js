@@ -24,6 +24,8 @@ const Markdown = ({ source }) => {
                                     containerClassName="Markdown--youtube"
                                     className="Markdown--youtube__video"
                                     opts={{
+                                        width: '100%',
+                                        height: '100%',
                                         playerVars: {
                                             cc_lang_pref: 'en-US',
                                             cc_load_policy: 1
