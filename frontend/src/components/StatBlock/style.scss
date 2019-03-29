@@ -17,8 +17,9 @@
 
 	&--label {
 		@extend %font-title;
-		font-size: 28px;
+		font-size: 24px;
 		font-family: $montserrat;
 		text-align: center;
+		text-transform: lowercase;
 	}
 }

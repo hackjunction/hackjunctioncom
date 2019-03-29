@@ -19,8 +19,17 @@ import KEYS from '../../redux/static/keys';
 import MEDIA_KEYS from '../../redux/media/keys';
 import { objectWithKeys } from '../../redux/static/helpers';
 import { mediaByKey } from '../../redux/media/helpers';
+import CenteredBlock from '../../components/CenteredBlock/';
+import LinkButton from '../../components/LinkButton';
+import Markdown from '../../components/Markdown';
 
-const CONTENT_KEYS = [KEYS.teamPageTitle, KEYS.teamPageSubtitle];
+const CONTENT_KEYS = [
+    KEYS.teamPageTitle,
+    KEYS.teamPageSubtitle,
+    KEYS.teamPageVolunteerTitle,
+    KEYS.teamPageVolunteerSubtitle,
+    KEYS.teamPageVolunteerBody
+];
 
 const TeamPage = ({ allContent, allMedia, teamMembers, shouldUpdate, updateTeamMembers }) => {
     const content = objectWithKeys(allContent, CONTENT_KEYS);
@@ -37,12 +46,19 @@ const TeamPage = ({ allContent, allMedia, teamMembers, shouldUpdate, updateTeamM
                 image={headerImage}
                 alt="Header image"
             >
-                <BasicHeader title={content.teamPageTitle} bodyText={content.teamPageSubtitle} />
+                <BasicHeader title={content.teamPageTitle} body={content.teamPageSubtitle} />
             </HeaderImage>
             <TeamMemberGrid teamMembers={teamMembers} />
             <Divider lg />
-            <ContactForm />
 
+            <BlockSection title={content.teamPageVolunteerTitle} subtitle={content.teamPageVolunteerSubtitle}>
+                <Markdown source={content.teamPageVolunteerBody} />
+                <LinkButton to="/volunteer" text="More about volunteering" />
+            </BlockSection>
+            <CenteredBlock>
+            </CenteredBlock>
+            <Divider lg />
+            <ContactForm />
             <Divider lg />
         </Page>
     );

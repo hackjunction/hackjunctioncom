@@ -85,6 +85,9 @@ const CONTENT_KEYS = {
     /* Team page */
     teamPageTitle: 'teamPageTitle',
     teamPageSubtitle: 'teamPageSubtitle',
+    teamPageVolunteerTitle: 'teamPageVolunteerTitle',
+    teamPageVolunteerSubtitle: 'teamPageVolunteerSubtitle',
+    teamPageVolunteerBody: 'teamPageVolunteerBody',
 
     /* Organisers page */
     organisersPageTitle: 'organisersPageTitle',
