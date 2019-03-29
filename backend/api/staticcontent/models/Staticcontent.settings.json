@@ -93,7 +93,10 @@
         "\nnewsletterFormTitle",
         "\nnewsletterFormSubtitle",
         "\ncontactFormTitle",
-        "\ncontactFormSubtitle"
+        "\ncontactFormSubtitle",
+        "\nstoriesAboutUsTitle",
+        "\nstoriesAboutUsSubtitle",
+        ""
       ],
       "default": "",
       "unique": true,

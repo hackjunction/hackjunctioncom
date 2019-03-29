@@ -17,6 +17,7 @@ import LinkGrid from '../../components/LinkGrid';
 
 import Page from '../PageHOC';
 import { objectWithKeys } from '../../redux/static/helpers';
+import LinkButton from '../../components/LinkButton/index';
 
 const CONTENT_KEYS = [
     KEYS.whoAreWe,
@@ -25,7 +26,11 @@ const CONTENT_KEYS = [
     KEYS.whatWeDo,
     KEYS.whatWeDoBody,
     KEYS.whatWeDoSubtitle,
-    KEYS.homePageHeaderVideoLink
+    KEYS.homePageHeaderVideoLink,
+    KEYS.storiesAboutUsTitle,
+    KEYS.storiesAboutUsSubtitle,
+    KEYS.previousPartnersTitle,
+    KEYS.previousPartnersSubtitle,
 ];
 
 const HomePage = ({ allContent, kpis = [], partners = [], stories = [] }) => {
@@ -53,7 +58,7 @@ const HomePage = ({ allContent, kpis = [], partners = [], stories = [] }) => {
                 <ConceptsPreview />
             </BlockSection>
             <Divider lg />
-            <BlockSection title="Partners" subtitle="Some of our previous partners" >
+            <BlockSection title={content.previousPartnersTitle} subtitle={content.previousPartnersSubtitle} >
                 <LinkGrid links={partners.map(p => {
                     return {
                         image: p.logo,
@@ -61,9 +66,11 @@ const HomePage = ({ allContent, kpis = [], partners = [], stories = [] }) => {
                         url: p.website
                     }
                 })} />
+                <Divider sm />
+                <LinkButton to="/partners" text="More about partnering" />
             </BlockSection>
             <Divider lg />
-            <BlockSection title="Stories about us">
+            <BlockSection title={content.storiesAboutUsTitle} subtitle={content.storiesAboutUsSubtitle}>
                 <LinkGrid links={stories.map(s => {
                     return {
                         image: s.logo,

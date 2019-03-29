@@ -21,6 +21,7 @@ import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
+import LinkGrid from '../../components/LinkGrid';
 
 import Page from '../PageHOC';
 import { objectWithKeys } from '../../redux/static/helpers';
@@ -53,7 +54,8 @@ const PartnersPage = ({
     testimonials,
     testimonialsShouldUpdate,
     updateTestimonials,
-    kpis = []
+    kpis = [],
+    partners = []
 }) => {
     const content = objectWithKeys(allContent, CONTENT_KEYS);
     const headerImage = mediaByKey(allMedia, MEDIA_KEYS.partnerPageHeaderImage);
@@ -140,8 +142,14 @@ const PartnersPage = ({
                 <Markdown source={content.whatMakesUsDifferentBody} />
             </BlockSection>
             <Divider lg />
-            <BlockSection title={content.previousPartnersTitle} subtitle={content.previousPartnersSubtitle}>
-                <Markdown source={content.previousPartnersBody} />
+            <BlockSection title={content.previousPartnersTitle} subtitle={content.previousPartnersSubtitle} >
+                <LinkGrid links={partners.map(p => {
+                    return {
+                        image: p.logo,
+                        alt: p.name,
+                        url: p.website
+                    }
+                })} />
             </BlockSection>
             <Divider lg />
             <ContactForm />
@@ -155,7 +163,8 @@ const mapStateToProps = state => ({
     allMedia: MediaSelectors.media(state),
     testimonials: ContentSelectors.partnerTestimonials(state),
     testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
-    kpis: ContentSelectors.partnerKpis(state)
+    kpis: ContentSelectors.partnerKpis(state),
+    partners: ContentSelectors.partners(state),
 });
 
 const mapDispatchToProps = dispatch => ({

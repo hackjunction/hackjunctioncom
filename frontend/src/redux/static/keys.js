@@ -17,6 +17,10 @@ const CONTENT_KEYS = {
     whatWeDo: 'whatWeDo',
     whatWeDoBody: 'whatWeDoBody',
     whatWeDoSubtitle: 'whatWeDoSubtitle',
+    previousPartnersTitle: 'previousPartnersTitle',
+    previousPartnersSubtitle: 'previousPartnersSubtitle',
+    storiesAboutUsTitle: 'storiesAboutUsTitle',
+    storiesAboutUsSubtitle: 'storiesAboutUsSubtitle',
 
     /* Story page */
     storyPageTitle: 'storyPageTitle',
