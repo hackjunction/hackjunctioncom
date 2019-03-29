@@ -45,9 +45,6 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts, extraPages }) =>
                 onClick={() => toggleSidebar(false)}
             />
             <div className={`NavMenu ${isSidebarOpen ? 'NavMenu-open' : ''}`}>
-                <div className="NavMenu--close" onClick={() => toggleSidebar(false)}>
-                    <span className="NavMenu--close__text">Close</span>
-                </div>
                 <div className="NavMenu--inner">
                     <Link to="/">
                         <img

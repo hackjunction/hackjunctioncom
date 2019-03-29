@@ -31,7 +31,7 @@
     left: -1.2 * $bp-med;
     bottom: 0;
     z-index: 3;
-    width: 100%;
+    width: 80%;
     max-width: $bp-med;
     background: $junction-white;
     display: flex;
@@ -42,35 +42,20 @@
     transition: all 0.4s ease;
     overflow-y: scroll;
 
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
     &-open {
         left: 0;
     }
 
-    &--close {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: $padding-base $padding-double;
-        cursor: pointer;
-        transition: all 0.3s ease;
-
-        @include bp-full {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        &__text {
-            color: $junction-black;
-            text-transform: uppercase;
-            font-size: 22px;
-            line-height: 22px;
-        }
-    }
-
     &--inner {
-        width: 300px;
+        width: 100%;
+        max-width: 300px;
         margin: 100px 0;
         flex: 1;
+        padding: $padding-page;
 
         &__logo {
             width: 100%;
@@ -79,23 +64,18 @@
         &__menu {
             display: flex;
             flex-direction: column;
-            align-items: center;
-
-            @include bp-med {
-                align-items: flex-start;
-            }
+            align-items: flex-start;
 
             &-item {
                 color: $junction-black;
                 font-size: 16px;
                 line-height: 22px;
                 text-decoration: none;
-                text-align: center;
+                text-align: left;
 
                 @include bp-med {
                     font-size: 20px;
                     line-height: 28px;
-                    text-align: left;
                 }
             }
 

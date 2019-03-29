@@ -113,6 +113,9 @@ const Footer = ({ allContent, eventConcepts, socialMedias, extraPages }) => {
                         {/* <Link to="/press">
                             <h5 className="FooterInner--right__section-title">Press Kit</h5>
                         </Link> */}
+                        <a href="https://blog.hackjunction.com" alt="medium">
+                            <h5 className="FooterInner--right__section-title">Blog</h5>
+                        </a>
                         <a href="https://www.flickr.com/photos/151708924@N07/albums/" alt="flickr">
                             <h5 className="FooterInner--right__section-title">Photo Gallery</h5>
                         </a>
