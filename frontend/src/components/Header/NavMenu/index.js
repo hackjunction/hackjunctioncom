@@ -89,7 +89,9 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts, extraPages }) =>
                         </Link>
                         {renderExtraPageLinks(extraPages.community)}
 
-                        <h6 className="NavMenu--inner__menu-title">Contact</h6>
+                        <Link to="/team">
+                            <h6 className="NavMenu--inner__menu-title">Contact</h6>
+                        </Link>
                     </nav>
                 </div>
             </div>

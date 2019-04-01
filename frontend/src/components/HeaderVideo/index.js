@@ -37,6 +37,9 @@ const HeaderVideo = ({ videoSource, posterImage, alt, navTitle }) => {
                 className={`cld-video-player HeaderVideo--video`}
             >
             </video>
+            <div className="HeaderVideo--logo-wrapper">
+                <img className="HeaderVideo--logo" src={require('../../assets/logos/text_white.png')} alt="junction-wordmark" />
+            </div>
         </div >
     );
 };
