@@ -2,6 +2,7 @@ import React from 'react';
 import './style.scss';
 
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import HeaderImage from '../../components/HeaderImage';
 import BasicHeader from '../../components/HeaderImage/BasicHeader';
@@ -9,7 +10,7 @@ import BlockSection from '../../components/BlockSection';
 import Divider from '../../components/Divider';
 import NewsLetterForm from '../../components/NewsLetterForm';
 import Markdown from '../../components/Markdown';
-
+import LinkButton from '../../components/LinkButton';
 import Page from '../PageHOC';
 import LoadingPage from '../Loading';
 
@@ -63,6 +64,7 @@ const ConceptsPage = ({ eventconcepts, loading, allContent, allMedia }) => {
                 <React.Fragment key={concept.slug}>
                     <BlockSection title={concept.name} subtitleItems={buildSubtitleItems(concept)}>
                         <Markdown source={concept.shortdescription} />
+                        <Link to={`/concepts/${concept.slug}`}>See more</Link>
                     </BlockSection>
                     <Divider md />
                 </React.Fragment>
