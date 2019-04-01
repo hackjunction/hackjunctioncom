@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash';
+import moment from 'moment-timezone';
 import config from '../../services/config';
 
 /* How often to update a given content type?
@@ -56,6 +57,13 @@ export const eventsShouldUpdate = createSelector(
         return Date.now() - updated > EVENTS_UPDATE_INTERVAL;
     }
 );
+
+export const upcomingEvents = createSelector(
+    events,
+    events => {
+        return _.filter(events, e => moment(e.begins).add(1, 'days').isAfter())
+    }
+)
 
 export const eventconcepts = state => state.content.eventconcepts.data;
 export const eventconceptsLoading = state => state.content.eventconcepts.loading;

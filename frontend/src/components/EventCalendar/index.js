@@ -27,8 +27,7 @@ const EventCalendar = ({ events, loading, error, updateEvents, shouldUpdate, con
         if (filtered.length === 0) {
             return (
                 <div className="EventCalendar--no-events">
-                    <h4 className="EventCalendar--no-events__title">No upcoming events</h4>
-                    <p className="EventCalendar--no-events__body">Check back here later!</p>
+                    <p className="EventCalendar--no-events__body">No events scheduled yet. Check back here later!</p>
                 </div>
             );
         }
@@ -59,7 +58,7 @@ const EventCalendar = ({ events, loading, error, updateEvents, shouldUpdate, con
 };
 
 const mapStateToProps = state => ({
-    events: ContentSelectors.events(state),
+    events: ContentSelectors.upcomingEvents(state),
     loading: ContentSelectors.eventsLoading(state),
     error: ContentSelectors.eventsError(state),
     shouldUpdate: ContentSelectors.eventsShouldUpdate(state)
