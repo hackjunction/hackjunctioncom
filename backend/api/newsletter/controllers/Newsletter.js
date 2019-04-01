@@ -40,7 +40,7 @@ module.exports = {
     ).then(res => {
       if (Array.isArray(res.data.persisted_recipients) && res.data.persisted_recipients.length > 0) {
         const recipientID = res.data.persisted_recipients[0];
-        const listID = strapi.config.currentEnvironment.sendgridEmailList;
+        const listID = strapi.config.currentEnvironment.sendgridEmailList; //7150117 Junction Newsletter recipients 2019
         return axios.post(
           ADD_TO_LIST_ENDPOINT(listID, recipientID),
           {},

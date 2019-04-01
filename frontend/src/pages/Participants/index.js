@@ -15,7 +15,6 @@ import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import BlockSection from '../../components/BlockSection';
 import RomanNumeralList from '../../components/RomanNumeralList';
 import ImageBlockSection from '../../components/ImageBlockSection';
-import ContactForm from '../../components/ContactForm';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
 import NewsLetterForm from '../../components/NewsLetterForm';

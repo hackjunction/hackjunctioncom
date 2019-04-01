@@ -9,7 +9,6 @@ import BlockSection from '../../components/BlockSection/';
 import ImageBlockSection from '../../components/ImageBlockSection/';
 import SingleColumnSection from '../../components/SingleColumnSection/';
 import BorderedSection from '../../components/BorderedSection/';
-import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks';
 import Divider from '../../components/Divider';
 import NewsLetterForm from '../../components/NewsLetterForm';

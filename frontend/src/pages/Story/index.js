@@ -12,7 +12,6 @@ import HeaderImage from '../../components/HeaderImage';
 import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import BlockSection from '../../components/BlockSection/';
 import ImageBlockSection from '../../components/ImageBlockSection/';
-import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks';
 import ImageLinks from '../../components/ImageLinks';
 import Markdown from '../../components/Markdown';

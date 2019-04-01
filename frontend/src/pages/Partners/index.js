@@ -26,6 +26,7 @@ import LinkGrid from '../../components/LinkGrid';
 import Page from '../PageHOC';
 import { objectWithKeys } from '../../redux/static/helpers';
 import { mediaByKey } from '../../redux/media/helpers';
+import CenteredBlock from '../../components/CenteredBlock/index';
 
 const CONTENT_KEYS = [
     KEYS.partnersPageTitle,
@@ -33,6 +34,7 @@ const CONTENT_KEYS = [
     KEYS.partnersPageFirstTitle,
     KEYS.partnersPageFirstSubtitle,
     KEYS.partnersPageFirstBody,
+    KEYS.partnersPageVideo,
     KEYS.whyPartnerWithUsTitle,
     KEYS.whyPartnerWithUsFirstTitle,
     KEYS.whyPartnerWithUsFirstBody,
@@ -125,6 +127,14 @@ const PartnersPage = ({
                 />
             </SingleColumnSection>
             <Divider lg />
+            {content.partnersPageVideo ? (
+                <React.Fragment>
+                    <CenteredBlock>
+                        <Markdown source={content.partnersPageVideo} />
+                    </CenteredBlock>
+                    <Divider lg />
+                </React.Fragment>
+            ) : null}
             {secondTestimonial ? (
                 <React.Fragment>
                     <ImageBlockSection

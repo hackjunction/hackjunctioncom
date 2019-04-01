@@ -53,7 +53,7 @@ const TeamPage = ({ allContent, allMedia, teamMembers, shouldUpdate, updateTeamM
 
             <BlockSection title={content.teamPageVolunteerTitle} subtitle={content.teamPageVolunteerSubtitle}>
                 <Markdown source={content.teamPageVolunteerBody} />
-                <LinkButton to="/volunteer" text="More about volunteering" />
+                <LinkButton to="/volunteers" text="More about volunteering" />
             </BlockSection>
             <CenteredBlock>
             </CenteredBlock>

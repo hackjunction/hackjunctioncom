@@ -4,7 +4,10 @@ import './style.scss';
 import { connect } from 'react-redux';
 import * as StaticContentSelectors from '../../redux/static/selectors';
 import * as ContentSelectors from '../../redux/content/selectors';
+import * as MediaSelectors from '../../redux/media/selectors';
 import KEYS from '../../redux/static/keys';
+import MEDIA_KEYS from '../../redux/media/keys';
+import { mediaByKey } from '../../redux/media/helpers';
 
 import HeaderVideo from '../../components/HeaderVideo';
 import BlockSection from '../../components/BlockSection';
@@ -14,6 +17,7 @@ import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
 import ConceptsPreview from '../../components/ConceptsPreview';
 import LinkGrid from '../../components/LinkGrid';
+import ImageLinks from '../../components/ImageLinks';
 
 import Page from '../PageHOC';
 import { objectWithKeys } from '../../redux/static/helpers';
@@ -31,10 +35,15 @@ const CONTENT_KEYS = [
     KEYS.storiesAboutUsSubtitle,
     KEYS.previousPartnersTitle,
     KEYS.previousPartnersSubtitle,
+    KEYS.previousPartnersBody,
 ];
 
-const HomePage = ({ allContent, kpis = [], partners = [], stories = [] }) => {
+const HomePage = ({ allContent, allMedia, kpis = [], partners = [], stories = [] }) => {
     const content = objectWithKeys(allContent, CONTENT_KEYS);
+    const partnerLinkImage = mediaByKey(allMedia, MEDIA_KEYS.partnerPageHeaderImage);
+    const volunteerLinkImage = mediaByKey(allMedia, MEDIA_KEYS.volunteerPageHeaderImage);
+    const calendarLinkImage = mediaByKey(allMedia, MEDIA_KEYS.calendarPageHeaderImage);
+
     function buildStatBlocks() {
         return kpis.map(kpi => {
             return {
@@ -82,12 +91,35 @@ const HomePage = ({ allContent, kpis = [], partners = [], stories = [] }) => {
             <Divider lg />
             <NewsLetterForm />
             <Divider lg />
+            <ImageLinks
+                links={[
+                    {
+                        image: calendarLinkImage,
+                        imageAlt: 'Link',
+                        linkTo: '/calendar',
+                        linkText: 'Calendar'
+                    },
+                    {
+                        image: partnerLinkImage,
+                        imageAlt: 'Link',
+                        linkTo: '/partners',
+                        linkText: 'For partners'
+                    },
+                    {
+                        image: volunteerLinkImage,
+                        imageAlt: 'Link',
+                        linkTo: '/volunteers',
+                        linkText: 'For volunteers'
+                    },
+                ]}
+            />
         </Page>
     );
 };
 
 const mapStateToProps = state => ({
     allContent: StaticContentSelectors.content(state),
+    allMedia: MediaSelectors.media(state),
     kpis: ContentSelectors.genericKpis(state),
     partners: ContentSelectors.partners(state),
     stories: ContentSelectors.stories(state)

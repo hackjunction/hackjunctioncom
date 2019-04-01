@@ -47,6 +47,7 @@ const CONTENT_KEYS = {
     partnersPageFirstTitle: 'partnersPageFirstTitle',
     partnersPageFirstSubtitle: 'partnersPageFirstSubtitle',
     partnersPageFirstBody: 'partnersPageFirstBody',
+    partnersPageVideo: 'partnersPageVideo',
     whyPartnerWithUsTitle: 'whyPartnerWithUsTitle',
     whyPartnerWithUsFirstTitle: 'whyPartnerWithUsFirstTitle',
     whyPartnerWithUsFirstBody: 'whyPartnerWithUsFirstBody',

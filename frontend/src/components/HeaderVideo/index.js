@@ -21,10 +21,7 @@ const HeaderVideo = ({ videoSource, posterImage, alt, navTitle }) => {
             controls: false,
         })
         player.source('mainevent2018aftermovieedit', {
-            sourceTypes: ['hls'],
-            transformation: {
-                streaming_profile: 'hd',
-            }
+            sourceTypes: ['mp4'],
         })
     }, [])
 

@@ -1,5 +1,11 @@
 @import '../../styles/main';
 
+.LinkButton--wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
 .LinkButton {
 	align-self: center;
 	width: 280px;
