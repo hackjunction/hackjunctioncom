@@ -10,29 +10,8 @@ import * as NavActions from '../../redux/nav/actions';
 import * as NavSelectors from '../../redux/nav/selectors';
 
 const Header = ({ toggleSidebar, navTitle }) => {
-
-    const [transparentNav, setTransparentNav] = useState(isTransparentNav());
-
-    function isTransparentNav() {
-        return window.scrollY <= 200;
-    }
-
-    function handleScroll(e) {
-        setTransparentNav(isTransparentNav());
-    }
-
-    useEffect(() => {
-        const throttledScroll = _.throttle(handleScroll, 200);
-        window.addEventListener('scroll', throttledScroll);
-
-        return () => {
-            window.removeEventListener('scroll', throttledScroll);
-        };
-    }, []);
-
-
     return (
-        <header className={`Header ${transparentNav ? 'Header-is-transparent' : ''}`}>
+        <header className={`Header`}>
             <div className="Header--menu-button" onClick={() => toggleSidebar(true)}>
                 <i className="Header--menu-button fas fa-bars" />
             </div>

@@ -8,7 +8,7 @@ const LinkGrid = ({ links }) => {
 	function renderLinks() {
 		return links.map(link => {
 			return (
-				<a href={link.url} className="LinkGrid--item">
+				<a href={link.url} className="LinkGrid--item" key={link.url}>
 					<Image
 						image={link.image}
 						className="LinkGrid--item__image"

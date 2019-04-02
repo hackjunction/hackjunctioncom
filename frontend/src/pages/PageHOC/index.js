@@ -25,12 +25,14 @@ const PageHOC = ({ className, children, pageTitle, metaDesc, setNavTitle }) => {
 
     const canonicalUrl = 'https://' + window.location.hostname + window.location.pathname;
 
+    console.log('CURRENT NAV TITLE', pageTitle)
+
     return (
         <div className={'Page--wrapper ' + className}>
             <Helmet defaultTitle="Junction" titleTemplate="Junction | %s">
                 <link rel="canonical" href={canonicalUrl} />
 
-                {pageTitle ? <title>{pageTitle}</title> : null}
+                {pageTitle ? <title>{pageTitle}</title> : <title>Hack the Future</title>}
                 {pageTitle ? <meta property="og:title" content={pageTitle} /> : null}
                 {metaDesc ? <meta name="description" content={metaDesc} /> : null}
                 {metaDesc ? <meta property="og:description" content={metaDesc} /> : null}

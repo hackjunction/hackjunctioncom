@@ -12,15 +12,15 @@ const DropDown = ({ options, label, placeholder, value, error, onChange }) => {
 
 	function renderOptions() {
 		return options.map(option => {
-			return <option value={option.value}>{option.label}</option>
+			return <option key={option.value} value={option.value}>{option.label}</option>
 		})
 	}
 
 	return (
 		<div className="DropDown">
 			<InputLabel text={label} show={value && value.length > 0} />
-			<select className="DropDown--input" onChange={handleChange} value={value}>
-				<option value="" disabled selected>{placeholder}</option>
+			<select className="DropDown--input" onChange={handleChange} value={value || ""}>
+				<option value="" disabled>{placeholder}</option>
 				{renderOptions()}
 			</select>
 			<InputError text={error} />

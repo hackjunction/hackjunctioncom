@@ -8,15 +8,7 @@ import config from '../../services/config';
  * If site is being used in DEBUG mode, update always when possible.
  */
 
-const PAGES_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 60 * 1000; //1 minute
-const EVENTS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 5 * 60 * 1000; //5 minutes
-const EVENT_CONCEPTS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 5 * 60 * 1000; //5 minutes
-const TEAM_MEMBERS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000; //15 minutes
-const TESTIMONIALS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000; //15 minutes
-const SOCIAL_MEDIAS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000; //15 minutes
-const KPIS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000; //15 minutes
-const PARTNERS_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000; //15 minutes
-const STORIES_UPDATE_INTERVAL = config.IS_DEBUG ? 0 : 15 * 60 * 1000; //15 minutes
+const CONTENT_UPDATE_INTERVAL = config.IS_DEBUG ? 15 * 1000 : 10 * 60 * 1000; // 15 seconds (debug/development) / 10 minutes (production)
 
 export const pages = state => state.content.pages.data;
 export const pagesLoading = state => state.content.pages.loading;
@@ -26,7 +18,7 @@ export const pagesUpdated = state => state.content.pages.lastUpdate;
 export const pagesShouldUpdate = createSelector(
     pagesUpdated,
     updated => {
-        return Date.now() - updated > PAGES_UPDATE_INTERVAL;
+        return Date.now() - updated > CONTENT_UPDATE_INTERVAL;
     }
 );
 
@@ -54,7 +46,7 @@ export const eventsUpdated = state => state.content.events.lastUpdate;
 export const eventsShouldUpdate = createSelector(
     eventsUpdated,
     updated => {
-        return Date.now() - updated > EVENTS_UPDATE_INTERVAL;
+        return Date.now() - updated > CONTENT_UPDATE_INTERVAL;
     }
 );
 
@@ -73,7 +65,7 @@ export const eventconceptsUpdated = state => state.content.eventconcepts.lastUpd
 export const eventconceptsShouldUpdate = createSelector(
     eventconceptsUpdated,
     updated => {
-        return Date.now() - updated > EVENT_CONCEPTS_UPDATE_INTERVAL;
+        return Date.now() - updated > CONTENT_UPDATE_INTERVAL;
     }
 );
 
@@ -92,7 +84,7 @@ export const teammembersUpdated = state => state.content.teammembers.lastUpdate;
 export const teammembersShouldUpdate = createSelector(
     teammembersUpdated,
     updated => {
-        return Date.now() - updated > TEAM_MEMBERS_UPDATE_INTERVAL;
+        return Date.now() - updated > CONTENT_UPDATE_INTERVAL;
     }
 );
 
@@ -104,7 +96,7 @@ export const testimonialsUpdated = state => state.content.testimonials.lastUpdat
 export const testimonialsShouldUpdate = createSelector(
     testimonialsUpdated,
     updated => {
-        return Date.now() - updated > TESTIMONIALS_UPDATE_INTERVAL;
+        return Date.now() - updated > CONTENT_UPDATE_INTERVAL;
     }
 );
 
@@ -134,7 +126,7 @@ export const socialmediasUpdated = state => state.content.socialmedias.lastUpdat
 export const socialMediasShouldUpdate = createSelector(
     socialmediasUpdated,
     updated => {
-        return Date.now() - updated > SOCIAL_MEDIAS_UPDATE_INTERVAL;
+        return Date.now() - updated > CONTENT_UPDATE_INTERVAL;
     }
 );
 
@@ -146,7 +138,7 @@ export const kpisUpdated = state => state.content.kpis.lastUpdate;
 export const kpisShouldUpdate = createSelector(
     kpisUpdated,
     updated => {
-        return Date.now() - updated > KPIS_UPDATE_INTERVAL;
+        return Date.now() - updated > CONTENT_UPDATE_INTERVAL;
     }
 );
 
@@ -177,7 +169,7 @@ export const partnersUpdated = state => state.content.partners.lastUpdate;
 export const partnersShouldUpdate = createSelector(
     partnersUpdated,
     updated => {
-        return Date.now() - updated > PARTNERS_UPDATE_INTERVAL;
+        return Date.now() - updated > CONTENT_UPDATE_INTERVAL;
     }
 )
 
@@ -189,6 +181,6 @@ export const storiesUpdated = state => state.content.stories.lastUpdate;
 export const storiesShouldUpdate = createSelector(
     storiesUpdated,
     updated => {
-        return Date.now() - updated > STORIES_UPDATE_INTERVAL;
+        return Date.now() - updated > CONTENT_UPDATE_INTERVAL;
     }
 )

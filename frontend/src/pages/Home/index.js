@@ -7,7 +7,6 @@ import * as ContentSelectors from '../../redux/content/selectors';
 import * as MediaSelectors from '../../redux/media/selectors';
 import KEYS from '../../redux/static/keys';
 import MEDIA_KEYS from '../../redux/media/keys';
-import { mediaByKey } from '../../redux/media/helpers';
 
 import HeaderVideo from '../../components/HeaderVideo';
 import BlockSection from '../../components/BlockSection';
@@ -38,11 +37,29 @@ const CONTENT_KEYS = [
     KEYS.previousPartnersBody,
 ];
 
-const HomePage = ({ allContent, allMedia, kpis = [], partners = [], stories = [] }) => {
+const BOTTOM_LINKS = [
+    {
+        imageKey: MEDIA_KEYS.calendarPageHeaderImage,
+        imageAlt: 'Link',
+        linkTo: '/calendar',
+        linkText: 'Calendar'
+    },
+    {
+        imageKey: MEDIA_KEYS.partnerPageHeaderImage,
+        imageAlt: 'Link',
+        linkTo: '/partners',
+        linkText: 'For partners'
+    },
+    {
+        imageKEY: MEDIA_KEYS.volunteerPageHeaderImage,
+        imageAlt: 'Link',
+        linkTo: '/volunteers',
+        linkText: 'For volunteers'
+    },
+]
+
+const HomePage = ({ allContent, kpis = [], partners = [], stories = [] }) => {
     const content = objectWithKeys(allContent, CONTENT_KEYS);
-    const partnerLinkImage = mediaByKey(allMedia, MEDIA_KEYS.partnerPageHeaderImage);
-    const volunteerLinkImage = mediaByKey(allMedia, MEDIA_KEYS.volunteerPageHeaderImage);
-    const calendarLinkImage = mediaByKey(allMedia, MEDIA_KEYS.calendarPageHeaderImage);
 
     function buildStatBlocks() {
         return kpis.map(kpi => {
@@ -53,6 +70,28 @@ const HomePage = ({ allContent, allMedia, kpis = [], partners = [], stories = []
             };
         });
     }
+
+    function buildStories() {
+        return stories.map(story => {
+            return {
+                image: story.logo,
+                alt: story.name,
+                url: story.website
+            }
+        })
+    }
+
+    function buildPartners() {
+        return partners.map(partner => {
+            return {
+                image: partner.logo,
+                alt: partner.name,
+                url: partner.website
+            }
+        })
+    }
+
+    console.log('RENDER HOME')
 
     return (
         <Page className="HomePage" pageTitle="Hack the Future" metaDesc={content.whoAreWeBody}>
@@ -68,50 +107,19 @@ const HomePage = ({ allContent, allMedia, kpis = [], partners = [], stories = []
             </BlockSection>
             <Divider lg />
             <BlockSection title={content.previousPartnersTitle} subtitle={content.previousPartnersSubtitle} >
-                <LinkGrid links={partners.map(p => {
-                    return {
-                        image: p.logo,
-                        alt: p.name,
-                        url: p.website
-                    }
-                })} />
+                <LinkGrid links={buildPartners()} />
                 <Divider sm />
                 <LinkButton to="/partners" text="More about partnering" />
             </BlockSection>
             <Divider lg />
             <BlockSection title={content.storiesAboutUsTitle} subtitle={content.storiesAboutUsSubtitle}>
-                <LinkGrid links={stories.map(s => {
-                    return {
-                        image: s.logo,
-                        alt: s.name,
-                        url: s.website
-                    }
-                })} />
+                <LinkGrid links={buildStories()} />
             </BlockSection>
             <Divider lg />
             <NewsLetterForm />
             <Divider lg />
             <ImageLinks
-                links={[
-                    {
-                        image: calendarLinkImage,
-                        imageAlt: 'Link',
-                        linkTo: '/calendar',
-                        linkText: 'Calendar'
-                    },
-                    {
-                        image: partnerLinkImage,
-                        imageAlt: 'Link',
-                        linkTo: '/partners',
-                        linkText: 'For partners'
-                    },
-                    {
-                        image: volunteerLinkImage,
-                        imageAlt: 'Link',
-                        linkTo: '/volunteers',
-                        linkText: 'For volunteers'
-                    },
-                ]}
+                links={BOTTOM_LINKS}
             />
         </Page>
     );
@@ -119,7 +127,6 @@ const HomePage = ({ allContent, allMedia, kpis = [], partners = [], stories = []
 
 const mapStateToProps = state => ({
     allContent: StaticContentSelectors.content(state),
-    allMedia: MediaSelectors.media(state),
     kpis: ContentSelectors.genericKpis(state),
     partners: ContentSelectors.partners(state),
     stories: ContentSelectors.stories(state)

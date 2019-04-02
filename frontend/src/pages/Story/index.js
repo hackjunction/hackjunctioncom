@@ -7,6 +7,7 @@ import * as MediaSelectors from '../../redux/media/selectors';
 import * as ContentSelectors from '../../redux/content/selectors';
 import KEYS from '../../redux/static/keys';
 import MEDIA_KEYS from '../../redux/media/keys';
+import { mediaByKey } from '../../redux/media/helpers';
 
 import HeaderImage from '../../components/HeaderImage';
 import BasicHeader from '../../components/HeaderImage/BasicHeader';
@@ -20,7 +21,6 @@ import Divider from '../../components/Divider';
 
 import Page from '../PageHOC';
 import { objectWithKeys } from '../../redux/static/helpers';
-import { mediaByKey } from '../../redux/media/helpers';
 import CenteredBlock from '../../components/CenteredBlock/index';
 
 const CONTENT_KEYS = [
@@ -35,12 +35,30 @@ const CONTENT_KEYS = [
     KEYS.junction2019Body
 ];
 
+const BOTTOM_LINKS = [
+    {
+        imageKey: MEDIA_KEYS.partnerPageHeaderImage,
+        imageAlt: 'Link',
+        linkTo: '/partners',
+        linkText: 'For partners'
+    },
+    {
+        imageKey: MEDIA_KEYS.volunteerPageHeaderImage,
+        imageAlt: 'Link',
+        linkTo: '/volunteers',
+        linkText: 'For volunteers'
+    },
+    {
+        imageKey: MEDIA_KEYS.calendarPageHeaderImage,
+        imageAlt: 'Link',
+        linkTo: '/calendar',
+        linkText: 'Calendar'
+    }
+]
+
 const StoryPage = ({ allContent, allMedia, kpis = [] }) => {
     const content = objectWithKeys(allContent, CONTENT_KEYS);
     const headerImage = mediaByKey(allMedia, MEDIA_KEYS.storyPageHeaderImage);
-    const partnerLinkImage = mediaByKey(allMedia, MEDIA_KEYS.partnerPageHeaderImage);
-    const volunteerLinkImage = mediaByKey(allMedia, MEDIA_KEYS.volunteerPageHeaderImage);
-    const calendarLinkImage = mediaByKey(allMedia, MEDIA_KEYS.calendarPageHeaderImage);
 
     function renderStatBlocks() {
         if (Array.isArray(kpis) && kpis.length > 0) {
@@ -78,26 +96,7 @@ const StoryPage = ({ allContent, allMedia, kpis = [] }) => {
             <NewsLetterForm />
             <Divider lg />
             <ImageLinks
-                links={[
-                    {
-                        image: partnerLinkImage,
-                        imageAlt: 'Link',
-                        linkTo: '/partners',
-                        linkText: 'For partners'
-                    },
-                    {
-                        image: volunteerLinkImage,
-                        imageAlt: 'Link',
-                        linkTo: '/volunteers',
-                        linkText: 'For volunteers'
-                    },
-                    {
-                        image: calendarLinkImage,
-                        imageAlt: 'Link',
-                        linkTo: '/calendar',
-                        linkText: 'Calendar'
-                    }
-                ]}
+                links={BOTTOM_LINKS}
             />
         </Page>
     );

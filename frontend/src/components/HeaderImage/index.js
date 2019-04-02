@@ -4,15 +4,9 @@ import './style.scss';
 import Image from '../Image';
 
 const HeaderImage = ({ image, alt, children }) => {
-    const [imageLoaded, setImageLoaded] = useState(false);
-
-    function handleLoad() {
-        setImageLoaded(true);
-    }
-
     return (
-        <div className={`HeaderImage ${imageLoaded ? 'HeaderImage-loaded' : ''}`}>
-            <Image image={image} width={1920} height={900} alt={alt} className="HeaderImage--img" onLoad={handleLoad} />
+        <div className={`HeaderImage`}>
+            <Image image={image} width={1920} height={900} alt={alt} className="HeaderImage--img" />
             <div className="HeaderImage--content">
                 {children}
             </div>

@@ -1,7 +1,7 @@
 @import '../../styles/main';
 
 .Header {
-    position: fixed;
+    position: absolute;
     width: 100%;
     top: 0;
     left: 0;
@@ -11,18 +11,9 @@
     justify-content: space-between;
     pointer-events: none;
 
-    padding: 10px;
-    background: #000000;
+    padding: 20px;
+    background: transparent;
     transition: all 0.2s ease;
-
-    &-is-transparent {
-        background: rgba(#000000, 0.2);
-        padding: 20px;
-    }
-
-    &-is-hidden {
-        transform: translateY(-100px);
-    }
 
     &--menu-button {
         width: 50px;

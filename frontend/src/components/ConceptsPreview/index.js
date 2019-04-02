@@ -17,7 +17,7 @@ const ConceptsPreview = ({ concepts }) => {
 
 		return concepts.map(concept => {
 			return (
-				<div className="ConceptsPreview--item">
+				<div className="ConceptsPreview--item" key={concept.slug}>
 					<Image className="ConceptsPreview--item__image" image={concept.image} alt={concept.name} width={620} />
 					<div className="ConceptsPreview--item__content">
 						<Image className="ConceptsPreview--item__logo" image={concept.logo} alt={concept.name + ' logo'} width={300} />

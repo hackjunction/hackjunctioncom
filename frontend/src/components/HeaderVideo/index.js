@@ -1,46 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import './style.scss';
-import 'cloudinary-video-player';
-import '../../../node_modules/cloudinary-video-player/dist/cld-video-player.min.css';
-import cloudinary from 'cloudinary-core';
+
+import {
+    isMobileOnly
+} from "react-device-detect";
 
 import config from '../../services/config';
 
-const cloud = cloudinary.Cloudinary.new({ cloud_name: config.CLOUDINARY_CLOUD_NAME, secure: true });
-
-
-const HeaderVideo = ({ videoSource, posterImage, alt, navTitle }) => {
+const HeaderVideo = React.memo(() => {
     const [videoLoaded, setVideoLoaded] = useState(false);
-    let player = null;
 
-    useEffect(() => {
-        player = cloud.videoPlayer('header-video', {
-            loop: true,
-            controls: false,
-        })
-        player.source('mainevent2018aftermovieedit', {
-            sourceTypes: ['mp4'],
-            sourceTransformation: { 'mp4': { quality: 75 } }
-        })
-    }, [])
+    const mobileVid = require('../../assets/videos/aftermovie_40.mp4');
+    const fullVid = require('../../assets/videos/aftermovie_80.mp4');
 
     return (
         <div className={`HeaderVideo ${videoLoaded ? 'HeaderVideo-visible' : ''}`} >
             <video
-                id="header-video"
-                onPlay={() => setVideoLoaded(true)}
                 autoPlay
+                loop
                 muted
                 playsInline
-                preload="auto"
-                className={`cld-video-player HeaderVideo--video`}
+                poster="https://staging.hackjunction.com/wp-content/uploads/2017/08/front.jpg"
+                className={'HeaderVideo--video'}
+                onPlay={() => setVideoLoaded(true)}
             >
+                <source
+                    src={isMobileOnly ? mobileVid : fullVid}
+                    type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;"
+                />
             </video>
             <div className="HeaderVideo--logo-wrapper">
                 <img className="HeaderVideo--logo" src={require('../../assets/logos/text_white.png')} alt="junction-wordmark" />
             </div>
         </div >
     );
-};
+});
 
 export default HeaderVideo;
