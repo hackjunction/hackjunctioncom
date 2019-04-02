@@ -25,8 +25,6 @@ const PageHOC = ({ className, children, pageTitle, metaDesc, setNavTitle }) => {
 
     const canonicalUrl = 'https://' + window.location.hostname + window.location.pathname;
 
-    console.log('CURRENT NAV TITLE', pageTitle)
-
     return (
         <div className={'Page--wrapper ' + className}>
             <Helmet defaultTitle="Junction" titleTemplate="Junction | %s">

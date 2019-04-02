@@ -91,8 +91,6 @@ const HomePage = ({ allContent, kpis = [], partners = [], stories = [] }) => {
         })
     }
 
-    console.log('RENDER HOME')
-
     return (
         <Page className="HomePage" pageTitle="Hack the Future" metaDesc={content.whoAreWeBody}>
             <HeaderVideo />

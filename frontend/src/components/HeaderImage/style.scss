@@ -6,9 +6,16 @@
     margin-right: -$padding-page;
     height: 600px;
     position: relative;
+    z-index: 5;
     overflow: hidden;
-    z-index: 0;
     transition: height 0.2s ease;
+    background: black;
+    mask-image: url('../../assets/misc/wave-mask.png');
+    mask-size: cover;
+    mask-position: bottom;
+    -webkit-mask-image: url('../../assets/misc/wave-mask.png');
+    -webkit-mask-size: cover;
+    -webkit-mask-position: bottom;
 
     @include bp-med {
         height: 600px;
@@ -27,12 +34,6 @@
         object-fit: cover;
         object-position: center;
         transition: opacity 0.5s ease;
-        mask-image: url('../../assets/misc/wave-mask.png');
-        mask-size: cover;
-        mask-position: bottom;
-        -webkit-mask-image: url('../../assets/misc/wave-mask.png');
-        -webkit-mask-size: cover;
-        -webkit-mask-position: bottom;
         opacity: 0.4;
     }
 

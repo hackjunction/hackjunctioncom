@@ -7,10 +7,17 @@
     height: auto;
     position: relative;
     overflow: hidden;
-    z-index: 0;
+    z-index: 5;
     transition: height 0.2s ease;
     height: 380px;
     opacity: 1;
+    background: black;
+    mask-image: url('../../assets/misc/wave-mask.png');
+    mask-size: cover;
+    mask-position: bottom;
+    -webkit-mask-image: url('../../assets/misc/wave-mask.png');
+    -webkit-mask-size: cover;
+    -webkit-mask-position: bottom;
 
     @include bp-med {
         height: 600px;
@@ -38,12 +45,6 @@
         object-fit: cover;
         object-position: center;
         pointer-events: none;
-        mask-image: url('../../assets/misc/wave-mask.png');
-        mask-size: cover;
-        mask-position: bottom;
-        -webkit-mask-image: url('../../assets/misc/wave-mask.png');
-        -webkit-mask-size: cover;
-        -webkit-mask-position: bottom;
 
         video {
             object-fit: cover;
