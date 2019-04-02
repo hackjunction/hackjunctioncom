@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Image as CloudinaryImage } from 'cloudinary-react'
+import { Image as CloudinaryImage, Transformation } from 'cloudinary-react'
 import './style.scss'
 
 const Image = ({ image = {}, alt, className, width, height, crop = 'fill', gravity = 'center', onLoad }) => {
@@ -17,13 +17,19 @@ const Image = ({ image = {}, alt, className, width, height, crop = 'fill', gravi
 				crop={crop}
 				gravity={gravity}
 				onLoad={() => setLoaded(true)}
-			/>
+			>
+				<Transformation fetch_format="auto" quality="auto" />
+			</CloudinaryImage>
 		)
+	}
+
+	if (!image) {
+		return null;
 	}
 
 	return (
 		<img
-			src={image !== null && image.url ? image.url : require('../../assets/images/default_image.jpg')}
+			src={image.url}
 			alt={alt}
 			className={`Image ${className} ${loaded ? '' : 'Image-loading'}`}
 			width={width}
