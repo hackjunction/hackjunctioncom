@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { CloudinaryContext } from 'cloudinary-react'
+import LoadingPage from './pages/Loading';
 import config from './services/config'
 
 import configureStore, { history } from './redux/configureStore'
@@ -14,7 +15,7 @@ const { store, persistor } = configureStore()
 
 ReactDOM.render(
 	<Provider store={store}>
-		<PersistGate loading={null} persistor={persistor}>
+		<PersistGate loading={<LoadingPage />} persistor={persistor}>
 			<CloudinaryContext cloudName={config.CLOUDINARY_CLOUD_NAME}>
 				<App history={history} />
 			</CloudinaryContext>

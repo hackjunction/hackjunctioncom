@@ -10,9 +10,6 @@ import config from '../../services/config';
 const HeaderVideo = React.memo(() => {
     const [videoLoaded, setVideoLoaded] = useState(false);
 
-    const mobileVid = require('../../assets/videos/aftermovie_40.mp4');
-    const fullVid = require('../../assets/videos/aftermovie_80.mp4');
-
     return (
         <div className={`HeaderVideo ${videoLoaded ? 'HeaderVideo-visible' : ''}`} >
             <video
@@ -20,13 +17,11 @@ const HeaderVideo = React.memo(() => {
                 loop
                 muted
                 playsInline
-                poster="https://staging.hackjunction.com/wp-content/uploads/2017/08/front.jpg"
                 className={'HeaderVideo--video'}
                 onPlay={() => setVideoLoaded(true)}
             >
                 <source
-                    src={isMobileOnly ? mobileVid : fullVid}
-                    type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;"
+                    src={'https://res.cloudinary.com/hackjunction/video/upload/f_mp4,' + (isMobileOnly ? 'q_50' : 'q_80') + '/v1553772854/mainevent2018aftermovieedit.mp4'}
                 />
             </video>
             <div className="HeaderVideo--logo-wrapper">

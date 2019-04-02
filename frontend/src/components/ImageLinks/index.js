@@ -9,9 +9,10 @@ import ImageLink from '../ImageLink'
 
 const ImageLinks = React.memo(({ links, allMedia }) => {
 
+
 	function renderLinks() {
 		return links.map(link => {
-			const image = mediaByKey(allMedia, link.mediaKey);
+			const image = mediaByKey(allMedia, link.imageKey);
 			return (
 				<ImageLink key={link.linkTo} image={image} {...link} />
 			)
