@@ -3,8 +3,10 @@ var express = require('express'),
 	path = require('path'),
 	port = process.env.PORT || 3000;
 
-var enforce = require('express-sslify');
-
+if (process.env.NODE_ENV === 'production') {
+	var enforce = require('express-sslify');
+	app.use(enforce.HTTPS({ trustProtoHeader: true }));
+}
 
 // Serve any static files
 app.use(express.static(path.join(__dirname, 'frontend/build')));
@@ -12,7 +14,5 @@ app.use(express.static(path.join(__dirname, 'frontend/build')));
 app.get('*', function (req, res) {
 	res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
 });
-
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 app.listen(port);
