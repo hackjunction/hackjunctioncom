@@ -8,8 +8,6 @@ import config from '../../services/config';
 
 import * as NavActions from '../../redux/nav/actions';
 
-const DEFAULT_OG_IMAGE = require('../../assets/images/default_image.jpg');
-
 const PageHOC = ({ className, children, pageTitle, metaDesc, setNavTitle }) => {
     useEffect(() => {
         if (pageTitle) {

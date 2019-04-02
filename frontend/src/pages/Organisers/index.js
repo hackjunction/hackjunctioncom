@@ -13,7 +13,6 @@ import StatBlocks from '../../components/StatBlocks';
 import Divider from '../../components/Divider';
 import NewsLetterForm from '../../components/NewsLetterForm';
 import Markdown from '../../components/Markdown';
-import Image from '../../components/Image';
 import CenteredBlock from '../../components/CenteredBlock';
 
 import Page from '../PageHOC';
@@ -41,6 +40,7 @@ const CONTENT_KEYS = [
     KEYS.whatDoesJunctionXOfferSecondBody,
     KEYS.whatDoesJunctionXOfferThirdTitle,
     KEYS.whatDoesJunctionXOfferThirdBody,
+    KEYS.organiserPageBottomContent,
     KEYS.interestedInOrganisingTitle,
     KEYS.interestedInOrganisingSubtitle,
     KEYS.interestedInOrganisingBody
@@ -124,15 +124,14 @@ const OrganisersPage = ({
                 />
             </SingleColumnSection>
             <Divider lg />
-            <CenteredBlock>
-                <Image
-                    className="OrganisersPage--junctionx-timeline-image"
-                    alt="JunctionX timeline"
-                    image={media.junctionXTimelineImage}
-                    width={980}
-                />
-            </CenteredBlock>
-            <Divider lg />
+            {content.organiserPageBottomContent ? (
+                <React.Fragment>
+                    <CenteredBlock>
+                        <Markdown source={content.organiserPageBottomContent} />
+                    </CenteredBlock>
+                    <Divider lg />
+                </React.Fragment>
+            ) : null}
             <ImageBlockSection
                 image={media.interestedInOrganisingImage}
                 imageAlt={content.interestedInOrganisingTitle}

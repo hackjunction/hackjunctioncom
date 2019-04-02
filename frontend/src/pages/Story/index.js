@@ -11,7 +11,6 @@ import MEDIA_KEYS from '../../redux/media/keys';
 import HeaderImage from '../../components/HeaderImage';
 import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import BlockSection from '../../components/BlockSection/';
-import ImageBlockSection from '../../components/ImageBlockSection/';
 import StatBlocks from '../../components/StatBlocks';
 import ImageLinks from '../../components/ImageLinks';
 import Markdown from '../../components/Markdown';
@@ -36,13 +35,12 @@ const CONTENT_KEYS = [
     KEYS.junction2019Body
 ];
 
-const StoryPage = ({ allContent, allMedia, kpis = [], testimonials = [] }) => {
+const StoryPage = ({ allContent, allMedia, kpis = [] }) => {
     const content = objectWithKeys(allContent, CONTENT_KEYS);
     const headerImage = mediaByKey(allMedia, MEDIA_KEYS.storyPageHeaderImage);
     const partnerLinkImage = mediaByKey(allMedia, MEDIA_KEYS.partnerPageHeaderImage);
     const volunteerLinkImage = mediaByKey(allMedia, MEDIA_KEYS.volunteerPageHeaderImage);
     const calendarLinkImage = mediaByKey(allMedia, MEDIA_KEYS.calendarPageHeaderImage);
-    const testimonial = testimonials && testimonials.length > 0 ? testimonials[0] : null;
 
     function renderStatBlocks() {
         if (Array.isArray(kpis) && kpis.length > 0) {
@@ -109,7 +107,6 @@ const mapStateToProps = state => ({
     allContent: StaticContentSelectors.content(state),
     allMedia: MediaSelectors.media(state),
     kpis: ContentSelectors.genericKpis(state),
-    testimonials: ContentSelectors.genericTestimonials(state)
 });
 
 export default connect(mapStateToProps)(StoryPage);

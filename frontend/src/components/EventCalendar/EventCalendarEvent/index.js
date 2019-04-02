@@ -9,24 +9,21 @@ import Image from '../../Image';
 import * as ContentSelectors from '../../../redux/content/selectors';
 import { getConceptBySlug } from '../../../redux/content/helpers';
 
-const DEFAULT_IMAGE = null;
-
 const EventCalendarEvent = React.memo(({ event, concepts }) => {
-    //TODO: Apply this image
-    let image = DEFAULT_IMAGE;
 
-    if (event.eventconcept) {
-        let concept = getConceptBySlug(event.eventconcept.slug);
-        image = concept.image ? concept.image.url : image;
-    }
+    let image = event.image
 
-    if (event.image) {
-        image = event.image.url;
+    if (!event.image) {
+        if (event.eventconcept) {
+            let concept = getConceptBySlug(event.eventconcept.slug);
+            image = concept.image || image;
+        }
     }
 
     return (
+
         <div className="EventCalendarEvent">
-            <Image className="EventCalendarEvent--image" image={event.image} width={600} height={300} />
+            <Image className="EventCalendarEvent--image" image={image} width={600} height={300} />
             <div className="EventCalendarEvent--content">
                 <span className="EventCalendarEvent--content__date">{moment(event.begins).format('DD.MM.YYYY')}</span>
                 <span className="EventCalendarEvent--content__title">{event.name}</span>

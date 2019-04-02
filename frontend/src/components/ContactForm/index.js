@@ -4,7 +4,6 @@ import './style.scss'
 import { connect } from 'react-redux';
 
 import Form from '../inputs/Form'
-import RadioButtons from '../inputs/RadioButtons'
 import TextInput from '../inputs/TextInput'
 import TextArea from '../inputs/TextArea'
 import FormRow from '../inputs/FormRow'
@@ -13,7 +12,7 @@ import BlockSection from '../BlockSection'
 
 import { useFormField } from '../../hooks/formhooks'
 import { isEmail } from '../../utils/regex'
-import { minDelay, delay } from '../../utils/misc'
+import { minDelay } from '../../utils/misc'
 
 import ContactRequestService from '../../services/contactrequests'
 

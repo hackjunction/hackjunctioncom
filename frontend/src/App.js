@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import 'mapbox-gl/dist/mapbox-gl.css';
-
+import './styles/global.scss';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 

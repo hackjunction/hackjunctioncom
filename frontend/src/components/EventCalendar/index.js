@@ -3,9 +3,7 @@ import './style.scss';
 import _ from 'lodash';
 import moment from 'moment-timezone';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
-import IconText from '../IconText';
 import EventCalendarYear from './EventCalendarYear';
 import LinkButton from '../LinkButton';
 

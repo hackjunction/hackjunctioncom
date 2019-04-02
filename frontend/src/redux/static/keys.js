@@ -17,8 +17,6 @@ const CONTENT_KEYS = {
     whatWeDo: 'whatWeDo',
     whatWeDoBody: 'whatWeDoBody',
     whatWeDoSubtitle: 'whatWeDoSubtitle',
-    previousPartnersTitle: 'previousPartnersTitle',
-    previousPartnersSubtitle: 'previousPartnersSubtitle',
     storiesAboutUsTitle: 'storiesAboutUsTitle',
     storiesAboutUsSubtitle: 'storiesAboutUsSubtitle',
 
@@ -104,6 +102,7 @@ const CONTENT_KEYS = {
     whatDoesJunctionXOfferSecondBody: 'whatDoesJunctionXOfferSecondBody',
     whatDoesJunctionXOfferThirdTitle: 'whatDoesJunctionXOfferThirdTitle',
     whatDoesJunctionXOfferThirdBody: 'whatDoesJunctionXOfferThirdBody',
+    organiserPageBottomContent: 'organiserPageBottomContent',
     interestedInOrganisingTitle: 'interestedInOrganisingTitle',
     interestedInOrganisingSubtitle: 'interestedInOrganisingSubtitle',
     interestedInOrganisingBody: 'interestedInOrganisingBody'

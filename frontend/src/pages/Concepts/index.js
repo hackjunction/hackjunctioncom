@@ -10,7 +10,6 @@ import BlockSection from '../../components/BlockSection';
 import Divider from '../../components/Divider';
 import NewsLetterForm from '../../components/NewsLetterForm';
 import Markdown from '../../components/Markdown';
-import LinkButton from '../../components/LinkButton';
 import Page from '../PageHOC';
 import LoadingPage from '../Loading';
 

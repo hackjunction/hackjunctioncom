@@ -1,7 +1,6 @@
 import React from 'react'
 import './style.scss'
 
-import { Link } from 'react-router-dom'
 import Image from '../Image'
 
 const LinkGrid = ({ links }) => {

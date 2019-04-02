@@ -13,6 +13,8 @@ const ConceptsPreview = ({ concepts }) => {
 
 
 	function renderConcepts() {
+		if (!concepts) return null;
+
 		return concepts.map(concept => {
 			return (
 				<div className="ConceptsPreview--item">
@@ -25,7 +27,6 @@ const ConceptsPreview = ({ concepts }) => {
 				</div>
 			)
 		})
-		return null
 	}
 
 	return (

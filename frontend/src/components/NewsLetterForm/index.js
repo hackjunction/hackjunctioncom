@@ -4,9 +4,7 @@ import './style.scss'
 import { connect } from 'react-redux'
 
 import Form from '../inputs/Form'
-import RadioButtons from '../inputs/RadioButtons'
 import TextInput from '../inputs/TextInput'
-import TextArea from '../inputs/TextArea'
 import FormRow from '../inputs/FormRow'
 import DropDown from '../inputs/DropDown'
 import SubmitButton from '../inputs/SubmitButton'
@@ -15,7 +13,7 @@ import BlockSection from '../BlockSection'
 import { useFormField } from '../../hooks/formhooks'
 import { isEmail } from '../../utils/regex'
 import { isCountry } from '../../utils/misc'
-import { minDelay, delay } from '../../utils/misc'
+import { minDelay } from '../../utils/misc'
 
 import NewsLetterService from '../../services/newsletter'
 import countries from '../../data/countries.json'
@@ -68,10 +66,6 @@ const NewsLetterForm = ({ allContent }) => {
 
 	function handleFormError(errors) {
 		console.log('ERROR', errors)
-	}
-
-	function buildOptionArray() {
-		return countries.map()
 	}
 
 	const options = countries.map(c => ({ value: c, label: c }))

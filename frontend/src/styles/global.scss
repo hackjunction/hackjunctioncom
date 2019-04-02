@@ -1,0 +1,80 @@
+@import 'fonts';
+@import 'colors';
+@import 'sizes';
+
+* {
+	box-sizing: border-box;
+	font-family: $lato;
+}
+
+html {
+	overflow-y: scroll;
+	margin: 0;
+	font-size: 16px;
+	background-color: $junction-black;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	background-color: $junction-black;
+}
+
+#root {
+    margin: 0;
+}
+
+.font-title {
+    @extend %font-title;
+}
+
+.font-body {
+    @extend %font-body;
+}
+
+.font-secondary {
+    @extend %font-secondary;
+}
+
+.font-input {
+    @extend %font-input;
+}
+
+.font-link {
+    @extend %font-link;
+}
+
+/* Define sensible defaults for common elements */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @extend %font-title;
+}
+
+p,
+span,
+li,
+td,
+th {
+    @extend %font-body;
+}
+
+label,
+small,
+i {
+    @extend %font-secondary;
+}
+
+input,
+textarea {
+    @extend %font-input;
+}
+
+a {
+    @extend %font-link;
+}

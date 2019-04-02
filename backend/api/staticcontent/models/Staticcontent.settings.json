@@ -100,7 +100,7 @@
         "\ncontactFormSubtitle",
         "\nstoriesAboutUsTitle",
         "\nstoriesAboutUsSubtitle",
-        ""
+        "\norganiserPageBottomContent"
       ],
       "default": "",
       "unique": true,

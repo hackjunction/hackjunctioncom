@@ -1,8 +1,5 @@
 import { createSelector } from 'reselect';
-import _ from 'lodash';
 import config from '../../services/config';
-
-import MEDIA_KEYS from './keys';
 
 /* How often to update media?
  *

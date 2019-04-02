@@ -6,8 +6,6 @@ import cloudinary from 'cloudinary-core';
 
 import config from '../../services/config';
 
-import Image from '../Image';
-
 const cloud = cloudinary.Cloudinary.new({ cloud_name: config.CLOUDINARY_CLOUD_NAME, secure: true });
 
 
@@ -22,6 +20,7 @@ const HeaderVideo = ({ videoSource, posterImage, alt, navTitle }) => {
         })
         player.source('mainevent2018aftermovieedit', {
             sourceTypes: ['mp4'],
+            sourceTransformation: { 'mp4': { quality: 75 } }
         })
     }, [])
 
