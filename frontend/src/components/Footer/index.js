@@ -19,17 +19,9 @@ import {
     eventconceptsByPriority,
 } from '../../redux/eventconcepts/selectors'
 
-import {
-    socialmedias,
-} from '../../redux/socialmedias/selectors';
-
-const Footer = ({ siteSlogan, siteContactEmail, eventConcepts, socialMedias, extraPages }) => {
+const Footer = React.memo(({ siteSlogan, siteContactEmail, eventConcepts, homePages, eventPages, communityPages }) => {
 
     function renderConceptLinks() {
-        if (!Array.isArray(eventConcepts) || eventConcepts.length === 0) {
-            return null;
-        }
-
         return eventConcepts.map(concept => {
             return (
                 <Link key={concept.slug} className="FooterInner--right__section-link" to={`/concepts/${concept.slug}`}>
@@ -39,19 +31,7 @@ const Footer = ({ siteSlogan, siteContactEmail, eventConcepts, socialMedias, ext
         });
     }
 
-    function renderSocialMedias() {
-        if (!Array.isArray(socialMedias) || socialMedias.length === 0) {
-            return null;
-        }
-
-        return <SocialMediaIcons data={socialMedias} />;
-    }
-
     function renderExtraPageLinks(pages) {
-        if (!Array.isArray(pages) || pages.length === 0) {
-            return null;
-        }
-
         return pages.map(page => {
             return (
                 <Link key={page.slug} className="FooterInner--right__section-link" to={`/${page.slug}`}>
@@ -75,7 +55,7 @@ const Footer = ({ siteSlogan, siteContactEmail, eventConcepts, socialMedias, ext
                         {siteContactEmail}
                     </a>
                     <Divider sm />
-                    {renderSocialMedias()}
+                    <SocialMediaIcons />
                 </div>
                 <div className="FooterInner--separator" />
                 <nav className="FooterInner--right">
@@ -92,14 +72,14 @@ const Footer = ({ siteSlogan, siteContactEmail, eventConcepts, socialMedias, ext
                         <Link className="FooterInner--right__section-link" to="/team">
                             Team
                         </Link>
-                        {renderExtraPageLinks(extraPages.home)}
+                        {renderExtraPageLinks(homePages)}
                     </div>
                     <div className="FooterInner--right__section">
                         <Link to="/concepts">
                             <h5 className="FooterInner--right__section-title">Events & Concepts</h5>
                         </Link>
                         {renderConceptLinks()}
-                        {renderExtraPageLinks(extraPages.events)}
+                        {renderExtraPageLinks(eventPages)}
                     </div>
                     <div className="FooterInner--right__section">
                         <h5 className="FooterInner--right__section-title">Community</h5>
@@ -115,7 +95,7 @@ const Footer = ({ siteSlogan, siteContactEmail, eventConcepts, socialMedias, ext
                         <Link className="FooterInner--right__section-link" to="/organisers">
                             For organisers
                         </Link>
-                        {renderExtraPageLinks(extraPages.community)}
+                        {renderExtraPageLinks(communityPages)}
                     </div>
                     <div className="FooterInner--right__section">
                         {/* <Link to="/press">
@@ -152,7 +132,7 @@ const Footer = ({ siteSlogan, siteContactEmail, eventConcepts, socialMedias, ext
             </div>
         </footer>
     );
-};
+});
 
 const mapStateToProps = (state) => {
     const content = selectContent(state);
@@ -160,13 +140,10 @@ const mapStateToProps = (state) => {
     return {
         siteSlogan: content[KEYS.siteSlogan],
         siteContactEmail: content[KEYS.siteContactEmail],
-        extraPages: {
-            home: homePages(state),
-            events: eventPages(state),
-            community: communityPages(state),
-        },
+        homePages: homePages(state),
+        eventPages: eventPages(state),
+        communityPages: communityPages(state),
         eventConcepts: eventconceptsByPriority(state),
-        socialMedias: socialmedias(state)
     }
 }
 

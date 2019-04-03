@@ -7,7 +7,7 @@ import {
 
 import config from '../../services/config';
 
-const HeaderVideo = React.memo(() => {
+const HeaderVideo = () => {
     const [videoLoaded, setVideoLoaded] = useState(false);
 
     return (
@@ -29,6 +29,6 @@ const HeaderVideo = React.memo(() => {
             </div>
         </div >
     );
-});
+};
 
 export default HeaderVideo;
