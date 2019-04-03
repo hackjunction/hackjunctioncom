@@ -12,7 +12,7 @@ import * as NavSelectors from '../../redux/nav/selectors';
 const Header = ({ toggleSidebar, navTitle }) => {
     return (
         <React.Fragment>
-            <header className={`Header`}>
+            <header className={'Header'}>
                 <div className="Header--menu-button" onClick={() => toggleSidebar(true)}>
                     <i className="Header--menu-button fas fa-bars" />
                 </div>

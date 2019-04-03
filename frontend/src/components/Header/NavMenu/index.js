@@ -3,6 +3,7 @@ import './style.scss';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import _ from 'lodash';
 
 import { toggleSidebar } from '../../../redux/nav/actions';
 import { isSidebarOpen } from '../../../redux/nav/selectors';
@@ -14,35 +15,88 @@ import {
     communityPages
 } from '../../../redux/pages/selectors';
 
-const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts, extraPages }) => {
-    function renderConceptLinks() {
-        if (!Array.isArray(eventConcepts) || eventConcepts.length === 0) {
-            return null;
-        }
+const ExtraPagesSection = React.memo(({ pages }) => {
+    return _.map(pages, page => {
+        return (
+            <Link key={page.slug} className="NavMenu--inner__menu-item" to={'/' + page.slug}>
+                {page.navTitle}
+            </Link>
+        )
+    })
+});
 
-        return eventConcepts.map(concept => {
-            return (
-                <Link key={concept.slug} className="NavMenu--inner__menu-item" to={`/concepts/${concept.slug}`}>
-                    {concept.name}
+const ConceptPagesSection = React.memo(({ concepts }) => {
+    return _.map(concepts, concept => {
+        return (
+            <Link key={concept.slug} className="NavMenu--inner__menu-item" to={`/concepts/${concept.slug}`}>
+                {concept.name}
+            </Link>
+        );
+    })
+});
+
+const NavMenuInner = React.memo(({ eventConcepts, homePages, eventPages, communityPages }) => {
+    return (
+        <div className="NavMenu--inner">
+            <Link to="/">
+                <img
+                    className="NavMenu--inner__logo"
+                    src={require('../../../assets/logos/text_black.png')}
+                    alt="Junction text logo"
+                />
+            </Link>
+            <nav className="NavMenu--inner__menu">
+                <Link to="/">
+                    <h6 className="NavMenu--inner__menu-title">Home</h6>
                 </Link>
-            );
-        });
-    }
+                <Link className="NavMenu--inner__menu-item" to="/story">
+                    Story
+                        </Link>
+                <Link className="NavMenu--inner__menu-item" to="/calendar">
+                    Calendar
+                        </Link>
+                <Link className="NavMenu--inner__menu-item" to="/team">
+                    Team
+                        </Link>
+                <ExtraPagesSection pages={homePages} />
 
-    function renderExtraPageLinks(pages) {
-        if (!Array.isArray(pages) || pages.length === 0) {
-            return null;
-        }
-
-        return pages.map(page => {
-            return (
-                <Link key={page.slug} className="NavMenu--inner__menu-item" to={'/' + page.slug}>
-                    {page.navTitle}
+                <Link to="/concepts">
+                    <h6 className="NavMenu--inner__menu-title">Events & Concepts</h6>
                 </Link>
-            );
-        });
-    }
+                <ConceptPagesSection concepts={eventConcepts} />
+                <ExtraPagesSection pages={eventPages} />
 
+                <h6 className="NavMenu--inner__menu-title">Community</h6>
+                <Link className="NavMenu--inner__menu-item" to="/partners">
+                    For partners
+                        </Link>
+                <Link className="NavMenu--inner__menu-item" to="/participants">
+                    For participants
+                        </Link>
+                <Link className="NavMenu--inner__menu-item" to="/volunteers">
+                    For volunteers
+                        </Link>
+                <Link className="NavMenu--inner__menu-item" to="/organisers">
+                    For organisers
+                        </Link>
+                <ExtraPagesSection pages={communityPages} />
+                <Link to="/team">
+                    <h6 className="NavMenu--inner__menu-title">Contact</h6>
+                </Link>
+            </nav>
+        </div>
+    )
+})
+const mapStateToPropsInner = state => ({
+    eventConcepts: eventconceptsByPriority(state),
+    homePages: homePages(state),
+    eventPages: eventPages(state),
+    communityPages: communityPages(state)
+});
+
+const ConnectedNavMenuInner = connect(mapStateToPropsInner)(NavMenuInner)
+
+const NavMenu = ({ isSidebarOpen, toggleSidebar }) => {
     return (
         <div className="NavMenuWrapper">
             <div
@@ -50,67 +104,13 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts, extraPages }) =>
                 onClick={() => toggleSidebar(false)}
             />
             <div className={`NavMenu ${isSidebarOpen ? 'NavMenu-open' : ''}`}>
-                <div className="NavMenu--inner">
-                    <Link to="/">
-                        <img
-                            className="NavMenu--inner__logo"
-                            src={require('../../../assets/logos/text_black.png')}
-                            alt="Junction text logo"
-                        />
-                    </Link>
-                    <nav className="NavMenu--inner__menu">
-                        <Link to="/">
-                            <h6 className="NavMenu--inner__menu-title">Home</h6>
-                        </Link>
-                        <Link className="NavMenu--inner__menu-item" to="/story">
-                            Story
-                        </Link>
-                        <Link className="NavMenu--inner__menu-item" to="/calendar">
-                            Calendar
-                        </Link>
-                        <Link className="NavMenu--inner__menu-item" to="/team">
-                            Team
-                        </Link>
-                        {renderExtraPageLinks(extraPages.home)}
-
-                        <Link to="/concepts">
-                            <h6 className="NavMenu--inner__menu-title">Events & Concepts</h6>
-                        </Link>
-                        {renderConceptLinks()}
-                        {renderExtraPageLinks(extraPages.events)}
-
-                        <h6 className="NavMenu--inner__menu-title">Community</h6>
-                        <Link className="NavMenu--inner__menu-item" to="/partners">
-                            For partners
-                        </Link>
-                        <Link className="NavMenu--inner__menu-item" to="/participants">
-                            For participants
-                        </Link>
-                        <Link className="NavMenu--inner__menu-item" to="/volunteers">
-                            For volunteers
-                        </Link>
-                        <Link className="NavMenu--inner__menu-item" to="/organisers">
-                            For organisers
-                        </Link>
-                        {renderExtraPageLinks(extraPages.community)}
-
-                        <Link to="/team">
-                            <h6 className="NavMenu--inner__menu-title">Contact</h6>
-                        </Link>
-                    </nav>
-                </div>
+                <ConnectedNavMenuInner />
             </div>
         </div>
     );
 };
 
 const mapStateToProps = state => ({
-    eventConcepts: eventconceptsByPriority(state),
-    extraPages: {
-        home: homePages(state),
-        events: eventPages(state),
-        community: communityPages(state)
-    },
     isSidebarOpen: isSidebarOpen(state)
 });
 
