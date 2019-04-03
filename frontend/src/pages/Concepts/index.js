@@ -30,7 +30,7 @@ const ConceptsPage = ({ eventconcepts, loading }) => {
         return eventconcepts.map(concept => {
             return (
                 <React.Fragment key={concept.slug}>
-                    <BlockSection title={concept.name} subtitle={'TODO!'}>
+                    <BlockSection title={concept.name} subtitle={''}>
                         <Markdown source={concept.shortdescription} />
                         <Link to={`/concepts/${concept.slug}`}>See more</Link>
                     </BlockSection>
