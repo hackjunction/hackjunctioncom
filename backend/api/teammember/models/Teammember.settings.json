@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "teammember",
   "info": {
     "name": "teammember",
     "description": ""
@@ -32,6 +32,10 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "priority": {
+      "default": 10,
+      "type": "integer"
     }
   }
 }

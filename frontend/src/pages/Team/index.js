@@ -67,7 +67,7 @@ const TeamPage = ({ allContent, allMedia, teamMembers, shouldUpdate, updateTeamM
 const mapStateToProps = state => ({
     allContent: StaticContentSelectors.content(state),
     allMedia: MediaSelectors.media(state),
-    teamMembers: ContentSelectors.teammembers(state),
+    teamMembers: ContentSelectors.teammembersByPriority(state),
     shouldUpdate: ContentSelectors.teammembersShouldUpdate(state)
 });
 

@@ -88,6 +88,13 @@ export const teammembersShouldUpdate = createSelector(
     }
 );
 
+export const teammembersByPriority = createSelector(
+    teammembers,
+    teammemebrs => {
+        return _.sortBy(teammembers, 'priority')
+    }
+)
+
 export const testimonials = state => state.content.testimonials.data;
 export const testimonialsLoading = state => state.content.testimonials.loading;
 export const testimonialsError = state => state.content.testimonials.error;

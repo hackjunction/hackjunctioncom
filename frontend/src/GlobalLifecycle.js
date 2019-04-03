@@ -84,15 +84,15 @@ class GlobalLifecycle extends React.Component {
             }
         }
 
-        if (config.HOTJAR_ID && config.HOTJAR_SV) {
-            hotjar.initialize(config.HOTJAR_ID, config.HOTJAR_SV);
-        } else {
-            if (config.IS_DEBUG) {
-                console.log(
-                    'DEBUG: config variable HOTJAR_ID or HOTJAR_SV undefined, not initializing Hotjar analytics'
-                );
-            }
-        }
+        // if (config.HOTJAR_ID && config.HOTJAR_SV) {
+        //     hotjar.initialize(config.HOTJAR_ID, config.HOTJAR_SV);
+        // } else {
+        //     if (config.IS_DEBUG) {
+        //         console.log(
+        //             'DEBUG: config variable HOTJAR_ID or HOTJAR_SV undefined, not initializing Hotjar analytics'
+        //         );
+        //     }
+        // }
     }
 
     render() {
