@@ -7,13 +7,15 @@ import { Link } from 'react-router-dom';
 import Divider from '../Divider'
 import Image from '../Image'
 import LinkButton from '../LinkButton'
-import * as ContentSelectors from '../../redux/content/selectors'
+import { eventconceptsByPriority as selectEventConcepts } from '../../redux/eventconcepts/selectors';
 
 const ConceptsPreview = ({ concepts }) => {
 
+	if (!Array.isArray(concepts) || concepts.length === 0) {
+		return null;
+	}
 
 	function renderConcepts() {
-		if (!concepts) return null;
 
 		return concepts.map(concept => {
 			return (
@@ -39,7 +41,7 @@ const ConceptsPreview = ({ concepts }) => {
 }
 
 const mapStateToProps = (state) => ({
-	concepts: ContentSelectors.eventconceptsByPriority(state)
+	concepts: selectEventConcepts(state),
 })
 
 export default connect(mapStateToProps)(ConceptsPreview)

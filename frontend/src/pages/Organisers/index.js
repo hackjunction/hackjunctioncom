@@ -14,83 +14,31 @@ import Divider from '../../components/Divider';
 import NewsLetterForm from '../../components/NewsLetterForm';
 import Markdown from '../../components/Markdown';
 import CenteredBlock from '../../components/CenteredBlock';
-
 import Page from '../PageHOC';
 
-import * as ContentSelectors from '../../redux/content/selectors';
-import * as ContentActions from '../../redux/content/actions';
-import * as MediaSelectors from '../../redux/media/selectors';
-import * as StaticContentSelectors from '../../redux/static/selectors';
-import MEDIA_KEYS from '../../redux/media/keys';
-import KEYS from '../../redux/static/keys';
-import { objectWithKeys } from '../../redux/static/helpers';
-import { mediaObjectWithKeys } from '../../redux/media/helpers';
+import MEDIA_KEYS from '../../redux/staticmedia/keys';
+import KEYS from '../../redux/staticcontent/keys';
 
-const CONTENT_KEYS = [
-    KEYS.organisersPageTitle,
-    KEYS.organisersPageSubtitle,
-    KEYS.whatIsJunctionXTitle,
-    KEYS.whatIsJunctionXSubtitle,
-    KEYS.whatIsJunctionXBody,
-    KEYS.whatDoesJunctionXOfferTitle,
-    KEYS.whatDoesJunctionXOfferSubtitle,
-    KEYS.whatDoesJunctionXOfferFirstTitle,
-    KEYS.whatDoesJunctionXOfferFirstBody,
-    KEYS.whatDoesJunctionXOfferSecondTitle,
-    KEYS.whatDoesJunctionXOfferSecondBody,
-    KEYS.whatDoesJunctionXOfferThirdTitle,
-    KEYS.whatDoesJunctionXOfferThirdBody,
-    KEYS.organiserPageBottomContent,
-    KEYS.interestedInOrganisingTitle,
-    KEYS.interestedInOrganisingSubtitle,
-    KEYS.interestedInOrganisingBody
-];
-
-const SELECT_MEDIA_KEYS = [
-    MEDIA_KEYS.organiserPageHeaderImage,
-    MEDIA_KEYS.interestedInOrganisingImage,
-    MEDIA_KEYS.junctionXTimelineImage
-];
+import {
+    organiserTestimonials,
+} from '../../redux/testimonials/selectors';
 
 const OrganisersPage = ({
-    allContent,
-    allMedia,
     testimonials,
-    testimonialsShouldUpdate,
-    updateTestimonials,
-    kpis = []
 }) => {
-    const content = objectWithKeys(allContent, CONTENT_KEYS);
-    const media = mediaObjectWithKeys(allMedia, SELECT_MEDIA_KEYS);
     const testimonial = testimonials.length > 0 ? testimonials[0] : null;
 
-    useEffect(() => {
-        if (testimonialsShouldUpdate) {
-            updateTestimonials();
-        }
-    }, []);
-
-    function buildStatBlocks() {
-        return kpis.map(kpi => {
-            return {
-                id: kpi.label + '-' + kpi.number,
-                label: kpi.label,
-                value: kpi.number
-            };
-        });
-    }
-
     return (
-        <Page className="OrganisersPage" pageTitle="For organisers" metaDesc={content.organisersPageSubtitle}>
+        <Page className="OrganisersPage" pageTitle="For organisers" metaDescKey={KEYS.organisersPageSubtitle}>
             <HeaderImage
-                image={media.organiserPageHeaderImage}
+                imageKey={MEDIA_KEYS.organiserPageHeaderImage}
                 alt="Header image"
             >
-                <BasicHeader title={content.organisersPageTitle} body={content.organisersPageSubtitle} />
+                <BasicHeader titleKey={KEYS.organisersPageTitle} bodyKey={KEYS.organisersPageSubtitle} />
             </HeaderImage>
-            <BlockSection title={content.whatIsJunctionXTitle} subtitle={content.whatIsJunctionXSubtitle}>
-                <Markdown source={content.whatIsJunctionXBody} />
-                <StatBlocks blocks={buildStatBlocks()} />
+            <BlockSection titleKey={KEYS.whatIsJunctionXTitle} subtitleKey={KEYS.whatIsJunctionXSubtitle}>
+                <Markdown sourceKey={KEYS.whatIsJunctionXBody} />
+                <StatBlocks type="organiser" />
             </BlockSection>
             <Divider lg />
             {testimonial ? (
@@ -107,38 +55,36 @@ const OrganisersPage = ({
                 </React.Fragment>
             ) : null}
             <SingleColumnSection
-                title={content.whatDoesJunctionXOfferTitle}
-                subtitle={content.whatDoesJunctionXOfferSubtitle}
+                titleKey={KEYS.whatDoesJunctionXOfferTitle}
+                subtitleKey={KEYS.whatDoesJunctionXOfferSubtitle}
             >
                 <BorderedSection
-                    title={content.whatDoesJunctionXOfferFirstTitle}
-                    content={content.whatDoesJunctionXOfferFirstBody}
+                    titleKey={KEYS.whatDoesJunctionXOfferFirstTitle}
+                    contentKey={KEYS.whatDoesJunctionXOfferFirstBody}
                 />
                 <BorderedSection
-                    title={content.whatDoesJunctionXOfferSecondTitle}
-                    content={content.whatDoesJunctionXOfferSecondBody}
+                    titleKey={KEYS.whatDoesJunctionXOfferSecondTitle}
+                    contentKey={KEYS.whatDoesJunctionXOfferSecondBody}
                 />
                 <BorderedSection
-                    title={content.whatDoesJunctionXOfferThirdTitle}
-                    content={content.whatDoesJunctionXOfferThirdBody}
+                    titleKey={KEYS.whatDoesJunctionXOfferThirdTitle}
+                    contentKey={KEYS.whatDoesJunctionXOfferThirdBody}
                 />
             </SingleColumnSection>
             <Divider lg />
-            {content.organiserPageBottomContent ? (
-                <React.Fragment>
-                    <CenteredBlock>
-                        <Markdown source={content.organiserPageBottomContent} />
-                    </CenteredBlock>
-                    <Divider lg />
-                </React.Fragment>
-            ) : null}
+            <React.Fragment>
+                <CenteredBlock>
+                    <Markdown sourceKey={KEYS.organiserPageBottomContent} />
+                </CenteredBlock>
+                <Divider lg />
+            </React.Fragment>
             <ImageBlockSection
-                image={media.interestedInOrganisingImage}
-                imageAlt={content.interestedInOrganisingTitle}
-                title={content.interestedInOrganisingTitle}
-                subtitle={content.interestedInOrganisingSubtitle}
+                imageKey={MEDIA_KEYS.interestedInOrganisingImage}
+                imageAltKey={KEYS.interestedInOrganisingTitle}
+                titleKey={KEYS.interestedInOrganisingTitle}
+                subtitleKey={KEYS.interestedInOrganisingSubtitle}
             >
-                <Markdown source={content.interestedInOrganisingBody} />
+                <Markdown sourceKey={KEYS.interestedInOrganisingBody} />
             </ImageBlockSection>
             <Divider lg />
             <NewsLetterForm />
@@ -148,18 +94,9 @@ const OrganisersPage = ({
 };
 
 const mapStateToProps = state => ({
-    testimonials: ContentSelectors.organiserTestimonials(state),
-    testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state),
-    kpis: ContentSelectors.organiserKpis(state),
-    allContent: StaticContentSelectors.content(state),
-    allMedia: MediaSelectors.media(state)
-});
-
-const mapDispatchToProps = dispatch => ({
-    updateTestimonials: () => dispatch(ContentActions.updateTestimonials())
+    testimonials: organiserTestimonials(state),
 });
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(OrganisersPage);

@@ -4,10 +4,15 @@ import './style.scss';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import * as ContentSelectors from '../../../redux/content/selectors';
+import { toggleSidebar } from '../../../redux/nav/actions';
+import { isSidebarOpen } from '../../../redux/nav/selectors';
+import { eventconceptsByPriority } from '../../../redux/eventconcepts/selectors';
 
-import * as NavSelectors from '../../../redux/nav/selectors';
-import * as NavActions from '../../../redux/nav/actions';
+import {
+    homePages,
+    eventPages,
+    communityPages
+} from '../../../redux/pages/selectors';
 
 const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts, extraPages }) => {
     function renderConceptLinks() {
@@ -100,17 +105,17 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, eventConcepts, extraPages }) =>
 };
 
 const mapStateToProps = state => ({
-    eventConcepts: ContentSelectors.eventconceptsByPriority(state),
+    eventConcepts: eventconceptsByPriority(state),
     extraPages: {
-        home: ContentSelectors.homePages(state),
-        events: ContentSelectors.eventPages(state),
-        community: ContentSelectors.communityPages(state)
+        home: homePages(state),
+        events: eventPages(state),
+        community: communityPages(state)
     },
-    isSidebarOpen: NavSelectors.isSidebarOpen(state)
+    isSidebarOpen: isSidebarOpen(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    toggleSidebar: open => dispatch(NavActions.toggleSidebar(open))
+    toggleSidebar: open => dispatch(toggleSidebar(open))
 });
 
 export default connect(

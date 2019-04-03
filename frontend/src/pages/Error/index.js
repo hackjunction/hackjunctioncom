@@ -8,17 +8,14 @@ import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import Divider from '../../components/Divider';
 import Page from '../PageHOC';
 
-import * as MediaSelectors from '../../redux/media/selectors';
-import MEDIA_KEYS from '../../redux/media/keys';
-import { mediaByKey } from '../../redux/media/helpers';
+import MEDIA_KEYS from '../../redux/staticmedia/keys';
 
 
-const ErrorPage = ({ allMedia }) => {
-    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.errorPageHeaderImage);
+const ErrorPage = () => {
     return (
         <Page className="ErrorPage" pageTitle="Error" metaDesc="">
             <HeaderImage
-                image={headerImage}
+                imageKey={MEDIA_KEYS.errorPageHeaderImage}
                 alt="Header image"
             >
                 <BasicHeader title={'Oops, something went wrong'} body={
@@ -30,8 +27,4 @@ const ErrorPage = ({ allMedia }) => {
     );
 };
 
-const mapStateToProps = state => ({
-    allMedia: MediaSelectors.media(state)
-});
-
-export default connect(mapStateToProps)(ErrorPage);
+export default ErrorPage

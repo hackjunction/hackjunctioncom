@@ -1,11 +1,15 @@
 import React from 'react';
 import './style.scss';
 
+import { connect } from 'react-redux';
+import { media as selectMedia } from '../../redux/staticmedia/selectors';
+import { content as selectContent } from '../../redux/staticcontent/selectors';
+
 import Image from '../Image';
 
-const ImageBlockSection = ({ image, imageAlt, publicId, title, subtitle, children, offset }) => {
+const ImageBlockSection = ({ image, imageAlt, title, subtitle, children }) => {
     return (
-        <div className={`ImageBlockSection ImageBlockSection-offset-${offset}`}>
+        <div className={'ImageBlockSection'}>
             <div className="ImageBlockSection--left">
                 <Image className="ImageBlockSection--image" image={image} alt={imageAlt} width={400} height={400} />
             </div>
@@ -20,4 +24,17 @@ const ImageBlockSection = ({ image, imageAlt, publicId, title, subtitle, childre
     );
 };
 
-export default ImageBlockSection;
+const mapStateToProps = (state, ownProps) => {
+    const media = selectMedia(state);
+    const content = selectContent(state);
+    const { imageKey, imageAltKey, titleKey, subtitleKey } = ownProps;
+
+    return {
+        image: media[imageKey] || ownProps.image,
+        imageAlt: content[imageAltKey] || ownProps.imageAlt,
+        title: content[titleKey] || ownProps.title,
+        subtitle: content[subtitleKey] || ownProps.subtitle,
+    }
+}
+
+export default connect(mapStateToProps)(ImageBlockSection);

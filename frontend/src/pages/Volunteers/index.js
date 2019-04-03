@@ -3,12 +3,8 @@ import './style.scss';
 
 import { connect } from 'react-redux';
 
-import * as StaticContentSelectors from '../../redux/static/selectors';
-import * as ContentSelectors from '../../redux/content/selectors';
-import * as ContentActions from '../../redux/content/actions';
-import * as MediaSelectors from '../../redux/media/selectors';
-import KEYS from '../../redux/static/keys';
-import MEDIA_KEYS from '../../redux/media/keys';
+import KEYS from '../../redux/staticcontent/keys';
+import MEDIA_KEYS from '../../redux/staticmedia/keys';
 
 import HeaderImage from '../../components/HeaderImage';
 import BasicHeader from '../../components/HeaderImage/BasicHeader';
@@ -19,35 +15,21 @@ import Markdown from '../../components/Markdown';
 import NewsLetterForm from '../../components/NewsLetterForm';
 
 import Page from '../PageHOC';
-import { objectWithKeys } from '../../redux/static/helpers';
-import { mediaByKey } from '../../redux/media/helpers';
 
-const CONTENT_KEYS = [
-    KEYS.volunteersPageTitle,
-    KEYS.volunteersPageSubtitle,
-    KEYS.volunteeringTitle,
-    KEYS.volunteeringSubtitle,
-    KEYS.volunteeringBody,
-];
+import {
+    volunteerTestimonials,
+} from '../../redux/testimonials/selectors';
 
-const VolunteersPage = ({ allContent, allMedia, testimonials, testimonialsShouldUpdate, updateTestimonials }) => {
-    const content = objectWithKeys(allContent, CONTENT_KEYS);
-    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.volunteerPageHeaderImage);
+const VolunteersPage = ({ testimonials }) => {
     const testimonial = testimonials.length > 0 ? testimonials[0] : null;
 
-    useEffect(() => {
-        if (testimonialsShouldUpdate) {
-            updateTestimonials();
-        }
-    }, []);
-
     return (
-        <Page className="VolunteersPage" pageTitle="For volunteers" metaDesc={content.volunteersPageSubtitle}>
+        <Page className="VolunteersPage" pageTitle="For volunteers" metaDescKey={KEYS.volunteersPageSubtitle}>
             <HeaderImage
-                image={headerImage}
+                imageKey={MEDIA_KEYS.volunteerPageHeaderImage}
                 alt="Header image"
             >
-                <BasicHeader title={content.volunteersPageTitle} body={content.volunteersPageSubtitle} />
+                <BasicHeader titleKey={KEYS.volunteersPageTitle} bodyKey={KEYS.volunteersPageSubtitle} />
             </HeaderImage>
             {testimonial ? (
                 <React.Fragment>
@@ -62,8 +44,8 @@ const VolunteersPage = ({ allContent, allMedia, testimonials, testimonialsShould
                     <Divider lg />
                 </React.Fragment>
             ) : null}
-            <BlockSection title={content.volunteeringTitle} subtitle={content.volunteeringSubtitle}>
-                <Markdown source={content.volunteeringBody} />
+            <BlockSection titleKey={KEYS.volunteeringTitle} subtitleKey={KEYS.volunteeringSubtitle}>
+                <Markdown sourceKey={KEYS.volunteeringBody} />
             </BlockSection>
             <Divider lg />
             <NewsLetterForm />
@@ -73,17 +55,9 @@ const VolunteersPage = ({ allContent, allMedia, testimonials, testimonialsShould
 };
 
 const mapStateToProps = state => ({
-    allContent: StaticContentSelectors.content(state),
-    allMedia: MediaSelectors.media(state),
-    testimonials: ContentSelectors.volunteerTestimonials(state),
-    testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state)
-});
-
-const mapDispatchToProps = dispatch => ({
-    updateTestimonials: () => dispatch(ContentActions.updateTestimonials())
+    testimonials: volunteerTestimonials(state),
 });
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(VolunteersPage);

@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import './style.scss'
 
-import { connect } from 'react-redux';
-
 import Form from '../inputs/Form'
 import TextInput from '../inputs/TextInput'
 import TextArea from '../inputs/TextArea'
@@ -13,18 +11,11 @@ import BlockSection from '../BlockSection'
 import { useFormField } from '../../hooks/formhooks'
 import { isEmail } from '../../utils/regex'
 import { minDelay } from '../../utils/misc'
+import KEYS from '../../redux/staticcontent/keys';
 
 import ContactRequestService from '../../services/contactrequests'
 
-import * as StaticContentSelectors from '../../redux/static/selectors';
-import KEYS from '../../redux/static/keys';
-import { objectWithKeys } from '../../redux/static/helpers';
-
-const ContactForm = ({ allContent }) => {
-
-	const content = objectWithKeys(allContent, [KEYS.contactFormTitle, KEYS.contactFormSubtitle]);
-
-	console.log(content)
+const ContactForm = () => {
 
 	const fields = {
 		firstName: {
@@ -115,7 +106,7 @@ const ContactForm = ({ allContent }) => {
 	}
 
 	return (
-		<BlockSection title={content.contactFormTitle} subtitle={content.contactFormSubtitle}>
+		<BlockSection titleKey={KEYS.contactFormTitle} subtitleKey={KEYS.contactFormSubtitle}>
 			<Form
 				fields={fields}
 				onError={handleFormError}
@@ -167,8 +158,4 @@ const ContactForm = ({ allContent }) => {
 	)
 }
 
-const mapStateToProps = (state) => ({
-	allContent: StaticContentSelectors.content(state),
-})
-
-export default connect(mapStateToProps)(ContactForm)
+export default ContactForm

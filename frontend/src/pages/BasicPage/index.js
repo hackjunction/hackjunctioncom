@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './style.scss';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 import LoadingPage from '../Loading';
 import ErrorPage from '../Error';
@@ -14,20 +15,15 @@ import BlockSection from '../../components/BlockSection';
 
 import Page from '../PageHOC';
 
-import * as ContentSelectors from '../../redux/content/selectors';
-import * as ContentActions from '../../redux/content/actions';
 import CenteredBlock from '../../components/CenteredBlock';
 
-import { getPageBySlug } from '../../redux/content/helpers';
+import {
+    pages as selectPages,
+    pagesLoading,
+    pagesError,
+} from '../../redux/pages/selectors';
 
-const BasicPage = React.memo(({ match, shouldUpdate, updatePages, loading, error, pages }) => {
-    const slug = match.params.slug;
-
-    useEffect(() => {
-        if (shouldUpdate) {
-            updatePages();
-        }
-    }, []);
+const BasicPage = React.memo(({ match, loading, error, page }) => {
 
     if (loading) {
         return <LoadingPage />;
@@ -36,8 +32,6 @@ const BasicPage = React.memo(({ match, shouldUpdate, updatePages, loading, error
     if (error) {
         return <ErrorPage />;
     }
-
-    const page = getPageBySlug(pages, slug);
 
     if (!page) {
         return <NotFoundPage />;
@@ -63,18 +57,17 @@ const BasicPage = React.memo(({ match, shouldUpdate, updatePages, loading, error
     );
 });
 
-const mapStateToProps = state => ({
-    pages: ContentSelectors.pages(state),
-    loading: ContentSelectors.pagesLoading(state),
-    error: ContentSelectors.pagesError(state),
-    shouldUpdate: ContentSelectors.pagesShouldUpdate(state)
-});
+const mapStateToProps = (state, ownProps) => {
+    const { match } = ownProps
+    const pages = selectPages(state);
 
-const mapDispatchToProps = dispatch => ({
-    updatePages: () => dispatch(ContentActions.updatePages())
-});
+    return {
+        page: _.find(pages, p => p.slug === match.params.slug),
+        loading: pagesLoading(state),
+        error: pagesError(state),
+    }
+}
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(BasicPage);

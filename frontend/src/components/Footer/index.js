@@ -4,18 +4,26 @@ import './style.scss';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import * as StaticContentSelectors from '../../redux/static/selectors';
-import * as ContentSelectors from '../../redux/content/selectors';
-import KEYS from '../../redux/static/keys';
-import { objectWithKeys } from '../../redux/static/helpers';
-
 import SocialMediaIcons from '../SocialMediaIcons';
 import Divider from '../Divider';
 
-const CONTENT_KEYS = [KEYS.siteSlogan, KEYS.siteContactEmail];
+import { content as selectContent } from '../../redux/staticcontent/selectors';
+import KEYS from '../../redux/staticcontent/keys';
+import {
+    homePages,
+    eventPages,
+    communityPages,
+} from '../../redux/pages/selectors';
 
-const Footer = ({ allContent, eventConcepts, socialMedias, extraPages }) => {
-    const content = objectWithKeys(allContent, CONTENT_KEYS);
+import {
+    eventconceptsByPriority,
+} from '../../redux/eventconcepts/selectors'
+
+import {
+    socialmedias,
+} from '../../redux/socialmedias/selectors';
+
+const Footer = ({ siteSlogan, siteContactEmail, eventConcepts, socialMedias, extraPages }) => {
 
     function renderConceptLinks() {
         if (!Array.isArray(eventConcepts) || eventConcepts.length === 0) {
@@ -62,9 +70,9 @@ const Footer = ({ allContent, eventConcepts, socialMedias, extraPages }) => {
                         src={require('../../assets/logos/text_black.png')}
                         alt="Junction logo"
                     />
-                    <p className="FooterInner--left__slogan">{content.siteSlogan}</p>
-                    <a className="FooterInner--left__contact" href={`mailto:${content.siteContactEmail}`}>
-                        {content.siteContactEmail}
+                    <p className="FooterInner--left__slogan">{siteSlogan}</p>
+                    <a className="FooterInner--left__contact" href={`mailto:${siteContactEmail}`}>
+                        {siteContactEmail}
                     </a>
                     <Divider sm />
                     {renderSocialMedias()}
@@ -139,22 +147,27 @@ const Footer = ({ allContent, eventConcepts, socialMedias, extraPages }) => {
                     <span role="img" aria-label="coffee">
                         ☕
                     </span>{' '}
-                    by the amazing Junction Team.
+                    by the Junction Team.
                 </span>
             </div>
         </footer>
     );
 };
 
-const mapStateToProps = state => ({
-    allContent: StaticContentSelectors.content(state),
-    extraPages: {
-        home: ContentSelectors.homePages(state),
-        events: ContentSelectors.eventPages(state),
-        community: ContentSelectors.communityPages(state)
-    },
-    eventConcepts: ContentSelectors.eventconceptsByPriority(state),
-    socialMedias: ContentSelectors.socialmedias(state)
-});
+const mapStateToProps = (state) => {
+    const content = selectContent(state);
+
+    return {
+        siteSlogan: content[KEYS.siteSlogan],
+        siteContactEmail: content[KEYS.siteContactEmail],
+        extraPages: {
+            home: homePages(state),
+            events: eventPages(state),
+            community: communityPages(state),
+        },
+        eventConcepts: eventconceptsByPriority(state),
+        socialMedias: socialmedias(state)
+    }
+}
 
 export default connect(mapStateToProps)(Footer);

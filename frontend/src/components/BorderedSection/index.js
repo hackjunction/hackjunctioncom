@@ -1,6 +1,9 @@
 import React from 'react'
 import './style.scss'
 
+import { connect } from 'react-redux';
+import { content as selectContent } from '../../redux/staticcontent/selectors';
+
 const BorderedSection = ({ title, content }) => {
 	return (
 		<div className="BorderedSection">
@@ -14,4 +17,14 @@ const BorderedSection = ({ title, content }) => {
 	)
 }
 
-export default BorderedSection
+const mapStateToProps = (state, ownProps) => {
+	const { titleKey, contentKey } = ownProps;
+	const content = selectContent(state)
+
+	return {
+		title: content[titleKey] || ownProps.title,
+		content: content[contentKey] || ownProps.content
+	}
+}
+
+export default connect(mapStateToProps)(BorderedSection)

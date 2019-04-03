@@ -13,46 +13,15 @@ import Markdown from '../../components/Markdown';
 import Page from '../PageHOC';
 import LoadingPage from '../Loading';
 
-import * as ContentSelectors from '../../redux/content/selectors';
-import * as StaticContentSelectors from '../../redux/static/selectors';
-import * as MediaSelectors from '../../redux/media/selectors';
-import KEYS from '../../redux/static/keys';
-import MEDIA_KEYS from '../../redux/media/keys';
-import { objectWithKeys } from '../../redux/static/helpers';
-import { mediaByKey } from '../../redux/media/helpers';
+import KEYS from '../../redux/staticcontent/keys';
+import MEDIA_KEYS from '../../redux/staticmedia/keys';
 
-const CONTENT_KEYS = [KEYS.conceptsPageTitle, KEYS.conceptsPageSubtitle];
+import {
+    eventconceptsByPriority,
+    eventconceptsLoading
+} from '../../redux/eventconcepts/selectors';
 
-const ConceptsPage = ({ eventconcepts, loading, allContent, allMedia }) => {
-    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.conceptsPageHeaderImage);
-    const content = objectWithKeys(allContent, CONTENT_KEYS);
-    function buildSubtitleItems(concept) {
-        const items = [];
-
-        if (concept.eventcategory) {
-            items.push({
-                icon: require('../../assets/icons/star.png'),
-                text: concept.eventcategory.name
-            });
-        }
-
-        if (concept.timedescription) {
-            items.push({
-                icon: require('../../assets/icons/calendar.png'),
-                text: concept.timedescription
-            });
-        }
-
-        if (concept.locationdescription) {
-            items.push({
-                icon: require('../../assets/icons/pointer.png'),
-                text: concept.locationdescription
-            });
-        }
-
-        return items;
-    }
-
+const ConceptsPage = ({ eventconcepts, loading }) => {
     function renderConcepts() {
         if (!Array.isArray(eventconcepts) || eventconcepts.length === 0) {
             return null;
@@ -61,7 +30,7 @@ const ConceptsPage = ({ eventconcepts, loading, allContent, allMedia }) => {
         return eventconcepts.map(concept => {
             return (
                 <React.Fragment key={concept.slug}>
-                    <BlockSection title={concept.name} subtitleItems={buildSubtitleItems(concept)}>
+                    <BlockSection title={concept.name} subtitle={'TODO!'}>
                         <Markdown source={concept.shortdescription} />
                         <Link to={`/concepts/${concept.slug}`}>See more</Link>
                     </BlockSection>
@@ -76,12 +45,12 @@ const ConceptsPage = ({ eventconcepts, loading, allContent, allMedia }) => {
     }
 
     return (
-        <Page className="ConceptsPage" pageTitle="Concepts" metaDesc={content.conceptsPageSubtitle}>
+        <Page className="ConceptsPage" pageTitle="Concepts" metaDescKey={KEYS.conceptsPageSubtitle}>
             <HeaderImage
-                image={headerImage}
+                imageKey={MEDIA_KEYS.conceptsPageHeaderImage}
                 alt="Header image"
             >
-                <BasicHeader title={content.conceptsPageTitle} body={content.conceptsPageSubtitle} />
+                <BasicHeader titleKey={KEYS.conceptsPageTitle} bodyKey={KEYS.conceptsPageSubtitle} />
             </HeaderImage>
             <Divider lg />
             {renderConcepts()}
@@ -93,10 +62,8 @@ const ConceptsPage = ({ eventconcepts, loading, allContent, allMedia }) => {
 };
 
 const mapStateToProps = state => ({
-    allContent: StaticContentSelectors.content(state),
-    allMedia: MediaSelectors.media(state),
-    loading: ContentSelectors.eventconceptsLoading(state),
-    eventconcepts: ContentSelectors.eventconceptsByPriority(state)
+    loading: eventconceptsLoading(state),
+    eventconcepts: eventconceptsByPriority(state)
 });
 
 export default connect(mapStateToProps)(ConceptsPage);

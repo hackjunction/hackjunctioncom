@@ -1,17 +1,15 @@
 import React from 'react'
 import './style.scss'
 
+import { connect } from 'react-redux';
+import { teammembersByPriority } from '../../redux/teammembers/selectors';
+
 const DEFAULT_GIF = require('../../assets/logos/emblem_white.png')
 const DEFAULT_IMG = require('../../assets/logos/emblem_white.png')
 
 const TeamMemberGrid = ({ teamMembers }) => {
 
 	function renderTeamMembers() {
-
-		if (!Array.isArray(teamMembers) || teamMembers.length === 0) {
-			return null;
-		}
-
 		return teamMembers.map(person => {
 			return (
 				<div className="TeamMemberGrid--item" key={person.fullName + '-' + person.email}>
@@ -42,4 +40,8 @@ const TeamMemberGrid = ({ teamMembers }) => {
 	)
 }
 
-export default TeamMemberGrid
+const mapStateToProps = (state) => ({
+	teamMembers: teammembersByPriority(state),
+})
+
+export default connect(mapStateToProps)(TeamMemberGrid)

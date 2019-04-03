@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './style.scss';
 
+import { connect } from 'react-redux';
 import Image from '../Image';
+import { media as selectMedia } from '../../redux/staticmedia/selectors'
 
 const HeaderImage = ({ image, alt, children }) => {
     return (
@@ -14,4 +16,12 @@ const HeaderImage = ({ image, alt, children }) => {
     );
 };
 
-export default HeaderImage;
+const mapStateToProps = (state, ownProps) => {
+    const media = selectMedia(state)
+
+    return {
+        image: media[ownProps.imageKey] || ownProps.image
+    }
+}
+
+export default connect(mapStateToProps)(HeaderImage);

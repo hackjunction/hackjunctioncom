@@ -12,7 +12,19 @@ import createRootReducer from './rootReducer'
 const persistConfig = {
 	key: 'hackjunctioncom',
 	storage,
-	blacklist: ['router'],
+	whitelist: [
+		'staticcontent',
+		'staticmedia',
+		'events',
+		'eventconcepts',
+		'kpis',
+		'pages',
+		'partners',
+		'socialmedias',
+		'stories',
+		'teammembers',
+		'testimonials',
+	],
 	stateReconciler: autoMergeLevel2,
 }
 

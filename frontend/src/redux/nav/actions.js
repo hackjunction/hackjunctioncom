@@ -1,15 +1,13 @@
 import * as ActionTypes from './actionTypes';
 
-export const toggleSidebar = open => dispatch => {
-    dispatch({
-        type: ActionTypes.TOGGLE_SIDEBAR,
-        payload: open
-    });
-};
+export const toggleSidebar = open => ({
+    type: ActionTypes.TOGGLE_SIDEBAR,
+    payload: open
+});
 
-export const setNavTitle = title => dispatch => {
-    dispatch({
-        type: ActionTypes.SET_NAV_TITLE,
-        payload: title
-    });
-};
+
+export const setNavTitle = title => ({
+    type: ActionTypes.SET_NAV_TITLE,
+    payload: title
+});
+

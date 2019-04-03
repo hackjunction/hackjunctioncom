@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './style.scss';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 import LoadingPage from '../Loading';
 import ErrorPage from '../Error';
@@ -15,23 +16,15 @@ import BlockSection from '../../components/BlockSection';
 
 import Page from '../PageHOC';
 
-import * as ContentSelectors from '../../redux/content/selectors';
-import * as ContentActions from '../../redux/content/actions';
 import CenteredBlock from '../../components/CenteredBlock';
 
-import { getConceptBySlug } from '../../redux/content/helpers';
+import {
+    eventconcepts,
+    eventconceptsLoading,
+    eventconceptsError,
+} from '../../redux/eventconcepts/selectors';
 
-const ConceptPage = React.memo(props => {
-    const { match, loading, error, concepts } = props;
-
-    const slug = match.params.slug;
-
-    useEffect(() => {
-        const { shouldUpdate, updateConcepts } = props;
-        if (shouldUpdate) {
-            updateConcepts();
-        }
-    }, []);
+const ConceptPage = ({ loading, error, concept }) => {
 
     if (loading) {
         return <LoadingPage />;
@@ -40,8 +33,6 @@ const ConceptPage = React.memo(props => {
     if (error) {
         return <ErrorPage />;
     }
-
-    const concept = getConceptBySlug(concepts, slug);
 
     if (!concept) {
         return <NotFoundPage />;
@@ -74,20 +65,19 @@ const ConceptPage = React.memo(props => {
             <Divider lg />
         </Page>
     );
-});
+};
 
-const mapStateToProps = state => ({
-    concepts: ContentSelectors.eventconcepts(state),
-    loading: ContentSelectors.eventconceptsLoading(state),
-    error: ContentSelectors.eventconceptsError(state),
-    shouldUpdate: ContentSelectors.eventconceptsShouldUpdate(state)
-});
+const mapStateToProps = (state, ownProps) => {
+    const { match } = ownProps;
+    const concepts = eventconcepts(state)
 
-const mapDispatchToProps = dispatch => ({
-    updateConcepts: () => dispatch(ContentActions.updateEventConcepts())
-});
+    return {
+        concept: _.find(concepts, c => c.slug === match.params.slug),
+        loading: eventconceptsLoading(state),
+        error: eventconceptsError(state),
+    }
+}
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(ConceptPage);

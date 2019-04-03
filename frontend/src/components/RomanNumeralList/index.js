@@ -2,12 +2,19 @@ import React from 'react'
 import './style.scss'
 import _ from 'lodash'
 
+import { connect } from 'react-redux';
+import { content as selectContent } from '../../redux/staticcontent/selectors';
 import { toRomanNumeral } from '../../utils/misc'
 
 const RomanNumeralList = ({ items }) => {
 
 	function renderListItems() {
 		return _.map(items, (item, index) => {
+
+			if (!item) {
+				return null;
+			}
+
 			return (
 				<li key={item} className="RomanNumeralList--list-item">
 					<div className="RomanNumeralList--list-item__bullet">
@@ -28,4 +35,13 @@ const RomanNumeralList = ({ items }) => {
 	)
 }
 
-export default RomanNumeralList
+const mapStateToProps = (state, ownProps) => {
+	const { itemKeys } = ownProps;
+	const content = selectContent(state);
+
+	return {
+		items: itemKeys ? _.map(itemKeys, key => content[key]) : ownProps.items
+	}
+}
+
+export default connect(mapStateToProps)(RomanNumeralList)

@@ -18,13 +18,9 @@ import { minDelay } from '../../utils/misc'
 import NewsLetterService from '../../services/newsletter'
 import countries from '../../data/countries.json'
 
-import * as StaticContentSelectors from '../../redux/static/selectors';
-import KEYS from '../../redux/static/keys';
-import { objectWithKeys } from '../../redux/static/helpers';
+import KEYS from '../../redux/staticcontent/keys';
 
-const NewsLetterForm = ({ allContent }) => {
-
-	const content = objectWithKeys(allContent, [KEYS.newsletterFormTitle, KEYS.newsletterFormSubtitle])
+const NewsLetterForm = () => {
 
 	const fields = {
 		email: {
@@ -71,7 +67,7 @@ const NewsLetterForm = ({ allContent }) => {
 	const options = countries.map(c => ({ value: c, label: c }))
 
 	return (
-		<BlockSection title={content.newsletterFormTitle} subtitle={content.newsletterFormSubtitle}>
+		<BlockSection titleKey={KEYS.newsletterFormTitle} subtitleKey={KEYS.newsletterFormSubtitle}>
 			<Form
 				fields={fields}
 				onError={handleFormError}
@@ -105,8 +101,4 @@ const NewsLetterForm = ({ allContent }) => {
 	)
 }
 
-const mapStateToProps = (state) => ({
-	allContent: StaticContentSelectors.content(state),
-})
-
-export default connect(mapStateToProps)(NewsLetterForm)
+export default NewsLetterForm

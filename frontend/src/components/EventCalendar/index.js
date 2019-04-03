@@ -7,18 +7,16 @@ import { connect } from 'react-redux';
 import EventCalendarYear from './EventCalendarYear';
 import LinkButton from '../LinkButton';
 
-import * as ContentSelectors from '../../redux/content/selectors';
-import * as ContentActions from '../../redux/content/actions';
-import { getEventsFiltered } from '../../redux/content/helpers';
+import { filterEvents } from '../../redux/events/helpers';
 
-const EventCalendar = ({ events, loading, error, updateEvents, shouldUpdate, concept = null, category = null, title }) => {
-    useEffect(() => {
-        if (shouldUpdate && !loading) {
-            updateEvents();
-        }
-    }, []);
+import {
+    upcomingEvents,
+    eventsLoading,
+    eventsError,
+} from '../../redux/events/selectors';
 
-    const filtered = getEventsFiltered(events, concept, category);
+const EventCalendar = ({ events, loading, error, title, concept = null, category = null }) => {
+    const filtered = filterEvents(events, concept, category);
 
     function renderEvents() {
 
@@ -56,17 +54,11 @@ const EventCalendar = ({ events, loading, error, updateEvents, shouldUpdate, con
 };
 
 const mapStateToProps = state => ({
-    events: ContentSelectors.upcomingEvents(state),
-    loading: ContentSelectors.eventsLoading(state),
-    error: ContentSelectors.eventsError(state),
-    shouldUpdate: ContentSelectors.eventsShouldUpdate(state)
-});
-
-const mapDispatchToProps = dispatch => ({
-    updateEvents: () => dispatch(ContentActions.updateEvents())
+    events: upcomingEvents(state),
+    loading: eventsLoading(state),
+    error: eventsError(state)
 });
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(EventCalendar);

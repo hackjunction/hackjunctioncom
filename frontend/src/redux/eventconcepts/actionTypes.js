@@ -1,0 +1,3 @@
+export const SET_EVENT_CONCEPTS = 'eventconcepts/SET_EVENT_CONCEPTS';
+export const SET_EVENT_CONCEPTS_LOADING = 'eventconcepts/SET_EVENT_CONCEPTS_LOADING';
+export const SET_EVENT_CONCEPTS_ERROR = 'eventconcepts/SET_EVENT_CONCEPTS_ERROR';

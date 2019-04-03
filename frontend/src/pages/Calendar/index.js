@@ -1,13 +1,8 @@
 import React from 'react';
 import './style.scss';
 
-import { connect } from 'react-redux';
-import * as StaticContentSelectors from '../../redux/static/selectors';
-import * as MediaSelectors from '../../redux/media/selectors';
-import { objectWithKeys } from '../../redux/static/helpers';
-import { mediaByKey } from '../../redux/media/helpers';
-import KEYS from '../../redux/static/keys';
-import MEDIA_KEYS from '../../redux/media/keys';
+import KEYS from '../../redux/staticcontent/keys';
+import MEDIA_KEYS from '../../redux/staticmedia/keys';
 
 import HeaderImage from '../../components/HeaderImage';
 import BasicHeader from '../../components/HeaderImage/BasicHeader';
@@ -17,18 +12,15 @@ import NewsLetterForm from '../../components/NewsLetterForm';
 
 import Page from '../PageHOC';
 
-const CONTENT_KEYS = [KEYS.calendarPageTitle, KEYS.calendarPageSubtitle];
 
-const CalendarPage = ({ allContent, allMedia }) => {
-    const content = objectWithKeys(allContent, CONTENT_KEYS);
-    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.calendarPageHeaderImage);
+const CalendarPage = () => {
     return (
-        <Page className="CalendarPage" pageTitle="Calendar" metaDesc={content.calendarPageSubtitle}>
+        <Page className="CalendarPage" pageTitle="Calendar" metaDescKey={KEYS.calendarPageSubtitle}>
             <HeaderImage
-                image={headerImage}
+                imageKey={MEDIA_KEYS.calendarPageHeaderImage}
                 alt="Header image"
             >
-                <BasicHeader title={content.calendarPageTitle} body={content.calendarPageSubtitle} />
+                <BasicHeader titleKey={KEYS.calendarPageTitle} bodyKey={KEYS.calendarPageSubtitle} />
             </HeaderImage>
             <EventCalendar />
             <Divider lg />
@@ -38,9 +30,4 @@ const CalendarPage = ({ allContent, allMedia }) => {
     );
 };
 
-const mapStateToProps = state => ({
-    allContent: StaticContentSelectors.content(state),
-    allMedia: MediaSelectors.media(state)
-});
-
-export default connect(mapStateToProps)(CalendarPage);
+export default CalendarPage

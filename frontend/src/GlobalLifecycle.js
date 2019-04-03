@@ -1,24 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ReactPixel from 'react-facebook-pixel';
-import { Helmet } from 'react-helmet';
-import ReactGA from 'react-ga';
-import { hotjar } from 'react-hotjar';
 import config from './services/config';
 
-import * as ContentActions from './redux/content/actions';
-import * as ContentSelectors from './redux/content/selectors';
-import * as StaticContentActions from './redux/static/actions';
-import * as StaticContentSelectors from './redux/static/selectors';
-import * as MediaActions from './redux/media/actions';
-import * as MediaSelectors from './redux/media/selectors';
+import { updateEventConcepts } from './redux/eventconcepts/actions';
+import { eventconceptsShouldUpdate } from './redux/eventconcepts/selectors'
+
+import { updateEvents } from './redux/events/actions';
+import { eventsShouldUpdate } from './redux/events/selectors';
+
+import { updateKpis } from './redux/kpis/actions';
+import { kpisShouldUpdate } from './redux/kpis/selectors';
+
+import { updatePages } from './redux/pages/actions';
+import { pagesShouldUpdate } from './redux/pages/selectors'
+
+import { updatePartners } from './redux/partners/actions';
+import { partnersShouldUpdate } from './redux/partners/selectors';
+
+import { updateSocialMedias } from './redux/socialmedias/actions';
+import { socialMediasShouldUpdate } from './redux/socialmedias/selectors';
+
+import { updateStaticContent } from './redux/staticcontent/actions';
+import { contentShouldUpdate } from './redux/staticcontent/selectors';
+
+import { updateStaticMedia } from './redux/staticmedia/actions';
+import { mediaShouldUpdate } from './redux/staticmedia/selectors';
+
+import { updateStories } from './redux/stories/actions';
+import { storiesShouldUpdate } from './redux/stories/selectors';
+
+import { updateTeamMembers } from './redux/teammembers/actions';
+import { teammembersShouldUpdate } from './redux/teammembers/selectors';
+
+import { updateTestimonials } from './redux/testimonials/actions';
+import { testimonialsShouldUpdate } from './redux/testimonials/selectors';
 
 /* A component with the same lifecycle as the app in general. Use this
-  to e.g. dispatch any Redux actions that you want to dispatch on every page load.
-
-  Also renders any dynamic changes to the HTML <head/> with react-helmet
-
-  Also initalizes any 3rd party services, such as Google Analytics etc.
+  to e.g. dispatch any Redux actions that you want to dispatch on every page load (refresh).
 
   Remember to render this in App.js
 */
@@ -31,26 +49,35 @@ class GlobalLifecycle extends React.Component {
             console.log('CONFIG:', config);
         }
 
-        /* Update various globally needed content from the API */
+        this.updateImportant();
 
-        if (this.props.pagesShouldUpdate) {
-            this.props.updatePages();
-        }
+        setTimeout(function () {
+            this.updateSecondary();
+        }.bind(this), 500)
+    }
 
+    updateImportant() {
         if (this.props.staticContentShouldUpdate) {
             this.props.updateStaticContent();
+        }
+
+        if (this.props.staticMediaShouldUpdate) {
+            this.props.updateStaticMedia();
         }
 
         if (this.props.eventConceptsShouldUpdate) {
             this.props.updateEventConcepts();
         }
 
-        if (this.props.mediaShouldUpdate) {
-            this.props.updateMedia();
+        if (this.props.pagesShouldUpdate) {
+            this.props.updatePages();
         }
+    }
 
-        if (this.props.socialMediasShouldUpdate) {
-            this.props.updateSocialMedias();
+    updateSecondary() {
+
+        if (this.props.eventsShouldUpdate) {
+            this.props.updateEvents();
         }
 
         if (this.props.kpisShouldUpdate) {
@@ -61,76 +88,59 @@ class GlobalLifecycle extends React.Component {
             this.props.updatePartners();
         }
 
+        if (this.props.socialMediasShouldUpdate) {
+            this.props.updateSocialMedia();
+        }
+
         if (this.props.storiesShouldUpdate) {
             this.props.updateStories();
         }
 
-        /* Initialize 3rd party analytics services if config for them is present */
-
-        if (config.FACEBOOK_PIXEL_ID) {
-            ReactPixel.init(config.FACEBOOK_PIXEL_ID, {}, { autoConfig: true, debug: false });
-            ReactPixel.pageView();
-        } else {
-            if (config.IS_DEBUG) {
-                console.log('DEBUG: config variable FACEBOOK_PIXEL_ID undefined, not initializing FB pixel analytics');
-            }
+        if (this.props.teamMembersShouldUpdate) {
+            this.props.updateTeamMembers();
         }
 
-        if (config.GOOGLE_ANALYTICS_ID) {
-            ReactGA.initialize(config.GOOGLE_ANALYTICS_ID);
-        } else {
-            if (config.IS_DEBUG) {
-                console.log('DEBUG: config variable GOOGLE_ANALYTICS_ID undefined, not initializing GA analytics');
-            }
+        if (this.props.testimonialsShouldUpdate) {
+            this.props.updateTestimonials();
         }
-
-        // if (config.HOTJAR_ID && config.HOTJAR_SV) {
-        //     hotjar.initialize(config.HOTJAR_ID, config.HOTJAR_SV);
-        // } else {
-        //     if (config.IS_DEBUG) {
-        //         console.log(
-        //             'DEBUG: config variable HOTJAR_ID or HOTJAR_SV undefined, not initializing Hotjar analytics'
-        //         );
-        //     }
-        // }
     }
 
     render() {
-        // Return sitewide react-helmet configuration ("default"). You can override/make additions per-page in the PageHOC component.
-        return (
-            <Helmet titleTemplate="Junction | %s">
-                {/* Default page title -> Junction | Hack the Future */}
-                <title>Hack the Future</title>
-                {/* Stop engines from crawling any non-public urls where the app is deployed */}
-                {config.IS_DEBUG ? <meta name="robots" content="noindex,nofollow" /> : null}
-
-            </Helmet>
-        );
+        return null;
     }
 }
 
 const mapStateToProps = state => ({
-    staticContentShouldUpdate: StaticContentSelectors.contentShouldUpdate(state),
-    eventConceptsShouldUpdate: ContentSelectors.eventconceptsShouldUpdate(state),
-    mediaShouldUpdate: MediaSelectors.mediaShouldUpdate(state),
-    socialMediasShouldUpdate: ContentSelectors.socialMediasShouldUpdate(state),
-    kpisShouldUpdate: ContentSelectors.kpisShouldUpdate(state),
-    pagesShouldUpdate: ContentSelectors.pagesShouldUpdate(state),
-    storiesShouldUpdate: ContentSelectors.storiesShouldUpdate(state),
-    partnersShouldUpdate: ContentSelectors.partnersShouldUpdate(state),
+    staticContentShouldUpdate: contentShouldUpdate(state),
+    staticMediaShouldUpdate: mediaShouldUpdate(state),
+    eventConceptsShouldUpdate: eventconceptsShouldUpdate(state),
+    eventsShouldUpdate: eventsShouldUpdate(state),
+    kpisShouldUpdate: kpisShouldUpdate(state),
+    pagesShouldUpdate: pagesShouldUpdate(state),
+    partnersShouldUpdate: partnersShouldUpdate(state),
+    socialMediasShouldUpdate: socialMediasShouldUpdate(state),
+    storiesShouldUpdate: storiesShouldUpdate(state),
+    teamMembersShouldUpdate: teammembersShouldUpdate(state),
+    testimonialsShouldUpdate: testimonialsShouldUpdate(state),
 });
+
 const mapDispatchToProps = dispatch => ({
-    updateStaticContent: () => dispatch(StaticContentActions.updateStaticContent()),
-    updateEventConcepts: () => dispatch(ContentActions.updateEventConcepts()),
-    updateMedia: () => dispatch(MediaActions.updateMedia()),
-    updateSocialMedias: () => dispatch(ContentActions.updateSocialMedias()),
-    updateKpis: () => dispatch(ContentActions.updateKpis()),
-    updatePages: () => dispatch(ContentActions.updatePages()),
-    updatePartners: () => dispatch(ContentActions.updatePartners()),
-    updateStories: () => dispatch(ContentActions.updateStories())
+    updateStaticContent: () => dispatch(updateStaticContent()),
+    updateStaticMedia: () => dispatch(updateStaticMedia()),
+    updateEventConcepts: () => dispatch(updateEventConcepts()),
+    updateEvents: () => dispatch(updateEvents()),
+    updateKpis: () => dispatch(updateKpis()),
+    updatePages: () => dispatch(updatePages()),
+    updatePartners: () => dispatch(updatePartners()),
+    updateSocialMedia: () => dispatch(updateSocialMedias()),
+    updateStories: () => dispatch(updateStories()),
+    updateTeamMembers: () => dispatch(updateTeamMembers()),
+    updateTestimonials: () => dispatch(updateTestimonials()),
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(GlobalLifecycle);
+
+

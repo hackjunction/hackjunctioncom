@@ -3,12 +3,8 @@ import './style.scss';
 
 import { connect } from 'react-redux';
 
-import * as ContentActions from '../../redux/content/actions';
-import * as ContentSelectors from '../../redux/content/selectors';
-import * as StaticContentSelectors from '../../redux/static/selectors';
-import * as MediaSelectors from '../../redux/media/selectors';
-import KEYS from '../../redux/static/keys';
-import MEDIA_KEYS from '../../redux/media/keys';
+import KEYS from '../../redux/staticcontent/keys';
+import MEDIA_KEYS from '../../redux/staticmedia/keys';
 
 import HeaderImage from '../../components/HeaderImage';
 import BasicHeader from '../../components/HeaderImage/BasicHeader';
@@ -20,53 +16,30 @@ import Markdown from '../../components/Markdown';
 import NewsLetterForm from '../../components/NewsLetterForm';
 
 import Page from '../PageHOC';
-import { objectWithKeys } from '../../redux/static/helpers';
-import { mediaByKey } from '../../redux/media/helpers';
 
-const CONTENT_KEYS = [
-    KEYS.participantsPageTitle,
-    KEYS.participantsPageSubtitle,
-    KEYS.howToJoinTitle,
-    KEYS.howToJoinSubtitle,
-    KEYS.howToJoinStepOne,
-    KEYS.howToJoinStepTwo,
-    KEYS.howToJoinStepThree,
-    KEYS.howToJoinStepFour,
-    KEYS.howToJoinStepFive,
-    KEYS.getHiredTitle,
-    KEYS.getHiredSubtitle,
-    KEYS.getHiredBody
-];
+import {
+    participantTestimonials,
+} from '../../redux/testimonials/selectors';
 
-const ParticipantsPage = ({ allContent, allMedia, testimonials, testimonialsShouldUpdate, updateTestimonials }) => {
-    const content = objectWithKeys(allContent, CONTENT_KEYS);
-    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.participantPageHeaderImage);
+const ParticipantsPage = ({ testimonials }) => {
     const testimonial = testimonials.length > 0 ? testimonials[0] : null;
 
-    const howToJoinItems = [];
-
-    if (content.howToJoinStepOne) howToJoinItems.push(content.howToJoinStepOne);
-    if (content.howToJoinStepTwo) howToJoinItems.push(content.howToJoinStepTwo);
-    if (content.howToJoinStepThree) howToJoinItems.push(content.howToJoinStepThree);
-    if (content.howToJoinStepFour) howToJoinItems.push(content.howToJoinStepFour);
-    if (content.howToJoinStepFive) howToJoinItems.push(content.howToJoinStepFive);
-
-    useEffect(() => {
-        if (testimonialsShouldUpdate) {
-            updateTestimonials();
-        }
-    }, []);
-
     return (
-        <Page className="ParticipantsPage" pageTitle="For participants" metaDesc={content.participantsPageSubtitle}>
+        <Page className="ParticipantsPage" pageTitle="For participants" metaDescKey={KEYS.participantsPageSubtitle}>
             <HeaderImage
-                image={headerImage}
+                imageKey={MEDIA_KEYS.participantPageHeaderImage}
                 alt="Header image"
             >
-                <BasicHeader title={content.participantsPageTitle} body={content.participantsPageSubtitle} />
+                <BasicHeader titleKey={KEYS.participantsPageTitle} bodyKey={KEYS.participantsPageSubtitle} />
             </HeaderImage>
-            <BlockSection title={content.howToJoinTitle} subtitle={content.howToJoinSubtitle}>
-                <RomanNumeralList items={howToJoinItems} />
+            <BlockSection titleKey={KEYS.howToJoinTitle} subtitleKey={KEYS.howToJoinSubtitle}>
+                <RomanNumeralList itemKeys={[
+                    KEYS.howToJoinStepOne,
+                    KEYS.howToJoinStepTwo,
+                    KEYS.howToJoinStepThree,
+                    KEYS.howToJoinStepFour,
+                    KEYS.howToJoinStepFive
+                ]} />
             </BlockSection>
             <Divider lg />
             {testimonial ? (
@@ -82,8 +55,8 @@ const ParticipantsPage = ({ allContent, allMedia, testimonials, testimonialsShou
                     <Divider lg />
                 </React.Fragment>
             ) : null}
-            <BlockSection title={content.getHiredTitle} subtitle={content.getHiredSubtitle}>
-                <Markdown source={content.getHiredBody} />
+            <BlockSection titleKey={KEYS.getHiredTitle} subtitleKey={KEYS.getHiredSubtitle}>
+                <Markdown sourceKey={KEYS.getHiredBody} />
             </BlockSection>
             <Divider lg />
             <NewsLetterForm />
@@ -93,17 +66,9 @@ const ParticipantsPage = ({ allContent, allMedia, testimonials, testimonialsShou
 };
 
 const mapStateToProps = state => ({
-    allContent: StaticContentSelectors.content(state),
-    allMedia: MediaSelectors.media(state),
-    testimonials: ContentSelectors.participantTestimonials(state),
-    testimonialsShouldUpdate: ContentSelectors.testimonialsShouldUpdate(state)
-});
-
-const mapDispatchToProps = dispatch => ({
-    updateTestimonials: () => dispatch(ContentActions.updateTestimonials())
+    testimonials: participantTestimonials(state),
 });
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(ParticipantsPage);

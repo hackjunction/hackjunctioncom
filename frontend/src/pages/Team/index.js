@@ -11,48 +11,26 @@ import Divider from '../../components/Divider';
 
 import Page from '../PageHOC';
 
-import * as StaticContentSelectors from '../../redux/static/selectors';
-import * as ContentSelectors from '../../redux/content/selectors';
-import * as ContentActions from '../../redux/content/actions';
-import * as MediaSelectors from '../../redux/media/selectors';
-import KEYS from '../../redux/static/keys';
-import MEDIA_KEYS from '../../redux/media/keys';
-import { objectWithKeys } from '../../redux/static/helpers';
-import { mediaByKey } from '../../redux/media/helpers';
+import KEYS from '../../redux/staticcontent/keys';
+import MEDIA_KEYS from '../../redux/staticmedia/keys';
 import CenteredBlock from '../../components/CenteredBlock/';
 import LinkButton from '../../components/LinkButton';
 import Markdown from '../../components/Markdown';
 
-const CONTENT_KEYS = [
-    KEYS.teamPageTitle,
-    KEYS.teamPageSubtitle,
-    KEYS.teamPageVolunteerTitle,
-    KEYS.teamPageVolunteerSubtitle,
-    KEYS.teamPageVolunteerBody
-];
-
-const TeamPage = ({ allContent, allMedia, teamMembers, shouldUpdate, updateTeamMembers }) => {
-    const content = objectWithKeys(allContent, CONTENT_KEYS);
-    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.teamPageHeaderImage);
-    useEffect(() => {
-        if (shouldUpdate) {
-            updateTeamMembers();
-        }
-    }, []);
+const TeamPage = () => {
 
     return (
-        <Page className="TeamPage" pageTitle="Team" metaDesc={content.teamPageSubtitle}>
+        <Page className="TeamPage" pageTitle="Team" metaDescKey={KEYS.teamPageSubtitle}>
             <HeaderImage
-                image={headerImage}
+                imageKey={MEDIA_KEYS.teamPageHeaderImage}
                 alt="Header image"
             >
-                <BasicHeader title={content.teamPageTitle} body={content.teamPageSubtitle} />
+                <BasicHeader titleKey={KEYS.teamPageTitle} bodyKey={KEYS.teamPageSubtitle} />
             </HeaderImage>
-            <TeamMemberGrid teamMembers={teamMembers} />
+            <TeamMemberGrid />
             <Divider lg />
-
-            <BlockSection title={content.teamPageVolunteerTitle} subtitle={content.teamPageVolunteerSubtitle}>
-                <Markdown source={content.teamPageVolunteerBody} />
+            <BlockSection titleKey={KEYS.teamPageVolunteerTitle} subtitleKey={KEYS.teamPageVolunteerSubtitle}>
+                <Markdown sourceKey={KEYS.teamPageVolunteerBody} />
                 <LinkButton to="/volunteers" text="More about volunteering" />
             </BlockSection>
             <CenteredBlock>
@@ -64,18 +42,4 @@ const TeamPage = ({ allContent, allMedia, teamMembers, shouldUpdate, updateTeamM
     );
 };
 
-const mapStateToProps = state => ({
-    allContent: StaticContentSelectors.content(state),
-    allMedia: MediaSelectors.media(state),
-    teamMembers: ContentSelectors.teammembersByPriority(state),
-    shouldUpdate: ContentSelectors.teammembersShouldUpdate(state)
-});
-
-const mapDispatchToProps = dispatch => ({
-    updateTeamMembers: () => dispatch(ContentActions.updateTeamMembers())
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(TeamPage);
+export default TeamPage;

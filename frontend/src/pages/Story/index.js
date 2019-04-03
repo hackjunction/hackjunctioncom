@@ -2,12 +2,8 @@ import React from 'react';
 import './style.scss';
 
 import { connect } from 'react-redux';
-import * as StaticContentSelectors from '../../redux/static/selectors';
-import * as MediaSelectors from '../../redux/media/selectors';
-import * as ContentSelectors from '../../redux/content/selectors';
-import KEYS from '../../redux/static/keys';
-import MEDIA_KEYS from '../../redux/media/keys';
-import { mediaByKey } from '../../redux/media/helpers';
+import KEYS from '../../redux/staticcontent/keys';
+import MEDIA_KEYS from '../../redux/staticmedia/keys';
 
 import HeaderImage from '../../components/HeaderImage';
 import BasicHeader from '../../components/HeaderImage/BasicHeader';
@@ -20,20 +16,7 @@ import NewsLetterForm from '../../components/NewsLetterForm';
 import Divider from '../../components/Divider';
 
 import Page from '../PageHOC';
-import { objectWithKeys } from '../../redux/static/helpers';
 import CenteredBlock from '../../components/CenteredBlock/index';
-
-const CONTENT_KEYS = [
-    KEYS.storyPageTitle,
-    KEYS.storyPageSubtitle,
-    KEYS.whatIsJunctionTitle,
-    KEYS.whatIsJunctionSubtitle,
-    KEYS.whatIsJunctionBody,
-    KEYS.storyPageContent,
-    KEYS.junction2019,
-    KEYS.junction2019Subtitle,
-    KEYS.junction2019Body
-];
 
 const BOTTOM_LINKS = [
     {
@@ -56,41 +39,26 @@ const BOTTOM_LINKS = [
     }
 ]
 
-const StoryPage = ({ allContent, allMedia, kpis = [] }) => {
-    const content = objectWithKeys(allContent, CONTENT_KEYS);
-    const headerImage = mediaByKey(allMedia, MEDIA_KEYS.storyPageHeaderImage);
-
-    function renderStatBlocks() {
-        if (Array.isArray(kpis) && kpis.length > 0) {
-            const blocks = kpis.map(kpi => {
-                return {
-                    id: kpi.label + '-' + kpi.number,
-                    label: kpi.label,
-                    value: kpi.number
-                };
-            });
-            return <StatBlocks blocks={blocks} />;
-        }
-    }
+const StoryPage = () => {
 
     return (
-        <Page className="StoryPage" pageTitle="Our story" metaDesc={content.storyPageSubtitle}>
+        <Page className="StoryPage" pageTitle="Our story" metaDescKey={KEYS.storyPageSubtitle}>
             <HeaderImage
-                image={headerImage}
+                imageKey={MEDIA_KEYS.storyPageHeaderImage}
                 alt="Header image"
             >
-                <BasicHeader title={content.storyPageTitle} body={content.storyPageSubtitle} />
+                <BasicHeader titleKey={KEYS.storyPageTitle} bodyKey={KEYS.storyPageSubtitle} />
             </HeaderImage>
-            <BlockSection title={content.whatIsJunctionTitle} subtitle={content.whatIsJunctionSubtitle}>
-                <Markdown source={content.whatIsJunctionBody} />
-                {renderStatBlocks()}
+            <BlockSection titleKey={KEYS.whatIsJunctionTitle} subtitleKey={KEYS.whatIsJunctionSubtitle}>
+                <Markdown sourceKey={KEYS.whatIsJunctionBody} />
+                <StatBlocks type="generic" />
             </BlockSection>
             <Divider lg />
             <CenteredBlock>
-                <Markdown source={content.storyPageContent} />
+                <Markdown sourceKey={KEYS.storyPageContent} />
             </CenteredBlock>
-            <BlockSection title={content.junction2019} subtitle={content.junction2019Subtitle}>
-                <Markdown source={content.junction2019Body} />
+            <BlockSection titleKey={KEYS.junction2019} subtitleKey={KEYS.junction2019Subtitle}>
+                <Markdown sourceKey={KEYS.junction2019Body} />
             </BlockSection>
             <Divider lg />
             <NewsLetterForm />
@@ -102,10 +70,4 @@ const StoryPage = ({ allContent, allMedia, kpis = [] }) => {
     );
 };
 
-const mapStateToProps = state => ({
-    allContent: StaticContentSelectors.content(state),
-    allMedia: MediaSelectors.media(state),
-    kpis: ContentSelectors.genericKpis(state),
-});
-
-export default connect(mapStateToProps)(StoryPage);
+export default StoryPage

@@ -1,22 +1,19 @@
 import React from 'react'
 import './style.scss'
 
+import _ from 'lodash';
 import { connect } from 'react-redux'
-import * as MediaSelectors from '../../redux/media/selectors';
-import { mediaByKey } from '../../redux/media/helpers';
-
+import { media as selectMedia } from '../../redux/staticmedia/selectors';
 import ImageLink from '../ImageLink'
 
-const ImageLinks = React.memo(({ links, allMedia }) => {
-
+const ImageLinks = ({ links }) => {
 
 	function renderLinks() {
-		return links.map(link => {
-			const image = mediaByKey(allMedia, link.imageKey);
+		return _.map(links, link => {
 			return (
-				<ImageLink key={link.linkTo} image={image} {...link} />
+				<ImageLink key={link.linkTo} {...link} />
 			)
-		})
+		});
 	}
 
 	return (
@@ -24,10 +21,19 @@ const ImageLinks = React.memo(({ links, allMedia }) => {
 			{renderLinks()}
 		</div>
 	)
-})
+};
 
-const mapStateToProps = (state) => ({
-	allMedia: MediaSelectors.media(state)
-})
+const mapStateToProps = (state, ownProps) => {
+	const media = selectMedia(state)
+
+	return {
+		links: _.map(ownProps.links, link => {
+			return {
+				...link,
+				image: media[link.imageKey]
+			}
+		})
+	}
+}
 
 export default connect(mapStateToProps)(ImageLinks)

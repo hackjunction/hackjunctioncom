@@ -1,13 +1,17 @@
 import React from 'react';
 import './style.scss';
 
+import { connect } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 import YouTube from 'react-youtube';
 import breaks from 'remark-breaks';
 
+import { content as selectContent } from '../../redux/staticcontent/selectors';
+
 import { isYoutubeUrl } from '../../utils/regex';
 
 const Markdown = ({ source }) => {
+
     return (
         <div className="Markdown">
             <ReactMarkdown
@@ -43,4 +47,13 @@ const Markdown = ({ source }) => {
     );
 };
 
-export default Markdown;
+const mapStateToProps = (state, ownProps) => {
+    const { sourceKey } = ownProps;
+    const content = selectContent(state);
+
+    return {
+        source: content[sourceKey] || ownProps.source
+    }
+}
+
+export default connect(mapStateToProps)(Markdown);

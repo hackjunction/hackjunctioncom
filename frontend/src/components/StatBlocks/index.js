@@ -1,19 +1,23 @@
 import React from 'react'
 import './style.scss'
 
+import { connect } from 'react-redux';
+import _ from 'lodash';
+import { kpis as selectKpis } from '../../redux/kpis/selectors';
+
 import StatBlock from '../StatBlock'
 
-const StatBlocks = ({ blocks = [] }) => {
+const StatBlocks = ({ kpis = [] }) => {
 
 	function renderBlocks() {
-		return blocks.map(block => {
+		return _.map(kpis, kpi => {
 			return (
-				<StatBlock key={block.id} value={block.value} label={block.label} />
-			)
-		})
+				<StatBlock key={`${kpi.label}-${kpi.number}`} value={kpi.number} label={kpi.label} />
+			);
+		});
 	}
 
-	if (!Array.isArray(blocks) || blocks.length === 0) {
+	if (kpis.length === 0) {
 		return null;
 	}
 
@@ -24,4 +28,13 @@ const StatBlocks = ({ blocks = [] }) => {
 	)
 }
 
-export default StatBlocks
+const mapStateToProps = (state, ownProps) => {
+	const { type } = ownProps;
+	const kpis = selectKpis(state);
+
+	return {
+		kpis: _.filter(kpis, (kpi) => kpi.type.trim() === type)
+	}
+}
+
+export default connect(mapStateToProps)(StatBlocks)

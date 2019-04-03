@@ -3,6 +3,9 @@ import './App.scss';
 import './styles/global.scss';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
+import ReactPixel from 'react-facebook-pixel';
+import ReactGA from 'react-ga';
+import { hotjar } from 'react-hotjar';
 
 import HomePage from './pages/Home';
 import ParticipantsPage from './pages/Participants';
@@ -21,8 +24,38 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import GlobalLifecycle from './GlobalLifecycle';
+import config from './services/config';
 
 class App extends Component {
+
+    componentDidMount() {
+        if (config.FACEBOOK_PIXEL_ID) {
+            ReactPixel.init(config.FACEBOOK_PIXEL_ID, {}, { autoConfig: true, debug: false });
+        } else {
+            if (config.IS_DEBUG) {
+                console.log('DEBUG: config variable FACEBOOK_PIXEL_ID undefined, not initializing FB pixel analytics');
+            }
+        }
+
+        if (config.GOOGLE_ANALYTICS_ID) {
+            ReactGA.initialize(config.GOOGLE_ANALYTICS_ID);
+        } else {
+            if (config.IS_DEBUG) {
+                console.log('DEBUG: config variable GOOGLE_ANALYTICS_ID undefined, not initializing GA analytics');
+            }
+        }
+
+        if (config.HOTJAR_ID && config.HOTJAR_SV) {
+            hotjar.initialize(config.HOTJAR_ID, config.HOTJAR_SV);
+        } else {
+            if (config.IS_DEBUG) {
+                console.log(
+                    'DEBUG: config variable HOTJAR_ID or HOTJAR_SV undefined, not initializing Hotjar analytics'
+                );
+            }
+        }
+    }
+
     render() {
         return (
             <ConnectedRouter history={this.props.history}>
