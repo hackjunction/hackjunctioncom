@@ -1,10 +1,6 @@
 import React, { PureComponent } from 'react';
 import './style.scss';
 
-import {
-    isMobileOnly
-} from "react-device-detect";
-
 import config from '../../services/config';
 
 const Video = React.memo(({ onLoad }) => {
