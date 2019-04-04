@@ -10,7 +10,6 @@ export const updateStaticContent = () => dispatch => {
 	dispatch(setStaticContentLoading())
 	StaticContentService.getAll().then(content => {
 		const data = {}
-		console.log('GOT DATA', content);
 		const keys = _.map(content, ({ key, content }) => {
 			data[key.trim()] = content;
 			return key.trim();

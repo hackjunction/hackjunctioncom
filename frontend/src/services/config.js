@@ -7,7 +7,7 @@ const config = {
     HOTJAR_ID: process.env.REACT_APP_HOTJAR_ID,
     HOTJAR_SV: process.env.REACT_APP_HOTJAR_SV || 6,
     GOOGLE_ANALYTICS_ID: process.env.REACT_APP_GOOGLE_ANALYTICS_ID,
-    IS_DEBUG: DEBUG_HOSTNAMES.indexOf(window.location.hostname) !== -1
+    IS_DEBUG: true //DEBUG_HOSTNAMES.indexOf(window.location.hostname) !== -1
 };
 
 export default config;
