@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './style.scss';
 
 import LogoSpinner from '../../components/LogoSpinner';
 import Page from '../PageHOC';
 
-const LoadingPage = () => {
-    return (
-        <Page className="LoadingPage">
-            <LogoSpinner />
-        </Page>
-    );
-};
+class LoadingPage extends PureComponent {
+    render() {
+        return (
+            <Page className="LoadingPage">
+                <LogoSpinner />
+            </Page>
+        )
+    }
+}
 
 export default LoadingPage;

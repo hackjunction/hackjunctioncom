@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './style.scss';
 
 import { connect } from 'react-redux';
@@ -39,35 +39,37 @@ const BOTTOM_LINKS = [
     }
 ]
 
-const StoryPage = () => {
+class StoryPage extends PureComponent {
 
-    return (
-        <Page className="StoryPage" pageTitle="Our story" metaDescKey={KEYS.storyPageSubtitle}>
-            <HeaderImage
-                imageKey={MEDIA_KEYS.storyPageHeaderImage}
-                alt="Header image"
-            >
-                <BasicHeader titleKey={KEYS.storyPageTitle} bodyKey={KEYS.storyPageSubtitle} />
-            </HeaderImage>
-            <BlockSection titleKey={KEYS.whatIsJunctionTitle} subtitleKey={KEYS.whatIsJunctionSubtitle}>
-                <Markdown sourceKey={KEYS.whatIsJunctionBody} />
-                <StatBlocks type="generic" />
-            </BlockSection>
-            <Divider lg />
-            <CenteredBlock>
-                <Markdown sourceKey={KEYS.storyPageContent} />
-            </CenteredBlock>
-            <BlockSection titleKey={KEYS.junction2019} subtitleKey={KEYS.junction2019Subtitle}>
-                <Markdown sourceKey={KEYS.junction2019Body} />
-            </BlockSection>
-            <Divider lg />
-            <NewsLetterForm />
-            <Divider lg />
-            <ImageLinks
-                links={BOTTOM_LINKS}
-            />
-        </Page>
-    );
-};
+    render() {
+        return (
+            <Page className="StoryPage" pageTitle="Our story" metaDescKey={KEYS.storyPageSubtitle}>
+                <HeaderImage
+                    imageKey={MEDIA_KEYS.storyPageHeaderImage}
+                    alt="Header image"
+                >
+                    <BasicHeader titleKey={KEYS.storyPageTitle} bodyKey={KEYS.storyPageSubtitle} />
+                </HeaderImage>
+                <BlockSection titleKey={KEYS.whatIsJunctionTitle} subtitleKey={KEYS.whatIsJunctionSubtitle}>
+                    <Markdown sourceKey={KEYS.whatIsJunctionBody} />
+                    <StatBlocks type="generic" />
+                </BlockSection>
+                <Divider lg />
+                <CenteredBlock>
+                    <Markdown sourceKey={KEYS.storyPageContent} />
+                </CenteredBlock>
+                <BlockSection titleKey={KEYS.junction2019} subtitleKey={KEYS.junction2019Subtitle}>
+                    <Markdown sourceKey={KEYS.junction2019Body} />
+                </BlockSection>
+                <Divider lg />
+                <NewsLetterForm />
+                <Divider lg />
+                <ImageLinks
+                    links={BOTTOM_LINKS}
+                />
+            </Page>
+        )
+    }
+}
 
 export default StoryPage

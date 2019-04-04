@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { PureComponent } from 'react';
 import './style.scss';
 
 import { connect } from 'react-redux';
@@ -23,75 +23,76 @@ import {
     organiserTestimonials,
 } from '../../redux/testimonials/selectors';
 
-const OrganisersPage = ({
-    testimonials,
-}) => {
-    const testimonial = testimonials.length > 0 ? testimonials[0] : null;
+class OrganisersPage extends PureComponent {
+    render() {
+        const { testimonials } = this.props;
+        const testimonial = testimonials.length > 0 ? testimonials[0] : null;
 
-    return (
-        <Page className="OrganisersPage" pageTitle="For organisers" metaDescKey={KEYS.organisersPageSubtitle}>
-            <HeaderImage
-                imageKey={MEDIA_KEYS.organiserPageHeaderImage}
-                alt="Header image"
-            >
-                <BasicHeader titleKey={KEYS.organisersPageTitle} bodyKey={KEYS.organisersPageSubtitle} />
-            </HeaderImage>
-            <BlockSection titleKey={KEYS.whatIsJunctionXTitle} subtitleKey={KEYS.whatIsJunctionXSubtitle}>
-                <Markdown sourceKey={KEYS.whatIsJunctionXBody} />
-                <StatBlocks type="organiser" />
-            </BlockSection>
-            <Divider lg />
-            {testimonial ? (
+        return (
+            <Page className="OrganisersPage" pageTitle="For organisers" metaDescKey={KEYS.organisersPageSubtitle}>
+                <HeaderImage
+                    imageKey={MEDIA_KEYS.organiserPageHeaderImage}
+                    alt="Header image"
+                >
+                    <BasicHeader titleKey={KEYS.organisersPageTitle} bodyKey={KEYS.organisersPageSubtitle} />
+                </HeaderImage>
+                <BlockSection titleKey={KEYS.whatIsJunctionXTitle} subtitleKey={KEYS.whatIsJunctionXSubtitle}>
+                    <Markdown sourceKey={KEYS.whatIsJunctionXBody} />
+                    <StatBlocks type="organiser" />
+                </BlockSection>
+                <Divider lg />
+                {testimonial ? (
+                    <React.Fragment>
+                        <ImageBlockSection
+                            image={testimonial.image}
+                            imageAlt={testimonial.name}
+                            title={testimonial.name}
+                            subtitle={testimonial.subtitle}
+                        >
+                            <Markdown source={testimonial.quote} />
+                        </ImageBlockSection>
+                        <Divider lg />
+                    </React.Fragment>
+                ) : null}
+                <SingleColumnSection
+                    titleKey={KEYS.whatDoesJunctionXOfferTitle}
+                    subtitleKey={KEYS.whatDoesJunctionXOfferSubtitle}
+                >
+                    <BorderedSection
+                        titleKey={KEYS.whatDoesJunctionXOfferFirstTitle}
+                        contentKey={KEYS.whatDoesJunctionXOfferFirstBody}
+                    />
+                    <BorderedSection
+                        titleKey={KEYS.whatDoesJunctionXOfferSecondTitle}
+                        contentKey={KEYS.whatDoesJunctionXOfferSecondBody}
+                    />
+                    <BorderedSection
+                        titleKey={KEYS.whatDoesJunctionXOfferThirdTitle}
+                        contentKey={KEYS.whatDoesJunctionXOfferThirdBody}
+                    />
+                </SingleColumnSection>
+                <Divider lg />
                 <React.Fragment>
-                    <ImageBlockSection
-                        image={testimonial.image}
-                        imageAlt={testimonial.name}
-                        title={testimonial.name}
-                        subtitle={testimonial.subtitle}
-                    >
-                        <Markdown source={testimonial.quote} />
-                    </ImageBlockSection>
+                    <CenteredBlock>
+                        <Markdown sourceKey={KEYS.organiserPageBottomContent} />
+                    </CenteredBlock>
                     <Divider lg />
                 </React.Fragment>
-            ) : null}
-            <SingleColumnSection
-                titleKey={KEYS.whatDoesJunctionXOfferTitle}
-                subtitleKey={KEYS.whatDoesJunctionXOfferSubtitle}
-            >
-                <BorderedSection
-                    titleKey={KEYS.whatDoesJunctionXOfferFirstTitle}
-                    contentKey={KEYS.whatDoesJunctionXOfferFirstBody}
-                />
-                <BorderedSection
-                    titleKey={KEYS.whatDoesJunctionXOfferSecondTitle}
-                    contentKey={KEYS.whatDoesJunctionXOfferSecondBody}
-                />
-                <BorderedSection
-                    titleKey={KEYS.whatDoesJunctionXOfferThirdTitle}
-                    contentKey={KEYS.whatDoesJunctionXOfferThirdBody}
-                />
-            </SingleColumnSection>
-            <Divider lg />
-            <React.Fragment>
-                <CenteredBlock>
-                    <Markdown sourceKey={KEYS.organiserPageBottomContent} />
-                </CenteredBlock>
+                <ImageBlockSection
+                    imageKey={MEDIA_KEYS.interestedInOrganisingImage}
+                    imageAltKey={KEYS.interestedInOrganisingTitle}
+                    titleKey={KEYS.interestedInOrganisingTitle}
+                    subtitleKey={KEYS.interestedInOrganisingSubtitle}
+                >
+                    <Markdown sourceKey={KEYS.interestedInOrganisingBody} />
+                </ImageBlockSection>
                 <Divider lg />
-            </React.Fragment>
-            <ImageBlockSection
-                imageKey={MEDIA_KEYS.interestedInOrganisingImage}
-                imageAltKey={KEYS.interestedInOrganisingTitle}
-                titleKey={KEYS.interestedInOrganisingTitle}
-                subtitleKey={KEYS.interestedInOrganisingSubtitle}
-            >
-                <Markdown sourceKey={KEYS.interestedInOrganisingBody} />
-            </ImageBlockSection>
-            <Divider lg />
-            <NewsLetterForm />
-            <Divider lg />
-        </Page>
-    );
-};
+                <NewsLetterForm />
+                <Divider lg />
+            </Page>
+        )
+    }
+}
 
 const mapStateToProps = state => ({
     testimonials: organiserTestimonials(state),

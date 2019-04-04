@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { PureComponent } from 'react';
 import './style.scss';
 import { Helmet } from 'react-helmet';
 import ReactGA from 'react-ga';
@@ -10,19 +10,10 @@ import config from '../../services/config';
 import * as NavActions from '../../redux/nav/actions';
 import { content as selectContent } from '../../redux/staticcontent/selectors';
 
-const PageHOC = ({ className, children, pageTitle, metaDesc, setNavTitle, toggleSidebar }) => {
-    const canonicalUrl = 'https://' + window.location.hostname + window.location.pathname;
+class PageHOC extends PureComponent {
 
-    useEffect(() => {
-        if (pageTitle) {
-            setNavTitle(pageTitle);
-        }
-
-        toggleSidebar(false);
-    }, [pageTitle]);
-
-    /* Track pageView in Google Analytics on mount */
-    useEffect(() => {
+    componentDidMount() {
+        const { setNavTitle, pageTitle, toggleSidebar } = this.props;
 
         if (config.GOOGLE_ANALYTICS_ID) {
             /* Make sure ReactGA is initialised in GlobalLifecycle.js */
@@ -32,22 +23,39 @@ const PageHOC = ({ className, children, pageTitle, metaDesc, setNavTitle, toggle
         if (config.FACEBOOK_PIXEL_ID) {
             ReactPixel.pageView();
         }
-    }, []);
 
-    return (
-        <div className={'Page--wrapper ' + className}>
-            <Helmet defaultTitle="Junction" titleTemplate="Junction | %s">
-                <link rel="canonical" href={canonicalUrl} />
-                {config.IS_DEBUG ? <meta name="robots" content="noindex,nofollow" /> : null}
-                {pageTitle ? <title>{pageTitle}</title> : <title>Hack the Future</title>}
-                {pageTitle ? <meta property="og:title" content={pageTitle} /> : null}
-                {metaDesc ? <meta name="description" content={metaDesc} /> : null}
-                {metaDesc ? <meta property="og:description" content={metaDesc} /> : null}
-            </Helmet>
-            {children}
-        </div>
-    );
-};
+        toggleSidebar(false);
+        setNavTitle(pageTitle)
+    }
+
+    componentDidUpdate(prevProps) {
+        const { setNavTitle, toggleSidebar, pageTitle } = this.props;
+
+        if (prevProps.pageTitle !== pageTitle) {
+            setNavTitle(pageTitle);
+            toggleSidebar(false);
+        }
+    }
+
+    render() {
+        const { className, children, pageTitle, metaDesc } = this.props;
+        const canonicalUrl = 'https://' + window.location.hostname + window.location.pathname;
+
+        return (
+            <div className={'Page--wrapper ' + className}>
+                <Helmet defaultTitle="Hack the Future" titleTemplate="Junction | %s">
+                    <link rel="canonical" href={canonicalUrl} />
+                    {config.IS_DEBUG ? <meta name="robots" content="noindex,nofollow" /> : null}
+                    <title>{pageTitle}</title>
+                    <meta name="description" content={metaDesc} />
+                    <meta property="og:title" content={pageTitle} />
+                    <meta property="og:description" content={metaDesc} />
+                </Helmet>
+                {children}
+            </div>
+        )
+    }
+}
 
 const mapStateToProps = (state, ownProps) => {
 

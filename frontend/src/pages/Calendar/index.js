@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './style.scss';
 
 import KEYS from '../../redux/staticcontent/keys';
@@ -12,22 +12,23 @@ import NewsLetterForm from '../../components/NewsLetterForm';
 
 import Page from '../PageHOC';
 
-
-const CalendarPage = () => {
-    return (
-        <Page className="CalendarPage" pageTitle="Calendar" metaDescKey={KEYS.calendarPageSubtitle}>
-            <HeaderImage
-                imageKey={MEDIA_KEYS.calendarPageHeaderImage}
-                alt="Header image"
-            >
-                <BasicHeader titleKey={KEYS.calendarPageTitle} bodyKey={KEYS.calendarPageSubtitle} />
-            </HeaderImage>
-            <EventCalendar />
-            <Divider lg />
-            <NewsLetterForm />
-            <Divider lg />
-        </Page>
-    );
-};
+class CalendarPage extends PureComponent {
+    render() {
+        return (
+            <Page className="CalendarPage" pageTitle="Calendar" metaDescKey={KEYS.calendarPageSubtitle}>
+                <HeaderImage
+                    imageKey={MEDIA_KEYS.calendarPageHeaderImage}
+                    alt="Header image"
+                >
+                    <BasicHeader titleKey={KEYS.calendarPageTitle} bodyKey={KEYS.calendarPageSubtitle} />
+                </HeaderImage>
+                <EventCalendar />
+                <Divider lg />
+                <NewsLetterForm />
+                <Divider lg />
+            </Page>
+        );
+    }
+}
 
 export default CalendarPage

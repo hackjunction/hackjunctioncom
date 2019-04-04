@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './style.scss';
 
 import { connect } from 'react-redux';
@@ -21,8 +21,9 @@ import {
     eventconceptsLoading
 } from '../../redux/eventconcepts/selectors';
 
-const ConceptsPage = ({ eventconcepts, loading }) => {
-    function renderConcepts() {
+class ConceptsPage extends PureComponent {
+
+    renderConcepts(eventconcepts) {
         if (!Array.isArray(eventconcepts) || eventconcepts.length === 0) {
             return null;
         }
@@ -40,26 +41,30 @@ const ConceptsPage = ({ eventconcepts, loading }) => {
         });
     }
 
-    if (loading) {
-        return <LoadingPage />;
-    }
+    render() {
+        const { eventconcepts, loading } = this.props;
 
-    return (
-        <Page className="ConceptsPage" pageTitle="Concepts" metaDescKey={KEYS.conceptsPageSubtitle}>
-            <HeaderImage
-                imageKey={MEDIA_KEYS.conceptsPageHeaderImage}
-                alt="Header image"
-            >
-                <BasicHeader titleKey={KEYS.conceptsPageTitle} bodyKey={KEYS.conceptsPageSubtitle} />
-            </HeaderImage>
-            <Divider lg />
-            {renderConcepts()}
-            <Divider lg />
-            <NewsLetterForm />
-            <Divider lg />
-        </Page>
-    );
-};
+        if (loading) {
+            return <LoadingPage />;
+        }
+
+        return (
+            <Page className="ConceptsPage" pageTitle="Concepts" metaDescKey={KEYS.conceptsPageSubtitle}>
+                <HeaderImage
+                    imageKey={MEDIA_KEYS.conceptsPageHeaderImage}
+                    alt="Header image"
+                >
+                    <BasicHeader titleKey={KEYS.conceptsPageTitle} bodyKey={KEYS.conceptsPageSubtitle} />
+                </HeaderImage>
+                <Divider lg />
+                {this.renderConcepts(eventconcepts)}
+                <Divider lg />
+                <NewsLetterForm />
+                <Divider lg />
+            </Page>
+        );
+    }
+}
 
 const mapStateToProps = state => ({
     loading: eventconceptsLoading(state),

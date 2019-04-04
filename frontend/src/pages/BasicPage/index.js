@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { PureComponent } from 'react';
 import './style.scss';
 import { connect } from 'react-redux';
 import _ from 'lodash';
@@ -23,39 +23,43 @@ import {
     pagesError,
 } from '../../redux/pages/selectors';
 
-const BasicPage = ({ loading, error, page }) => {
+class BasicPage extends PureComponent {
 
-    if (loading) {
-        return <LoadingPage />;
+    render() {
+        const { loading, error, page } = this.props;
+
+        if (loading) {
+            return <LoadingPage />;
+        }
+
+        if (error) {
+            return <ErrorPage />;
+        }
+
+        if (!page) {
+            return <NotFoundPage />;
+        }
+
+        return (
+            <Page className="BasicPage" pageTitle={page.navTitle || page.pageTitle} metaDesc={page.pageSubtitle}>
+                <HeaderImage
+                    image={page.headerImage}
+                    alt="Header image"
+                >
+                    <BasicHeader title={page.pageTitle} body={page.pageSubtitle} />
+                </HeaderImage>
+                <BlockSection title={page.topSectionTitle} subtitle={page.topSectionSubtitle}>
+                    {page.topSectionBody ? <Markdown source={page.topSectionBody} /> : null}
+                </BlockSection>
+                <Divider lg />
+                <CenteredBlock>
+                    <Markdown source={page.body} />
+                </CenteredBlock>
+                <Divider lg />
+            </Page>
+        );
     }
-
-    if (error) {
-        return <ErrorPage />;
-    }
-
-    if (!page) {
-        return <NotFoundPage />;
-    }
-
-    return (
-        <Page className="BasicPage" pageTitle={page.navTitle || page.pageTitle} metaDesc={page.pageSubtitle}>
-            <HeaderImage
-                image={page.headerImage}
-                alt="Header image"
-            >
-                <BasicHeader title={page.pageTitle} body={page.pageSubtitle} />
-            </HeaderImage>
-            <BlockSection title={page.topSectionTitle} subtitle={page.topSectionSubtitle}>
-                {page.topSectionBody ? <Markdown source={page.topSectionBody} /> : null}
-            </BlockSection>
-            <Divider lg />
-            <CenteredBlock>
-                <Markdown source={page.body} />
-            </CenteredBlock>
-            <Divider lg />
-        </Page>
-    );
-};
+}
 
 const mapStateToProps = (state, ownProps) => {
     const { match } = ownProps

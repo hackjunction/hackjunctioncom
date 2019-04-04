@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { PureComponent } from 'react';
 import './style.scss';
 import { connect } from 'react-redux';
 import _ from 'lodash';
@@ -24,48 +24,53 @@ import {
     eventconceptsError,
 } from '../../redux/eventconcepts/selectors';
 
-const ConceptPage = ({ loading, error, concept }) => {
+class ConceptPage extends PureComponent {
 
-    if (loading) {
-        return <LoadingPage />;
+    render() {
+        const { loading, error, concept } = this.props;
+
+        if (loading) {
+            return <LoadingPage />;
+        }
+
+        if (error) {
+            return <ErrorPage />;
+        }
+
+        if (!concept) {
+            return <NotFoundPage />;
+        }
+
+
+        return (
+            <Page className="ConceptPage" pageTitle={concept.name} metaDesc={concept.shortDescription}>
+                <HeaderImage
+                    image={concept.image}
+                    alt="Header image"
+                    mainTitle={concept.punchline}
+                    bodyText={concept.shortdescription}
+                >
+                    <LogoHeader
+                        logo={concept.logo}
+                        punchline={concept.punchline}
+                        link={concept.website}
+                        linkText={'Event website'}
+                    />
+                </HeaderImage>
+                <BlockSection title={concept.topSectionTitle} subtitle={concept.topSectionSubtitle}>
+                    {concept.topSectionBody ? <Markdown source={concept.topSectionBody} /> : null}
+                </BlockSection>
+                <Divider lg />
+                <CenteredBlock>
+                    <Markdown source={concept.longdescription} />
+                </CenteredBlock>
+                <Divider lg />
+                <EventCalendar title={`Upcoming ${concept.name} events`} concept={concept.slug} />
+                <Divider lg />
+            </Page>
+        );
     }
-
-    if (error) {
-        return <ErrorPage />;
-    }
-
-    if (!concept) {
-        return <NotFoundPage />;
-    }
-
-    return (
-        <Page className="ConceptPage" pageTitle={concept.name} metaDesc={concept.shortDescription}>
-            <HeaderImage
-                image={concept.image}
-                alt="Header image"
-                mainTitle={concept.punchline}
-                bodyText={concept.shortdescription}
-            >
-                <LogoHeader
-                    logo={concept.logo}
-                    punchline={concept.punchline}
-                    link={concept.website}
-                    linkText={'Event website'}
-                />
-            </HeaderImage>
-            <BlockSection title={concept.topSectionTitle} subtitle={concept.topSectionSubtitle}>
-                {concept.topSectionBody ? <Markdown source={concept.topSectionBody} /> : null}
-            </BlockSection>
-            <Divider lg />
-            <CenteredBlock>
-                <Markdown source={concept.longdescription} />
-            </CenteredBlock>
-            <Divider lg />
-            <EventCalendar title={`Upcoming ${concept.name} events`} concept={concept.slug} />
-            <Divider lg />
-        </Page>
-    );
-};
+}
 
 const mapStateToProps = (state, ownProps) => {
     const { match } = ownProps;

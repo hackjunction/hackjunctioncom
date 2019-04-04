@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { PureComponent } from 'react';
 import './style.scss';
 import { connect } from 'react-redux';
 
@@ -17,29 +17,31 @@ import CenteredBlock from '../../components/CenteredBlock/';
 import LinkButton from '../../components/LinkButton';
 import Markdown from '../../components/Markdown';
 
-const TeamPage = () => {
+class TeamPage extends PureComponent {
 
-    return (
-        <Page className="TeamPage" pageTitle="Team" metaDescKey={KEYS.teamPageSubtitle}>
-            <HeaderImage
-                imageKey={MEDIA_KEYS.teamPageHeaderImage}
-                alt="Header image"
-            >
-                <BasicHeader titleKey={KEYS.teamPageTitle} bodyKey={KEYS.teamPageSubtitle} />
-            </HeaderImage>
-            <TeamMemberGrid />
-            <Divider lg />
-            <BlockSection titleKey={KEYS.teamPageVolunteerTitle} subtitleKey={KEYS.teamPageVolunteerSubtitle}>
-                <Markdown sourceKey={KEYS.teamPageVolunteerBody} />
-                <LinkButton to="/volunteers" text="More about volunteering" />
-            </BlockSection>
-            <CenteredBlock>
-            </CenteredBlock>
-            <Divider lg />
-            <ContactForm />
-            <Divider lg />
-        </Page>
-    );
-};
+    render() {
+        return (
+            <Page className="TeamPage" pageTitle="Team" metaDescKey={KEYS.teamPageSubtitle}>
+                <HeaderImage
+                    imageKey={MEDIA_KEYS.teamPageHeaderImage}
+                    alt="Header image"
+                >
+                    <BasicHeader titleKey={KEYS.teamPageTitle} bodyKey={KEYS.teamPageSubtitle} />
+                </HeaderImage>
+                <TeamMemberGrid />
+                <Divider lg />
+                <BlockSection titleKey={KEYS.teamPageVolunteerTitle} subtitleKey={KEYS.teamPageVolunteerSubtitle}>
+                    <Markdown sourceKey={KEYS.teamPageVolunteerBody} />
+                    <LinkButton to="/volunteers" text="More about volunteering" />
+                </BlockSection>
+                <CenteredBlock>
+                </CenteredBlock>
+                <Divider lg />
+                <ContactForm />
+                <Divider lg />
+            </Page>
+        )
+    }
+}
 
 export default TeamPage;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './style.scss';
 
 import KEYS from '../../redux/staticcontent/keys';
@@ -39,37 +39,39 @@ const BOTTOM_LINKS = [
     },
 ]
 
-const HomePage = () => {
-    return (
-        <Page className="HomePage" pageTitle="Hack the Future" metaDesc={KEYS.whoAreWeBody}>
-            <HeaderVideo />
-            <BlockSection titleKey={KEYS.whoAreWe} subtitleKey={KEYS.whoAreWeSubtitle}>
-                <Markdown sourceKey={KEYS.whoAreWeBody} />
-                <StatBlocks type={'generic'} />
-            </BlockSection>
-            <Divider lg />
-            <BlockSection titleKey={KEYS.whatWeDo} subtitleKey={KEYS.whatWeDoSubtitle}>
-                <Markdown sourceKey={KEYS.whatWeDoBody} />
-                <ConceptsPreview />
-            </BlockSection>
-            <Divider lg />
-            <BlockSection titleKey={KEYS.previousPartnersTitle} subtitleKey={KEYS.previousPartnersSubtitle} >
-                <PartnerLogoGrid />
-                <Divider sm />
-                <LinkButton to="/partners" text="More about partnering" />
-            </BlockSection>
-            <Divider lg />
-            <BlockSection titleKey={KEYS.storiesAboutUsTitle} subtitleKey={KEYS.storiesAboutUsSubtitle}>
-                <StoryGrid />
-            </BlockSection>
-            <Divider lg />
-            <NewsLetterForm />
-            <Divider lg />
-            <ImageLinks
-                links={BOTTOM_LINKS}
-            />
-        </Page>
-    );
-};
+class HomePage extends PureComponent {
+    render() {
+        return (
+            <Page className="HomePage" pageTitle="Hack the Future" metaDesc={KEYS.whoAreWeBody}>
+                <HeaderVideo />
+                <BlockSection titleKey={KEYS.whoAreWe} subtitleKey={KEYS.whoAreWeSubtitle}>
+                    <Markdown sourceKey={KEYS.whoAreWeBody} />
+                    <StatBlocks type={'generic'} />
+                </BlockSection>
+                <Divider lg />
+                <BlockSection titleKey={KEYS.whatWeDo} subtitleKey={KEYS.whatWeDoSubtitle}>
+                    <Markdown sourceKey={KEYS.whatWeDoBody} />
+                    <ConceptsPreview />
+                </BlockSection>
+                <Divider lg />
+                <BlockSection titleKey={KEYS.previousPartnersTitle} subtitleKey={KEYS.previousPartnersSubtitle} >
+                    <PartnerLogoGrid />
+                    <Divider sm />
+                    <LinkButton to="/partners" text="More about partnering" />
+                </BlockSection>
+                <Divider lg />
+                <BlockSection titleKey={KEYS.storiesAboutUsTitle} subtitleKey={KEYS.storiesAboutUsSubtitle}>
+                    <StoryGrid />
+                </BlockSection>
+                <Divider lg />
+                <NewsLetterForm />
+                <Divider lg />
+                <ImageLinks
+                    links={BOTTOM_LINKS}
+                />
+            </Page>
+        )
+    }
+}
 
 export default HomePage
