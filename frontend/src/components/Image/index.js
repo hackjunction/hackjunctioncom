@@ -1,42 +1,61 @@
-import React, { useState } from 'react'
+import React, { PureComponent } from 'react'
 import { Image as CloudinaryImage, Transformation } from 'cloudinary-react'
 import './style.scss'
 
-const Image = ({ image = {}, alt, className, width, height, crop = 'fill', gravity = 'center', onLoad }) => {
+class Image extends PureComponent {
 
-	const [loaded, setLoaded] = useState(false)
+	constructor(props) {
+		super(props)
 
-	if (image !== null && image.public_id) {
+		this.state = {
+			loaded: false
+		}
+
+		this.setLoaded = this.setLoaded.bind(this);
+	}
+
+	setLoaded() {
+		this.setState({
+			loaded: true,
+		})
+	}
+
+	render() {
+		const { image = {}, alt, className, width, height, crop = 'fill', gravity = 'center', onLoad } = this.props;
+		const { loaded } = this.state;
+
+		if (image !== null && image.public_id) {
+			return (
+				<CloudinaryImage
+					className={`Image ${className} ${loaded ? '' : 'Image-loading'}`}
+					alt={alt}
+					width={width}
+					height={height}
+					publicId={image.public_id}
+					crop={crop}
+					gravity={gravity}
+					onLoad={this.setLoaded}
+				>
+					<Transformation fetch_format="auto" quality="auto" />
+				</CloudinaryImage>
+			)
+		}
+
+		if (!image) {
+			return null;
+		}
+
 		return (
-			<CloudinaryImage
-				className={`Image ${className} ${loaded ? '' : 'Image-loading'}`}
+			<img
+				src={image.url}
 				alt={alt}
+				className={`Image ${className} ${loaded ? '' : 'Image-loading'}`}
 				width={width}
 				height={height}
-				publicId={image.public_id}
-				crop={crop}
-				gravity={gravity}
-				onLoad={() => setLoaded(true)}
-			>
-				<Transformation fetch_format="auto" quality="auto" />
-			</CloudinaryImage>
+				onLoad={this.setLoaded}
+			/>
 		)
 	}
-
-	if (!image) {
-		return null;
-	}
-
-	return (
-		<img
-			src={image.url}
-			alt={alt}
-			className={`Image ${className} ${loaded ? '' : 'Image-loading'}`}
-			width={width}
-			height={height}
-			onLoad={() => setLoaded(true)}
-		/>
-	)
 }
 
 export default Image

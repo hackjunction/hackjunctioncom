@@ -1,25 +1,21 @@
 import * as ActionTypes from './actionTypes';
-
 import SocialMediaService from '../../services/socialmedias';
+import { socialMediasShouldUpdate } from './selectors';
 
 /**
  * Social media links
  */
 
-const setSocialMediasLoading = () => ({ type: ActionTypes.SET_SOCIAL_MEDIAS_LOADING });
-const setSocialMediasError = () => ({ type: ActionTypes.SET_SOCIAL_MEDIAS_ERROR });
+export const updateSocialMedias = () => (dispatch, getState) => {
+	if (!socialMediasShouldUpdate(getState())) {
+		return;
+	}
 
-export const updateSocialMedias = () => dispatch => {
-	dispatch(setSocialMediasLoading());
-	SocialMediaService.getAll()
-		.then(socialmedias => {
-			dispatch({
-				type: ActionTypes.SET_SOCIAL_MEDIAS,
-				payload: socialmedias
-			});
-		})
-		.catch(error => {
-			console.log('Error in updateSocialMedias', error);
-			dispatch(setSocialMediasError());
-		});
+	dispatch({
+		type: ActionTypes.UPDATE_SOCIAL_MEDIAS,
+		promise: SocialMediaService.getAll(),
+		meta: {
+			onFailure: (e) => console.log('Error updating social medias', e)
+		}
+	})
 };

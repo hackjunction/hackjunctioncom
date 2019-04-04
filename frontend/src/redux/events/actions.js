@@ -1,21 +1,18 @@
 import * as ActionTypes from './actionTypes';
-
 import EventService from '../../services/events';
+import { eventsShouldUpdate } from './selectors';
 
-const setEventsLoading = () => ({ type: ActionTypes.SET_EVENTS_LOADING });
-const setEventsError = () => ({ type: ActionTypes.SET_EVENTS_ERROR });
+export const updateEvents = () => (dispatch, getState) => {
+	if (!eventsShouldUpdate(getState())) {
+		return;
+	}
 
-export const updateEvents = () => dispatch => {
-	dispatch(setEventsLoading());
-	EventService.getAll()
-		.then(events => {
-			dispatch({
-				type: ActionTypes.SET_EVENTS,
-				payload: events
-			});
-		})
-		.catch(error => {
-			console.log('Error in updateEvents', error);
-			dispatch(setEventsError());
-		});
+	dispatch({
+		type: ActionTypes.UPDATE_EVENTS,
+		promise: EventService.getAll(),
+		meta: {
+			onFailure: (e) => console.log('Error updating events', e)
+		}
+	})
 };
+

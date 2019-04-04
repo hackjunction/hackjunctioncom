@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import './style.scss'
 import _ from 'lodash'
 
@@ -6,9 +6,10 @@ import { connect } from 'react-redux';
 import { content as selectContent } from '../../redux/staticcontent/selectors';
 import { toRomanNumeral } from '../../utils/misc'
 
-const RomanNumeralList = ({ items }) => {
+class RomanNumeralList extends PureComponent {
 
-	function renderListItems() {
+	renderListItems() {
+		const { items } = this.props;
 		return _.map(items, (item, index) => {
 
 			if (!item) {
@@ -26,13 +27,15 @@ const RomanNumeralList = ({ items }) => {
 		})
 	}
 
-	return (
-		<div className="RomanNumeralList">
-			<ol className="RomanNumeralList--list">
-				{renderListItems()}
-			</ol>
-		</div>
-	)
+	render() {
+		return (
+			<div className="RomanNumeralList">
+				<ol className="RomanNumeralList--list">
+					{this.renderListItems()}
+				</ol>
+			</div>
+		);
+	}
 }
 
 const mapStateToProps = (state, ownProps) => {

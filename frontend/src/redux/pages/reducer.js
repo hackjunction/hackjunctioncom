@@ -1,4 +1,5 @@
 import * as ActionTypes from './actionTypes';
+import { handle } from 'redux-pack';
 
 const initialState = {
 	data: [],
@@ -10,27 +11,13 @@ const initialState = {
 export default function reducer(state = initialState, action) {
 
 	switch (action.type) {
-		case ActionTypes.SET_PAGES: {
-			return {
-				...state,
-				data: action.payload,
-				loading: false,
-				lastUpdate: Date.now(),
-			}
-		}
-		case ActionTypes.SET_PAGES_LOADING: {
-			return {
-				...state,
-				loading: true,
-				error: false,
-			}
-		}
-		case ActionTypes.SET_PAGES_ERROR: {
-			return {
-				...state,
-				loading: false,
-				error: true,
-			}
+		case ActionTypes.UPDATE_PAGES: {
+			return handle(state, action, {
+				start: prevState => ({ ...prevState, loading: true, error: false }),
+				finish: prevState => ({ ...prevState, loading: false }),
+				failure: prevState => ({ ...prevState, error: true }),
+				success: prevState => ({ ...prevState, data: action.payload, lastUpdate: Date.now() }),
+			})
 		}
 		default: return state;
 	}

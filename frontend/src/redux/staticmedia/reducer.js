@@ -1,4 +1,6 @@
 import * as ActionTypes from './actionTypes'
+import { handle } from 'redux-pack';
+import _ from 'lodash';
 
 export const initialState = {
 	keys: [],
@@ -11,30 +13,19 @@ export const initialState = {
 export default function reducer(state = initialState, action) {
 
 	switch (action.type) {
-		case ActionTypes.SET_STATIC_MEDIA: {
-
-			return {
-				...state,
-				data: action.payload.data,
-				keys: action.payload.keys,
-				loading: false,
-			}
+		case ActionTypes.UPDATE_STATIC_MEDIA: {
+			const data = {}
+			const keys = _.map(action.payload, ({ key, media }) => {
+				data[key.trim()] = media;
+				return key.trim();
+			})
+			return handle(state, action, {
+				start: prevState => ({ ...prevState, loading: true, error: false }),
+				finish: prevState => ({ ...prevState, loading: false }),
+				failure: prevState => ({ ...prevState, error: true }),
+				success: prevState => ({ ...prevState, data, keys, lastUpdate: Date.now() }),
+			})
 		}
-		case ActionTypes.SET_STATIC_MEDIA_LOADING: {
-
-			return {
-				...state,
-				loading: true,
-				error: false,
-			}
-		}
-		case ActionTypes.SET_STATIC_MEDIA_ERROR: {
-			return {
-				...state,
-				loading: false,
-				error: true,
-			}
-		}
-		default: return state
+		default: return state;
 	}
 }

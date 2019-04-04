@@ -1,3 +1,1 @@
-export const SET_TESTIMONIALS = 'testimonials/SET_TESTIMONIALS';
-export const SET_TESTIMONIALS_LOADING = 'testimonials/SET_TESTIMONIALS_LOADING';
-export const SET_TESTIMONIALS_ERROR = 'testimonials/SET_TESTIMONIALS_ERROR';
+export const UPDATE_TESTIMONIALS = 'testimonials/UPDATE';

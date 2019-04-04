@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './style.scss';
 
 import { connect } from 'react-redux';
@@ -7,22 +7,25 @@ import { content as selectContent } from '../../redux/staticcontent/selectors';
 
 import Image from '../Image';
 
-const ImageBlockSection = ({ image, imageAlt, title, subtitle, children }) => {
-    return (
-        <div className={'ImageBlockSection'}>
-            <div className="ImageBlockSection--left">
-                <Image className="ImageBlockSection--image" image={image} alt={imageAlt} width={400} height={400} />
-            </div>
-            <div className="ImageBlockSection--right">
-                <div className="ImageBlockSection--right__top">
-                    <h3 className="ImageBlockSection--title">{title}</h3>
-                    <span className="ImageBlockSection--subtitle">{subtitle}</span>
+class ImageBlockSection extends PureComponent {
+    render() {
+        const { image, imageAlt, title, subtitle, children } = this.props;
+        return (
+            <div className={'ImageBlockSection'}>
+                <div className="ImageBlockSection--left">
+                    <Image className="ImageBlockSection--image" image={image} alt={imageAlt} width={400} height={400} />
                 </div>
-                <div className="ImageBlockSection--right__bottom">{children}</div>
+                <div className="ImageBlockSection--right">
+                    <div className="ImageBlockSection--right__top">
+                        <h3 className="ImageBlockSection--title">{title}</h3>
+                        <span className="ImageBlockSection--subtitle">{subtitle}</span>
+                    </div>
+                    <div className="ImageBlockSection--right__bottom">{children}</div>
+                </div>
             </div>
-        </div>
-    );
-};
+        )
+    }
+}
 
 const mapStateToProps = (state, ownProps) => {
     const media = selectMedia(state);

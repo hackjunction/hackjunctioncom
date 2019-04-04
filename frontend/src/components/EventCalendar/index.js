@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { PureComponent } from 'react';
 import './style.scss';
 import _ from 'lodash';
 import moment from 'moment-timezone';
@@ -9,17 +9,21 @@ import LinkButton from '../LinkButton';
 
 import { filterEvents } from '../../redux/events/helpers';
 
+import { updateEvents } from '../../redux/events/actions';
+
 import {
     upcomingEvents,
     eventsLoading,
     eventsError,
 } from '../../redux/events/selectors';
 
-const EventCalendar = ({ events, loading, error, title, concept = null, category = null }) => {
-    const filtered = filterEvents(events, concept, category);
+class EventCalendar extends PureComponent {
 
-    function renderEvents() {
+    componentDidMount() {
+        this.props.updateEvents();
+    }
 
+    renderEvents(filtered) {
         if (filtered.length === 0) {
             return (
                 <div className="EventCalendar--no-events">
@@ -40,18 +44,24 @@ const EventCalendar = ({ events, loading, error, title, concept = null, category
         return calendarYears;
     }
 
-    return (
-        <div className="EventCalendar">
-            {filtered.length > 0 ? <h3 className="EventCalendar--title">{title}</h3> : null}
-            <div className="EventCalendar--events">{renderEvents()}</div>
-            <div className="EventCalendar--more">
-                {concept || category ? (
-                    <LinkButton to="/calendar" text="See all events" />
-                ) : null}
+    render() {
+        const { events, title, concept, category } = this.props;
+
+        const filtered = filterEvents(events, concept, category);
+
+        return (
+            <div className="EventCalendar">
+                {filtered.length > 0 ? <h3 className="EventCalendar--title">{title}</h3> : null}
+                <div className="EventCalendar--events">{this.renderEvents(filtered)}</div>
+                <div className="EventCalendar--more">
+                    {concept || category ? (
+                        <LinkButton to="/calendar" text="See all events" />
+                    ) : null}
+                </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
 const mapStateToProps = state => ({
     events: upcomingEvents(state),
@@ -59,6 +69,11 @@ const mapStateToProps = state => ({
     error: eventsError(state)
 });
 
+const mapDispatchToProps = dispatch => ({
+    updateEvents: () => dispatch(updateEvents())
+})
+
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps,
 )(EventCalendar);

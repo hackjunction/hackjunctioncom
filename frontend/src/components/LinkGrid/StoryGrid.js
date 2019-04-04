@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
 
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { stories } from '../../redux/stories/selectors';
+import { updateStories } from '../../redux/stories/actions';
 import LinkGrid from './index.js';
 
-const StoryGrid = ({ stories }) => {
+const StoryGrid = ({ stories, updateStories }) => {
+
+	useEffect(() => {
+		updateStories();
+	}, [])
 
 	const items = _.map(stories, s => {
 		return {
@@ -25,4 +30,8 @@ const mapStateToProps = (state) => ({
 	stories: stories(state)
 })
 
-export default connect(mapStateToProps)(StoryGrid)
+const mapDispatchToProps = dispatch => ({
+	updateStories: () => dispatch(updateStories())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(StoryGrid)

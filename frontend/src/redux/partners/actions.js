@@ -1,21 +1,18 @@
 import * as ActionTypes from './actionTypes';
 
 import PartnerService from '../../services/partners';
+import { partnersShouldUpdate } from './selectors';
 
-const setPartnersLoading = () => ({ type: ActionTypes.SET_PARTNERS_LOADING });
-const setPartnersError = () => ({ type: ActionTypes.SET_PARTNERS_ERROR });
+export const updatePartners = () => (dispatch, getState) => {
+	if (!partnersShouldUpdate(getState())) {
+		return;
+	}
 
-export const updatePartners = () => dispatch => {
-	dispatch(setPartnersLoading())
-	PartnerService.getAll()
-		.then(partners => {
-			dispatch({
-				type: ActionTypes.SET_PARTNERS,
-				payload: partners
-			})
-		})
-		.catch(error => {
-			console.log('Error in updatePartners', error);
-			dispatch(setPartnersError())
-		})
+	dispatch({
+		type: ActionTypes.UPDATE_PARTNERS,
+		promise: PartnerService.getAll(),
+		meta: {
+			onFailure: (e) => console.log('Error updating partners', e)
+		}
+	});
 }

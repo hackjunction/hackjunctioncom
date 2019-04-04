@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import './style.scss'
 
 import { connect } from 'react-redux';
@@ -9,14 +9,10 @@ import Image from '../Image'
 import LinkButton from '../LinkButton'
 import { eventconceptsByPriority as selectEventConcepts } from '../../redux/eventconcepts/selectors';
 
-const ConceptsPreview = ({ concepts }) => {
+class ConceptsPreview extends PureComponent {
 
-	if (!Array.isArray(concepts) || concepts.length === 0) {
-		return null;
-	}
-
-	function renderConcepts() {
-
+	renderConcepts() {
+		const { concepts } = this.props;
 		return concepts.map(concept => {
 			return (
 				<div className="ConceptsPreview--item" key={concept.slug}>
@@ -31,13 +27,21 @@ const ConceptsPreview = ({ concepts }) => {
 		})
 	}
 
-	return (
-		<div className="ConceptsPreview">
-			{renderConcepts()}
-			<Divider sm />
-			<LinkButton to={'/concepts'} text={'See more'} />
-		</div>
-	)
+	render() {
+		const { concepts } = this.props;
+
+		if (!Array.isArray(concepts) || concepts.length === 0) {
+			return null;
+		}
+
+		return (
+			<div className="ConceptsPreview">
+				{this.renderConcepts()}
+				<Divider sm />
+				<LinkButton to={'/concepts'} text={'See more'} />
+			</div>
+		)
+	}
 }
 
 const mapStateToProps = (state) => ({

@@ -1,8 +1,7 @@
-import React, { Component, Suspense } from 'react';
+import React, { PureComponent, Suspense } from 'react';
 import './App.scss';
 import './styles/global.scss';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { ConnectedRouter } from 'connected-react-router';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import ReactPixel from 'react-facebook-pixel';
 import ReactGA from 'react-ga';
 import { hotjar } from 'react-hotjar';
@@ -27,7 +26,7 @@ const OrganisersPage = React.lazy(() => import('./pages/Organisers'));
 const StoryPage = React.lazy(() => import('./pages/Story'));
 const NotFoundPage = React.lazy(() => import('./pages/NotFound'));
 
-class App extends Component {
+class App extends PureComponent {
 
     componentDidMount() {
         if (config.FACEBOOK_PIXEL_ID) {
@@ -59,7 +58,7 @@ class App extends Component {
 
     render() {
         return (
-            <ConnectedRouter history={this.props.history}>
+            <Router>
                 <main className="App">
                     <Header />
                     <div className="App--Main">
@@ -93,7 +92,7 @@ class App extends Component {
                     <ScrollToTop />
                     <GlobalLifecycle />
                 </main>
-            </ConnectedRouter>
+            </Router>
         );
     }
 }

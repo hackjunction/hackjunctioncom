@@ -10,17 +10,20 @@ import config from '../../services/config';
 import * as NavActions from '../../redux/nav/actions';
 import { content as selectContent } from '../../redux/staticcontent/selectors';
 
-const PageHOC = ({ className, children, pageTitle, metaDesc, setNavTitle }) => {
+const PageHOC = ({ className, children, pageTitle, metaDesc, setNavTitle, toggleSidebar }) => {
     const canonicalUrl = 'https://' + window.location.hostname + window.location.pathname;
 
     useEffect(() => {
         if (pageTitle) {
             setNavTitle(pageTitle);
         }
+
+        toggleSidebar(false);
     }, [pageTitle]);
 
     /* Track pageView in Google Analytics on mount */
     useEffect(() => {
+
         if (config.GOOGLE_ANALYTICS_ID) {
             /* Make sure ReactGA is initialised in GlobalLifecycle.js */
             ReactGA.pageview(window.location.pathname + window.location.search);
@@ -40,11 +43,6 @@ const PageHOC = ({ className, children, pageTitle, metaDesc, setNavTitle }) => {
                 {pageTitle ? <meta property="og:title" content={pageTitle} /> : null}
                 {metaDesc ? <meta name="description" content={metaDesc} /> : null}
                 {metaDesc ? <meta property="og:description" content={metaDesc} /> : null}
-
-                {/* TODO: Proper OG meta tags, twitter card stuff, etc. */}
-                {/* <meta property="og:site_name" content={'Junction'} /> */}
-                {/* <meta property="og:image" content={ogImageUrl} />
-				<meta property="og:url" content={canonicalUrl} /> */}
             </Helmet>
             {children}
         </div>
@@ -63,7 +61,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    setNavTitle: title => dispatch(NavActions.setNavTitle(title))
+    setNavTitle: title => dispatch(NavActions.setNavTitle(title)),
+    toggleSidebar: open => dispatch(NavActions.toggleSidebar(open)),
 });
 
 export default connect(

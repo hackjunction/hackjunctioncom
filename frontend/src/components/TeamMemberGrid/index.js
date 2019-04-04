@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
 
 import { connect } from 'react-redux';
 import { teammembersByPriority } from '../../redux/teammembers/selectors';
+import { updateTeamMembers } from '../../redux/teammembers/actions';
 
 const DEFAULT_GIF = require('../../assets/logos/emblem_white.png')
 const DEFAULT_IMG = require('../../assets/logos/emblem_white.png')
 
-const TeamMemberGrid = ({ teamMembers }) => {
+const TeamMemberGrid = ({ teamMembers, updateTeamMembers }) => {
+
+	useEffect(() => {
+		updateTeamMembers();
+	}, [])
 
 	function renderTeamMembers() {
 		return teamMembers.map(person => {
@@ -44,4 +49,8 @@ const mapStateToProps = (state) => ({
 	teamMembers: teammembersByPriority(state),
 })
 
-export default connect(mapStateToProps)(TeamMemberGrid)
+const mapDispatchToProps = (dispatch) => ({
+	updateTeamMembers: () => dispatch(updateTeamMembers())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TeamMemberGrid)

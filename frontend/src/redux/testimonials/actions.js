@@ -1,25 +1,21 @@
 import * as ActionTypes from './actionTypes';
-
 import TestimonialService from '../../services/testimonials';
+import { testimonialsShouldUpdate } from './selectors';
 
 /**
  * Testimonials
  */
 
-const setTestimonialsLoading = () => ({ type: ActionTypes.SET_TESTIMONIALS_LOADING });
-const setTestimonialsError = () => ({ type: ActionTypes.SET_TESTIMONIALS_ERROR });
+export const updateTestimonials = () => (dispatch, getState) => {
+	if (!testimonialsShouldUpdate(getState())) {
+		return;
+	}
 
-export const updateTestimonials = () => dispatch => {
-	dispatch(setTestimonialsLoading());
-	TestimonialService.getAll()
-		.then(testimonials => {
-			dispatch({
-				type: ActionTypes.SET_TESTIMONIALS,
-				payload: testimonials
-			});
-		})
-		.catch(error => {
-			console.log('Error in updateTestimonials', error);
-			dispatch(setTestimonialsError());
-		});
+	dispatch({
+		type: ActionTypes.UPDATE_TESTIMONIALS,
+		promise: TestimonialService.getAll(),
+		meta: {
+			onFailure: (e) => console.log('Error updating testimonials', e)
+		}
+	})
 };

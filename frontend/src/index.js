@@ -9,7 +9,7 @@ import { CloudinaryContext } from 'cloudinary-react'
 import LoadingPage from './pages/Loading';
 import config from './services/config'
 
-import configureStore, { history } from './redux/configureStore'
+import configureStore from './redux/configureStore'
 
 const { store, persistor } = configureStore()
 
@@ -17,7 +17,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<PersistGate loading={<LoadingPage />} persistor={persistor}>
 			<CloudinaryContext cloudName={config.CLOUDINARY_CLOUD_NAME}>
-				<App history={history} />
+				<App />
 			</CloudinaryContext>
 		</PersistGate>
 	</Provider>

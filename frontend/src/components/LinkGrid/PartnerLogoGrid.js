@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
 
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { partners } from '../../redux/partners/selectors';
+import { updatePartners } from '../../redux/partners/actions';
 import LinkGrid from './index.js';
 
-const PartnerLogoGrid = ({ partners }) => {
+const PartnerLogoGrid = ({ partners, updatePartners }) => {
+
+	useEffect(() => {
+		updatePartners();
+	}, [])
 
 	const items = _.map(partners, p => {
 		return {
@@ -25,4 +30,8 @@ const mapStateToProps = (state) => ({
 	partners: partners(state)
 })
 
-export default connect(mapStateToProps)(PartnerLogoGrid)
+const mapDispatchToProps = (dispatch) => ({
+	updatePartners: () => dispatch(updatePartners())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PartnerLogoGrid)

@@ -23,7 +23,7 @@ import {
     pagesError,
 } from '../../redux/pages/selectors';
 
-const BasicPage = React.memo(({ match, loading, error, page }) => {
+const BasicPage = ({ loading, error, page }) => {
 
     if (loading) {
         return <LoadingPage />;
@@ -55,7 +55,7 @@ const BasicPage = React.memo(({ match, loading, error, page }) => {
             <Divider lg />
         </Page>
     );
-});
+};
 
 const mapStateToProps = (state, ownProps) => {
     const { match } = ownProps

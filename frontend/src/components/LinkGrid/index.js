@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import './style.scss'
 
 import Image from '../Image'
 
-const LinkGrid = ({ links }) => {
+class LinkGrid extends PureComponent {
 
-	function renderLinks() {
+	renderLinks() {
+		const { links } = this.props;
 		return links.map(link => {
 			return (
 				<a href={link.url} className="LinkGrid--item" key={link.url}>
@@ -20,11 +21,13 @@ const LinkGrid = ({ links }) => {
 		})
 	}
 
-	return (
-		<div className="LinkGrid">
-			{renderLinks()}
-		</div>
-	)
+	render() {
+		return (
+			<div className="LinkGrid">
+				{this.renderLinks()}
+			</div>
+		)
+	}
 }
 
 export default LinkGrid

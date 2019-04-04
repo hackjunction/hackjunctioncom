@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
 
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { kpis as selectKpis } from '../../redux/kpis/selectors';
+import { updateKpis } from '../../redux/kpis/actions';
 
 import StatBlock from '../StatBlock'
 
-const StatBlocks = ({ kpis = [] }) => {
+const StatBlocks = ({ kpis, updateKpis }) => {
+
+	useEffect(() => {
+		updateKpis();
+	}, [])
 
 	function renderBlocks() {
 		return _.map(kpis, kpi => {
@@ -37,4 +42,8 @@ const mapStateToProps = (state, ownProps) => {
 	}
 }
 
-export default connect(mapStateToProps)(StatBlocks)
+const mapDispatchToProps = (dispatch) => ({
+	updateKpis: () => dispatch(updateKpis())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(StatBlocks)

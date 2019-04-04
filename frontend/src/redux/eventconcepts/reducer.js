@@ -1,4 +1,5 @@
 import * as ActionTypes from './actionTypes';
+import { handle } from 'redux-pack';
 
 const initialState = {
 	data: [],
@@ -8,30 +9,15 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-
 	switch (action.type) {
-		case ActionTypes.SET_EVENT_CONCEPTS: {
-			return {
-				...state,
-				data: action.payload,
-				loading: false,
-				lastUpdate: Date.now(),
-			}
+		case ActionTypes.UPDATE_EVENT_CONCEPTS: {
+			return handle(state, action, {
+				start: prevState => ({ ...prevState, loading: true, error: false }),
+				finish: prevState => ({ ...prevState, loading: false }),
+				failure: prevState => ({ ...prevState, error: true }),
+				success: prevState => ({ ...prevState, data: action.payload, lastUpdate: Date.now() }),
+			})
 		}
-		case ActionTypes.SET_EVENT_CONCEPTS_LOADING: {
-			return {
-				...state,
-				loading: true,
-				error: false,
-			}
-		}
-		case ActionTypes.SET_EVENT_CONCEPTS_ERROR: {
-			return {
-				...state,
-				loading: false,
-				error: true,
-			}
-		}
-		default: return state;
+		default: return state
 	}
 }

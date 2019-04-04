@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import './style.scss'
 
-const CenteredBlock = ({ children }) => {
-	return (
-		<div className="CenteredBlock">
-			{children}
-		</div>
-	)
+class CenteredBlock extends PureComponent {
+	render() {
+		const { children } = this.props;
+		return (
+			<div className="CenteredBlock">
+				{children}
+			</div>
+		)
+	}
 }
 
 export default CenteredBlock

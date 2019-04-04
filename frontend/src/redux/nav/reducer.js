@@ -1,5 +1,4 @@
 import * as ActionTypes from './actionTypes';
-import { LOCATION_CHANGE } from 'connected-react-router';
 
 const intialState = {
     sidebarOpen: false,
@@ -22,13 +21,6 @@ export default function reducer(state = intialState, action) {
             };
         }
 
-        case LOCATION_CHANGE: {
-            return {
-                ...state,
-                sidebarOpen: false,
-                navTitle: ''
-            };
-        }
         default:
             return state;
     }

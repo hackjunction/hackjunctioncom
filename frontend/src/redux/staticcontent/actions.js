@@ -1,29 +1,18 @@
 import _ from 'lodash';
 import * as ActionTypes from './actionTypes'
-
 import StaticContentService from '../../services/staticcontent'
+import { contentShouldUpdate } from './selectors'
 
-const setStaticContentLoading = () => ({ type: ActionTypes.SET_STATIC_CONTENT_LOADING })
-const setStaticContentError = () => ({ type: ActionTypes.SET_STATIC_CONTENT_ERROR })
+export const updateStaticContent = () => (dispatch, getState) => {
+	if (!contentShouldUpdate(getState())) {
+		return
+	}
 
-export const updateStaticContent = () => dispatch => {
-	dispatch(setStaticContentLoading())
-	StaticContentService.getAll().then(content => {
-		const data = {}
-		const keys = _.map(content, ({ key, content }) => {
-			data[key.trim()] = content;
-			return key.trim();
-		});
-
-		dispatch({
-			type: ActionTypes.SET_STATIC_CONTENT,
-			payload: {
-				data,
-				keys
-			}
-		})
-	}).catch(e => {
-		console.log('Error in updateStaticContent', e)
-		dispatch(setStaticContentError())
+	dispatch({
+		type: ActionTypes.UPDATE_STATIC_CONTENT,
+		promise: StaticContentService.getAll(),
+		meta: {
+			onFailure: (e) => console.log('Error updating static content', e)
+		}
 	})
 }

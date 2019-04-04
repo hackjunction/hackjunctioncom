@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux'
-import { connectRouter } from 'connected-react-router'
 
 // Import the reducer from each module here, and add it to the combined reducer
 import nav from './nav/reducer'
@@ -15,8 +14,7 @@ import stories from './stories/reducer'
 import teammembers from './teammembers/reducer'
 import testimonials from './testimonials/reducer'
 
-export default (history) => combineReducers({
-	router: connectRouter(history),
+export default () => combineReducers({
 	nav,
 	staticcontent,
 	staticmedia,

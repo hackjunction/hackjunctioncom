@@ -1,25 +1,21 @@
 import * as ActionTypes from './actionTypes';
-
 import StoriesService from '../../services/stories';
+import { storiesShouldUpdate } from './selectors';
 
 /**
  * News stories
  */
 
-const setStoriesLoading = () => ({ type: ActionTypes.SET_STORIES_LOADING });
-const setStoriesError = () => ({ type: ActionTypes.SET_STORIES_ERROR });
+export const updateStories = () => (dispatch, getState) => {
+	if (!storiesShouldUpdate(getState())) {
+		return
+	}
 
-export const updateStories = () => dispatch => {
-	dispatch(setStoriesLoading())
-	StoriesService.getAll()
-		.then(stories => {
-			dispatch({
-				type: ActionTypes.SET_STORIES,
-				payload: stories
-			})
-		})
-		.catch(error => {
-			console.log('Error in updateStories', error)
-			dispatch(setStoriesError())
-		})
+	dispatch({
+		type: ActionTypes.UPDATE_STORIES,
+		promise: StoriesService.getAll(),
+		meta: {
+			onFailure: (e) => console.log('Error updating stories', e)
+		}
+	})
 }
