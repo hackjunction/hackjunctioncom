@@ -10,7 +10,7 @@ const EventCategoryService = {
 	},
 
 	getAll: () => {
-		return axios.get(URL).then(res => res.data)
+		return axios.get(URL).then(res => res.json()).then(res => res.data)
 	},
 
 	getOne: (id) => {

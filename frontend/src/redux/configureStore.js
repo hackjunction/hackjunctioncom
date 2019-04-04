@@ -45,5 +45,6 @@ export default (preloadedState) => {
 		),
 	)
 	const persistor = persistStore(store)
+	persistor.purge();
 	return { store, persistor }
 }

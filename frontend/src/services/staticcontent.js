@@ -10,7 +10,7 @@ const StaticContentService = {
 	},
 
 	getAll: () => {
-		return axios.get(URL).then(res => res.data)
+		return axios.get(URL, { responseType: 'json' }).then(res => res.data)
 	},
 
 	getOne: (id) => {
