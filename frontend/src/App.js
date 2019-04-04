@@ -4,7 +4,6 @@ import './styles/global.scss';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import ReactPixel from 'react-facebook-pixel';
 import ReactGA from 'react-ga';
-import { hotjar } from 'react-hotjar';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -45,15 +44,15 @@ class App extends PureComponent {
             }
         }
 
-        if (config.HOTJAR_ID && config.HOTJAR_SV) {
-            hotjar.initialize(config.HOTJAR_ID, config.HOTJAR_SV);
-        } else {
-            if (config.IS_DEBUG) {
-                console.log(
-                    'DEBUG: config variable HOTJAR_ID or HOTJAR_SV undefined, not initializing Hotjar analytics'
-                );
-            }
-        }
+        // if (config.HOTJAR_ID && config.HOTJAR_SV) {
+        //     hotjar.initialize(config.HOTJAR_ID, config.HOTJAR_SV);
+        // } else {
+        //     if (config.IS_DEBUG) {
+        //         console.log(
+        //             'DEBUG: config variable HOTJAR_ID or HOTJAR_SV undefined, not initializing Hotjar analytics'
+        //         );
+        //     }
+        // }
     }
 
     render() {

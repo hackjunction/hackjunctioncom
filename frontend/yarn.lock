@@ -2350,7 +2350,7 @@ clone-deep@^2.0.1:
     kind-of "^6.0.0"
     shallow-clone "^1.0.0"
 
-cloudinary-core@^2.3.0, cloudinary-core@^2.6.2:
+cloudinary-core@^2.3.0:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.6.2.tgz#e034877e65bab554e23e5ef215f091f27630e507"
   integrity sha512-oS+qniwbRVrDO6va4BNStkyunVbr1YQJarFlas19208tLUZE8DOxFO0fSE6Mx9zNfcwU6Cpm8x9FtVdtiwB/MA==
@@ -8317,11 +8317,6 @@ react-dev-utils@^7.0.1:
     strip-ansi "5.0.0"
     text-table "0.2.0"
 
-react-device-detect@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/react-device-detect/-/react-device-detect-1.6.2.tgz#2587e4d1dc15bdfce7a1bf5417624ecd2a2fc31f"
-  integrity sha512-XIBgwIfpGAknm7tXe/YNbx4ieIR7IyFI3KNfSQk4UjHVy97UHe/nB7iJj8R/dDsI+I/ZzPR4HJ39Gh5tI4nhxw==
-
 react-dom@^16.8.0:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
@@ -8361,11 +8356,6 @@ react-helmet@6.0.0-beta:
     prop-types "^15.5.4"
     react-fast-compare "^2.0.2"
     react-side-effect "^1.1.0"
-
-react-hotjar@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-hotjar/-/react-hotjar-2.0.0.tgz#b97bb439d9b057eb07da46f234527128e13f593c"
-  integrity sha512-aveuMW8aGrpJbmK8+uwK9Vwx8Rk4mo7NHEz/OmSm80tE11/laDBk1zkJHzWfwcduUCYZnbXvt16Gt5b9qILamQ==
 
 react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.2:
   version "16.8.6"
