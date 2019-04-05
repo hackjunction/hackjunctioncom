@@ -45,7 +45,6 @@ class PageHOC extends PureComponent {
             <div className={'Page--wrapper ' + className}>
                 <Helmet defaultTitle="Junction | Hack the Future" titleTemplate="Junction | %s">
                     <link rel="canonical" href={canonicalUrl} />
-                    <link rel="preconnect" href={config.API_BASE_URL} />
                     {config.IS_DEBUG ? <meta name="robots" content="noindex,nofollow" /> : <meta name="robots" content="index,follow" />}
                     <title>{pageTitle}</title>
                     <meta name="description" content={metaDesc} />
