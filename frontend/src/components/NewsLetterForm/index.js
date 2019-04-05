@@ -82,11 +82,13 @@ const NewsLetterForm = () => {
 			>
 				<FormRow>
 					<TextInput
+						name="email"
 						placeholder="Email"
 						label="Email"
 						{...fields.email}
 					/>
 					<DropDown
+						name="country"
 						placeholder="Choose country"
 						label="Country"
 						options={options}

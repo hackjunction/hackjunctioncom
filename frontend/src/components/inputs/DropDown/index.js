@@ -4,7 +4,7 @@ import './style.scss'
 import InputLabel from '../InputLabel';
 import InputError from '../InputError';
 
-const DropDown = ({ options, label, placeholder, value, error, onChange }) => {
+const DropDown = ({ options, label, placeholder, value, error, onChange, name }) => {
 
 	function handleChange(e) {
 		onChange(e.target.value)
@@ -18,8 +18,8 @@ const DropDown = ({ options, label, placeholder, value, error, onChange }) => {
 
 	return (
 		<div className="DropDown">
-			<InputLabel text={label} show={value && value.length > 0} />
-			<select className="DropDown--input" onChange={handleChange} value={value || ""}>
+			<InputLabel text={label} show={value && value.length > 0} forName={name} />
+			<select name={name} className="DropDown--input" onChange={handleChange} value={value || ""}>
 				<option value="" disabled>{placeholder}</option>
 				{renderOptions()}
 			</select>

@@ -5,6 +5,7 @@ import './assets/fontello/css/fontello.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import ReactPixel from 'react-facebook-pixel';
 import ReactGA from 'react-ga';
+import WebFont from 'webfontloader';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -25,6 +26,15 @@ const VolunteersPage = React.lazy(() => import('./pages/Volunteers'));
 const OrganisersPage = React.lazy(() => import('./pages/Organisers'));
 const StoryPage = React.lazy(() => import('./pages/Story'));
 const NotFoundPage = React.lazy(() => import('./pages/NotFound'));
+
+WebFont.load({
+    google: {
+        families: [
+            'Montserrat:400,400i,700,700i',
+            'Lato:400,400i,700,700i',
+        ]
+    }
+});
 
 class App extends PureComponent {
 

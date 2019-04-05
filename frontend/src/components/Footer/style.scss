@@ -110,7 +110,7 @@
                 }
 
                 &-title {
-                    color: $lightgrey;
+                    color: rgba($junction-black,0.4);
                     margin-top: 0;
                     text-align: center;
                     font-size: 13px;
@@ -145,7 +145,7 @@
 
         &--text {
             @extend %font-title;
-            color: $lightgrey;
+            color: rgba($junction-black, 0.4);
         }
     }
 }

@@ -22,7 +22,7 @@ const Header = ({ toggleSidebar, navTitle }) => {
                 <div className="Header--emblem">
                     <img
                         className="Header--emblem__image"
-                        src={require('../../assets/logos/emblem_white.png')}
+                        src={require('../../assets/logos/emblem_white_small.png')}
                         alt="Junction logo"
                     />
                 </div>

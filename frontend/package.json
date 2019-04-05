@@ -27,7 +27,8 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "remark-breaks": "^1.0.2",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",

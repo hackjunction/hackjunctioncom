@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-const InputLabel = ({ text, show, hasMarginBottom, large }) => {
+const InputLabel = ({ text, show, hasMarginBottom, large, forName, }) => {
 
 	let className = 'InputLabel';
 
@@ -10,7 +10,7 @@ const InputLabel = ({ text, show, hasMarginBottom, large }) => {
 	if (large) className += ' InputLabel-large'
 
 	return (
-		<span className={className}>{text ? text : ''}</span>
+		<label for={forName} className={className}>{text ? text : ''}</label>
 	)
 }
 

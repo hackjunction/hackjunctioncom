@@ -4,7 +4,7 @@ import './style.scss'
 import InputLabel from '../InputLabel'
 import InputError from '../InputError'
 
-const TextInput = ({ label, placeholder, value, error, onChange }) => {
+const TextInput = ({ label, placeholder, name, value, error, onChange }) => {
 
 	function handleChange(e) {
 		onChange(e.target.value)
@@ -12,8 +12,8 @@ const TextInput = ({ label, placeholder, value, error, onChange }) => {
 
 	return (
 		<div className="TextInput">
-			<InputLabel text={label} show={value && value.length > 0} />
-			<input type="text" className="TextInput--input" value={value} placeholder={placeholder} onChange={handleChange} />
+			<InputLabel text={label} show={value && value.length > 0} forName={name} />
+			<input name={name} type="text" className="TextInput--input" value={value} placeholder={placeholder} onChange={handleChange} />
 			<InputError text={error} />
 		</div>
 	)

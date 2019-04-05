@@ -10,15 +10,10 @@
 		height: 350px;
 		position: relative;
 		overflow: hidden;
-		margin-top: $padding-double;
 
-		&__link {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: 4;
+		&-wrapper {
+			display: block;
+			margin-top: $padding-double;
 		}
 
 		&__image {
@@ -32,6 +27,7 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
+			flex: 1;
 			position: absolute;
 			top: 0;
 			left: 0;

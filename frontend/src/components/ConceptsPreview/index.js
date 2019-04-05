@@ -15,14 +15,15 @@ class ConceptsPreview extends PureComponent {
 		const { concepts } = this.props;
 		return concepts.map(concept => {
 			return (
-				<div className="ConceptsPreview--item" key={concept.slug}>
-					<Image className="ConceptsPreview--item__image" image={concept.image} alt={concept.name} width={620} />
-					<div className="ConceptsPreview--item__content">
-						<Image className="ConceptsPreview--item__logo" image={concept.logo} alt={concept.name + ' logo'} width={300} />
-						<span className="ConceptsPreview--item__punchline">{concept.punchline}</span>
+				<Link to={`/concepts/${concept.slug}`} className="ConceptsPreview--item-wrapper">
+					<div className="ConceptsPreview--item" key={concept.slug}>
+						<Image className="ConceptsPreview--item__image" image={concept.image} alt={concept.name} width={620} />
+						<div className="ConceptsPreview--item__content">
+							<Image className="ConceptsPreview--item__logo" image={concept.logo} alt={concept.name + ' logo'} width={300} />
+							<span className="ConceptsPreview--item__punchline">{concept.punchline}</span>
+						</div>
 					</div>
-					<Link className="ConceptsPreview--item__link" to={`/concepts/${concept.slug}`} />
-				</div>
+				</Link>
 			)
 		})
 	}

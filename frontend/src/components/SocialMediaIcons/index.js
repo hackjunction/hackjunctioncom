@@ -15,7 +15,7 @@ const SocialMediaIcons = React.memo(({ data }) => {
 
     function renderIcons() {
         return data.map(item => {
-            return <SocialMediaIcon key={item._id} image={item.icon} alt={item.alt} link={item.link} />;
+            return <SocialMediaIcon key={item._id} image={item.icon} alt={item.name} link={item.link} />;
         });
     }
 

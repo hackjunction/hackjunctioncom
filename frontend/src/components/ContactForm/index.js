@@ -121,11 +121,13 @@ const ContactForm = () => {
 			>
 				<FormRow>
 					<TextInput
+						name="firstName"
 						placeholder="First name"
 						label="First name"
 						{...fields.firstName}
 					/>
 					<TextInput
+						name="lastName"
 						placeholder="Last name"
 						label="Last name"
 						{...fields.lastName}
@@ -133,11 +135,13 @@ const ContactForm = () => {
 				</FormRow>
 				<FormRow>
 					<TextInput
+						name="email"
 						placeholder="Email"
 						label="Email"
 						{...fields.email}
 					/>
 					<TextInput
+						name="company"
 						placeholder="Company"
 						label="Company"
 						{...fields.company}
@@ -145,6 +149,7 @@ const ContactForm = () => {
 				</FormRow>
 				<FormRow>
 					<TextArea
+						name="message"
 						label="Message"
 						placeholder="Type your message..."
 						{...fields.message}
