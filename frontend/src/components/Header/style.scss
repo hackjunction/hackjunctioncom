@@ -1,7 +1,7 @@
 @import '../../styles/main';
 
 .Header {
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
@@ -14,6 +14,11 @@
     padding: 20px;
     background: transparent;
     transition: all 0.2s ease;
+
+    &-scrolled {
+        padding: 5px;
+        background: black;
+    }
 
     &--menu-button {
         width: 50px;

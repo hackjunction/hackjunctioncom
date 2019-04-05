@@ -10,7 +10,7 @@ class HeaderImage extends PureComponent {
         const { image, alt, children } = this.props;
         return (
             <div className={`HeaderImage`}>
-                <Image image={image} width={1920} height={900} alt={alt} className="HeaderImage--img" />
+                <Image image={image} width={1680} height={900} alt={alt} className="HeaderImage--img" />
                 <div className="HeaderImage--content">
                     {children}
                 </div>
