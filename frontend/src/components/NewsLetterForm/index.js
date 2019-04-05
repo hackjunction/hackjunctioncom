@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import './style.scss'
 
-import { connect } from 'react-redux'
-
 import Form from '../inputs/Form'
 import TextInput from '../inputs/TextInput'
 import FormRow from '../inputs/FormRow'

@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import _ from 'lodash';
+import { filter, sortBy } from 'lodash-es';
 import config from '../../services/config';
 
 /* How often to update a given content type?
@@ -25,11 +25,11 @@ const pagesByNavSection = section =>
 	createSelector(
 		pages,
 		pages => {
-			let filtered = _.filter(pages, page => {
+			let filtered = filter(pages, page => {
 				return page.navSection.trim() === section;
 			});
 
-			return _.sortBy(filtered, 'navPriority');
+			return sortBy(filtered, 'navPriority');
 		}
 	);
 

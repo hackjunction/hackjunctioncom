@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import './style.scss';
 import { connect } from 'react-redux';
-import _ from 'lodash';
+import { find } from 'lodash-es';
 
 import LoadingPage from '../Loading';
 import ErrorPage from '../Error';
@@ -66,7 +66,7 @@ const mapStateToProps = (state, ownProps) => {
     const pages = selectPages(state);
 
     return {
-        page: _.find(pages, p => p.slug === match.params.slug),
+        page: find(pages, p => p.slug === match.params.slug),
         loading: pagesLoading(state),
         error: pagesError(state),
     }

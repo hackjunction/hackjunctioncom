@@ -1,7 +1,7 @@
-import _ from 'lodash';
+import { filter } from 'lodash-es';
 
 export const filterEvents = (events, conceptSlug = null, categorySlug = null) => {
-	return _.filter(events, e => {
+	return filter(events, e => {
 		if (conceptSlug) {
 			if (e.eventconcept) {
 				return e.eventconcept.slug === conceptSlug;

@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import _ from 'lodash';
+import { sortBy } from 'lodash-es';
 import config from '../../services/config';
 
 /* How often to update a given content type?
@@ -24,6 +24,6 @@ export const eventconceptsShouldUpdate = createSelector(
 export const eventconceptsByPriority = createSelector(
 	eventconcepts,
 	concepts => {
-		return _.sortBy(concepts, 'priority');
+		return sortBy(concepts, 'priority');
 	}
 );

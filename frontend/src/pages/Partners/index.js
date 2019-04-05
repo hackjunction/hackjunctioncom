@@ -16,7 +16,6 @@ import ContactForm from '../../components/ContactForm/';
 import StatBlocks from '../../components/StatBlocks';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
-import LinkGrid from '../../components/LinkGrid';
 import PartnerLogoGrid from '../../components/LinkGrid/PartnerLogoGrid';
 
 import Page from '../PageHOC';

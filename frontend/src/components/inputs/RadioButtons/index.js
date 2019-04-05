@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.scss'
-import _ from 'lodash'
+import { map } from 'lodash-es';
 
 import InputLabel from '../InputLabel'
 import InputError from '../InputError'
@@ -8,7 +8,7 @@ import InputError from '../InputError'
 const RadioButtons = ({ label, buttons, value, error, onChange }) => {
 
 	function renderButtons() {
-		return _.map(buttons, button => {
+		return map(buttons, button => {
 			const selected = button.value === value
 			return (
 				<button

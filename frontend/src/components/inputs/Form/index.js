@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.scss'
-import _ from 'lodash'
+import { forOwn, isEmpty } from 'lodash-es';
 
 import LogoSpinner from '../../LogoSpinner'
 
@@ -25,7 +25,7 @@ const Form = ({
 		let errors = {}
 		let formData = {}
 
-		_.forOwn(fields, (field, name) => {
+		forOwn(fields, (field, name) => {
 			const errorMsg = field.validate(field.value)
 
 			if (errorMsg) {
@@ -37,7 +37,7 @@ const Form = ({
 			}
 		})
 
-		if (!_.isEmpty(errors)) {
+		if (!isEmpty(errors)) {
 			onError(errors)
 		} else {
 			onSuccess(formData)

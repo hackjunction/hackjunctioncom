@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import _ from 'lodash';
+import { filter } from 'lodash-es';
 import moment from 'moment';
 import config from '../../services/config';
 
@@ -25,6 +25,6 @@ export const eventsShouldUpdate = createSelector(
 export const upcomingEvents = createSelector(
 	events,
 	events => {
-		return _.filter(events, e => moment(e.begins).add(1, 'days').isAfter())
+		return filter(events, e => moment(e.begins).add(1, 'days').isAfter())
 	}
 )

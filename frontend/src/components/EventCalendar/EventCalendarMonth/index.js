@@ -1,14 +1,14 @@
 import React from 'react';
 import './style.scss';
 
-import _ from 'lodash';
+import { map } from 'lodash-es';
 
 import BlockSection from '../../BlockSection';
 import EventCalendarEvent from '../EventCalendarEvent';
 
 const EventCalendarMonth = ({ month, year, events }) => {
     function renderEvents() {
-        return _.map(events, e => {
+        return map(events, e => {
             return <EventCalendarEvent key={e.name} event={e} />;
         });
     }

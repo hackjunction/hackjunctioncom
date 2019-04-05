@@ -1,6 +1,6 @@
 import * as ActionTypes from './actionTypes'
 import { handle } from 'redux-pack';
-import _ from 'lodash';
+import { map } from 'lodash-es';
 
 export const initialState = {
 	keys: [],
@@ -15,7 +15,7 @@ export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case ActionTypes.UPDATE_STATIC_MEDIA: {
 			const data = {}
-			const keys = _.map(action.payload, ({ key, media }) => {
+			const keys = map(action.payload, ({ key, media }) => {
 				data[key.trim()] = media;
 				return key.trim();
 			})

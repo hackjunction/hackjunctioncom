@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import './style.scss';
 
-import { connect } from 'react-redux';
 import KEYS from '../../redux/staticcontent/keys';
 import MEDIA_KEYS from '../../redux/staticmedia/keys';
 

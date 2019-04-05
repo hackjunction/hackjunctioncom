@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 import './style.scss';
 
-import config from '../../services/config';
-
 const Video = React.memo(({ onLoad }) => {
     return (
         <video

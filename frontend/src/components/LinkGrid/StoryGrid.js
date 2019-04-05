@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './style.scss'
 
 import { connect } from 'react-redux';
-import _ from 'lodash';
+import { map } from 'lodash-es';
 import { stories } from '../../redux/stories/selectors';
 import { updateStories } from '../../redux/stories/actions';
 import LinkGrid from './index.js';
@@ -13,7 +13,7 @@ const StoryGrid = ({ stories, updateStories }) => {
 		updateStories();
 	}, [])
 
-	const items = _.map(stories, s => {
+	const items = map(stories, s => {
 		return {
 			image: s.logo,
 			url: s.website,

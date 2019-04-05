@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import './style.scss';
 import { connect } from 'react-redux';
-import _ from 'lodash';
+import { find } from 'lodash-es';
 
 import LoadingPage from '../Loading';
 import ErrorPage from '../Error';
@@ -77,7 +77,7 @@ const mapStateToProps = (state, ownProps) => {
     const concepts = eventconcepts(state)
 
     return {
-        concept: _.find(concepts, c => c.slug === match.params.slug),
+        concept: find(concepts, c => c.slug === match.params.slug),
         loading: eventconceptsLoading(state),
         error: eventconceptsError(state),
     }

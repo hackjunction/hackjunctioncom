@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect';
-import _ from 'lodash';
 import config from '../../services/config';
 
 /* How often to update a given content type?

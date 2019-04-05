@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 import './style.scss';
 
-import { connect } from 'react-redux';
-
 import HeaderImage from '../../components/HeaderImage';
 import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import Divider from '../../components/Divider';

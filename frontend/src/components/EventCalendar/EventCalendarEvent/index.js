@@ -6,12 +6,9 @@ import moment from 'moment';
 
 import Image from '../../Image';
 
-import { eventconcepts as selectEventConcepts } from '../../../redux/eventconcepts/selectors';
-
 const EventCalendarEvent = React.memo(({ event }) => {
 
     return (
-
         <div className="EventCalendarEvent">
             <Image className="EventCalendarEvent--image" image={event.image} width={600} height={300} />
             <div className="EventCalendarEvent--content">

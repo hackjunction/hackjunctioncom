@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import * as ActionTypes from './actionTypes'
 import StaticMediaService from '../../services/media';
 import { mediaShouldUpdate } from './selectors';

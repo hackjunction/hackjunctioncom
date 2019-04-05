@@ -3,7 +3,6 @@ import './style.scss'
 import { connect } from 'react-redux';
 
 import { content as selectContent } from '../../redux/staticcontent/selectors'
-import IconTextRow from '../IconTextRow'
 
 class BlockSection extends PureComponent {
 
@@ -29,8 +28,8 @@ const mapStateToProps = (state, ownProps) => {
 	const content = selectContent(state);
 
 	return {
-		title: content[ownProps.titleKey] || ownProps.title,
-		subtitle: content[ownProps.subtitleKey] || ownProps.subtitle,
+		title: content[titleKey] || ownProps.title,
+		subtitle: content[subtitleKey] || ownProps.subtitle,
 	}
 };
 

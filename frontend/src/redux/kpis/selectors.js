@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import _ from 'lodash';
+import { filter } from 'lodash-es';
 import config from '../../services/config';
 
 /* How often to update a given content type?
@@ -28,7 +28,7 @@ const kpisOfType = type =>
 	createSelector(
 		kpis,
 		kpis => {
-			return _.filter(kpis, t => t.type.trim() === type);
+			return filter(kpis, t => t.type.trim() === type);
 		}
 	);
 

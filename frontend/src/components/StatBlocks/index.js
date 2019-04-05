@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './style.scss'
 
 import { connect } from 'react-redux';
-import _ from 'lodash';
+import { map, filter } from 'lodash-es';
 import { kpis as selectKpis } from '../../redux/kpis/selectors';
 import { updateKpis } from '../../redux/kpis/actions';
 
@@ -15,7 +15,7 @@ const StatBlocks = ({ kpis, updateKpis }) => {
 	}, [])
 
 	function renderBlocks() {
-		return _.map(kpis, kpi => {
+		return map(kpis, kpi => {
 			return (
 				<StatBlock key={`${kpi.label}-${kpi.number}`} value={kpi.number} label={kpi.label} />
 			);
@@ -38,7 +38,7 @@ const mapStateToProps = (state, ownProps) => {
 	const kpis = selectKpis(state);
 
 	return {
-		kpis: _.filter(kpis, (kpi) => kpi.type.trim() === type)
+		kpis: filter(kpis, (kpi) => kpi.type.trim() === type)
 	}
 }
 

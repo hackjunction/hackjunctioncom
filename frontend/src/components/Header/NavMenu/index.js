@@ -3,7 +3,7 @@ import './style.scss';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import _ from 'lodash';
+import { map } from 'lodash-es';
 
 import { toggleSidebar } from '../../../redux/nav/actions';
 import { isSidebarOpen } from '../../../redux/nav/selectors';
@@ -16,7 +16,7 @@ import {
 } from '../../../redux/pages/selectors';
 
 const ExtraPagesSection = React.memo(({ pages }) => {
-    return _.map(pages, page => {
+    return map(pages, page => {
         return (
             <Link key={page.slug} className="NavMenu--inner__menu-item" to={'/' + page.slug}>
                 {page.navTitle}
@@ -26,7 +26,7 @@ const ExtraPagesSection = React.memo(({ pages }) => {
 });
 
 const ConceptPagesSection = React.memo(({ concepts }) => {
-    return _.map(concepts, concept => {
+    return map(concepts, concept => {
         return (
             <Link key={concept.slug} className="NavMenu--inner__menu-item" to={`/concepts/${concept.slug}`}>
                 {concept.name}

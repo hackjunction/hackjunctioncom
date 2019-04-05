@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import './style.scss';
-import _ from 'lodash';
+import { sortBy, groupBy, forOwn } from 'lodash-es';
 import moment from 'moment';
 import { connect } from 'react-redux';
 
@@ -32,12 +32,12 @@ class EventCalendar extends PureComponent {
             );
         }
 
-        const sorted = _.sortBy(filtered, e => e.begins);
-        const groupedByYear = _.groupBy(sorted, e => moment(e.begins).format('YYYY'));
+        const sorted = sortBy(filtered, e => e.begins);
+        const groupedByYear = groupBy(sorted, e => moment(e.begins).format('YYYY'));
 
         const calendarYears = [];
 
-        _.forOwn(groupedByYear, (events, year) => {
+        forOwn(groupedByYear, (events, year) => {
             calendarYears.push(<EventCalendarYear key={year} year={year} events={events} />);
         });
 

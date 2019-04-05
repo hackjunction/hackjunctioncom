@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import * as ActionTypes from './actionTypes'
 import StaticContentService from '../../services/staticcontent'
 import { contentShouldUpdate } from './selectors'

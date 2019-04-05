@@ -2,17 +2,17 @@ import React from 'react'
 import './style.scss'
 
 import moment from 'moment'
-import _ from 'lodash'
+import { forOwn, groupBy } from 'lodash-es'
 
 import EventCalendarMonth from '../EventCalendarMonth'
 
 const EventCalendarYear = ({ year, events }) => {
 
 	function renderEvents() {
-		const groupedByMonth = _.groupBy(events, e => moment(e.begins).format('MMMM'))
+		const groupedByMonth = groupBy(events, e => moment(e.begins).format('MMMM'))
 		const calendarMonths = []
 
-		_.forOwn(groupedByMonth, (events, month) => {
+		forOwn(groupedByMonth, (events, month) => {
 			calendarMonths.push(
 				<EventCalendarMonth key={month} year={year} month={month} events={events} />
 			)

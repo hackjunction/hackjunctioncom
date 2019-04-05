@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import './style.scss'
-import _ from 'lodash'
+import { map } from 'lodash-es';
 
 import { connect } from 'react-redux';
 import { content as selectContent } from '../../redux/staticcontent/selectors';
@@ -10,7 +10,7 @@ class RomanNumeralList extends PureComponent {
 
 	renderListItems() {
 		const { items } = this.props;
-		return _.map(items, (item, index) => {
+		return map(items, (item, index) => {
 
 			if (!item) {
 				return null;
@@ -43,7 +43,7 @@ const mapStateToProps = (state, ownProps) => {
 	const content = selectContent(state);
 
 	return {
-		items: itemKeys ? _.map(itemKeys, key => content[key]) : ownProps.items
+		items: itemKeys ? map(itemKeys, key => content[key]) : ownProps.items
 	}
 }
 
