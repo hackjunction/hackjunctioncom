@@ -11,8 +11,8 @@ const LogoHeader = ({ logo, punchline, link, linkText }) => {
 				className="LogoHeader--logo"
 				image={logo}
 				alt="logo"
-				height={250}
-				width={600}
+				height={150}
+				width={400}
 				crop={'fit'}
 			/>
 			<span className="LogoHeader--punchline">{punchline}</span>

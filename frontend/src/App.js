@@ -9,6 +9,7 @@ import WebFont from 'webfontloader';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import PrivacyBanner from './components/PrivacyBanner';
 import ScrollToTop from './components/ScrollToTop';
 import GlobalLifecycle from './GlobalLifecycle';
 import LoadingPage from './pages/Loading';
@@ -70,6 +71,7 @@ class App extends PureComponent {
         return (
             <Router>
                 <main className="App">
+                    <PrivacyBanner />
                     <Header />
                     <div className="App--Main">
                         <Suspense fallback={<LoadingPage />}>
