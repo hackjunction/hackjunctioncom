@@ -14,7 +14,7 @@ const Header = ({ toggleSidebar, navTitle }) => {
         <React.Fragment>
             <header className={'Header'}>
                 <div className="Header--menu-button" onClick={() => toggleSidebar(true)}>
-                    <i className="Header--menu-button fas fa-bars" />
+                    <i className="Header--menu-button icon-menu" />
                 </div>
                 <div className="Header--nav-title">
                     <h1 className="Header--nav-title__text">{navTitle}</h1>

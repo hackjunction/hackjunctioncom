@@ -1,6 +1,7 @@
 import React, { PureComponent, Suspense } from 'react';
 import './App.scss';
 import './styles/global.scss';
+import './assets/fontello/css/fontello.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import ReactPixel from 'react-facebook-pixel';
 import ReactGA from 'react-ga';
