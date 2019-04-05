@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-import moment from 'moment-timezone'
+import moment from 'moment'
 import _ from 'lodash'
 
 import EventCalendarMonth from '../EventCalendarMonth'

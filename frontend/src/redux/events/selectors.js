@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash';
-import moment from 'moment-timezone';
+import moment from 'moment';
 import config from '../../services/config';
 
 /* How often to update a given content type?

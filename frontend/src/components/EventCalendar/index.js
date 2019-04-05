@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import './style.scss';
 import _ from 'lodash';
-import moment from 'moment-timezone';
+import moment from 'moment';
 import { connect } from 'react-redux';
 
 import EventCalendarYear from './EventCalendarYear';

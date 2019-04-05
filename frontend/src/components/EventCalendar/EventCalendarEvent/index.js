@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss';
 
 import { connect } from 'react-redux';
-import moment from 'moment-timezone';
+import moment from 'moment';
 
 import Image from '../../Image';
 
