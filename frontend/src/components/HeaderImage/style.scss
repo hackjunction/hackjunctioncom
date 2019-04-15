@@ -90,6 +90,7 @@
         }
 
         @include bp-full {
+            margin-top: 100px;
             text-align: left;
             align-items: flex-start;
             align-self: flex-start;
@@ -97,7 +98,7 @@
     }
 
     &--body {
-        flex: 1;
+        flex: 2;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-end;

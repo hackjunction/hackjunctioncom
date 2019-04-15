@@ -35,8 +35,8 @@
 			height: 100%;
 			z-index: 2;
 
-			background: rgb(0,0,0);
-			background: radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 70%);
+			background: rgba(0,0,0,0.4);
+			background: radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 70%,rgba(0,0,0,0.05) 100%);
 		}
 
 		&__logo {
