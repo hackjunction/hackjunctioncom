@@ -14,7 +14,7 @@ class Markdown extends PureComponent {
     render() {
         const { source } = this.props;
         return (
-            <div className="Markdown">
+            <div className={`Markdown ${this.props.className || ''}`}>
                 <ReactMarkdown
                     plugins={[breaks]}
                     source={source}

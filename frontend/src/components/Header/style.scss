@@ -57,11 +57,13 @@
     }
 
     &--emblem {
+        pointer-events: all;
         width: 50px;
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
         align-items: center;
+        cursor: pointer;
 
         &__image {
             transition: all 0.2s ease;

@@ -42,7 +42,7 @@
 
             &__slogan {
                 color: $junction-black;
-                font-size: 24px;
+                font-size: 18px;
                 text-align: center;
 
                 @include bp-full {
@@ -53,7 +53,7 @@
             &__contact {
                 color: $junction-black;
                 text-decoration: none;
-                font-size: 20px;
+                font-size: 18px;
                 text-align: center;
 
                 @include bp-full {
@@ -113,7 +113,7 @@
                     color: rgba($junction-black,0.4);
                     margin-top: 0;
                     text-align: center;
-                    font-size: 13px;
+                    font-size: 16px;
                     line-height: 16px;
 
                     @include bp-full {

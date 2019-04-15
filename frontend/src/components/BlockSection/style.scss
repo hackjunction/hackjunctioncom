@@ -37,11 +37,15 @@
         }
 
         &__subtitle {
-            font-size: 18px;
-            text-align: center;
+
+            * {
+                text-align: center !important;
+            }
 
             @include bp-full {
-                text-align: left;
+                * {
+                    text-align: left !important;
+                }
             }
         }
     }

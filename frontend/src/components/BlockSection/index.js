@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import './style.scss'
 import { connect } from 'react-redux';
 
+import Markdown from '../Markdown';
 import { content as selectContent } from '../../redux/staticcontent/selectors'
 
 class BlockSection extends PureComponent {
@@ -12,7 +13,7 @@ class BlockSection extends PureComponent {
 			<div className="BlockSection">
 				<div className="BlockSection--left">
 					<h3 className="BlockSection--left__title">{title}</h3>
-					<p className="BlockSection--left__subtitle">{subtitle}</p>
+					<Markdown className="BlockSection--left__subtitle" source={subtitle} />
 				</div>
 				<div className="BlockSection--right">
 					{children}

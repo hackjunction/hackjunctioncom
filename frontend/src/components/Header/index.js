@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './style.scss';
 
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import NavMenu from './NavMenu';
 
@@ -43,11 +44,13 @@ const Header = ({ toggleSidebar, navTitle }) => {
                     <h1 className="Header--nav-title__text">{navTitle}</h1>
                 </div>
                 <div className="Header--emblem">
-                    <img
-                        className="Header--emblem__image"
-                        src={require('../../assets/logos/emblem_white_small.png')}
-                        alt="Junction logo"
-                    />
+                    <Link to="/">
+                        <img
+                            className="Header--emblem__image"
+                            src={require('../../assets/logos/emblem_white_small.png')}
+                            alt="Junction logo"
+                        />
+                    </Link>
                 </div>
                 <NavMenu />
             </header>
