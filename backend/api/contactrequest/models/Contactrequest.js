@@ -130,20 +130,15 @@ module.exports = {
     ]);
 
     if (strapi.config.currentEnvironment.partnerFormEmail) {
-      console.log('Partner email', strapi.config.currentEnvironment.partnerFormEmail)
       strapi.plugins['email'].services.email.send({
         to: strapi.config.currentEnvironment.partnerFormEmail,
         from: 'contact-form@hackjunction.com',
         replyTo: 'no-reply@hackjunction.com',
         subject: 'Hackjunction.com | Hello from ' + name,
         html: msg.renderHTML(),
-      }).then((res) => {
-        console.log('Email res', res);
       }).catch(e => {
-        console.log('Email err', e);
+        console.log('Partner email err', e);
       })
-    } else {
-      console.log('No partner form email set!', strapi.config.currentEnvironment);
     }
   },
 
