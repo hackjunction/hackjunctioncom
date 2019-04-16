@@ -42,7 +42,7 @@ const BOTTOM_LINKS = [
 class HomePage extends PureComponent {
     render() {
         return (
-            <Page className="HomePage" pageTitle="Hack the Future" metaDesc={KEYS.whoAreWeBody}>
+            <Page className="HomePage" pageTitle="Hack the Future" metaDescKey={KEYS.whoAreWeBody}>
                 <HeaderVideo />
                 <BlockSection titleKey={KEYS.whoAreWe} subtitleKey={KEYS.whoAreWeSubtitle}>
                     <Markdown sourceKey={KEYS.whoAreWeBody} />
