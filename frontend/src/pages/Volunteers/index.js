@@ -13,6 +13,7 @@ import ImageBlockSection from '../../components/ImageBlockSection';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
 import NewsLetterForm from '../../components/NewsLetterForm';
+import CenteredBlock from '../../components/CenteredBlock';
 
 import Page from '../PageHOC';
 
@@ -49,6 +50,10 @@ class VolunteersPage extends PureComponent {
                 <BlockSection titleKey={KEYS.volunteeringTitle} subtitleKey={KEYS.volunteeringSubtitle}>
                     <Markdown sourceKey={KEYS.volunteeringBody} />
                 </BlockSection>
+                <Divider lg />
+                <CenteredBlock>
+                    <Markdown sourceKey={KEYS.volunteersPageMidContent} />
+                </CenteredBlock>
                 <Divider lg />
                 <NewsLetterForm />
                 <Divider lg />

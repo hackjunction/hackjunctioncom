@@ -45,9 +45,13 @@ class EventCalendar extends PureComponent {
     }
 
     render() {
-        const { events, title, concept, category } = this.props;
+        const { events, title, concept, category, hideOnEmpty } = this.props;
 
         const filtered = filterEvents(events, concept, category);
+
+        if (hideOnEmpty && filtered.length === 0) {
+            return null;
+        }
 
         return (
             <div className="EventCalendar">

@@ -66,6 +66,7 @@ const CONTENT_KEYS = {
 	volunteeringTitle: 'volunteeringTitle',
 	volunteeringSubtitle: 'volunteeringSubtitle',
 	volunteeringBody: 'volunteeringBody',
+	volunteersPageMidContent: 'volunteersPageMidContent',
 
 	/* Participants page */
 	participantsPageTitle: 'participantsPageTitle',

@@ -33,7 +33,7 @@ class ConceptsPage extends PureComponent {
                 <React.Fragment key={concept.slug}>
                     <BlockSection title={concept.name} subtitle={''}>
                         <Markdown source={concept.shortdescription} />
-                        <Link to={`/concepts/${concept.slug}`}>See more</Link>
+                        <Link className="ConceptsPage--see-more-link" to={`/concepts/${concept.slug}`}>See more</Link>
                     </BlockSection>
                     <Divider md />
                 </React.Fragment>

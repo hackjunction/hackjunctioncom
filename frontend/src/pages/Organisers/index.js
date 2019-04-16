@@ -72,12 +72,9 @@ class OrganisersPage extends PureComponent {
                     />
                 </SingleColumnSection>
                 <Divider lg />
-                <React.Fragment>
-                    <CenteredBlock>
-                        <Markdown sourceKey={KEYS.organiserPageBottomContent} />
-                    </CenteredBlock>
-                    <Divider lg />
-                </React.Fragment>
+                <CenteredBlock>
+                    <Markdown sourceKey={KEYS.organiserPageBottomContent} />
+                </CenteredBlock>
                 <ImageBlockSection
                     imageKey={MEDIA_KEYS.interestedInOrganisingImage}
                     imageAltKey={KEYS.interestedInOrganisingTitle}

@@ -13,6 +13,7 @@ import RomanNumeralList from '../../components/RomanNumeralList';
 import ImageBlockSection from '../../components/ImageBlockSection';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
+import EventCalendar from '../../components/EventCalendar';
 import NewsLetterForm from '../../components/NewsLetterForm';
 
 import Page from '../PageHOC';
@@ -35,14 +36,8 @@ class ParticipantsPage extends PureComponent {
                 >
                     <BasicHeader titleKey={KEYS.participantsPageTitle} bodyKey={KEYS.participantsPageSubtitle} />
                 </HeaderImage>
-                <BlockSection titleKey={KEYS.howToJoinTitle} subtitleKey={KEYS.howToJoinSubtitle}>
-                    <RomanNumeralList itemKeys={[
-                        KEYS.howToJoinStepOne,
-                        KEYS.howToJoinStepTwo,
-                        KEYS.howToJoinStepThree,
-                        KEYS.howToJoinStepFour,
-                        KEYS.howToJoinStepFive
-                    ]} />
+                <BlockSection titleKey={KEYS.getHiredTitle} subtitleKey={KEYS.getHiredSubtitle}>
+                    <Markdown sourceKey={KEYS.getHiredBody} />
                 </BlockSection>
                 <Divider lg />
                 {testimonial ? (
@@ -58,9 +53,7 @@ class ParticipantsPage extends PureComponent {
                         <Divider lg />
                     </React.Fragment>
                 ) : null}
-                <BlockSection titleKey={KEYS.getHiredTitle} subtitleKey={KEYS.getHiredSubtitle}>
-                    <Markdown sourceKey={KEYS.getHiredBody} />
-                </BlockSection>
+                <EventCalendar title="Upcoming events" hideOnEmpty={true} />
                 <Divider lg />
                 <NewsLetterForm />
                 <Divider lg />

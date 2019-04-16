@@ -36,6 +36,15 @@
     "priority": {
       "default": 10,
       "type": "integer"
+    },
+    "type": {
+      "default": "finland",
+      "type": "enumeration",
+      "enum": [
+        "finland",
+        "global",
+        "volunteer"
+      ]
     }
   }
 }

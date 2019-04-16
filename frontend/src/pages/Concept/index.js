@@ -61,11 +61,15 @@ class ConceptPage extends PureComponent {
                     {concept.topSectionBody ? <Markdown source={concept.topSectionBody} /> : null}
                 </BlockSection>
                 <Divider lg />
-                <CenteredBlock>
-                    <Markdown source={concept.longdescription} />
-                </CenteredBlock>
-                <Divider lg />
-                <EventCalendar title={`Upcoming ${concept.name} events`} concept={concept.slug} />
+                {concept.longdescription ? (
+                    <CenteredBlock>
+                        <Markdown source={concept.longdescription} />
+                    </CenteredBlock>
+                ) : null}
+                {concept.longdescription ? (
+                    <Divider lg />
+                ) : null}
+                <EventCalendar title={`Upcoming ${concept.name} events`} concept={concept.slug} hideOnEmpty={true} />
                 <Divider lg />
             </Page>
         );
