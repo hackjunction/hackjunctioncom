@@ -3,9 +3,19 @@
 	width: 100%;
 	max-width: 980px;	
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
+	flex-direction: column;
+	align-items: stretch;
+
+	&--title {
+		text-align: center;
+	}
+
+	&--items {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
 
 	&--item {
 		width: 280px;

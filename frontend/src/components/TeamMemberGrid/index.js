@@ -2,13 +2,15 @@ import React, { useEffect } from 'react'
 import './style.scss'
 
 import { connect } from 'react-redux';
-import { teammembersByPriority } from '../../redux/teammembers/selectors';
+import { finlandTeamByPriority, globalTeamByPriority } from '../../redux/teammembers/selectors';
 import { updateTeamMembers } from '../../redux/teammembers/actions';
+import Image from '../Image';
+import Divider from '../Divider';
 
 const DEFAULT_GIF = require('../../assets/logos/emblem_white.png')
 const DEFAULT_IMG = require('../../assets/logos/emblem_white.png')
 
-const TeamMemberGrid = ({ teamMembers, updateTeamMembers }) => {
+const TeamMemberGrid = ({ title, teamMembers, updateTeamMembers }) => {
 
 	useEffect(() => {
 		updateTeamMembers();
@@ -21,10 +23,10 @@ const TeamMemberGrid = ({ teamMembers, updateTeamMembers }) => {
 					<div className="TeamMemberGrid--item__top">
 						<div className="TeamMemberGrid--item__flipper">
 							<div className="TeamMemberGrid--item__flipper-front">
-								<img className="TeamMemberGrid--item__image" src={person.image ? person.image.url : DEFAULT_IMG} alt={person.name} />
+								<Image className="TeamMemberGrid--item__image" image={person.image} alt={person.fullName} width={280} height={280} />
 							</div>
 							<div className="TeamMemberGrid--item__flipper-back">
-								<img className="TeamMemberGrid--item__gif" src={person.gif ? person.gif.url : DEFAULT_GIF} alt={person.name + ' gif'} />
+								<Image className="TeamMemberGrid--item__gif" image={person.gif} alt={person.fullName + ' gif'} width={280} height={280} crop={'fit'} />
 							</div>
 						</div>
 					</div>
@@ -38,16 +40,44 @@ const TeamMemberGrid = ({ teamMembers, updateTeamMembers }) => {
 		})
 	}
 
+	if (!teamMembers || teamMembers.length === 0) {
+		return null;
+	}
+
 	return (
 		<div className="TeamMemberGrid">
-			{renderTeamMembers()}
+			<h2 className="TeamMemberGrid--title">{title}</h2>
+			<Divider sm />
+			<div className="TeamMemberGrid--items">
+				{renderTeamMembers()}
+			</div>
 		</div>
 	)
 }
 
-const mapStateToProps = (state) => ({
-	teamMembers: teammembersByPriority(state),
-})
+const mapStateToProps = (state, ownProps) => {
+	const { type } = ownProps;
+
+	let teamMembers = [];
+	let title = null;
+	switch (type) {
+		case 'finland': {
+			teamMembers = finlandTeamByPriority(state);
+			title = 'Finland team';
+			break;
+		}
+		case 'global': {
+			teamMembers = globalTeamByPriority(state);
+			title = 'Global organisers';
+			break;
+		}
+	}
+
+	return {
+		teamMembers,
+		title
+	}
+}
 
 const mapDispatchToProps = (dispatch) => ({
 	updateTeamMembers: () => dispatch(updateTeamMembers())

@@ -17,6 +17,7 @@ import StatBlocks from '../../components/StatBlocks';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
 import PartnerLogoGrid from '../../components/LinkGrid/PartnerLogoGrid';
+import LinkButton from '../../components/LinkButton';
 
 import Page from '../PageHOC';
 import CenteredBlock from '../../components/CenteredBlock/index';
@@ -26,6 +27,19 @@ import {
 } from '../../redux/testimonials/selectors'
 
 class PartnersPage extends PureComponent {
+
+    constructor(props) {
+        super(props);
+
+        this.scrollToContact = this.scrollToContact.bind(this);
+        this.contactForm = null;
+    }
+
+    scrollToContact() {
+        if (this.contactForm) {
+            window.scrollTo({ top: this.contactForm.offsetTop - 100, left: 0, behavior: 'smooth' })
+        }
+    }
 
     render() {
 
@@ -59,6 +73,11 @@ class PartnersPage extends PureComponent {
                         <Divider lg />
                     </React.Fragment>
                 ) : null}
+                <BlockSection titleKey={KEYS.contactFormTitle}>
+                    <Markdown sourceKey={KEYS.contactFormSubtitle} />
+                    <LinkButton to="#" text="Get in touch" onClick={this.scrollToContact} />
+                </BlockSection>
+                <Divider lg />
                 <SingleColumnSection titleKey={KEYS.whyPartnerWithUsTitle}>
                     <BorderedSection
                         titleKey={KEYS.whyPartnerWithUsFirstTitle}
@@ -101,6 +120,7 @@ class PartnersPage extends PureComponent {
                     <PartnerLogoGrid />
                 </BlockSection>
                 <Divider lg />
+                <div ref={ref => this.contactForm = ref} />
                 <ContactForm />
                 <Divider lg />
             </Page >

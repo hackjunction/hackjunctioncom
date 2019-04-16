@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { sortBy } from 'lodash-es';
+import { sortBy, filter } from 'lodash-es';
 import config from '../../services/config';
 
 /* How often to update a given content type?
@@ -25,5 +25,19 @@ export const teammembersByPriority = createSelector(
 	teammembers,
 	data => {
 		return sortBy(data, 'priority')
+	}
+)
+
+export const finlandTeamByPriority = createSelector(
+	teammembersByPriority,
+	data => {
+		return filter(data, (item) => item.type === 'finland')
+	}
+)
+
+export const globalTeamByPriority = createSelector(
+	teammembersByPriority,
+	data => {
+		return filter(data, (item) => item.type === 'global')
 	}
 )

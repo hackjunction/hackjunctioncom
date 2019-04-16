@@ -27,7 +27,9 @@ class TeamPage extends PureComponent {
                 >
                     <BasicHeader titleKey={KEYS.teamPageTitle} bodyKey={KEYS.teamPageSubtitle} />
                 </HeaderImage>
-                <TeamMemberGrid />
+                <TeamMemberGrid type='finland' />
+                <Divider lg />
+                <TeamMemberGrid type='global' />
                 <Divider lg />
                 <BlockSection titleKey={KEYS.teamPageVolunteerTitle} subtitleKey={KEYS.teamPageVolunteerSubtitle}>
                     <Markdown sourceKey={KEYS.teamPageVolunteerBody} />

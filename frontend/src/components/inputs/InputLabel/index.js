@@ -10,7 +10,7 @@ const InputLabel = ({ text, show, hasMarginBottom, large, forName, }) => {
 	if (large) className += ' InputLabel-large'
 
 	return (
-		<label for={forName} className={className}>{text ? text : ''}</label>
+		<label htmlFor={forName} className={className}>{text ? text : ''}</label>
 	)
 }
 
