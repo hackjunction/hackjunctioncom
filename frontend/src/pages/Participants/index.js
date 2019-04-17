@@ -29,7 +29,12 @@ class ParticipantsPage extends PureComponent {
         const testimonial = testimonials.length > 0 ? testimonials[0] : null;
 
         return (
-            <Page className="ParticipantsPage" pageTitle="For participants" metaDescKey={KEYS.participantsPageSubtitle}>
+            <Page
+                className="ParticipantsPage"
+                pageTitle="For participants"
+                metaDescKey={KEYS.participantsPageSubtitle}
+                ogImageKey={MEDIA_KEYS.participantPageHeaderImage}
+            >
                 <HeaderImage
                     imageKey={MEDIA_KEYS.participantPageHeaderImage}
                     alt="Header image"

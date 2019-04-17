@@ -49,7 +49,12 @@ class ConceptsPage extends PureComponent {
         }
 
         return (
-            <Page className="ConceptsPage" pageTitle="Concepts" metaDescKey={KEYS.conceptsPageSubtitle}>
+            <Page
+                className="ConceptsPage"
+                pageTitle="Concepts"
+                metaDescKey={KEYS.conceptsPageSubtitle}
+                ogImageKey={MEDIA_KEYS.conceptsPageHeaderImage}
+            >
                 <HeaderImage
                     imageKey={MEDIA_KEYS.conceptsPageHeaderImage}
                     alt="Header image"

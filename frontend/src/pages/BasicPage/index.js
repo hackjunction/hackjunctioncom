@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import './style.scss';
 import { connect } from 'react-redux';
 import { find } from 'lodash-es';
+import cloudinary from 'cloudinary-core';
 
 import LoadingPage from '../Loading';
 import ErrorPage from '../Error';
@@ -41,7 +42,12 @@ class BasicPage extends PureComponent {
         }
 
         return (
-            <Page className="BasicPage" pageTitle={page.navTitle || page.pageTitle} metaDesc={page.pageSubtitle}>
+            <Page
+                className="BasicPage"
+                pageTitle={page.navTitle || page.pageTitle}
+                metaDesc={page.pageSubtitle}
+                ogImageUrl={page.headerImage.url}
+            >
                 <HeaderImage
                     image={page.headerImage}
                     alt="Header image"

@@ -42,7 +42,12 @@ class StoryPage extends PureComponent {
 
     render() {
         return (
-            <Page className="StoryPage" pageTitle="Our story" metaDescKey={KEYS.storyPageSubtitle}>
+            <Page
+                className="StoryPage"
+                pageTitle="Our story"
+                metaDescKey={KEYS.storyPageSubtitle}
+                ogImageKey={MEDIA_KEYS.storyPageHeaderImage}
+            >
                 <HeaderImage
                     imageKey={MEDIA_KEYS.storyPageHeaderImage}
                     alt="Header image"

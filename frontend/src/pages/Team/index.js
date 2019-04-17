@@ -20,7 +20,12 @@ class TeamPage extends PureComponent {
 
     render() {
         return (
-            <Page className="TeamPage" pageTitle="Team" metaDescKey={KEYS.teamPageSubtitle}>
+            <Page
+                className="TeamPage"
+                pageTitle="Team"
+                metaDescKey={KEYS.teamPageSubtitle}
+                ogImageKey={MEDIA_KEYS.teamPageHeaderImage}
+            >
                 <HeaderImage
                     imageKey={MEDIA_KEYS.teamPageHeaderImage}
                     alt="Header image"

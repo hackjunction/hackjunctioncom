@@ -2,7 +2,8 @@ import React, { PureComponent, Suspense } from 'react';
 import './App.scss';
 import './styles/global.scss';
 import './assets/fontello/css/fontello.css';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import ReactPixel from 'react-facebook-pixel';
 import ReactGA from 'react-ga';
 import WebFont from 'webfontloader';
@@ -40,73 +41,71 @@ WebFont.load({
 class App extends PureComponent {
 
     componentDidMount() {
+
         if (config.FACEBOOK_PIXEL_ID) {
             ReactPixel.init(config.FACEBOOK_PIXEL_ID, {}, { autoConfig: true, debug: false });
-        } else {
-            if (config.IS_DEBUG) {
-                console.log('DEBUG: config variable FACEBOOK_PIXEL_ID undefined, not initializing FB pixel analytics');
-            }
         }
 
         if (config.GOOGLE_ANALYTICS_ID) {
             ReactGA.initialize(config.GOOGLE_ANALYTICS_ID);
-        } else {
-            if (config.IS_DEBUG) {
-                console.log('DEBUG: config variable GOOGLE_ANALYTICS_ID undefined, not initializing GA analytics');
-            }
         }
 
-        // if (config.HOTJAR_ID && config.HOTJAR_SV) {
-        //     hotjar.initialize(config.HOTJAR_ID, config.HOTJAR_SV);
-        // } else {
-        //     if (config.IS_DEBUG) {
-        //         console.log(
-        //             'DEBUG: config variable HOTJAR_ID or HOTJAR_SV undefined, not initializing Hotjar analytics'
-        //         );
-        //     }
-        // }
+        this.handleRouteChange(this.props.history.location);
+        this.unlisten = this.props.history.listen(this.handleRouteChange)
+    }
+
+    componentWillUnmount() {
+        this.unlisten();
+    }
+
+    handleRouteChange(location) {
+        if (config.GOOGLE_ANALYTICS_ID) {
+            ReactGA.pageview(location.pathname);
+        }
+
+        if (config.FACEBOOK_PIXEL_ID) {
+            ReactPixel.pageView();
+        }
     }
 
     render() {
         return (
-            <Router>
-                <main className="App">
-                    <PrivacyBanner />
-                    <Header />
-                    <div className="App--Main">
-                        <Suspense fallback={<LoadingPage />}>
-                            <Switch>
-                                {/* Redirects */}
-                                <Redirect path="/privacy" to="/policy" />
+            <main className="App">
+                <PrivacyBanner />
+                <Header />
+                <div className="App--Main">
+                    <Suspense fallback={<LoadingPage />}>
+                        <Switch>
+                            {/* Redirects */}
+                            <Redirect path="/privacy" to="/policy" />
 
-                                {/* Static pages */}
-                                <Route exact path="/" component={HomePage} />
-                                <Route exact path="/story" component={StoryPage} />
-                                <Route exact path="/participants" component={ParticipantsPage} />
-                                <Route exact path="/partners" component={PartnersPage} />
-                                <Route exact path="/concepts" component={ConceptsPage} />
-                                <Route exact path="/calendar" component={CalendarPage} />
-                                <Route exact path="/team" component={TeamPage} />
-                                <Route exact path="/volunteers" component={VolunteersPage} />
-                                <Route exact path="/organisers" component={OrganisersPage} />
+                            {/* Static pages */}
+                            <Route exact path="/" component={HomePage} />
+                            <Route exact path="/story" component={StoryPage} />
+                            <Route exact path="/participants" component={ParticipantsPage} />
+                            <Route exact path="/partners" component={PartnersPage} />
+                            <Route exact path="/concepts" component={ConceptsPage} />
+                            <Route exact path="/calendar" component={CalendarPage} />
+                            <Route exact path="/team" component={TeamPage} />
+                            <Route exact path="/volunteers" component={VolunteersPage} />
+                            <Route exact path="/organisers" component={OrganisersPage} />
 
-                                {/* Concept pages (JunctionX, HelTech, etc..) */}
-                                <Route path="/concepts/:slug" component={ConceptPage} />
+                            {/* Concept pages (JunctionX, HelTech, etc..) */}
+                            <Route path="/concepts/:slug" component={ConceptPage} />
 
-                                {/* Other pages */}
-                                <Route path="/:slug" component={BasicPage} />
+                            {/* Other pages */}
+                            <Route path="/:slug" component={BasicPage} />
 
-                                <Route path="*" component={NotFoundPage} />
-                            </Switch>
-                        </Suspense>
-                    </div>
-                    <Footer />
-                    <ScrollToTop />
-                    <GlobalLifecycle />
-                </main>
-            </Router>
+                            <Route path="*" component={NotFoundPage} />
+                        </Switch>
+                    </Suspense>
+                </div>
+                <Footer />
+                <ScrollToTop />
+                <GlobalLifecycle />
+            </main>
         );
     }
 }
 
-export default App;
+export default withRouter(App);

@@ -27,7 +27,12 @@ class VolunteersPage extends PureComponent {
         const testimonial = testimonials.length > 0 ? testimonials[0] : null;
 
         return (
-            <Page className="VolunteersPage" pageTitle="For volunteers" metaDescKey={KEYS.volunteersPageSubtitle}>
+            <Page
+                className="VolunteersPage"
+                pageTitle="For volunteers"
+                metaDescKey={KEYS.volunteersPageSubtitle}
+                ogImageKey={MEDIA_KEYS.volunteerPageHeaderImage}
+            >
                 <HeaderImage
                     imageKey={MEDIA_KEYS.volunteerPageHeaderImage}
                     alt="Header image"

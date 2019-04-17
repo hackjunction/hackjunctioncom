@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-loader": "8.0.4",
+    "cloudinary-core": "^2.6.3",
     "cloudinary-react": "^1.1.0",
     "history": "^4.9.0",
     "lodash-es": "^4.17.11",

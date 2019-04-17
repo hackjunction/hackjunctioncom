@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { CloudinaryContext } from 'cloudinary-react'
@@ -17,7 +17,9 @@ ReactDOM.render(
 	<Provider store={store}>
 		<PersistGate loading={<LoadingPage />} persistor={persistor}>
 			<CloudinaryContext cloudName={config.CLOUDINARY_CLOUD_NAME}>
-				<App />
+				<Router>
+					<App />
+				</Router>
 			</CloudinaryContext>
 		</PersistGate>
 	</Provider>

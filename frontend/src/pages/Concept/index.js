@@ -43,7 +43,12 @@ class ConceptPage extends PureComponent {
 
 
         return (
-            <Page className="ConceptPage" pageTitle={concept.name} metaDesc={concept.shortDescription}>
+            <Page
+                className="ConceptPage"
+                pageTitle={concept.name}
+                metaDesc={concept.shortDescription}
+                ogImageUrl={concept.image.url}
+            >
                 <HeaderImage
                     image={concept.image}
                     alt="Header image"

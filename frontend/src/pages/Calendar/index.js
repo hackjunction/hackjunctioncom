@@ -15,7 +15,12 @@ import Page from '../PageHOC';
 class CalendarPage extends PureComponent {
     render() {
         return (
-            <Page className="CalendarPage" pageTitle="Calendar" metaDescKey={KEYS.calendarPageSubtitle}>
+            <Page
+                className="CalendarPage"
+                pageTitle="Calendar"
+                metaDescKey={KEYS.calendarPageSubtitle}
+                ogImageKey={MEDIA_KEYS.calendarPageHeaderImage}
+            >
                 <HeaderImage
                     imageKey={MEDIA_KEYS.calendarPageHeaderImage}
                     alt="Header image"

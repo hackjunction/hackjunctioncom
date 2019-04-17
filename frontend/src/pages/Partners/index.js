@@ -48,7 +48,12 @@ class PartnersPage extends PureComponent {
         const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null;
 
         return (
-            <Page className="PartnersPage" pageTitle="For partners" metaDescKey={KEYS.partnersPageSubtitle}>
+            <Page
+                className="PartnersPage"
+                pageTitle="For partners"
+                metaDescKey={KEYS.partnersPageSubtitle}
+                ogImageKey={MEDIA_KEYS.partnerPageHeaderImage}
+            >
                 <HeaderImage
                     imageKey={MEDIA_KEYS.partnerPageHeaderImage}
                     alt="Header image"

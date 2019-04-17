@@ -11,7 +11,7 @@ import MEDIA_KEYS from '../../redux/staticmedia/keys';
 class NotFoundPage extends PureComponent {
     render() {
         return (
-            <Page className="NotFoundPage" pageTitle="404">
+            <Page className="NotFoundPage" pageTitle="404" metaDesc="This page does not exist">
                 <HeaderImage
                     imageKey={MEDIA_KEYS.notFoundPageHeaderImage}
                     alt="Header image"
