@@ -5,7 +5,6 @@ var express = require('express'),
 
 // Make sure crawlers understand the site
 const prerendercloud = require('prerendercloud');
-prerendercloud.set('botsOnly', true);
 app.use(prerendercloud);
 
 // Serve any static files

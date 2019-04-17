@@ -44,7 +44,7 @@ class PageHOC extends PureComponent {
                     <title>{pageTitle}</title>
                     <meta name="robots" content="index,follow" />
                     <meta name="description" content={metaDesc} />
-                    <meta property="og:title" content={pageTitle} />
+                    <meta property="og:title" content={'Junction | ' + pageTitle} />
                     <meta property="og:description" content={metaDesc} />
                     <meta property="og:type" content="website" />
                     <meta property="og:image" content={ogImageUrl} />
