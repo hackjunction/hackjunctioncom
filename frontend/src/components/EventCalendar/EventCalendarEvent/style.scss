@@ -40,26 +40,42 @@
             flex-direction: column;
             padding: $padding-page;
             flex: 1;
+            overflow: hidden;
         }
 
         &__title {
             @extend %font-title;
             font-weight: bold;
-            font-size: 22px;
-            line-height: 26px;
+            font-size: 18px;
+            line-height: 22px;
+
+            @include bp-med {
+                font-size: 22px;
+                line-height: 26px;
+            }
         }
 
         &__subtitle {
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 16px;
+            line-height: 18px;
             font-weight: bold;
+
+            @include bp-med {
+                font-size: 18px;
+                line-height: 22px;
+            }
         }
 
         &__desc {
             margin-top: 20px;
-            font-size: 18px;
-            line-height: 26px;
+            font-size: 16px;
+            line-height: 20px;
             flex: 1;
+
+            @include bp-med {
+                font-size: 18px;
+                line-height: 26px;
+            }
         }
 
         &__buttons {
@@ -120,9 +136,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: 50px;
+        padding: 20px;
         background: rgba(19,19,19, 0.4);
         background: linear-gradient(110deg,rgba(19,19,19,.9),rgba(19,19,19,.4) 65%,rgba(19,19,19,.0));
+
+        @include bp-full {
+            padding: 30px;
+        }
 
         * {
             transition: opacity 0.3s ease;
@@ -136,9 +156,14 @@
         &__title {
             @extend %font-title;
             font-weight: bold;
-            font-size: 38px;
-            line-height: 44px;
+            font-size: 22px;
+            line-height: 30px;
             margin-bottom: 20px;
+
+            @include bp-full {
+                font-size: 38px;
+                line-height: 44px;
+            }
         }
 
         &__location {
