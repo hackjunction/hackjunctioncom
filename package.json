@@ -24,6 +24,6 @@
     "express": "^4.16.4",
     "express-sslify": "^1.2.0",
     "path": "^0.12.7",
-    "prerender-node": "^3.2.4"
+    "prerendercloud": "^1.42.0"
   }
 }
