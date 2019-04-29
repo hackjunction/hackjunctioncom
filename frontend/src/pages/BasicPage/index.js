@@ -46,7 +46,7 @@ class BasicPage extends PureComponent {
                 className="BasicPage"
                 pageTitle={page.navTitle || page.pageTitle}
                 metaDesc={page.pageSubtitle}
-                ogImageUrl={page.headerImage.url}
+                ogImageUrl={page.headerImage ? page.headerImage.url : null}
             >
                 <HeaderImage
                     image={page.headerImage}
