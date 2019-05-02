@@ -1,1 +1,1 @@
-export const isCookiesAccepted = state => state.misc.cookiesAccepted;
+export const isCookiesAccepted = state => state.misc.cookiesAccepted !== false;
