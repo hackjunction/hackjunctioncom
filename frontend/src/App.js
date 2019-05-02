@@ -47,11 +47,7 @@ class App extends PureComponent {
         }
 
         if (config.GOOGLE_ANALYTICS_ID) {
-            ReactGA.initialize(config.GOOGLE_ANALYTICS_ID, {
-                debug: true,
-            });
-        } else {
-            console.log('Unable to init google analytics', config.GOOGLE_ANALYTICS_ID);
+            ReactGA.initialize(config.GOOGLE_ANALYTICS_ID);
         }
 
         this.handleRouteChange(this.props.history.location);
@@ -63,9 +59,7 @@ class App extends PureComponent {
     }
 
     handleRouteChange(location) {
-        console.log('ROUTE CHANGED', location);
         if (config.GOOGLE_ANALYTICS_ID) {
-            console.log('GA ID FOIUND, TRACKING')
             ReactGA.pageview(location.pathname);
         }
 
