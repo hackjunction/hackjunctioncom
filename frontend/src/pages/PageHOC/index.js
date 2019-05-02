@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 import './style.scss';
 import { Helmet } from 'react-helmet';
-import ReactGA from 'react-ga';
-import ReactPixel from 'react-facebook-pixel';
 import { connect } from 'react-redux';
 import cloudinary from 'cloudinary-core';
 

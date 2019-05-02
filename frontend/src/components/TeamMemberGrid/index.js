@@ -7,9 +7,6 @@ import { updateTeamMembers } from '../../redux/teammembers/actions';
 import Image from '../Image';
 import Divider from '../Divider';
 
-const DEFAULT_GIF = require('../../assets/logos/emblem_white.png')
-const DEFAULT_IMG = require('../../assets/logos/emblem_white.png')
-
 const TeamMemberGrid = ({ title, teamMembers, updateTeamMembers }) => {
 
 	useEffect(() => {
@@ -71,6 +68,7 @@ const mapStateToProps = (state, ownProps) => {
 			title = 'Global organisers';
 			break;
 		}
+		default: break;
 	}
 
 	return {

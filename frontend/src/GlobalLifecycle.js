@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import config from './services/config';
 
 import { updateEventConcepts } from './redux/eventconcepts/actions';
 import { updatePages } from './redux/pages/actions';

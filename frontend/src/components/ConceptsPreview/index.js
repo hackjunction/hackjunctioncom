@@ -14,8 +14,9 @@ class ConceptsPreview extends PureComponent {
 	renderConcepts() {
 		const { concepts } = this.props;
 		return concepts.map(concept => {
+			const link = `/concepts/${concept.slug}`;
 			return (
-				<Link to={`/concepts/${concept.slug}`} className="ConceptsPreview--item-wrapper">
+				<Link to={link} key={link} className="ConceptsPreview--item-wrapper">
 					<div className="ConceptsPreview--item" key={concept.slug}>
 						<Image className="ConceptsPreview--item__image" image={concept.image} alt={concept.name} width={620} />
 						<div className="ConceptsPreview--item__content">

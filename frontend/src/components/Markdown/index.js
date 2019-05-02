@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 import YouTube from 'react-youtube';
 import breaks from 'remark-breaks';
+import { take } from 'lodash-es';
 
 import { content as selectContent } from '../../redux/staticcontent/selectors';
 
@@ -41,6 +42,37 @@ class Markdown extends PureComponent {
                             }
 
                             return <img className="Markdown--image" alt={alt} src={src} />;
+                        },
+                        paragraph: ({ children }) => {
+                            const imgIndexes = [];
+                            const result = [];
+
+                            children.forEach((child, index) => {
+                                if (typeof child === 'object' && child.key && !!child.key.match(/image/g)) {
+                                    imgIndexes.push(index);
+                                }
+                            })
+
+                            if (imgIndexes.length === 0) {
+                                return <p>{children}</p>
+                            }
+
+                            imgIndexes.forEach((imgIndex) => {
+                                const childrenBefore = take(children, imgIndex);
+                                if (childrenBefore.length > 0) {
+                                    result.push(<p key={'startswith-' + children[0].key}>{take(children, imgIndex)}</p>)
+                                }
+                                result.push(children[imgIndex]);
+                            })
+
+                            const restOfChildren = children.slice(imgIndexes[imgIndexes.length - 1] + 1);
+                            if (restOfChildren.length > 0) {
+                                result.push(
+                                    <p key={'startsWith-' + restOfChildren[0].key}>{restOfChildren}</p>
+                                )
+                            }
+
+                            return result;
                         }
                     }}
                 />
