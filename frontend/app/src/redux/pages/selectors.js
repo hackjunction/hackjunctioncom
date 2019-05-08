@@ -26,7 +26,7 @@ const pagesByNavSection = section =>
 		pages,
 		pages => {
 			let filtered = filter(pages, page => {
-				return page.navSection && page.navSection.trim() === section;
+				return !!page.navSection && page.navSection.trim() === section;
 			});
 
 			return sortBy(filtered, 'navPriority');
