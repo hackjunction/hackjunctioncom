@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from './jsonAxios'
 import config from './config'
 
 const URL = config.API_BASE_URL + '/api/contactrequests'
@@ -6,7 +6,7 @@ const URL = config.API_BASE_URL + '/api/contactrequests'
 const ContactRequestService = {
 
 	create: (formData) => {
-		return axios.post(URL, formData).then(res => res.data)
+		return axios.post(URL, formData);
 	},
 }
 
