@@ -1,6 +1,6 @@
 {
   "host": "${process.env.HOST} || 'herokuapp.com'",
-  "port": "${process.env.PORT || 1337}",
+  "port": "${process.env.PORT || 5000}",
   "production": true,
   "proxy": {
     "enabled": false
