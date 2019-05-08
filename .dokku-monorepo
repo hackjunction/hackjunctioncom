@@ -1,2 +1,2 @@
-cms.www-test.hackjunction.com=backend
-www-test.hackjunction.com=frontend
+01-backend=backend
+00-frontend=frontend
