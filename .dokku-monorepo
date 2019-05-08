@@ -1,2 +1,2 @@
-www=frontend
-cms=backend
+www-test.hackjunction.com=frontend
+cms.www-test.hackjunction.com=backend
