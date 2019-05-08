@@ -1,0 +1,12 @@
+{
+	"name": "hackjunctionapi",
+	"repository": "https://github.com/hackjunction/hackjunctioncom",
+	"buildpacks": [
+		{
+			"url": "https://github.com/heroku/heroku-buildpack-nodejs"
+		}
+	],
+	"env": {
+		"NPM_CONFIG_PRODUCTION": true
+	}
+}
