@@ -28,7 +28,7 @@ class PrivacyBanner extends PureComponent {
 			<div className="PrivacyBanner">
 				<div className="PrivacyBanner--left">
 					<p className="PrivacyBanner--text">
-						We use cookies from external service providers in order to collect statistics about the usage of the site. This information is anonymized, and cannot be connected to indivual users. See our <Link to="/policy">Privacy Policy</Link> and <Link to="/terms">Terms & Conditions</Link> for details on how we use your data.
+						We use cookies from external service providers in order to collect statistics about the usage of the site. This information is anonymized, and cannot be connected to individual users. See our <Link to="/policy">Privacy Policy</Link> and <Link to="/terms">Terms & Conditions</Link> for details on how we use your data.
 					</p>
 				</div>
 				<div className="PrivacyBanner--right">
