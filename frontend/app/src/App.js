@@ -16,18 +16,18 @@ import GlobalLifecycle from './GlobalLifecycle';
 import LoadingPage from './pages/Loading';
 import config from './services/config';
 
-const HomePage = React.lazy(() => import('./pages/Home'));
-const ParticipantsPage = React.lazy(() => import('./pages/Participants'));
-const PartnersPage = React.lazy(() => import('./pages/Partners'));
-const ConceptsPage = React.lazy(() => import('./pages/Concepts'));
-const CalendarPage = React.lazy(() => import('./pages/Calendar'));
-const TeamPage = React.lazy(() => import('./pages/Team'));
-const ConceptPage = React.lazy(() => import('./pages/Concept'));
-const BasicPage = React.lazy(() => import('./pages/BasicPage'));
-const VolunteersPage = React.lazy(() => import('./pages/Volunteers'));
-const OrganisersPage = React.lazy(() => import('./pages/Organisers'));
-const StoryPage = React.lazy(() => import('./pages/Story'));
-const NotFoundPage = React.lazy(() => import('./pages/NotFound'));
+import HomePage from './pages/Home';
+import ParticipantsPage from './pages/Participants';
+import PartnersPage from './pages/Partners';
+import ConceptsPage from './pages/Concepts';
+import CalendarPage from './pages/Calendar';
+import TeamPage from './pages/Team';
+import ConceptPage from './pages/Concept';
+import BasicPage from './pages/BasicPage';
+import VolunteersPage from './pages/Volunteers';
+import OrganisersPage from './pages/Organisers';
+import StoryPage from './pages/Story';
+import NotFoundPage from './pages/NotFound';
 
 WebFont.load({
     google: {
