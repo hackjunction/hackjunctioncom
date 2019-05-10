@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { hydrate, render } from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -13,7 +13,9 @@ import configureStore from './redux/configureStore'
 
 const { store, persistor } = configureStore()
 
-ReactDOM.render(
+
+const rootElement = document.getElementById("root");
+const app = (
 	<Provider store={store}>
 		<PersistGate loading={<LoadingPage />} persistor={persistor}>
 			<CloudinaryContext cloudName={config.CLOUDINARY_CLOUD_NAME}>
@@ -23,9 +25,14 @@ ReactDOM.render(
 			</CloudinaryContext>
 		</PersistGate>
 	</Provider>
-	, document.getElementById('root')
 );
 
+// react-snap, see here: https://github.com/stereobooster/react-snap
+if (rootElement.hasChildNodes()) {
+	hydrate(app, rootElement);
+} else {
+	render(app, rootElement);
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

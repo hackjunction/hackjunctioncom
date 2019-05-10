@@ -1,1 +1,0 @@
-https://medium.com/@voonminghann/single-page-application-deployment-automation-using-dokku-e10e9bfa4c2b

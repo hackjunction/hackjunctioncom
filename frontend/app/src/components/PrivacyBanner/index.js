@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { setCookiesAccepted } from '../../redux/misc/actions';
-import { isCookiesAccepted } from '../../redux/misc/selectors';
+import { isCookiesAccepted, isRehydrated } from '../../redux/misc/selectors';
 
 class PrivacyBanner extends PureComponent {
 
@@ -19,8 +19,7 @@ class PrivacyBanner extends PureComponent {
 	}
 
 	render() {
-
-		if (this.props.accepted) {
+		if (!this.props.rehydrated || this.props.accepted) {
 			return null;
 		}
 
@@ -40,7 +39,8 @@ class PrivacyBanner extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-	accepted: isCookiesAccepted(state)
+	accepted: isCookiesAccepted(state),
+	rehydrated: isRehydrated(state),
 });
 
 const mapDispatchToProps = dispatch => ({

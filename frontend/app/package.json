@@ -20,6 +20,7 @@
     "react-redux": "^7.0.0-beta.1",
     "react-router-dom": "5.0.0",
     "react-scripts": "2.1.3",
+    "react-snap": "^1.23.0",
     "react-textarea-autosize": "^7.1.0",
     "react-youtube": "^7.9.0",
     "redux": "^4.0.1",
@@ -37,7 +38,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "postbuild": "react-snap",
+    "heroku-postbuild": "npm run build && react-snap"
   },
   "eslintConfig": {
     "extends": "react-app"

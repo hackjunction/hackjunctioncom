@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
-import { Image as CloudinaryImage, Transformation } from 'cloudinary-react'
+import { Image as CloudinaryImage } from 'cloudinary-react'
 import './style.scss'
-import { trim } from 'lodash';
 
 class Image extends PureComponent {
 

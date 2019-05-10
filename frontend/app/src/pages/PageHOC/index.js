@@ -31,7 +31,7 @@ class PageHOC extends PureComponent {
     }
 
     render() {
-        const { className, children, pageTitle, metaDesc, ogImageUrl, ogVideoUrl } = this.props;
+        const { className, children, pageTitle, metaDesc, ogImageUrl } = this.props;
         const canonicalUrl = 'https://' + window.location.hostname + window.location.pathname;
 
         return (
