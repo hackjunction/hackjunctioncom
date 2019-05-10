@@ -40,7 +40,6 @@
     "snap": "react-snap"
   },
   "reactSnap": {
-    "puppeteerExecutablePath": "/usr/bin/chromium-browser",
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
