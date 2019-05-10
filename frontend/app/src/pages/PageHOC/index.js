@@ -46,6 +46,8 @@ class PageHOC extends PureComponent {
                     <meta property="og:description" content={metaDesc} />
                     <meta property="og:type" content="website" />
                     <meta property="og:image" content={ogImageUrl} />
+                    <meta property="og:image:width" content="1200" />
+                    <meta property="og:image:height" content="630" />
                 </Helmet>
                 {children}
             </div>
