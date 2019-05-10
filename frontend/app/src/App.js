@@ -70,7 +70,6 @@ class App extends PureComponent {
     render() {
         return (
             <main className="App">
-                <PrivacyBanner />
                 <Header />
                 <div className="App--Main">
                     <Switch>
@@ -100,6 +99,7 @@ class App extends PureComponent {
                 <Footer />
                 <ScrollToTop />
                 <GlobalLifecycle />
+                <PrivacyBanner />
             </main>
         );
     }
