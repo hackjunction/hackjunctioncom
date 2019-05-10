@@ -41,6 +41,12 @@
     "postbuild": "react-snap",
     "heroku-postbuild": "npm run build && react-snap"
   },
+  "reactSnap": {
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
