@@ -4,7 +4,7 @@ var express = require('express'),
 	port = process.env.PORT || 3000;
 
 //Prerender
-app.use(require('prerender-node').set('prerenderToken', '3s8hHePexp8JPJYoTRr3'));
+app.use(require('prerender-node').set('prerenderToken', process.env.PRERENDER_TOKEN));
 
 // Serve any static files
 app.use(express.static(path.join(__dirname, 'app/build')));
