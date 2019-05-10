@@ -3,7 +3,13 @@
 	"repository": "https://github.com/hackjunction/hackjunctioncom",
 	"buildpacks": [
 		{
+			"url": "https://github.com/jontewks/puppeteer-heroku-buildpack.git"
+		},
+		{
 			"url": "https://github.com/heroku/heroku-buildpack-nodejs"
+		},
+		{
+			"url": "https://github.com/heroku/heroku-buildpack-static.git"
 		}
 	],
 	"env": {
