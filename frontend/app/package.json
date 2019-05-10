@@ -37,8 +37,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postbuild": "react-snap",
-    "heroku-postbuild": "npm run build && react-snap"
+    "snap": "react-snap"
   },
   "reactSnap": {
     "puppeteerArgs": [
