@@ -19,6 +19,6 @@
   "dependencies": {
     "express": "^4.16.4",
     "path": "^0.12.7",
-    "prerendercloud": "^1.42.0"
+    "prerender-node": "^3.2.4"
   }
 }

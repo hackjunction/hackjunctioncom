@@ -36,14 +36,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "snap": "react-snap"
-  },
-  "reactSnap": {
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox"
-    ]
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -55,7 +48,5 @@
     "not op_mini all"
   ],
   "proxy": "http://localhost:1337",
-  "devDependencies": {
-    "react-snap": "^1.23.0"
-  }
+  "devDependencies": {}
 }

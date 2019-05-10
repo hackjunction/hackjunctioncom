@@ -1,4 +1,4 @@
-import React, { PureComponent, Suspense } from 'react';
+import React, { PureComponent } from 'react';
 import './App.scss';
 import './styles/global.scss';
 import './assets/fontello/css/fontello.css';
@@ -13,7 +13,6 @@ import Footer from './components/Footer';
 import PrivacyBanner from './components/PrivacyBanner';
 import ScrollToTop from './components/ScrollToTop';
 import GlobalLifecycle from './GlobalLifecycle';
-import LoadingPage from './pages/Loading';
 import config from './services/config';
 
 import HomePage from './pages/Home';
@@ -74,31 +73,29 @@ class App extends PureComponent {
                 <PrivacyBanner />
                 <Header />
                 <div className="App--Main">
-                    <Suspense fallback={<LoadingPage />}>
-                        <Switch>
-                            {/* Redirects */}
-                            <Redirect path="/privacy" to="/policy" />
+                    <Switch>
+                        {/* Redirects */}
+                        <Redirect path="/privacy" to="/policy" />
 
-                            {/* Static pages */}
-                            <Route exact path="/" component={HomePage} />
-                            <Route exact path="/story" component={StoryPage} />
-                            <Route exact path="/participants" component={ParticipantsPage} />
-                            <Route exact path="/partners" component={PartnersPage} />
-                            <Route exact path="/concepts" component={ConceptsPage} />
-                            <Route exact path="/calendar" component={CalendarPage} />
-                            <Route exact path="/team" component={TeamPage} />
-                            <Route exact path="/volunteers" component={VolunteersPage} />
-                            <Route exact path="/organisers" component={OrganisersPage} />
+                        {/* Static pages */}
+                        <Route exact path="/" component={HomePage} />
+                        <Route exact path="/story" component={StoryPage} />
+                        <Route exact path="/participants" component={ParticipantsPage} />
+                        <Route exact path="/partners" component={PartnersPage} />
+                        <Route exact path="/concepts" component={ConceptsPage} />
+                        <Route exact path="/calendar" component={CalendarPage} />
+                        <Route exact path="/team" component={TeamPage} />
+                        <Route exact path="/volunteers" component={VolunteersPage} />
+                        <Route exact path="/organisers" component={OrganisersPage} />
 
-                            {/* Concept pages (JunctionX, HelTech, etc..) */}
-                            <Route path="/concepts/:slug" component={ConceptPage} />
+                        {/* Concept pages (JunctionX, HelTech, etc..) */}
+                        <Route path="/concepts/:slug" component={ConceptPage} />
 
-                            {/* Other pages */}
-                            <Route path="/:slug" component={BasicPage} />
+                        {/* Other pages */}
+                        <Route path="/:slug" component={BasicPage} />
 
-                            <Route path="*" component={NotFoundPage} />
-                        </Switch>
-                    </Suspense>
+                        <Route path="*" component={NotFoundPage} />
+                    </Switch>
                 </div>
                 <Footer />
                 <ScrollToTop />

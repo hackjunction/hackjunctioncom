@@ -3,11 +3,9 @@ var express = require('express'),
 	path = require('path'),
 	port = process.env.PORT || 3000;
 
-// Make sure crawlers understand the site
-if (process.env.NODE_ENV === 'production') {
-	const prerendercloud = require('prerendercloud');
-	app.use(prerendercloud);
-}
+//Prerender
+app.use(require('prerender-node').set('prerenderToken', '3s8hHePexp8JPJYoTRr3'));
+
 // Serve any static files
 app.use(express.static(path.join(__dirname, 'app/build')));
 
