@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Suspense } from 'react';
 import './style.scss';
 
 import KEYS from '../../redux/staticcontent/keys';
@@ -14,9 +14,9 @@ import ConceptsPreview from '../../components/ConceptsPreview';
 import PartnerLogoGrid from '../../components/LinkGrid/PartnerLogoGrid'
 import StoryGrid from '../../components/LinkGrid/StoryGrid'
 import ImageLinks from '../../components/ImageLinks';
-
 import Page from '../PageHOC';
 import LinkButton from '../../components/LinkButton/index';
+const EventsMap = React.lazy(() => import('../../components/EventsMap'));
 
 const BOTTOM_LINKS = [
     {
@@ -53,6 +53,10 @@ class HomePage extends PureComponent {
                     <Markdown sourceKey={KEYS.whoAreWeBody} />
                     <StatBlocks type={'generic'} />
                 </BlockSection>
+                <Divider lg />
+                <Suspense fallback={null}>
+                    <EventsMap />
+                </Suspense>
                 <Divider lg />
                 <BlockSection titleKey={KEYS.whatWeDo} subtitleKey={KEYS.whatWeDoSubtitle}>
                     <Markdown sourceKey={KEYS.whatWeDoBody} />

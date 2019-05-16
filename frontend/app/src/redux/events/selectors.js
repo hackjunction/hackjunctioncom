@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { filter } from 'lodash-es';
+import { filter, sortBy } from 'lodash-es';
 import moment from 'moment';
 import config from '../../services/config';
 
@@ -26,5 +26,28 @@ export const upcomingEvents = createSelector(
 	events,
 	events => {
 		return filter(events, e => moment(e.begins).add(1, 'days').isAfter())
+	}
+)
+
+export const upcomingCalendarEvents = createSelector(
+	events,
+	events => {
+		return filter(events, e => {
+			return e.showInCalendar && moment(e.begins).add(1, 'days').isAfter();
+		});
+	}
+)
+
+export const mapEvents = createSelector(
+	events,
+	events => {
+		return filter(events, e => e.showOnMap);
+	}
+)
+
+export const mapEventsByLongitude = createSelector(
+	mapEvents,
+	events => {
+		return sortBy(events, e => e.longitude);
 	}
 )

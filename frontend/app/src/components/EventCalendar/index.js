@@ -12,7 +12,7 @@ import { filterEvents } from '../../redux/events/helpers';
 import { updateEvents } from '../../redux/events/actions';
 
 import {
-    upcomingEvents,
+    upcomingCalendarEvents,
     eventsLoading,
     eventsError,
 } from '../../redux/events/selectors';
@@ -68,7 +68,7 @@ class EventCalendar extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    events: upcomingEvents(state),
+    events: upcomingCalendarEvents(state),
     loading: eventsLoading(state),
     error: eventsError(state)
 });

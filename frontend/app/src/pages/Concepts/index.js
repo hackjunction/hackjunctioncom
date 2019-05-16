@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Suspense } from 'react';
 import './style.scss';
 
 import { connect } from 'react-redux';
@@ -20,6 +20,8 @@ import {
     eventconceptsByPriority,
     eventconceptsLoading
 } from '../../redux/eventconcepts/selectors';
+
+const EventsMap = React.lazy(() => import('../../components/EventsMap'));
 
 class ConceptsPage extends PureComponent {
 
@@ -63,6 +65,10 @@ class ConceptsPage extends PureComponent {
                 </HeaderImage>
                 <Divider lg />
                 {this.renderConcepts(eventconcepts)}
+                <Divider lg />
+                <Suspense fallback={null}>
+                    <EventsMap />
+                </Suspense>
                 <Divider lg />
                 <NewsLetterForm />
                 <Divider lg />
