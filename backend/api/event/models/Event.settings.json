@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "event",
   "info": {
     "name": "event",
     "description": ""
@@ -46,6 +46,26 @@
     "eventconcept": {
       "model": "eventconcept",
       "via": "events"
+    },
+    "latitude": {
+      "default": "",
+      "type": "decimal"
+    },
+    "longitude": {
+      "default": "",
+      "type": "decimal"
+    },
+    "showOnMap": {
+      "default": false,
+      "type": "boolean"
+    },
+    "showInCalendar": {
+      "default": false,
+      "type": "boolean"
+    },
+    "timeDescription": {
+      "default": "",
+      "type": "string"
     }
   }
 }
