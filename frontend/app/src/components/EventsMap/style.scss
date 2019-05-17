@@ -1,9 +1,29 @@
 @import '../../styles/main';
 
+.EventsMapControls {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	display: flex;
+	flex-direction: row;
+
+	&--button {
+		width: 30px;
+		height: 30px;
+		font-size: 1.2em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: rgba($junction-black, 0.6);
+		margin-right: 1px;
+	}
+}
+
 .EventsMap {
 	align-self: stretch;
 	margin-left: -$padding-page;
 	margin-right: -$padding-page;
+	position: relative;
 
 	&--title {
 		padding: $padding-page;
@@ -57,18 +77,21 @@
 		overflow: hidden;
 		box-shadow: 1px 1px 5px rgba($junction-black, 0.15), -1px -1px 5px rgba($junction-black, 0.15);
 
-
 		&-active {
 
 		}
 
 		&__image {
 			width: 100%;
+			height: 180px;
+			background: $junction-black;
 		}
 
 		&__content {
 			padding: $padding-base * 2;
 			padding-top: $padding-base;
+			position: relative;
+			z-index: 100;
 		}
 
 		&__name {
@@ -116,7 +139,7 @@
 
 			i {
 				color: white;
-				font-size: 40px;
+				font-size: 32px;
 				width: 60px;
 				height: 60px;
 				background: rgba(black, 0.4);
@@ -140,12 +163,19 @@
 			@include bp-small-only {
 
 				margin-right: 0 !important;
-				top: 60px;
+				top: 0;
 				bottom: auto;
 				width: auto;
 				right: 0;
 				opacity: 1;
 				z-index: 100;
+
+				i {
+					width: 45px;
+					height: 45px;
+					font-size: 1.5em;
+					border-radius: 0 7px 0 0;
+				}
 
 				&:hover {
 					margin-right: 0;
@@ -161,12 +191,19 @@
 			@include bp-small-only {
 
 				margin-left: 0 !important;
-				top: 60px;
+				top: 0;
 				bottom: auto;
 				width: auto;
 				left: 0;
 				opacity: 1;
 				z-index: 100;
+
+				i {
+					width: 45px;
+					height: 45px;
+					font-size: 1.5em;
+					border-radius: 7px 0 0 0;
+				}
 
 				&:hover {
 					margin-left: 0;

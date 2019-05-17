@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -12,29 +13,55 @@ import { updateEvents } from '../../redux/events/actions';
 
 import Image from '../../components/Image';
 
+class EventsMapControls extends PureComponent {
+
+	static propTypes = {
+		onMinus: PropTypes.func,
+		onPlus: PropTypes.func,
+		onReset: PropTypes.func,
+	}
+
+	render() {
+		return (
+			<div className="EventsMapControls">
+				<i className="EventsMapControls--button icon-minus" onClick={this.props.onMinus}></i>
+				<i className="EventsMapControls--button icon-plus" onClick={this.props.onPlus}></i>
+				<i className="EventsMapControls--button icon-ccw" onClick={this.props.onReset}></i>
+			</div>
+		)
+	}
+}
+
+const initialViewPort = {
+	width: "100%",
+	height: "100%",
+	latitude: 20.1699,
+	longitude: 24.9384,
+	zoom: 1.5
+}
+
 class EventsMap extends PureComponent {
 
 	constructor(props) {
 		super(props)
 
 		this.state = {
-			viewport: {
-				width: "100%",
-				height: "100%",
-				latitude: 60.1699,
-				longitude: 24.9384,
-				zoom: 2
-			},
+			viewport: initialViewPort,
 			activeMarker: null,
 		}
 
 		this.clearActiveMarker = this.clearActiveMarker.bind(this);
 		this.setPrevMarker = this.setPrevMarker.bind(this);
 		this.setNextMarker = this.setNextMarker.bind(this);
+		this.updateViewport = this.updateViewport.bind(this);
 	}
 
 	componentDidMount() {
 		this.props.updateEvents();
+	}
+
+	updateViewport(viewport) {
+		this.setState({ viewport })
 	}
 
 	clearActiveMarker() {
@@ -79,6 +106,7 @@ class EventsMap extends PureComponent {
 		return events.map(event => {
 			const isActive = activeMarker === event._id;
 			const eventTime = event.timeDescription || moment(event.begins).format('DD.MM.YYYY');
+			const eventImage = event.image || event.eventconcept.image;
 			return (
 				<React.Fragment key={event._id}>
 					<Marker
@@ -105,7 +133,7 @@ class EventsMap extends PureComponent {
 							<div className={`EventsMap--Popup`}>
 								<Image
 									className="EventsMap--Popup__image"
-									image={event.image}
+									image={eventImage}
 									width={300}
 									height={180}
 								/>
@@ -146,15 +174,35 @@ class EventsMap extends PureComponent {
 						height='100%'
 						mapboxApiAccessToken={config.MAPBOX_TOKEN}
 						mapStyle="mapbox://styles/mapbox/dark-v9"
-						onViewportChange={(viewport) => this.setState({ viewport })}
+						onViewportChange={this.updateViewport}
 						transitionDuration={300}
 						transitionInterpolator={new LinearInterpolator()}
 						dragPan={false}
 						dragRotate={false}
+						scrollZoom={false}
+						touchZoom={false}
+						doubleClickZoom={false}
 						touchAction="pan-y"
 						onNativeClick={this.clearActiveMarker}
 						attributionControl={false}
 					>
+						<EventsMapControls
+							onMinus={() => this.setState({
+								viewport: {
+									...this.state.viewport,
+									zoom: this.state.viewport.zoom - 1
+								}
+							})}
+							onPlus={() => this.setState({
+								viewport: {
+									...this.state.viewport,
+									zoom: this.state.viewport.zoom + 1
+								}
+							})}
+							onReset={() => this.setState({
+								viewport: initialViewPort
+							})}
+						/>
 						{this.renderMarkers()}
 					</ReactMapGL>
 				</div>

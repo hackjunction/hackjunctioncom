@@ -95,28 +95,30 @@ class Footer extends PureComponent {
                             <Link className="FooterInner--right__section-link" to="/volunteers">
                                 For volunteers
                         </Link>
-                            <Link className="FooterInner--right__section-link" to="/organisers">
-                                For organisers
+                            <Link className="FooterInner--right__section-link" to="/organizers">
+                                For organizers
                         </Link>
                             {this.renderExtraPageLinks(communityPages)}
                         </div>
                         <div className="FooterInner--right__section">
-                            {/* <Link to="/press">
-                            <h5 className="FooterInner--right__section-title">Press Kit</h5>
-                        </Link> */}
                             <a href="https://blog.hackjunction.com" alt="medium">
                                 <h5 className="FooterInner--right__section-title">Blog</h5>
                             </a>
                             <a href="https://www.flickr.com/photos/151708924@N07/albums/" alt="flickr">
                                 <h5 className="FooterInner--right__section-title">Photo Gallery</h5>
                             </a>
-                            <h5 className="FooterInner--right__section-title">Legal</h5>
+                            <Link to="/press" className="FooterInner--right__section-link">
+                                Press kit (eng)
+                            </Link>
+                            <Link to="/media" className="FooterInner--right__section-link">
+                                Press kit (fin)
+                            </Link>
                             <Link className="FooterInner--right__section-link" to="/policy">
                                 Privacy Policy
-                        </Link>
+                            </Link>
                             <Link className="FooterInner--right__section-link" to="/terms">
                                 Terms & Conditions
-                        </Link>
+                            </Link>
                         </div>
                     </nav>
                 </div>

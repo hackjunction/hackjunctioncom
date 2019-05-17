@@ -75,6 +75,7 @@ class App extends PureComponent {
                     <Switch>
                         {/* Redirects */}
                         <Redirect path="/privacy" to="/policy" />
+                        <Redirect path="/organisers" to="/organizers" />
 
                         {/* Static pages */}
                         <Route exact path="/" component={HomePage} />
@@ -85,7 +86,7 @@ class App extends PureComponent {
                         <Route exact path="/calendar" component={CalendarPage} />
                         <Route exact path="/team" component={TeamPage} />
                         <Route exact path="/volunteers" component={VolunteersPage} />
-                        <Route exact path="/organisers" component={OrganisersPage} />
+                        <Route exact path="/organizers" component={OrganisersPage} />
 
                         {/* Concept pages (JunctionX, HelTech, etc..) */}
                         <Route path="/concepts/:slug" component={ConceptPage} />

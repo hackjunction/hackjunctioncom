@@ -31,7 +31,7 @@ class OrganisersPage extends PureComponent {
         return (
             <Page
                 className="OrganisersPage"
-                pageTitle="For organisers"
+                pageTitle="For organizers"
                 metaDescKey={KEYS.organisersPageSubtitle}
                 ogImageKey={MEDIA_KEYS.organiserPageHeaderImage}
             >

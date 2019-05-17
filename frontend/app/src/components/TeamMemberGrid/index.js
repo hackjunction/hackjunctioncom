@@ -65,7 +65,7 @@ const mapStateToProps = (state, ownProps) => {
 		}
 		case 'global': {
 			teamMembers = globalTeamByPriority(state);
-			title = 'Global organisers';
+			title = 'Global organizers';
 			break;
 		}
 		default: break;
