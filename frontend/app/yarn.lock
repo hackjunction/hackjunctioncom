@@ -8627,6 +8627,11 @@ react-helmet@6.0.0-beta:
     react-fast-compare "^2.0.2"
     react-side-effect "^1.1.0"
 
+react-hotjar@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-hotjar/-/react-hotjar-2.0.0.tgz#b97bb439d9b057eb07da46f234527128e13f593c"
+  integrity sha512-aveuMW8aGrpJbmK8+uwK9Vwx8Rk4mo7NHEz/OmSm80tE11/laDBk1zkJHzWfwcduUCYZnbXvt16Gt5b9qILamQ==
+
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"

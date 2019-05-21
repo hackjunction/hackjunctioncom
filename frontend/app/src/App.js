@@ -7,6 +7,7 @@ import { withRouter } from 'react-router';
 import ReactPixel from 'react-facebook-pixel';
 import ReactGA from 'react-ga';
 import WebFont from 'webfontloader';
+import { hotjar } from 'react-hotjar';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -47,6 +48,10 @@ class App extends PureComponent {
 
         if (config.GOOGLE_ANALYTICS_ID) {
             ReactGA.initialize(config.GOOGLE_ANALYTICS_ID);
+        }
+
+        if (config.HOTJAR_ID && config.HOTJAR_SV) {
+            hotjar.initialize(config.HOTJAR_ID, config.HOTJAR_SV);
         }
 
         this.handleRouteChange(this.props.history.location);
