@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
+import MediaQuery from 'react-responsive';
 import './style.scss';
 
-const Video = React.memo(({ onLoad }) => {
+const Video = ({ onLoad }) => {
     return (
         <video
             autoPlay
@@ -11,12 +12,23 @@ const Video = React.memo(({ onLoad }) => {
             className={'HeaderVideo--video'}
             onPlay={onLoad}
         >
-            <source
-                src={require('../../assets/videos/mainevent2018aftermovieedit.mp4')}
-            />
+            <MediaQuery maxWidth={600}>
+                <source type="video/webm" src={require('../../assets/videos/aftermovie_noaudio_600x380.webm')} />
+                <source type="video/mp4" src={require('../../assets/videos/aftermovie_noaudio_600x380.mp4')} />
+            </MediaQuery>
+            <MediaQuery minWidth={601}>
+                <MediaQuery maxWidth={900}>
+                    <source type="video/webm" src={require('../../assets/videos/aftermovie_noaudio_900x600.webm')} />
+                    <source type="video/mp4" src={require('../../assets/videos/aftermovie_noaudio_900x600.mp4')} />
+                </MediaQuery>
+            </MediaQuery>
+            <MediaQuery minWidth={901}>
+                <source type="video/webm" src={require('../../assets/videos/aftermovie_noaudio_1920x900.webm')} />
+                <source type="video/mp4" src={require('../../assets/videos/aftermovie_noaudio_1920x900.mp4')} />
+            </MediaQuery>
         </video>
     )
-});
+};
 
 class HeaderVideo extends PureComponent {
 
