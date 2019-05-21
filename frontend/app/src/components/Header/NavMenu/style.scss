@@ -28,11 +28,11 @@
 .NavMenu {
     position: fixed;
     top: 0;
-    left: -1.2 * $bp-med;
+    left: -1.2 * $bp-small;
     bottom: 0;
     z-index: 3;
     width: 80%;
-    max-width: $bp-med;
+    max-width: $bp-small;
     background: $junction-white;
     display: flex;
     flex-direction: column;
