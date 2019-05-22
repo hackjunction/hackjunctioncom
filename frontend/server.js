@@ -9,7 +9,7 @@ app.use(
 		.set('prerenderToken', process.env.PRERENDER_TOKEN)
 		.blacklisted([
 			'/tracks.*',
-			'/challenges.*',
+			'/challenge.*',
 			'/partner.*',
 			'.html'
 		])
