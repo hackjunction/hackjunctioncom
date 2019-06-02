@@ -19,3 +19,10 @@ export const partnersShouldUpdate = createSelector(
 		return Date.now() - updated > UPDATE_INTERVAL;
 	}
 )
+
+export const showcasedPartners = createSelector(
+	partners,
+	partners => {
+		return partners.filter(p => p.showcase);
+	}
+)

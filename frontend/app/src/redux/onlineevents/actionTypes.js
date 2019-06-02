@@ -1,0 +1,1 @@
+export const UPDATE_ONLINE_EVENTS = 'onlineevents/UPDATE';

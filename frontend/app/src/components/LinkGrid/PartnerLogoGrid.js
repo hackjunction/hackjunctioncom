@@ -3,7 +3,7 @@ import './style.scss'
 
 import { connect } from 'react-redux';
 import { map } from 'lodash-es';
-import { partners } from '../../redux/partners/selectors';
+import { showcasedPartners } from '../../redux/partners/selectors';
 import { updatePartners } from '../../redux/partners/actions';
 import LinkGrid from './index.js';
 
@@ -27,7 +27,7 @@ const PartnerLogoGrid = ({ partners, updatePartners }) => {
 }
 
 const mapStateToProps = (state) => ({
-	partners: partners(state)
+	partners: showcasedPartners(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({
