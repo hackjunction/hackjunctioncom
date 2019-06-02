@@ -68,6 +68,16 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "faqs": {
+      "collection": "faq",
+      "via": "onlineevents",
+      "dominant": true
+    },
+    "partners": {
+      "collection": "partner",
+      "via": "onlineevents",
+      "dominant": true
     }
   }
 }

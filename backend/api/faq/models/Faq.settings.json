@@ -22,6 +22,10 @@
       "unique": true,
       "type": "string",
       "required": true
+    },
+    "onlineevents": {
+      "collection": "onlineevent",
+      "via": "faqs"
     }
   }
 }

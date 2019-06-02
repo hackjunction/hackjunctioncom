@@ -26,6 +26,10 @@
     "showcase": {
       "default": true,
       "type": "boolean"
+    },
+    "onlineevents": {
+      "collection": "onlineevent",
+      "via": "partners"
     }
   }
 }
