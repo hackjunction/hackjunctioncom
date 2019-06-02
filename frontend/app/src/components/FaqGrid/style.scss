@@ -5,15 +5,21 @@
 	max-width: 980px;
 	margin: 0 auto;
 	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	@include bp-custom(800px) {
+		flex-direction: row;
+		justify-content: space-between;
+		flex-wrap:wrap;
+	}
 }
 
 .FaqGridItem {
-	width: 470px;
+	width: 100%;
+	max-width: 470px;
 	display: flex;
-	align-self: flex-start;
 	flex-direction: column;
 	justify-content: flex-start;
 	background: rgba(213,213,213, 0.15);
@@ -21,6 +27,11 @@
 	margin-bottom: $padding-base;
 	border-radius: 10px;
 	padding: $padding-double;
+
+	@include bp-custom(800px) {
+		width: 49%;
+		align-self: flex-start;
+	}
 
 	&-expanded {
 		.FaqGridItem--answer  {

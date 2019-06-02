@@ -20,6 +20,12 @@ $bp-large: 1000px;
     }
 }
 
+@mixin bp-custom($size) {
+    @media (min-width: $size) {
+        @content; 
+    }
+}
+
 $padding-base: 10px;
 $padding-double: 20px;
 $padding-page: 30px;

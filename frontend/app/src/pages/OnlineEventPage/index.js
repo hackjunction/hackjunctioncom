@@ -73,7 +73,7 @@ class OnlineEventPage extends PureComponent {
                 <Divider lg />
                 <SingleColumnSection title={'Ready to join?'} subtitle="Here's a few useful links:" center>
                     <a className="OnlineEvent--link" href={event.linkToEventSite}>Sign up here</a>
-                    <a className="OnlineEvent--link" href={event.linkToEventSite}>Slack channel</a>
+                    <a className="OnlineEvent--link" href={event.linkToDiscussion}>Join Slack channel</a>
                     <a className="OnlineEvent--link" href={event.linkToEventSite}>Submit your project</a>
                 </SingleColumnSection>
                 <Divider lg />
