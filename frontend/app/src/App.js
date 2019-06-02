@@ -24,6 +24,7 @@ import CalendarPage from './pages/Calendar';
 import TeamPage from './pages/Team';
 import ConceptPage from './pages/Concept';
 import BasicPage from './pages/BasicPage';
+import OnlineEventPage from './pages/OnlineEventPage';
 import VolunteersPage from './pages/Volunteers';
 import OrganisersPage from './pages/Organisers';
 import StoryPage from './pages/Story';
@@ -95,6 +96,9 @@ class App extends PureComponent {
 
                         {/* Concept pages (JunctionX, HelTech, etc..) */}
                         <Route path="/concepts/:slug" component={ConceptPage} />
+
+                        {/* Online event pages */}
+                        <Route path="/online/:slug" component={OnlineEventPage} />
 
                         {/* Other pages */}
                         <Route path="/:slug" component={BasicPage} />

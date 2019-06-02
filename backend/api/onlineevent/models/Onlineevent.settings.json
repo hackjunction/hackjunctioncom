@@ -62,6 +62,12 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }

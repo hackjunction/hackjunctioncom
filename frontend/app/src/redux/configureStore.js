@@ -23,6 +23,7 @@ const persistConfig = {
 		'stories',
 		'teammembers',
 		'testimonials',
+		'onlineevents',
 		'misc'
 	],
 	stateReconciler: autoMergeLevel2,

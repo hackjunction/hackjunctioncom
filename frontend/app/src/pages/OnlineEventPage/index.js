@@ -7,6 +7,9 @@ import ErrorPage from '../Error';
 import NotFoundPage from '../NotFound';
 import Page from '../PageHOC';
 
+import HeaderImage from '../../components/HeaderImage';
+import LogoHeader from '../../components/HeaderImage/LogoHeader';
+
 import {
     onlineEvents,
     onlineEventsLoading,
@@ -36,7 +39,17 @@ class OnlineEventPage extends PureComponent {
                 metaDesc={event.punchline}
                 ogImageUrl={event.headerImage ? event.headerImage.url : null}
             >
-                <h1>{event.name}</h1>
+                <HeaderImage
+                    image={event.headerImage}
+                    alt="Header image"
+                >
+                    <LogoHeader
+                        logo={event.logo}
+                        punchline={event.punchline}
+                        link={event.linkToEventSite}
+                        linkText={'Join'}
+                    />
+                </HeaderImage>
                 {/* <HeaderImage
                     image={page.headerImage}
                     alt="Header image"
