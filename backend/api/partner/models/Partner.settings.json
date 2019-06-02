@@ -24,7 +24,7 @@
       "required": false
     },
     "showcase": {
-      "default": true,
+      "default": false,
       "type": "boolean"
     },
     "onlineevents": {
