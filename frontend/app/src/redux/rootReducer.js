@@ -13,6 +13,7 @@ import socialmedias from './socialmedias/reducer'
 import stories from './stories/reducer'
 import teammembers from './teammembers/reducer'
 import testimonials from './testimonials/reducer'
+import onlineevents from './onlineevents/reducer'
 import misc from './misc/reducer'
 
 export default () => combineReducers({
@@ -28,5 +29,6 @@ export default () => combineReducers({
 	stories,
 	teammembers,
 	testimonials,
+	onlineevents,
 	misc
 });

@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "onlineevent",
   "info": {
     "name": "onlineevent",
     "description": ""
@@ -48,6 +48,20 @@
     "linkToDiscussion": {
       "default": "",
       "type": "string"
+    },
+    "navTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "slug": {
+      "default": "",
+      "type": "string"
+    },
+    "headerImage": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }

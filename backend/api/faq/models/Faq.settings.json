@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "faq",
   "info": {
     "name": "faq",
     "description": ""
@@ -9,13 +9,19 @@
     "timestamps": true
   },
   "attributes": {
-    "Question": {
+    "question": {
       "default": "",
       "type": "string"
     },
-    "Answer": {
+    "answer": {
       "default": "",
       "type": "text"
+    },
+    "key": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
     }
   }
 }
