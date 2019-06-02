@@ -2,7 +2,8 @@
 
 .ImageLink {
     flex: 1;
-    height: 220px;
+    min-height: 220px;
+    max-height: 220px;
     position: relative;
 
     &--image {
