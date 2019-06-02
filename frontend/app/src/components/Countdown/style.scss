@@ -1,0 +1,10 @@
+.Countdown {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	.StatBlock {
+		width: 200px;
+	}
+}

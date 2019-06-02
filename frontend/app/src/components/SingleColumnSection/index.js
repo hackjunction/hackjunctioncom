@@ -4,13 +4,13 @@ import './style.scss'
 import { connect } from 'react-redux';
 import { content as selectContent } from '../../redux/staticcontent/selectors';
 
-const SingleColumnSection = ({ title, subtitle, children }) => {
+const SingleColumnSection = ({ title, subtitle, children, center = false }) => {
 
 	return (
 		<div className="SingleColumnSection">
 			<h3 className="SingleColumnSection--title">{title}</h3>
 			<p className="SingleColumnSection--subtitle">{subtitle}</p>
-			<div className="SingleColumnSection--content">
+			<div className={`SingleColumnSection--content ${center ? 'SingleColumnSection--content-center' : ''}`}>
 				{children}
 			</div>
 		</div>

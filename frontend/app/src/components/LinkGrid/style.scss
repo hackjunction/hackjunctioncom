@@ -7,8 +7,6 @@
 	justify-content: center;
 	
 	&--item {
-		width: 50%;
-		min-width: 300px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -19,4 +17,19 @@
 			object-position: center;
 		}
 	}
+
+	&--rowsize-2 {
+		.LinkGrid--item {
+			width: 50%;
+			min-width: 300px;
+		}
+	}
+
+	&--rowsize-3 {
+		.LinkGrid--item {
+			width: 33.33%;
+			min-width: 250px;
+		}
+	}
+
 }

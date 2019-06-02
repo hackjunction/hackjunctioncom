@@ -7,7 +7,7 @@ import { showcasedPartners } from '../../redux/partners/selectors';
 import { updatePartners } from '../../redux/partners/actions';
 import LinkGrid from './index.js';
 
-const PartnerLogoGrid = ({ partners, updatePartners }) => {
+const PartnerLogoGrid = ({ partners, updatePartners, itemsPerRow }) => {
 
 	useEffect(() => {
 		updatePartners();
@@ -22,12 +22,12 @@ const PartnerLogoGrid = ({ partners, updatePartners }) => {
 	})
 
 	return (
-		<LinkGrid links={items} />
+		<LinkGrid links={items} itemsPerRow={itemsPerRow} />
 	)
 }
 
-const mapStateToProps = (state) => ({
-	partners: showcasedPartners(state)
+const mapStateToProps = (state, ownProps) => ({
+	partners: ownProps.partners || showcasedPartners(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({

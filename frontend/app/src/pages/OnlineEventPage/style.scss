@@ -1,0 +1,14 @@
+@import '../../styles/main';
+
+.OnlineEvent--link {
+	padding: $padding-double;
+	text-align: center;
+	width: 100%;
+	max-width: 600px;
+	border-radius: 7px;
+	color: $junction-black;
+	background: $junction-white;
+	text-transform: uppercase;
+	margin-top: 30px;
+	font-size: 24px;
+}

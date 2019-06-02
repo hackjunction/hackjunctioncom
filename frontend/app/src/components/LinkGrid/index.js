@@ -5,6 +5,10 @@ import Image from '../Image'
 
 class LinkGrid extends PureComponent {
 
+	static defaultProps = {
+		itemsPerRow: 2
+	}
+
 	renderLinks() {
 		const { links } = this.props;
 		return links.map(link => {
@@ -22,8 +26,9 @@ class LinkGrid extends PureComponent {
 	}
 
 	render() {
+		const { itemsPerRow } = this.props;
 		return (
-			<div className="LinkGrid">
+			<div className={`LinkGrid LinkGrid--rowsize-${itemsPerRow}`}>
 				{this.renderLinks()}
 			</div>
 		)
