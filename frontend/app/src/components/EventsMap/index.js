@@ -124,7 +124,8 @@ class EventsMap extends PureComponent {
 						<Popup
 							latitude={event.latitude}
 							longitude={event.longitude}
-							offsetTop={-30}
+							offsetTop={-40}
+							offsetLeft={-25}
 							closeButton={false}
 							dynamicPosition={false}
 							captureClick={isActive}
