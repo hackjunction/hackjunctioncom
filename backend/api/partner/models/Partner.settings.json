@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "partner",
   "info": {
     "name": "partner",
     "description": ""
@@ -22,6 +22,10 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "showcase": {
+      "default": true,
+      "type": "boolean"
     }
   }
 }

@@ -1,0 +1,53 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "onlineevent",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "punchline": {
+      "default": "",
+      "type": "string"
+    },
+    "topSectionTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "topSectionSubtitle": {
+      "default": "",
+      "type": "text"
+    },
+    "topSectionBody": {
+      "default": "",
+      "type": "text"
+    },
+    "begins": {
+      "default": "",
+      "type": "date"
+    },
+    "ends": {
+      "default": "",
+      "type": "date"
+    },
+    "prizesTotal": {
+      "default": "",
+      "type": "string"
+    },
+    "linkToEventSite": {
+      "default": "",
+      "type": "string"
+    },
+    "linkToDiscussion": {
+      "default": "",
+      "type": "string"
+    }
+  }
+}
