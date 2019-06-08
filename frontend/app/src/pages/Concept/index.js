@@ -74,7 +74,7 @@ class ConceptPage extends PureComponent {
                 {concept.longdescription ? (
                     <Divider lg />
                 ) : null}
-                <EventCalendar title={`Upcoming ${concept.name} events`} concept={concept.slug} hideOnEmpty={true} />
+                <EventCalendar title={`Upcoming events`} concept={concept.slug} hideOnEmpty={true} />
                 <Divider lg />
             </Page>
         );
