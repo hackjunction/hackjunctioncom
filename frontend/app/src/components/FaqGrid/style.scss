@@ -22,8 +22,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	background: rgba(213,213,213, 0.15);
-	background: linear-gradient(145deg, rgba(213,213,213,0.10) 0%, rgba(82,82,82,0.10) 100%);
+	background: rgba(#4BCCCC, 0.27);
+	background: linear-gradient(145deg, rgba(#4BCCCC,0.35) 0%, rgba(#03061E,0.42) 100%);
 	margin-bottom: $padding-base;
 	border-radius: 10px;
 	padding: $padding-double;
@@ -49,6 +49,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+		font-size: 18px;
 
 		i {
 			transform: rotateZ(0deg);
@@ -61,9 +62,5 @@
 			justify-content: center;
 			align-items: center;
 		}
-	}
-
-	&--answer {
-		
 	}
 }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 import Divider from '../Divider';
+import Markdown from '../Markdown';
 import AnimateHeight from 'react-animate-height';
 
 class FaqGridItem extends PureComponent {
@@ -39,7 +40,7 @@ class FaqGridItem extends PureComponent {
 					height={this.state.expanded ? 'auto' : 0}
 				>
 					<div style={{ height: '30px' }} />
-					<span className="FaqGridItem--answer">{answer}</span>
+					<Markdown className="FaqGridItem--answer" source={answer} />
 				</AnimateHeight>
 			</div>
 		)

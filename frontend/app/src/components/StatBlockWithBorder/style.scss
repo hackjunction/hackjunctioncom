@@ -1,0 +1,52 @@
+@import '../../styles/main';
+
+.StatBlockWithBorder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 40px;
+	width: 100%;
+	max-width: 980px;
+	position: relative;
+
+	&--value {
+		@extend %font-title;
+		font-size: 80px;
+		font-weight: bold;
+		margin: 25px 0;
+	}
+
+	&--title {
+		@extend %font-title;
+		font-size: 24px;
+		font-family: $montserrat;
+		text-align: center;
+	}
+
+	&--subtitle {
+		font-size: 24px;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	&--border__left {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 80px;
+		border: 15px solid $junction-blue;
+		border-right: none;
+	}
+
+	&--border__right {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 80px;
+		border: 15px solid $junction-blue;
+		border-left: none;
+	}
+}

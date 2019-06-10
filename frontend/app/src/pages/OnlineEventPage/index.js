@@ -14,10 +14,10 @@ import BlockSection from '../../components/BlockSection';
 import Markdown from '../../components/Markdown';
 import PartnerLogoGrid from '../../components/LinkGrid/PartnerLogoGrid';
 import Divider from '../../components/Divider';
-import SingleColumnSection from '../../components/SingleColumnSection/index';
+import SingleColumnSection from '../../components/SingleColumnSection';
 import FaqGrid from '../../components/FaqGrid';
 import ImageLinks from '../../components/ImageLinks';
-import StatBlock from '../../components/StatBlock';
+import StatBlockWithBorder from '../../components/StatBlockWithBorder';
 import Countdown from '../../components/Countdown';
 
 import MEDIA_KEYS from '../../redux/staticmedia/keys';
@@ -71,14 +71,17 @@ class OnlineEventPage extends PureComponent {
                     <Countdown to={event.begins} />
                 </SingleColumnSection>
                 <Divider lg />
-                <SingleColumnSection title={'Ready to join?'} subtitle="Here's a few useful links:" center>
-                    <a className="OnlineEvent--link" href={event.linkToEventSite}>Sign up here</a>
-                    <a className="OnlineEvent--link" href={event.linkToDiscussion}>Join Slack channel</a>
-                    <a className="OnlineEvent--link" href={event.linkToEventSite}>Submit your project</a>
+                <SingleColumnSection title={'Ready to join?'} center>
+                    <a className="OnlineEvent--link" href={event.linkToEventSite}>Count me in</a>
+                    <a className="OnlineEvent--link" href={event.linkToDiscussion}>Join Slack</a>
                 </SingleColumnSection>
                 <Divider lg />
-                <SingleColumnSection title="Prizes in total" center>
-                    <StatBlock value={event.prizesTotal} label="Euros" />
+                <SingleColumnSection center>
+                    <StatBlockWithBorder
+                        title="Main Prize"
+                        value={event.prizesTotal}
+                        subtitle="euros"
+                    />
                 </SingleColumnSection>
                 <Divider lg />
                 <SingleColumnSection title="Supporting Partners">
@@ -89,6 +92,14 @@ class OnlineEventPage extends PureComponent {
                     <Divider sm />
                     <FaqGrid items={event.faqs} />
                 </SingleColumnSection>
+                <Divider lg />
+                <SingleColumnSection center>
+                    <a className="OnlineEvent--link" href={event.linkToEventSite}>Join the hackathon</a>
+                </SingleColumnSection>
+                <Divider lg />
+                <BlockSection title={event.bottomSectionTitle} subtitle={event.bottomSectionSubtitle}>
+                    <Markdown source={event.bottomSectionBody} />
+                </BlockSection>
                 <Divider lg />
                 <ImageLinks
                     links={[
