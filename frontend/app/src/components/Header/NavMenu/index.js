@@ -5,9 +5,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { map } from 'lodash-es';
 
+import { eventconceptsByPriority } from '../../../redux/eventconcepts/selectors';
 import { toggleSidebar } from '../../../redux/nav/actions';
 import { isSidebarOpen } from '../../../redux/nav/selectors';
-import { eventconceptsByPriority } from '../../../redux/eventconcepts/selectors';
+import { onlineEvents } from '../../../redux/onlineevents/selectors';
 
 import {
     homePages,
@@ -25,17 +26,32 @@ const ExtraPagesSection = React.memo(({ pages }) => {
     })
 });
 
-const ConceptPagesSection = React.memo(({ concepts }) => {
-    return map(concepts, concept => {
+const ConceptPagesSection = React.memo(({ concepts, onlineEvents }) => {
+
+    const onlineEventLinks = map(onlineEvents, event => {
+        return (
+            <Link key={event.slug} className="NavMenu--inner__menu-item" to={`/online/${event.slug}`}>
+                Online: {event.name}
+            </Link>
+        )
+    })
+    const conceptLinks = map(concepts, concept => {
         return (
             <Link key={concept.slug} className="NavMenu--inner__menu-item" to={`/concepts/${concept.slug}`}>
                 {concept.name}
             </Link>
         );
-    })
+    });
+
+    return (
+        <React.Fragment>
+            {onlineEventLinks}
+            {conceptLinks}
+        </React.Fragment>
+    );
 });
 
-const NavMenuInner = React.memo(({ eventConcepts, homePages, eventPages, communityPages }) => {
+const NavMenuInner = React.memo(({ eventConcepts, onlineEvents, homePages, eventPages, communityPages }) => {
     return (
         <div className="NavMenu--inner">
             <Link to="/">
@@ -63,7 +79,7 @@ const NavMenuInner = React.memo(({ eventConcepts, homePages, eventPages, communi
                 <Link to="/concepts">
                     <h6 className="NavMenu--inner__menu-title">Events & Concepts</h6>
                 </Link>
-                <ConceptPagesSection concepts={eventConcepts} />
+                <ConceptPagesSection concepts={eventConcepts} onlineEvents={onlineEvents} />
                 <ExtraPagesSection pages={eventPages} />
 
                 <h6 className="NavMenu--inner__menu-title">Community</h6>
@@ -89,6 +105,7 @@ const NavMenuInner = React.memo(({ eventConcepts, homePages, eventPages, communi
 })
 const mapStateToPropsInner = state => ({
     eventConcepts: eventconceptsByPriority(state),
+    onlineEvents: onlineEvents(state),
     homePages: homePages(state),
     eventPages: eventPages(state),
     communityPages: communityPages(state)
