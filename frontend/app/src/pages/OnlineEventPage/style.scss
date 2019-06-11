@@ -16,3 +16,30 @@
 .OnlineEvent--divider-img {
 	width: 400px;
 }
+
+.OnlineEvent--Challenge {
+	background: $junction-blue;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: $padding-double;
+	margin-bottom: 50px;
+	border-radius: 15px;
+	background: rgba(#4BCCCC, 0.27);
+	background: linear-gradient(145deg, rgba(#4BCCCC,0.35) 0%, rgba(#03061E,0.42) 100%);
+
+	&__name {
+		@extend %font-title;
+		font-weight: bold;
+		font-size: 24px;
+		line-height: 30px;
+		text-align: center;
+	}
+
+	&__desc {
+		margin-top: 10px;
+		font-size: 22px;
+		line-height: 30px;
+		text-align: center;
+	}
+}

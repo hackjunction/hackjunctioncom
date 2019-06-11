@@ -30,6 +30,27 @@ import {
 
 class OnlineEventPage extends PureComponent {
 
+    renderChallenges() {
+        const { event } = this.props;
+
+        if (Array.isArray(event.challenges) && event.challenges.length > 0) {
+            return (
+                <BlockSection title="Themes">
+                    {event.challenges.map(c => {
+                        return (
+                            <div key={c.name} className="OnlineEvent--Challenge">
+                                <span className="OnlineEvent--Challenge__name">{c.name}</span>
+                                <span className="OnlineEvent--Challenge__desc">{c.shortDescription}</span>
+                            </div>
+                        )
+                    })}
+                    <Divider lg />
+                </BlockSection>
+            )
+        }
+        return null;
+    }
+
     render() {
         const { loading, error, event } = this.props;
 
@@ -91,6 +112,7 @@ class OnlineEventPage extends PureComponent {
                     />
                 </SingleColumnSection>
                 <Divider lg />
+                {this.renderChallenges()}
                 <SingleColumnSection title="Supporting Partners">
                     <PartnerLogoGrid partners={event.partners} itemsPerRow={3} />
                 </SingleColumnSection>
