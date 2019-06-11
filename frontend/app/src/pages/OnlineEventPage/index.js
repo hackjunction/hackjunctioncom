@@ -64,8 +64,15 @@ class OnlineEventPage extends PureComponent {
                 </HeaderImage>
                 <BlockSection title={event.topSectionTitle} subtitle={event.topSectionSubtitle}>
                     <Markdown source={event.topSectionBody} />
-                    <Divider lg />
                 </BlockSection>
+                <Divider lg />
+                <SingleColumnSection center>
+                    <img
+                        src={require('../../assets/images/online-circles-2.png')}
+                        className="OnlineEvent--divider-img"
+                        alt="art"
+                    />
+                </SingleColumnSection>
                 <Divider lg />
                 <SingleColumnSection title={event.name + ' begins in'} center>
                     <Countdown to={event.begins} />
@@ -95,6 +102,14 @@ class OnlineEventPage extends PureComponent {
                 <Divider lg />
                 <SingleColumnSection center>
                     <a className="OnlineEvent--link" href={event.linkToEventSite}>Join the hackathon</a>
+                </SingleColumnSection>
+                <Divider lg />
+                <SingleColumnSection center>
+                    <img
+                        src={require('../../assets/images/online-circles-3.png')}
+                        className="OnlineEvent--divider-img"
+                        alt="art"
+                    />
                 </SingleColumnSection>
                 <Divider lg />
                 <BlockSection title={event.bottomSectionTitle} subtitle={event.bottomSectionSubtitle}>

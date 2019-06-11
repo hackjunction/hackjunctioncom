@@ -8,7 +8,7 @@ const config = {
     HOTJAR_SV: process.env.REACT_APP_HOTJAR_SV || 6,
     GOOGLE_ANALYTICS_ID: process.env.REACT_APP_GOOGLE_ANALYTICS_ID,
     MAPBOX_TOKEN: process.env.REACT_APP_MAPBOX_TOKEN,
-    IS_DEBUG: false // DEBUG_HOSTNAMES.indexOf(window.location.hostname) !== -1
+    IS_DEBUG: DEBUG_HOSTNAMES.indexOf(window.location.hostname) !== -1
 };
 
 export default config;
