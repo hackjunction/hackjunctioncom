@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/onlineeventchallenges",
+      "handler": "Onlineeventchallenge.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/onlineeventchallenges/count",
+      "handler": "Onlineeventchallenge.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/onlineeventchallenges/:_id",
+      "handler": "Onlineeventchallenge.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/onlineeventchallenges",
+      "handler": "Onlineeventchallenge.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/onlineeventchallenges/:_id",
+      "handler": "Onlineeventchallenge.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/onlineeventchallenges/:_id",
+      "handler": "Onlineeventchallenge.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -90,6 +90,10 @@
     "bottomSectionBody": {
       "default": "",
       "type": "text"
+    },
+    "challenges": {
+      "collection": "onlineeventchallenge",
+      "via": "onlineevent"
     }
   }
 }

@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "onlineeventchallenge",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "shortDescription": {
+      "default": "",
+      "type": "string"
+    },
+    "onlineevent": {
+      "model": "onlineevent",
+      "via": "challenges"
+    }
+  }
+}
