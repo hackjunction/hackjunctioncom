@@ -76,8 +76,20 @@
     },
     "partners": {
       "collection": "partner",
-      "dominant": true,
-      "via": "onlineevents"
+      "via": "onlineevents",
+      "dominant": true
+    },
+    "bottomSectionTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "bottomSectionSubtitle": {
+      "default": "",
+      "type": "text"
+    },
+    "bottomSectionBody": {
+      "default": "",
+      "type": "text"
     }
   }
 }
