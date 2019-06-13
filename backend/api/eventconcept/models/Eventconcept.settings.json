@@ -76,6 +76,14 @@
     "shortdescription": {
       "default": "",
       "type": "text"
+    },
+    "showInNav": {
+      "default": true,
+      "type": "boolean"
+    },
+    "showOnHomePage": {
+      "default": true,
+      "type": "boolean"
     }
   }
 }

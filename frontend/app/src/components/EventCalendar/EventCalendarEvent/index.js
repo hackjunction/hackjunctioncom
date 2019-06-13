@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 
 import { connect } from 'react-redux';
@@ -8,10 +8,12 @@ import Image from '../../Image';
 
 const EventCalendarEvent = React.memo(({ event }) => {
 
+    const [active, setActive] = useState(false)
+
     const eventTime = event.timeDescription || moment(event.begins).format('DD.MM.YYYY')
 
     return (
-        <div className="EventCalendarEvent">
+        <div className={`EventCalendarEvent ${active ? 'EventCalendarEvent-active' : ''}`} onClick={() => setActive(!active)}>
             <div className="EventCalendarEvent--main">
                 <Image className="EventCalendarEvent--image" image={event.image} width={600} height={300} />
                 <div className="EventCalendarEvent--content">
@@ -28,10 +30,10 @@ const EventCalendarEvent = React.memo(({ event }) => {
                 </div>
                 <div className="EventCalendarEvent--onhover__buttons">
                     {event.linkToEventSite ? (
-                        <a className="EventCalendarEvent--onhover__button" href={event.linkToEventSite}>Event website</a>
+                        <a className="EventCalendarEvent--onhover__button" onClick={(e) => e.stopPropagation()} href={event.linkToEventSite}>Event website</a>
                     ) : null}
                     {event.linkToTickets ? (
-                        <a className="EventCalendarEvent--onhover__button" href={event.linkToTickets}>Get Tickets</a>
+                        <a className="EventCalendarEvent--onhover__button" onClick={(e) => e.stopPropagation()} href={event.linkToTickets}>Get Tickets</a>
                     ) : null}
                 </div>
             </div>

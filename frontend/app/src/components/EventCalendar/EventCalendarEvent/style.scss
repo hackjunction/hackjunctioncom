@@ -22,6 +22,7 @@
     }
 
     &--onhover {
+        pointer-events: none;
         position: absolute;
         top: 0;
         left: 0;
@@ -92,6 +93,8 @@
             align-items: center;
             color: $junction-white;
             border-top: 1px solid rgba($junction-white, 0.2);
+            background: rgba($junction-black, 0.8);
+            font-weight: bold;
 
             &:not(:last-child) { 
                 border-right: 1px solid rgba($junction-white, 0.2);
@@ -99,10 +102,9 @@
         }
     }
 
-    &:hover {
+    &:hover, &-active {
         .EventCalendarEvent--main {
-            filter: blur(10px);
-            -webkit-filter: blur(10px);
+           
         }
 
         .EventCalendarEvent--content * {
@@ -111,6 +113,7 @@
 
         .EventCalendarEvent--onhover {
             opacity: 1;
+            pointer-events: initial;
         }
     }
 
