@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Divider from '../Divider'
 import Image from '../Image'
 import LinkButton from '../LinkButton'
-import { eventconceptsByPriority as selectEventConcepts } from '../../redux/eventconcepts/selectors';
+import { eventconceptsForHomePage } from '../../redux/eventconcepts/selectors';
 
 class ConceptsPreview extends PureComponent {
 
@@ -47,7 +47,7 @@ class ConceptsPreview extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-	concepts: selectEventConcepts(state),
+	concepts: eventconceptsForHomePage(state),
 })
 
 export default connect(mapStateToProps)(ConceptsPreview)

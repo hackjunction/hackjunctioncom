@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { map } from 'lodash-es';
 
-import { eventconceptsByPriority } from '../../../redux/eventconcepts/selectors';
+import { eventconceptsForNav } from '../../../redux/eventconcepts/selectors';
 import { toggleSidebar } from '../../../redux/nav/actions';
 import { isSidebarOpen } from '../../../redux/nav/selectors';
 import { onlineEvents } from '../../../redux/onlineevents/selectors';
@@ -104,7 +104,7 @@ const NavMenuInner = React.memo(({ eventConcepts, onlineEvents, homePages, event
     )
 })
 const mapStateToPropsInner = state => ({
-    eventConcepts: eventconceptsByPriority(state),
+    eventConcepts: eventconceptsForNav(state),
     onlineEvents: onlineEvents(state),
     homePages: homePages(state),
     eventPages: eventPages(state),

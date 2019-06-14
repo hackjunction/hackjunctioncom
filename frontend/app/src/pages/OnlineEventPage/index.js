@@ -38,10 +38,12 @@ class OnlineEventPage extends PureComponent {
                 <BlockSection title="Themes">
                     {event.challenges.map(c => {
                         return (
-                            <div key={c.name} className="OnlineEvent--Challenge">
-                                <span className="OnlineEvent--Challenge__name">{c.name}</span>
-                                <span className="OnlineEvent--Challenge__desc">{c.shortDescription}</span>
-                            </div>
+                            <a href={c.link}>
+                                <div key={c.name} className="OnlineEvent--Challenge">
+                                    <span className="OnlineEvent--Challenge__name">{c.name}</span>
+                                    <span className="OnlineEvent--Challenge__desc">{c.shortDescription}</span>
+                                </div>
+                            </a>
                         )
                     })}
                     <Divider lg />

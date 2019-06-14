@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "onlineeventchallenge",
   "info": {
     "name": "onlineeventchallenge",
     "description": ""
@@ -20,6 +20,10 @@
     "onlineevent": {
       "model": "onlineevent",
       "via": "challenges"
+    },
+    "link": {
+      "default": "",
+      "type": "string"
     }
   }
 }

@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { sortBy } from 'lodash-es';
+import { sortBy, filter } from 'lodash-es';
 import config from '../../services/config';
 
 /* How often to update a given content type?
@@ -27,3 +27,17 @@ export const eventconceptsByPriority = createSelector(
 		return sortBy(concepts, 'priority');
 	}
 );
+
+export const eventconceptsForHomePage = createSelector(
+	eventconceptsByPriority,
+	concepts => {
+		return filter(concepts, c => c.showOnHomePage);
+	}
+)
+
+export const eventconceptsForNav = createSelector(
+	eventconceptsByPriority,
+	concepts => {
+		return filter(concepts, c => c.showInNav);
+	}
+)
