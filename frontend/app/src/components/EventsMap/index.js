@@ -113,7 +113,7 @@ class EventsMap extends PureComponent {
 						latitude={event.latitude}
 						longitude={event.longitude}
 						offsetTop={-35}
-						offsetLeft={-25}
+						offsetLeft={0}
 						className="EventsMap--MarkerWrapper"
 					>
 						<div className="EventsMap--Marker" onClick={() => this.handleMarkerClick(event)}>
