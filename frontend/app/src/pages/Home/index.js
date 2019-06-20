@@ -11,8 +11,8 @@ import NewsLetterForm from '../../components/NewsLetterForm';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
 import ConceptsPreview from '../../components/ConceptsPreview';
-import PartnerLogoGrid from '../../components/LinkGrid/PartnerLogoGrid'
-import StoryGrid from '../../components/LinkGrid/StoryGrid'
+import PartnerLogoGrid from '../../components/LinkGrid/PartnerLogoGrid';
+import StoryGrid from '../../components/LinkGrid/StoryGrid';
 import ImageLinks from '../../components/ImageLinks';
 import Page from '../PageHOC';
 import LinkButton from '../../components/LinkButton/index';
@@ -36,8 +36,8 @@ const BOTTOM_LINKS = [
         imageAlt: 'Link',
         linkTo: '/volunteers',
         linkText: 'For volunteers'
-    },
-]
+    }
+];
 
 class HomePage extends PureComponent {
     render() {
@@ -63,7 +63,7 @@ class HomePage extends PureComponent {
                     <ConceptsPreview />
                 </BlockSection>
                 <Divider lg />
-                <BlockSection titleKey={KEYS.previousPartnersTitle} subtitleKey={KEYS.previousPartnersSubtitle} >
+                <BlockSection titleKey={KEYS.previousPartnersTitle} subtitleKey={KEYS.previousPartnersSubtitle}>
                     <PartnerLogoGrid />
                     <Divider sm />
                     <LinkButton to="/partners" text="More about partnering" />
@@ -75,12 +75,10 @@ class HomePage extends PureComponent {
                 <Divider lg />
                 <NewsLetterForm />
                 <Divider lg />
-                <ImageLinks
-                    links={BOTTOM_LINKS}
-                />
+                <ImageLinks links={BOTTOM_LINKS} />
             </Page>
-        )
+        );
     }
 }
 
-export default HomePage
+export default HomePage;
