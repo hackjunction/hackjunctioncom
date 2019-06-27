@@ -7,13 +7,23 @@ import moment from 'moment';
 import Image from '../../Image';
 
 const EventCalendarEvent = React.memo(({ event }) => {
+    const [active, setActive] = useState(false);
 
-    const [active, setActive] = useState(false)
-
-    const eventTime = event.timeDescription || moment(event.begins).format('DD.MM.YYYY')
+    let eventTime;
+    if (event.timeDescription) {
+        eventTime = event.timeDescription;
+    } else {
+        eventTime = moment(event.begins).format('DD.MM.YYYY');
+        if (event.ends) {
+            eventTime += ' - ' + moment(event.ends).format('DD.MM.YYYY');
+        }
+    }
 
     return (
-        <div className={`EventCalendarEvent ${active ? 'EventCalendarEvent-active' : ''}`} onClick={() => setActive(!active)}>
+        <div
+            className={`EventCalendarEvent ${active ? 'EventCalendarEvent-active' : ''}`}
+            onClick={() => setActive(!active)}
+        >
             <div className="EventCalendarEvent--main">
                 <Image className="EventCalendarEvent--image" image={event.image} width={600} height={300} />
                 <div className="EventCalendarEvent--content">
@@ -25,15 +35,31 @@ const EventCalendarEvent = React.memo(({ event }) => {
             <div className="EventCalendarEvent--onhover">
                 <div className="EventCalendarEvent--onhover-main">
                     <span className="EventCalendarEvent--onhover__title">{event.name}</span>
-                    <span className="EventCalendarEvent--onhover__subtitle">{eventTime} | {event.locationDescription}</span>
-                    <span className="EventCalendarEvent--onhover__desc">{event.shortDescription || 'No description available...'}</span>
+                    <span className="EventCalendarEvent--onhover__subtitle">
+                        {eventTime} | {event.locationDescription}
+                    </span>
+                    <span className="EventCalendarEvent--onhover__desc">
+                        {event.shortDescription || 'No description available...'}
+                    </span>
                 </div>
                 <div className="EventCalendarEvent--onhover__buttons">
                     {event.linkToEventSite ? (
-                        <a className="EventCalendarEvent--onhover__button" onClick={(e) => e.stopPropagation()} href={event.linkToEventSite}>Event website</a>
+                        <a
+                            className="EventCalendarEvent--onhover__button"
+                            onClick={e => e.stopPropagation()}
+                            href={event.linkToEventSite}
+                        >
+                            Event website
+                        </a>
                     ) : null}
                     {event.linkToTickets ? (
-                        <a className="EventCalendarEvent--onhover__button" onClick={(e) => e.stopPropagation()} href={event.linkToTickets}>Get Tickets</a>
+                        <a
+                            className="EventCalendarEvent--onhover__button"
+                            onClick={e => e.stopPropagation()}
+                            href={event.linkToTickets}
+                        >
+                            Get Tickets
+                        </a>
                     ) : null}
                 </div>
             </div>
@@ -46,14 +72,14 @@ const mapStateToProps = (state, ownProps) => {
     if (event.image || !event.eventconcept) {
         return {
             event
-        }
+        };
     }
     return {
         event: {
             ...event,
-            image: event.eventconcept.image,
+            image: event.eventconcept.image
         }
-    }
-}
+    };
+};
 
 export default connect(mapStateToProps)(EventCalendarEvent);
