@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/api/onlineevents/:_id",
-      "handler": "Onlineevent.destroy",
+      "handler": "Onlineevent.delete",
       "config": {
         "policies": []
       }

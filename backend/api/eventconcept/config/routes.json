@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/api/eventconcepts/:_id",
-      "handler": "Eventconcept.destroy",
+      "handler": "Eventconcept.delete",
       "config": {
         "policies": []
       }

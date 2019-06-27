@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/faqs/:_id",
-      "handler": "Faq.destroy",
+      "handler": "Faq.delete",
       "config": {
         "policies": []
       }

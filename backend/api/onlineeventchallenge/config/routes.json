@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/onlineeventchallenges/:_id",
-      "handler": "Onlineeventchallenge.destroy",
+      "handler": "Onlineeventchallenge.delete",
       "config": {
         "policies": []
       }
