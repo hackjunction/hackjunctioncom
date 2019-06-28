@@ -8,13 +8,8 @@ import { map } from 'lodash-es';
 import { eventconceptsForNav } from '../../../redux/eventconcepts/selectors';
 import { toggleSidebar } from '../../../redux/nav/actions';
 import { isSidebarOpen } from '../../../redux/nav/selectors';
-import { onlineEvents } from '../../../redux/onlineevents/selectors';
 
-import {
-    homePages,
-    eventPages,
-    communityPages
-} from '../../../redux/pages/selectors';
+import { homePages, eventPages, communityPages } from '../../../redux/pages/selectors';
 
 const ExtraPagesSection = React.memo(({ pages }) => {
     return map(pages, page => {
@@ -22,19 +17,11 @@ const ExtraPagesSection = React.memo(({ pages }) => {
             <Link key={page.slug} className="NavMenu--inner__menu-item" to={'/' + page.slug}>
                 {page.navTitle}
             </Link>
-        )
-    })
+        );
+    });
 });
 
-const ConceptPagesSection = React.memo(({ concepts, onlineEvents }) => {
-
-    const onlineEventLinks = map(onlineEvents, event => {
-        return (
-            <Link key={event.slug} className="NavMenu--inner__menu-item" to={`/online/${event.slug}`}>
-                Online: {event.name}
-            </Link>
-        )
-    })
+const ConceptPagesSection = React.memo(({ concepts }) => {
     const conceptLinks = map(concepts, concept => {
         return (
             <Link key={concept.slug} className="NavMenu--inner__menu-item" to={`/concepts/${concept.slug}`}>
@@ -43,15 +30,10 @@ const ConceptPagesSection = React.memo(({ concepts, onlineEvents }) => {
         );
     });
 
-    return (
-        <React.Fragment>
-            {onlineEventLinks}
-            {conceptLinks}
-        </React.Fragment>
-    );
+    return <React.Fragment>{conceptLinks}</React.Fragment>;
 });
 
-const NavMenuInner = React.memo(({ eventConcepts, onlineEvents, homePages, eventPages, communityPages }) => {
+const NavMenuInner = React.memo(({ eventConcepts, homePages, eventPages, communityPages }) => {
     return (
         <div className="NavMenu--inner">
             <Link to="/">
@@ -67,51 +49,50 @@ const NavMenuInner = React.memo(({ eventConcepts, onlineEvents, homePages, event
                 </Link>
                 <Link className="NavMenu--inner__menu-item" to="/story">
                     Story
-                        </Link>
+                </Link>
                 <Link className="NavMenu--inner__menu-item" to="/calendar">
                     Calendar
-                        </Link>
+                </Link>
                 <Link className="NavMenu--inner__menu-item" to="/team">
                     Team
-                        </Link>
+                </Link>
                 <ExtraPagesSection pages={homePages} />
 
                 <Link to="/concepts">
                     <h6 className="NavMenu--inner__menu-title">Events & Concepts</h6>
                 </Link>
-                <ConceptPagesSection concepts={eventConcepts} onlineEvents={onlineEvents} />
+                <ConceptPagesSection concepts={eventConcepts} />
                 <ExtraPagesSection pages={eventPages} />
 
                 <h6 className="NavMenu--inner__menu-title">Community</h6>
                 <Link className="NavMenu--inner__menu-item" to="/partners">
                     For partners
-                        </Link>
+                </Link>
                 <Link className="NavMenu--inner__menu-item" to="/participants">
                     For participants
-                        </Link>
+                </Link>
                 <Link className="NavMenu--inner__menu-item" to="/volunteers">
                     For volunteers
-                        </Link>
+                </Link>
                 <Link className="NavMenu--inner__menu-item" to="/organizers">
                     For organizers
-                        </Link>
+                </Link>
                 <ExtraPagesSection pages={communityPages} />
                 <Link to="/team">
                     <h6 className="NavMenu--inner__menu-title">Contact</h6>
                 </Link>
             </nav>
         </div>
-    )
-})
+    );
+});
 const mapStateToPropsInner = state => ({
     eventConcepts: eventconceptsForNav(state),
-    onlineEvents: onlineEvents(state),
     homePages: homePages(state),
     eventPages: eventPages(state),
     communityPages: communityPages(state)
 });
 
-const ConnectedNavMenuInner = connect(mapStateToPropsInner)(NavMenuInner)
+const ConnectedNavMenuInner = connect(mapStateToPropsInner)(NavMenuInner);
 
 const NavMenu = ({ isSidebarOpen, toggleSidebar }) => {
     return (

@@ -13,9 +13,10 @@ const EventCalendarEvent = React.memo(({ event }) => {
     if (event.timeDescription) {
         eventTime = event.timeDescription;
     } else {
-        eventTime = moment(event.begins).format('DD.MM.YYYY');
-        if (event.ends) {
-            eventTime += ' - ' + moment(event.ends).format('DD.MM.YYYY');
+        if (moment(event.begins).month() === moment(event.ends).month()) {
+            eventTime = `${moment(event.begins).format('MMMM Do')} - ${moment(event.ends).format('Do')}`;
+        } else {
+            eventTime = `${moment(event.begins).format('MMM Do')} - ${moment(event.ends).format('MMM Do')}`;
         }
     }
 
