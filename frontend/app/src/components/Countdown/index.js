@@ -1,59 +1,48 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import moment from 'moment';
+import { filter, sortBy } from 'lodash-es';
 import './style.scss';
 
-import StatBlock from '../StatBlock';
 import CountdownNow from 'react-countdown-now';
 
-
 class Countdown extends PureComponent {
+    static propTypes = {
+        items: PropTypes.arrayOf(
+            PropTypes.shape({
+                date: PropTypes.date,
+                render: PropTypes.func
+            })
+        ),
+        renderDone: PropTypes.func
+    };
 
-	constructor(props) {
-		super(props);
+    getUpcomingCountdowns() {
+        const upcomingDates = filter(this.props.items, item => moment(item.date).isAfter());
+        const sorted = sortBy(upcomingDates, item => moment(item.date).fromNow());
+        return sorted;
+    }
 
-		this.renderCountdown = this.renderCountdown.bind(this);
-		this.renderComplete = this.renderComplete.bind(this);
-	}
+    render() {
+        const upcoming = this.getUpcomingCountdowns();
 
-	renderComplete() {
-		return null;
-	}
-
-	renderCountdown({ days, hours, minutes, seconds, completed }) {
-		if (completed) {
-			// Render a completed state
-			return this.renderComplete();
-		} else {
-			return (
-				<div className="Countdown">
-					<StatBlock
-						value={days}
-						label="days"
-					/>
-					<StatBlock
-						value={hours}
-						label="hours"
-					/>
-					<StatBlock
-						value={minutes}
-						label="minutes"
-					/>
-					<StatBlock
-						value={seconds}
-						label="seconds"
-					/>
-				</div>
-			);
-		}
-	}
-
-	render() {
-		return (
-			<CountdownNow
-				date={this.props.to}
-				renderer={this.renderCountdown}
-			/>
-		)
-	}
+        return (
+            <CountdownNow
+                date={upcoming.length > 0 ? upcoming[0].date : Date.now() - 1}
+                renderer={props => {
+                    if (props.completed) {
+                        if (upcoming.length > 1) {
+                            return <Countdown items={upcoming.slice(1)} renderDone={this.props.renderDone} />;
+                        } else {
+                            return this.props.renderDone();
+                        }
+                    } else {
+                        return upcoming[0].render(props);
+                    }
+                }}
+            />
+        );
+    }
 }
 
 export default Countdown;

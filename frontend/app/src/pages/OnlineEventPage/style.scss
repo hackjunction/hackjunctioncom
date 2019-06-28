@@ -1,50 +1,61 @@
 @import '../../styles/main';
 
 .OnlineEvent--link {
-	padding: $padding-double;
-	text-align: center;
-	width: 100%;
-	max-width: 600px;
-	border-radius: 7px;
-	color: $junction-black;
-	background: $junction-white;
-	text-transform: uppercase;
-	margin-top: 30px;
-	font-size: 24px;
+    padding: $padding-double;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 7px;
+    color: $junction-black;
+    background: $junction-white;
+    text-transform: uppercase;
+    margin-top: 30px;
+    font-size: 24px;
 }
 
 .OnlineEvent--divider-img {
-	width: 400px;
+    width: 400px;
+}
+
+.OnlineEvent--countdown {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .StatBlock {
+        width: 200px;
+    }
 }
 
 .OnlineEvent--Challenge {
-	background: $junction-blue;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: $padding-double;
-	margin-bottom: 30px;
-	border-radius: 15px;
-	background: rgba(#4BCCCC, 0.27);
-	background: linear-gradient(145deg, rgba(#4BCCCC,0.35) 0%, rgba(#03061E,0.42) 80%,rgba(#03061E,0.42) 100%);
+    background: $junction-blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $padding-double;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    background: rgba(#4bcccc, 0.27);
+    background: linear-gradient(145deg, rgba(#4bcccc, 0.35) 0%, rgba(#03061e, 0.42) 80%, rgba(#03061e, 0.42) 100%);
 
-	&:hover {
-		background: rgba(#4BCCCC, 0.32);
-		background: linear-gradient(145deg, rgba(#4BCCCC,0.35) 0%, rgba(#03061E,0.42) 100%, rgba(#03061E,0.42) 100%);
-	}
+    &:hover {
+        background: rgba(#4bcccc, 0.32);
+        background: linear-gradient(145deg, rgba(#4bcccc, 0.35) 0%, rgba(#03061e, 0.42) 100%, rgba(#03061e, 0.42) 100%);
+    }
 
-	&__name {
-		@extend %font-title;
-		font-weight: bold;
-		font-size: 24px;
-		line-height: 30px;
-		text-align: center;
-	}
+    &__name {
+        @extend %font-title;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+    }
 
-	&__desc {
-		margin-top: 10px;
-		font-size: 22px;
-		line-height: 30px;
-		text-align: center;
-	}
+    &__desc {
+        margin-top: 10px;
+        font-size: 22px;
+        line-height: 30px;
+        text-align: center;
+    }
 }

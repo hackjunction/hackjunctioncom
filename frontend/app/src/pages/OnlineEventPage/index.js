@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { find } from 'lodash-es';
+import moment from 'moment';
 import './style.scss';
 
 import LoadingPage from '../Loading';
@@ -19,17 +20,13 @@ import FaqGrid from '../../components/FaqGrid';
 import ImageLinks from '../../components/ImageLinks';
 import StatBlockWithBorder from '../../components/StatBlockWithBorder';
 import Countdown from '../../components/Countdown';
+import StatBlock from '../../components/StatBlock';
 
 import MEDIA_KEYS from '../../redux/staticmedia/keys';
 
-import {
-    onlineEvents,
-    onlineEventsLoading,
-    onlineEventsError,
-} from '../../redux/onlineevents/selectors';
+import { onlineEvents, onlineEventsLoading, onlineEventsError } from '../../redux/onlineevents/selectors';
 
 class OnlineEventPage extends PureComponent {
-
     renderChallenges() {
         const { event } = this.props;
 
@@ -44,11 +41,11 @@ class OnlineEventPage extends PureComponent {
                                     <span className="OnlineEvent--Challenge__desc">{c.shortDescription}</span>
                                 </div>
                             </a>
-                        )
+                        );
                     })}
                     <Divider lg />
                 </BlockSection>
-            )
+            );
         }
         return null;
     }
@@ -74,10 +71,7 @@ class OnlineEventPage extends PureComponent {
                 metaDesc={event.punchline}
                 ogImageUrl={event.headerImage ? event.headerImage.url : null}
             >
-                <HeaderImage
-                    image={event.headerImage}
-                    alt="Header image"
-                >
+                <HeaderImage image={event.headerImage} alt="Header image">
                     <LogoHeader
                         logo={event.logo}
                         punchline={event.punchline}
@@ -97,21 +91,69 @@ class OnlineEventPage extends PureComponent {
                     />
                 </SingleColumnSection>
                 <Divider lg />
-                <SingleColumnSection title={event.name + ' begins in'} center>
-                    <Countdown to={event.begins} />
-                </SingleColumnSection>
-                <Divider lg />
-                <SingleColumnSection title={'Ready to join?'} center>
-                    <a className="OnlineEvent--link" href={event.linkToEventSite}>Count me in</a>
-                    <a className="OnlineEvent--link" href={event.linkToDiscussion}>Join Slack</a>
-                </SingleColumnSection>
+                <Countdown
+                    items={[
+                        {
+                            date: event.begins,
+                            render: ({ days, hours, minutes, seconds, completed }) => {
+                                if (completed) return null;
+                                return (
+                                    <SingleColumnSection title={event.name + ' begins in'} center>
+                                        <div className="OnlineEvent--countdown">
+                                            <StatBlock value={days} label="days" />
+                                            <StatBlock value={hours} label="hours" />
+                                            <StatBlock value={minutes} label="minutes" />
+                                            <StatBlock value={seconds} label="seconds" />
+                                        </div>
+                                        <Divider md />
+                                        <h2>Ready to join?</h2>
+                                        <a className="OnlineEvent--link" href={event.linkToEventSite}>
+                                            Count me in
+                                        </a>
+                                        <a className="OnlineEvent--link" href={event.linkToDiscussion}>
+                                            Join Slack
+                                        </a>
+                                    </SingleColumnSection>
+                                );
+                            }
+                        },
+                        {
+                            date: event.ends,
+                            render: ({ days, hours, minutes, seconds, completed }) => {
+                                if (completed) return null;
+                                return (
+                                    <SingleColumnSection title={event.name + ' ends in'} center>
+                                        <div className="OnlineEvent--countdown">
+                                            <StatBlock value={days} label="days" />
+                                            <StatBlock value={hours} label="hours" />
+                                            <StatBlock value={minutes} label="minutes" />
+                                            <StatBlock value={seconds} label="seconds" />
+                                        </div>
+                                        <Divider md />
+                                        <h2>Ready to join?</h2>
+                                        <a className="OnlineEvent--link" href={event.linkToEventSite}>
+                                            Count me in
+                                        </a>
+                                        <a className="OnlineEvent--link" href={event.linkToDiscussion}>
+                                            Join Slack
+                                        </a>
+                                    </SingleColumnSection>
+                                );
+                            }
+                        }
+                    ]}
+                    renderDone={() => (
+                        <SingleColumnSection title={event.name + ' has ended'}>
+                            <p style={{ textAlign: 'center' }}>
+                                But don't worry, we run online events all the time. Check them out{' '}
+                                <a href="/concepts/junction-online">here</a>
+                            </p>
+                        </SingleColumnSection>
+                    )}
+                />
                 <Divider lg />
                 <SingleColumnSection center>
-                    <StatBlockWithBorder
-                        title="Main Prize"
-                        value={event.prizesTotal}
-                        subtitle="euros"
-                    />
+                    <StatBlockWithBorder title="Main Prize" value={event.prizesTotal} subtitle="euros" />
                 </SingleColumnSection>
                 <Divider lg />
                 {this.renderChallenges()}
@@ -125,7 +167,9 @@ class OnlineEventPage extends PureComponent {
                 </SingleColumnSection>
                 <Divider lg />
                 <SingleColumnSection center>
-                    <a className="OnlineEvent--link" href={event.linkToEventSite}>Join the hackathon</a>
+                    <a className="OnlineEvent--link" href={event.linkToEventSite}>
+                        Join the hackathon
+                    </a>
                 </SingleColumnSection>
                 <Divider lg />
                 <SingleColumnSection center>
@@ -174,10 +218,8 @@ const mapStateToProps = (state, ownProps) => {
     return {
         event: find(events, e => e.slug === match.params.slug),
         loading: onlineEventsLoading(state),
-        error: onlineEventsError(state),
-    }
-}
+        error: onlineEventsError(state)
+    };
+};
 
-export default connect(
-    mapStateToProps
-)(OnlineEventPage);
+export default connect(mapStateToProps)(OnlineEventPage);
