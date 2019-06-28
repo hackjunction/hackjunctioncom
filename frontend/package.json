@@ -1,24 +1,24 @@
 {
-  "name": "hackjunctionsite",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "setup": "cd app && yarn install",
-    "dev": "cd app && yarn start",
-    "heroku-postbuild": "cd app && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-    "start": "node server.js"
-  },
-  "author": "Juuso Lappalainen",
-  "license": "ISC",
-  "devDependencies": {},
-  "engines": {
-    "node": "10.7.0"
-  },
-  "dependencies": {
-    "express": "^4.16.4",
-    "path": "^0.12.7",
-    "prerender-node": "^3.2.4"
-  }
+    "name": "hackjunctionsite",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "setup": "npm install && cd app && npm install",
+        "dev": "cd app && yarn start",
+        "heroku-postbuild": "cd app && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+        "start": "node server.js"
+    },
+    "author": "Juuso Lappalainen",
+    "license": "ISC",
+    "devDependencies": {},
+    "engines": {
+        "node": "10.7.0"
+    },
+    "dependencies": {
+        "express": "^4.16.4",
+        "path": "^0.12.7",
+        "prerender-node": "^3.2.4"
+    }
 }
