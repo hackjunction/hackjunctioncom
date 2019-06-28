@@ -1,74 +1,82 @@
 @import '../../../styles/main';
 
 .Form {
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
-	position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
 
-	&--loading-overlay {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		opacity: 0;
-		pointer-events: none;
-		z-index: 100;
-		transition: opacity 0.2s ease;
-		background: $junction-black;
-	}
+    &--Inner {
+        transition: opacity 0.2s ease;
+    }
 
-	&--error-banner {
-		background: rgba($color-error, 0.5);
-		padding: $padding-base;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		border-radius: 7px;
-		display: none;
+    &--loading-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 100;
+        transition: opacity 0.2s ease;
+    }
 
-		&__title {
-			@extend %font-title;
-			font-weight: bold;
-		}
-	}
+    &--error-banner {
+        background: rgba($color-error, 0.5);
+        padding: $padding-base;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 7px;
+        display: none;
 
-	&--success {
-		display: none;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		
-		&__title {
-			@extend %font-title;
-			font-weight: bold;
-		}
-	}
+        &__title {
+            @extend %font-title;
+            font-weight: bold;
+        }
+    }
 
-	&-loading {
-		.Form--loading-overlay {
-			opacity: 1;
-		}
-	}
+    &--success {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-	&-success {
-		.Form--success {
-			display: flex;
-		}
+        &__title {
+            @extend %font-title;
+            font-weight: bold;
+        }
+    }
 
-		.Form--Inner {
-			display: none;	
-		}
-	}
+    &-loading {
+        .Form--loading-overlay {
+            opacity: 1;
+        }
 
-	&-error {
-		.Form--error-banner {
-			display: flex;
-		}
-	}
+        .Form--Inner {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    &-success {
+        .Form--success {
+            display: flex;
+        }
+
+        .Form--Inner {
+            display: none;
+        }
+    }
+
+    &-error {
+        .Form--error-banner {
+            display: flex;
+        }
+    }
 }
