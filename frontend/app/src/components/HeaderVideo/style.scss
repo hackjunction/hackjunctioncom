@@ -72,6 +72,7 @@
     &--logo {
         width: 800px;
         max-width: 80%;
+        object-fit: contain;
 
         @include bp-full {
             position: relative;
