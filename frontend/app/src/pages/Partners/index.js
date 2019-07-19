@@ -22,12 +22,9 @@ import LinkButton from '../../components/LinkButton';
 import Page from '../PageHOC';
 import CenteredBlock from '../../components/CenteredBlock/index';
 
-import {
-    partnerTestimonials,
-} from '../../redux/testimonials/selectors'
+import { partnerTestimonials } from '../../redux/testimonials/selectors';
 
 class PartnersPage extends PureComponent {
-
     constructor(props) {
         super(props);
 
@@ -37,12 +34,11 @@ class PartnersPage extends PureComponent {
 
     scrollToContact() {
         if (this.contactForm) {
-            window.scrollTo({ top: this.contactForm.offsetTop - 100, left: 0, behavior: 'smooth' })
+            window.scrollTo({ top: this.contactForm.offsetTop - 100, left: 0, behavior: 'smooth' });
         }
     }
 
     render() {
-
         const { testimonials } = this.props;
         const firstTestimonial = testimonials.length > 0 ? testimonials[0] : null;
         const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null;
@@ -54,10 +50,7 @@ class PartnersPage extends PureComponent {
                 metaDescKey={KEYS.partnersPageSubtitle}
                 ogImageKey={MEDIA_KEYS.partnerPageHeaderImage}
             >
-                <HeaderImage
-                    imageKey={MEDIA_KEYS.partnerPageHeaderImage}
-                    alt="Header image"
-                >
+                <HeaderImage imageKey={MEDIA_KEYS.partnerPageHeaderImage} alt="Header image">
                     <BasicHeader titleKey={KEYS.partnersPageTitle} bodyKey={KEYS.partnersPageSubtitle} />
                 </HeaderImage>
                 <BlockSection titleKey={KEYS.partnersPageFirstTitle} subtitleKey={KEYS.partnersPageFirstSubtitle}>
@@ -125,18 +118,27 @@ class PartnersPage extends PureComponent {
                     <PartnerLogoGrid />
                 </BlockSection>
                 <Divider lg />
-                <div ref={ref => this.contactForm = ref} />
+                <div ref={ref => (this.contactForm = ref)} />
                 <ContactForm />
                 <Divider lg />
-            </Page >
+                <BlockSection title="Community support partner" subtitle="Become a community support partner">
+                    <p>
+                        Can't partner with us but want to support the community and see what Junction is all about? We
+                        offer a community support package for companies and individuals. All proceeds will be used
+                        towards building an even better event for our most important customers: the hackers. Check out
+                        the link below for more information:
+                    </p>
+                    <Divider sm />
+                    <LinkButton to="https://holvi.com/shop/junction/" isExternal text="To the store" />
+                </BlockSection>
+                <Divider lg />
+            </Page>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    testimonials: partnerTestimonials(state),
+    testimonials: partnerTestimonials(state)
 });
 
-export default connect(
-    mapStateToProps
-)(PartnersPage);
+export default connect(mapStateToProps)(PartnersPage);
