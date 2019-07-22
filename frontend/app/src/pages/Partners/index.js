@@ -121,7 +121,7 @@ class PartnersPage extends PureComponent {
                 <div ref={ref => (this.contactForm = ref)} />
                 <ContactForm />
                 <Divider lg />
-                <BlockSection title="Community support partner" subtitle="Become a community support partner">
+                <BlockSection title="Community support partner">
                     <p>
                         Can't partner with us but want to support the community and see what Junction is all about? We
                         offer a community support package for companies and individuals. All proceeds will be used
