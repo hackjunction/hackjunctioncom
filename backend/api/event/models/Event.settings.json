@@ -6,7 +6,10 @@
     "description": ""
   },
   "options": {
-    "timestamps": true
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
   },
   "attributes": {
     "name": {
@@ -24,8 +27,7 @@
     "image": {
       "model": "file",
       "via": "related",
-      "plugin": "upload",
-      "required": false
+      "plugin": "upload"
     },
     "shortDescription": {
       "default": "",
@@ -52,11 +54,9 @@
       "type": "decimal"
     },
     "showOnMap": {
-      "default": false,
       "type": "boolean"
     },
     "showInCalendar": {
-      "default": false,
       "type": "boolean"
     },
     "timeDescription": {
@@ -66,6 +66,12 @@
     "eventconcept": {
       "model": "eventconcept",
       "via": "events"
+    },
+    "linkToEventSiteText": {
+      "type": "string"
+    },
+    "linkToTicketsText": {
+      "type": "string"
     }
   }
 }

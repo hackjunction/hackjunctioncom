@@ -16,10 +16,6 @@
       "default": "",
       "type": "string"
     },
-    "events": {
-      "collection": "event",
-      "via": "eventconcept"
-    },
     "timedescription": {
       "default": "",
       "type": "string"
@@ -98,6 +94,10 @@
       "collection": "partner",
       "via": "eventconcepts",
       "dominant": true
+    },
+    "events": {
+      "collection": "event",
+      "via": "eventconcept"
     }
   }
 }
