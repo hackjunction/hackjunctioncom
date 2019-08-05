@@ -50,7 +50,7 @@ const EventCalendarEvent = React.memo(({ event }) => {
                             onClick={e => e.stopPropagation()}
                             href={event.linkToEventSite}
                         >
-                            Event website
+                            {event.linkToEventSiteText || 'Event website'}
                         </a>
                     ) : null}
                     {event.linkToTickets ? (
@@ -59,7 +59,7 @@ const EventCalendarEvent = React.memo(({ event }) => {
                             onClick={e => e.stopPropagation()}
                             href={event.linkToTickets}
                         >
-                            Get Tickets
+                            {event.linkToTicketsText || 'Tickets'}
                         </a>
                     ) : null}
                 </div>
