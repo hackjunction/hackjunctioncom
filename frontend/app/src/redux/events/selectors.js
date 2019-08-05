@@ -16,38 +16,47 @@ export const eventsError = state => state.events.error;
 export const eventsUpdated = state => state.events.lastUpdate;
 
 export const eventsShouldUpdate = createSelector(
-	eventsUpdated,
-	updated => {
-		return Date.now() - updated > UPDATE_INTERVAL;
-	}
+    eventsUpdated,
+    updated => {
+        return Date.now() - updated > UPDATE_INTERVAL;
+    }
 );
 
 export const upcomingEvents = createSelector(
-	events,
-	events => {
-		return filter(events, e => moment(e.begins).add(1, 'days').isAfter())
-	}
-)
+    events,
+    events => {
+        return filter(events, e =>
+            moment(e.begins)
+                .add(1, 'days')
+                .isAfter()
+        );
+    }
+);
 
 export const upcomingCalendarEvents = createSelector(
-	events,
-	events => {
-		return filter(events, e => {
-			return e.showInCalendar && moment(e.begins).add(1, 'days').isAfter();
-		});
-	}
-)
+    events,
+    events => {
+        return filter(events, e => {
+            return (
+                e.showInCalendar &&
+                moment(e.begins)
+                    .add(1, 'days')
+                    .isAfter()
+            );
+        });
+    }
+);
 
 export const mapEvents = createSelector(
-	events,
-	events => {
-		return filter(events, e => e.showOnMap);
-	}
-)
+    events,
+    events => {
+        return filter(events, e => e.showOnMap);
+    }
+);
 
 export const mapEventsByLongitude = createSelector(
-	mapEvents,
-	events => {
-		return sortBy(events, e => e.longitude);
-	}
-)
+    mapEvents,
+    events => {
+        return sortBy(events, e => e.longitude);
+    }
+);
