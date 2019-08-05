@@ -3,11 +3,16 @@ import './style.scss';
 
 import { Link } from 'react-router-dom';
 
-const LinkButton = ({ text, to, onClick, isExternal }) => {
+const LinkButton = ({ text, to, onClick, isExternal, accent = false }) => {
     if (isExternal) {
         return (
             <div className="LinkButton--wrapper">
-                <a className="LinkButton" href={to} target="_blank" rel="noopener noreferrer">
+                <a
+                    className={`LinkButton ${accent ? 'LinkButton--accent' : ''}`}
+                    href={to}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     <span className="LinkButton--text">{text}</span>
                 </a>
             </div>
@@ -16,7 +21,7 @@ const LinkButton = ({ text, to, onClick, isExternal }) => {
 
     return (
         <div className="LinkButton--wrapper">
-            <Link className="LinkButton" to={to} onClick={onClick}>
+            <Link className={`LinkButton ${accent ? 'LinkButton--accent' : ''}`} to={to} onClick={onClick}>
                 <span className="LinkButton--text">{text}</span>
             </Link>
         </div>

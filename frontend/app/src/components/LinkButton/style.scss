@@ -1,35 +1,44 @@
 @import '../../styles/main';
 
 .LinkButton--wrapper {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .LinkButton {
-	align-self: center;
-	width: 280px;
-	height: 42px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	border: 2px solid $junction-white;
-	border-radius: 7px;
-	transition: background 0.2s ease;
+    align-self: center;
+    width: 280px;
+    height: 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $junction-white;
+    border-radius: 7px;
+    transition: all 0.2s ease;
 
-	&:hover {
-		background: $junction-white;
+    &:hover {
+        background: $junction-white;
 
-		.LinkButton--text {
-			color: $junction-black;
-		}
-	}
+        .LinkButton--text {
+            color: $junction-black;
+        }
+    }
 
-	&--text {
-		font-size: 18px;
-		text-align: center;
-		font-weight: bold;
-		transition: color 0.2s ease;
-	}
+    &--accent {
+        background: #ef8022;
+        border: 2px solid #ef8022;
+
+        &:hover {
+            border-color: $junction-white;
+        }
+    }
+
+    &--text {
+        font-size: 18px;
+        text-align: center;
+        font-weight: bold;
+        transition: color 0.2s ease;
+    }
 }

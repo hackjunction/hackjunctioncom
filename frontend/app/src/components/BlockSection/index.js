@@ -8,12 +8,13 @@ import { content as selectContent } from '../../redux/staticcontent/selectors'
 class BlockSection extends PureComponent {
 
 	render() {
-		const { title, subtitle, children } = this.props;
+		const { title, subtitle, children, extra } = this.props;
 		return (
 			<div className="BlockSection">
 				<div className="BlockSection--left">
 					<h3 className="BlockSection--left__title">{title}</h3>
 					<Markdown className="BlockSection--left__subtitle" source={subtitle} />
+                    {extra}
 				</div>
 				<div className="BlockSection--right">
 					{children}

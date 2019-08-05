@@ -58,7 +58,16 @@ class HomePage extends PureComponent {
                     <EventsMap />
                 </Suspense>
                 <Divider lg />
-                <BlockSection titleKey={KEYS.whatWeDo} subtitleKey={KEYS.whatWeDoSubtitle}>
+                <BlockSection
+                    titleKey={KEYS.whatWeDo}
+                    subtitleKey={KEYS.whatWeDoSubtitle}
+                    extra={
+                        <React.Fragment>
+                            <Divider sm />
+                            <LinkButton to="/calendar" text="Full event calendar" />
+                        </React.Fragment>
+                    }
+                >
                     <Markdown sourceKey={KEYS.whatWeDoBody} />
                     <ConceptsPreview />
                 </BlockSection>

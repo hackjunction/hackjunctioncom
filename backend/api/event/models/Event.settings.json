@@ -43,10 +43,6 @@
       "default": "",
       "type": "string"
     },
-    "eventconcept": {
-      "model": "eventconcept",
-      "via": "events"
-    },
     "latitude": {
       "default": "",
       "type": "decimal"
@@ -66,6 +62,10 @@
     "timeDescription": {
       "default": "",
       "type": "string"
+    },
+    "eventconcept": {
+      "model": "eventconcept",
+      "via": "events"
     }
   }
 }

@@ -1,15 +1,21 @@
 @import '../../styles/main';
 
 .Divider {
-	&-sm {
-		height: 50px;
-	}
+    height: 1rem;
+    width: 1rem;
 
-	&-md {
-		height: 90px;
-	}
+    &-sm {
+        height: 50px;
+        width: 50px;
+    }
 
-	&-lg {
-		height: 130px;
-	}
+    &-md {
+        height: 90px;
+        width: 90px;
+    }
+
+    &-lg {
+        height: 130px;
+        width: 130px;
+    }
 }

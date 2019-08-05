@@ -30,6 +30,10 @@
     "onlineevents": {
       "collection": "onlineevent",
       "via": "partners"
+    },
+    "eventconcepts": {
+      "collection": "eventconcept",
+      "via": "localPartners"
     }
   }
 }
