@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './SpecialEventCalendar.module.scss';
 import { connect } from 'react-redux';
+import {sortBy} from 'lodash-es';
 import moment from 'moment';
 import * as EventActions from '../../redux/events/actions';
 import LinkButton from '../LinkButton';
@@ -60,7 +61,8 @@ const SpecialEventCalendar = ({ title, events, updateEvents }) => {
             }
             return false;
         });
-        return filtered.map(event => {
+        const sorted = sortBy(filtered, 'begins');
+        return sorted.map(event => {
             const date = moment(event.begins);
             return (
                 <React.Fragment key={event._id}>

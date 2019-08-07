@@ -1,36 +1,36 @@
 @import '../../styles/main';
 
 .LinkGrid {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	
-	&--item {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 
-		&__image {
-			width: 80%;
-			object-fit: contain;
-			object-position: center;
-		}
-	}
+    &--item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
 
-	&--rowsize-2 {
-		.LinkGrid--item {
-			width: 50%;
-			min-width: 300px;
-		}
-	}
+        &__image {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
 
-	&--rowsize-3 {
-		.LinkGrid--item {
-			width: 33.33%;
-			min-width: 250px;
-		}
-	}
+    &--rowsize-2 {
+        .LinkGrid--item {
+            width: 50%;
+            min-width: 300px;
+        }
+    }
 
+    &--rowsize-3 {
+        .LinkGrid--item {
+            width: 33.33%;
+            min-width: 250px;
+        }
+    }
 }
