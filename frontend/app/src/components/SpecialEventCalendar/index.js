@@ -21,7 +21,7 @@ const SpecialEventCalendar = ({ title, events, updateEvents }) => {
                     className={`${styles.filtersOption} ${filters === 'Other' ? styles.filtersOptionSelected : ''}`}
                     onClick={() => setFilters('Other')}
                 >
-                    Europe
+                    Europe & Africa
                 </span>
                 <span className={styles.filtersDivider}>/</span>
                 <span

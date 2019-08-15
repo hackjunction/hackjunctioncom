@@ -1,26 +1,38 @@
 var express = require('express'),
-	app = express(),
-	path = require('path'),
-	port = process.env.PORT || 3000;
+    app = express(),
+    path = require('path'),
+    port = process.env.PORT || 3000;
 
 //Prerender
 app.use(
-	require('prerender-node')
-		.set('prerenderToken', process.env.PRERENDER_TOKEN)
-		.blacklisted([
-			'/tracks.*',
-			'/challenge.*',
-			'/partner.*',
-			'.html'
-		])
+    require('prerender-node')
+        .set('prerenderToken', process.env.PRERENDER_TOKEN)
+        .whitelisted([
+            '',
+            '/',
+            '^/story',
+            '^/calendar',
+            '^/team',
+            '^/partners',
+            '^/participants',
+            '^/volunteers',
+            '^/organizers',
+            '^/policy',
+            '^/terms',
+            '^/team',
+            '^/press',
+            '^/media',
+            '/concepts.*',
+            '/online.*'
+        ])
 );
 
 // Serve any static files
 app.use(express.static(path.join(__dirname, 'app/build')));
 
 // Handle React routing, return all requests to React app
-app.get('*', function (req, res) {
-	res.sendFile(path.join(__dirname, 'app/build', 'index.html'));
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'app/build', 'index.html'));
 });
 
 app.listen(port);
