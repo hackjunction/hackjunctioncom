@@ -9,18 +9,11 @@ import Divider from '../Divider';
 
 import { content as selectContent } from '../../redux/staticcontent/selectors';
 import KEYS from '../../redux/staticcontent/keys';
-import {
-    homePages,
-    eventPages,
-    communityPages,
-} from '../../redux/pages/selectors';
+import { homePages, eventPages, communityPages } from '../../redux/pages/selectors';
 
-import {
-    eventconceptsByPriority,
-} from '../../redux/eventconcepts/selectors'
+import { eventconceptsByPriority } from '../../redux/eventconcepts/selectors';
 
 class Footer extends PureComponent {
-
     renderConceptLinks(eventConcepts) {
         return eventConcepts.map(concept => {
             return (
@@ -40,7 +33,6 @@ class Footer extends PureComponent {
             );
         });
     }
-
 
     render() {
         const { siteSlogan, siteContactEmail, eventConcepts, homePages, eventPages, communityPages } = this.props;
@@ -68,13 +60,13 @@ class Footer extends PureComponent {
                             </Link>
                             <Link className="FooterInner--right__section-link" to="/story">
                                 Story
-                        </Link>
+                            </Link>
                             <Link className="FooterInner--right__section-link" to="/calendar">
                                 Calendar
-                        </Link>
+                            </Link>
                             <Link className="FooterInner--right__section-link" to="/team">
                                 Team
-                        </Link>
+                            </Link>
                             {this.renderExtraPageLinks(homePages)}
                         </div>
                         <div className="FooterInner--right__section">
@@ -88,16 +80,16 @@ class Footer extends PureComponent {
                             <h5 className="FooterInner--right__section-title">Community</h5>
                             <Link className="FooterInner--right__section-link" to="/partners">
                                 For partners
-                        </Link>
+                            </Link>
                             <Link className="FooterInner--right__section-link" to="/participants">
                                 For participants
-                        </Link>
+                            </Link>
                             <Link className="FooterInner--right__section-link" to="/volunteers">
                                 For volunteers
-                        </Link>
+                            </Link>
                             <Link className="FooterInner--right__section-link" to="/organizers">
                                 For organizers
-                        </Link>
+                            </Link>
                             {this.renderExtraPageLinks(communityPages)}
                         </div>
                         <div className="FooterInner--right__section">
@@ -113,6 +105,9 @@ class Footer extends PureComponent {
                             <Link to="/media" className="FooterInner--right__section-link">
                                 Press kit (fin)
                             </Link>
+                            <Link className="FooterInner--right__section-link" to="/codeofconduct">
+                                Code of Conduct
+                            </Link>
                             <Link className="FooterInner--right__section-link" to="/policy">
                                 Privacy Policy
                             </Link>
@@ -127,20 +122,20 @@ class Footer extends PureComponent {
                         Designed and developed with{' '}
                         <span role="img" aria-label="love">
                             💕
-                    </span>{' '}
+                        </span>{' '}
                         &{' '}
                         <span role="img" aria-label="coffee">
                             ☕
-                    </span>{' '}
+                        </span>{' '}
                         by the Junction Team.
-                </span>
+                    </span>
                 </div>
             </footer>
         );
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     const content = selectContent(state);
 
     return {
@@ -149,8 +144,8 @@ const mapStateToProps = (state) => {
         homePages: homePages(state),
         eventPages: eventPages(state),
         communityPages: communityPages(state),
-        eventConcepts: eventconceptsByPriority(state),
-    }
-}
+        eventConcepts: eventconceptsByPriority(state)
+    };
+};
 
 export default connect(mapStateToProps)(Footer);
