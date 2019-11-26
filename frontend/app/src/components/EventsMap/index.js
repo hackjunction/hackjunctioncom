@@ -104,7 +104,7 @@ class EventsMap extends PureComponent {
         return events.map(event => {
             const isActive = activeMarker === event._id;
             const eventTime = event.timeDescription || moment(event.begins).format('DD.MM.YYYY');
-            const eventImage = event.image || event.eventconcept.image;
+            const eventImage = event.image || event.eventconcept ? event.eventconcept.image : '';
             return (
                 <React.Fragment key={event._id}>
                     <Marker
@@ -233,7 +233,4 @@ const mapDispatchToProps = dispatch => ({
     updateEvents: () => dispatch(updateEvents())
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(EventsMap);
+export default connect(mapStateToProps, mapDispatchToProps)(EventsMap);
