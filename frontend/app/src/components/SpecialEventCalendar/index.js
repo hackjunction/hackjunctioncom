@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import styles from './SpecialEventCalendar.module.scss';
 import { connect } from 'react-redux';
-import {sortBy} from 'lodash-es';
+import { sortBy } from 'lodash-es';
 import moment from 'moment';
 import * as EventActions from '../../redux/events/actions';
 import LinkButton from '../LinkButton';
@@ -12,6 +12,28 @@ const SpecialEventCalendar = ({ title, events, updateEvents }) => {
     const [filters, setFilters] = useState('All');
     useEffect(() => {
         updateEvents();
+    }, []);
+
+    const sortedEvents = useMemo(() => {
+        const filtered = events.filter(event => {
+            if (filters === 'All') {
+                return true;
+            }
+
+            if (filters === 'Other') {
+                if (event.locationDescription.toLowerCase().indexOf('finland') === -1) {
+                    return true;
+                }
+            }
+
+            if (filters === 'Finland') {
+                if (event.locationDescription.toLowerCase().indexOf('finland') !== -1) {
+                    return true;
+                }
+            }
+            return false;
+        });
+        return sortBy(filtered, 'begins');
     }, []);
 
     function renderFilters() {
@@ -43,26 +65,7 @@ const SpecialEventCalendar = ({ title, events, updateEvents }) => {
     }
 
     function renderEvents() {
-        const filtered = events.filter(event => {
-            if (filters === 'All') {
-                return true;
-            }
-
-            if (filters === 'Other') {
-                if (event.locationDescription.toLowerCase().indexOf('finland') === -1) {
-                    return true;
-                }
-            }
-
-            if (filters === 'Finland') {
-                if (event.locationDescription.toLowerCase().indexOf('finland') !== -1) {
-                    return true;
-                }
-            }
-            return false;
-        });
-        const sorted = sortBy(filtered, 'begins');
-        return sorted.map(event => {
+        return sortedEvents.map(event => {
             const date = moment(event.begins);
             return (
                 <React.Fragment key={event._id}>
@@ -85,6 +88,10 @@ const SpecialEventCalendar = ({ title, events, updateEvents }) => {
         });
     }
 
+    if (!sortedEvents || sortedEvents.length === 0) {
+        return null;
+    }
+
     return (
         <SingleColumnSection>
             <h2 className={styles.title}>{title}</h2>
@@ -98,7 +105,4 @@ const mapDispatchToProps = dispatch => ({
     updateEvents: () => dispatch(EventActions.updateEvents())
 });
 
-export default connect(
-    null,
-    mapDispatchToProps
-)(SpecialEventCalendar);
+export default connect(null, mapDispatchToProps)(SpecialEventCalendar);
