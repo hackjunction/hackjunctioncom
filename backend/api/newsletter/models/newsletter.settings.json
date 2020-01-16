@@ -1,0 +1,14 @@
+{
+  "connection": "default",
+  "collectionName": "newsletters",
+  "info": {
+    "name": "newsletters",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {}
+}
