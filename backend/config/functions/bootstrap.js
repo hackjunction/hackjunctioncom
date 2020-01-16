@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * An asynchronous bootstrap function that runs before
@@ -9,8 +9,6 @@
  */
 
 // Search and load .env
-require('dotenv').config({ path: require('find-config')('.env') })
+require("dotenv").config({ path: require("find-config")(".env") });
 
-module.exports = cb => {
-  cb();
-};
+module.exports = () => {};

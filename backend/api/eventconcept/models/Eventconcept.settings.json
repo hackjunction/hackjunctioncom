@@ -6,10 +6,7 @@
     "description": ""
   },
   "options": {
-    "timestamps": [
-      "createdAt",
-      "updatedAt"
-    ]
+    "timestamps": ["createdAt", "updatedAt"]
   },
   "attributes": {
     "name": {
@@ -26,7 +23,7 @@
     },
     "longdescription": {
       "default": "",
-      "type": "text"
+      "type": "richtext"
     },
     "eventcategory": {
       "model": "eventcategory",
@@ -59,11 +56,11 @@
     },
     "topSectionSubtitle": {
       "default": "",
-      "type": "text"
+      "type": "string"
     },
     "topSectionBody": {
       "default": "",
-      "type": "text"
+      "type": "richtext"
     },
     "logo": {
       "model": "file",
@@ -72,7 +69,7 @@
     },
     "shortdescription": {
       "default": "",
-      "type": "text"
+      "type": "string"
     },
     "showInNav": {
       "default": true,

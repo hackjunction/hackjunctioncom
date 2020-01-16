@@ -12,13 +12,7 @@
     "type": {
       "default": "",
       "type": "enumeration",
-      "enum": [
-        "volunteer",
-        "partner",
-        "organiser",
-        "participant",
-        "generic"
-      ]
+      "enum": ["volunteer", "partner", "organiser", "participant", "generic"]
     },
     "name": {
       "default": "",
@@ -30,7 +24,7 @@
     },
     "quote": {
       "default": "",
-      "type": "text"
+      "type": "richtext"
     },
     "image": {
       "model": "file",

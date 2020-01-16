@@ -23,7 +23,7 @@
     },
     "body": {
       "default": "",
-      "type": "text"
+      "type": "richtext"
     },
     "slug": {
       "default": "",
@@ -40,12 +40,7 @@
       "default": "",
       "type": "enumeration",
       "required": true,
-      "enum": [
-        "home",
-        "events",
-        "community",
-        "none"
-      ]
+      "enum": ["home", "events", "community", "none"]
     },
     "topSectionTitle": {
       "default": "",
@@ -53,11 +48,11 @@
     },
     "topSectionSubtitle": {
       "default": "",
-      "type": "text"
+      "type": "string"
     },
     "topSectionBody": {
       "default": "",
-      "type": "text"
+      "type": "richtext"
     },
     "headerImage": {
       "model": "file",

@@ -2,7 +2,7 @@
   "defaultConnection": "default",
   "connections": {
     "default": {
-      "connector": "strapi-hook-mongoose",
+      "connector": "mongoose",
       "settings": {
         "client": "mongo",
         "uri": "${process.env.MONGO_URL}",

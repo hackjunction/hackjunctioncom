@@ -23,7 +23,7 @@
     },
     "message": {
       "default": "",
-      "type": "text"
+      "type": "string"
     },
     "company": {
       "default": "",

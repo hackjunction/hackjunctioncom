@@ -23,19 +23,19 @@
     },
     "topSectionSubtitle": {
       "default": "",
-      "type": "text"
+      "type": "string"
     },
     "topSectionBody": {
       "default": "",
-      "type": "text"
+      "type": "richtext"
     },
     "begins": {
       "default": "",
-      "type": "date"
+      "type": "datetime"
     },
     "ends": {
       "default": "",
-      "type": "date"
+      "type": "datetime"
     },
     "prizesTotal": {
       "default": "",
@@ -85,11 +85,11 @@
     },
     "bottomSectionSubtitle": {
       "default": "",
-      "type": "text"
+      "type": "string"
     },
     "bottomSectionBody": {
       "default": "",
-      "type": "text"
+      "type": "richtext"
     },
     "challenges": {
       "collection": "onlineeventchallenge",

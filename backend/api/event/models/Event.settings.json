@@ -6,10 +6,7 @@
     "description": ""
   },
   "options": {
-    "timestamps": [
-      "createdAt",
-      "updatedAt"
-    ]
+    "timestamps": ["createdAt", "updatedAt"]
   },
   "attributes": {
     "name": {
@@ -18,11 +15,11 @@
     },
     "begins": {
       "default": "",
-      "type": "date"
+      "type": "datetime"
     },
     "ends": {
       "default": "",
-      "type": "date"
+      "type": "datetime"
     },
     "image": {
       "model": "file",
@@ -31,7 +28,7 @@
     },
     "shortDescription": {
       "default": "",
-      "type": "text"
+      "type": "string"
     },
     "linkToEventSite": {
       "default": "",
