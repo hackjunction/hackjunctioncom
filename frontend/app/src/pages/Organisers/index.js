@@ -75,6 +75,10 @@ class OrganisersPage extends PureComponent {
                         titleKey={KEYS.whatDoesJunctionXOfferThirdTitle}
                         contentKey={KEYS.whatDoesJunctionXOfferThirdBody}
                     />
+                    <BorderedSection
+                        titleKey={KEYS.whatDoesJunctionXOfferFourthTitle}
+                        contentKey={KEYS.whatDoesJunctionXOfferFourthBody}
+                    />
                 </SingleColumnSection>
                 <Divider lg />
                 <CenteredBlock>

@@ -103,6 +103,8 @@ const CONTENT_KEYS = {
 	whatDoesJunctionXOfferSecondBody: 'whatDoesJunctionXOfferSecondBody',
 	whatDoesJunctionXOfferThirdTitle: 'whatDoesJunctionXOfferThirdTitle',
 	whatDoesJunctionXOfferThirdBody: 'whatDoesJunctionXOfferThirdBody',
+	whatDoesJunctionXOfferFourthTitle: 'whatDoesJunctionXOfferFourthTitle',
+	whatDoesJunctionXOfferFourthBody: 'whatDoesJunctionXOfferFourthBody',
 	organiserPageBottomContent: 'organiserPageBottomContent',
 	interestedInOrganisingTitle: 'interestedInOrganisingTitle',
 	interestedInOrganisingSubtitle: 'interestedInOrganisingSubtitle',
