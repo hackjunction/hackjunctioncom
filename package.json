@@ -10,7 +10,10 @@
         "setup-frontend": "cd frontend && npm run setup",
         "dev": "npm-run-all --parallel dev-frontend dev-backend",
         "dev-backend": "cd backend && strapi develop",
-        "dev-frontend": "cd frontend/app && yarn start"
+        "dev-frontend": "cd frontend/app && yarn start",
+        "deploy": "npm run deploy-backend && npm run deploy-frontend",
+        "deploy-frontend": "git push dokku-frontend",
+        "deploy-backend": "git push dokku-backend"
     },
     "author": "Juuso Lappalainen",
     "license": "ISC",
