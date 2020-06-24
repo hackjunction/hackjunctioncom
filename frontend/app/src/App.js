@@ -62,37 +62,40 @@ class App extends PureComponent {
   render() {
     return (
       <main className="App">
-        <Header />
         <div className="App--Main">
-          <Switch>
-            {/* Redirects */}
-            <Redirect path="/privacy" to="/policy" />
-            <Redirect path="/organisers" to="/organizers" />
+          <Header />
+          <div className="App--Content">
+            <Switch>
+              {/* Redirects */}
+              <Redirect path="/privacy" to="/policy" />
+              <Redirect path="/organisers" to="/organizers" />
 
-            {/* Static pages */}
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/story" component={StoryPage} />
-            <Route exact path="/participants" component={ParticipantsPage} />
-            <Route exact path="/partners" component={PartnersPage} />
-            <Route exact path="/concepts" component={ConceptsPage} />
-            <Route exact path="/calendar" component={CalendarPage} />
-            <Route exact path="/team" component={TeamPage} />
-            <Route exact path="/volunteers" component={VolunteersPage} />
-            <Route exact path="/organizers" component={OrganisersPage} />
+              {/* Static pages */}
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/story" component={StoryPage} />
+              <Route exact path="/participants" component={ParticipantsPage} />
+              <Route exact path="/partners" component={PartnersPage} />
+              <Route exact path="/concepts" component={ConceptsPage} />
+              <Route exact path="/calendar" component={CalendarPage} />
+              <Route exact path="/team" component={TeamPage} />
+              <Route exact path="/volunteers" component={VolunteersPage} />
+              <Route exact path="/organizers" component={OrganisersPage} />
 
-            {/* Concept pages (JunctionX, HelTech, etc..) */}
-            <Route path="/concepts/:slug" component={ConceptPage} />
+              {/* Concept pages (JunctionX, HelTech, etc..) */}
+              <Route path="/concepts/:slug" component={ConceptPage} />
 
-            {/* Online event pages */}
-            <Route path="/online/:slug" component={OnlineEventPage} />
+              {/* Online event pages */}
+              <Route path="/online/:slug" component={OnlineEventPage} />
 
-            {/* Other pages */}
-            <Route path="/:slug" component={BasicPage} />
+              {/* Other pages */}
+              <Route path="/:slug" component={BasicPage} />
 
-            <Route path="*" component={NotFoundPage} />
-          </Switch>
+              <Route path="*" component={NotFoundPage} />
+            </Switch>
+            <Footer />
+          </div>
         </div>
-        <Footer />
+
         <ScrollToTop />
         <GlobalLifecycle />
         <PrivacyBanner />

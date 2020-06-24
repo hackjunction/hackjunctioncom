@@ -1,74 +1,65 @@
-@import '../../styles/main';
+@import "../../styles/main";
 
 .Header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 100;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+  height: 100%;
+  width: 20%;
+  z-index: 100;
+  background: white;
+  transition: all 0.2s ease;
+
+  &-scrolled {
+    padding: 5px;
+    background: black;
+  }
+
+  &--menu-button {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    pointer-events: all;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    pointer-events: none;
-
-    padding: 20px;
-    background: transparent;
-    transition: all 0.2s ease;
-
-    &-scrolled {
-        padding: 5px;
-        background: black;
+    justify-content: flex-start;
+    height: 90%;
+    background-color: $junction-black;
+    position: absolute;
+    left: 85%;
+    top: 5%;
+    i {
+      font-size: 40px;
+      justify-content: center;
+      align-items: center;
     }
+  }
 
-    &--menu-button {
-        width: 50px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        pointer-events: all;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
+  &--nav-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-        &:hover {
-            i {
-                background: rgba($junction-white, 0.1);
-            }
-        }
-
-        i {
-            padding: 5px;
-            font-size: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    &__text {
+      font-size: 18px;
+      margin: 0;
     }
+  }
 
-    &--nav-title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+  &--emblem {
+    position: fixed;
+    top: 10;
+    left: 10;
+    pointer-events: all;
+    width: 40px;
+    cursor: pointer;
 
-        &__text {
-            font-size: 18px;
-            margin: 0;
-        }
+    &__image {
+      transition: all 0.2s ease;
+      height: 40px;
+      width: 40px;
     }
-
-    &--emblem {
-        pointer-events: all;
-        width: 50px;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        cursor: pointer;
-
-        &__image {
-            transition: all 0.2s ease;
-            height: 40px;
-            width: 40px;
-        }
-    }
+  }
 }
