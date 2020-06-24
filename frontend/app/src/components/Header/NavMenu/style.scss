@@ -3,7 +3,7 @@
 .NavMenuWrapper {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 20%;
   right: 0;
   bottom: 0;
   pointer-events: none;
@@ -12,7 +12,7 @@
 .NavMenuOverlay {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 10%;
   bottom: 0;
   right: 0;
   pointer-events: none;
@@ -31,9 +31,9 @@
   left: -1.2 * $bp-small;
   bottom: 0;
   z-index: 3;
-  width: 80%;
+  width: 25%;
   max-width: $bp-small;
-  background: $junction-white;
+  background: $junction-black;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -47,14 +47,15 @@
   }
 
   &-open {
-    left: 0;
-    transition: all 0.4s ease;
+    margin: 3% 0;
+    left: 7%;
+    transition: margin 0.5s ease;
   }
 
   &--inner {
     width: 100%;
     max-width: 300px;
-    margin: 100px 0;
+    margin: 50px 0;
     flex: 1;
     padding: $padding-page;
 
@@ -68,7 +69,7 @@
       align-items: flex-start;
 
       &-item {
-        color: $junction-black;
+        color: $junction-white;
         font-size: 16px;
         line-height: 22px;
         text-decoration: none;
@@ -81,7 +82,7 @@
       }
 
       &-title {
-        color: $lightgrey;
+        color: $junction-white;
         font-size: 16px;
         line-height: 24px;
         font-weight: bold;
@@ -94,6 +95,12 @@
           text-align: left;
         }
       }
+    }
+
+    &__exit {
+    position: fixed;
+    top:0;
+    left:0;
     }
   }
 }

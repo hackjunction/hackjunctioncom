@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./style.scss";
 
 import { connect } from "react-redux";
@@ -8,6 +9,8 @@ import { map } from "lodash-es";
 import { eventconceptsForNav } from "../../../redux/eventconcepts/selectors";
 import { toggleSidebar } from "../../../redux/nav/actions";
 import { isSidebarOpen } from "../../../redux/nav/selectors";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
   homePages,
@@ -46,16 +49,12 @@ const ConceptPagesSection = React.memo(({ concepts }) => {
 });
 
 const NavMenuInner = React.memo(
-  ({ eventConcepts, homePages, eventPages, communityPages }) => {
+  ({ eventConcepts, homePages, eventPages, communityPages, toggleSidebar }) => {
     return (
       <div className="NavMenu--inner">
-        <Link to="/">
-          <img
-            className="NavMenu--inner__logo"
-            src={require("../../../assets/logos/text_black.png")}
-            alt="Junction text logo"
-          />
-        </Link>
+        <div classname="NavMenu--inner__exit">
+          <FontAwesomeIcon icon="times" size="lg" color="white" onClick={() => toggleSidebar(false)} />
+        </div>
         <nav className="NavMenu--inner__menu">
           <Link to="/">
             <h6 className="NavMenu--inner__menu-title">Home</h6>
@@ -106,7 +105,14 @@ const mapStateToPropsInner = (state) => ({
   communityPages: communityPages(state),
 });
 
-const ConnectedNavMenuInner = connect(mapStateToPropsInner)(NavMenuInner);
+const mapDispatchToPropsInner = (dispatch) => ({
+  toggleSidebar: (open) => dispatch(toggleSidebar(open)),
+});
+
+const ConnectedNavMenuInner = connect(
+  mapStateToPropsInner,
+  mapDispatchToPropsInner
+)(NavMenuInner);
 
 const NavMenu = ({ isSidebarOpen, toggleSidebar }) => {
   return (
@@ -132,7 +138,4 @@ const mapDispatchToProps = (dispatch) => ({
   toggleSidebar: (open) => dispatch(toggleSidebar(open)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NavMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(NavMenu);

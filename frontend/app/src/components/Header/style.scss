@@ -7,15 +7,10 @@
   justify-content: space-between;
   pointer-events: none;
   height: 100%;
-  width: 20%;
-  z-index: 100;
-  background: white;
+  width: 10%;
+  z-index: 10;
+  background: $junction-white;
   transition: all 0.2s ease;
-
-  &-scrolled {
-    padding: 5px;
-    background: black;
-  }
 
   &--menu-button {
     cursor: pointer;

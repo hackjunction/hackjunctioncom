@@ -8,6 +8,10 @@ import ReactGA from "react-ga";
 import WebFont from "webfontloader";
 import { hotjar } from "react-hotjar";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { faCheckSquare, faTimes } from "@fortawesome/free-solid-svg-icons";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PrivacyBanner from "./components/PrivacyBanner";
@@ -28,6 +32,8 @@ import VolunteersPage from "./pages/Volunteers";
 import OrganisersPage from "./pages/Organisers";
 import StoryPage from "./pages/Story";
 import NotFoundPage from "./pages/NotFound";
+
+library.add(fab, faCheckSquare, faTimes);
 
 WebFont.load({
   google: {
