@@ -1,48 +1,65 @@
-@import '../../styles/main';
+@import "../../styles/main";
 
 .Header {
-    position: fixed;
-    height: 100%;
-    width: 198px;
-    pointer-events: none;
-    background: transparent;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+  height: 100%;
+  width: 20%;
+  z-index: 100;
+  background: white;
+  transition: all 0.2s ease;
+
+  &-scrolled {
+    padding: 5px;
+    background: black;
+  }
+
+  &--menu-button {
+    cursor: pointer;
     transition: all 0.2s ease;
-    border-right: 4px solid $junction-black;
-
-    &-scrolled {
-        padding: 5px;
-        background: black;
+    pointer-events: all;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 90%;
+    background-color: $junction-black;
+    position: absolute;
+    left: 85%;
+    top: 5%;
+    i {
+      font-size: 40px;
+      justify-content: center;
+      align-items: center;
     }
+  }
 
-    &--menu-button {
-        cursor: pointer;
-        transition: all 0.2s ease;
-        pointer-events: all;
-        width: 57px;
-        height: 90%;
-        background-color: $junction-black;
-        position: absolute;
-        left: 85%;
-        top:5%;
+  &--nav-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-        i {
-            font-size: 40px;
-            justify-content: center;
-            align-items: center;
-        }
+    &__text {
+      font-size: 18px;
+      margin: 0;
     }
+  }
 
-    &--nav-title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+  &--emblem {
+    position: fixed;
+    top: 10;
+    left: 10;
+    pointer-events: all;
+    width: 40px;
+    cursor: pointer;
 
-        &__text {
-            font-size: 18px;
-            margin: 0;
-        }
+    &__image {
+      transition: all 0.2s ease;
+      height: 40px;
+      width: 40px;
     }
-
-    
+  }
 }
