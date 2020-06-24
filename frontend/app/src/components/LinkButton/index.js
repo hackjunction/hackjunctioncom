@@ -20,9 +20,9 @@ const LinkButton = ({ text, to, onClick, isExternal, accent = false }) => {
     }
 
     return (
-        <div className="LinkButton--wrapper">
+        <div >
             <Link className={`LinkButton ${accent ? 'LinkButton--accent' : ''}`} to={to} onClick={onClick}>
-                <span className="LinkButton--text">{text}</span>
+                <span className={`"LinkButton--text" ${accent ? 'LinkButton--accent--text' : ''}`}>{text}</span>
             </Link>
         </div>
     );

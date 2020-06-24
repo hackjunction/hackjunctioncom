@@ -45,6 +45,7 @@ class BasicPage extends PureComponent {
                 metaDesc={page.pageSubtitle}
                 ogImageUrl={page.headerImage ? page.headerImage.url : null}
             >
+                
             </Page>
         );
     }

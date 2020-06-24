@@ -33,7 +33,8 @@
     "redux-thunk": "^2.3.0",
     "remark-breaks": "^1.0.5",
     "reselect": "^4.0.0",
-    "webfontloader": "^1.6.28"
+    "webfontloader": "^1.6.28",
+    "material-ui": "4.10.2"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",

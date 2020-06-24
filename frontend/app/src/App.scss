@@ -32,13 +32,7 @@
 }
 
 .App--Content {
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    152deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 15%,
-    rgba(35, 35, 35, 1) 100%
-  );
+  background: $junction-white;
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;

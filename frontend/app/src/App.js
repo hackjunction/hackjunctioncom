@@ -92,7 +92,7 @@ class App extends PureComponent {
 
               <Route path="*" component={NotFoundPage} />
             </Switch>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </div>
 
