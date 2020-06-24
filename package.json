@@ -23,5 +23,8 @@
     "engines": {
         "node": ">=10.0.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "@material-ui/core": "file:node_modules/@material-ui/core",
+        "gulp": "^4.0.2"
+    }
 }

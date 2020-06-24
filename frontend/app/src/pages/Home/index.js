@@ -48,43 +48,9 @@ class HomePage extends PureComponent {
                 metaDescKey={KEYS.whoAreWeBody}
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >
-                <HeaderVideo />
-                <BlockSection titleKey={KEYS.whoAreWe} subtitleKey={KEYS.whoAreWeSubtitle}>
-                    <Markdown sourceKey={KEYS.whoAreWeBody} />
-                    <StatBlocks type={'generic'} />
-                </BlockSection>
-                <Divider lg />
-                <Suspense fallback={null}>
-                    <EventsMap />
-                </Suspense>
-                <Divider lg />
-                <BlockSection
-                    titleKey={KEYS.whatWeDo}
-                    subtitleKey={KEYS.whatWeDoSubtitle}
-                    extra={
-                        <React.Fragment>
-                            <Divider sm />
-                            <LinkButton to="/calendar" text="Full event calendar" />
-                        </React.Fragment>
-                    }
-                >
-                    <Markdown sourceKey={KEYS.whatWeDoBody} />
-                    <ConceptsPreview />
-                </BlockSection>
-                <Divider lg />
-                <BlockSection titleKey={KEYS.previousPartnersTitle} subtitleKey={KEYS.previousPartnersSubtitle}>
-                    <PartnerLogoGrid />
-                    <Divider sm />
-                    <LinkButton to="/partners" text="More about partnering" />
-                </BlockSection>
-                <Divider lg />
-                <BlockSection titleKey={KEYS.storiesAboutUsTitle} subtitleKey={KEYS.storiesAboutUsSubtitle}>
-                    <StoryGrid />
-                </BlockSection>
-                <Divider lg />
-                <NewsLetterForm />
-                <Divider lg />
-                <ImageLinks links={BOTTOM_LINKS} />
+                
+
+                <LinkButton to text="Read More " />
             </Page>
         );
     }

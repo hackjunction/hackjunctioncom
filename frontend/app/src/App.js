@@ -77,7 +77,7 @@ class App extends PureComponent {
         return (
             <main className="App">
                 <Header />
-                <div className="App--Main">
+                <div >
                     <Switch>
                         {/* Redirects */}
                         <Redirect path="/privacy" to="/policy" />
@@ -106,10 +106,10 @@ class App extends PureComponent {
                         <Route path="*" component={NotFoundPage} />
                     </Switch>
                 </div>
-                <Footer />
-                <ScrollToTop />
+
+                {/* <ScrollToTop />
                 <GlobalLifecycle />
-                <PrivacyBanner />
+                <PrivacyBanner /> */}
             </main>
         );
     }

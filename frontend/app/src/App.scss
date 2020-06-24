@@ -1,47 +1,47 @@
-@import './styles/main';
+// @import './styles/main';
 
-.Page {
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-}
+// .Page {
+//     height: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: stretch;
+// }
 
-.App {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: stretch;
-}
+// .App {
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     flex: 1;
+//     align-items: stretch;
+// }
 
-.App--Header {
-    background: $junction-black;
-    flex-shrink: 0;
-    padding: $padding-base;
-    text-align: center;
+// .App--Header {
+//     background: $junction-white;
+//     flex-shrink: 0;
+//     padding: $padding-base;
+//     text-align: center;
 
-    header {
-        color: $junction-white;
-    }
-}
+//     header {
+//         color: $junction-white;
+//     }
+// }
 
-.App--Main {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(152deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 15%, rgba(35, 35, 35, 1) 100%);
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+// .App--Main {
+//     background: $junction-white;
+//     // background: linear-gradient(152deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 15%, rgba(35, 35, 35, 1) 100%);
+//     flex: 1 0 auto;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: stretch;
 
-    &_logo {
-        width: 100%;
-        max-width: 400px;
-    }
+//     &_logo {
+//         width: 100%;
+//         max-width: 400px;
+//     }
 
-    &_body,
-    &_title {
-        text-align: center;
-        max-width: 600px;
-    }
-}
+//     &_body,
+//     &_title {
+//         text-align: center;
+//         max-width: 600px;
+//     }
+// }

@@ -38,20 +38,10 @@ const Header = ({ toggleSidebar, navTitle }) => {
         <React.Fragment>
             <header className={`Header ${isScrolled ? 'Header-scrolled' : ''}`}>
                 <div className="Header--menu-button" onClick={() => toggleSidebar(true)}>
-                    <i className="Header--menu-button icon-menu" />
+                    <i className="icon-menu" />
                 </div>
-                <div className="Header--nav-title">
-                    <h1 className="Header--nav-title__text">{navTitle}</h1>
-                </div>
-                <div className="Header--emblem">
-                    <Link to="/">
-                        <img
-                            className="Header--emblem__image"
-                            src={require('../../assets/logos/emblem_white_small.png')}
-                            alt="Junction logo"
-                        />
-                    </Link>
-                </div>
+              
+                
                 <NavMenu />
             </header>
         </React.Fragment>

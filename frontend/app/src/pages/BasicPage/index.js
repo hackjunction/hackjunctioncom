@@ -45,20 +45,6 @@ class BasicPage extends PureComponent {
                 metaDesc={page.pageSubtitle}
                 ogImageUrl={page.headerImage ? page.headerImage.url : null}
             >
-                <HeaderImage
-                    image={page.headerImage}
-                    alt="Header image"
-                >
-                    <BasicHeader title={page.pageTitle} body={page.pageSubtitle} />
-                </HeaderImage>
-                <BlockSection title={page.topSectionTitle} subtitle={page.topSectionSubtitle}>
-                    {page.topSectionBody ? <Markdown source={page.topSectionBody} /> : null}
-                </BlockSection>
-                <Divider lg />
-                <CenteredBlock>
-                    <Markdown source={page.body} />
-                </CenteredBlock>
-                <Divider lg />
             </Page>
         );
     }
