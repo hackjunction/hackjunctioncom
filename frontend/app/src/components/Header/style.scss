@@ -26,22 +26,42 @@
 
 .HeaderMobile {
     display: flex;
-    height: 8%;
+    position: fixed;
     width: 100%;
     z-index: 10;
     background: $junction-black;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    &--open {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    &-scrolled {
+        background: $junction-white;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .HeaderMobileRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        > a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
     &--emblem {
         pointer-events: all;
-        width: 20px;
         cursor: pointer;
         &__image {
-            width: 60px;
+            margin-left: 10%;
+            width: 50px;
         }
     }
     &--icon {
-        margin: 10%;
+        margin: 5%;
         &:hover {
             cursor: pointer;
         }

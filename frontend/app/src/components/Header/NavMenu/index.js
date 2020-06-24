@@ -48,7 +48,7 @@ const ConceptPagesSection = React.memo(({ concepts }) => {
     return <React.Fragment>{conceptLinks}</React.Fragment>;
 });
 
-const NavMenuInner = React.memo(
+export const NavMenuInner = React.memo(
     ({ eventConcepts, homePages, eventPages, communityPages }) => {
         return (
             <div className="NavMenu--inner">
@@ -129,22 +129,6 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar }) => {
                         }
                     />
                 </div>
-                {isSidebarOpen && <ConnectedNavMenuInner />}
-            </div>
-        </div>
-    );
-};
-
-export const NavMenuMobile = ({ isSidebarOpen, toggleSidebar }) => {
-    return (
-        <div className="NavMenuWrapper">
-            <div
-                className={`NavMenuOverlay ${
-                    isSidebarOpen ? "NavMenuOverlay-open" : ""
-                }`}
-                onClick={() => toggleSidebar(false)}
-            />
-            <div className={`NavMenu ${isSidebarOpen ? "NavMenu-open" : ""}`}>
                 {isSidebarOpen && <ConnectedNavMenuInner />}
             </div>
         </div>
