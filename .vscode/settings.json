@@ -1,0 +1,22 @@
+{
+  "eslint.workingDirectories": [
+    {
+      "changeProcessCWD": true,
+      "directory": "./frontend"
+    },
+    {
+      "changeProcessCWD": true,
+      "directory": "./backend"
+    },
+  ],
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.enable": true,
+  "editor.formatOnType": true,
+  "prettier.tabWidth": 4,
+  "prettier.trailingComma": "all",
+  "javascript.format.semicolons": "remove",
+  "typescript.format.semicolons": "remove"
+}
