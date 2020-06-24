@@ -10,7 +10,7 @@ import { hotjar } from "react-hotjar";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faCheckSquare, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -33,81 +33,111 @@ import OrganisersPage from "./pages/Organisers";
 import StoryPage from "./pages/Story";
 import NotFoundPage from "./pages/NotFound";
 
-library.add(fab, faCheckSquare, faTimes);
+library.add(fab, faTimes, faBars);
 
 WebFont.load({
-  google: {
-    families: ["Montserrat:400,400i,700,700i", "Lato:400,400i,700,700i"],
-  },
+    google: {
+        families: ["Montserrat:400,400i,700,700i", "Lato:400,400i,700,700i"],
+    },
 });
 
 class App extends PureComponent {
-  componentDidMount() {
-    if (config.GOOGLE_ANALYTICS_ID) {
-      ReactGA.initialize(config.GOOGLE_ANALYTICS_ID);
+    componentDidMount() {
+        if (config.GOOGLE_ANALYTICS_ID) {
+            ReactGA.initialize(config.GOOGLE_ANALYTICS_ID);
+        }
+
+        if (config.HOTJAR_ID && config.HOTJAR_SV) {
+            hotjar.initialize(config.HOTJAR_ID, config.HOTJAR_SV);
+        }
+
+        this.handleRouteChange(this.props.history.location);
+        this.unlisten = this.props.history.listen(this.handleRouteChange);
     }
 
-    if (config.HOTJAR_ID && config.HOTJAR_SV) {
-      hotjar.initialize(config.HOTJAR_ID, config.HOTJAR_SV);
+    componentWillUnmount() {
+        this.unlisten();
     }
 
-    this.handleRouteChange(this.props.history.location);
-    this.unlisten = this.props.history.listen(this.handleRouteChange);
-  }
-
-  componentWillUnmount() {
-    this.unlisten();
-  }
-
-  handleRouteChange(location) {
-    if (config.GOOGLE_ANALYTICS_ID) {
-      ReactGA.pageview(location.pathname);
+    handleRouteChange(location) {
+        if (config.GOOGLE_ANALYTICS_ID) {
+            ReactGA.pageview(location.pathname);
+        }
     }
-  }
 
-  render() {
-    return (
-      <main className="App">
-        <div className="App--Main">
-          <Header />
-          <div className="App--Content">
-            <Switch>
-              {/* Redirects */}
-              <Redirect path="/privacy" to="/policy" />
-              <Redirect path="/organisers" to="/organizers" />
+    render() {
+        return (
+            <main className="App">
+                <div className="App--Main">
+                    <Header />
+                    <div className="App--Content">
+                        <Switch>
+                            {/* Redirects */}
+                            <Redirect path="/privacy" to="/policy" />
+                            <Redirect path="/organisers" to="/organizers" />
 
-              {/* Static pages */}
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/story" component={StoryPage} />
-              <Route exact path="/participants" component={ParticipantsPage} />
-              <Route exact path="/partners" component={PartnersPage} />
-              <Route exact path="/concepts" component={ConceptsPage} />
-              <Route exact path="/calendar" component={CalendarPage} />
-              <Route exact path="/team" component={TeamPage} />
-              <Route exact path="/volunteers" component={VolunteersPage} />
-              <Route exact path="/organizers" component={OrganisersPage} />
+                            {/* Static pages */}
+                            <Route exact path="/" component={HomePage} />
+                            <Route exact path="/story" component={StoryPage} />
+                            <Route
+                                exact
+                                path="/participants"
+                                component={ParticipantsPage}
+                            />
+                            <Route
+                                exact
+                                path="/partners"
+                                component={PartnersPage}
+                            />
+                            <Route
+                                exact
+                                path="/concepts"
+                                component={ConceptsPage}
+                            />
+                            <Route
+                                exact
+                                path="/calendar"
+                                component={CalendarPage}
+                            />
+                            <Route exact path="/team" component={TeamPage} />
+                            <Route
+                                exact
+                                path="/volunteers"
+                                component={VolunteersPage}
+                            />
+                            <Route
+                                exact
+                                path="/organizers"
+                                component={OrganisersPage}
+                            />
 
-              {/* Concept pages (JunctionX, HelTech, etc..) */}
-              <Route path="/concepts/:slug" component={ConceptPage} />
+                            {/* Concept pages (JunctionX, HelTech, etc..) */}
+                            <Route
+                                path="/concepts/:slug"
+                                component={ConceptPage}
+                            />
 
-              {/* Online event pages */}
-              <Route path="/online/:slug" component={OnlineEventPage} />
+                            {/* Online event pages */}
+                            <Route
+                                path="/online/:slug"
+                                component={OnlineEventPage}
+                            />
 
-              {/* Other pages */}
-              <Route path="/:slug" component={BasicPage} />
+                            {/* Other pages */}
+                            <Route path="/:slug" component={BasicPage} />
 
-              <Route path="*" component={NotFoundPage} />
-            </Switch>
-            <Footer />
-          </div>
-        </div>
+                            <Route path="*" component={NotFoundPage} />
+                        </Switch>
+                        <Footer />
+                    </div>
+                </div>
 
-        <ScrollToTop />
-        <GlobalLifecycle />
-        <PrivacyBanner />
-      </main>
-    );
-  }
+                <ScrollToTop />
+                <GlobalLifecycle />
+                <PrivacyBanner />
+            </main>
+        );
+    }
 }
 
 export default withRouter(App);
