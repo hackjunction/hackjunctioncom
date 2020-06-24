@@ -11,8 +11,8 @@
 
 .NavMenuOverlay {
     position: fixed;
-    top: 0;
-    left: 10%;
+    top: 10%;
+    left: 0;
     bottom: 0;
     right: 0;
     pointer-events: none;
@@ -23,53 +23,68 @@
         background: rgba($junction-black, 0.75);
         pointer-events: all;
     }
+
+    @include bp-med {
+        top: 0;
+        left: 10%;
+    }
 }
 
 .NavMenu {
     border-radius: 3px;
     pointer-events: all;
-    display: flex;
-    flex-direction: row;
-    height: 80%;
+    display: none;
     background-color: $junction-black;
     position: fixed;
     left: 9%;
     top: 10%;
-
     z-index: 3;
+    transition: all 0.5s ease-in-out;
 
+    @include bp-med {
+        display: flex;
+        height: 80%;
+        border-style: solid;
+        border-color: white;
+        border-width: thin;
+        flex-direction: row;
+    }
     &::-webkit-scrollbar {
         display: none;
     }
 
     &--exit {
         height: 100%;
-        margin: 15px;
         &:hover {
             cursor: pointer;
+        }
+        @include bp-med {
+            margin: 15px;
         }
     }
 
     &-open {
+        transition: all 0.2s ease;
         min-width: 15%;
         max-width: 25%;
         max-width: $bp-small;
-        border-style: solid;
-        border-color: white;
-        border-width: thin;
+        transition: all 0.5s ease-in-out;
     }
 
     &--inner {
-        margin: 10% 10% 20% 10%;
+        transition: all 0.5s ease-in-out;
+        margin: 10% 10% 10% 5%;
         &__menu {
             display: flex;
             flex-direction: column;
 
             &-item {
+                margin-left: 15%;
                 color: $junction-white;
                 font-size: 16px;
                 line-height: 22px;
                 text-decoration: none;
+                font-weight: 600;
 
                 @include bp-med {
                     font-size: 20px;

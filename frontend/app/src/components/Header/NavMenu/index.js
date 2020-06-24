@@ -62,9 +62,6 @@ const NavMenuInner = React.memo(
                     <Link className="NavMenu--inner__menu-item" to="/story">
                         Contact us
                     </Link>
-                    <Link className="NavMenu--inner__menu-item" to="/story">
-                        Blog
-                    </Link>
 
                     <h6 className="NavMenu--inner__menu-title">For partners</h6>
                     <Link className="NavMenu--inner__menu-item" to="/partners">
@@ -132,6 +129,22 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar }) => {
                         }
                     />
                 </div>
+                {isSidebarOpen && <ConnectedNavMenuInner />}
+            </div>
+        </div>
+    );
+};
+
+export const NavMenuMobile = ({ isSidebarOpen, toggleSidebar }) => {
+    return (
+        <div className="NavMenuWrapper">
+            <div
+                className={`NavMenuOverlay ${
+                    isSidebarOpen ? "NavMenuOverlay-open" : ""
+                }`}
+                onClick={() => toggleSidebar(false)}
+            />
+            <div className={`NavMenu ${isSidebarOpen ? "NavMenu-open" : ""}`}>
                 {isSidebarOpen && <ConnectedNavMenuInner />}
             </div>
         </div>

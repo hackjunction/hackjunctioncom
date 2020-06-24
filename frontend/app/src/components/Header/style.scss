@@ -2,7 +2,7 @@
 
 .Header {
     position: fixed;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     pointer-events: none;
@@ -11,7 +11,9 @@
     z-index: 10;
     background: $junction-white;
     transition: all 0.2s ease;
-
+    @include bp-med {
+        display: flex;
+    }
     &--emblem {
         pointer-events: all;
         width: 20px;
@@ -19,5 +21,32 @@
         &__image {
             width: 80px;
         }
+    }
+}
+
+.HeaderMobile {
+    display: flex;
+    height: 8%;
+    width: 100%;
+    z-index: 10;
+    background: $junction-black;
+    flex-direction: row;
+    justify-content: space-between;
+    &--emblem {
+        pointer-events: all;
+        width: 20px;
+        cursor: pointer;
+        &__image {
+            width: 60px;
+        }
+    }
+    &--icon {
+        margin: 10%;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    @include bp-med {
+        display: none;
     }
 }
