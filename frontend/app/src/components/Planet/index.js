@@ -73,7 +73,7 @@ const Planet = (props) => {
         let height = mount.current.clientHeight;
         let width = height;
         */
-        let width = window.screen.width / 3;
+        let width = (window.screen.width * 0.85) / 3;
         let height = width;
 
         const scene = new THREE.Scene();
@@ -96,7 +96,7 @@ const Planet = (props) => {
 
         const handleResize = () => {
             console.log("resixiing");
-            let width = window.screen.width / 3;
+            let width = (window.screen.width * 0.85) / 3;
             let height = width;
             console.log(height, width);
             renderer.setSize(width, height, true);
@@ -116,13 +116,13 @@ const Planet = (props) => {
 
             // This takes in account the sidebar, which takes 15% of the scren
             // tho huutista
-            var bufferLeft = window.innerWidth * 0.15;
-            /*
-            console.log(
+            var bufferLeft = window.screen.width * 0.15;
+
+            /*console.log(
                 event.clientX - renderer.domElement.offsetLeft - bufferLeft,
                 scrollTop + event.clientY - renderer.domElement.offsetTop,
-            );
-            */
+            );*/
+
             mouse.x =
                 ((event.clientX - renderer.domElement.offsetLeft - bufferLeft) /
                     renderer.domElement.clientWidth) *
