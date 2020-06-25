@@ -12,6 +12,7 @@ import SocialMediaIcons from "../SocialMediaIcons";
 
 import * as NavActions from "../../redux/nav/actions";
 import * as NavSelectors from "../../redux/nav/selectors";
+import MenuIcon from "@material-ui/icons/Menu";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

@@ -8,9 +8,9 @@ import ReactGA from "react-ga";
 import WebFont from "webfontloader";
 import { hotjar } from "react-hotjar";
 
-// import { library } from "@fortawesome/fontawesome-svg-core";
-// import { fab } from "@fortawesome/free-brands-svg-icons";
-// import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -33,7 +33,7 @@ import OrganisersPage from "./pages/Organisers";
 import StoryPage from "./pages/Story";
 import NotFoundPage from "./pages/NotFound";
 
-// library.add(fab, faTimes, faBars);
+library.add(fab, faTimes, faBars);
 
 WebFont.load({
     google: {
