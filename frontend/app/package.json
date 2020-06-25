@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.9.1",
     "axios": "^0.19.2",
     "babel-loader": "8.1.0",
     "cloudinary-core": "^2.8.2",
     "cloudinary-react": "^1.5.0",
     "history": "^4.10.1",
     "lodash-es": "^4.17.15",
+    "material-ui": "4.10.2",
     "moment": "^2.27.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -33,8 +38,7 @@
     "redux-thunk": "^2.3.0",
     "remark-breaks": "^1.0.5",
     "reselect": "^4.0.0",
-    "webfontloader": "^1.6.28",
-    "material-ui": "4.10.2"
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
