@@ -1,0 +1,11 @@
+@import "../../styles/main";
+
+.InputButton {
+    width: 181px;
+    height: 40px;
+    border: 1px solid $junction-blue;
+    border-radius: 22px;
+    position: absolute;
+    left: 50%;
+    color: $junction-black;
+}

@@ -18,19 +18,21 @@ const LinkButton = ({ text, to, onClick, isExternal, accent = false }) => {
     }
 
     return (
-        <Link
-            className={`LinkButton ${accent ? "LinkButton--accent" : ""}`}
-            to={to}
-            onClick={onClick}
-        >
-            <span
-                className={`"LinkButton--text" ${
-                    accent ? "LinkButton--accent--text" : ""
-                }`}
+        <div align-items="inherit">
+            <Link
+                className={`LinkButton ${accent ? "LinkButton--accent" : ""}`}
+                to={to}
+                onClick={onClick}
             >
-                {text}
-            </span>
-        </Link>
+                <span
+                    className={`"LinkButton--text" ${
+                        accent ? "LinkButton--accent--text" : ""
+                    }`}
+                >
+                    {text}
+                </span>
+            </Link>
+        </div>
     );
 };
 

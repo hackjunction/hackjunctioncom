@@ -7,6 +7,12 @@
     align-items: stretch;
 }
 
+html,
+body {
+    margin: 0px;
+    height: 100%;
+}
+
 .App {
     height: 100%;
     display: flex;
