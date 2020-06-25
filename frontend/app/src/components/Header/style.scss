@@ -1,9 +1,13 @@
 @import "../../styles/main";
 
 .Header {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: none;
     pointer-events: none;
-    flex-basis: 15%;
+    width: 15%;
+    height: 100%;
     z-index: 10;
     outline-color: $junction-black;
     outline-style: solid;
