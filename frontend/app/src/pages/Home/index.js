@@ -4,20 +4,16 @@ import "./style.scss";
 import KEYS from "../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../redux/staticmedia/keys";
 
-import BlockSection from "../../components/BlockSection";
-import StatBlocks from "../../components/StatBlocks";
 import Divider from "../../components/Divider";
-import Markdown from "../../components/Markdown";
-import CenteredBlock from "../../components/CenteredBlock";
-import PartnerLogoGrid from "../../components/LinkGrid/PartnerLogoGrid";
-import StoryGrid from "../../components/LinkGrid/StoryGrid";
-import HeaderImage from "../../components/HeaderImage";
-import BasicHeader from "../../components/HeaderImage/BasicHeader";
+
+import SectionImage from "../../components/SectionImage";
 import Planet from "../../components/Planet";
+
+import CenteredBlock from "../../components/CenteredBlock";
+import EventCalendar from "../../components/EventCalendar";
 
 import Page from "../PageHOC";
 import LinkButton from "../../components/LinkButton/index";
-const EventsMap = React.lazy(() => import("../../components/EventsMap"));
 
 const BOTTOM_LINKS = [
     {
@@ -49,62 +45,43 @@ class HomePage extends PureComponent {
                 metaDescKey={KEYS.whoAreWeBody}
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >
-                <div className="HomePage--TopContent">
-                    <img
-                        className="HomePage--logo"
-                        src={require("../../assets/logos/text_black.png")}
-                        alt="junction-wordmark"
-                    />
-                    <p className="HomePage-subtitle">
-                        We organise epic hackathons etc
-                    </p>
-                    <LinkButton to text="Read More " />
-                    <Divider sm />
-                    <LinkButton to text="Junction App" />
-                    <Divider sm />
-                    <LinkButton to text="Organize a hackathon" />
-                    <Divider sm />
-                    <br />
-                    <LinkButton to text="Junction 2020 Connected" />
-                    <Divider sm />
-                </div>
-                <HeaderImage
-                    imageKey={MEDIA_KEYS.participantPageHeaderImage}
+                <CenteredBlock>
+                    <div className="HomePage--TopContent">
+                        <img
+                            className="HomePage--logo"
+                            src={require("../../assets/logos/text_black.png")}
+                            alt="junction-wordmark"
+                        />
+                        <h3 className="HomePage-subtitle">
+                            We organize epic hackathons and other tech events -
+                            around the world, around the year.
+                        </h3>
+                        <LinkButton to text="Read More " />
+                        <Divider sm />
+                        <LinkButton to text="Junction App" />
+                        <Divider sm />
+                        <LinkButton to text="Organize a hackathon" />
+                        <Divider sm />
+                        <br />
+                        <LinkButton to text="Junction 2020 Connected" />
+                        <Divider sm />
+                    </div>
+                </CenteredBlock>
+                <SectionImage
+                    imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
-                >
-                    <BasicHeader
-                        titleKey={KEYS.participantsPageTitle}
-                        bodyKey={KEYS.participantsPageSubtitle}
-                    />
-                </HeaderImage>
-                <h3>Tähän Visan planeettaprojekti</h3>
+                ></SectionImage>
                 <Planet />
-                <Divider lg />
-                <HeaderImage
-                    imageKey={MEDIA_KEYS.participantPageHeaderImage}
-                    alt="Header image"
-                >
-                    <BasicHeader
-                        titleKey={KEYS.participantsPageTitle}
-                        bodyKey={KEYS.participantsPageSubtitle}
-                    />
-                </HeaderImage>
-                <Divider lg />
-                <BlockSection
-                    titleKey={KEYS.previousPartnersTitle}
-                    subtitleKey={KEYS.previousPartnersSubtitle}
-                >
-                    <PartnerLogoGrid />
-                    <Divider sm />
-                    <LinkButton to="/partners" text="More about partnering" />
-                </BlockSection>
-                <Divider lg />
-                <BlockSection
-                    titleKey={KEYS.storiesAboutUsTitle}
-                    subtitleKey={KEYS.storiesAboutUsSubtitle}
-                >
-                    <StoryGrid />
-                </BlockSection>
+                <SectionImage
+                    imageKey={MEDIA_KEYS.homePageHackingImage}
+                    alt="People attending a hackathon"
+                ></SectionImage>
+                <h1>Upcoming events</h1>
+                <EventCalendar />
+                <SectionImage
+                    imageKey={MEDIA_KEYS.homePageCommunityImage}
+                    alt="Junction Community"
+                ></SectionImage>
             </Page>
         );
     }
