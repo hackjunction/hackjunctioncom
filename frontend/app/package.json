@@ -15,7 +15,6 @@
         "cloudinary-react": "^1.5.0",
         "history": "^4.10.1",
         "lodash-es": "^4.17.15",
-        "material-ui": "4.10.2",
         "moment": "^2.27.0",
         "node-sass": "^4.14.1",
         "react": "^16.13.1",
