@@ -1,7 +1,10 @@
-import React, { useRef, useEffect, useState }  from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { connect } from 'react-redux';
+
 import { makeStyles } from "@material-ui/core/styles";
 import * as THREE from "three/build/three.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { mapEventsByLongitude } from '../../redux/events/selectors';
 
 import EventCard from "../EventCard";
 
@@ -20,7 +23,7 @@ const useStyles = makeStyles({
     },
 });
 
-const Planet = () => {
+const Planet = (props) => {
     const classes = useStyles();
     const mount = useRef(null);
 
@@ -30,6 +33,9 @@ const Planet = () => {
         const SIZE = RADIUS * 0.04;
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
+        const {events} = props;
+        console.log("events in here are", events)
+        /*
         const events = {
             1: {
                 lat: 60.1699,
@@ -60,6 +66,8 @@ const Planet = () => {
                 __id: 4,
             },
         };
+        */
+        
         console.log("m", mount);
         /*
         let height = mount.current.clientHeight;
@@ -110,8 +118,8 @@ const Planet = () => {
             // scene.add(new THREE.ArrowHelper( raycaster.ray.direction, raycaster.ray.origin, 100, Math.random() * 0xffffff ));
             // console.log(raycaster, intersects)
             if (intersects[0] && intersects[0].object.__id) {
-                console.log("set", events[intersects[0].object?.__id].data)
-                setEventData(events[intersects[0].object?.__id].data )
+                console.log("set", events[intersects[0].object?.__id])
+                setEventData(events[intersects[0].object?.__id] )
             }
         };
 
@@ -131,8 +139,9 @@ const Planet = () => {
         const renderDataPoints = () => {
             Object.keys(events).forEach((k) => {
                 const e = events[k];
+                // TODO add event color, and seperate globecoordinate ":D"
                 scene.add(
-                    renderEvent(...latlonToXZY(e.lat, e.lon), e.__id, e.color),
+                    renderEvent(...latlonToXZY(e.latitude, -e.longitude), k, Math.random() * 0xffffff),
                 );
             });
         };
@@ -184,4 +193,9 @@ const Planet = () => {
     );
 };
 
-export default Planet;
+
+const mapStateToProps = state => ({
+    events: mapEventsByLongitude(state)
+});
+
+export default connect(mapStateToProps)(Planet);

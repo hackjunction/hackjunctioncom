@@ -19,7 +19,7 @@ const useStyles = makeStyles({
         borderRadius: "5px",
         boxShadow: "none",
     },
-    title: {
+    name: {
         fontFamily: "Montserrat",
         fontStyle: "normal",
         fontWeight: "bold",
@@ -53,25 +53,25 @@ const useStyles = makeStyles({
 
 const EventCard = (eventData) => {
     const classes = useStyles();
-    console.log("event data is", eventData, eventData.title)
+    console.log("event data is", eventData, eventData.name)
     return (
-        eventData?.title? <Card className={classes.root}>
+        eventData?.name? <Card className={classes.root}>
             <CardContent>
                 <Typography
-                    className={classes.title}
+                    className={classes.name}
                     color="textSecondary"
                     gutterBottom
                 >
-                    {eventData.title}
+                    {eventData.name}
                 </Typography>
                 <Typography
                     className={classes.date} variant="body2" component="p">
-                    {eventData.date}
+                    {eventData.begins}
                 </Typography>
 
                 <Typography
                     className={classes.body} variant="body2" component="p">
-                    {eventData.desc}
+                    {eventData.shortDescription || eventData.eventconcept?.shortdescription}
                 </Typography>
             </CardContent>
         </Card>: <Markdown className={'blackText'} sourceKey={KEYS.whoAreWeGlobal} />
