@@ -113,9 +113,18 @@ const Planet = (props) => {
                           document.body.parentNode ||
                           document.body
                       ).scrollTop;
-            // console.log(event.clientX - renderer.domElement.offsetLeft, scrollTop + event.clientY - renderer.domElement.offsetTop)
+
+            // This takes in account the sidebar, which takes 15% of the scren
+            // tho huutista
+            var bufferLeft = window.innerWidth * 0.15;
+            /*
+            console.log(
+                event.clientX - renderer.domElement.offsetLeft - bufferLeft,
+                scrollTop + event.clientY - renderer.domElement.offsetTop,
+            );
+            */
             mouse.x =
-                ((event.clientX - renderer.domElement.offsetLeft) /
+                ((event.clientX - renderer.domElement.offsetLeft - bufferLeft) /
                     renderer.domElement.clientWidth) *
                     2 -
                 1;
@@ -134,7 +143,14 @@ const Planet = (props) => {
             raycaster.setFromCamera(mouse, camera);
             // calculate objects intersecting the picking ray
             var intersects = raycaster.intersectObjects(scene.children);
-            // scene.add(new THREE.ArrowHelper( raycaster.ray.direction, raycaster.ray.origin, 100, Math.random() * 0xffffff ));
+            /*scene.add(
+                new THREE.ArrowHelper(
+                    raycaster.ray.direction,
+                    raycaster.ray.origin,
+                    100,
+                    Math.random() * 0xffffff,
+                ),
+            );*/
             // console.log(raycaster, intersects)
             if (intersects[0] && intersects[0].object.__id) {
                 console.log("set", events[intersects[0].object?.__id]);
