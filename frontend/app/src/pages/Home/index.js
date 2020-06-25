@@ -6,6 +6,10 @@ import MEDIA_KEYS from "../../redux/staticmedia/keys";
 
 import InputButton from "../../components/InputButton";
 import LinkButton from "../../components/LinkButton";
+import { Grid, Typography } from "@material-ui/core";
+import Button from "../../components/Button";
+import EventsGridItem from "../../components/EventCard";
+import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 
 // const EventsMap = React.lazy(() => import("../../components/EventsMap"));
 
@@ -33,46 +37,44 @@ import LinkButton from "../../components/LinkButton";
 class HomePage extends PureComponent {
     render() {
         return (
-            <div className="container">
-                <div className="container-upper">
-                    {/* <EventCard
+            <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+            >
+                {/* <EventCard
                         text="JunctionX Asia"
                         date="18.-23.06.2020, Asia"
                         image="https://media-exp1.licdn.com/dms/image/C5603AQGAsmoy5ja_Kw/profile-displayphoto-shrink_200_200/0?e=1593648000&v=beta&t=I206WUq_fyC7J04a2GJ-zZvchrzugfB3OJc4diHBZAc"
                     /> */}
-                    {/* <InputButton key="fname" slug="firstname"></InputButton> */}
-                    <div className="container-upper-center">
-                        <div>
-                            <h1>J U N C T I O N</h1>
-                            <h2>
-                                We organize epic hackathons and other tech
-                                events - around the world, around the year.
-                            </h2>
-                            <LinkButton
-                                class="align"
-                                to="facebook.com"
-                                text="Read More "
-                            />
-                        </div>
+                <Grid
+                    container
+                    item
+                    md={12}
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                >
+                    <Typography variant="h1">J U N C T I O N</Typography>
+                    <Typography variant="h5">
+                        We organize epic hackathons and other tech events -
+                        around the world, around the year.
+                    </Typography>
+                    <Grid item md={4}>
+                        {/* <EventsGridItem event="text"></EventsGridItem> */}
+                        <Button text="Read More" />
+                    </Grid>
+                </Grid>
 
-                        {/* <div className="container-upper-button"> */}
-
-                        {/* </div> */}
-                        {/* <LinkButton
-                                to="facebook.com"
-                                text="Junction App "
-                                accent
-                            /> */}
-                    </div>
-                </div>
-                <div className="container-center">
-                    <img
+                <Grid>
+                    {/* <img
                         className="container-center-img"
                         src="https://live.staticflickr.com/65535/49091319657_bdbd52c70e_b.jpg"
                         alt="Junction 2019 Friday"
-                    />
-                </div>
-            </div>
+                    /> */}
+                </Grid>
+            </Grid>
         );
     }
 }
