@@ -13,6 +13,7 @@ import PartnerLogoGrid from "../../components/LinkGrid/PartnerLogoGrid";
 import StoryGrid from "../../components/LinkGrid/StoryGrid";
 import HeaderImage from "../../components/HeaderImage";
 import BasicHeader from "../../components/HeaderImage/BasicHeader";
+import Planet from "../../components/Planet";
 
 import Page from "../PageHOC";
 import LinkButton from "../../components/LinkButton/index";
@@ -77,6 +78,7 @@ class HomePage extends PureComponent {
                     />
                 </HeaderImage>
                 <h3>Tähän Visan planeettaprojekti</h3>
+                <Planet />
                 <Divider lg />
                 <HeaderImage
                     imageKey={MEDIA_KEYS.participantPageHeaderImage}
