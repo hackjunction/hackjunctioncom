@@ -1,4 +1,10 @@
 import React from "react";
+
+import './style.scss';
+
+import KEYS from '../../redux/staticcontent/keys';
+import Markdown from '../../components/Markdown';
+
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -6,13 +12,12 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 275,
-        maxWidth: 275,
-        margin: "20%",
+        margin: "10em 2em 10em 5em",
         background: "#232323",
         border: "4px solid #FBFBFB",
         boxSizing: "border-box",
         borderRadius: "5px",
+        boxShadow: "none",
     },
     title: {
         fontFamily: "Montserrat",
@@ -50,7 +55,7 @@ const EventCard = (eventData) => {
     const classes = useStyles();
     console.log("event data is", eventData, eventData.title)
     return (
-        eventData? <Card className={classes.root}>
+        eventData?.title? <Card className={classes.root}>
             <CardContent>
                 <Typography
                     className={classes.title}
@@ -69,7 +74,8 @@ const EventCard = (eventData) => {
                     {eventData.desc}
                 </Typography>
             </CardContent>
-        </Card>: null
+        </Card>: <Markdown className={'blackText'} sourceKey={KEYS.whoAreWeBody} />
+
     );
 }
 

@@ -5,12 +5,18 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 import EventCard from "../EventCard";
 
+import './style.scss';
+
 const useStyles = makeStyles({
-    vis: {
+    planetContainer: {
+        background: "#FBFBFB",
         display: "flex",
         flexDirection: "row",
+    },
+    vis: {
+        width:"100%",
         position: "static",
-        padding: 0,
+        float:"right",
     },
 });
 
@@ -55,12 +61,15 @@ const Planet = () => {
             },
         };
         console.log("m", mount);
-        let width = mount.current.clientWidth / 3;
-        let height = width; // mount.current.clientHeight;
-        let frameId;
-
+        /*
+        let height = mount.current.clientHeight;
+        let width = height;
+        */
+        let width = window.screen.width / 3;
+        let height = width;
+       
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xaaaaaa);
+        scene.background = new THREE.Color(0xFBFBFB);
 
         const camera = new THREE.PerspectiveCamera(
             45,
@@ -68,7 +77,7 @@ const Planet = () => {
             0.2,
             RADIUS * 10,
         );
-        camera.position.z = 40;
+        camera.position.z = 30;
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
 
@@ -79,9 +88,10 @@ const Planet = () => {
 
         const handleResize = () => {
             console.log("resixiing");
-            let width = mount.current.clientWidth / 3;
-            let height = width; // mount.current.clientHeight;
-            renderer.setSize(width, height, false);
+            let width = window.screen.width / 3;
+            let height = width;
+            console.log(height, width)
+            renderer.setSize(width, height, true);
             camera.aspect = width / height;
             camera.updateProjectionMatrix();
         };
@@ -167,8 +177,9 @@ const Planet = () => {
     }, []);
 
     return (
-        <div className={classes.vis} ref={mount}>
+        <div className={classes.planetContainer}>
             <EventCard {...eventData} />
+            <div className={classes.vis} ref={mount} />
         </div>
     );
 };
