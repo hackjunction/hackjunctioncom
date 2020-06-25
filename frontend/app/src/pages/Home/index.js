@@ -14,6 +14,8 @@ import ConceptsPreview from '../../components/ConceptsPreview';
 import PartnerLogoGrid from '../../components/LinkGrid/PartnerLogoGrid';
 import StoryGrid from '../../components/LinkGrid/StoryGrid';
 import ImageLinks from '../../components/ImageLinks';
+import Planet from '../../components/Planet';
+
 import Page from '../PageHOC';
 import LinkButton from '../../components/LinkButton/index';
 const EventsMap = React.lazy(() => import('../../components/EventsMap'));

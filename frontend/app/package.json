@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.10.2",
     "axios": "^0.19.2",
     "babel-loader": "8.1.0",
     "cloudinary-core": "^2.8.2",
@@ -33,6 +34,7 @@
     "redux-thunk": "^2.3.0",
     "remark-breaks": "^1.0.5",
     "reselect": "^4.0.0",
+    "three": "^0.118.1",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
