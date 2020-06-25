@@ -8,9 +8,10 @@ import Divider from "../../components/Divider";
 
 import SectionImage from "../../components/SectionImage";
 import Planet from "../../components/Planet";
-
+import { Grid } from "@material-ui/core";
 import CenteredBlock from "../../components/CenteredBlock";
 import EventCalendar from "../../components/EventCalendar";
+import { spacing } from "@material-ui/system";
 
 import Page from "../PageHOC";
 import LinkButton from "../../components/LinkButton/index";
@@ -49,7 +50,7 @@ class HomePage extends PureComponent {
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >
                 <CenteredBlock>
-                    <div className="HomePage--TopContent">
+                    <Grid className="HomePage--TopContent">
                         <img
                             className="HomePage--logo"
                             src={require("../../assets/logos/text_black.png")}
@@ -61,13 +62,15 @@ class HomePage extends PureComponent {
                         </h3>
                         <Button text="Read More"></Button>
                         <Divider sm />
-                        <SmallButton to text="Junction App" />
+                        <Grid spacing={6} direction="row">
+                            <SmallButton to text="Junction App" />
 
-                        <SmallButton to text="Organize a hackathon" />
+                            <SmallButton to text="Organize a hackathon" />
 
-                        <SmallButton to text="Junction 2020 Connected" />
+                            <SmallButton to text="Junction 2020 Connected" />
+                        </Grid>
                         <Divider sm />
-                    </div>
+                    </Grid>
                 </CenteredBlock>
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHeaderImage}

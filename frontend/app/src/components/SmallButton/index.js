@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: "33px",
         fontSize: "18px",
         fontWeight: "600",
+        textTransform: "none",
+        lineHeight: "22px",
+        margin: "2px",
     },
 }));
 
@@ -21,7 +24,9 @@ export default ({ text, type, description, link }) => {
 
     return (
         <>
-            <Button className={classes.smaller}>{text}</Button>
+            <Button m={2} className={classes.smaller}>
+                {text}
+            </Button>
         </>
     );
 };
