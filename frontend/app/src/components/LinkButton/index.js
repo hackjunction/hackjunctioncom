@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const LinkButton = ({ text, to, onClick, isExternal, accent = false }) => {
     if (isExternal) {
         return (
-            <div className="LinkButton--wrapper">
+            <div>
                 <a
                     className={`LinkButton ${accent ? 'LinkButton--accent' : ''}`}
                     href={to}

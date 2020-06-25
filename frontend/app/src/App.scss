@@ -1,11 +1,11 @@
 @import "./styles/main";
 
-.Page {
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-}
+// .Page {
+//     height: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: stretch;
+// }
 
 .App {
     height: 100%;
@@ -14,6 +14,7 @@
 }
 
 .App--Main {
+     background: $junction-white;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -40,14 +41,14 @@
         flex-basis: 90%;
     }
 
-    &_logo {
-        width: 100%;
-        max-width: 400px;
-    }
+//     &_logo {
+//         width: 100%;
+//         max-width: 400px;
+//     }
 
-    &_body,
-    &_title {
-        text-align: center;
-        max-width: 600px;
-    }
-}
+//     &_body,
+//     &_title {
+//         text-align: center;
+//         max-width: 600px;
+//     }
+// }
