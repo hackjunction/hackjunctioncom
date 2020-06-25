@@ -51,6 +51,7 @@ class HomePage extends PureComponent {
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >
                 <HeaderVideo />
+                <Planet />
                 <BlockSection titleKey={KEYS.whoAreWe} subtitleKey={KEYS.whoAreWeSubtitle}>
                     <Markdown sourceKey={KEYS.whoAreWeBody} />
                     <StatBlocks type={'generic'} />

@@ -13,6 +13,8 @@ const CONTENT_KEYS = {
 	/* Home page */
 	whoAreWe: 'whoAreWe',
 	whoAreWeBody: 'whoAreWeBody',
+	whoAreWeGlobal: 'whoAreWeGlobal',
+
 	whoAreWeSubtitle: 'whoAreWeSubtitle',
 	whatWeDo: 'whatWeDo',
 	whatWeDoBody: 'whatWeDoBody',
