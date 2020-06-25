@@ -14,6 +14,8 @@ import ConceptsPreview from '../../components/ConceptsPreview';
 import PartnerLogoGrid from '../../components/LinkGrid/PartnerLogoGrid';
 import StoryGrid from '../../components/LinkGrid/StoryGrid';
 import ImageLinks from '../../components/ImageLinks';
+import Planet from '../../components/Planet';
+
 import Page from '../PageHOC';
 import LinkButton from '../../components/LinkButton/index';
 const EventsMap = React.lazy(() => import('../../components/EventsMap'));
@@ -49,6 +51,7 @@ class HomePage extends PureComponent {
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >
                 <HeaderVideo />
+                <Planet />
                 <BlockSection titleKey={KEYS.whoAreWe} subtitleKey={KEYS.whoAreWeSubtitle}>
                     <Markdown sourceKey={KEYS.whoAreWeBody} />
                     <StatBlocks type={'generic'} />
