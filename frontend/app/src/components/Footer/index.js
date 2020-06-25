@@ -57,41 +57,41 @@ class Footer extends PureComponent {
                     <div className="Footer--left-second">
                         <div className="Footer--left-second__FooterLinkList">
                             <div className="FooterListLeft">
-                                <p>
+                                <span>
                                     <Link to="/codeofconduct">
                                         Code of Conduct
                                     </Link>
-                                </p>
-                                <p>
+                                </span>
+                                <span>
                                     <Link to="/policy">Privacy Policy</Link>
-                                </p>
-                                <p>
+                                </span>
+                                <span>
                                     <Link to="/terms">Terms & Conditions</Link>
-                                </p>
+                                </span>
                             </div>
                             <div className="FooterListRight">
-                                <p>
+                                <span>
                                     <Link to="/press">Press kit (eng)</Link>
-                                </p>
-                                <p>
+                                </span>
+                                <span>
                                     <Link to="/media">Press kit (fin)</Link>
-                                </p>
-                                <p>
+                                </span>
+                                <span>
                                     <a
                                         href="https://www.flickr.com/photos/151708924@N07/albums/"
                                         alt="flickr"
                                     >
                                         Photo Gallery
                                     </a>
-                                </p>
-                                <p>
+                                </span>
+                                <span>
                                     <a
                                         href="https://blog.hackjunction.com"
                                         alt="medium"
                                     >
                                         Blog
                                     </a>
-                                </p>
+                                </span>
                             </div>
                         </div>
                         <div>
@@ -109,7 +109,9 @@ class Footer extends PureComponent {
                 </div>
                 <div className="Footer--right">
                     <h2>Contact us</h2>
-                    <p>Fill the contact form and we'll get back to you asap!</p>
+                    <span>
+                        Fill the contact form and we'll get back to you asap!
+                    </span>
                     <ContactForm />
                 </div>
             </footer>

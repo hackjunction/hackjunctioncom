@@ -33,7 +33,8 @@
                 display: flex;
                 flex-direction: row;
 
-                p {
+                span {
+                    display: block;
                     a {
                         color: $junction-black;
                         line-height: 5px;
