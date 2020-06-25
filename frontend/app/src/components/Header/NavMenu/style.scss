@@ -42,7 +42,8 @@
     z-index: 3;
     transition: all 0.5s ease-in-out;
     display: none;
-    height: 80%;
+    min-height: 80%;
+    height: auto;
     border-style: solid;
     border-color: white;
     border-width: thin;
