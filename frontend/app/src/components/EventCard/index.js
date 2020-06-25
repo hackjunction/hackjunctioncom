@@ -74,7 +74,7 @@ const EventCard = (eventData) => {
                     {eventData.desc}
                 </Typography>
             </CardContent>
-        </Card>: <Markdown className={'blackText'} sourceKey={KEYS.whoAreWeBody} />
+        </Card>: <Markdown className={'blackText'} sourceKey={KEYS.whoAreWeGlobal} />
 
     );
 }
