@@ -10,7 +10,7 @@ import { eventconceptsForNav } from "../../../redux/eventconcepts/selectors";
 import { toggleSidebar } from "../../../redux/nav/actions";
 import { isSidebarOpen } from "../../../redux/nav/selectors";
 
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
     homePages,
@@ -120,14 +120,14 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar }) => {
             />
             <div className={`NavMenu ${isSidebarOpen ? "NavMenu-open" : ""}`}>
                 <div className="NavMenu--exit">
-                    {/* <FontAwesomeIcon
+                    <FontAwesomeIcon
                         icon={isSidebarOpen ? "times" : "bars"}
                         size="2x"
                         color="white"
                         onClick={() =>
                             toggleSidebar(isSidebarOpen ? false : true)
                         }
-                    /> */}
+                    />
                 </div>
                 {isSidebarOpen && <ConnectedNavMenuInner />}
             </div>
@@ -143,7 +143,4 @@ const mapDispatchToProps = (dispatch) => ({
     toggleSidebar: (open) => dispatch(toggleSidebar(open)),
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(NavMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(NavMenu);
