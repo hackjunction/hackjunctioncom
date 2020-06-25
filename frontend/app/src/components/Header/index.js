@@ -6,16 +6,16 @@ import { Link } from "react-router-dom";
 
 import NavMenu from "./NavMenu";
 
-import NavMenuMobile from "./NavMenu/";
+import NavMenuMobile from "./NavMenuMobile";
+
+import SocialMediaIcons from "../SocialMediaIcons";
 
 import * as NavActions from "../../redux/nav/actions";
 import * as NavSelectors from "../../redux/nav/selectors";
 
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { toggleSidebar } from "../../redux/nav/actions";
-import { isSidebarOpen } from "../../redux/nav/selectors";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = ({ toggleSidebar, navTitle }) => {
+const Header = ({ navTitle, toggleSidebar, isSidebarOpen }) => {
     const [isScrolled, setScrolled] = useState(window.scrollY >= 400);
 
     function handleScroll() {
@@ -38,6 +38,11 @@ const Header = ({ toggleSidebar, navTitle }) => {
         };
     });
 
+    let headerClass = "HeaderMobile";
+    if (isSidebarOpen) {
+        headerClass += " HeaderMobile--open";
+    }
+
     return (
         <>
             <header className={`Header ${isScrolled ? "Header-scrolled" : ""}`}>
@@ -48,30 +53,28 @@ const Header = ({ toggleSidebar, navTitle }) => {
                         alt="Junction logo"
                     />
                 </Link>
-                <p>tähän ne huutis linkit</p>
+                <SocialMediaIcons />
                 <NavMenu />
             </header>
-            <header
-                className={`HeaderMobile ${
-                    isScrolled ? "Header-scrolled" : ""
-                }`}
-            >
-                <Link to="/" className="HeaderMobile--emblem">
-                    <img
-                        className="HeaderMobile--emblem__image"
-                        src={require("../../assets/logos/emblem_white.png")}
-                        alt="Junction logo"
-                    />
-                </Link>
-                <div className="HeaderMobile--icon">
-                    {/* <FontAwesomeIcon
-                        icon={isSidebarOpen ? "times" : "bars"}
-                        size="2x"
-                        color="white"
-                        onClick={() =>
-                            toggleSidebar(isSidebarOpen ? false : true)
-                        }
-                    /> */}
+            <header className={headerClass}>
+                <div className="HeaderMobileRow">
+                    <Link to="/" className="HeaderMobile--emblem">
+                        <img
+                            className="HeaderMobile--emblem__image"
+                            src={require("../../assets/logos/emblem_white.png")}
+                            alt="Junction logo"
+                        />
+                    </Link>
+                    <div className="HeaderMobile--icon">
+                        <FontAwesomeIcon
+                            icon={isSidebarOpen ? "times" : "bars"}
+                            size="2x"
+                            color="white"
+                            onClick={() =>
+                                toggleSidebar(isSidebarOpen ? false : true)
+                            }
+                        />
+                    </div>
                 </div>
                 <NavMenuMobile />
             </header>
@@ -81,13 +84,10 @@ const Header = ({ toggleSidebar, navTitle }) => {
 
 const mapStateToProps = (state) => ({
     navTitle: NavSelectors.navTitle(state),
-    isSidebarOpen: isSidebarOpen(state),
+    isSidebarOpen: NavSelectors.isSidebarOpen(state),
 });
 const mapDispatchToProps = (dispatch) => ({
     toggleSidebar: (open) => dispatch(NavActions.toggleSidebar(open)),
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

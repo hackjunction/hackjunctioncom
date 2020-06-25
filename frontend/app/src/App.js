@@ -131,7 +131,6 @@ class App extends PureComponent {
                         {/* <Footer /> */}
                     </div>
                 </div>
-
                 <ScrollToTop />
                 <GlobalLifecycle />
                 <PrivacyBanner />

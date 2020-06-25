@@ -1,4 +1,4 @@
-@import '../../styles/main.scss';
+@import "../../styles/main.scss";
 
 .HeaderImage {
     align-self: stretch;
@@ -10,12 +10,6 @@
     overflow: hidden;
     transition: height 0.2s ease;
     background: black;
-    mask-image: url('../../assets/misc/wave-mask.png');
-    mask-size: cover;
-    mask-position: bottom;
-    -webkit-mask-image: url('../../assets/misc/wave-mask.png');
-    -webkit-mask-size: cover;
-    -webkit-mask-position: bottom;
 
     @include bp-med {
         height: 600px;
@@ -60,7 +54,7 @@
     flex-direction: column;
     align-items: center;
 
-     @include bp-full {
+    @include bp-full {
         align-items: stretch;
     }
 
@@ -77,12 +71,11 @@
         font-size: 40px;
         padding: $padding-double;
 
-
         -webkit-animation: fadein-left 0.5s; /* Safari, Chrome and Opera > 12.1 */
         -moz-animation: fadein-left 0.5s; /* Firefox < 16 */
         -ms-animation: fadein-left 0.5s; /* Internet Explorer */
-         -o-animation: fadein-left 0.5s;/* Opera < 12.1 */
-            animation: fadein-left 0.5s;
+        -o-animation: fadein-left 0.5s; /* Opera < 12.1 */
+        animation: fadein-left 0.5s;
 
         @include bp-med {
             text-align: center;
@@ -111,8 +104,8 @@
         -webkit-animation: fadein-bottom 0.8s; /* Safari, Chrome and Opera > 12.1 */
         -moz-animation: fadein-bottom 0.8s; /* Firefox < 16 */
         -ms-animation: fadein-bottom 0.8s; /* Internet Explorer */
-         -o-animation: fadein-bottom 0.8s;/* Opera < 12.1 */
-            animation: fadein-bottom 0.8s;
+        -o-animation: fadein-bottom 0.8s; /* Opera < 12.1 */
+        animation: fadein-bottom 0.8s;
 
         @include bp-full {
             display: flex;
@@ -140,7 +133,7 @@
     &--punchline {
         font-size: 24px;
         margin-bottom: 40px;
-        text-align: center; 
+        text-align: center;
     }
 
     &--link {
@@ -155,7 +148,7 @@
 
         &__text {
             text-align: center;
-            color: $junction-black; 
+            color: $junction-black;
         }
     }
 }

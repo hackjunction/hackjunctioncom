@@ -1,80 +1,112 @@
 import React, { PureComponent, Suspense } from "react";
 import "./style.scss";
 
-// import KEYS from "../../redux/staticcontent/keys";
+import KEYS from "../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../redux/staticmedia/keys";
 
-import InputButton from "../../components/InputButton";
-import LinkButton from "../../components/LinkButton";
-import { Grid, Typography } from "@material-ui/core";
+import BlockSection from "../../components/BlockSection";
+import StatBlocks from "../../components/StatBlocks";
+import Divider from "../../components/Divider";
+import Markdown from "../../components/Markdown";
+import CenteredBlock from "../../components/CenteredBlock";
+import PartnerLogoGrid from "../../components/LinkGrid/PartnerLogoGrid";
+import StoryGrid from "../../components/LinkGrid/StoryGrid";
+import HeaderImage from "../../components/HeaderImage";
+import BasicHeader from "../../components/HeaderImage/BasicHeader";
+import Planet from "../../components/Planet";
+
+import Page from "../PageHOC";
+import LinkButton from "../../components/LinkButton/index";
 import Button from "../../components/Button";
-import EventsGridItem from "../../components/EventCard";
-import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
+const EventsMap = React.lazy(() => import("../../components/EventsMap"));
 
-// const EventsMap = React.lazy(() => import("../../components/EventsMap"));
-
-// const BOTTOM_LINKS = [
-//     {
-//         imageKey: MEDIA_KEYS.calendarPageHeaderImage,
-//         imageAlt: "Link",
-//         linkTo: "/calendar",
-//         linkText: "Calendar",
-//     },
-//     {
-//         imageKey: MEDIA_KEYS.partnerPageHeaderImage,
-//         imageAlt: "Link",
-//         linkTo: "/partners",
-//         linkText: "For partners",
-//     },
-//     {
-//         imageKey: MEDIA_KEYS.volunteerPageHeaderImage,
-//         imageAlt: "Link",
-//         linkTo: "/volunteers",
-//         linkText: "For volunteers",
-//     },
-// ];
+const BOTTOM_LINKS = [
+    {
+        imageKey: MEDIA_KEYS.calendarPageHeaderImage,
+        imageAlt: "Link",
+        linkTo: "/calendar",
+        linkText: "Calendar",
+    },
+    {
+        imageKey: MEDIA_KEYS.partnerPageHeaderImage,
+        imageAlt: "Link",
+        linkTo: "/partners",
+        linkText: "For partners",
+    },
+    {
+        imageKey: MEDIA_KEYS.volunteerPageHeaderImage,
+        imageAlt: "Link",
+        linkTo: "/volunteers",
+        linkText: "For volunteers",
+    },
+];
 
 class HomePage extends PureComponent {
     render() {
         return (
-            <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
+            <Page
+                className="HomePage"
+                pageTitle="Hack the Future"
+                metaDescKey={KEYS.whoAreWeBody}
+                ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >
-                {/* <EventCard
-                        text="JunctionX Asia"
-                        date="18.-23.06.2020, Asia"
-                        image="https://media-exp1.licdn.com/dms/image/C5603AQGAsmoy5ja_Kw/profile-displayphoto-shrink_200_200/0?e=1593648000&v=beta&t=I206WUq_fyC7J04a2GJ-zZvchrzugfB3OJc4diHBZAc"
-                    /> */}
-                <Grid
-                    container
-                    item
-                    md={12}
-                    direction="row"
-                    justify="center"
-                    alignItems="center"
+                <div className="HomePage--TopContent">
+                    <img
+                        className="HomePage--logo"
+                        src={require("../../assets/logos/text_black.png")}
+                        alt="junction-wordmark"
+                    />
+                    <p className="HomePage-subtitle">
+                        We organise epic hackathons etc
+                    </p>
+                    <Button text="Read More"></Button>
+                    <Divider sm />
+                    <LinkButton to text="Junction App" />
+                    <Divider sm />
+                    <LinkButton to text="Organize a hackathon" />
+                    <Divider sm />
+                    <br />
+                    <LinkButton to text="Junction 2020 Connected" />
+                    <Divider sm />
+                </div>
+                <HeaderImage
+                    imageKey={MEDIA_KEYS.participantPageHeaderImage}
+                    alt="Header image"
                 >
-                    <Typography variant="h1">J U N C T I O N</Typography>
-                    <Typography variant="h5">
-                        We organize epic hackathons and other tech events -
-                        around the world, around the year.
-                    </Typography>
-                    <Grid item md={4}>
-                        {/* <EventsGridItem event="text"></EventsGridItem> */}
-                        <Button text="Read More" />
-                    </Grid>
-                </Grid>
-
-                <Grid>
-                    {/* <img
-                        className="container-center-img"
-                        src="https://live.staticflickr.com/65535/49091319657_bdbd52c70e_b.jpg"
-                        alt="Junction 2019 Friday"
-                    /> */}
-                </Grid>
-            </Grid>
+                    <BasicHeader
+                        titleKey={KEYS.participantsPageTitle}
+                        bodyKey={KEYS.participantsPageSubtitle}
+                    />
+                </HeaderImage>
+                <h3>Tähän Visan planeettaprojekti</h3>
+                <Planet />
+                <Divider lg />
+                <HeaderImage
+                    imageKey={MEDIA_KEYS.participantPageHeaderImage}
+                    alt="Header image"
+                >
+                    <BasicHeader
+                        titleKey={KEYS.participantsPageTitle}
+                        bodyKey={KEYS.participantsPageSubtitle}
+                    />
+                </HeaderImage>
+                <Divider lg />
+                <BlockSection
+                    titleKey={KEYS.previousPartnersTitle}
+                    subtitleKey={KEYS.previousPartnersSubtitle}
+                >
+                    <PartnerLogoGrid />
+                    <Divider sm />
+                    <LinkButton to="/partners" text="More about partnering" />
+                </BlockSection>
+                <Divider lg />
+                <BlockSection
+                    titleKey={KEYS.storiesAboutUsTitle}
+                    subtitleKey={KEYS.storiesAboutUsSubtitle}
+                >
+                    <StoryGrid />
+                </BlockSection>
+            </Page>
         );
     }
 }

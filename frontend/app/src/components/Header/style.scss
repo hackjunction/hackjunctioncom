@@ -1,14 +1,13 @@
 @import "../../styles/main";
 
 .Header {
-    position: fixed;
     display: none;
-    flex-direction: column;
-    justify-content: space-between;
     pointer-events: none;
-    height: 100%;
-    width: 10%;
+    flex-basis: 15%;
     z-index: 10;
+    outline-color: $junction-black;
+    outline-style: solid;
+    outline-width: normal;
     background: $junction-white;
     transition: all 0.2s ease;
     @include bp-med {
@@ -18,6 +17,7 @@
         pointer-events: all;
         width: 20px;
         cursor: pointer;
+        position: fixed;
         &__image {
             width: 80px;
         }
@@ -26,22 +26,43 @@
 
 .HeaderMobile {
     display: flex;
-    height: 8%;
+    position: fixed;
     width: 100%;
     z-index: 10;
     background: $junction-black;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    &--open {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    &-scrolled {
+        background: $junction-white;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .HeaderMobileRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        > a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
     &--emblem {
         pointer-events: all;
-        width: 20px;
         cursor: pointer;
+
         &__image {
-            width: 60px;
+            margin-left: 10%;
+            width: 50px;
         }
     }
     &--icon {
-        margin: 10%;
+        margin: 5%;
         &:hover {
             cursor: pointer;
         }
