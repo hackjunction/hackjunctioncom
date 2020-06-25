@@ -1,4 +1,18 @@
-@import '../../styles/main';
+@import "../../styles/main";
 .HomePage {
-background-color: $junction-white;
+    background-color: $junction-white;
+
+    .HomePage--TopContent {
+        align-content: center;
+        text-align: center;
+    }
+
+    .HomePage--logo {
+        margin: 5% 0;
+        align-content: center;
+    }
+
+    p.HomePage-subtitle {
+        text-align: center;
+    }
 }

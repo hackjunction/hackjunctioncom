@@ -14,10 +14,11 @@
 }
 
 .App--Main {
+    overflow-x: hidden;
     background: $junction-white;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     @include bp-med {
         flex-direction: row;
     }
@@ -38,6 +39,6 @@
     align-items: stretch;
     z-index: 1;
     @include bp-med {
-        flex-basis: 90%;
+        flex-basis: 85%;
     }
 }

@@ -4,17 +4,15 @@ import "./style.scss";
 import KEYS from "../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../redux/staticmedia/keys";
 
-import HeaderVideo from "../../components/HeaderVideo";
 import BlockSection from "../../components/BlockSection";
 import StatBlocks from "../../components/StatBlocks";
-import NewsLetterForm from "../../components/NewsLetterForm";
 import Divider from "../../components/Divider";
 import Markdown from "../../components/Markdown";
-import ConceptsPreview from "../../components/ConceptsPreview";
+import CenteredBlock from "../../components/CenteredBlock";
 import PartnerLogoGrid from "../../components/LinkGrid/PartnerLogoGrid";
 import StoryGrid from "../../components/LinkGrid/StoryGrid";
-import ImageLinks from "../../components/ImageLinks";
-import Planet from "../../components/Planet";
+import HeaderImage from "../../components/HeaderImage";
+import BasicHeader from "../../components/HeaderImage/BasicHeader";
 
 import Page from "../PageHOC";
 import LinkButton from "../../components/LinkButton/index";
@@ -50,40 +48,45 @@ class HomePage extends PureComponent {
                 metaDescKey={KEYS.whoAreWeBody}
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >
-                <LinkButton to text="Read More " />
-                <CenteredBlock>
+                <div className="HomePage--TopContent">
+                    <img
+                        className="HomePage--logo"
+                        src={require("../../assets/logos/text_black.png")}
+                        alt="junction-wordmark"
+                    />
+                    <p className="HomePage-subtitle">
+                        We organise epic hackathons etc
+                    </p>
+                    <LinkButton to text="Read More " />
+                    <Divider sm />
                     <LinkButton to text="Junction App" />
+                    <Divider sm />
                     <LinkButton to text="Organize a hackathon" />
+                    <Divider sm />
+                    <br />
                     <LinkButton to text="Junction 2020 Connected" />
-                </CenteredBlock>
-                <BlockSection
-                    titleKey={KEYS.whoAreWe}
-                    subtitleKey={KEYS.whoAreWeSubtitle}
+                    <Divider sm />
+                </div>
+                <HeaderImage
+                    imageKey={MEDIA_KEYS.participantPageHeaderImage}
+                    alt="Header image"
                 >
-                    <Markdown sourceKey={KEYS.whoAreWeBody} />
-                    <StatBlocks type={"generic"} />
-                </BlockSection>
+                    <BasicHeader
+                        titleKey={KEYS.participantsPageTitle}
+                        bodyKey={KEYS.participantsPageSubtitle}
+                    />
+                </HeaderImage>
+                <h3>Tähän Visan planeettaprojekti</h3>
                 <Divider lg />
-                <Suspense fallback={null}>
-                    <EventsMap />
-                </Suspense>
-
-                <BlockSection
-                    titleKey={KEYS.whatWeDo}
-                    subtitleKey={KEYS.whatWeDoSubtitle}
-                    extra={
-                        <React.Fragment>
-                            <Divider sm />
-                            <LinkButton
-                                to="/calendar"
-                                text="Full event calendar"
-                            />
-                        </React.Fragment>
-                    }
+                <HeaderImage
+                    imageKey={MEDIA_KEYS.participantPageHeaderImage}
+                    alt="Header image"
                 >
-                    <Markdown sourceKey={KEYS.whatWeDoBody} />
-                    <ConceptsPreview />
-                </BlockSection>
+                    <BasicHeader
+                        titleKey={KEYS.participantsPageTitle}
+                        bodyKey={KEYS.participantsPageSubtitle}
+                    />
+                </HeaderImage>
                 <Divider lg />
                 <BlockSection
                     titleKey={KEYS.previousPartnersTitle}
@@ -100,9 +103,6 @@ class HomePage extends PureComponent {
                 >
                     <StoryGrid />
                 </BlockSection>
-                <Divider lg />
-                <NewsLetterForm />
-                <Divider lg />
             </Page>
         );
     }

@@ -3,7 +3,7 @@
 .Header {
     display: none;
     pointer-events: none;
-    flex-basis: 10%;
+    flex-basis: 15%;
     z-index: 10;
     outline-color: $junction-black;
     outline-style: solid;
@@ -17,6 +17,7 @@
         pointer-events: all;
         width: 20px;
         cursor: pointer;
+        position: fixed;
         &__image {
             width: 80px;
         }
@@ -54,6 +55,7 @@
     &--emblem {
         pointer-events: all;
         cursor: pointer;
+
         &__image {
             margin-left: 10%;
             width: 50px;
