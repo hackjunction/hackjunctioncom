@@ -15,6 +15,9 @@ const MEDIA_KEYS = {
     defaultBackgroundImage: "defaultBackgroundImage",
     interestedInOrganisingImage: "interestedInOrganisingImage",
     junctionXTimelineImage: "junctionXTimelineImage",
+    AboutPageOurStoryImage: "storyPageOurStoryImage",
+    AboutPageContactUsImage: "storyPageContactUsImage",
+    AboutPageBlogImage: "storyPageBlogImage",
 };
 
 export default MEDIA_KEYS;
