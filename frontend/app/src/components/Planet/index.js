@@ -1,14 +1,14 @@
 import React, { useRef, useEffect, useState } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
 import * as THREE from "three/build/three.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { mapEventsByLongitude } from '../../redux/events/selectors';
+import { mapEventsByLongitude } from "../../redux/events/selectors";
 
 import EventCard from "../EventCard";
 
-import './style.scss';
+import "./style.scss";
 
 const useStyles = makeStyles({
     planetContainer: {
@@ -17,9 +17,9 @@ const useStyles = makeStyles({
         flexDirection: "row",
     },
     vis: {
-        width:"100%",
+        width: "100%",
         position: "static",
-        float:"right",
+        float: "right",
     },
 });
 
@@ -27,14 +27,14 @@ const Planet = (props) => {
     const classes = useStyles();
     const mount = useRef(null);
 
-    const [eventData, setEventData] = useState(null)
+    const [eventData, setEventData] = useState(null);
     useEffect(() => {
         const RADIUS = 10;
         const SIZE = RADIUS * 0.04;
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
-        const {events} = props;
-        console.log("events in here are", events)
+        const { events } = props;
+        console.log("events in here are", events);
         /*
         const events = {
             1: {
@@ -67,17 +67,17 @@ const Planet = (props) => {
             },
         };
         */
-        
+
         console.log("m", mount);
         /*
         let height = mount.current.clientHeight;
         let width = height;
         */
-        let width = window.screen.width / 3;
+        let width = (window.screen.width * 0.85) / 3;
         let height = width;
-       
+
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xFBFBFB);
+        scene.background = new THREE.Color(0xfbfbfb);
 
         const camera = new THREE.PerspectiveCamera(
             45,
@@ -96,30 +96,65 @@ const Planet = (props) => {
 
         const handleResize = () => {
             console.log("resixiing");
-            let width = window.screen.width / 3;
+            let width = (window.screen.width * 0.85) / 3;
             let height = width;
-            console.log(height, width)
+            console.log(height, width);
             renderer.setSize(width, height, true);
             camera.aspect = width / height;
             camera.updateProjectionMatrix();
         };
 
         const onMouseMove = (event) => {
-            var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-            // console.log(event.clientX - renderer.domElement.offsetLeft, scrollTop + event.clientY - renderer.domElement.offsetTop)
-            mouse.x = ( ( event.clientX - renderer.domElement.offsetLeft ) / renderer.domElement.clientWidth ) * 2 - 1;
-            mouse.y = - ((scrollTop + event.clientY - renderer.domElement.offsetTop) / renderer.domElement.clientHeight) * 2 + 1
+            var scrollTop =
+                window.pageYOffset !== undefined
+                    ? window.pageYOffset
+                    : (
+                          document.documentElement ||
+                          document.body.parentNode ||
+                          document.body
+                      ).scrollTop;
+
+            // This takes in account the sidebar, which takes 15% of the scren
+            // tho huutista
+            var bufferLeft = window.screen.width * 0.15;
+
+            /*console.log(
+                event.clientX - renderer.domElement.offsetLeft - bufferLeft,
+                scrollTop + event.clientY - renderer.domElement.offsetTop,
+            );*/
+
+            mouse.x =
+                ((event.clientX - renderer.domElement.offsetLeft - bufferLeft) /
+                    renderer.domElement.clientWidth) *
+                    2 -
+                1;
+            mouse.y =
+                -(
+                    (scrollTop +
+                        event.clientY -
+                        renderer.domElement.offsetTop) /
+                    renderer.domElement.clientHeight
+                ) *
+                    2 +
+                1;
         };
 
         const hover = () => {
             raycaster.setFromCamera(mouse, camera);
             // calculate objects intersecting the picking ray
             var intersects = raycaster.intersectObjects(scene.children);
-            // scene.add(new THREE.ArrowHelper( raycaster.ray.direction, raycaster.ray.origin, 100, Math.random() * 0xffffff ));
+            /*scene.add(
+                new THREE.ArrowHelper(
+                    raycaster.ray.direction,
+                    raycaster.ray.origin,
+                    100,
+                    Math.random() * 0xffffff,
+                ),
+            );*/
             // console.log(raycaster, intersects)
             if (intersects[0] && intersects[0].object.__id) {
-                console.log("set", events[intersects[0].object?.__id])
-                setEventData(events[intersects[0].object?.__id] )
+                console.log("set", events[intersects[0].object?.__id]);
+                setEventData(events[intersects[0].object?.__id]);
             }
         };
 
@@ -141,7 +176,11 @@ const Planet = (props) => {
                 const e = events[k];
                 // TODO add event color, and seperate globecoordinate ":D"
                 scene.add(
-                    renderEvent(...latlonToXZY(e.latitude, -e.longitude), k, Math.random() * 0xffffff),
+                    renderEvent(
+                        ...latlonToXZY(e.latitude, -e.longitude),
+                        k,
+                        Math.random() * 0xffffff,
+                    ),
                 );
             });
         };
@@ -193,9 +232,8 @@ const Planet = (props) => {
     );
 };
 
-
-const mapStateToProps = state => ({
-    events: mapEventsByLongitude(state)
+const mapStateToProps = (state) => ({
+    events: mapEventsByLongitude(state),
 });
 
 export default connect(mapStateToProps)(Planet);

@@ -1,9 +1,9 @@
 import React from "react";
 
-import './style.scss';
+import "./style.scss";
 
-import KEYS from '../../redux/staticcontent/keys';
-import Markdown from '../../components/Markdown';
+import KEYS from "../../redux/staticcontent/keys";
+import Markdown from "../../components/Markdown";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
         lineHeight: "30px",
         display: "flex",
         alignItems: "center",
-        color: "#73F9EC"
+        color: "#73F9EC",
     },
     date: {
         fontFamily: "Montserrat",
@@ -37,7 +37,7 @@ const useStyles = makeStyles({
         lineHeight: "17px",
         display: "flex",
         alignItems: "center",
-        color: "#FBFBFB",        
+        color: "#FBFBFB",
     },
     body: {
         fontFamily: "Montserrat",
@@ -47,15 +47,15 @@ const useStyles = makeStyles({
         lineHeight: "22px",
         display: "flex",
         alignItems: "center",
-        color: "#FBFBFB",        
+        color: "#FBFBFB",
     },
 });
 
 const EventCard = (eventData) => {
     const classes = useStyles();
-    console.log("event data is", eventData, eventData.name)
-    return (
-        eventData?.name? <Card className={classes.root}>
+    console.log("event data is", eventData, eventData.name);
+    return eventData?.name ? (
+        <Card className={classes.root}>
             <CardContent>
                 <Typography
                     className={classes.name}
@@ -65,18 +65,26 @@ const EventCard = (eventData) => {
                     {eventData.name}
                 </Typography>
                 <Typography
-                    className={classes.date} variant="body2" component="p">
+                    className={classes.date}
+                    variant="body2"
+                    component="p"
+                >
                     {eventData.begins}
                 </Typography>
 
                 <Typography
-                    className={classes.body} variant="body2" component="p">
-                    {eventData.shortDescription || eventData.eventconcept?.shortdescription}
+                    className={classes.body}
+                    variant="body2"
+                    component="p"
+                >
+                    {eventData.shortDescription ||
+                        eventData.eventconcept?.shortdescription}
                 </Typography>
             </CardContent>
-        </Card>: <Markdown className={'blackText'} sourceKey={KEYS.whoAreWeGlobal} />
-
+        </Card>
+    ) : (
+        <Markdown className={"blackText"} sourceKey={KEYS.whoAreWeGlobal} />
     );
-}
+};
 
 export default EventCard;

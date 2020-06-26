@@ -1,24 +1,24 @@
-@import 'fonts';
-@import 'colors';
-@import 'sizes';
+@import "fonts";
+@import "colors";
+@import "sizes";
 
 * {
-	box-sizing: border-box;
-	font-family: $lato;
+    box-sizing: border-box;
+    font-family: $lato;
 }
 
 html {
-	overflow-y: scroll;
-	margin: 0;
-	font-size: 16px;
-	background-color: $junction-black;
+    overflow-y: scroll;
+    margin: 0;
+    font-size: 16px;
+    background-color: $junction-white;
 }
 
 body {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	margin: 0;
-	background-color: $junction-black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    background-color: $junction-white;
 }
 
 #root {
@@ -28,7 +28,7 @@ body {
 .font-title {
     @extend %font-title;
 }
-    
+
 .font-body {
     @extend %font-body;
 }

@@ -1,44 +1,43 @@
-import React, { PureComponent, Suspense } from 'react';
-import './style.scss';
+import React, { PureComponent, Suspense } from "react";
+import "./style.scss";
 
-import KEYS from '../../redux/staticcontent/keys';
-import MEDIA_KEYS from '../../redux/staticmedia/keys';
+import KEYS from "../../redux/staticcontent/keys";
+import MEDIA_KEYS from "../../redux/staticmedia/keys";
 
-import HeaderVideo from '../../components/HeaderVideo';
-import BlockSection from '../../components/BlockSection';
-import StatBlocks from '../../components/StatBlocks';
-import NewsLetterForm from '../../components/NewsLetterForm';
-import Divider from '../../components/Divider';
-import Markdown from '../../components/Markdown';
-import ConceptsPreview from '../../components/ConceptsPreview';
-import PartnerLogoGrid from '../../components/LinkGrid/PartnerLogoGrid';
-import StoryGrid from '../../components/LinkGrid/StoryGrid';
-import ImageLinks from '../../components/ImageLinks';
-import Planet from '../../components/Planet';
+import Divider from "../../components/Divider";
 
-import Page from '../PageHOC';
-import LinkButton from '../../components/LinkButton/index';
-const EventsMap = React.lazy(() => import('../../components/EventsMap'));
+import SectionImage from "../../components/SectionImage";
+import Planet from "../../components/Planet";
+import { Grid } from "@material-ui/core";
+import CenteredBlock from "../../components/CenteredBlock";
+import EventCalendar from "../../components/EventCalendar";
+import { spacing } from "@material-ui/system";
+
+import Page from "../PageHOC";
+import LinkButton from "../../components/LinkButton/index";
+import Button from "../../components/Button";
+import SmallButton from "../../components/SmallButton";
+const EventsMap = React.lazy(() => import("../../components/EventsMap"));
 
 const BOTTOM_LINKS = [
     {
         imageKey: MEDIA_KEYS.calendarPageHeaderImage,
-        imageAlt: 'Link',
-        linkTo: '/calendar',
-        linkText: 'Calendar'
+        imageAlt: "Link",
+        linkTo: "/calendar",
+        linkText: "Calendar",
     },
     {
         imageKey: MEDIA_KEYS.partnerPageHeaderImage,
-        imageAlt: 'Link',
-        linkTo: '/partners',
-        linkText: 'For partners'
+        imageAlt: "Link",
+        linkTo: "/partners",
+        linkText: "For partners",
     },
     {
         imageKey: MEDIA_KEYS.volunteerPageHeaderImage,
-        imageAlt: 'Link',
-        linkTo: '/volunteers',
-        linkText: 'For volunteers'
-    }
+        imageAlt: "Link",
+        linkTo: "/volunteers",
+        linkText: "For volunteers",
+    },
 ];
 
 class HomePage extends PureComponent {
@@ -50,44 +49,44 @@ class HomePage extends PureComponent {
                 metaDescKey={KEYS.whoAreWeBody}
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >
-                <HeaderVideo />
+                <CenteredBlock>
+                    <Grid className="HomePage--TopContent">
+                        <img
+                            className="HomePage--logo"
+                            src={require("../../assets/logos/text_black.png")}
+                            alt="junction-wordmark"
+                        />
+                        <h3 className="HomePage-subtitle">
+                            We organize epic hackathons and other tech events -
+                            around the world, around the year.
+                        </h3>
+                        <Button text="Read More"></Button>
+                        <Divider sm />
+                        <Grid spacing={6} direction="row">
+                            <SmallButton to text="Junction App" />
+
+                            <SmallButton to text="Organize a hackathon" />
+
+                            <SmallButton to text="Junction 2020 Connected" />
+                        </Grid>
+                        <Divider sm />
+                    </Grid>
+                </CenteredBlock>
+                <SectionImage
+                    imageKey={MEDIA_KEYS.homePageHeaderImage}
+                    alt="Header image"
+                ></SectionImage>
                 <Planet />
-                <BlockSection titleKey={KEYS.whoAreWe} subtitleKey={KEYS.whoAreWeSubtitle}>
-                    <Markdown sourceKey={KEYS.whoAreWeBody} />
-                    <StatBlocks type={'generic'} />
-                </BlockSection>
-                <Divider lg />
-                <Suspense fallback={null}>
-                    <EventsMap />
-                </Suspense>
-                <Divider lg />
-                <BlockSection
-                    titleKey={KEYS.whatWeDo}
-                    subtitleKey={KEYS.whatWeDoSubtitle}
-                    extra={
-                        <React.Fragment>
-                            <Divider sm />
-                            <LinkButton to="/calendar" text="Full event calendar" />
-                        </React.Fragment>
-                    }
-                >
-                    <Markdown sourceKey={KEYS.whatWeDoBody} />
-                    <ConceptsPreview />
-                </BlockSection>
-                <Divider lg />
-                <BlockSection titleKey={KEYS.previousPartnersTitle} subtitleKey={KEYS.previousPartnersSubtitle}>
-                    <PartnerLogoGrid />
-                    <Divider sm />
-                    <LinkButton to="/partners" text="More about partnering" />
-                </BlockSection>
-                <Divider lg />
-                <BlockSection titleKey={KEYS.storiesAboutUsTitle} subtitleKey={KEYS.storiesAboutUsSubtitle}>
-                    <StoryGrid />
-                </BlockSection>
-                <Divider lg />
-                <NewsLetterForm />
-                <Divider lg />
-                <ImageLinks links={BOTTOM_LINKS} />
+                <SectionImage
+                    imageKey={MEDIA_KEYS.homePageHackingImage}
+                    alt="People attending a hackathon"
+                ></SectionImage>
+                <h1>Upcoming events</h1>
+                <EventCalendar />
+                <SectionImage
+                    imageKey={MEDIA_KEYS.homePageCommunityImage}
+                    alt="Junction Community"
+                ></SectionImage>
             </Page>
         );
     }

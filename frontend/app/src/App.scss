@@ -1,4 +1,4 @@
-@import './styles/main';
+@import "./styles/main";
 
 .Page {
     height: 100%;
@@ -7,41 +7,47 @@
     align-items: stretch;
 }
 
+html,
+body {
+    margin: 0px;
+    height: 100%;
+}
+
 .App {
     height: 100%;
     display: flex;
     flex-direction: column;
-    flex: 1;
-    align-items: stretch;
-}
-
-.App--Header {
-    background: $junction-black;
-    flex-shrink: 0;
-    padding: $padding-base;
-    text-align: center;
-
-    header {
-        color: $junction-white;
-    }
 }
 
 .App--Main {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(152deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 15%, rgba(35, 35, 35, 1) 100%);
-    flex: 1 0 auto;
+    overflow-x: hidden;
+    background: $junction-white;
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    @include bp-med {
+        flex-direction: row;
+    }
+}
+
+.App--Content {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        152deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 15%,
+        rgba(35, 35, 35, 1) 100%
+    );
+
+    display: flex;
+    flex-basis: 100%;
     flex-direction: column;
     align-items: stretch;
-
-    &_logo {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    &_body,
-    &_title {
-        text-align: center;
-        max-width: 600px;
+    z-index: 1;
+    @include bp-med {
+        flex-basis: 85%;
+        position: absolute;
+        left: 15%;
+        width: 85%;
     }
 }

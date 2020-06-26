@@ -1,7 +1,9 @@
 .SocialMediaIcons {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap-reverse;
+    height: 10%;
+    position: absolute;
+    top: 90%;
 }

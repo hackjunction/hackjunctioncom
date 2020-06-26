@@ -1,7 +1,18 @@
-.PartnersPage {
-	&--statblocks {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
+@import "../../styles/main";
+.StoryPage {
+    background-color: $junction-white;
+
+    .StoryPage--TopContent {
+        align-content: center;
+        text-align: center;
+    }
+
+    .StoryPage--logo {
+        margin: 5% 0;
+        align-content: center;
+    }
+
+    p.HomePage-subtitle {
+        text-align: center;
+    }
 }

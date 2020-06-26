@@ -1,25 +1,27 @@
-@import '../../../styles/main';
+@import "../../../styles/main";
 
 .InputLabel {
-	opacity: 0;
-	font-size: 14px;
-	line-height: 14px;
-	color: rgba($junction-white, 0.4);
-	transform: translateY(10px);
-	transition: all 0.2s ease;
-	text-align: left;
+    opacity: 0;
+    font-size: 14px;
+    line-height: 14px;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    text-align: left;
 
-	&-show {
-		opacity: 1;
-		transform: translateY(0);
-	}
-	
-	&-has-mb {
-		margin-bottom: 20px;
-	}
+    &-show {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-	&-large {
-		font-size: 18px;
-		line-height: 18px;
-	}
+    &-has-mb {
+        margin-bottom: 20px;
+    }
+    &-has-ml {
+        margin-left: 5px;
+    }
+
+    &-large {
+        font-size: 18px;
+        line-height: 18px;
+    }
 }

@@ -5,19 +5,18 @@ import { connect } from "react-redux";
 import Image from "../Image";
 import { media as selectMedia } from "../../redux/staticmedia/selectors";
 
-class HeaderImage extends PureComponent {
+class SectionImage extends PureComponent {
     render() {
         const { image, alt, children } = this.props;
         return (
-            <div className={`HeaderImage`}>
+            <div className={`SectionImage`}>
                 <Image
                     image={image}
-                    width={1680}
-                    height={900}
+                    height={512}
                     alt={alt}
-                    className="HeaderImage--img"
+                    className="SectionImage--img"
                 />
-                <div className="HeaderImage--content">{children}</div>
+                <div className="SectionImage--content">{children}</div>
             </div>
         );
     }
@@ -31,4 +30,4 @@ const mapStateToProps = (state, ownProps) => {
     };
 };
 
-export default connect(mapStateToProps)(HeaderImage);
+export default connect(mapStateToProps)(SectionImage);
