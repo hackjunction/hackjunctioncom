@@ -60,14 +60,14 @@ class HomePage extends PureComponent {
                             We organize epic hackathons and other tech events -
                             around the world, around the year.
                         </h3>
-                        <Button text="Read More"></Button>
+                        <Button regular text="Read More"></Button>
                         <Divider sm />
                         <Grid spacing={6} direction="row">
-                            <SmallButton to text="Junction App" />
+                            <Button smaller to text="Junction App" />
 
-                            <SmallButton to text="Organize a hackathon" />
+                            <Button smaller to text="Organize a hackathon" />
 
-                            <SmallButton to text="Junction 2020 Connected" />
+                            <Button smaller to text="Junction 2020 Connected" />
                         </Grid>
                         <Divider sm />
                     </Grid>
