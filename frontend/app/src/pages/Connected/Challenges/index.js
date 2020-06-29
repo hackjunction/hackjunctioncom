@@ -10,6 +10,7 @@ import { Grid } from "@material-ui/core";
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
 import HeaderSection from "../../../components/HeaderSection";
+import TrackGrid from "../../../components/TrackGrid";
 import BlockSection from "../../../components/BlockSection";
 import ChallengeGrid from "../../../components/ChallengeGrid";
 
@@ -46,6 +47,63 @@ const items = [
     },
 ];
 
+const tracks = [
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 0,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 1,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 2,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 3,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 4,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 5,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 6,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 7,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 8,
+    },
+];
+
 class Challenges extends PureComponent {
     render() {
         return (
@@ -72,6 +130,8 @@ class Challenges extends PureComponent {
                 </SectionImage>
 
                 <h1>Tracks here</h1>
+                <TrackGrid items={tracks} />
+                {/* Challenge section is hidden until some challenges have been signed
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
@@ -79,6 +139,7 @@ class Challenges extends PureComponent {
                     Challenges
                 </SectionImage>
                 <ChallengeGrid items={items} />
+                */}
             </Page>
         );
     }
