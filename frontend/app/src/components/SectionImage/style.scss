@@ -9,7 +9,11 @@
     z-index: 5;
     overflow: hidden;
     transition: height 0.2s ease;
-    background: black;
+    background-image: linear-gradient(
+        180deg,
+        rgba(244, 78, 44, 0.62) 0%,
+        rgba(11, 44, 93, 0.36) 100%
+    );
     border-top: 3px solid $junction-black;
     border-bottom: 3px solid $junction-black;
 
@@ -22,6 +26,7 @@
     }
 
     &--img {
+        z-index: -1;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -29,8 +34,8 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
-        transition: opacity 0.5s ease;
-        opacity: 0.4;
+        opacity: 0.7;
+        transition: opacity 0.4s ease;
     }
 
     &--content {

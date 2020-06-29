@@ -4,16 +4,47 @@ import "./style.scss";
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import Divider from "../../../components/Divider";
-
 import SectionImage from "../../../components/SectionImage";
 import { Grid } from "@material-ui/core";
-import CenteredBlock from "../../../components/CenteredBlock";
-import EventCalendar from "../../../components/EventCalendar";
 
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
 import HeaderSection from "../../../components/HeaderSection";
+import BlockSection from "../../../components/BlockSection";
+import ChallengeGrid from "../../../components/ChallengeGrid";
+
+const items = [
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "asd",
+        img: "asd",
+        tags: ["ebin", "vitun hyvä"],
+    },
+    {
+        title: "Ebin",
+        desc: "asd",
+        img: "asd",
+        tags: ["ebin"],
+    },
+    {
+        title: "huutis",
+        desc: "asd",
+        img: "asd",
+        tags: ["huuts"],
+    },
+    {
+        title: "pärskis",
+        desc: "asd",
+        img: "asd",
+        tags: ["pärskis", , "jne"],
+    },
+    {
+        title: "huutis",
+        desc: "asd",
+        img: "asd",
+        tags: ["huutis", "jne"],
+    },
+];
 
 class Challenges extends PureComponent {
     render() {
@@ -30,7 +61,6 @@ class Challenges extends PureComponent {
                 >
                     <Grid spacing={12} direction="row">
                         <Button smaller to text="Tracks" />
-
                         <Button smaller to text="Challenges" />
                     </Grid>
                 </HeaderSection>
@@ -40,12 +70,15 @@ class Challenges extends PureComponent {
                 >
                     Tracks
                 </SectionImage>
+
+                <h1>Tracks here</h1>
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
                 >
                     Challenges
                 </SectionImage>
+                <ChallengeGrid items={items} />
             </Page>
         );
     }
