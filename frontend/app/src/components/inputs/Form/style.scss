@@ -1,13 +1,19 @@
-@import '../../../styles/main';
+@import "../../../styles/main";
 
 .Form {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     position: relative;
+    margin-bottom: 25px;
+
+    form {
+        color: $junction-black !important;
+    }
 
     &--Inner {
         transition: opacity 0.2s ease;
+        padding-right: 40px;
     }
 
     &--loading-overlay {
