@@ -8,7 +8,7 @@ const TrackGrid = ({ items }) => {
         return items.map((item) => <TrackItem item={item} />);
     };
 
-    return <div className="TrackGrid leave-margin">{renderItems(items)}</div>;
+    return <div className="TrackGrid">{renderItems(items)}</div>;
 };
 
 export default TrackGrid;

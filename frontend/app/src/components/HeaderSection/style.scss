@@ -1,9 +1,8 @@
 @import "../../styles/main.scss";
 
 .HeaderSection {
-    width: 100%;
-    height: 100%;
-    position: relative;
+    margin: 0% auto 10% auto;
+    width: 75%;
     z-index: 3;
     display: flex;
     flex-direction: column;
@@ -29,10 +28,6 @@
         @include bp-med {
             text-align: center;
             font-size: 60px;
-        }
-
-        @include bp-full {
-            margin-top: 100px;
         }
     }
 
