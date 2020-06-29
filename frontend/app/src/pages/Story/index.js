@@ -5,7 +5,7 @@ import KEYS from "../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../redux/staticmedia/keys";
 
 import SectionImage from "../../components/SectionImage";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, Box } from "@material-ui/core";
 import CenteredBlock from "../../components/CenteredBlock";
 import Divider from "../../components/Divider";
 import Page from "../PageHOC";
@@ -54,88 +54,52 @@ class StoryPage extends PureComponent {
                             justify="center"
                             className="StoryPage--TopContent--Margin"
                         >
-                            <Grid>
+                            <Grid md={12}>
                                 <Typography className="topic">
                                     Our Story
                                 </Typography>
                             </Grid>
-                            <Grid
-                                md={7}
-                                container
-                                justify="center"
-                                alignItems="center"
-                            >
+                            <Grid md={8} container alignItems="center">
                                 <Typography className="topic-subtitle">
                                     What is Junction?
                                 </Typography>
                                 <Typography>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Sed accumsan est quis quam
-                                    varius pharetra posuere suscipit dui. Proin
-                                    vehicula risus ut consequat posuere. Cras
-                                    ligula lorem, imperdiet sollicitudin sem
-                                    luctus, feugiat imperdiet justo. Vestibulum
-                                    tristique lorem ex. Curabitur at orci
-                                    hendrerit, varius diam eu, lobortis nisi.
-                                    Vestibulum blandit ante non eros rhoncus,
-                                    ultrices dictum purus lobortis. Cras massa
-                                    urna, suscipit in nulla quis, varius
-                                    consectetur ex. Cras condimentum facilisis
-                                    tempus. Integer et ligula mauris. Sed ut
-                                    velit eget dui consequat luctus ac id nisi.
-                                    Quisque commodo hendrerit mi, nec hendrerit
-                                    ex tempor sed. Etiam vitae mi et purus
-                                    dignissim ultricies id eget nisl. Nam in
-                                    velit justo. In fringilla, diam ut semper
-                                    maximus, lorem arcu imperdiet massa, eu
-                                    euismod est orci vitae nulla. Fusce pulvinar
-                                    turpis risus, sit amet luctus dolor
-                                    fermentum at.
+                                    What started out in 2015 as a single
+                                    hackathon in Helsinki, Finland, has now
+                                    started a movement of tech events all around
+                                    the world.
+                                    <br /> With our volunteer-led teams around
+                                    the world, we organize epic hackathons,
+                                    speaker events, coding workshops and other
+                                    tech events around the year: all intended to
+                                    empower people to create with technology and
+                                    to fall in love with it.
+                                    <br /> In our hackathons, we bring together
+                                    developers, designers and other tech-minded
+                                    people to create new projects and solve
+                                    intriguing challenges. In order to offer our
+                                    participants the most stimulating problems
+                                    and latest technology, we partner with
+                                    roughly 60 companies yearly. In addition, we
+                                    organize meetups, speaker events, workshops
+                                    and more. The event-filled year peaks
+                                    annually with our flagship event, Junction,
+                                    held in Finland with around 1500 developers
+                                    and designers in attendance every year.
                                 </Typography>
                             </Grid>
-                            <Grid md={5}></Grid>
-                        </Grid>
-                    </Grid>
-                </CenteredBlock>
-                <CenteredBlock>
-                    <Grid
-                        className="StoryPage--TopContent "
-                        container
-                        justify="center"
-                        alignItems="center"
-                        direction="row"
-                    >
-                        <Grid md={7}>
-                            <SectionImage
-                                imageKey={MEDIA_KEYS.StoryPageContactUsImage}
-                                alt="Header image"
-                            ></SectionImage>
-                        </Grid>
-                        <Grid md={5}>
-                            <Typography className="topic">
-                                Contact us
-                            </Typography>
-                            <TrendingFlatIcon className="icon" />
-                        </Grid>
-                    </Grid>
-
-                    <Grid
-                        className="StoryPage--TopContent"
-                        container
-                        justify="center"
-                        alignItems="center"
-                        direction="row"
-                    >
-                        <Grid md={5}>
-                            <Typography className="topic">Blog</Typography>
-                            <TrendingFlatIcon className="icon" />
-                        </Grid>
-
-                        <Grid md={7}>
-                            <SectionImage
-                                imageKey={MEDIA_KEYS.StoryPageBlogImage}
-                                alt="Header image"
-                            ></SectionImage>
+                            <Grid
+                                md={4}
+                                container
+                                justify="center"
+                                alignItems="center"
+                            >
+                                <Box className="StoryPage--box">
+                                    <Typography className="StoryPage--box">
+                                        15 000
+                                    </Typography>
+                                </Box>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </CenteredBlock>
