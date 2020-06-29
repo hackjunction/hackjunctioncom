@@ -34,6 +34,8 @@ import AboutPage from "./pages/About";
 import StoryPage from "./pages/Story";
 import NotFoundPage from "./pages/NotFound";
 
+import Connected from "./pages/Connected";
+
 library.add(fab, faTimes, faBars);
 
 WebFont.load({
@@ -123,6 +125,13 @@ class App extends PureComponent {
                             <Route
                                 path="/online/:slug"
                                 component={OnlineEventPage}
+                            />
+
+                            {/*Connected module */}
+                            <Route
+                                exact
+                                path="/connected"
+                                component={Connected}
                             />
 
                             {/* Other pages */}
