@@ -129,8 +129,8 @@ class Challenges extends PureComponent {
                     Tracks
                 </SectionImage>
 
-                <h1>Tracks here</h1>
                 <TrackGrid items={tracks} />
+
                 {/* Challenge section is hidden until some challenges have been signed
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHeaderImage}

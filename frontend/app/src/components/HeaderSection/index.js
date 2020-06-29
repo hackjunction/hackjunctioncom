@@ -6,7 +6,7 @@ import { content as selectContent } from "../../redux/staticcontent/selectors";
 
 const HeaderSection = ({ title, body, logo, children }) => {
     return (
-        <div className="HeaderSection">
+        <div className="HeaderSection leave-margin">
             {logo && <img src={logo} />}
             {title && <h2 className="HeaderSection--title">{title}</h2>}
             {body && <p className="HeaderSection--body">{body}</p>}

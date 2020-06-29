@@ -69,13 +69,17 @@ class HomePage extends PureComponent {
                     imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
                 ></SectionImage>
-                <Planet />
+                <div className="leave-margin">
+                    <Planet />
+                </div>
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHackingImage}
                     alt="People attending a hackathon"
                 ></SectionImage>
-                <h1>Upcoming events</h1>
-                <EventCalendar />
+                <div className="leave-margin">
+                    <h1>Upcoming events</h1>
+                    <EventCalendar />
+                </div>
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageCommunityImage}
                     alt="Junction Community"
