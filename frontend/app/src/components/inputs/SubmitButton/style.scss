@@ -1,34 +1,39 @@
-@import '../../../styles/main';
+@import "../../../styles/main";
 
 .SubmitButton {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	flex: 1;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // align-items: center;
+    // flex: 1;
 
-	&--button {
-		background: transparent;
-		width: 280px;
-		height: 42px;
-		border-radius: 7px;
-		border: 2px solid $junction-white;
-		cursor: pointer;
-		transition: all 0.2s ease;
-		
-		&:hover,
-		&:focus {
-			outline: none;
-			background: $junction-white;
+    &--button {
+        width: 131px;
+        height: 40px;
+        background-color: #73f9ec;
+        border-radius: 33px;
+        border: 2px solid $junction-white;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        justify-content: center;
+        align-items: center;
+        &--icon {
+            position: absolute;
+            height: 50%;
+        }
+    }
+    &:hover,
+    &:focus {
+        outline: none;
+        background: $junction-white;
 
-			.SubmitButton--button__text {
-				color: $junction-black;
-			}
-		}
+        .SubmitButton--button__text {
+            color: $junction-black;
+        }
+    }
 
-		&__text {
-			transition: all 0.2s ease;
-			font-weight: bold;
-		}
-	}
+    &__text {
+        transition: all 0.2s ease;
+        font-weight: bold;
+    }
 }

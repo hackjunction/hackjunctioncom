@@ -14,9 +14,26 @@ const useStyles = makeStyles({
         fontSize: "18px",
         transition: "all 0.2s ease",
     },
+    connected: {
+        width: "181px",
+        height: "40px",
+        background: "transparent",
+        border: "3px solid #0b2c5d",
+        borderRadius: "22px",
+        fontSize: "18px",
+        transition: "all 0.2s ease",
+    },
 });
 
-const TextInput = ({ label, placeholder, name, value, error, onChange }) => {
+const TextInput = ({
+    label,
+    placeholder,
+    name,
+    value,
+    error,
+    onChange,
+    connected,
+}) => {
     const classes = useStyles();
     function handleChange(e) {
         onChange(e.target.value);
@@ -33,7 +50,9 @@ const TextInput = ({ label, placeholder, name, value, error, onChange }) => {
             <input
                 name={name}
                 type="text"
-                className={classes.inputBox}
+                className={` ${classes.inputBox} ${
+                    connected ? classes.connected : ""
+                }`}
                 value={value}
                 placeholder={placeholder}
                 onChange={handleChange}

@@ -16,7 +16,7 @@ import { spacing } from "@material-ui/system";
 import Page from "../PageHOC";
 import LinkButton from "../../components/LinkButton/index";
 import Button from "../../components/Button";
-import SmallButton from "../../components/SmallButton";
+
 const EventsMap = React.lazy(() => import("../../components/EventsMap"));
 
 const BOTTOM_LINKS = [
@@ -60,14 +60,14 @@ class HomePage extends PureComponent {
                             We organize epic hackathons and other tech events -
                             around the world, around the year.
                         </h3>
-                        <Button text="Read More"></Button>
+                        <Button regular text="Read More"></Button>
                         <Divider sm />
-                        <Grid spacing={6} direction="row">
-                            <SmallButton to text="Junction App" />
+                        <Grid spacing={12} direction="row">
+                            <Button smaller to text="Junction App" />
 
-                            <SmallButton to text="Organize a hackathon" />
+                            <Button smaller to text="Organize a hackathon" />
 
-                            <SmallButton to text="Junction 2020 Connected" />
+                            <Button smaller to text="Junction 2020 Connected" />
                         </Grid>
                         <Divider sm />
                     </Grid>

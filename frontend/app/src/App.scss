@@ -2,6 +2,7 @@
 
 .Page {
     height: 100%;
+    min-height: 900px;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -31,7 +32,6 @@ body {
 }
 
 .App--Content {
-    background: rgb(0, 0, 0);
     background: linear-gradient(
         152deg,
         rgba(0, 0, 0, 1) 0%,
@@ -40,7 +40,6 @@ body {
     );
 
     display: flex;
-    flex-basis: 100%;
     flex-direction: column;
     align-items: stretch;
     z-index: 1;
