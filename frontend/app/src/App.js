@@ -128,11 +128,7 @@ class App extends PureComponent {
                             />
 
                             {/*Connected module */}
-                            <Route
-                                exact
-                                path="/connected"
-                                component={Connected}
-                            />
+                            <Connected />
 
                             {/* Other pages */}
                             <Route path="/:slug" component={BasicPage} />

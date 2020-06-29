@@ -1,53 +1,6 @@
 @import "../../styles/main.scss";
 
-.SectionImage {
-    align-self: stretch;
-    margin-left: -$padding-page;
-    margin-right: -$padding-page;
-    height: 512px;
-    position: relative;
-    z-index: 5;
-    overflow: hidden;
-    transition: height 0.2s ease;
-    background: black;
-    border-top: 3px solid $junction-black;
-    border-bottom: 3px solid $junction-black;
-
-    @include bp-med {
-        height: 512px;
-    }
-
-    @include bp-full {
-        height: 512px;
-    }
-
-    &--img {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        transition: opacity 0.5s ease;
-        opacity: 0.4;
-    }
-
-    &--content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        padding: $padding-page;
-        padding-bottom: $padding-page * 4;
-    }
-}
-
-.ImageHeader {
-    margin: 0 auto;
-
+.HeaderSection {
     width: 100%;
     height: 100%;
     position: relative;
@@ -74,7 +27,12 @@
         animation: fadein-left 0.5s;
 
         @include bp-med {
+            text-align: center;
             font-size: 60px;
+        }
+
+        @include bp-full {
+            margin-top: 100px;
         }
     }
 
@@ -82,11 +40,8 @@
         flex: 2;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: flex-end;
         width: 100%;
-        max-width: 650px;
-        align-self: flex-end;
-        margin: 0;
+        text-align: center;
         display: none;
 
         -webkit-animation: fadein-bottom 0.8s; /* Safari, Chrome and Opera > 12.1 */
