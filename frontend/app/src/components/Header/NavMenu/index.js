@@ -78,6 +78,13 @@ export const NavMenuInner = React.memo(
                     </Link>
 
                     <h6 className="NavMenu--inner__menu-title">Events</h6>
+                    <Link
+                        key={"Connected"}
+                        className="NavMenu--inner__menu-item"
+                        to={`/connected`}
+                    >
+                        Connected
+                    </Link>
                     <ConceptPagesSection concepts={eventConcepts} />
                     <ExtraPagesSection pages={eventPages} />
 

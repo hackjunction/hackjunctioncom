@@ -19,12 +19,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default ({ text, type, description, link }) => {
+export default ({ text, className }) => {
     const classes = useStyles();
 
     return (
         <>
-            <Button m={2} className={classes.smaller}>
+            <Button m={2} className={classes.smaller + " " + className}>
                 {text}
             </Button>
         </>

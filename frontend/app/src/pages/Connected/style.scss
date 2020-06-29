@@ -1,0 +1,24 @@
+@import "../../styles/main";
+.Connected {
+    background-color: $connected-peach;
+
+    .Connected--TopContent {
+        align-content: center;
+        text-align: center;
+    }
+
+    .Connected--logo {
+        margin: 5% 0;
+        align-content: center;
+    }
+
+    .Connected-subtitle {
+        color: $connected-blue;
+        text-align: center;
+    }
+    .Connected-button {
+        background-color: $connected-orange;
+        color: $connected-blue;
+        text-align: center;
+    }
+}

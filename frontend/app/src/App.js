@@ -31,6 +31,7 @@ import OnlineEventPage from "./pages/OnlineEventPage";
 import VolunteersPage from "./pages/Volunteers";
 import OrganisersPage from "./pages/Organisers";
 import StoryPage from "./pages/Story";
+import ConnectedPage from "./pages/Connected";
 import NotFoundPage from "./pages/NotFound";
 
 library.add(fab, faTimes, faBars);
@@ -110,7 +111,11 @@ class App extends PureComponent {
                                 path="/organizers"
                                 component={OrganisersPage}
                             />
-
+                            <Route
+                                exact
+                                path="/connected"
+                                component={ConnectedPage}
+                            />
                             {/* Concept pages (JunctionX, HelTech, etc..) */}
                             <Route
                                 path="/concepts/:slug"

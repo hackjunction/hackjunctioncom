@@ -18,7 +18,7 @@
         font-size: 14px;
         line-height: 14px;
         height: 14px;
-        color: #232323;
+        color: $junction-black;
         transform: translateY(10px);
         transition: all 0.2s ease;
     }
@@ -30,8 +30,8 @@
         resize: none;
         background: transparent;
         border-radius: 33px;
-        border: 3px solid #73f9ec;
-        color: #232323;
+        border: 3px solid $junction-blue;
+        color: $junction-black;
         font-size: 18px;
         min-width: 100%;
         max-width: 100%;
@@ -40,7 +40,7 @@
         &:focus,
         &:hover {
             outline: none;
-            color: #232323;
+            color: $junction-black;
         }
     }
 }
