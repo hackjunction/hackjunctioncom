@@ -5,7 +5,16 @@
     flex-direction: column;
     flex: 1;
     align-items: stretch;
-
+    ::placeholder {
+        color: $junction-black;
+        padding-left: 16px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        padding-left: 16px;
+    }
     &-show-label {
         .TextArea--label {
             opacity: 1;
@@ -29,8 +38,9 @@
         line-height: 26px;
         resize: none;
         background: transparent;
-        border-radius: 33px;
+        border-radius: 22px;
         border: 3px solid $junction-blue;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
         color: $junction-black;
         font-size: 18px;
         min-width: 100%;

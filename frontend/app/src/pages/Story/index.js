@@ -4,19 +4,12 @@ import "./style.scss";
 import KEYS from "../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../redux/staticmedia/keys";
 
-import Divider from "../../components/Divider";
-
 import SectionImage from "../../components/SectionImage";
-import Planet from "../../components/Planet";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, Box } from "@material-ui/core";
 import CenteredBlock from "../../components/CenteredBlock";
-import EventCalendar from "../../components/EventCalendar";
-import { spacing } from "@material-ui/system";
-
+import Divider from "../../components/Divider";
 import Page from "../PageHOC";
-import LinkButton from "../../components/LinkButton/index";
-import Button from "../../components/Button";
-import SmallButton from "../../components/SmallButton";
+import TrendingFlatIcon from "@material-ui/icons/TrendingFlat";
 
 const BOTTOM_LINKS = [
     {
@@ -45,8 +38,8 @@ class StoryPage extends PureComponent {
             <Page
                 className="StoryPage"
                 pageTitle="Our story"
-                metaDescKey={KEYS.storyPageSubtitle}
-                ogImageKey={MEDIA_KEYS.storyPageHeaderImage}
+                metaDescKey={KEYS.StoryPageSubtitle}
+                ogImageKey={MEDIA_KEYS.StoryPageHeaderImage}
             >
                 <CenteredBlock>
                     <Grid
@@ -56,32 +49,60 @@ class StoryPage extends PureComponent {
                         alignItems="center"
                         direction="row"
                     >
-                        {/* ADD OUR STORY HERE */}
-
-                        <Typography variant="h2">Our story</Typography>
-
-                        <svg
-                            src="/frontend/src/assets/images/about-our-story.svg"
-                            alt="Our Story"
-                        />
+                        <Grid
+                            alignItems="center"
+                            justify="center"
+                            className="StoryPage--TopContent--Margin"
+                        >
+                            <Grid md={12}>
+                                <Typography className="topic">
+                                    Our Story
+                                </Typography>
+                            </Grid>
+                            <Grid md={8} container alignItems="center">
+                                <Typography className="topic-subtitle">
+                                    What is Junction?
+                                </Typography>
+                                <Typography>
+                                    What started out in 2015 as a single
+                                    hackathon in Helsinki, Finland, has now
+                                    started a movement of tech events all around
+                                    the world.
+                                    <br /> With our volunteer-led teams around
+                                    the world, we organize epic hackathons,
+                                    speaker events, coding workshops and other
+                                    tech events around the year: all intended to
+                                    empower people to create with technology and
+                                    to fall in love with it.
+                                    <br /> In our hackathons, we bring together
+                                    developers, designers and other tech-minded
+                                    people to create new projects and solve
+                                    intriguing challenges. In order to offer our
+                                    participants the most stimulating problems
+                                    and latest technology, we partner with
+                                    roughly 60 companies yearly. In addition, we
+                                    organize meetups, speaker events, workshops
+                                    and more. The event-filled year peaks
+                                    annually with our flagship event, Junction,
+                                    held in Finland with around 1500 developers
+                                    and designers in attendance every year.
+                                </Typography>
+                            </Grid>
+                            <Grid
+                                md={4}
+                                container
+                                justify="center"
+                                alignItems="center"
+                            >
+                                <Box className="StoryPage--box">
+                                    <Typography className="StoryPage--box">
+                                        15 000
+                                    </Typography>
+                                </Box>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                    <Divider sm />
                 </CenteredBlock>
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageHeaderImage}
-                    alt="Header image"
-                ></SectionImage>
-                <Planet />
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageHackingImage}
-                    alt="People attending a hackathon"
-                ></SectionImage>
-                <h1>Upcoming events</h1>
-                <EventCalendar />
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageCommunityImage}
-                    alt="Junction Community"
-                ></SectionImage>
             </Page>
         );
     }

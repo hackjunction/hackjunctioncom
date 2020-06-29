@@ -5,6 +5,16 @@
     flex-direction: column;
     flex: 1;
 
+    ::placeholder {
+        color: $junction-black;
+        padding-left: 16px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+    }
+
     &--error {
         margin-top: 10px;
         opacity: 1;
@@ -20,5 +30,18 @@
         color: $junction-black;
         font-size: 18px;
         transition: all 0.2s ease;
+    }
+
+    &--inputbox {
+        width: 181px;
+        height: 40px;
+        background: transparent;
+        border: 3px solid #73f9ec;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 22px;
+        font-size: 18px;
+        transition: all 0.2s ease;
+        color: black;
+        outline: none;
     }
 }

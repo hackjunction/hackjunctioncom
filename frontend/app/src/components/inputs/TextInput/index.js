@@ -13,10 +13,19 @@ const useStyles = makeStyles({
         borderRadius: "22px",
         fontSize: "18px",
         transition: "all 0.2s ease",
+        color: "#4CAF50",
     },
 });
 
-const TextInput = ({ label, placeholder, name, value, error, onChange }) => {
+const TextInput = ({
+    label,
+    placeholder,
+    name,
+    value,
+    error,
+    onChange,
+    connected,
+}) => {
     const classes = useStyles();
     function handleChange(e) {
         onChange(e.target.value);
@@ -33,7 +42,7 @@ const TextInput = ({ label, placeholder, name, value, error, onChange }) => {
             <input
                 name={name}
                 type="text"
-                className={classes.inputBox}
+                className="TextInput--inputbox"
                 value={value}
                 placeholder={placeholder}
                 onChange={handleChange}

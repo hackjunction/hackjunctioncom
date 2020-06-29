@@ -30,9 +30,12 @@ import BasicPage from "./pages/BasicPage";
 import OnlineEventPage from "./pages/OnlineEventPage";
 import VolunteersPage from "./pages/Volunteers";
 import OrganisersPage from "./pages/Organisers";
+import AboutPage from "./pages/About";
 import StoryPage from "./pages/Story";
 import ConnectedPage from "./pages/Connected";
 import NotFoundPage from "./pages/NotFound";
+
+import Connected from "./pages/Connected";
 
 library.add(fab, faTimes, faBars);
 
@@ -79,6 +82,7 @@ class App extends PureComponent {
 
                             {/* Static pages */}
                             <Route exact path="/" component={HomePage} />
+                            <Route exact path="/about" component={AboutPage} />
                             <Route exact path="/story" component={StoryPage} />
                             <Route
                                 exact
@@ -127,6 +131,9 @@ class App extends PureComponent {
                                 path="/online/:slug"
                                 component={OnlineEventPage}
                             />
+
+                            {/*Connected module */}
+                            <Connected />
 
                             {/* Other pages */}
                             <Route path="/:slug" component={BasicPage} />

@@ -16,6 +16,7 @@ import {
 } from "../../redux/pages/selectors";
 
 import { eventconceptsByPriority } from "../../redux/eventconcepts/selectors";
+import { Typography, Grid } from "@material-ui/core";
 
 class Footer extends PureComponent {
     renderConceptLinks(eventConcepts) {
@@ -51,9 +52,18 @@ class Footer extends PureComponent {
         return (
             <footer className="Footer">
                 <div className="Footer--left">
-                    <div className="Footer--left-first">
-                        <NewsLetterForm />
+                    <div className="Footer--left-first subscribe-text">
+                        <h2>Stay up to date</h2>
+                        <span>
+                            Subscribe to our newsletter to get monthly updates{" "}
+                            <br></br>
+                            about what’s happening in the Junction community.{" "}
+                        </span>
+                        <div>
+                            <NewsLetterForm />
+                        </div>
                     </div>
+                    <div className="Footer--left-divider" />
                     <div className="Footer--left-second">
                         <div className="Footer--left-second__FooterLinkList">
                             <div className="FooterListLeft">
@@ -71,11 +81,11 @@ class Footer extends PureComponent {
                             </div>
                             <div className="FooterListRight">
                                 <span>
-                                    <Link to="/press">Press kit (eng)</Link>
+                                    <Link to="/press">Press kit</Link>
                                 </span>
-                                <span>
+                                {/* <span>
                                     <Link to="/media">Press kit (fin)</Link>
-                                </span>
+                                </span> */}
                                 <span>
                                     <a
                                         href="https://www.flickr.com/photos/151708924@N07/albums/"
@@ -94,7 +104,7 @@ class Footer extends PureComponent {
                                 </span>
                             </div>
                         </div>
-                        <div>
+                        <div className="Footer--left--margin">
                             Designed and developed with{" "}
                             <span role="img" aria-label="love">
                                 💕
@@ -110,7 +120,8 @@ class Footer extends PureComponent {
                 <div className="Footer--right">
                     <h2>Contact us</h2>
                     <span>
-                        Fill the contact form and we'll get back to you asap!
+                        Send us an email to hello@hackjunction.com or fill in
+                        the <br></br> contact form and we’ll get back to asap!
                     </span>
                     <ContactForm />
                 </div>

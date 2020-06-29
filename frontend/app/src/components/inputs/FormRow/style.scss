@@ -1,16 +1,15 @@
-@import '../../../styles/main';
+@import "../../../styles/main";
 
 .FormRow {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
 
-	@include bp-med {
-		flex-direction: row;
-	}
+    @include bp-med {
+        flex-direction: row;
+    }
 
-	&--spacer {
-		width: 50px;
-		height: 30px;
-	}
+    &--spacer {
+        width: 50px;
+        height: 30px;
+    }
 }

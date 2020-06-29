@@ -1,0 +1,36 @@
+@import "../../styles/main";
+.AboutPage {
+    background-color: $junction-white;
+    height: 100%;
+
+    .AboutPage--TopContent {
+        align-content: center;
+        text-align: center;
+        width: 100%;
+        height: 50%;
+    }
+
+    .AboutPage--logo {
+        margin: 5% 0;
+        align-content: center;
+    }
+
+    p.HomePage-subtitle {
+        text-align: center;
+    }
+
+    .icon {
+        font-size: 100px;
+    }
+
+    .topic {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 60px;
+        line-height: 73px;
+        display: flex;
+        justify-content: center;
+        text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+}

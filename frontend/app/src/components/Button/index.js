@@ -27,17 +27,30 @@ const useStyles = makeStyles((theme) => ({
         width: "263px",
         height: "35px",
         boxShadow: "2px 4px 4px rgba(35, 35, 35, 0.15)",
-        border: "3px solid $junction-black",
+        border: "3px solid #000000",
+        boxSizing: "border-box",
+        borderRadius: "33px",
+        fontSize: "18px",
+        fontWeight: "600",
+        textTransform: "none",
+        lineHeight: "22px",
+        margin: "2px",
     },
+    submit: { width: "131px", height: "40px" },
 }));
 
-export default ({ text, type, description, link }) => {
+export default ({ text, regular, smaller, submit }) => {
     const classes = useStyles();
 
     return (
         <>
-            <Button className={classes.regular}>
-                {text} <ArrowRightAltIcon fontSize="large" />
+            <Button
+                className={`${regular ? classes.regular : ""} ${
+                    smaller ? classes.smaller : ""
+                } 
+                `}
+            >
+                {text} {regular ? <ArrowRightAltIcon fontSize="large" /> : ""}
             </Button>
         </>
     );
