@@ -33,11 +33,12 @@
 }
 
 .NavMenu {
+    width: 60px;
     border-radius: 3px;
     pointer-events: all;
     background-color: $junction-black;
     position: fixed;
-    left: 13%;
+    left: calc(15% - 30px);
     top: 10%;
     z-index: 3;
     transition: all 0.5s ease-in-out;
