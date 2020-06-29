@@ -63,6 +63,7 @@ class Footer extends PureComponent {
                             <NewsLetterForm />
                         </div>
                     </div>
+                    <div className="Footer--left-divider" />
                     <div className="Footer--left-second">
                         <div className="Footer--left-second__FooterLinkList">
                             <div className="FooterListLeft">
