@@ -1,11 +1,11 @@
-@import '../../styles/main';
+@import "../../styles/main";
 
 .BlockSection {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 36px;
 
     @include bp-full {
         flex-direction: row;
@@ -37,7 +37,6 @@
         }
 
         &__subtitle {
-
             * {
                 text-align: center !important;
             }
@@ -55,7 +54,7 @@
         max-width: 620px;
         flex-direction: column;
         align-items: flex-start;
-        margin-top: 50px;
+        margin-top: 36px;
 
         @include bp-full {
             margin-left: 25px;

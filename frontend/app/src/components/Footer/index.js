@@ -16,6 +16,7 @@ import {
 } from "../../redux/pages/selectors";
 
 import { eventconceptsByPriority } from "../../redux/eventconcepts/selectors";
+import { Typography, Grid } from "@material-ui/core";
 
 class Footer extends PureComponent {
     renderConceptLinks(eventConcepts) {
@@ -52,6 +53,7 @@ class Footer extends PureComponent {
             <footer className="Footer">
                 <div className="Footer--left">
                     <div className="Footer--left-first">
+                        <Typography>Stay up to date</Typography>
                         <NewsLetterForm />
                     </div>
                     <div className="Footer--left-second">
@@ -71,11 +73,11 @@ class Footer extends PureComponent {
                             </div>
                             <div className="FooterListRight">
                                 <span>
-                                    <Link to="/press">Press kit (eng)</Link>
+                                    <Link to="/press">Press kit</Link>
                                 </span>
-                                <span>
+                                {/* <span>
                                     <Link to="/media">Press kit (fin)</Link>
-                                </span>
+                                </span> */}
                                 <span>
                                     <a
                                         href="https://www.flickr.com/photos/151708924@N07/albums/"
@@ -110,7 +112,8 @@ class Footer extends PureComponent {
                 <div className="Footer--right">
                     <h2>Contact us</h2>
                     <span>
-                        Fill the contact form and we'll get back to you asap!
+                        Send us an email to hello@hackjunction.com or fill in
+                        the <br></br> contact form and we’ll get back to asap!
                     </span>
                     <ContactForm />
                 </div>
