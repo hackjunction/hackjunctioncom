@@ -13,6 +13,7 @@ import EventCalendar from "../../../components/EventCalendar";
 
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
+import HeaderSection from "../../../components/HeaderSection";
 
 class Challenges extends PureComponent {
     render() {
@@ -23,44 +24,28 @@ class Challenges extends PureComponent {
                 metaDescKey={KEYS.whoAreWeBody}
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >
-                <CenteredBlock>
-                    <Grid className="HomePage--TopContent">
-                        <img
-                            className="HomePage--logo"
-                            src={require("../../../assets/logos/text_black.png")}
-                            alt="junction-wordmark"
-                        />
-                        <h3 className="HomePage-subtitle">
-                            We organize epic hackathons and other tech events -
-                            around the world, around the year.
-                        </h3>
-                        <Button regular text="Read More"></Button>
-                        <Divider sm />
-                        <Grid spacing={12} direction="row">
-                            <Button smaller to text="Junction App" />
+                <HeaderSection
+                    title="Tracks & Challenges"
+                    body="The hackathon is divided into tracks based on different industries and themes. All tracks include multiple challenges you can choose to work on during the hackathon: and you can even combine challenges and submit your project to multiple ones!"
+                >
+                    <Grid spacing={12} direction="row">
+                        <Button smaller to text="Tracks" />
 
-                            <Button smaller to text="Organize a hackathon" />
-
-                            <Button smaller to text="Junction 2020 Connected" />
-                        </Grid>
-                        <Divider sm />
+                        <Button smaller to text="Challenges" />
                     </Grid>
-                </CenteredBlock>
+                </HeaderSection>
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
-                ></SectionImage>
-
+                >
+                    Tracks
+                </SectionImage>
                 <SectionImage
-                    imageKey={MEDIA_KEYS.homePageHackingImage}
-                    alt="People attending a hackathon"
-                ></SectionImage>
-                <h1>Upcoming events</h1>
-                <EventCalendar />
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageCommunityImage}
-                    alt="Junction Community"
-                ></SectionImage>
+                    imageKey={MEDIA_KEYS.homePageHeaderImage}
+                    alt="Header image"
+                >
+                    Challenges
+                </SectionImage>
             </Page>
         );
     }

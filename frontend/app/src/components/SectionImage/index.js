@@ -4,6 +4,7 @@ import "./style.scss";
 import { connect } from "react-redux";
 import Image from "../Image";
 import { media as selectMedia } from "../../redux/staticmedia/selectors";
+import ImageHeader from "./ImageHeader";
 
 class SectionImage extends PureComponent {
     render() {
@@ -16,7 +17,7 @@ class SectionImage extends PureComponent {
                     alt={alt}
                     className="SectionImage--img"
                 />
-                <div className="SectionImage--content">{children}</div>
+                <ImageHeader>{children}</ImageHeader>
             </div>
         );
     }

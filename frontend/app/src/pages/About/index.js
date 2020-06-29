@@ -10,7 +10,6 @@ import CenteredBlock from "../../components/CenteredBlock";
 import Divider from "../../components/Divider";
 import Page from "../PageHOC";
 import TrendingFlatIcon from "@material-ui/icons/TrendingFlat";
-import LinkRouter from "../../components/LinkRouter";
 
 const BOTTOM_LINKS = [
     {
