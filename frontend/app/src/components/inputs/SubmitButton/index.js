@@ -8,10 +8,7 @@ const SubmitButton = ({ text, onClick }) => {
             <button type="submit" className="SubmitButton--button">
                 <span className="SubmitButton--button__text">
                     {text}{" "}
-                    <ArrowRightAltIcon
-                        className="SubmitButton--button-icon"
-                        fontSize="16px"
-                    />
+                    <ArrowRightAltIcon className="SubmitButton--button-icon" />
                 </span>
             </button>
         </div>

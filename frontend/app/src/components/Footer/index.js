@@ -52,9 +52,16 @@ class Footer extends PureComponent {
         return (
             <footer className="Footer">
                 <div className="Footer--left">
-                    <div className="Footer--left-first">
-                        <Typography>Stay up to date</Typography>
-                        <NewsLetterForm />
+                    <div className="Footer--left-first subscribe-text">
+                        <h2>Stay up to date</h2>
+                        <span>
+                            Subscribe to our newsletter to get monthly updates{" "}
+                            <br></br>
+                            about what’s happening in the Junction community.{" "}
+                        </span>
+                        <div>
+                            <NewsLetterForm />
+                        </div>
                     </div>
                     <div className="Footer--left-second">
                         <div className="Footer--left-second__FooterLinkList">
@@ -96,7 +103,7 @@ class Footer extends PureComponent {
                                 </span>
                             </div>
                         </div>
-                        <div>
+                        <div className="Footer--left--margin">
                             Designed and developed with{" "}
                             <span role="img" aria-label="love">
                                 💕

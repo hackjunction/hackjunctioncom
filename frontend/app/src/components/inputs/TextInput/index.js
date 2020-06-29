@@ -13,15 +13,7 @@ const useStyles = makeStyles({
         borderRadius: "22px",
         fontSize: "18px",
         transition: "all 0.2s ease",
-    },
-    connected: {
-        width: "181px",
-        height: "40px",
-        background: "transparent",
-        border: "3px solid #0b2c5d",
-        borderRadius: "22px",
-        fontSize: "18px",
-        transition: "all 0.2s ease",
+        color: "#4CAF50",
     },
 });
 
@@ -50,9 +42,7 @@ const TextInput = ({
             <input
                 name={name}
                 type="text"
-                className={` ${classes.inputBox} ${
-                    connected ? classes.connected : ""
-                }`}
+                className="TextInput--inputbox"
                 value={value}
                 placeholder={placeholder}
                 onChange={handleChange}

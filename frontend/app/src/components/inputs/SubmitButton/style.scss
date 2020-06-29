@@ -11,15 +11,23 @@
         width: 131px;
         height: 40px;
         background-color: #73f9ec;
-        border-radius: 33px;
-        border: 2px solid $junction-white;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 22px;
+        border: 2px solid transparent;
         cursor: pointer;
         transition: all 0.2s ease;
         justify-content: center;
         align-items: center;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+
         &--icon {
             position: absolute;
             height: 50%;
+            padding-top: 10px;
         }
     }
     &:hover,
