@@ -1,34 +1,47 @@
-@import '../../../styles/main';
+@import "../../../styles/main";
 
 .SubmitButton {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	flex: 1;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // align-items: center;
+    // flex: 1;
 
-	&--button {
-		background: transparent;
-		width: 280px;
-		height: 42px;
-		border-radius: 7px;
-		border: 2px solid $junction-white;
-		cursor: pointer;
-		transition: all 0.2s ease;
-		
-		&:hover,
-		&:focus {
-			outline: none;
-			background: $junction-white;
+    &--button {
+        width: 131px;
+        height: 40px;
+        background-color: #73f9ec;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 22px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        justify-content: center;
+        align-items: center;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
 
-			.SubmitButton--button__text {
-				color: $junction-black;
-			}
-		}
+        &--icon {
+            position: absolute;
+            height: 50%;
+            padding-top: 10px;
+        }
+    }
+    &:hover,
+    &:focus {
+        outline: none;
+        background: $junction-white;
 
-		&__text {
-			transition: all 0.2s ease;
-			font-weight: bold;
-		}
-	}
+        .SubmitButton--button__text {
+            color: $junction-black;
+        }
+    }
+
+    &__text {
+        transition: all 0.2s ease;
+        font-weight: bold;
+    }
 }

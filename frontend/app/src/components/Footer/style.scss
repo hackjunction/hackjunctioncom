@@ -5,31 +5,49 @@
     border-top: 4px solid $junction-black;
     display: flex;
     flex-direction: column;
-    justify-content: stretch;
+
+    .subscribe-text {
+        h2 {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+
+    .FooterListLeft {
+        margin-right: 40px;
+    }
 
     @include bp-med {
         flex-direction: row;
-        justify-content: center;
     }
 
     &--left {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 50%;
+        justify-content: center;
         border-right: 4px solid $junction-black;
 
+        &--margin {
+            margin-top: 55px;
+        }
+
         &-first {
+            justify-content: center;
+        }
+
+        &-divider {
+            background-color: $junction-black;
+            height: 4px;
             width: 100%;
-            height: 100%;
-            border-bottom: 4px solid $junction-black;
         }
 
         &-second {
-            height: 100%;
-            width: 100%;
+            margin-top: 54px;
 
             &__FooterLinkList {
-                justify-content: space-around;
                 display: flex;
                 flex-direction: row;
 
@@ -37,8 +55,10 @@
                     display: block;
                     a {
                         color: $junction-black;
-                        line-height: 5px;
                         text-align: center;
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 20px;
                     }
                 }
             }
@@ -47,15 +67,14 @@
 
     &--right {
         display: flex;
+        margin: auto;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
-        align-self: stretch;
 
-        margin: 3%;
-        @include bp-full {
-            justify-content: flex-start;
+        h2 {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 24px;
         }
     }
 }

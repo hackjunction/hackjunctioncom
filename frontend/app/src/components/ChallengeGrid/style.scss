@@ -1,0 +1,66 @@
+@import "../../styles/main";
+
+.FilterButtons {
+    width: 100%;
+    text-align: center;
+}
+
+.ChallengeGrid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include bp-custom(800px) {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+.GridItem {
+    width: 100%;
+    max-width: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: rgba(#4bcccc, 0.27);
+    background: linear-gradient(
+        145deg,
+        rgba(#4bcccc, 0.35) 0%,
+        rgba(#03061e, 0.42) 100%
+    );
+    margin-bottom: $padding-base;
+    border-radius: 10px;
+    padding: $padding-double;
+
+    @include bp-custom(800px) {
+        width: 49%;
+        align-self: flex-start;
+    }
+
+    &--title {
+        @extend %font-title;
+        font-weight: bold;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 18px;
+
+        i {
+            transform: rotateZ(0deg);
+            transition: 0.2s transform ease;
+            color: #bebebe;
+            font-size: 2em;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media screen and (max-width: 400px) {
+                display: none;
+            }
+        }
+    }
+}

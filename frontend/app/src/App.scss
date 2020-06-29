@@ -2,6 +2,7 @@
 
 .Page {
     height: 100%;
+    min-height: 900px;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -17,6 +18,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
+    font-family: Montserrat;
 }
 
 .App--Main {
@@ -31,16 +33,9 @@ body {
 }
 
 .App--Content {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(
-        152deg,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 1) 15%,
-        rgba(35, 35, 35, 1) 100%
-    );
+    background: $junction-white;
 
     display: flex;
-    flex-basis: 100%;
     flex-direction: column;
     align-items: stretch;
     z-index: 1;
@@ -49,5 +44,9 @@ body {
         position: absolute;
         left: 15%;
         width: 85%;
+    }
+    .leave-margin {
+        margin: auto;
+        width: 90%;
     }
 }
