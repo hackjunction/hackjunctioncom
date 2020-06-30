@@ -5,11 +5,15 @@ import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
 import SectionImage from "../../../components/SectionImage";
-import { Grid } from "@material-ui/core";
+import { Grid, Container } from "@material-ui/core";
+import CenteredBlock from "../../../components/CenteredBlock";
+import EventCalendar from "../../../components/EventCalendar";
 
 import Page from "../../PageHOC";
 import SmallButton from "../../../components/SmallButton";
 import HeaderSection from "../../../components/HeaderSection";
+import QuestionGrid from "../../../components/questions/QuestionCard/QuestionCard";
+import QuestionCard from "../../../components/questions/QuestionCard/QuestionCard";
 
 class Challenges extends PureComponent {
     render() {
@@ -21,8 +25,8 @@ class Challenges extends PureComponent {
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >
                 <HeaderSection
-                    title="Tracks & Challenges"
-                    body="The hackathon is divided into tracks based on different industries and themes. All tracks include multiple challenges you can choose to work on during the hackathon: and you can even combine challenges and submit your project to multiple ones!"
+                    title="Event information"
+                    body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
                 >
                     <Grid spacing={12} direction="row">
                         <SmallButton to text="General" />
@@ -41,8 +45,49 @@ class Challenges extends PureComponent {
                     imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
                 >
-                    Challenges
+                    Timeline
                 </SectionImage>
+                <SectionImage
+                    imageKey={MEDIA_KEYS.homePageHeaderImage}
+                    alt="Header image"
+                >
+                    FAQ
+                </SectionImage>
+                <HeaderSection
+                    title="FAQ"
+                    body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
+                >
+                    <Grid spacing={12} direction="row">
+                        <Button smaller to text="General" />
+                        <Button smaller to text="Schedule" />
+                        <Button smaller to text="About partners" />
+                        <Button smaller to text="Submissions" />
+                    </Grid>
+                </HeaderSection>
+                <Container>
+                    <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                        spacing={5}
+                    >
+                        <QuestionCard number="1" text="WHAT is a hackathon" />
+
+                        <QuestionCard number="2" text="WHAT is a hackathon" />
+
+                        <QuestionCard />
+
+                        <QuestionCard />
+                    </Grid>
+                </Container>
+                <SectionImage
+                    imageKey={MEDIA_KEYS.homePageHeaderImage}
+                    alt="Header image"
+                >
+                    For Partners
+                </SectionImage>
+                Tähän sisältöö
             </Page>
         );
     }
