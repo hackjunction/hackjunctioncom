@@ -103,6 +103,10 @@ export const NavMenuInner = React.memo(
                         For volunteers
                     </Link>
                 </nav>
+                <div className="top" />
+                <div className="bottom" />
+                <div className="left" />
+                <div className="right" />
             </div>
         );
     },
@@ -127,14 +131,21 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar }) => {
             />
             <div className={`NavMenu ${isSidebarOpen ? "NavMenu-open" : ""}`}>
                 <div className="NavMenu--exit">
-                    <FontAwesomeIcon
-                        icon={isSidebarOpen ? "times" : "bars"}
-                        size="2x"
-                        color="white"
+                    <button
+                        className={
+                            isSidebarOpen
+                                ? "hamburger hamburger--spin is-active"
+                                : "hamburger hamburger--spin"
+                        }
                         onClick={() =>
                             toggleSidebar(isSidebarOpen ? false : true)
                         }
-                    />
+                        type="button"
+                    >
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
                 </div>
                 {isSidebarOpen && <ConnectedNavMenuInner />}
             </div>
