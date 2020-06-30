@@ -1,0 +1,51 @@
+.QuestionCard {
+    &--root {
+        width: 279px;
+        height: 232px;
+        border: 5px solid #f44e2c;
+        box-sizing: border-box;
+        border-radius: 15px;
+
+        &--number {
+            z-index: -100;
+            font-family: Lato;
+            font-style: normal;
+            font-weight: 900;
+            font-size: 170.33px;
+            line-height: 204px;
+        }
+
+        &--text {
+            &--number {
+                font-family: Lato;
+                font-style: normal;
+                font-weight: 900;
+                color: #ef7d50;
+                font-size: 170px;
+                text-align: left;
+                margin: 0;
+            }
+            &--question {
+                font-family: Montserrat;
+                font-style: normal;
+                font-weight: 600;
+                color: #0b2c5d;
+                font-size: 18px;
+                line-height: 22ox;
+                text-align: left;
+            }
+        }
+
+        &--boxLeft {
+            z-index: -1;
+            width: 25%;
+            height: 100%;
+        }
+
+        &--boxRight {
+            color: black;
+            z-index: 1;
+            width: 75%;
+        }
+    }
+}
