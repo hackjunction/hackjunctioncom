@@ -10,7 +10,7 @@ const HeaderSection = ({ title, body, logo, children }) => {
         <Grid container className="HeaderSection">
             {logo && <img src={logo} />}
             {title && <h2 className="HeaderSection--title">{title}</h2>}
-            {body && <p className="HeaderSection--body">{body}</p>}
+            {body && <h3 className="HeaderSection--body">{body}</h3>}
             {children}
         </Grid>
     );

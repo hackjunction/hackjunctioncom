@@ -94,7 +94,7 @@ const Planet = (props) => {
             var geometry = new THREE.SphereGeometry(RADIUS, 100, 100);
             var omaterial = new THREE.MeshBasicMaterial();
             omaterial.map = new THREE.TextureLoader().load(
-                "https://res.cloudinary.com/hackjunction/image/upload/v1593019499/test/test/junction-website-globe-01-fitted_FIX.png",
+                "https://res.cloudinary.com/hackjunction/image/upload/v1593432114/test/test/junction-globe-website-KAIKKIMUKANA-01.png",
             );
             omaterial.transparent = true;
 

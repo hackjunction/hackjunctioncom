@@ -32,6 +32,7 @@ import VolunteersPage from "./pages/Volunteers";
 import OrganisersPage from "./pages/Organisers";
 import AboutPage from "./pages/About";
 import StoryPage from "./pages/Story";
+import ConnectedPage from "./pages/Connected";
 import NotFoundPage from "./pages/NotFound";
 
 import Connected from "./pages/Connected";
@@ -114,7 +115,6 @@ class App extends PureComponent {
                                 path="/organizers"
                                 component={OrganisersPage}
                             />
-
                             {/* Concept pages (JunctionX, HelTech, etc..) */}
                             <Route
                                 path="/concepts/:slug"

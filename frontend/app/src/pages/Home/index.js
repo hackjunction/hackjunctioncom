@@ -15,7 +15,7 @@ import { spacing } from "@material-ui/system";
 
 import Page from "../PageHOC";
 import LinkButton from "../../components/LinkButton/index";
-import Button from "../../components/Button";
+import SmallButton from "../../components/SmallButton";
 import HeaderSection from "../../components/HeaderSection";
 
 const EventsMap = React.lazy(() => import("../../components/EventsMap"));
@@ -45,7 +45,7 @@ class HomePage extends PureComponent {
     render() {
         return (
             <Page
-                className="HomePage"
+                className="Junction-Default"
                 pageTitle="Hack the Future"
                 metaDescKey={KEYS.whoAreWeBody}
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -55,14 +55,26 @@ class HomePage extends PureComponent {
                         around the world, around the year."
                     logo={require("../../assets/logos/text_black.png")}
                 >
-                    <Button regular text="Read More"></Button>
+                    <SmallButton className="Default-button" text="Read More" />
                     <Divider sm />
                     <Grid spacing={12} direction="row">
-                        <Button smaller to text="Junction App" />
+                        <SmallButton
+                            className="Default-button-small"
+                            to
+                            text="Junction App"
+                        />
 
-                        <Button smaller to text="Organize a hackathon" />
+                        <SmallButton
+                            className="Default-button-small"
+                            to
+                            text="Organize a hackathon"
+                        />
 
-                        <Button smaller to text="Junction 2020 Connected" />
+                        <SmallButton
+                            className="Default-button-small"
+                            to
+                            text="Junction 2020 Connected"
+                        />
                     </Grid>
                 </HeaderSection>
                 <SectionImage
