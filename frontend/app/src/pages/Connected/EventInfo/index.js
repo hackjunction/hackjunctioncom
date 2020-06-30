@@ -58,10 +58,10 @@ class Challenges extends PureComponent {
                     body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
                 >
                     <Grid spacing={12} direction="row">
-                        <Button smaller to text="General" />
-                        <Button smaller to text="Schedule" />
-                        <Button smaller to text="About partners" />
-                        <Button smaller to text="Submissions" />
+                        <SmallButton to text="General" />
+                        <SmallButton to text="Schedule" />
+                        <SmallButton to text="About partners" />
+                        <SmallButton to text="Submissions" />
                     </Grid>
                 </HeaderSection>
                 <Container>
