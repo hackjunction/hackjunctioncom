@@ -11,11 +11,11 @@ import Planet from "../../../components/Planet";
 import { Grid } from "@material-ui/core";
 import CenteredBlock from "../../../components/CenteredBlock";
 import EventCalendar from "../../../components/EventCalendar";
+import BlockSection from "../../../components/BlockSection";
+
 import { spacing } from "@material-ui/system";
 
 import Page from "../../PageHOC";
-import LinkButton from "../../../components/LinkButton/index";
-import Button from "../../../components/Button";
 import SmallButton from "../../../components/SmallButton";
 const EventsMap = React.lazy(() => import("../../../components/EventsMap"));
 
@@ -83,17 +83,83 @@ const ConnectedHome = ({}) => {
                 imageKey={MEDIA_KEYS.ConnectedHeaderImage}
                 alt="Header image"
             ></SectionImage>
-            <Planet />
-            <SectionImage
-                imageKey={MEDIA_KEYS.ConnectedHackingImage}
-                alt="People attending a hackathon"
-            ></SectionImage>
-            <h1>Upcoming events</h1>
-            <EventCalendar />
-            <SectionImage
-                imageKey={MEDIA_KEYS.ConnectedCommunityImage}
-                alt="Junction Community"
-            ></SectionImage>
+            <div className="BlockSection">
+                <div className="BlockSection--left">
+                    <h3 className="BlockSection--left__title">
+                        Introducing Hubs
+                    </h3>
+                    <p>
+                        Junction 2020 Connected is a new take on the established
+                        concept of a hackathon; participants all over the world
+                        can join physical locations hosted by Junction and other
+                        organizations, or participate in the event fully online.
+                    </p>
+                    <SmallButton
+                        className="Connected-blue-button"
+                        to
+                        text="Learn more about Hubs"
+                    />
+                </div>
+                <div className="BlockSection--right">
+                    <img
+                        className="Connected--logo"
+                        src={require("../../../assets/images/photo-hub-visualisation.png")}
+                        alt="connected-logo-here"
+                    />
+                </div>
+            </div>
+            <div className="BlockSection">
+                <div className="BlockSection--left">
+                    <img
+                        className="Connected--logo"
+                        src={require("../../../assets/images/connected-chain.png")}
+                        alt="connected-logo-here"
+                    />
+                </div>
+
+                <div className="BlockSection--right">
+                    <h3 className="BlockSection--left__title">
+                        30 countries, 1 hackathon
+                    </h3>
+                    <p>
+                        The local hubs give the concept of a normal online
+                        hackathon a twist by increasing the sense of community
+                        and making physical interaction possible when needed.
+                        Check out your nearest hub or organize one yourself!{" "}
+                    </p>
+                    <SmallButton
+                        className="Connected-blue-button"
+                        to
+                        text="Learn more about Hubs"
+                    />
+                </div>
+            </div>
+            <div className="BlockSection Seperated">
+                <div className="BlockSection--left">
+                    <h3 className="BlockSection--left__title">Timeline</h3>
+                </div>
+                <div className="BlockSection--right">
+                    <li className="Checkpoint">
+                        September 1st Application period begins
+                    </li>
+                    <li className="Fillerpoint" />
+                    <li className="Fillerpoint" />
+                    <li className="Fillerpoint" />
+                    <li className="Checkpoint">
+                        October 6th Virtual matchmaking begins
+                    </li>
+                    <li className="Fillerpoint" />
+                    <li className="Fillerpoint" />
+                    <li className="Fillerpoint" />
+                    <li className="Checkpoint" />
+                    <li className="Fillerpoint" />
+                    <li className="Fillerpoint" />
+                    <li className="Fillerpoint" />
+                    <li className="Checkpoint">
+                        November 6th to 8th Junction 2020 Connected
+                    </li>
+                </div>
+            </div>
         </Page>
     );
 };

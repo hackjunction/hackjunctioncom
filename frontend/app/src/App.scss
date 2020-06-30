@@ -51,3 +51,59 @@ body {
         width: 90%;
     }
 }
+
+.Junction-Default {
+    background-color: $junction-white;
+
+    .Default--TopContent {
+        align-content: center;
+        text-align: center;
+    }
+
+    .Default--logo {
+        margin: 5% 0;
+        align-content: center;
+    }
+
+    p.Default-subtitle {
+        text-align: center;
+    }
+
+    .Default-button-small {
+        background-color: $junction-white;
+        text-align: center;
+        border: 3px solid $junction-black;
+        width: 263px;
+        height: 35px;
+        box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
+        box-sizing: border-box;
+        border-radius: 33px;
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: none;
+        line-height: 22px;
+        margin: 2px;
+        & > span {
+            color: $junction-black;
+        }
+    }
+
+    .Default-button {
+        background-color: $junction-white;
+        text-align: center;
+        border: 3px solid $junction-blue;
+        width: 263px;
+        height: 35px;
+        box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
+        box-sizing: border-box;
+        border-radius: 33px;
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: none;
+        line-height: 22px;
+        margin: 2px;
+        & > span {
+            color: $junction-black;
+        }
+    }
+}

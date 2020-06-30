@@ -5,21 +5,17 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 23px;
-
     @include bp-full {
         flex-direction: row;
-        align-items: flex-start;
         justify-content: center;
     }
 
     &--left {
         width: 100%;
-        max-width: 310px;
         display: flex;
         flex-direction: column;
         align-items: center;
-
+        padding: 0em 0em 0em 4em;
         @include bp-full {
             margin-right: 25px;
             align-items: flex-start;
@@ -51,7 +47,6 @@
 
     &--right {
         width: 100%;
-        max-width: 620px;
         flex-direction: column;
         align-items: flex-start;
         margin-top: 36px;
@@ -64,4 +59,9 @@
             margin: 0;
         }
     }
+}
+
+.Seperated {
+    border-top: 3px solid $junction-black;
+    border-bottom: 3px solid $junction-black;
 }

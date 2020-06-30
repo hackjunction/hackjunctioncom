@@ -115,11 +115,6 @@ class App extends PureComponent {
                                 path="/organizers"
                                 component={OrganisersPage}
                             />
-                            <Route
-                                exact
-                                path="/connected"
-                                component={ConnectedPage}
-                            />
                             {/* Concept pages (JunctionX, HelTech, etc..) */}
                             <Route
                                 path="/concepts/:slug"
