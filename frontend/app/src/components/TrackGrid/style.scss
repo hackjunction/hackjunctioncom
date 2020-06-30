@@ -6,13 +6,22 @@
 }
 
 .TrackGrid {
-    margin: 5%;
-    display: flex;
-    flex-direction: column;
+    margin: 5% 10%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 1%;
     align-items: center;
+    grid-auto-rows: 1fr;
 
-    @include bp-custom(800px) {
-        display: grid;
+    @include bp-med {
+        margin: 5%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 7%;
+        grid-row-gap: 2%;
+        grid-auto-rows: 1fr;
+    }
+    @include bp-full {
+        margin: 5%;
         grid-template-columns: repeat(3, 1fr);
         grid-column-gap: 7%;
         grid-row-gap: 2%;
@@ -42,10 +51,17 @@
     &--text {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        width: 65%;
-        text-align: left;
-        align-self: flex-end;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        align-self: center;
+
+        @include bp-full {
+            text-align: left;
+            align-items: left;
+            align-self: flex-end;
+            width: 65%;
+        }
 
         span.TrackItem--title {
             @extend %font-title;
@@ -53,11 +69,13 @@
             text-transform: uppercase;
             font-size: 1.3rem;
             line-height: normal;
+            align-self: flex-start;
         }
 
         p.TrackItem--description {
             line-height: normal;
             margin-bottom: 0;
+            align-self: flex-start;
         }
     }
 
