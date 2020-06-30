@@ -1,18 +1,12 @@
 .QuestionCard {
     &--root {
-        width: 279px;
         height: 232px;
         border: 5px solid #f44e2c;
         box-sizing: border-box;
         border-radius: 15px;
 
-        &--number {
-            z-index: -100;
-            font-family: Lato;
-            font-style: normal;
-            font-weight: 900;
-            font-size: 170.33px;
-            line-height: 204px;
+        &:hover {
+            transform: rotateY(180deg);
         }
 
         &--text {
@@ -32,20 +26,20 @@
                 color: #0b2c5d;
                 font-size: 18px;
                 line-height: 22ox;
-                text-align: left;
+                text-align: right;
             }
         }
 
         &--boxLeft {
-            z-index: -1;
-            width: 25%;
-            height: 100%;
+            position: absolute;
+            z-index: 0;
+            float: left;
         }
 
         &--boxRight {
-            color: black;
+            position: relative;
             z-index: 1;
-            width: 75%;
+            float: right;
         }
     }
 }

@@ -72,19 +72,15 @@ class Challenges extends PureComponent {
                         direction="row"
                         justify="center"
                         alignItems="center"
+                        spacing={5}
                     >
-                        <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
-                            <QuestionCard />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
-                            <QuestionCard />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
-                            <QuestionCard />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
-                            <QuestionCard />
-                        </Grid>
+                        <QuestionCard number="1" text="WHAT is a hackathon" />
+
+                        <QuestionCard number="2" text="WHAT is a hackathon" />
+
+                        <QuestionCard />
+
+                        <QuestionCard />
                     </Grid>
                 </Container>
                 <SectionImage
