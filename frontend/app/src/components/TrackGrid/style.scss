@@ -1,0 +1,62 @@
+@import "../../styles/main";
+
+.FilterButtons {
+    width: 100%;
+    text-align: center;
+}
+
+.TrackGrid {
+    margin: 3% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    @include bp-custom(800px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.TrackItem {
+    margin: 1%;
+    cursor: pointer;
+    display: flex;
+    background: rgba($junction-black, 0.27);
+    background: linear-gradient(
+        145deg,
+        rgba($junction-white, 0.35) 0%,
+        rgba($junction-black, 0.42) 100%
+    );
+
+    border-radius: 10px;
+    padding: $padding-double;
+
+    @include bp-custom(800px) {
+        flex: 0 0 28%;
+        height: 10em;
+    }
+
+    &:before {
+        content: "";
+        float: left;
+        padding-top: 100%;
+    }
+
+    &--title {
+        @extend %font-title;
+        font-weight: bold;
+        display: flex;
+        width: 60%;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+    &--number {
+        width: 30%;
+        flex: 1 1 30%;
+        font-family: Lato;
+        font-size: 100px;
+        font-weight: 900;
+    }
+}

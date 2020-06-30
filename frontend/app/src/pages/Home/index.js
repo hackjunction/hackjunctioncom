@@ -16,6 +16,7 @@ import { spacing } from "@material-ui/system";
 import Page from "../PageHOC";
 import LinkButton from "../../components/LinkButton/index";
 import Button from "../../components/Button";
+import HeaderSection from "../../components/HeaderSection";
 
 const EventsMap = React.lazy(() => import("../../components/EventsMap"));
 
@@ -49,40 +50,36 @@ class HomePage extends PureComponent {
                 metaDescKey={KEYS.whoAreWeBody}
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >
-                <CenteredBlock>
-                    <Grid className="HomePage--TopContent">
-                        <img
-                            className="HomePage--logo"
-                            src={require("../../assets/logos/text_black.png")}
-                            alt="junction-wordmark"
-                        />
-                        <h3 className="HomePage-subtitle">
-                            We organize epic hackathons and other tech events -
-                            around the world, around the year.
-                        </h3>
-                        <Button regular text="Read More"></Button>
-                        <Divider sm />
-                        <Grid spacing={12} direction="row">
-                            <Button smaller to text="Junction App" />
+                <HeaderSection
+                    body=" We organize epic hackathons and other tech events -
+                        around the world, around the year."
+                    logo={require("../../assets/logos/text_black.png")}
+                >
+                    <Button regular text="Read More"></Button>
+                    <Divider sm />
+                    <Grid spacing={12} direction="row">
+                        <Button smaller to text="Junction App" />
 
-                            <Button smaller to text="Organize a hackathon" />
+                        <Button smaller to text="Organize a hackathon" />
 
-                            <Button smaller to text="Junction 2020 Connected" />
-                        </Grid>
-                        <Divider sm />
+                        <Button smaller to text="Junction 2020 Connected" />
                     </Grid>
-                </CenteredBlock>
+                </HeaderSection>
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
                 ></SectionImage>
-                <Planet />
+                <div className="leave-margin">
+                    <Planet />
+                </div>
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHackingImage}
                     alt="People attending a hackathon"
                 ></SectionImage>
-                <h1>Upcoming events</h1>
-                <EventCalendar />
+                <div className="leave-margin">
+                    <h1>Upcoming events</h1>
+                    <EventCalendar />
+                </div>
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageCommunityImage}
                     alt="Junction Community"

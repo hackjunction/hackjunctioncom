@@ -4,16 +4,105 @@ import "./style.scss";
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import Divider from "../../../components/Divider";
-
 import SectionImage from "../../../components/SectionImage";
 import { Grid } from "@material-ui/core";
-import CenteredBlock from "../../../components/CenteredBlock";
-import EventCalendar from "../../../components/EventCalendar";
 
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
 import HeaderSection from "../../../components/HeaderSection";
+import TrackGrid from "../../../components/TrackGrid";
+import BlockSection from "../../../components/BlockSection";
+import ChallengeGrid from "../../../components/ChallengeGrid";
+
+const items = [
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "asd",
+        img: "asd",
+        tags: ["ebin", "vitun hyvä"],
+    },
+    {
+        title: "Ebin",
+        desc: "asd",
+        img: "asd",
+        tags: ["ebin"],
+    },
+    {
+        title: "huutis",
+        desc: "asd",
+        img: "asd",
+        tags: ["huuts"],
+    },
+    {
+        title: "pärskis",
+        desc: "asd",
+        img: "asd",
+        tags: ["pärskis", , "jne"],
+    },
+    {
+        title: "huutis",
+        desc: "asd",
+        img: "asd",
+        tags: ["huutis", "jne"],
+    },
+];
+
+const tracks = [
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 0,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 1,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 2,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 3,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 4,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 5,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 6,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 7,
+    },
+    {
+        title: "Vitun hyvä ja ebin",
+        desc: "Track description can be quite lengthy",
+        logos: [],
+        key: 8,
+    },
+];
 
 class Challenges extends PureComponent {
     render() {
@@ -30,7 +119,6 @@ class Challenges extends PureComponent {
                 >
                     <Grid spacing={12} direction="row">
                         <Button smaller to text="Tracks" />
-
                         <Button smaller to text="Challenges" />
                     </Grid>
                 </HeaderSection>
@@ -40,12 +128,18 @@ class Challenges extends PureComponent {
                 >
                     Tracks
                 </SectionImage>
+
+                <TrackGrid items={tracks} />
+
+                {/* Challenge section is hidden until some challenges have been signed
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
                 >
                     Challenges
                 </SectionImage>
+                <ChallengeGrid items={items} />
+                */}
             </Page>
         );
     }

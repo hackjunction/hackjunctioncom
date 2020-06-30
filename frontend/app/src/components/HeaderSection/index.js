@@ -4,11 +4,12 @@ import "./style.scss";
 import { connect } from "react-redux";
 import { content as selectContent } from "../../redux/staticcontent/selectors";
 
-const HeaderSection = ({ title, body, children }) => {
+const HeaderSection = ({ title, body, logo, children }) => {
     return (
         <div className="HeaderSection">
-            <h2 className="HeaderSection--title">{title}</h2>
-            <p className="HeaderSection--body">{body}</p>
+            {logo && <img src={logo} />}
+            {title && <h2 className="HeaderSection--title">{title}</h2>}
+            {body && <p className="HeaderSection--body">{body}</p>}
             {children}
         </div>
     );

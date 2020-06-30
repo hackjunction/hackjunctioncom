@@ -33,11 +33,12 @@
 }
 
 .NavMenu {
+    width: 60px;
     border-radius: 3px;
     pointer-events: all;
     background-color: $junction-black;
     position: fixed;
-    left: 13%;
+    left: calc(15% - 30px);
     top: 10%;
     z-index: 3;
     transition: all 0.5s ease-in-out;
@@ -66,6 +67,7 @@
     &-open {
         transition: all 0.2s ease;
         min-width: 15%;
+        width: 25em;
         max-width: 25%;
         max-width: $bp-small;
         transition: all 0.5s ease-in-out;
@@ -75,6 +77,7 @@
         transition: all 0.5s ease-in-out;
         margin: 10% 10% 10% 5%;
         &__menu {
+            width: 20em;
             display: flex;
             flex-direction: column;
 

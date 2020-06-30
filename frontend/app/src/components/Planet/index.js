@@ -34,45 +34,6 @@ const Planet = (props) => {
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
         const { events } = props;
-        console.log("events in here are", events);
-        /*
-        const events = {
-            1: {
-                lat: 60.1699,
-                lon: -24.9384,
-                color: 0x00ff00,
-                data: { title: "Junction X Oulu", date: "soon", desc: "huutis ja myötis" },
-                __id: 1,
-            },
-            2: {
-                lat: 35.9334,
-                lon: -30.8597,
-                color: 0xff0000,
-                data: { title: "Junction X Ankara", date: "soonish", desc: "Hyytis ja myötis" },
-                __id: 2,
-            },
-            3: {
-                lat: 35.6762,
-                lon: -139.6503,
-                color: 0x0000ff,
-                data: { title: "Junction X Tokyo", date: "past", desc: "Junction X TokyoJunction X TokyoJunction X TokyoJunction X TokyoJunction X Tokyo" },
-                __id: 3,
-            },
-            4: {
-                lat: 40.7128,
-                lon: 74.006,
-                color: 0xaa00aa,
-                data: { title: "Junction X NY", date: "now", desc: "Junction x asteriski and this is qute a bit longer thext that the other just to test that it looks okay on the componsnent. Does it?" },
-                __id: 4,
-            },
-        };
-        */
-
-        console.log("m", mount);
-        /*
-        let height = mount.current.clientHeight;
-        let width = height;
-        */
         let width = (window.screen.width * 0.85) / 3;
         let height = width;
 
@@ -105,38 +66,9 @@ const Planet = (props) => {
         };
 
         const onMouseMove = (event) => {
-            var scrollTop =
-                window.pageYOffset !== undefined
-                    ? window.pageYOffset
-                    : (
-                          document.documentElement ||
-                          document.body.parentNode ||
-                          document.body
-                      ).scrollTop;
-
-            // This takes in account the sidebar, which takes 15% of the scren
-            // tho huutista
-            var bufferLeft = window.screen.width * 0.15;
-
-            /*console.log(
-                event.clientX - renderer.domElement.offsetLeft - bufferLeft,
-                scrollTop + event.clientY - renderer.domElement.offsetTop,
-            );*/
-
-            mouse.x =
-                ((event.clientX - renderer.domElement.offsetLeft - bufferLeft) /
-                    renderer.domElement.clientWidth) *
-                    2 -
-                1;
-            mouse.y =
-                -(
-                    (scrollTop +
-                        event.clientY -
-                        renderer.domElement.offsetTop) /
-                    renderer.domElement.clientHeight
-                ) *
-                    2 +
-                1;
+            var rect = renderer.domElement.getBoundingClientRect();
+            mouse.x = -1 + (2 * (event.clientX - rect.left)) / rect.width;
+            mouse.y = 1 - (2 * (event.clientY - rect.top)) / rect.height;
         };
 
         const hover = () => {
@@ -151,7 +83,6 @@ const Planet = (props) => {
                     Math.random() * 0xffffff,
                 ),
             );*/
-            // console.log(raycaster, intersects)
             if (intersects[0] && intersects[0].object.__id) {
                 console.log("set", events[intersects[0].object?.__id]);
                 setEventData(events[intersects[0].object?.__id]);
