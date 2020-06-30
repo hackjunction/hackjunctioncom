@@ -4,15 +4,11 @@ import "./style.scss";
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import Divider from "../../../components/Divider";
-
 import SectionImage from "../../../components/SectionImage";
 import { Grid } from "@material-ui/core";
-import CenteredBlock from "../../../components/CenteredBlock";
-import EventCalendar from "../../../components/EventCalendar";
 
 import Page from "../../PageHOC";
-import Button from "../../../components/Button";
+import SmallButton from "../../../components/SmallButton";
 import HeaderSection from "../../../components/HeaderSection";
 
 class Challenges extends PureComponent {
@@ -29,10 +25,10 @@ class Challenges extends PureComponent {
                     body="The hackathon is divided into tracks based on different industries and themes. All tracks include multiple challenges you can choose to work on during the hackathon: and you can even combine challenges and submit your project to multiple ones!"
                 >
                     <Grid spacing={12} direction="row">
-                        <Button smaller to text="General" />
-                        <Button smaller to text="Schedule" />
-                        <Button smaller to text="FAQ" />
-                        <Button smaller to text="For Partners" />
+                        <SmallButton to text="General" />
+                        <SmallButton to text="Schedule" />
+                        <SmallButton to text="FAQ" />
+                        <SmallButton to text="For Partners" />
                     </Grid>
                 </HeaderSection>
                 <SectionImage

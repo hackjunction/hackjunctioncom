@@ -49,33 +49,45 @@ const items = [
 
 const tracks = [
     {
-        title: "Vitun hyvä ja ebin",
+        title: "Api Management",
         desc: "Track description can be quite lengthy",
-        logos: [],
+        logos: [
+            require("../../../assets/logos/emblem_black.png"),
+            require("../../../assets/logos/emblem_black.png"),
+            require("../../../assets/logos/emblem_black.png"),
+        ],
         key: 0,
     },
     {
-        title: "Vitun hyvä ja ebin",
+        title: "cutting edge technologies",
         desc: "Track description can be quite lengthy",
         logos: [],
         key: 1,
     },
     {
-        title: "Vitun hyvä ja ebin",
-        desc: "Track description can be quite lengthy",
-        logos: [],
+        title: "GameJam",
+        desc: "Want to invent the coolest game ever? Now’s the time!",
+        logos: [
+            require("../../../assets/logos/emblem_black.png"),
+
+            require("../../../assets/logos/emblem_black.png"),
+        ],
         key: 2,
     },
     {
-        title: "Vitun hyvä ja ebin",
-        desc: "Track description can be quite lengthy",
-        logos: [],
+        title: "intelligent frameworks",
+        desc:
+            "Are you intelligent? Do you know something about frameworks? Great.",
+        logos: [require("../../../assets/logos/emblem_black.png")],
         key: 3,
     },
     {
         title: "Vitun hyvä ja ebin",
         desc: "Track description can be quite lengthy",
-        logos: [],
+        logos: [
+            require("../../../assets/logos/emblem_black.png"),
+            require("../../../assets/logos/emblem_black.png"),
+        ],
         key: 4,
     },
     {
@@ -87,19 +99,26 @@ const tracks = [
     {
         title: "Vitun hyvä ja ebin",
         desc: "Track description can be quite lengthy",
-        logos: [],
+        logos: [
+            require("../../../assets/logos/emblem_black.png"),
+            require("../../../assets/logos/emblem_black.png"),
+        ],
         key: 6,
     },
     {
         title: "Vitun hyvä ja ebin",
         desc: "Track description can be quite lengthy",
-        logos: [],
+        logos: [require("../../../assets/logos/emblem_black.png")],
         key: 7,
     },
     {
         title: "Vitun hyvä ja ebin",
         desc: "Track description can be quite lengthy",
-        logos: [],
+        logos: [
+            require("../../../assets/logos/emblem_black.png"),
+            require("../../../assets/logos/emblem_black.png"),
+            require("../../../assets/logos/emblem_black.png"),
+        ],
         key: 8,
     },
 ];
