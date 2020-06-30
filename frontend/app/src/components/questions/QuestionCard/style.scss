@@ -1,13 +1,11 @@
 .QuestionCard {
     &--root {
-        height: 232px;
-        border: 5px solid #f44e2c;
-        box-sizing: border-box;
-        border-radius: 15px;
+        width: 100%;
+        height: 100%;
 
-        &:hover {
-            transform: rotateY(180deg);
-        }
+        // &:hover {
+        //     transform: rotateY(180deg);
+        // }
 
         &--text {
             &--number {
@@ -17,6 +15,8 @@
                 color: #ef7d50;
                 font-size: 170px;
                 text-align: left;
+                justify-content: center;
+                align-items: center;
                 margin: 0;
             }
             &--question {
@@ -26,7 +26,8 @@
                 color: #0b2c5d;
                 font-size: 18px;
                 line-height: 22ox;
-                text-align: right;
+                text-align: center;
+                justify-content: center;
             }
         }
 
@@ -37,8 +38,10 @@
         }
 
         &--boxRight {
-            position: relative;
-            z-index: 1;
+            position: absolute;
+            padding-left: 50px;
+            padding-top: 60px;
+            z-index: 3;
             float: right;
         }
     }
