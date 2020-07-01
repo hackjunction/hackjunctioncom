@@ -109,66 +109,61 @@ const ContactForm = () => {
     }
     const classes = useStyles();
     return (
-        <BlockSection
-            titleKey={KEYS.contactFormTitle}
-            subtitleKey={KEYS.contactFormSubtitle}
+        <Form
+            fields={fields}
+            onError={handleFormError}
+            onSuccess={handleFormSuccess}
+            loading={formLoading}
+            error={formError}
+            success={formSuccess}
+            errorTitle={"Oops, something went wrong"}
+            errorMessage={
+                "Are you connected to the internet? Please try again."
+            }
+            successTitle={"Thanks for getting in touch!"}
+            successMessage={"We'll get back to you A.S.A.P"}
         >
-            <Form
-                fields={fields}
-                onError={handleFormError}
-                onSuccess={handleFormSuccess}
-                loading={formLoading}
-                error={formError}
-                success={formSuccess}
-                errorTitle={"Oops, something went wrong"}
-                errorMessage={
-                    "Are you connected to the internet? Please try again."
-                }
-                successTitle={"Thanks for getting in touch!"}
-                successMessage={"We'll get back to you A.S.A.P"}
-            >
-                <FormRow>
-                    <TextInput
-                        name="firstName"
-                        placeholder="First name"
-                        label="First name"
-                        {...fields.firstName}
-                        className={classes.inputBox}
-                    />
-                    <TextInput
-                        name="lastName"
-                        placeholder="Last name"
-                        label="Last name"
-                        {...fields.lastName}
-                    />
-                </FormRow>
-                <FormRow>
-                    <TextInput
-                        name="email"
-                        placeholder="Email"
-                        label="Email"
-                        {...fields.email}
-                    />
-                    <TextInput
-                        name="company"
-                        placeholder="Company"
-                        label="Company"
-                        {...fields.company}
-                    />
-                </FormRow>
-                <FormRow>
-                    <TextArea
-                        name="message"
-                        label="Message"
-                        placeholder="Type your message..."
-                        {...fields.message}
-                    />
-                </FormRow>
-                <FormRow>
-                    <SubmitButton text="Send" />
-                </FormRow>
-            </Form>
-        </BlockSection>
+            <FormRow>
+                <TextInput
+                    name="firstName"
+                    placeholder="First name"
+                    label="First name"
+                    {...fields.firstName}
+                    className={classes.inputBox}
+                />
+                <TextInput
+                    name="lastName"
+                    placeholder="Last name"
+                    label="Last name"
+                    {...fields.lastName}
+                />
+            </FormRow>
+            <FormRow>
+                <TextInput
+                    name="email"
+                    placeholder="Email"
+                    label="Email"
+                    {...fields.email}
+                />
+                <TextInput
+                    name="company"
+                    placeholder="Company"
+                    label="Company"
+                    {...fields.company}
+                />
+            </FormRow>
+            <FormRow>
+                <TextArea
+                    name="message"
+                    label="Message"
+                    placeholder="Type your message..."
+                    {...fields.message}
+                />
+            </FormRow>
+            <FormRow>
+                <SubmitButton text="Send" />
+            </FormRow>
+        </Form>
     );
 };
 

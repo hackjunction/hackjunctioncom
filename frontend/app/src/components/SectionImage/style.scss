@@ -4,7 +4,7 @@
     align-self: stretch;
     margin-left: -$padding-page;
     margin-right: -$padding-page;
-    height: 512px;
+    height: 32em;
     position: relative;
     z-index: 5;
     overflow: hidden;
@@ -18,11 +18,11 @@
     border-bottom: 3px solid $junction-black;
 
     @include bp-med {
-        height: 512px;
+        height: 32em;
     }
 
     @include bp-full {
-        height: 512px;
+        height: 32em;
     }
 
     &--img {

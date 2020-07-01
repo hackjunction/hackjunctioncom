@@ -39,14 +39,13 @@
     background-color: $junction-black;
     position: fixed;
     left: calc(15% - 30px);
-    top: 10%;
+    margin: 10% 0;
     z-index: 3;
-    transition: all 0.5s ease-in-out;
     display: none;
-    min-height: 80%;
     height: auto;
+    min-height: 50%;
     border-style: solid;
-    border-color: white;
+    border-color: black;
     border-width: thin;
     flex-direction: row;
     @include bp-med {
@@ -58,19 +57,111 @@
 
     &--exit {
         height: 100%;
-        margin: 15px;
-        &:hover {
-            cursor: pointer;
-        }
+        margin: 10px 0 0 2px;
     }
 
     &-open {
-        transition: all 0.2s ease;
         min-width: 15%;
         width: 25em;
         max-width: 25%;
         max-width: $bp-small;
-        transition: all 0.5s ease-in-out;
+        transition: border-color 0.5s linear;
+    }
+
+    .top,
+    .bottom,
+    .left,
+    .right {
+        position: absolute;
+        -webkit-animation: 5s linear slidein forwards;
+        animation: 5s linear slidein forwards;
+    }
+    .top {
+        top: -3px;
+        left: -3px;
+        height: 3px;
+        -webkit-animation-name: top;
+        animation-name: top;
+    }
+    @keyframes top {
+        0% {
+            width: 0;
+            background: $junction-white;
+        }
+        25% {
+            width: calc(101%);
+            background: $junction-white;
+        }
+        100% {
+            width: calc(101%);
+            background: $junction-white;
+        }
+    }
+
+    .right {
+        top: -3px;
+        right: -3px;
+        width: 3px;
+        -webkit-animation-name: right;
+        animation-name: right;
+    }
+    @keyframes right {
+        25% {
+            height: 0;
+            background: $junction-white;
+        }
+        50% {
+            height: calc(100% + 3px);
+            background: $junction-white;
+        }
+        100% {
+            top: auto;
+            bottom: 0px;
+            height: calc(100% + 3px);
+            background: $junction-white;
+        }
+    }
+
+    .bottom {
+        bottom: -3px;
+        right: -3px;
+        height: 3px;
+        -webkit-animation-name: bottom;
+        animation-name: bottom;
+    }
+    @keyframes bottom {
+        50% {
+            width: 0;
+            background: $junction-white;
+        }
+        75% {
+            right: -3px;
+            width: calc(101%);
+            background: $junction-white;
+        }
+        100% {
+            right: -3px;
+            width: calc(101%);
+            background: $junction-white;
+        }
+    }
+
+    .left {
+        bottom: -3px;
+        left: -3px;
+        width: 3px;
+        -webkit-animation-name: left;
+        animation-name: left;
+    }
+    @keyframes left {
+        75% {
+            height: 0;
+            background: $junction-white;
+        }
+        100% {
+            height: calc(100.5%);
+            background: $junction-white;
+        }
     }
 
     &--inner {
@@ -101,4 +192,101 @@
             }
         }
     }
+}
+
+/* some nice CSS from https://github.com/jonsuh/hamburgers */
+
+.hamburger {
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+
+    overflow: visible;
+    &:focus {
+        outline: none;
+    }
+}
+.hamburger:hover {
+    opacity: 0.7;
+}
+.hamburger.is-active:hover {
+    opacity: 0.7;
+}
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+    background-color: $junction-white;
+}
+
+.hamburger-box {
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+}
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    width: 40px;
+    height: 4px;
+    background-color: $junction-white;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: "";
+    display: block;
+}
+.hamburger-inner::before {
+    top: -10px;
+}
+.hamburger-inner::after {
+    bottom: -10px;
+}
+
+.hamburger--spin .hamburger-inner {
+    transition-duration: 0.22s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.hamburger--spin .hamburger-inner::before {
+    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+.hamburger--spin .hamburger-inner::after {
+    transition: bottom 0.1s 0.25s ease-in,
+        transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin.is-active .hamburger-inner {
+    transform: rotate(225deg);
+    transition-delay: 0.12s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.hamburger--spin.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+.hamburger--spin.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+    transition: bottom 0.1s ease-out,
+        transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
 }

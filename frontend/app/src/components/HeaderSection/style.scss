@@ -2,21 +2,16 @@
 
 .HeaderSection {
     margin: 0% auto 10% auto;
-    width: 75%;
+    width: 100%;
     z-index: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     &--title {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @extend %font-title;
         width: 100%;
         text-align: center;
-        font-size: 40px;
         padding: $padding-double;
 
         -webkit-animation: fadein-left 0.5s; /* Safari, Chrome and Opera > 12.1 */
@@ -32,10 +27,10 @@
     }
 
     &--body {
-        flex: 2;
-        flex-direction: column;
-        justify-content: flex-start;
-        width: 100%;
+        @extend %font-title;
+        font-size: 18x;
+        width: 80%;
+        margin: 5%;
         text-align: center;
         display: none;
 
@@ -46,7 +41,7 @@
         animation: fadein-bottom 0.8s;
 
         @include bp-full {
-            display: flex;
+            display: block;
         }
     }
 }

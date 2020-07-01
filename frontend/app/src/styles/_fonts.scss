@@ -1,12 +1,13 @@
-@import 'sizes';
-@import 'colors';
+@import "sizes";
+@import "colors";
 
-$montserrat: 'Montserrat', sans-serif;
-$lato: 'Lato', sans-serif;
+$montserrat: "Montserrat", sans-serif;
+$lato: "Lato", sans-serif;
 
 %font-title {
     font-family: $montserrat;
     color: $text-primary;
+    font-weight: 600;
 }
 
 %font-body {

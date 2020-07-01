@@ -12,11 +12,11 @@ const TrackItem = ({ item }) => {
         "wordmark_U",
         "wordmark_N",
         "wordmark_C",
+        "emblem_black",
         "wordmark_T",
         "wordmark_I",
         "wordmark_O",
         "wordmark_N",
-        "emblem_black",
     ];
     if (open) {
         return (
@@ -29,12 +29,16 @@ const TrackItem = ({ item }) => {
     }
     return (
         <div className="TrackItem" onClick={() => toggleOpen(!open)}>
-            <div className="TrackItem--number">{key + 1}</div>
-            <div>
+            <div className="TrackItem--text">
                 <span className="TrackItem--title">{title}</span>
-                <Markdown className="TrackItem--description" source={desc} />
+                <p className="TrackItem--description">{desc}</p>
             </div>
-            <img src={logos} />
+            <div className="TrackItem--logowpr">
+                {logos &&
+                    logos.map((logo) => (
+                        <img className="TrackItem--logo" src={logo} />
+                    ))}
+            </div>
         </div>
     );
 };
