@@ -39,12 +39,11 @@
     background-color: $junction-black;
     position: fixed;
     left: calc(15% - 30px);
-    top: 10%;
+    margin: 10% 0;
     z-index: 3;
-    transition: all 0.5s ease-in-out;
     display: none;
-    min-height: 80%;
     height: auto;
+    min-height: 50%;
     border-style: solid;
     border-color: black;
     border-width: thin;
@@ -66,7 +65,7 @@
         width: 25em;
         max-width: 25%;
         max-width: $bp-small;
-        transition: border-color 0.3s ease-in-out;
+        transition: border-color 0.5s linear;
     }
 
     .top,
