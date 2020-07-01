@@ -5,7 +5,7 @@ import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
 import SectionImage from "../../../components/SectionImage";
-import { Grid, Container } from "@material-ui/core";
+import { Grid, Container, Typography } from "@material-ui/core";
 import CenteredBlock from "../../../components/CenteredBlock";
 import EventCalendar from "../../../components/EventCalendar";
 
@@ -63,6 +63,28 @@ class Challenges extends PureComponent {
                 >
                     Timeline
                 </SectionImage>
+                <Container className="Timeline--outer">
+                    <Grid
+                        container
+                        justify="center"
+                        alignItems="center"
+                        className="EventInfo--Timeline--outer"
+                    >
+                        <Grid item className="EventInfo--Timeline--outer--left">
+                            <img
+                                src={require("../../../assets/images/connected-chain.png")}
+                            />
+                        </Grid>
+
+                        <Grid
+                            item
+                            className="EventInfo--Timeline--outer--right"
+                        >
+                            {/* <span className="EventInfo--circle"></span> */}
+                            Testing
+                        </Grid>
+                    </Grid>
+                </Container>
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
@@ -116,6 +138,24 @@ class Challenges extends PureComponent {
                         <QuestionCard number="3" text="WHAT is a hackathon" />
 
                         <QuestionCard number="4" text="WHAT is a hackathon" />
+                    </Grid>
+                    <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                        spacing={3}
+                    >
+                        <Typography>
+                            Didn’t find what you were looking for? Our team is
+                            happy to help you with anything and everything, just
+                            shoot us a message!
+                        </Typography>
+                        <SmallButton
+                            className="Connected-button"
+                            to
+                            text="CONTACT US FOR MORE INFORMATION"
+                        />
                     </Grid>
                 </Container>
                 <SectionImage
