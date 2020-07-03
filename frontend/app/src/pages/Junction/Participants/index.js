@@ -1,29 +1,26 @@
-import React, { PureComponent } from 'react';
-import './style.scss';
+import React, { PureComponent } from "react";
+import "./style.scss";
 
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import KEYS from '../../redux/staticcontent/keys';
-import MEDIA_KEYS from '../../redux/staticmedia/keys';
+import KEYS from "../../../redux/staticcontent/keys";
+import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import HeaderImage from '../../components/HeaderImage';
-import BasicHeader from '../../components/HeaderImage/BasicHeader';
-import BlockSection from '../../components/BlockSection';
-import ImageBlockSection from '../../components/ImageBlockSection';
-import Divider from '../../components/Divider';
-import Markdown from '../../components/Markdown';
-import EventCalendar from '../../components/EventCalendar';
-import NewsLetterForm from '../../components/NewsLetterForm';
+import HeaderImage from "../../../components/HeaderImage";
+import BasicHeader from "../../../components/HeaderImage/BasicHeader";
+import BlockSection from "../../../components/BlockSection";
+import ImageBlockSection from "../../../components/ImageBlockSection";
+import Divider from "../../../components/Divider";
+import Markdown from "../../../components/Markdown";
+import EventCalendar from "../../../components/EventCalendar";
+import NewsLetterForm from "../../../components/NewsLetterForm";
 
-import Page from '../PageHOC';
+import Page from "../../PageHOC";
 
-import {
-    participantTestimonials,
-} from '../../redux/testimonials/selectors';
+import { participantTestimonials } from "../../../redux/testimonials/selectors";
 
 class ParticipantsPage extends PureComponent {
     render() {
-
         const { testimonials } = this.props;
         const testimonial = testimonials.length > 0 ? testimonials[0] : null;
 
@@ -38,9 +35,15 @@ class ParticipantsPage extends PureComponent {
                     imageKey={MEDIA_KEYS.participantPageHeaderImage}
                     alt="Header image"
                 >
-                    <BasicHeader titleKey={KEYS.participantsPageTitle} bodyKey={KEYS.participantsPageSubtitle} />
+                    <BasicHeader
+                        titleKey={KEYS.participantsPageTitle}
+                        bodyKey={KEYS.participantsPageSubtitle}
+                    />
                 </HeaderImage>
-                <BlockSection titleKey={KEYS.getHiredTitle} subtitleKey={KEYS.getHiredSubtitle}>
+                <BlockSection
+                    titleKey={KEYS.getHiredTitle}
+                    subtitleKey={KEYS.getHiredSubtitle}
+                >
                     <Markdown sourceKey={KEYS.getHiredBody} />
                 </BlockSection>
                 <Divider lg />
@@ -62,14 +65,12 @@ class ParticipantsPage extends PureComponent {
                 <NewsLetterForm />
                 <Divider lg />
             </Page>
-        )
+        );
     }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     testimonials: participantTestimonials(state),
 });
 
-export default connect(
-    mapStateToProps
-)(ParticipantsPage);
+export default connect(mapStateToProps)(ParticipantsPage);

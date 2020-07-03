@@ -1,14 +1,14 @@
 import React, { PureComponent, Suspense } from "react";
 import "./style.scss";
 
-import KEYS from "../../redux/staticcontent/keys";
-import MEDIA_KEYS from "../../redux/staticmedia/keys";
+import KEYS from "../../../redux/staticcontent/keys";
+import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import SectionImage from "../../components/SectionImage";
+import SectionImage from "../../../components/SectionImage";
 import { Grid, Typography, Link } from "@material-ui/core";
-import CenteredBlock from "../../components/CenteredBlock";
-import Divider from "../../components/Divider";
-import Page from "../PageHOC";
+import CenteredBlock from "../../../components/CenteredBlock";
+import Divider from "../../../components/Divider";
+import Page from "../../PageHOC";
 import TrendingFlatIcon from "@material-ui/icons/TrendingFlat";
 
 const BOTTOM_LINKS = [
@@ -58,7 +58,7 @@ class AboutPage extends PureComponent {
                             >
                             <Typography className="topic">Our Story</Typography>
                             <img
-                                src={require("../../assets/icons/story_arrow.png")}
+                                src={require("../../../assets/icons/story_arrow.png")}
                             />
                         </Grid>
                         <Grid sm={6} md={7}>
@@ -67,7 +67,7 @@ class AboutPage extends PureComponent {
                                 alt="Header image"
                             ></SectionImage> */}
                             <img
-                                src={require("../../assets/images/about-our-story.png")}
+                                src={require("../../../assets/images/about-our-story.png")}
                                 width="100%"
                                 height="100%"
                             />
@@ -89,7 +89,7 @@ class AboutPage extends PureComponent {
                             ></SectionImage>
                              */}
                             <img
-                                src={require("../../assets/images/about-contact-us.png")}
+                                src={require("../../../assets/images/about-contact-us.png")}
                                 width="100%"
                                 height="100%"
                             />
@@ -100,7 +100,7 @@ class AboutPage extends PureComponent {
                             </Typography>
 
                             <img
-                                src={require("../../assets/icons/story_arrow.png")}
+                                src={require("../../../assets/icons/story_arrow.png")}
                             />
                         </Grid>
                     </Grid>
@@ -115,7 +115,7 @@ class AboutPage extends PureComponent {
                         <Grid md={5}>
                             <Typography className="topic">Blog</Typography>
                             <img
-                                src={require("../../assets/icons/story_arrow.png")}
+                                src={require("../../../assets/icons/story_arrow.png")}
                             />
                         </Grid>
 
@@ -125,7 +125,7 @@ class AboutPage extends PureComponent {
                                 alt="Header image"
                             ></SectionImage> */}
                             <img
-                                src={require("../../assets/images/about-blog.png")}
+                                src={require("../../../assets/images/about-blog.png")}
                                 width="100%"
                                 height="100%"
                             />

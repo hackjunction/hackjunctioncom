@@ -1,25 +1,23 @@
-import React, { PureComponent } from 'react';
-import './style.scss';
+import React, { PureComponent } from "react";
+import "./style.scss";
 
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import KEYS from '../../redux/staticcontent/keys';
-import MEDIA_KEYS from '../../redux/staticmedia/keys';
+import KEYS from "../../../redux/staticcontent/keys";
+import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import HeaderImage from '../../components/HeaderImage';
-import BasicHeader from '../../components/HeaderImage/BasicHeader';
-import BlockSection from '../../components/BlockSection';
-import ImageBlockSection from '../../components/ImageBlockSection';
-import Divider from '../../components/Divider';
-import Markdown from '../../components/Markdown';
-import NewsLetterForm from '../../components/NewsLetterForm';
-import CenteredBlock from '../../components/CenteredBlock';
+import HeaderImage from "../../../components/HeaderImage";
+import BasicHeader from "../../../components/HeaderImage/BasicHeader";
+import BlockSection from "../../../components/BlockSection";
+import ImageBlockSection from "../../../components/ImageBlockSection";
+import Divider from "../../../components/Divider";
+import Markdown from "../../../components/Markdown";
+import NewsLetterForm from "../../../components/NewsLetterForm";
+import CenteredBlock from "../../../components/CenteredBlock";
 
-import Page from '../PageHOC';
+import Page from "../../PageHOC";
 
-import {
-    volunteerTestimonials,
-} from '../../redux/testimonials/selectors';
+import { volunteerTestimonials } from "../../../redux/testimonials/selectors";
 
 class VolunteersPage extends PureComponent {
     render() {
@@ -37,7 +35,10 @@ class VolunteersPage extends PureComponent {
                     imageKey={MEDIA_KEYS.volunteerPageHeaderImage}
                     alt="Header image"
                 >
-                    <BasicHeader titleKey={KEYS.volunteersPageTitle} bodyKey={KEYS.volunteersPageSubtitle} />
+                    <BasicHeader
+                        titleKey={KEYS.volunteersPageTitle}
+                        bodyKey={KEYS.volunteersPageSubtitle}
+                    />
                 </HeaderImage>
                 {testimonial ? (
                     <React.Fragment>
@@ -52,7 +53,10 @@ class VolunteersPage extends PureComponent {
                         <Divider lg />
                     </React.Fragment>
                 ) : null}
-                <BlockSection titleKey={KEYS.volunteeringTitle} subtitleKey={KEYS.volunteeringSubtitle}>
+                <BlockSection
+                    titleKey={KEYS.volunteeringTitle}
+                    subtitleKey={KEYS.volunteeringSubtitle}
+                >
                     <Markdown sourceKey={KEYS.volunteeringBody} />
                 </BlockSection>
                 <Divider lg />
@@ -63,14 +67,12 @@ class VolunteersPage extends PureComponent {
                 <NewsLetterForm />
                 <Divider lg />
             </Page>
-        )
+        );
     }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     testimonials: volunteerTestimonials(state),
 });
 
-export default connect(
-    mapStateToProps
-)(VolunteersPage);
+export default connect(mapStateToProps)(VolunteersPage);

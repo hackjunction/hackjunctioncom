@@ -1,13 +1,12 @@
-import * as ActionTypes from './actionTypes';
+import * as ActionTypes from "./actionTypes";
 
-export const toggleSidebar = open => ({
+//TODO figure if required
+export const toggleSidebar = (open) => ({
     type: ActionTypes.TOGGLE_SIDEBAR,
-    payload: open
+    payload: open,
 });
 
-
-export const setNavTitle = title => ({
+export const setNavTitle = (title) => ({
     type: ActionTypes.SET_NAV_TITLE,
-    payload: title
+    payload: title,
 });
-

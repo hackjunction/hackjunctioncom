@@ -1,24 +1,24 @@
 import React, { PureComponent, Suspense } from "react";
 import "./style.scss";
 
-import KEYS from "../../redux/staticcontent/keys";
-import MEDIA_KEYS from "../../redux/staticmedia/keys";
+import KEYS from "../../../redux/staticcontent/keys";
+import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import Divider from "../../components/Divider";
+import Divider from "../../../components/Divider";
 
-import SectionImage from "../../components/SectionImage";
-import Planet from "../../components/Planet";
+import SectionImage from "../../../components/SectionImage";
+import Planet from "../../../components/Planet";
 import { Grid } from "@material-ui/core";
-import CenteredBlock from "../../components/CenteredBlock";
-import EventCalendar from "../../components/EventCalendar";
+import CenteredBlock from "../../../components/CenteredBlock";
+import EventCalendar from "../../../components/EventCalendar";
 import { spacing } from "@material-ui/system";
 
-import Page from "../PageHOC";
-import LinkButton from "../../components/LinkButton/index";
-import SmallButton from "../../components/SmallButton";
-import HeaderSection from "../../components/HeaderSection";
+import Page from "../../PageHOC";
+import LinkButton from "../../../components/LinkButton/index";
+import SmallButton from "../../../components/SmallButton";
+import HeaderSection from "../../../components/HeaderSection";
 
-const EventsMap = React.lazy(() => import("../../components/EventsMap"));
+const EventsMap = React.lazy(() => import("../../../components/EventsMap"));
 
 const BOTTOM_LINKS = [
     {
@@ -53,7 +53,7 @@ class HomePage extends PureComponent {
                 <HeaderSection
                     body=" We organize epic hackathons and other tech events -
                         around the world, around the year."
-                    logo={require("../../assets/logos/text_black.png")}
+                    logo={require("../../../assets/logos/text_black.png")}
                 >
                     <SmallButton className="Default-button" text="Read More" />
                     <Divider sm />

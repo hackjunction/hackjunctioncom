@@ -1,14 +1,14 @@
 import React, { PureComponent, Suspense } from "react";
 import "./style.scss";
 
-import KEYS from "../../redux/staticcontent/keys";
-import MEDIA_KEYS from "../../redux/staticmedia/keys";
+import KEYS from "../../../redux/staticcontent/keys";
+import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import SectionImage from "../../components/SectionImage";
+import SectionImage from "../../../components/SectionImage";
 import { Grid, Typography, Box } from "@material-ui/core";
-import CenteredBlock from "../../components/CenteredBlock";
-import Divider from "../../components/Divider";
-import Page from "../PageHOC";
+import CenteredBlock from "../../../components/CenteredBlock";
+import Divider from "../../../components/Divider";
+import Page from "../../PageHOC";
 import TrendingFlatIcon from "@material-ui/icons/TrendingFlat";
 
 const BOTTOM_LINKS = [

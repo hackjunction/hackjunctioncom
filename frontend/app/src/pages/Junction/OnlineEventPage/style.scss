@@ -1,4 +1,4 @@
-@import '../../styles/main';
+@import "../../../styles/main";
 
 .OnlineEvent--link {
     padding: $padding-double;
@@ -37,11 +37,21 @@
     margin-bottom: 30px;
     border-radius: 15px;
     background: rgba(#4bcccc, 0.27);
-    background: linear-gradient(145deg, rgba(#4bcccc, 0.35) 0%, rgba(#03061e, 0.42) 80%, rgba(#03061e, 0.42) 100%);
+    background: linear-gradient(
+        145deg,
+        rgba(#4bcccc, 0.35) 0%,
+        rgba(#03061e, 0.42) 80%,
+        rgba(#03061e, 0.42) 100%
+    );
 
     &:hover {
         background: rgba(#4bcccc, 0.32);
-        background: linear-gradient(145deg, rgba(#4bcccc, 0.35) 0%, rgba(#03061e, 0.42) 100%, rgba(#03061e, 0.42) 100%);
+        background: linear-gradient(
+            145deg,
+            rgba(#4bcccc, 0.35) 0%,
+            rgba(#03061e, 0.42) 100%,
+            rgba(#03061e, 0.42) 100%
+        );
     }
 
     &__name {

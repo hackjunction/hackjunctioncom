@@ -1,27 +1,25 @@
-import React, { PureComponent } from 'react';
-import './style.scss';
+import React, { PureComponent } from "react";
+import "./style.scss";
 
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import HeaderImage from '../../components/HeaderImage';
-import BasicHeader from '../../components/HeaderImage/BasicHeader';
-import BlockSection from '../../components/BlockSection/';
-import ImageBlockSection from '../../components/ImageBlockSection/';
-import SingleColumnSection from '../../components/SingleColumnSection/';
-import BorderedSection from '../../components/BorderedSection/';
-import StatBlocks from '../../components/StatBlocks';
-import Divider from '../../components/Divider';
-import NewsLetterForm from '../../components/NewsLetterForm';
-import Markdown from '../../components/Markdown';
-import CenteredBlock from '../../components/CenteredBlock';
-import Page from '../PageHOC';
+import HeaderImage from "../../../components/HeaderImage";
+import BasicHeader from "../../../components/HeaderImage/BasicHeader";
+import BlockSection from "../../../components/BlockSection/";
+import ImageBlockSection from "../../../components/ImageBlockSection/";
+import SingleColumnSection from "../../../components/SingleColumnSection/";
+import BorderedSection from "../../../components/BorderedSection/";
+import StatBlocks from "../../../components/StatBlocks";
+import Divider from "../../../components/Divider";
+import NewsLetterForm from "../../../components/NewsLetterForm";
+import Markdown from "../../../components/Markdown";
+import CenteredBlock from "../../../components/CenteredBlock";
+import Page from "../../PageHOC";
 
-import MEDIA_KEYS from '../../redux/staticmedia/keys';
-import KEYS from '../../redux/staticcontent/keys';
+import MEDIA_KEYS from "../../../redux/staticmedia/keys";
+import KEYS from "../../../redux/staticcontent/keys";
 
-import {
-    organiserTestimonials,
-} from '../../redux/testimonials/selectors';
+import { organiserTestimonials } from "../../../redux/testimonials/selectors";
 
 class OrganisersPage extends PureComponent {
     render() {
@@ -39,9 +37,15 @@ class OrganisersPage extends PureComponent {
                     imageKey={MEDIA_KEYS.organiserPageHeaderImage}
                     alt="Header image"
                 >
-                    <BasicHeader titleKey={KEYS.organisersPageTitle} bodyKey={KEYS.organisersPageSubtitle} />
+                    <BasicHeader
+                        titleKey={KEYS.organisersPageTitle}
+                        bodyKey={KEYS.organisersPageSubtitle}
+                    />
                 </HeaderImage>
-                <BlockSection titleKey={KEYS.whatIsJunctionXTitle} subtitleKey={KEYS.whatIsJunctionXSubtitle}>
+                <BlockSection
+                    titleKey={KEYS.whatIsJunctionXTitle}
+                    subtitleKey={KEYS.whatIsJunctionXSubtitle}
+                >
                     <Markdown sourceKey={KEYS.whatIsJunctionXBody} />
                     <StatBlocks type="organiser" />
                 </BlockSection>
@@ -96,14 +100,12 @@ class OrganisersPage extends PureComponent {
                 <NewsLetterForm />
                 <Divider lg />
             </Page>
-        )
+        );
     }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     testimonials: organiserTestimonials(state),
 });
 
-export default connect(
-    mapStateToProps
-)(OrganisersPage);
+export default connect(mapStateToProps)(OrganisersPage);

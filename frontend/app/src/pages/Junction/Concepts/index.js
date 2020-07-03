@@ -1,41 +1,45 @@
-import React, { PureComponent, Suspense } from 'react';
-import './style.scss';
+import React, { PureComponent, Suspense } from "react";
+import "./style.scss";
 
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-import HeaderImage from '../../components/HeaderImage';
-import BasicHeader from '../../components/HeaderImage/BasicHeader';
-import BlockSection from '../../components/BlockSection';
-import Divider from '../../components/Divider';
-import NewsLetterForm from '../../components/NewsLetterForm';
-import Markdown from '../../components/Markdown';
-import Page from '../PageHOC';
-import LoadingPage from '../Loading';
+import HeaderImage from "../../../components/HeaderImage";
+import BasicHeader from "../../../components/HeaderImage/BasicHeader";
+import BlockSection from "../../../components/BlockSection";
+import Divider from "../../../components/Divider";
+import NewsLetterForm from "../../../components/NewsLetterForm";
+import Markdown from "../../../components/Markdown";
+import Page from "../../PageHOC";
+import LoadingPage from "../../Loading";
 
-import KEYS from '../../redux/staticcontent/keys';
-import MEDIA_KEYS from '../../redux/staticmedia/keys';
+import KEYS from "../../../redux/staticcontent/keys";
+import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
 import {
     eventconceptsByPriority,
-    eventconceptsLoading
-} from '../../redux/eventconcepts/selectors';
+    eventconceptsLoading,
+} from "../../../redux/eventconcepts/selectors";
 
-const EventsMap = React.lazy(() => import('../../components/EventsMap'));
+const EventsMap = React.lazy(() => import("../../../components/EventsMap"));
 
 class ConceptsPage extends PureComponent {
-
     renderConcepts(eventconcepts) {
         if (!Array.isArray(eventconcepts) || eventconcepts.length === 0) {
             return null;
         }
 
-        return eventconcepts.map(concept => {
+        return eventconcepts.map((concept) => {
             return (
                 <React.Fragment key={concept.slug}>
-                    <BlockSection title={concept.name} subtitle={''}>
+                    <BlockSection title={concept.name} subtitle={""}>
                         <Markdown source={concept.shortdescription} />
-                        <Link className="ConceptsPage--see-more-link" to={`/concepts/${concept.slug}`}>See more</Link>
+                        <Link
+                            className="ConceptsPage--see-more-link"
+                            to={`/concepts/${concept.slug}`}
+                        >
+                            See more
+                        </Link>
                     </BlockSection>
                     <Divider md />
                 </React.Fragment>
@@ -61,7 +65,10 @@ class ConceptsPage extends PureComponent {
                     imageKey={MEDIA_KEYS.conceptsPageHeaderImage}
                     alt="Header image"
                 >
-                    <BasicHeader titleKey={KEYS.conceptsPageTitle} bodyKey={KEYS.conceptsPageSubtitle} />
+                    <BasicHeader
+                        titleKey={KEYS.conceptsPageTitle}
+                        bodyKey={KEYS.conceptsPageSubtitle}
+                    />
                 </HeaderImage>
                 <Divider lg />
                 {this.renderConcepts(eventconcepts)}
@@ -77,9 +84,9 @@ class ConceptsPage extends PureComponent {
     }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     loading: eventconceptsLoading(state),
-    eventconcepts: eventconceptsByPriority(state)
+    eventconcepts: eventconceptsByPriority(state),
 });
 
 export default connect(mapStateToProps)(ConceptsPage);

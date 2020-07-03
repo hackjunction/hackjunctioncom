@@ -1,0 +1,26 @@
+@import "../../../styles/main.scss";
+
+.ConceptsPage {
+    &--see-more-link {
+        border: 1px solid $junction-white;
+        height: 32px;
+        width: 200px;
+        color: $junction-white;
+        border-radius: 7px;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+
+        @include bp-med {
+            margin: 0;
+        }
+
+        &:hover {
+            background: $junction-white;
+            color: $junction-black;
+        }
+    }
+}
