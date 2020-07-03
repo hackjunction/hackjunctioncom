@@ -12,8 +12,6 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import PrivacyBanner from "./components/PrivacyBanner";
 import ScrollToTop from "./components/ScrollToTop";
 import GlobalLifecycle from "./GlobalLifecycle";
@@ -61,16 +59,12 @@ class App extends PureComponent {
         return (
             <main className="App">
                 <div className="App--Main">
-                    <Header />
-                    <div className="App--Content">
+                    <Switch>
                         {/*Connected module */}
-                        <Switch>
-                            <Route path="/connected" component={Connected} />
-                            {/*Junction Base module */}
-                            <Junction />
-                        </Switch>
-                        <Footer />
-                    </div>
+                        <Route path="/connected" component={Connected} />
+                        {/*Junction Base module */}
+                        <Junction />
+                    </Switch>
                 </div>
                 <ScrollToTop />
                 <GlobalLifecycle />
