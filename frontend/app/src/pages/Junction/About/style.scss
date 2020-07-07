@@ -2,21 +2,36 @@
 .AboutPage {
     background-color: $junction-white;
     height: 100%;
+    width: 100%;
 
     .AboutPage--TopContent {
         align-content: center;
         text-align: center;
-        width: 100%;
         height: 50%;
+        width: 100%;
     }
 
-    .AboutPage--logo {
-        margin: 5% 0;
-        align-content: center;
+    .AboutPage--textAndArrowDiv {
+        width: 40%;
+        height: 100%;
+        float: left;
+
+        &--right {
+            width: 40%;
+            height: 100%;
+            float: right;
+        }
     }
 
-    p.HomePage-subtitle {
-        text-align: center;
+    .AboutPage--ImageBlock {
+        width: 60%;
+
+        float: right;
+        &--left {
+            width: 60%;
+
+            float: left;
+        }
     }
 
     .icon {

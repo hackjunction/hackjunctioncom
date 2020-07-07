@@ -5,7 +5,7 @@ import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
 import SectionImage from "../../../components/SectionImage";
-import { Grid, Typography, Link } from "@material-ui/core";
+import { div, Typography, Link } from "@material-ui/core";
 import CenteredBlock from "../../../components/CenteredBlock";
 import Divider from "../../../components/Divider";
 import Page from "../../PageHOC";
@@ -41,97 +41,53 @@ class AboutPage extends PureComponent {
                 metaDescKey={KEYS.AboutPageSubtitle}
                 ogImageKey={MEDIA_KEYS.AboutPageHeaderImage}
             >
-                <CenteredBlock>
-                    <Grid
-                        className="AboutPage--TopContent"
-                        container
-                        justify="center"
-                        alignItems="center"
-                        direction="row"
-                    >
-                        <Grid
-                            sm={6}
-                            md={5}
-                            alignItems="center"
-                            justify="center"
-                        >
-                            >
-                            <Typography className="topic">Our Story</Typography>
-                            <img
-                                src={require("../../../assets/icons/story_arrow.png")}
-                            />
-                        </Grid>
-                        <Grid sm={6} md={7}>
-                            {/* <SectionImage
-                                imageKey={MEDIA_KEYS.AboutPageOurStoryImage}
-                                alt="Header image"
-                            ></SectionImage> */}
-                            <img
-                                src={require("../../../assets/images/about-our-story.png")}
-                                width="100%"
-                                height="100%"
-                            />
-                        </Grid>
-                    </Grid>
-                </CenteredBlock>
-                <CenteredBlock>
-                    <Grid
-                        className="AboutPage--TopContent "
-                        container
-                        justify="center"
-                        alignItems="center"
-                        direction="row"
-                    >
-                        <Grid md={7}>
-                            {/* <SectionImage
-                                imageKey={MEDIA_KEYS.AboutPageContactUsImage}
-                                alt="Header image"
-                            ></SectionImage>
-                             */}
-                            <img
-                                src={require("../../../assets/images/about-contact-us.png")}
-                                width="100%"
-                                height="100%"
-                            />
-                        </Grid>
-                        <Grid md={5}>
-                            <Typography className="topic">
-                                Contact us
-                            </Typography>
+                <div className="AboutPage--TopContent">
+                    <div className="AboutPage--textAndArrowDiv">
+                        <Typography className="topic">Our Story</Typography>
+                        <img
+                            src={require("../../../assets/icons/story_arrow.png")}
+                        />
+                    </div>
+                    <div className="AboutPage--ImageBlock">
+                        <img
+                            src={require("../../../assets/images/about-our-story.png")}
+                            width="100%"
+                            height="100%"
+                        />
+                    </div>
+                </div>
+                <div className="AboutPage--TopContent">
+                    <div className="AboutPage--ImageBlock--left">
+                        <img
+                            src={require("../../../assets/images/about-contact-us.png")}
+                            width="80%"
+                            height="100%"
+                        />
+                    </div>
+                    <div className="AboutPage--textAndArrowDiv--right">
+                        <Typography className="topic">Contact us</Typography>
+                        <img
+                            src={require("../../../assets/icons/story_arrow.png")}
+                        />
+                    </div>
+                </div>
 
-                            <img
-                                src={require("../../../assets/icons/story_arrow.png")}
-                            />
-                        </Grid>
-                    </Grid>
-
-                    <Grid
-                        className="AboutPage--TopContent"
-                        container
-                        justify="center"
-                        alignItems="center"
-                        direction="row"
-                    >
-                        <Grid md={5}>
-                            <Typography className="topic">Blog</Typography>
-                            <img
-                                src={require("../../../assets/icons/story_arrow.png")}
-                            />
-                        </Grid>
-
-                        <Grid md={7}>
-                            {/* <SectionImage
-                                imageKey={MEDIA_KEYS.AboutPageBlogImage}
-                                alt="Header image"
-                            ></SectionImage> */}
-                            <img
-                                src={require("../../../assets/images/about-blog.png")}
-                                width="100%"
-                                height="100%"
-                            />
-                        </Grid>
-                    </Grid>
-                </CenteredBlock>
+                <div className="AboutPage--TopContent">
+                    <div className="AboutPage--textAndArrowDiv">
+                        <Typography className="topic">Test</Typography>
+                        <img
+                            src={require("../../../assets/icons/story_arrow.png")}
+                        />
+                    </div>
+                    <div className="AboutPage--ImageBlock">
+                        <img
+                            src={require("../../../assets/images/about-blog.png")}
+                            width="80%"
+                            height="100%"
+                        />
+                    </div>
+                </div>
+                <div></div>
             </Page>
         );
     }
