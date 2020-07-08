@@ -3,9 +3,12 @@
     background-color: $junction-white;
     height: 100%;
     width: 100%;
+    overflow: hidden;
 
     .AboutPage--TopContent {
-        align-content: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         text-align: center;
         height: 50%;
         width: 100%;
@@ -14,28 +17,10 @@
     .AboutPage--textAndArrowDiv {
         width: 40%;
         height: 100%;
-        float: left;
-
-        &--right {
-            width: 40%;
-            height: 100%;
-            float: right;
-        }
     }
 
     .AboutPage--ImageBlock {
         width: 60%;
-
-        float: right;
-        &--left {
-            width: 60%;
-
-            float: left;
-        }
-    }
-
-    .icon {
-        font-size: 100px;
     }
 
     .topic {
@@ -44,8 +29,6 @@
         font-weight: 600;
         font-size: 60px;
         line-height: 73px;
-        display: flex;
-        justify-content: center;
         text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
     }
 }

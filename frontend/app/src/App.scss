@@ -22,7 +22,7 @@ body {
 }
 
 .App--Main {
-    height: inherit;
+    height: 100%;
     overflow-x: hidden;
     background: $junction-white;
     display: flex;
@@ -35,7 +35,7 @@ body {
 
 .App--Content {
     background: $junction-white;
-    height: inherit;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: stretch;

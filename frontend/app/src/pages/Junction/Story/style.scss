@@ -2,21 +2,33 @@
 .StoryPage {
     background-color: $junction-white;
     height: 100%;
+    width: 100%;
 
     .StoryPage--TopContent {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         align-content: center;
-        text-align: center;
         width: 100%;
         height: 50%;
+        padding: 40px;
 
-        &--Margin {
-            margin: 5px;
+        &--Left {
+            width: 65%;
         }
-    }
 
-    .StoryPage--logo {
-        margin: 5% 0;
-        align-content: center;
+        &--Right {
+            width: 35%;
+
+            &--Box {
+                width: 50%;
+                height: 30%;
+                background: #d1f2ef;
+                border: 1px solid #d1f2ef;
+                border-radius: 58px;
+                text-align: center;
+            }
+        }
     }
 
     p {
@@ -24,16 +36,6 @@
         font-weight: 500;
         font-size: 18px;
         line-height: 22px;
-        display: flex;
-        align-items: center;
-    }
-
-    p.HomePage-subtitle {
-        text-align: center;
-    }
-
-    .icon {
-        font-size: 100px;
     }
 
     .topic {
@@ -50,16 +52,8 @@
             font-weight: bold;
             font-size: 30px;
             line-height: 37px;
-            display: flex;
+
             text-align: left;
         }
-    }
-
-    &--box  {
-        background: #d1f2ef;
-        border: 1px solid;
-        width: 267px;
-        height: 124px;
-        border-radius: 58px;
     }
 }

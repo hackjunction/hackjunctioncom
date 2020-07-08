@@ -1,15 +1,10 @@
-import React, { PureComponent, Suspense } from "react";
+import React, { PureComponent } from "react";
 import "./style.scss";
 
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import SectionImage from "../../../components/SectionImage";
-import { div, Typography, Link } from "@material-ui/core";
-import CenteredBlock from "../../../components/CenteredBlock";
-import Divider from "../../../components/Divider";
 import Page from "../../PageHOC";
-import TrendingFlatIcon from "@material-ui/icons/TrendingFlat";
 
 const BOTTOM_LINKS = [
     {
@@ -41,53 +36,58 @@ class AboutPage extends PureComponent {
                 metaDescKey={KEYS.AboutPageSubtitle}
                 ogImageKey={MEDIA_KEYS.AboutPageHeaderImage}
             >
-                <div className="AboutPage--TopContent">
-                    <div className="AboutPage--textAndArrowDiv">
-                        <Typography className="topic">Our Story</Typography>
-                        <img
-                            src={require("../../../assets/icons/story_arrow.png")}
-                        />
-                    </div>
-                    <div className="AboutPage--ImageBlock">
-                        <img
-                            src={require("../../../assets/images/about-our-story.png")}
-                            width="100%"
-                            height="100%"
-                        />
-                    </div>
-                </div>
-                <div className="AboutPage--TopContent">
-                    <div className="AboutPage--ImageBlock--left">
-                        <img
-                            src={require("../../../assets/images/about-contact-us.png")}
-                            width="80%"
-                            height="100%"
-                        />
-                    </div>
-                    <div className="AboutPage--textAndArrowDiv--right">
-                        <Typography className="topic">Contact us</Typography>
-                        <img
-                            src={require("../../../assets/icons/story_arrow.png")}
-                        />
-                    </div>
-                </div>
+                <a href="ADDLINKHERE">
+                    <div className="AboutPage--TopContent">
+                        <div className="AboutPage--textAndArrowDiv">
+                            <h1 className="topic">Our story</h1>
+                            <img
+                                src={require("../../../assets/icons/story_arrow.png")}
+                            />
+                        </div>
 
-                <div className="AboutPage--TopContent">
-                    <div className="AboutPage--textAndArrowDiv">
-                        <Typography className="topic">Test</Typography>
-                        <img
-                            src={require("../../../assets/icons/story_arrow.png")}
-                        />
+                        <div className="AboutPage--ImageBlock">
+                            <img
+                                src={require("../../../assets/images/about-our-story.png")}
+                                width="100%"
+                                height="100%"
+                            />
+                        </div>
                     </div>
-                    <div className="AboutPage--ImageBlock">
-                        <img
-                            src={require("../../../assets/images/about-blog.png")}
-                            width="80%"
-                            height="100%"
-                        />
+                </a>
+                <a href="ADDLINKHERE">
+                    <div className="AboutPage--TopContent">
+                        <div className="AboutPage--ImageBlock">
+                            <img
+                                src={require("../../../assets/images/about-contact-us.png")}
+                                width="80%"
+                                height="100%"
+                            />
+                        </div>
+                        <div className="AboutPage--textAndArrowDiv">
+                            <h1 className="topic">Contact us</h1>
+                            <img
+                                src={require("../../../assets/icons/story_arrow.png")}
+                            />
+                        </div>
                     </div>
-                </div>
-                <div></div>
+                </a>
+                <a href="ADDLINKHERE">
+                    <div className="AboutPage--TopContent">
+                        <div className="AboutPage--textAndArrowDiv">
+                            <h1 className="topic">Blog</h1>
+                            <img
+                                src={require("../../../assets/icons/story_arrow.png")}
+                            />
+                        </div>
+                        <div className="AboutPage--ImageBlock">
+                            <img
+                                src={require("../../../assets/images/about-blog.png")}
+                                width="80%"
+                                height="100%"
+                            />
+                        </div>
+                    </div>
+                </a>
             </Page>
         );
     }
