@@ -48,60 +48,70 @@ const ConceptPagesSection = React.memo(({ concepts }) => {
     return <React.Fragment>{conceptLinks}</React.Fragment>;
 });
 
+const NavLink = ({ to, children, key, title = false, toggleSidebar }) => {
+    if (title) {
+        return (
+            <Link to={to} key={key} onClick={() => toggleSidebar(false)}>
+                <h6 className="NavMenu--inner__menu-title">{children}</h6>
+            </Link>
+        );
+    }
+    return (
+        <Link
+            className="NavMenu--inner__menu-item"
+            to={to}
+            key={key}
+            onClick={() => toggleSidebar(false)}
+        >
+            {children}
+        </Link>
+    );
+};
+
 export const NavMenuInner = React.memo(
     ({ eventConcepts, homePages, eventPages, communityPages }) => {
         return (
             <div className="NavMenu--inner">
                 <nav className="NavMenu--inner__menu">
-                    <Link to="/">
-                        <h6 className="NavMenu--inner__menu-title">About us</h6>
-                    </Link>
-                    <Link className="NavMenu--inner__menu-item" to="/story">
-                        Our story
-                    </Link>
-                    <Link className="NavMenu--inner__menu-item" to="/story">
-                        Contact us
-                    </Link>
+                    <ConnectedNavLink to="/" title>
+                        About us
+                    </ConnectedNavLink>
+                    <ConnectedNavLink to="/story">Our story</ConnectedNavLink>
+                    <ConnectedNavLink to="/story">Contact us</ConnectedNavLink>
 
-                    <h6 className="NavMenu--inner__menu-title">For partners</h6>
-                    <Link className="NavMenu--inner__menu-item" to="/partners">
+                    <ConnectedNavLink title to="/partners">
+                        For partners
+                    </ConnectedNavLink>
+                    <ConnectedNavLink to="/partners">
                         Benefits of a hackathon
-                    </Link>
-                    <Link className="NavMenu--inner__menu-item" to="/partners">
+                    </ConnectedNavLink>
+                    <ConnectedNavLink to="/partners">
                         Our products
-                    </Link>
-                    <Link className="NavMenu--inner__menu-item" to="/partners">
+                    </ConnectedNavLink>
+                    <ConnectedNavLink to="/partners">
                         References
-                    </Link>
-                    <Link className="NavMenu--inner__menu-item" to="/partners">
-                        FAQ
-                    </Link>
+                    </ConnectedNavLink>
+                    <ConnectedNavLink to="/partners">FAQ</ConnectedNavLink>
 
                     <h6 className="NavMenu--inner__menu-title">Events</h6>
-                    <Link
+                    <ConnectedNavLink
                         key={"Connected"}
                         className="NavMenu--inner__menu-item"
                         to={`/connected`}
                     >
                         Connected
-                    </Link>
+                    </ConnectedNavLink>
                     <ConceptPagesSection concepts={eventConcepts} />
                     <ExtraPagesSection pages={eventPages} />
 
-                    <h6 className="NavMenu--inner__menu-title">Community</h6>
+                    <ConnectedNavLink title>Community</ConnectedNavLink>
 
-                    <Link
-                        className="NavMenu--inner__menu-item"
-                        to="/participants"
-                    >
+                    <ConnectedNavLink to="/participants">
                         For participants
-                    </Link>
-                    <Link
-                        className="NavMenu--inner__menu-item"
-                        to="/volunteers"
-                    >
+                    </ConnectedNavLink>
+                    <ConnectedNavLink to="/volunteers">
                         For volunteers
-                    </Link>
+                    </ConnectedNavLink>
                 </nav>
                 <div className="top" />
                 <div className="bottom" />
@@ -162,3 +172,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavMenu);
+
+const ConnectedNavLink = connect(null, mapDispatchToProps)(NavLink);
