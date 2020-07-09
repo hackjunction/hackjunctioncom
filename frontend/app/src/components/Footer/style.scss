@@ -2,9 +2,24 @@
 
 .Footer {
     background: $junction-white;
-    border-top: 4px solid $junction-black;
+    border-top: 0.2em solid $junction-black;
     display: flex;
     flex-direction: column;
+
+    @include bp-med {
+        flex-direction: row;
+    }
+
+    &--divider {
+        background-color: $junction-black;
+        height: 0.2em;
+        width: 100%;
+
+        @include bp-med {
+            height: auto;
+            width: 0.2em;
+        }
+    }
 
     .subscribe-text {
         h2 {
@@ -18,34 +33,24 @@
         margin-right: 40px;
     }
 
-    @include bp-med {
-        flex-direction: row;
-    }
-
-    &--divider {
-        background-color: $junction-black;
-        height: 0.2em;
-        width: 100%;
-
-        @include bp-med {
-            height: 100%;
-            width: 0.4em;
-        }
-    }
-
     &--left {
         display: flex;
         flex-direction: column;
         align-items: center;
-
         justify-content: center;
+        width: 100%;
+
+        @include bp-med {
+            width: calc(50% - 0.2em);
+        }
 
         &--margin {
             margin-top: 55px;
         }
 
         &-first {
-            justify-content: center;
+            margin: auto;
+            margin-top: 0;
         }
 
         &-divider {
@@ -55,7 +60,7 @@
         }
 
         &-second {
-            margin-top: 54px;
+            margin: auto;
 
             &__FooterLinkList {
                 display: flex;

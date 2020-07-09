@@ -117,6 +117,7 @@ class Footer extends PureComponent {
                         </div>
                     </div>
                 </div>
+                <div className="Footer--divider" />
                 <div className="Footer--right">
                     <h2>Contact us</h2>
                     <span>
