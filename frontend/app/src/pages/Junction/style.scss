@@ -4,8 +4,27 @@
 
     .NavMenu {
         background-color: $junction-black;
-        border-style: solid;
-        border-color: black;
+        &--inner {
+            &__menu {
+                &-item {
+                    color: $junction-white;
+                }
+                &-title {
+                    color: $junction-white;
+                }
+            }
+        }
+    }
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        background-color: $junction-white;
+    }
+
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner::before,
+    .hamburger.is-active .hamburger-inner::after {
+        background-color: $junction-white;
     }
 
     .Footer {

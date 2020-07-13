@@ -34,7 +34,6 @@
 
 .NavMenu {
     width: 60px;
-    border-radius: 3px;
     pointer-events: all;
     position: fixed;
     left: calc(15% - 30px);
@@ -171,7 +170,6 @@
 
             &-item {
                 margin-left: 15%;
-                color: $junction-white;
                 text-decoration: none;
                 font-weight: 600;
                 font-size: 20px;
@@ -179,7 +177,6 @@
             }
 
             &-title {
-                color: $junction-white;
                 line-height: 24px;
                 font-weight: bold;
                 margin-top: 30px;
@@ -217,11 +214,6 @@
 .hamburger.is-active:hover {
     opacity: 0.7;
 }
-.hamburger.is-active .hamburger-inner,
-.hamburger.is-active .hamburger-inner::before,
-.hamburger.is-active .hamburger-inner::after {
-    background-color: $junction-white;
-}
 
 .hamburger-box {
     width: 40px;
@@ -240,7 +232,6 @@
 .hamburger-inner::after {
     width: 40px;
     height: 4px;
-    background-color: $junction-white;
     border-radius: 4px;
     position: absolute;
     transition-property: transform;

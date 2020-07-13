@@ -100,8 +100,29 @@
 
     .NavMenu {
         background-color: $connected-blue;
-        border-style: solid;
-        border-color: $connected-orange;
+        color: $connected-peach;
+        &--inner {
+            &__menu {
+                &-item {
+                    color: $connected-peach;
+                }
+                &-title {
+                    color: $connected-peach;
+                }
+            }
+        }
+    }
+
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        background-color: $connected-peach;
+    }
+
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner::before,
+    .hamburger.is-active .hamburger-inner::after {
+        background-color: $connected-peach;
     }
 
     .Footer {
