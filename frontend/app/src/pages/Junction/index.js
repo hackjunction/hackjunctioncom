@@ -17,6 +17,7 @@ import VolunteersPage from "./Volunteers";
 import OrganisersPage from "./Organisers";
 import AboutPage from "./About";
 import StoryPage from "./Story";
+import ContactPage from "./Contact";
 
 import BasicPage from "../BasicPage";
 import NotFoundPage from "../NotFound";
@@ -33,6 +34,7 @@ const Junction = () => {
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/about" component={AboutPage} />
                     <Route exact path="/story" component={StoryPage} />
+                    <Route exact path="/contact" component={ContactPage} />
                     <Route
                         exact
                         path="/participants"
