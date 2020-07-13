@@ -23,6 +23,14 @@ import Page from "../../PageHOC";
 import CenteredBlock from "../../../components/CenteredBlock/index";
 
 import { partnerTestimonials } from "../../../redux/testimonials/selectors";
+import ImgBlock from "../../../components/ImgBlock";
+
+const images = {
+    benefits: require("../../../assets/images/partners/benefits.png"),
+    offer: require("../../../assets/images/partners/offer.png"),
+    faq: require("../../../assets/images/partners/faq.png"),
+    references: require("../../../assets/images/partners/references.png"),
+};
 
 class PartnersPage extends PureComponent {
     constructor(props) {
@@ -51,118 +59,39 @@ class PartnersPage extends PureComponent {
 
         return (
             <Page
-                className="PartnersPage"
+                className="ImgBlock" // This is needed for the css to work correctly with the images
                 pageTitle="For partners"
                 metaDescKey={KEYS.partnersPageSubtitle}
                 ogImageKey={MEDIA_KEYS.partnerPageHeaderImage}
             >
-                <HeaderImage
-                    imageKey={MEDIA_KEYS.partnerPageHeaderImage}
-                    alt="Header image"
-                >
-                    <BasicHeader
-                        titleKey={KEYS.partnersPageTitle}
-                        bodyKey={KEYS.partnersPageSubtitle}
-                    />
-                </HeaderImage>
-                <BlockSection
-                    titleKey={KEYS.partnersPageFirstTitle}
-                    subtitleKey={KEYS.partnersPageFirstSubtitle}
-                >
-                    <Markdown sourceKey={KEYS.partnersPageFirstBody} />
-                    <StatBlocks type="partner" />
-                </BlockSection>
-                <Divider lg />
-                {firstTestimonial ? (
-                    <React.Fragment>
-                        <ImageBlockSection
-                            image={firstTestimonial.image}
-                            imageAlt={firstTestimonial.name}
-                            title={firstTestimonial.name}
-                            subtitle={firstTestimonial.subtitle}
-                        >
-                            <Markdown source={firstTestimonial.quote} />
-                        </ImageBlockSection>
-                        <Divider lg />
-                    </React.Fragment>
-                ) : null}
-                <BlockSection titleKey={KEYS.contactFormTitle}>
-                    <Markdown sourceKey={KEYS.contactFormSubtitle} />
-                    <LinkButton
-                        to="#"
-                        text="Get in touch"
-                        onClick={this.scrollToContact}
-                    />
-                </BlockSection>
-                <Divider lg />
-                <SingleColumnSection titleKey={KEYS.whyPartnerWithUsTitle}>
-                    <BorderedSection
-                        titleKey={KEYS.whyPartnerWithUsFirstTitle}
-                        contentKey={KEYS.whyPartnerWithUsFirstBody}
-                    />
-                    <BorderedSection
-                        titleKey={KEYS.whyPartnerWithUsSecondTitle}
-                        contentKey={KEYS.whyPartnerWithUsSecondBody}
-                    />
-                    <BorderedSection
-                        titleKey={KEYS.whyPartnerWithUsThirdTitle}
-                        contentKey={KEYS.whyPartnerWithUsThirdBody}
-                    />
-                </SingleColumnSection>
-                <Divider lg />
-                <React.Fragment>
-                    <CenteredBlock>
-                        <Markdown sourceKey={KEYS.partnersPageVideo} />
-                    </CenteredBlock>
-                    <Divider lg />
-                </React.Fragment>
-                {secondTestimonial ? (
-                    <React.Fragment>
-                        <ImageBlockSection
-                            image={secondTestimonial.image}
-                            imageAlt={secondTestimonial.name}
-                            title={secondTestimonial.name}
-                            subtitle={secondTestimonial.subtitle}
-                        >
-                            <Markdown source={secondTestimonial.quote} />
-                        </ImageBlockSection>
-                        <Divider lg />
-                    </React.Fragment>
-                ) : null}
-                <BlockSection
-                    titleKey={KEYS.whatMakesUsDifferentTitle}
-                    subtitleKey={KEYS.whatMakesUsDifferentSubtitle}
-                >
-                    <Markdown sourceKey={KEYS.whatMakesUsDifferentBody} />
-                </BlockSection>
-                <Divider lg />
-                <BlockSection
+                <ImgBlock
+                    topic="Innovation through hackathons"
+                    link="ADDLINKHERE"
+                    image={images.benefits}
+                />
+                <ImgBlock
+                    topic="What we offer"
+                    link="ADDLINKHERE"
+                    left
+                    image={images.offer}
+                />
+                <ImgBlock
+                    topic="References"
+                    link="ADDLINKHERE"
+                    image={images.references}
+                />
+                <ImgBlock
+                    topic="FAQ"
+                    link="ADDLINKHERE"
+                    left
+                    image={images.faq}
+                />
+                {/* <BlockSection
                     titleKey={KEYS.previousPartnersTitle}
                     subtitleKey={KEYS.previousPartnersSubtitle}
                 >
                     <PartnerLogoGrid />
-                </BlockSection>
-                <Divider lg />
-                <div ref={(ref) => (this.contactForm = ref)} />
-                <ContactForm />
-                <Divider lg />
-                <BlockSection title="Community support partner">
-                    <p>
-                        Can't partner with us but want to support the community
-                        and see what Junction is all about? We offer a community
-                        support package for companies and individuals. All
-                        proceeds will be used towards building an even better
-                        event for our most important customers: the hackers.
-                        Check out the link below for more information:
-                    </p>
-                    <Divider sm />
-                    <LinkButton
-                        to="https://holvi.com/shop/junction/"
-                        isExternal
-                        text="To the store"
-                    />
-                </BlockSection>
-                <Divider lg />
+                </BlockSection> */}
             </Page>
         );
     }
