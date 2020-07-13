@@ -12,7 +12,7 @@ import { Grid } from "@material-ui/core";
 import CenteredBlock from "../../../components/CenteredBlock";
 import EventCalendar from "../../../components/EventCalendar";
 import BlockSection from "../../../components/BlockSection";
-import Timeline from "../Timeline";
+import Timeline from "../Components/Timeline";
 
 import { spacing } from "@material-ui/system";
 

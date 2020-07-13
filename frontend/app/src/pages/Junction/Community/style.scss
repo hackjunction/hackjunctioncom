@@ -1,0 +1,38 @@
+@import "../../../styles/main";
+.CommunityPage {
+    background-color: $junction-white;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    .CommunityPage--TopContent {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        height: 50%;
+        width: 100%;
+    }
+
+    .CommunityPage--textAndArrowDiv {
+        width: 40%;
+        height: 100%;
+    }
+
+    .CommunityPage--ImageBlock {
+        width: 60%;
+    }
+
+    &--img {
+        width: 100%;
+    }
+
+    .topic {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 60px;
+        line-height: 73px;
+        text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+}

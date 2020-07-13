@@ -153,7 +153,7 @@ export const NavMenuInner = ({ connected }) => {
             </nav>
             <div className="top" />
             <div className="bottom" />
-            {/* <div className="left" /> */}
+            <div className="left" />
             <div className="right" />
         </div>
     );

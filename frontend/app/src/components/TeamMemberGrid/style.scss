@@ -1,119 +1,138 @@
 .TeamMemberGrid {
-	margin: 0 auto;
-	width: 100%;
-	max-width: 980px;	
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
+    margin: 0 auto;
+    width: 100%;
+    // max-width: 980px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 
-	&--title {
-		text-align: center;
-	}
+    &--title {
+        text-align: center;
+    }
 
-	&--items {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
+    &--items {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-	&--item {
-		width: 280px;
-		display: flex;
-		flex-direction: column;
-		align-items: stretch;
-		margin-left: 20px;
-		margin-right: 20px;
-		margin-bottom: 80px;
-		position: relative;
-		overflow: hidden;
+    &--Background {
+        width: 100%;
+        background: #d1f2ef;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-		&__top {
-			position: relative;
-			width: 100%;
-			height: 280px;
-			overflow: hidden;
-			perspective: 1000px;
+    &--item {
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        position: relative;
+        overflow: hidden;
+        background: #d1f2ef;
+        flex-grow: 1;
+        margin-bottom: 60px;
+        &__top {
+            position: relative;
+            width: 100%;
+            height: 430px;
+            overflow: hidden;
+            perspective: 1000px;
+            text-align: center;
 
-			&:hover .TeamMemberGrid--item__flipper {
-				transform: rotateY(180deg);
-			}
+            &:hover .TeamMemberGrid--item__flipper {
+                transform: rotateY(180deg);
+            }
 
-			&:hover .TeamMemberGrid--item__gif {
-				opacity: 1;
-			}
-		}
+            &:hover .TeamMemberGrid--item__gif {
+                opacity: 1;
+            }
+        }
 
-		&__flipper {
-			width: 100%;
-			height: 100%;
-			transition: 0.6s;
-			transform-style: preserve-3d;
-			position: relative;
+        &__flipper {
+            // width: 100%;
+            height: 100%;
+            transition: 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
 
-			&-front,
-			&-back {
-				backface-visibility: hidden;
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-			}
+            &-front,
+            &-back {
+                backface-visibility: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
 
-			&-front {
-				transform: rotateY(0deg);
-			}
+            &-front {
+                transform: rotateY(0deg);
+            }
 
-			&-back {
-				transform: rotateY(180deg);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-		}
+            &-back {
+                transform: rotateY(180deg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
 
-		&__image {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
+        &__image {
+            height: 100%;
+            object-fit: cover;
+        }
 
-		&__gif {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-		}
+        &__gif {
+            // width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
 
-		&__bottom {
+        &__bottom {
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			padding: 10px;
-			position: relative;
-			z-index: 3;
-		}
+            position: relative;
+            background: #fbfbfb;
+            z-index: 3;
+        }
 
-		&__name {
-			margin: 0;
-			font-size: 18px;
-		}
+        &__name {
+            margin: 0;
+            font-size: 18px;
+        }
 
-		&__title {
-			font-size: 16px;
-			line-height: 32px;
-		}
+        &__title {
+            font-size: 16px;
+            line-height: 32px;
+        }
 
-		&__email {
-			font-size: 16px;
-			line-height:16px
-		}
+        &__email {
+            font-size: 16px;
+            line-height: 16px;
+        }
 
-		&:hover {
-			.TeamMemberGrid--item__gif {
-				transform: translateY(0);
-			}
-		}
-	}
+        &:hover {
+            .TeamMemberGrid--item__gif {
+                transform: translateY(0);
+            }
+        }
+    }
+    &--textalign {
+        text-align: center;
+        width: 60%;
+        align-self: center;
+        p {
+            text-align: center;
+            font-size: 12px !important;
+            margin: 0px;
+        }
+    }
 }
