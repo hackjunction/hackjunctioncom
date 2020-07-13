@@ -1,70 +1,70 @@
-@import '../../styles/main';
+@import "../../styles/main";
 
 .FaqGrid {
-	width: 100%;
-	max-width: 980px;
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
-	@include bp-custom(800px) {
-		flex-direction: row;
-		justify-content: space-between;
-		flex-wrap:wrap;
-	}
+    @include bp-custom(800px) {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 }
 
 .FaqGridItem {
-	width: 100%;
-	max-width: 470px;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	background: rgba(#4BCCCC, 0.27);
-	background: linear-gradient(145deg, rgba(#4BCCCC,0.35) 0%, rgba(#03061E,0.42) 100%);
-	margin-bottom: $padding-base;
-	border-radius: 10px;
-	padding: $padding-double;
+    width: 100%;
+    max-width: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-style: solid;
+    border-radius: 0.3em;
+    border-width: 0.2em;
+    border-color: $connected-orange;
+    margin-bottom: $padding-base;
+    padding: $padding-double;
 
-	@include bp-custom(800px) {
-		width: 49%;
-		align-self: flex-start;
-	}
+    @include bp-custom(800px) {
+        width: 49%;
+        align-self: flex-start;
+    }
 
-	&-expanded {
-		.FaqGridItem--answer  {
-			display: initial;
-		}
+    &-expanded {
+        .FaqGridItem--answer {
+            display: initial;
+        }
 
-		.FaqGridItem--question i {
-			transform: rotateZ(90deg);
-		}
-	}
+        .FaqGridItem--question i {
+            transform: rotateZ(90deg);
+        }
+    }
 
-	&--question {
-		@extend %font-title;
-		font-weight: bold;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		font-size: 18px;
+    &--question {
+        @extend %font-title;
+        font-weight: bold;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 18px;
 
-		i {
-			transform: rotateZ(0deg);
-			transition: 0.2s transform ease;
-			color: #BEBEBE;
-			font-size: 2em;
-			width: 30px;
-			height: 30px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+        i {
+            transform: rotateZ(0deg);
+            transition: 0.2s transform ease;
+            color: $connected-orange;
+            font-size: 2em;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-			@media screen and (max-width: 400px) {
-				display: none;
-			}
-		}
-	}
+            @media screen and (max-width: 400px) {
+                display: none;
+            }
+        }
+    }
 }

@@ -33,6 +33,12 @@
         & > span {
             color: $connected-blue;
         }
+
+        &.selected {
+            background-color: $connected-blue;
+            color: $connected-red;
+            border-color: $connected-red;
+        }
     }
     .Connected-blue-button {
         background-color: $connected-blue;
@@ -50,6 +56,13 @@
         margin: 2px;
         & > span {
             color: $connected-teal;
+        }
+        &.selected {
+            background-color: $connected-teal;
+            & > span {
+                color: $connected-blue;
+            }
+            border-color: $connected-teal;
         }
     }
     .Connected-blue-button {

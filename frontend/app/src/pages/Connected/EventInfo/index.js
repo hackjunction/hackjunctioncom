@@ -1,4 +1,4 @@
-import React, { PureComponent, Suspense } from "react";
+import React, { PureComponent, Suspense, forwardRef } from "react";
 import "./style.scss";
 
 import KEYS from "../../../redux/staticcontent/keys";
@@ -12,173 +12,153 @@ import EventCalendar from "../../../components/EventCalendar";
 import Page from "../../PageHOC";
 import SmallButton from "../../../components/SmallButton";
 import HeaderSection from "../../../components/HeaderSection";
-import QuestionGrid from "../../../components/questions/QuestionCard/QuestionCard";
-import QuestionCard from "../../../components/questions/QuestionCard/QuestionCard";
-import Timeline from "../Timeline";
+import SingleColumnSection from "../../../components/SingleColumnSection";
 
-class Challenges extends PureComponent {
-    render() {
-        return (
-            <Page
-                className="Connected"
-                pageTitle="Hack the Future"
-                metaDescKey={KEYS.whoAreWeBody}
-                ogImageKey={MEDIA_KEYS.homePageHeaderImage}
+import Timeline from "../Components/Timeline";
+import FaqSection from "../Components/FaqSection";
+
+const items = [
+    {
+        title: "General",
+        questions: [
+            {
+                question: "asd",
+                answer: "asdasd",
+                key: "1",
+            },
+            { question: "What is a hackathon", answer: "asdasd", key: "2" },
+            { question: "asd", answer: "asdasd", key: "3" },
+            { question: "asd", answer: "asdasd", key: "4" },
+            { question: "asd", answer: "asdasd", key: "2" },
+            { question: "asd", answer: "asdasd", key: "3" },
+            { question: "asd", answer: "asdasd", key: "4" },
+            { question: "asd", answer: "asdasd", key: "2" },
+            { question: "asd", answer: "asdasd", key: "3" },
+            { question: "asd", answer: "asdasd", key: "4" },
+        ],
+    },
+    {
+        title: "Schedule",
+        questions: [
+            {
+                question: "vdfvdfbfg",
+                answer: "asdasd",
+                key: "1",
+            },
+            { question: "öösös", answer: "asdasd", key: "1" },
+            { question: "ösdsfds", answer: "asdasd", key: "1" },
+            { question: "aeergerg", answer: "asdasd", key: "1" },
+        ],
+    },
+    {
+        title: "Partners",
+        questions: [
+            {
+                question: "adasvvdfvdf",
+                answer: "asdasd",
+                key: "1",
+            },
+            { question: "title", answer: "asdasd", key: "1" },
+            { question: "asdsdkfmsld", answer: "asdasd", key: "1" },
+            { question: "bedosfdm", answer: "asdasd", key: "1" },
+        ],
+    },
+];
+
+export default ({}) => {
+    return (
+        <Page
+            className="Connected"
+            pageTitle="Event Info"
+            metaDescKey={KEYS.whoAreWeBody}
+            ogImageKey={MEDIA_KEYS.homePageHeaderImage}
+        >
+            <HeaderSection
+                title="Event information"
+                body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
+            ></HeaderSection>
+            <SectionImage
+                imageKey={MEDIA_KEYS.homePageHeaderImage}
+                alt="Header image"
             >
-                <HeaderSection
-                    title="Event information"
-                    body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
+                General information
+            </SectionImage>
+            Tähän sisältöö
+            <SectionImage
+                imageKey={MEDIA_KEYS.homePageHeaderImage}
+                alt="Header image"
+            >
+                Timeline
+            </SectionImage>
+            <Container className="Timeline--outer">
+                <Grid
+                    container
+                    justify="center"
+                    alignItems="center"
+                    className="EventInfo--Timeline--outer"
                 >
-                    <Grid spacing={6} direction="row">
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="General"
-                        />
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="Schedule"
-                        />
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="FAQ"
-                        />
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="For Partners"
+                    <Grid item xs={6}>
+                        <h1>Important dates & timeline</h1>
+                        <img
+                            src={require("../../../assets/images/visu-chains.svg")}
                         />
                     </Grid>
-                </HeaderSection>
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageHeaderImage}
-                    alt="Header image"
-                >
-                    General information
-                </SectionImage>
-                Tähän sisältöö
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageHeaderImage}
-                    alt="Header image"
-                >
-                    Timeline
-                </SectionImage>
-                <Container className="Timeline--outer">
-                    <Grid
-                        container
-                        justify="center"
-                        alignItems="center"
-                        className="EventInfo--Timeline--outer"
-                    >
-                        <Grid item className="EventInfo--Timeline--outer--left">
-                            <img
-                                src={require("../../../assets/images/connected-chain.png")}
-                            />
-                        </Grid>
-                        <Grid
-                            item
-                            className="EventInfo--Timeline--outer--right"
-                        >
-                            <Timeline date="September 1st">
-                                Application period begins
-                            </Timeline>
-                            <Timeline date="October 6th">
-                                Virtual matchmaking begins
-                            </Timeline>
-                            <Timeline date="September 1st">
-                                Application period begins
-                            </Timeline>
-                            <Timeline date="November 6th to 8th" last>
-                                Junction 2020 Connected
-                            </Timeline>
-                        </Grid>
+                    <Grid item xs={6}>
+                        <Timeline date="September 1st">
+                            Application period begins
+                        </Timeline>
+                        <Timeline date="October 6th">
+                            Virtual matchmaking begins
+                        </Timeline>
+                        <Timeline date="September 1st">
+                            Application period begins
+                        </Timeline>
+                        <Timeline date="September 1st">
+                            Application period begins
+                        </Timeline>
+                        <Timeline date="September 1st">
+                            Application period begins
+                        </Timeline>
+                        <Timeline date="September 1st">
+                            Application period begins
+                        </Timeline>
+                        <Timeline date="November 6th to 8th" last>
+                            Junction 2020 Connected
+                        </Timeline>
                     </Grid>
-                </Container>
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageHeaderImage}
-                    alt="Header image"
-                >
-                    FAQ
-                </SectionImage>
-                <HeaderSection
-                    title="FAQ"
-                    body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
-                >
-                    <Grid
-                        container
-                        direction="row"
-                        justify="center"
-                        alignItems="strech"
-                    >
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="General"
-                        />
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="Schedule"
-                        />
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="About partners"
-                        />
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="Submissions"
-                        />
-                    </Grid>
-                </HeaderSection>
-                <Container>
-                    <Grid
-                        container
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                        spacing={3}
-                    >
-                        <QuestionCard number="1" text="WHAT is a hackathon" />
-
-                        <QuestionCard number="2" text="WHAT is a hackathon" />
-
-                        <QuestionCard number="3" text="WHAT is a hackathon" />
-
-                        <QuestionCard number="4" text="WHAT is a hackathon" />
-                    </Grid>
-                    <Grid
-                        container
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                        spacing={3}
-                    >
-                        <Typography>
-                            Didn’t find what you were looking for? Our team is
-                            happy to help you with anything and everything, just
-                            shoot us a message!
-                        </Typography>
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="CONTACT US FOR MORE INFORMATION"
-                        />
-                    </Grid>
-                </Container>
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageHeaderImage}
-                    alt="Header image"
-                >
-                    For Partners
-                </SectionImage>
-                Tähän sisältöö
-            </Page>
-        );
-    }
-}
-
-export default Challenges;
+                </Grid>
+            </Container>
+            <SectionImage
+                imageKey={MEDIA_KEYS.homePageHeaderImage}
+                alt="Header image"
+            >
+                FAQ
+            </SectionImage>
+            <SingleColumnSection
+                title="FAQ"
+                subtitle="Our expertise of organising hackathons combined with the
+                    power of a highly-customizable platform for events makes
+                    hosting diverse events possible."
+            >
+                <FaqSection items={items} />
+                <span>
+                    Didn’t find what you were looking for? Our team is happy to
+                    help you with anything and everything, just shoot us a
+                    message!
+                </span>
+                <SmallButton
+                    className="Connected-button"
+                    to
+                    text="CONTACT US"
+                />
+            </SingleColumnSection>
+            <SectionImage
+                imageKey={MEDIA_KEYS.homePageHeaderImage}
+                alt="Header image"
+            >
+                For Partners
+            </SectionImage>
+            <SingleColumnSection>Tähän sisältöö</SingleColumnSection>
+        </Page>
+    );
+};

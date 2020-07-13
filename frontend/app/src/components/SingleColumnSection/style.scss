@@ -1,9 +1,10 @@
-@import '../../styles/main';
+@import "../../styles/main";
 
 .SingleColumnSection {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 5%;
 
     &--title {
         width: 100%;
@@ -20,6 +21,8 @@
         flex-direction: column;
 
         &-center {
+            text-align: center;
+            justify-content: center;
             align-items: center;
         }
     }
