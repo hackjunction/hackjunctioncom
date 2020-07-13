@@ -97,4 +97,33 @@
         vertical-align: middle;
         padding: 20px;
     }
+
+    .NavMenu {
+        background-color: $connected-blue;
+        border-style: solid;
+        border-color: $connected-orange;
+    }
+
+    .Footer {
+        background: $connected-peach;
+        border-top: 4px solid $junction-black;
+
+        &--divider {
+            background-color: $junction-black;
+        }
+        &--left {
+            &-divider {
+                background-color: $junction-black;
+            }
+            &-second {
+                &__FooterLinkList {
+                    span {
+                        a {
+                            color: $junction-black;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

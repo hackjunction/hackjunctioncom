@@ -36,7 +36,6 @@
     width: 60px;
     border-radius: 3px;
     pointer-events: all;
-    background-color: $junction-black;
     position: fixed;
     left: calc(15% - 30px);
     margin: 10% 0;
@@ -44,8 +43,6 @@
     display: none;
     height: auto;
     min-height: 50%;
-    border-style: solid;
-    border-color: black;
     border-width: thin;
     flex-direction: row;
     @include bp-med {
