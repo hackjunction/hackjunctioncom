@@ -90,44 +90,37 @@ export default ({}) => {
             >
                 Timeline
             </SectionImage>
-            <Container className="Timeline--outer">
-                <Grid
-                    container
-                    justify="center"
-                    alignItems="center"
-                    className="EventInfo--Timeline--outer"
-                >
-                    <Grid item xs={6}>
-                        <h1>Important dates & timeline</h1>
-                        <img
-                            src={require("../../../assets/images/visu-chains.svg")}
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Timeline date="September 1st">
-                            Application period begins
-                        </Timeline>
-                        <Timeline date="October 6th">
-                            Virtual matchmaking begins
-                        </Timeline>
-                        <Timeline date="September 1st">
-                            Application period begins
-                        </Timeline>
-                        <Timeline date="September 1st">
-                            Application period begins
-                        </Timeline>
-                        <Timeline date="September 1st">
-                            Application period begins
-                        </Timeline>
-                        <Timeline date="September 1st">
-                            Application period begins
-                        </Timeline>
-                        <Timeline date="November 6th to 8th" last>
-                            Junction 2020 Connected
-                        </Timeline>
-                    </Grid>
-                </Grid>
-            </Container>
+            <div className="TimelineSection">
+                <div className="TimelineSection--left">
+                    <h1>Important dates & timeline</h1>
+                    <img
+                        src={require("../../../assets/images/visu-chains.svg")}
+                    />
+                </div>
+                <div className="TimelineSection--right">
+                    <Timeline date="September 1st">
+                        Application period begins
+                    </Timeline>
+                    <Timeline date="October 6th">
+                        Virtual matchmaking begins
+                    </Timeline>
+                    <Timeline date="September 1st">
+                        Application period begins
+                    </Timeline>
+                    <Timeline date="September 1st">
+                        Application period begins
+                    </Timeline>
+                    <Timeline date="September 1st">
+                        Application period begins
+                    </Timeline>
+                    <Timeline date="September 1st">
+                        Application period begins
+                    </Timeline>
+                    <Timeline date="November 6th to 8th" last>
+                        Junction 2020 Connected
+                    </Timeline>
+                </div>
+            </div>
             <SectionImage
                 imageKey={MEDIA_KEYS.homePageHeaderImage}
                 alt="Header image"

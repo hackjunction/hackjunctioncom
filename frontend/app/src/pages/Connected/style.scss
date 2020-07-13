@@ -139,4 +139,14 @@
             }
         }
     }
+
+    .ImageHeader > h2 {
+        color: $connected-peach;
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: $connected-blue;
+    }
 }

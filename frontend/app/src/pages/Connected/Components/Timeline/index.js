@@ -5,8 +5,7 @@ export default ({ children, date, last = false }) => {
     return (
         <>
             <li className="Checkpoint">
-                <div className="Date">{date}</div>
-                {children}
+                <span className="Date">{date}</span> {children}
             </li>
             {!last ? (
                 <>

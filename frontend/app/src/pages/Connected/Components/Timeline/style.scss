@@ -6,6 +6,7 @@
     color: $connected-blue;
     line-height: 1em;
     font-size: 18px;
+
     .Date {
         font-weight: bold;
     }
@@ -13,6 +14,7 @@
 .Checkpoint:before {
     content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
     color: $connected-red; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
     font-size: 6em;
     vertical-align: text-bottom;
 }
@@ -24,6 +26,7 @@
 .Fillerpoint:before {
     content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
     color: $connected-orange; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
     font-size: 2em;
     vertical-align: middle;
 }

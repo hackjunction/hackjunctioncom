@@ -1,7 +1,12 @@
-.EventInfo {
-    &--Timeline {
-        &--outer {
-            height: 100%;
-        }
+.TimelineSection {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin: 2em auto;
+    &--left {
+        width: 40%;
+    }
+    &--right {
+        width: 40%;
     }
 }
