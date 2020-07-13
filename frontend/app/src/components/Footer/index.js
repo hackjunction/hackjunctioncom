@@ -48,9 +48,9 @@ class Footer extends PureComponent {
     }
 
     render() {
-        const {} = this.props;
+        const { connected } = this.props;
         return (
-            <footer className="Footer">
+            <footer className={`Footer ${connected ? "Connected" : ""}`}>
                 <div className="Footer--left">
                     <div className="Footer--left-first subscribe-text">
                         <h2>Stay up to date</h2>

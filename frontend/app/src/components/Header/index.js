@@ -46,7 +46,11 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
 
     return (
         <>
-            <header className={`Header ${isScrolled ? "Header-scrolled" : ""}`}>
+            <header
+                className={`Header ${isScrolled ? "Header-scrolled" : ""} ${
+                    connected ? "Connected" : ""
+                }`}
+            >
                 <Link to="/" className="Header--emblem">
                     <img
                         className="Header--emblem__image"
