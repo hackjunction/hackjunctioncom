@@ -2,6 +2,11 @@
 .Junction {
     background-color: $junction-white;
 
+    .Header {
+        outline-color: $junction-black;
+        background: $junction-white;
+    }
+
     .NavMenu {
         background-color: $junction-black;
         &--inner {
