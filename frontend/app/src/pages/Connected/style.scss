@@ -124,6 +124,11 @@
                 &-item {
                     color: $connected-peach;
                 }
+                &-item:hover {
+                    opacity: 1;
+                    color: $junction-blue;
+                }
+
                 &-title {
                     color: $connected-peach;
                 }

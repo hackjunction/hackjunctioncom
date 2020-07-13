@@ -14,6 +14,11 @@
                 &-item {
                     color: $junction-white;
                 }
+                &-item:hover {
+                    opacity: 1;
+                    color: $junction-blue;
+                }
+
                 &-title {
                     color: $junction-white;
                 }
