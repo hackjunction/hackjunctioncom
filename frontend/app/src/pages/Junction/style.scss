@@ -1,4 +1,33 @@
 @import "../../styles/main";
 .Junction {
     background-color: $junction-white;
+
+    .NavMenu {
+        background-color: $junction-black;
+        border-style: solid;
+        border-color: black;
+    }
+
+    .Footer {
+        background: $junction-white;
+        border-top: 4px solid $junction-black;
+
+        &--divider {
+            background-color: $junction-black;
+        }
+        &--left {
+            &-divider {
+                background-color: $junction-black;
+            }
+            &-second {
+                &__FooterLinkList {
+                    span {
+                        a {
+                            color: $junction-black;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
