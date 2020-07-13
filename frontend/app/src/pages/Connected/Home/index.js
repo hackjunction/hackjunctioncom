@@ -12,6 +12,7 @@ import { Grid } from "@material-ui/core";
 import CenteredBlock from "../../../components/CenteredBlock";
 import EventCalendar from "../../../components/EventCalendar";
 import BlockSection from "../../../components/BlockSection";
+import Timeline from "../Timeline";
 
 import { spacing } from "@material-ui/system";
 
@@ -139,25 +140,12 @@ const ConnectedHome = ({}) => {
                     <h3 className="BlockSection--left__title">Timeline</h3>
                 </div>
                 <div className="BlockSection--right">
-                    <li className="Checkpoint">
-                        September 1st Application period begins
-                    </li>
-                    <li className="Fillerpoint" />
-                    <li className="Fillerpoint" />
-                    <li className="Fillerpoint" />
-                    <li className="Checkpoint">
-                        October 6th Virtual matchmaking begins
-                    </li>
-                    <li className="Fillerpoint" />
-                    <li className="Fillerpoint" />
-                    <li className="Fillerpoint" />
-                    <li className="Checkpoint" />
-                    <li className="Fillerpoint" />
-                    <li className="Fillerpoint" />
-                    <li className="Fillerpoint" />
-                    <li className="Checkpoint">
+                    <Timeline>September 1st Application period begins</Timeline>
+                    <Timeline> October 6th Virtual matchmaking begins</Timeline>
+                    <Timeline>September 1st Application period begins</Timeline>
+                    <Timeline last>
                         November 6th to 8th Junction 2020 Connected
-                    </li>
+                    </Timeline>
                 </div>
             </div>
         </Page>

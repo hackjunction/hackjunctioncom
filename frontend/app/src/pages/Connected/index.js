@@ -29,7 +29,7 @@ const Connected = () => {
                     />
                     <Route path="/connected/*" component={NotFoundPage} />
                 </Switch>
-                <Footer />
+                <Footer connected />
             </div>
         </>
     );

@@ -36,14 +36,15 @@
     width: 60px;
     border-radius: 3px;
     pointer-events: all;
-    background-color: $junction-black;
+    background-color: $connected-blue;
     position: fixed;
     left: calc(15% - 30px);
-    margin: 10% 0;
+    top: 5%;
     z-index: 3;
     display: none;
     height: auto;
-    min-height: 50%;
+    color: $connected-peach;
+    min-height: 90%;
     border-style: solid;
     border-color: black;
     border-width: thin;

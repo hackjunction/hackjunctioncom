@@ -71,7 +71,7 @@ const NavLink = ({ to, children, key, title = false, toggleSidebar }) => {
 const ConnectedContent = () => {
     return (
         <>
-            <ConnectedNavLink to="/" title>
+            <ConnectedNavLink to="/connected/info" title>
                 Event info
             </ConnectedNavLink>
             <ConnectedNavLink to="/story">General information</ConnectedNavLink>
@@ -177,7 +177,11 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, connected }) => {
                 }`}
                 onClick={() => toggleSidebar(false)}
             />
-            <div className={`NavMenu ${isSidebarOpen ? "NavMenu-open" : ""}`}>
+            <div
+                className={`NavMenu ${isSidebarOpen ? "NavMenu-open" : ""} ${
+                    connected ? "Connected" : "Junction"
+                }`}
+            >
                 <div className="NavMenu--exit">
                     <button
                         className={
