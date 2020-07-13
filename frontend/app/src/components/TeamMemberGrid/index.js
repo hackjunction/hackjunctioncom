@@ -72,6 +72,23 @@ const TeamMemberGrid = ({ title, teamMembers, updateTeamMembers }) => {
             <Divider sm />
 
             <div className="TeamMemberGrid--items">{renderTeamMembers()}</div>
+            {renderContactUs()}
+        </div>
+    );
+};
+
+const renderContactUs = () => {
+    return (
+        <div className="TeamMemberGrid--textalign">
+            <h4>
+                If you want to meet us, schedule a meetin or pop by at our
+                office - we are here during working hours.
+            </h4>
+
+            <p>Pursimiehenkatu 29 F 316</p>
+            <p>00150 Helsinki</p>
+            <p>FINLAND</p>
+            <p>+358 XX XXX XXXX</p>
         </div>
     );
 };

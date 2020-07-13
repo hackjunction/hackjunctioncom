@@ -54,7 +54,7 @@
         }
 
         &__flipper {
-            width: 100%;
+            // width: 100%;
             height: 100%;
             transition: 0.6s;
             transform-style: preserve-3d;
@@ -88,7 +88,7 @@
         }
 
         &__gif {
-            width: 100%;
+            // width: 100%;
             height: 100%;
             object-fit: contain;
         }
@@ -123,6 +123,16 @@
             .TeamMemberGrid--item__gif {
                 transform: translateY(0);
             }
+        }
+    }
+    &--textalign {
+        text-align: center;
+        width: 60%;
+        align-self: center;
+        p {
+            text-align: center;
+            font-size: 12px !important;
+            margin: 0px;
         }
     }
 }
