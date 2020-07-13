@@ -8,11 +8,11 @@ import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
 import HeaderImage from "../../../components/HeaderImage";
 import BasicHeader from "../../../components/HeaderImage/BasicHeader";
-import BlockSection from "../../../components/BlockSection/";
-import ImageBlockSection from "../../../components/ImageBlockSection/";
-import SingleColumnSection from "../../../components/SingleColumnSection/";
-import BorderedSection from "../../../components/BorderedSection/";
-import ContactForm from "../../../components/ContactForm/";
+import BlockSection from "../../../components/BlockSection";
+import ImageBlockSection from "../../../components/ImageBlockSection";
+import SingleColumnSection from "../../../components/SingleColumnSection";
+import BorderedSection from "../../../components/BorderedSection";
+import ContactForm from "../../../components/ContactForm";
 import StatBlocks from "../../../components/StatBlocks";
 import Divider from "../../../components/Divider";
 import Markdown from "../../../components/Markdown";
@@ -26,13 +26,13 @@ import { partnerTestimonials } from "../../../redux/testimonials/selectors";
 import ImgBlock from "../../../components/ImgBlock";
 
 const images = {
-    benefits: require("../../../assets/images/partners/benefits.png"),
-    offer: require("../../../assets/images/partners/offer.png"),
+    participants: require("../../../assets/images/community/participants.png"),
+    volunteers: require("../../../assets/images/community/volunteers.png"),
     faq: require("../../../assets/images/partners/faq.png"),
     references: require("../../../assets/images/partners/references.png"),
 };
 
-class PartnersPage extends PureComponent {
+class CommunityPage extends PureComponent {
     constructor(props) {
         super(props);
 
@@ -59,33 +59,23 @@ class PartnersPage extends PureComponent {
 
         return (
             <Page
-                className="ImgBlock" // This is needed for the css to work correctly with the images
-                pageTitle="For partners"
-                metaDescKey={KEYS.partnersPageSubtitle}
+                className="ImgBlock"
+                pageTitle="For Community"
+                metaDescKey={KEYS.CommunityPageSubtitle}
                 ogImageKey={MEDIA_KEYS.partnerPageHeaderImage}
             >
                 <ImgBlock
-                    topic="Innovation through hackathons"
-                    link="ADDLINKHERE"
-                    image={images.benefits}
-                />
-                <ImgBlock
-                    topic="What we offer"
+                    topic="For participants"
                     link="ADDLINKHERE"
                     left
-                    image={images.offer}
+                    image={images.participants}
                 />
                 <ImgBlock
-                    topic="References"
+                    topic="For volunteers"
                     link="ADDLINKHERE"
-                    image={images.references}
+                    image={images.volunteers}
                 />
-                <ImgBlock
-                    topic="FAQ"
-                    link="ADDLINKHERE"
-                    left
-                    image={images.faq}
-                />
+
                 {/* <BlockSection
                     titleKey={KEYS.previousPartnersTitle}
                     subtitleKey={KEYS.previousPartnersSubtitle}
@@ -101,4 +91,4 @@ const mapStateToProps = (state) => ({
     testimonials: partnerTestimonials(state),
 });
 
-export default connect(mapStateToProps)(PartnersPage);
+export default connect(mapStateToProps)(CommunityPage);

@@ -18,6 +18,7 @@ const MEDIA_KEYS = {
     AboutPageOurStoryImage: "storyPageOurStoryImage",
     AboutPageContactUsImage: "storyPageContactUsImage",
     AboutPageBlogImage: "storyPageBlogImage",
+    partnerFaqImage: "partnerFaqImage",
 };
 
 export default MEDIA_KEYS;

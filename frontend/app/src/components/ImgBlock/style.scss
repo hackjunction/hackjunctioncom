@@ -1,11 +1,10 @@
-@import "../../../styles/main";
-.PartnersPage {
-    background-color: $junction-white;
+.ImgBlock {
+    background-color: #fbfbfb;
     height: 100%;
     width: 100%;
     overflow: hidden;
 
-    .PartnersPage--TopContent {
+    .ImgBlock--TopContent {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -14,16 +13,16 @@
         width: 100%;
     }
 
-    .PartnersPage--textAndArrowDiv {
+    .ImgBlock--textAndArrowDiv {
         width: 40%;
         height: 100%;
     }
 
-    .PartnersPage--ImageBlock {
+    .ImgBlock--ImageBlock {
         width: 60%;
     }
 
-    &--img {
+    .ImgBlock--img {
         width: 100%;
     }
 

@@ -1,11 +1,11 @@
 @import "../../../styles/main";
-.PartnersPage {
+.CommunityPage {
     background-color: $junction-white;
     height: 100%;
     width: 100%;
     overflow: hidden;
 
-    .PartnersPage--TopContent {
+    .CommunityPage--TopContent {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -14,12 +14,12 @@
         width: 100%;
     }
 
-    .PartnersPage--textAndArrowDiv {
+    .CommunityPage--textAndArrowDiv {
         width: 40%;
         height: 100%;
     }
 
-    .PartnersPage--ImageBlock {
+    .CommunityPage--ImageBlock {
         width: 60%;
     }
 
