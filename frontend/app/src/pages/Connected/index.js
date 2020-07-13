@@ -15,7 +15,7 @@ import { withRouter } from "react-router";
 
 const Connected = () => {
     return (
-        <>
+        <div className="Connected">
             <Header />
             <div className="App--Content">
                 <Switch>
@@ -31,7 +31,7 @@ const Connected = () => {
                 </Switch>
                 <Footer />
             </div>
-        </>
+        </div>
     );
 };
 

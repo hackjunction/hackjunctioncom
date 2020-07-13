@@ -68,59 +68,97 @@ const NavLink = ({ to, children, key, title = false, toggleSidebar }) => {
     );
 };
 
-export const NavMenuInner = React.memo(
+const ConnectedContent = () => {
+    return (
+        <>
+            <ConnectedNavLink to="/" title>
+                Event info
+            </ConnectedNavLink>
+            <ConnectedNavLink to="/story">General information</ConnectedNavLink>
+            <ConnectedNavLink to="/story">Schedule</ConnectedNavLink>
+            <ConnectedNavLink to="/story">FAQ</ConnectedNavLink>
+            <ConnectedNavLink to="/story">For partners</ConnectedNavLink>
+
+            <ConnectedNavLink title to="/partners">
+                Hubs
+            </ConnectedNavLink>
+            <ConnectedNavLink to="/partners">Hub locations</ConnectedNavLink>
+            <ConnectedNavLink to="/partners">What is a hub</ConnectedNavLink>
+            <ConnectedNavLink to="/partners">Hub stories</ConnectedNavLink>
+
+            <ConnectedNavLink to="/challenges" title>
+                Challenges
+            </ConnectedNavLink>
+            <ConnectedNavLink to="/participants">
+                Event partners
+            </ConnectedNavLink>
+            <ConnectedNavLink to="/participants">Challenges</ConnectedNavLink>
+
+            <ConnectedNavLink title>Important links</ConnectedNavLink>
+            <ConnectedNavLink to="/participants">Registration</ConnectedNavLink>
+            <ConnectedNavLink to="/volunteers">Submissions</ConnectedNavLink>
+            <ConnectedNavLink to="/volunteers">All projects</ConnectedNavLink>
+            <ConnectedNavLink to="/volunteers">Hackerpack</ConnectedNavLink>
+            <ConnectedNavLink to="/volunteers">Brella</ConnectedNavLink>
+        </>
+    );
+};
+
+const MainContent = React.memo(
     ({ eventConcepts, homePages, eventPages, communityPages }) => {
         return (
-            <div className="NavMenu--inner">
-                <nav className="NavMenu--inner__menu">
-                    <ConnectedNavLink to="/" title>
-                        About us
-                    </ConnectedNavLink>
-                    <ConnectedNavLink to="/story">Our story</ConnectedNavLink>
-                    <ConnectedNavLink to="/story">Contact us</ConnectedNavLink>
+            <>
+                <ConnectedNavLink to="/" title>
+                    About us
+                </ConnectedNavLink>
+                <ConnectedNavLink to="/story">Our story</ConnectedNavLink>
+                <ConnectedNavLink to="/story">Contact us</ConnectedNavLink>
 
-                    <ConnectedNavLink title to="/partners">
-                        For partners
-                    </ConnectedNavLink>
-                    <ConnectedNavLink to="/partners">
-                        Benefits of a hackathon
-                    </ConnectedNavLink>
-                    <ConnectedNavLink to="/partners">
-                        Our products
-                    </ConnectedNavLink>
-                    <ConnectedNavLink to="/partners">
-                        References
-                    </ConnectedNavLink>
-                    <ConnectedNavLink to="/partners">FAQ</ConnectedNavLink>
+                <ConnectedNavLink title to="/partners">
+                    For partners
+                </ConnectedNavLink>
+                <ConnectedNavLink to="/partners">
+                    Benefits of a hackathon
+                </ConnectedNavLink>
+                <ConnectedNavLink to="/partners">Our products</ConnectedNavLink>
+                <ConnectedNavLink to="/partners">References</ConnectedNavLink>
+                <ConnectedNavLink to="/partners">FAQ</ConnectedNavLink>
 
-                    <h6 className="NavMenu--inner__menu-title">Events</h6>
-                    <ConnectedNavLink
-                        key={"Connected"}
-                        className="NavMenu--inner__menu-item"
-                        to={`/connected`}
-                    >
-                        Connected
-                    </ConnectedNavLink>
-                    <ConceptPagesSection concepts={eventConcepts} />
-                    <ExtraPagesSection pages={eventPages} />
+                <ConnectedNavLink to="/events" title>
+                    Events
+                </ConnectedNavLink>
+                <ConnectedNavLink key={"Connected"} to={`/connected`}>
+                    Connected
+                </ConnectedNavLink>
+                <ConceptPagesSection concepts={eventConcepts} />
+                <ExtraPagesSection pages={eventPages} />
 
-                    <ConnectedNavLink title>Community</ConnectedNavLink>
-
-                    <ConnectedNavLink to="/participants">
-                        For participants
-                    </ConnectedNavLink>
-                    <ConnectedNavLink to="/volunteers">
-                        For volunteers
-                    </ConnectedNavLink>
-                </nav>
-                <div className="top" />
-                <div className="bottom" />
-                <div className="left" />
-                <div className="right" />
-            </div>
+                <ConnectedNavLink title>Community</ConnectedNavLink>
+                <ConnectedNavLink to="/participants">
+                    For participants
+                </ConnectedNavLink>
+                <ConnectedNavLink to="/volunteers">
+                    For volunteers
+                </ConnectedNavLink>
+            </>
         );
     },
 );
+
+export const NavMenuInner = ({ connected }) => {
+    return (
+        <div className="NavMenu--inner">
+            <nav className="NavMenu--inner__menu">
+                {connected ? <ConnectedContent /> : <MainContent />}
+            </nav>
+            <div className="top" />
+            <div className="bottom" />
+            {/* <div className="left" /> */}
+            <div className="right" />
+        </div>
+    );
+};
+
 const mapStateToPropsInner = (state) => ({
     eventConcepts: eventconceptsForNav(state),
     homePages: homePages(state),
@@ -130,7 +168,7 @@ const mapStateToPropsInner = (state) => ({
 
 const ConnectedNavMenuInner = connect(mapStateToPropsInner)(NavMenuInner);
 
-const NavMenu = ({ isSidebarOpen, toggleSidebar }) => {
+const NavMenu = ({ isSidebarOpen, toggleSidebar, connected }) => {
     return (
         <div className="NavMenuWrapper">
             <div
@@ -157,7 +195,9 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar }) => {
                         </span>
                     </button>
                 </div>
-                {isSidebarOpen && <ConnectedNavMenuInner />}
+                {isSidebarOpen && (
+                    <ConnectedNavMenuInner connected={connected} />
+                )}
             </div>
         </div>
     );

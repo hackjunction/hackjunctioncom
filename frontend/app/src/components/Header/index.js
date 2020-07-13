@@ -16,7 +16,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = ({ navTitle, toggleSidebar, isSidebarOpen }) => {
+const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
     const [isScrolled, setScrolled] = useState(window.scrollY >= 400);
 
     function handleScroll() {
@@ -55,7 +55,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen }) => {
                     />
                 </Link>
                 <SocialMediaIcons />
-                <NavMenu />
+                <NavMenu connected={connected} />
             </header>
             <header className={headerClass}>
                 <div className="HeaderMobileRow">
@@ -77,7 +77,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen }) => {
                         />
                     </div>
                 </div>
-                <NavMenuMobile />
+                <NavMenuMobile connected={connected} />
             </header>
         </>
     );

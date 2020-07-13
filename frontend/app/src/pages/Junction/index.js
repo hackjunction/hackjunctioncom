@@ -26,7 +26,7 @@ import { withRouter } from "react-router";
 
 const Junction = () => {
     return (
-        <>
+        <div className="Junction">
             <Header />
             <div className="App--Content">
                 <Switch>
@@ -63,7 +63,7 @@ const Junction = () => {
                 </Switch>
                 <Footer />
             </div>
-        </>
+        </div>
     );
 };
 
