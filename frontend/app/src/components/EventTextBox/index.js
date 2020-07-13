@@ -3,7 +3,7 @@ import React from "react";
 import "./style.scss";
 
 import KEYS from "../../redux/staticcontent/keys";
-import Markdown from "../../components/Markdown";
+import Markdown from "../Markdown";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -51,7 +51,7 @@ const useStyles = makeStyles({
     },
 });
 
-const EventCard = (eventData) => {
+const EventTextBox = (eventData) => {
     const classes = useStyles();
     console.log("event data is", eventData, eventData.name);
     return eventData?.name ? (
@@ -87,4 +87,4 @@ const EventCard = (eventData) => {
     );
 };
 
-export default EventCard;
+export default EventTextBox;
