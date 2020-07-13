@@ -16,7 +16,7 @@ import { withRouter } from "react-router";
 const Connected = () => {
     return (
         <>
-            <Header />
+            <Header connected />
             <div className="App--Content">
                 <Switch>
                     <Route exact path="/connected" component={ConnectedHome} />
