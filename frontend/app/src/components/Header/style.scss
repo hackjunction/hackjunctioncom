@@ -12,7 +12,6 @@
     outline-color: $junction-black;
     outline-style: solid;
     outline-width: normal;
-    background: $junction-white;
     transition: all 0.2s ease;
     @include bp-med {
         display: flex;

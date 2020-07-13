@@ -14,12 +14,13 @@ import SmallButton from "../../../components/SmallButton";
 import HeaderSection from "../../../components/HeaderSection";
 import QuestionGrid from "../../../components/questions/QuestionCard/QuestionCard";
 import QuestionCard from "../../../components/questions/QuestionCard/QuestionCard";
+import Timeline from "../Timeline";
 
 class Challenges extends PureComponent {
     render() {
         return (
             <Page
-                className="HomePage"
+                className="Connected"
                 pageTitle="Hack the Future"
                 metaDescKey={KEYS.whoAreWeBody}
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -57,6 +58,7 @@ class Challenges extends PureComponent {
                 >
                     General information
                 </SectionImage>
+                Tähän sisältöö
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
@@ -75,13 +77,22 @@ class Challenges extends PureComponent {
                                 src={require("../../../assets/images/connected-chain.png")}
                             />
                         </Grid>
-
                         <Grid
                             item
                             className="EventInfo--Timeline--outer--right"
                         >
-                            {/* <span className="EventInfo--circle"></span> */}
-                            Testing
+                            <Timeline date="September 1st">
+                                Application period begins
+                            </Timeline>
+                            <Timeline date="October 6th">
+                                Virtual matchmaking begins
+                            </Timeline>
+                            <Timeline date="September 1st">
+                                Application period begins
+                            </Timeline>
+                            <Timeline date="November 6th to 8th" last>
+                                Junction 2020 Connected
+                            </Timeline>
                         </Grid>
                     </Grid>
                 </Container>
