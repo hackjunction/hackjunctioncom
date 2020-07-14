@@ -24,6 +24,17 @@
             width: 80px;
         }
     }
+    &--connected {
+        pointer-events: all;
+        width: 12em;
+        cursor: pointer;
+        margin: 1em auto;
+        position: relative;
+
+        &__image {
+            width: 12em;
+        }
+    }
 }
 
 .HeaderMobile {
@@ -31,17 +42,13 @@
     position: fixed;
     width: 100%;
     z-index: 10;
-    background: $junction-black;
     flex-direction: column;
     &--open {
         height: 100%;
         overflow: hidden;
     }
-
-    &-scrolled {
-        background: $junction-white;
-        transition: all 0.5s ease-in-out;
-    }
+    padding: 10px;
+    background: $junction-black;
 
     .HeaderMobileRow {
         display: flex;
@@ -64,9 +71,17 @@
         }
     }
     &--icon {
-        margin: 5%;
+        margin: 2%;
         &:hover {
             cursor: pointer;
+        }
+    }
+
+    &--connected {
+        width: 50%;
+        margin-left: 2%;
+        &__image {
+            width: 100%;
         }
     }
     @include bp-med {

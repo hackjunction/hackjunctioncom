@@ -1,0 +1,11 @@
+@import "../../styles/main";
+
+.DividerLine {
+    height: 0.2em;
+    width: 100%;
+
+    &-stop {
+        scroll-snap-stop: always;
+        scroll-snap-align: start;
+    }
+}
