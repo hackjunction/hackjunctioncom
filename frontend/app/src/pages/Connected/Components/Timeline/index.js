@@ -4,16 +4,24 @@ import React from "react";
 export default ({ children, date, last = false }) => {
     return (
         <>
-            <li className="Checkpoint">
+            <div className="Checkpoint">
                 <div className="Point" />
                 <div className="Date">{date}</div>
                 <div className="DateInfo">{children}</div>
-            </li>
+            </div>
             {!last ? (
                 <>
-                    <li className="Fillerpoint" />
-                    <li className="Fillerpoint" />
-                    <li className="Fillerpoint" />
+                    <div className="Fillerpoint">
+                        <div className="Point" />
+                    </div>
+
+                    <div className="Fillerpoint">
+                        <div className="Point" />
+                    </div>
+
+                    <div className="Fillerpoint">
+                        <div className="Point" />
+                    </div>
                 </>
             ) : null}
         </>
