@@ -78,27 +78,30 @@ class ReferencesPage extends PureComponent {
                 metaDescKey={KEYS.ReferencesPageSubtitle}
                 ogImageKey={MEDIA_KEYS.ReferencesPageHeaderImage}
             >
-                <div className="ReferencesPage--TopContent Junction-Default">
+                <div className="ReferencesPage--TopContent ">
                     <div className="ReferencesPage--TopContent--First">
                         <h1 className="topic">References & Testimonials</h1>
                     </div>
-                    <div className="ReferencesPage--TopContent--Second">
-                        <span>
-                            “K Group is here at Junction because we believe that
-                            in order to be able to meet the changing customer
-                            needs we need to open up even more than we’ve done
-                            before, look outside of our own box and have
-                            somebody else challenge our thinking. Help us come
-                            up with things we never even thought were possible.“
-                        </span>
-                        <p className="person-title">
-                            Jussi Mantere, Director of CX & Design at Kesko
-                        </p>
-                        <SmallButton
-                            className="Default-button"
-                            to
-                            text="Read more about partnering with us"
-                        />
+                    <div className="ReferencesPage--TopContent--Twice">
+                        <div className="ReferencesPage--TopContent--Second">
+                            <span>
+                                “K Group is here at Junction because we believe
+                                that in order to be able to meet the changing
+                                customer needs we need to open up even more than
+                                we’ve done before, look outside of our own box
+                                and have somebody else challenge our thinking.
+                                Help us come up with things we never even
+                                thought were possible.“
+                            </span>
+                            <p className="person-title">
+                                Jussi Mantere, Director of CX & Design at Kesko
+                            </p>
+                            <SmallButton
+                                className="Default-button"
+                                to
+                                text="READ MORE"
+                            />
+                        </div>
                     </div>
                     <div className="ReferencesPage--TopContent--Third">
                         <img src={this.state.selectedImage} width="80%" />
@@ -189,6 +192,7 @@ class ReferencesPage extends PureComponent {
                         />
                     </div>
                 </div>
+                <Divider sm />
             </Page>
         );
     }
