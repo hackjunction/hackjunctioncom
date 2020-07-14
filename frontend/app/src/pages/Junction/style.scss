@@ -2,10 +2,39 @@
 .Junction {
     background-color: $junction-white;
 
+    .Header {
+        outline-color: $junction-black;
+        background: $junction-white;
+    }
+
     .NavMenu {
         background-color: $junction-black;
-        border-style: solid;
-        border-color: black;
+        &--inner {
+            &__menu {
+                &-item {
+                    color: $junction-white;
+                }
+                &-item:hover {
+                    opacity: 1;
+                    color: $junction-blue;
+                }
+
+                &-title {
+                    color: $junction-white;
+                }
+            }
+        }
+    }
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        background-color: $junction-white;
+    }
+
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner::before,
+    .hamburger.is-active .hamburger-inner::after {
+        background-color: $junction-white;
     }
 
     .Footer {
@@ -29,5 +58,11 @@
                 }
             }
         }
+    }
+
+    .SectionImage,
+    .BlockSection {
+        border-top: 0.2em solid $junction-black;
+        border-bottom: 0.2em solid $junction-black;
     }
 }

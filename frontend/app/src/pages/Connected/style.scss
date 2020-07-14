@@ -1,6 +1,7 @@
 @import "../../styles/main";
 .Connected {
     background-color: $connected-peach;
+    color: $connected-blue;
 
     .Connected--TopContent {
         align-content: center;
@@ -10,11 +11,15 @@
     .Connected--logo {
         margin: 5% 0;
         align-content: center;
+        max-width: 50em;
+        width: 100%;
+        height: auto;
     }
 
     .Connected-subtitle {
         color: $connected-blue;
         text-align: center;
+        margin: 0em 5em;
     }
     .Connected-button {
         background-color: $connected-orange;
@@ -86,10 +91,8 @@
 
     .NavMenu {
         background-color: $connected-blue;
-        border-style: solid;
-        color: $connected-peach;
 
-        border-color: transparent;
+        color: $connected-peach;
 
         &--inner {
             &__menu {
@@ -99,6 +102,10 @@
 
                 &-item {
                     color: $connected-peach;
+                }
+                &-item:hover {
+                    opacity: 1;
+                    color: $junction-blue;
                 }
 
                 &-title {
@@ -134,20 +141,20 @@
 
     .Footer {
         background: $connected-peach;
-        border-top: 4px solid $junction-black;
+        border-top: 4px solid $connected-blue;
 
         &--divider {
-            background-color: $junction-black;
+            background-color: $connected-blue;
         }
         &--left {
             &-divider {
-                background-color: $junction-black;
+                background-color: $connected-blue;
             }
             &-second {
                 &__FooterLinkList {
                     span {
                         a {
-                            color: $junction-black;
+                            color: $connected-blue;
                         }
                     }
                 }
@@ -187,5 +194,14 @@
 
     a {
         color: $connected-orange;
+        p {
+            color: $connected-blue;
+        }
+    }
+
+    .SectionImage,
+    .BlockSection {
+        border-top: 0.2em solid $connected-blue;
+        border-bottom: 0.2em solid $connected-blue;
     }
 }

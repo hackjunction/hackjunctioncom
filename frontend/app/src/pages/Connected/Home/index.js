@@ -112,7 +112,7 @@ const ConnectedHome = ({}) => {
                 <div className="BlockSection--left">
                     <img
                         className="Connected--logo"
-                        src={require("../../../assets/images/connected-chain.png")}
+                        src={require("../../../assets/images/hub_globe.png")}
                         alt="connected-logo-here"
                     />
                 </div>
@@ -125,7 +125,7 @@ const ConnectedHome = ({}) => {
                         The local hubs give the concept of a normal online
                         hackathon a twist by increasing the sense of community
                         and making physical interaction possible when needed.
-                        Check out your nearest hub or organize one yourself!{" "}
+                        Check out your nearest hub or organize one yourself!
                     </p>
                     <SmallButton
                         className="Connected-blue-button"
@@ -142,14 +142,23 @@ const ConnectedHome = ({}) => {
                     <Timeline date="September 1st">
                         Application period begins
                     </Timeline>
-                    <Timeline date="September 1st">
-                        Application period begins
-                    </Timeline>
-                    <Timeline date="September 1st">
-                        Application period begins
-                    </Timeline>
-                    <Timeline last date="October 6th">
+                    <Timeline date="October 1st">
                         Virtual matchmaking begins
+                    </Timeline>
+                    <Timeline date="October 9th">
+                        Application period ends
+                    </Timeline>
+                    <Timeline date="October 9th">
+                        Application period ends
+                    </Timeline>
+                    <Timeline date="October 18th">
+                        Deadline for participants to confirm their place
+                    </Timeline>
+                    <Timeline date="November 6th">
+                        Junction 2020 Connected begins
+                    </Timeline>
+                    <Timeline date="November 8th" last>
+                        Junction 2020 Connected ends
                     </Timeline>
                 </div>
             </div>
