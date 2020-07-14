@@ -71,6 +71,10 @@ const NavLink = ({ to, children, key, title = false, toggleSidebar }) => {
 const ConnectedContent = () => {
     return (
         <>
+            <ConnectedNavLink to="/" title>
+                <FontAwesomeIcon icon="long-arrow-alt-left" size="1x" />
+                <span className="toHome">Back to Junction</span>
+            </ConnectedNavLink>
             <ConnectedNavLink to="/connected/info" title>
                 Event info
             </ConnectedNavLink>

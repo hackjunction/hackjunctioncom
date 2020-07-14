@@ -121,8 +121,12 @@ class Footer extends PureComponent {
                 <div className="Footer--right">
                     <h2>Contact us</h2>
                     <span>
-                        Send us an email to hello@hackjunction.com or fill in
-                        the <br></br> contact form and we’ll get back to asap!
+                        Send us an email to{" "}
+                        <a href="mailto:hello@hackjunction.com">
+                            hello@hackjunction.com
+                        </a>{" "}
+                        or fill in the <br></br> contact form and we’ll get back
+                        to asap!
                     </span>
                     <ContactForm />
                 </div>

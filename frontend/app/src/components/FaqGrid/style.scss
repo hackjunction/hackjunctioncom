@@ -17,7 +17,6 @@
 
 .FaqGridItem {
     width: 100%;
-    max-width: 470px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -26,9 +25,8 @@
     border-width: 0.2em;
     border-color: $connected-orange;
     margin-bottom: $padding-base;
-    padding: $padding-double;
-
-    @include bp-custom(800px) {
+    padding: $padding-base;
+    @include bp-med {
         width: 49%;
         align-self: flex-start;
     }
@@ -52,6 +50,7 @@
         font-size: 18px;
 
         i {
+            display: none;
             transform: rotateZ(0deg);
             transition: 0.2s transform ease;
             color: $connected-orange;
@@ -61,9 +60,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
-            @media screen and (max-width: 400px) {
-                display: none;
+            cursor: pointer;
+            @include bp-med {
+                display: block;
             }
         }
     }

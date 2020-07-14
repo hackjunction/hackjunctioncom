@@ -1,4 +1,4 @@
-import React, { PureComponent, Suspense } from "react";
+import React from "react";
 import "./style.scss";
 
 import KEYS from "../../../redux/staticcontent/keys";
@@ -18,7 +18,6 @@ import { spacing } from "@material-ui/system";
 
 import Page from "../../PageHOC";
 import SmallButton from "../../../components/SmallButton";
-const EventsMap = React.lazy(() => import("../../../components/EventsMap"));
 
 const BOTTOM_LINKS = [
     {
@@ -135,16 +134,22 @@ const ConnectedHome = ({}) => {
                     />
                 </div>
             </div>
-            <div className="BlockSection Seperated">
+            <div className="BlockSection Last">
                 <div className="BlockSection--left">
                     <h3 className="BlockSection--left__title">Timeline</h3>
                 </div>
                 <div className="BlockSection--right">
-                    <Timeline>September 1st Application period begins</Timeline>
-                    <Timeline> October 6th Virtual matchmaking begins</Timeline>
-                    <Timeline>September 1st Application period begins</Timeline>
-                    <Timeline last>
-                        November 6th to 8th Junction 2020 Connected
+                    <Timeline date="September 1st">
+                        Application period begins
+                    </Timeline>
+                    <Timeline date="September 1st">
+                        Application period begins
+                    </Timeline>
+                    <Timeline date="September 1st">
+                        Application period begins
+                    </Timeline>
+                    <Timeline last date="October 6th">
+                        Virtual matchmaking begins
                     </Timeline>
                 </div>
             </div>

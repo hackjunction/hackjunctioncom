@@ -4,9 +4,13 @@ import React from "react";
 export default ({ children, date, last = false }) => {
     return (
         <>
-            <li className="Checkpoint">
-                <span className="Date">{date}</span> {children}
-            </li>
+            <div className="Checkpoint">
+                <div className="Point" />
+                <div className="Content">
+                    <div className="Date">{date}</div>
+                    <div>{children}</div>
+                </div>
+            </div>
             {!last ? (
                 <>
                     <li className="Fillerpoint" />

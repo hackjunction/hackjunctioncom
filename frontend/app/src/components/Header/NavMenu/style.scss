@@ -169,22 +169,28 @@
             display: flex;
             flex-direction: column;
 
+            span.toHome {
+                color: $junction-white;
+                font-size: 1.2em;
+                margin-left: 5%;
+            }
+
             &-item {
-                margin-left: 15%;
+                margin-left: 10%;
                 color: $junction-white;
                 text-decoration: none;
                 font-weight: 600;
-                font-size: 20px;
-                line-height: 28px;
+                font-size: 1.3em;
+                line-height: 1.2em;
             }
 
             &-title {
                 color: $junction-white;
-                line-height: 24px;
+                line-height: 0.8em;
                 font-weight: bold;
-                margin-top: 30px;
-                margin-bottom: 10px;
-                font-size: 20px;
+                margin-top: 1em;
+                margin-bottom: 0.3em;
+                font-size: 1.5em;
                 text-align: left;
             }
         }

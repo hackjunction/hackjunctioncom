@@ -10,23 +10,19 @@
         -moz-appearance: none;
         -o-appearance: none;
         -ms-apperance: none;
-        appearance: none;
         display: block;
-        font-family: Montserrat;
-        font-style: normal;
         font-weight: 600;
-        font-size: 14px;
-        padding-left: 16px;
-
-        height: 40px;
-        width: 181px;
+        padding: 0.4em;
+        padding-left: 0.8em;
         background: transparent;
         border: 3px solid $junction-blue;
-        font-size: 18px;
         box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
-        border-radius: 22px;
+        border-radius: 2em;
         transition: all 0.2s ease;
-
+        &:focus,
+        &:hover {
+            outline: none;
+        }
         option {
             color: $junction-black;
         }

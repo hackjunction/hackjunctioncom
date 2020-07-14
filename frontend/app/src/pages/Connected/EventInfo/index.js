@@ -132,18 +132,16 @@ export default ({}) => {
                 subtitle="Our expertise of organising hackathons combined with the
                     power of a highly-customizable platform for events makes
                     hosting diverse events possible."
+                center
             >
                 <FaqSection items={items} />
                 <span>
                     Didn’t find what you were looking for? Our team is happy to
-                    help you with anything and everything, just shoot us a
-                    message!
+                    help you with anything and everything, just{" "}
+                    <a href="mailto:hello@hackjunction.com">
+                        shoot us a message!
+                    </a>
                 </span>
-                <SmallButton
-                    className="Connected-button"
-                    to
-                    text="CONTACT US"
-                />
             </SingleColumnSection>
             <SectionImage
                 imageKey={MEDIA_KEYS.homePageHeaderImage}

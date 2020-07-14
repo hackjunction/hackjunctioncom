@@ -7,11 +7,8 @@
 
     ::placeholder {
         color: $junction-black;
-        padding-left: 16px;
-        font-family: Montserrat;
         font-style: normal;
         font-weight: 600;
-        font-size: 14px;
         line-height: 17px;
     }
 
@@ -28,20 +25,25 @@
         background: transparent;
         border: none;
         color: $junction-black;
-        font-size: 18px;
         transition: all 0.2s ease;
     }
 
     &--inputbox {
-        width: 181px;
-        height: 40px;
         background: transparent;
         border: 3px solid #73f9ec;
         box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
-        border-radius: 22px;
-        font-size: 18px;
+        border-radius: 2em;
+        padding: 0.4em;
+        padding-left: 0.8em;
         transition: all 0.2s ease;
         color: black;
         outline: none;
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+            box-shadow: 0 0 0 30px $junction-white inset !important;
+            -webkit-box-shadow: 0 0 0 30px $junction-white inset !important;
+        }
     }
 }

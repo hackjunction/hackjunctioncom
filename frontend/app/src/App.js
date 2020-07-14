@@ -10,7 +10,12 @@ import { hotjar } from "react-hotjar";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
+import {
+    faTimes,
+    faBars,
+    faArrowLeft,
+    faLongArrowAltLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 import PrivacyBanner from "./components/PrivacyBanner";
 import ScrollToTop from "./components/ScrollToTop";
@@ -23,7 +28,7 @@ import NotFoundPage from "./pages/NotFound";
 import Connected from "./pages/Connected";
 import Junction from "./pages/Junction";
 
-library.add(fab, faTimes, faBars);
+library.add(fab, faTimes, faBars, faLongArrowAltLeft);
 
 WebFont.load({
     google: {

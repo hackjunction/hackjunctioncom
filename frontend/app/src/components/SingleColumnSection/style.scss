@@ -15,10 +15,11 @@
     }
 
     &--content {
-        max-width: 980px;
+        max-width: 80%;
         width: 100%;
         display: flex;
         flex-direction: column;
+        text-align: center;
 
         &-center {
             text-align: center;
