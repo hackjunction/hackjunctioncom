@@ -55,7 +55,9 @@
     &--exit {
         height: 100%;
         margin-top: 1em;
-        margin-left: 2px;
+        width: 50px;
+        min-width: 50px;
+        text-align: center;
     }
 
     &-open {
@@ -212,6 +214,7 @@
     background-color: transparent;
     border: 0;
     margin: 0;
+    padding: 0;
 
     overflow: visible;
     &:focus {
