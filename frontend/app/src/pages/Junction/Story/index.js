@@ -94,27 +94,37 @@ class StoryPage extends PureComponent {
 
                 <div className="StoryPage--DownContent">
                     <div className="StoryPage--DownContent--Left">
-                        <h4 className="topic-subtitle--right">Our mission</h4>
-                        <p>
-                            Bridging the gap between creators by making everyone
-                            fall in love with technology.
-                        </p>
-                        <h4 className="topic-subtitle--right">Our vision</h4>
-                        <p>
-                            Being a pioneer in the continuous technological
-                            change and encouraging others to keep up with it.
-                        </p>
-                        <p>
-                            We believe that technology is a powerful tool when
-                            used right, and everybody should have the
-                            possibility to build meaningful things with it:
-                            that's why all of our events are centered around
-                            learning and creating with technology.
-                        </p>
-
-                        <img
-                            src={require("../../../assets/images/story-art2.png")}
-                        />
+                        <div className="StoryPage--DownContent--Left--Order2">
+                            <h4 className="topic-subtitle--right">
+                                Our mission
+                            </h4>
+                            <p>
+                                Bridging the gap between creators by making
+                                everyone fall in love with technology.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 className="topic-subtitle--right">
+                                Our vision
+                            </h4>
+                            <p>
+                                Being a pioneer in the continuous technological
+                                change and encouraging others to keep up with
+                                it.
+                            </p>
+                            <p>
+                                We believe that technology is a powerful tool
+                                when used right, and everybody should have the
+                                possibility to build meaningful things with it:
+                                that's why all of our events are centered around
+                                learning and creating with technology.
+                            </p>
+                        </div>
+                        <div className="StoryPage--DownContent--Left--Order">
+                            <img
+                                src={require("../../../assets/images/story-art2.png")}
+                            />
+                        </div>
                     </div>
                     <div className="StoryPage--DownContent--Right" s>
                         <img

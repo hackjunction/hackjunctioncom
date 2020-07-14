@@ -6,7 +6,7 @@
     padding: 40px 40px 0 40px;
     font-family: "Montserrat" !important;
     text-align: center;
-    @media (max-width: 500px) {
+    @include bp-small-only {
         padding: 4px;
     }
     .StoryPage--TopContent {
@@ -44,8 +44,9 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            @media (max-width: 500px) {
+            @include bp-small-only {
                 width: 95%;
+                flex-direction: column;
             }
             &--Box {
                 height: 50%;
@@ -55,6 +56,10 @@
                 border-radius: 58px;
 
                 margin: 10px;
+                @include bp-small-only {
+                    width: 70%;
+                    flex-direction: column;
+                }
                 h3 {
                     margin: 3px;
                     word-spacing: 10px;
@@ -68,6 +73,9 @@
     h3 {
         margin: 3px;
         word-spacing: 30px;
+        @include bp-small-only {
+            text-align: center;
+        }
     }
 
     p {
@@ -76,6 +84,9 @@
         font-weight: 500;
         font-size: 14px;
         line-height: 22px;
+        @include bp-small-only {
+            text-align: center;
+        }
     }
 
     .topic {
@@ -96,6 +107,10 @@
             &--right {
                 @extend .topic-subtitle;
                 text-align: left;
+
+                @include bp-small-only {
+                    text-align: center;
+                }
             }
         }
     }
@@ -117,18 +132,35 @@
             height: 100%;
             width: 50%;
             margin: 5%;
-            @media (max-width: 500px) {
+
+            @include bp-small-only {
                 width: 95%;
+                display: flex;
+                flex-direction: column;
             }
-            p {
+            &--Order {
+                @include bp-small-only {
+                    display: flex;
+                    order: -1;
+                    flex-direction: column;
+                }
+            }
+
+            &--Order2 {
+                @include bp-small-only {
+                    display: flex;
+                    order: -2;
+                    flex-direction: column;
+                }
             }
         }
 
         &--Right {
             height: 95%;
             width: 50%;
-            @media (max-width: 500px) {
+            @include bp-small-only {
                 width: 100%;
+                margin-bottom: 5%;
             }
             .h1-2 {
                 padding-left: 80px;
