@@ -45,7 +45,10 @@ class WhatWeOfferPage extends PureComponent {
                         <p>Lirum larum</p>
                     </div>
                     <div className="WhatWeOfferPage--TopContent--Second">
-                        <p className="topic">Junction 2020 Connected</p>
+                        <img
+                            src={require("../../../assets/images/banner/connected.png")}
+                            width="100%"
+                        />
                     </div>
                     <div className="WhatWeOfferPage--TopContent--Third">
                         <p className="topic-subtitle">
@@ -71,7 +74,10 @@ class WhatWeOfferPage extends PureComponent {
                 </div>
                 <div className="WhatWeOfferPage--TopContent">
                     <div className="WhatWeOfferPage--TopContent--Second">
-                        <p className="topic">Junction App</p>
+                        <img
+                            src={require("../../../assets/images/banner/japp.png")}
+                            width="100%"
+                        />
                     </div>
                     <div className="WhatWeOfferPage--TopContent--Third">
                         <p className="topic-subtitle">Junction App</p>
@@ -95,7 +101,10 @@ class WhatWeOfferPage extends PureComponent {
                 </div>
                 <div className="WhatWeOfferPage--TopContent">
                     <div className="WhatWeOfferPage--TopContent--Second">
-                        <p className="topic">Hel Tech</p>
+                        <img
+                            src={require("../../../assets/images/banner/heltech.jpg")}
+                            width="100%"
+                        />
                     </div>
                     <div className="WhatWeOfferPage--TopContent--Third">
                         <p className="topic-subtitle">Hel Tech</p>
@@ -108,7 +117,10 @@ class WhatWeOfferPage extends PureComponent {
                             other organizations. The physical hubs give the
                             concept of a normal online hackathon a twist by
                             increasing the sense of community, and making
-                            physical interaction possible when needed.
+                            physical interaction possible when needed. Hel Tech
+                            is our only monthly meetup, organized on the first
+                            Monday of the month and always discussing the latest
+                            tech. With speakers from all over the
                         </p>
                         <SmallButton
                             className="Default-button"
@@ -181,7 +193,7 @@ class WhatWeOfferPage extends PureComponent {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className="WhatWeOfferPage--Host--Expertise">
                         Our expertise of organizing hackathons combined with the
                         power of a highly-customizable platform for events makes
                         hosting diverse events possible.
