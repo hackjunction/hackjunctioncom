@@ -78,15 +78,15 @@ class StoryPage extends PureComponent {
 
                     <div className="StoryPage--TopContent--Right">
                         <div className="StoryPage--TopContent--Right--Box">
-                            <h3>15 000+</h3>
+                            <h2>15 000+</h2>
                             <h4>TEXT HERE</h4>
                         </div>
                         <div className="StoryPage--TopContent--Right--Box">
-                            <h3>15 000+</h3>
+                            <h2>15 000+</h2>
                             <h4>TEXT HERE</h4>
                         </div>
                         <div className="StoryPage--TopContent--Right--Box">
-                            <h3>15 000+</h3>
+                            <h2>15 000+</h2>
                             <h4>TEXT HERE</h4>
                         </div>
                     </div>
@@ -111,12 +111,6 @@ class StoryPage extends PureComponent {
                             that's why all of our events are centered around
                             learning and creating with technology.
                         </p>
-                        <p>
-                            Junction is a pack of independently spirited,
-                            fiercely unconventional people who do things a
-                            little differently. Where others may value the
-                            bottom line, we value — well — values.
-                        </p>
 
                         <img
                             src={require("../../../assets/images/story-art2.png")}
@@ -126,11 +120,19 @@ class StoryPage extends PureComponent {
                         <img
                             src={require("../../../assets/images/story-art1.png")}
                         />
-                        <h1>COMMUNITY</h1>
-                        <h1 className="h1-2">OPENNESS</h1>
-                        <h1 className="h1-3">DIVERSITY</h1>
-                        <h1>PERSISTENCE</h1>
-                        <h1 className="h1-5">RESPONSIBILITY</h1>
+                        <h4 className="topic-subtitle--right">Our values</h4>
+                        <p>
+                            Junction is a pack of independently spirited,
+                            fiercely unconventional people who do things a
+                            little differently.
+                        </p>
+                        <p>
+                            {" "}
+                            Where others may value the bottom line, we value —
+                            well — values.
+                        </p>
+                        <h3>COMMUNITY OPENNESS DIVERSITY</h3>
+                        <h3>PERSISTENCE RESPONSIBILITY</h3>
                     </div>
                 </div>
             </Page>

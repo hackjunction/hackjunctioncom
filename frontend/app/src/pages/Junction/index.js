@@ -20,6 +20,8 @@ import StoryPage from "./Story";
 import ContactPage from "./Contact";
 import CommunityPage from "./Community";
 import BenefitsPage from "./Benefits";
+import WhatWeOfferPage from "./WhatWeOffer";
+import ReferencesPage from "./References";
 
 import BasicPage from "../BasicPage";
 import NotFoundPage from "../NotFound";
@@ -38,6 +40,12 @@ const Junction = () => {
                     <Route exact path="/story" component={StoryPage} />
                     <Route exact path="/contact" component={ContactPage} />
                     <Route exact path="/benefits" component={BenefitsPage} />
+                    <Route exact path="/offer" component={WhatWeOfferPage} />
+                    <Route
+                        exact
+                        path="/references"
+                        component={ReferencesPage}
+                    />
                     <Route
                         exact
                         path="/participants"
