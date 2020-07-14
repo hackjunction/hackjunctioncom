@@ -140,11 +140,26 @@ const ConnectedHome = ({}) => {
                     <h3 className="BlockSection--left__title">Timeline</h3>
                 </div>
                 <div className="BlockSection--right">
-                    <Timeline>September 1st Application period begins</Timeline>
-                    <Timeline> October 6th Virtual matchmaking begins</Timeline>
-                    <Timeline>September 1st Application period begins</Timeline>
-                    <Timeline last>
-                        November 6th to 8th Junction 2020 Connected
+                    <Timeline date="September 1st">
+                        Application period begins
+                    </Timeline>
+                    <Timeline date="October 1st">
+                        Virtual matchmaking begins
+                    </Timeline>
+                    <Timeline date="October 9th">
+                        Application period ends
+                    </Timeline>
+                    <Timeline date="October 9th">
+                        Application period ends
+                    </Timeline>
+                    <Timeline date="October 18th">
+                        Deadline for participants to confirm their place
+                    </Timeline>
+                    <Timeline date="November 6th">
+                        Junction 2020 Connected begins
+                    </Timeline>
+                    <Timeline date="November 8th" last>
+                        Junction 2020 Connected ends
                     </Timeline>
                 </div>
             </div>
