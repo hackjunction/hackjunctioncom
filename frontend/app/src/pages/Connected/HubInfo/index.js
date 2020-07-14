@@ -15,7 +15,7 @@ import Planet from "../../../components/Planet";
 export default ({}) => {
     return (
         <Page
-            className="Connected ScrollSnap"
+            className="Connected"
             pageTitle="Hub Info"
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -40,10 +40,12 @@ export default ({}) => {
             </HeaderSection>
             <DividerLine />
             <SectionImage
-                imageKey={MEDIA_KEYS.homePageHeaderImage}
-                alt="Header image"
+                image={{
+                    url: require("../../../assets/images/hubs/Stockholm_hub.JPG"),
+                }}
+                alt="Stockholm hub"
             ></SectionImage>
-            <DividerLine />
+            <DividerLine stop />
             <SingleColumnSection title="What is a hub" center halfpage>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -58,8 +60,10 @@ export default ({}) => {
             </SingleColumnSection>
             <DividerLine />
             <SectionImage
-                imageKey={MEDIA_KEYS.homePageHeaderImage}
-                alt="Header image"
+                image={{
+                    url: require("../../../assets/images/hubs/Helsinki_hub.JPG"),
+                }}
+                alt="Helsinki hub"
             />
             <DividerLine stop />
             <SingleColumnSection
@@ -81,8 +85,10 @@ export default ({}) => {
             </SingleColumnSection>
             <DividerLine />
             <SectionImage
-                imageKey={MEDIA_KEYS.homePageHeaderImage}
-                alt="Header image"
+                image={{
+                    url: require("../../../assets/images/hubs/Chengdu_hub.JPG"),
+                }}
+                alt="Chengdu hub"
             />
             <DividerLine stop />
             <SingleColumnSection
@@ -106,10 +112,12 @@ export default ({}) => {
                     finest online hackathon.
                 </p>
             </SingleColumnSection>
-            <DividerLine stop />
+            <DividerLine />
             <SectionImage
-                imageKey={MEDIA_KEYS.homePageHeaderImage}
-                alt="Header image"
+                image={{
+                    url: require("../../../assets/images/hubs/Cambridge_hub.JPG"),
+                }}
+                alt="Cambridge hub"
             />
             <DividerLine stop />
             <SingleColumnSection

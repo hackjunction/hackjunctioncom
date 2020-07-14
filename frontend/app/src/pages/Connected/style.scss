@@ -207,8 +207,20 @@
     .DividerLine {
         background-color: $connected-blue;
     }
+
+    &-parallax {
+        background-attachment: fixed;
+        background-position: center;
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("../../assets/images/connected_main.jpg");
+    }
 }
 
 .ScrollSnap {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: 100vh;
 }

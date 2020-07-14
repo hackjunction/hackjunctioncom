@@ -3,8 +3,8 @@
 .Footer {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-
+    scroll-snap-stop: normal;
+    scroll-snap-align: end;
     @include bp-full {
         flex-direction: row;
     }

@@ -4,13 +4,8 @@ import "./style.scss";
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import Divider from "../../../components/Divider";
-
 import SectionImage from "../../../components/SectionImage";
-import Planet from "../../../components/Planet";
-import { Grid } from "@material-ui/core";
-import CenteredBlock from "../../../components/CenteredBlock";
-import EventCalendar from "../../../components/EventCalendar";
+
 import BlockSection from "../../../components/BlockSection";
 import Timeline from "../Components/Timeline";
 import DividerLine from "../../../components/DividerLine";
@@ -18,27 +13,6 @@ import HeaderSection from "../../../components/HeaderSection";
 import SingleColumnSection from "../../../components/SingleColumnSection";
 import Page from "../../PageHOC";
 import SmallButton from "../../../components/SmallButton";
-
-const BOTTOM_LINKS = [
-    {
-        imageKey: MEDIA_KEYS.calendarPageHeaderImage,
-        imageAlt: "Link",
-        linkTo: "/calendar",
-        linkText: "Calendar",
-    },
-    {
-        imageKey: MEDIA_KEYS.partnerPageHeaderImage,
-        imageAlt: "Link",
-        linkTo: "/partners",
-        linkText: "For partners",
-    },
-    {
-        imageKey: MEDIA_KEYS.volunteerPageHeaderImage,
-        imageAlt: "Link",
-        linkTo: "/volunteers",
-        linkText: "For volunteers",
-    },
-];
 
 const ConnectedHome = ({}) => {
     return (
@@ -48,8 +22,8 @@ const ConnectedHome = ({}) => {
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.ConnectedHeaderImage}
         >
-            <SingleColumnSection />
-            <DividerLine />
+            <div className="Connected-parallax">Tähän se animaatio :)</div>
+            <DividerLine stop />
             <HeaderSection
                 logo={require("../../../assets/logos/connected_logo.svg")}
                 title="6-8 November"
@@ -71,10 +45,12 @@ const ConnectedHome = ({}) => {
             </HeaderSection>
             <DividerLine />
             <SectionImage
-                imageKey={MEDIA_KEYS.ConnectedHeaderImage}
-                alt="Header image"
-            ></SectionImage>
-            <DividerLine />
+                image={{
+                    url: require("../../../assets/images/connected_main.jpg"),
+                }}
+                alt="Junction 2020 Connected"
+            />
+            <DividerLine stop />
 
             <BlockSection
                 halfpage
@@ -117,9 +93,8 @@ const ConnectedHome = ({}) => {
                     alt="connected-logo-here"
                 />
             </BlockSection>
-            <DividerLine />
-
-            <div className="BlockSection Last">
+            <DividerLine stop />
+            <div className="BlockSection ">
                 <div className="BlockSection--left">
                     <h3 className="BlockSection--left__title">Timeline</h3>
                 </div>

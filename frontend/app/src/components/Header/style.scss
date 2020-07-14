@@ -27,9 +27,13 @@
     &--connected {
         pointer-events: all;
         width: 12em;
+        display: none;
         cursor: pointer;
         margin: 1em auto;
         position: relative;
+        @include bp-full {
+            display: block;
+        }
 
         &__image {
             width: 12em;

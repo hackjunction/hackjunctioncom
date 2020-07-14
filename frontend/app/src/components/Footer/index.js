@@ -17,6 +17,7 @@ import {
 
 import { eventconceptsByPriority } from "../../redux/eventconcepts/selectors";
 import { Typography, Grid } from "@material-ui/core";
+import DividerLine from "../DividerLine";
 
 class Footer extends PureComponent {
     renderConceptLinks(eventConcepts) {

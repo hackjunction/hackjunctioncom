@@ -17,7 +17,7 @@ const Connected = () => {
     return (
         <div className="Connected">
             <Header connected />
-            <div className="App--Content">
+            <div className="App--Content ScrollSnap">
                 <Switch>
                     <Route exact path="/connected" component={ConnectedHome} />
                     <Route exact path="/connected/info" component={EventInfo} />

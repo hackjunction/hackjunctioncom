@@ -5,7 +5,13 @@
     width: 100%;
 
     &-stop {
-        scroll-snap-stop: always;
+        scroll-snap-stop: normal;
         scroll-snap-align: start;
+        &--start {
+            scroll-snap-align: start;
+        }
+        &--end {
+            scroll-snap-align: end;
+        }
     }
 }
