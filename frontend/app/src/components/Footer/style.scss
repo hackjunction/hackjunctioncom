@@ -3,7 +3,6 @@
 .Footer {
     display: flex;
     flex-direction: column;
-
     overflow: hidden;
 
     @include bp-full {
@@ -39,7 +38,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: 75%;
+        margin: auto;
 
         @include bp-full {
             width: calc(50% - 0.2em);
@@ -52,17 +52,30 @@
         &-first {
             margin: auto;
             margin-top: 0;
-            margin-left: 15%;
+
+            @include bp-med {
+                margin-left: 15%;
+            }
         }
 
         &-divider {
             height: 0.2em;
             width: 100%;
+            display: none;
+            @include bp-full {
+                display: block;
+            }
         }
 
         &-second {
             margin: auto;
+
+            margin-top: 5%;
             margin-left: 15%;
+            display: none;
+            @include bp-full {
+                display: block;
+            }
 
             &__FooterLinkList {
                 display: flex;
@@ -84,13 +97,43 @@
     &--right {
         display: flex;
         margin: auto;
+        width: 75%;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        @include bp-med {
+            width: 50%;
+            margin: auto;
+        }
+        @include bp-full {
+            width: 50%;
+            margin: 2% 5% 0 5%;
+            align-items: flex-start;
+        }
 
         h2 {
             font-weight: 600;
             font-size: 20px;
             line-height: 24px;
+        }
+    }
+
+    &--mobile {
+        &-links {
+            width: 75%;
+            margin: 5% auto 5% auto;
+            @include bp-full {
+                display: none;
+            }
+        }
+        &-divider {
+            height: 0.2em;
+            background-color: $connected-blue;
+            width: 100%;
+            display: block;
+            @include bp-full {
+                display: none;
+            }
         }
     }
 }

@@ -3,7 +3,7 @@
 .FormRow {
     display: flex;
     flex-direction: column;
-
+    flex-wrap: wrap;
     @include bp-med {
         flex-direction: row;
     }

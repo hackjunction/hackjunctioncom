@@ -130,6 +130,57 @@ class Footer extends PureComponent {
                     </span>
                     <ContactForm />
                 </div>
+                <div className="Footer--mobile-divider" />
+                <div className="Footer--mobile-links">
+                    <div className="Footer--left-second__FooterLinkList">
+                        <div className="FooterListLeft">
+                            <span>
+                                <Link to="/codeofconduct">Code of Conduct</Link>
+                            </span>
+                            <span>
+                                <Link to="/policy">Privacy Policy</Link>
+                            </span>
+                            <span>
+                                <Link to="/terms">Terms & Conditions</Link>
+                            </span>
+                        </div>
+                        <div className="FooterListRight">
+                            <span>
+                                <Link to="/press">Press kit</Link>
+                            </span>
+                            {/* <span>
+                                    <Link to="/media">Press kit (fin)</Link>
+                                </span> */}
+                            <span>
+                                <a
+                                    href="https://www.flickr.com/photos/151708924@N07/albums/"
+                                    alt="flickr"
+                                >
+                                    Photo Gallery
+                                </a>
+                            </span>
+                            <span>
+                                <a
+                                    href="https://blog.hackjunction.com"
+                                    alt="medium"
+                                >
+                                    Blog
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    <div className="Footer--left--margin">
+                        Designed and developed with{" "}
+                        <span role="img" aria-label="love">
+                            💕
+                        </span>{" "}
+                        &{" "}
+                        <span role="img" aria-label="coffee">
+                            ☕
+                        </span>{" "}
+                        by the Junction Team.
+                    </div>
+                </div>
             </footer>
         );
     }

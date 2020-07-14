@@ -14,7 +14,7 @@ const SingleColumnSection = ({
     return (
         <div
             className={`SingleColumnSection ${
-                halfpage ? "SingleColumnSection--half" : null
+                halfpage ? "SingleColumnSection--half" : ""
             }`}
         >
             <h3 className="SingleColumnSection--title">{title}</h3>

@@ -82,7 +82,7 @@ class PartnersPage extends PureComponent {
                 />
                 <ImgBlock
                     topic="FAQ"
-                    link="ADDLINKHERE"
+                    link="/frequently-asked-questions"
                     left
                     image={images.faq}
                 />
