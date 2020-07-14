@@ -113,7 +113,7 @@ const ConnectedHome = ({}) => {
                 <div className="BlockSection--left">
                     <img
                         className="Connected--logo"
-                        src={require("../../../assets/images/connected-chain.png")}
+                        src={require("../../../assets/images/hub_globe.png")}
                         alt="connected-logo-here"
                     />
                 </div>
@@ -126,7 +126,7 @@ const ConnectedHome = ({}) => {
                         The local hubs give the concept of a normal online
                         hackathon a twist by increasing the sense of community
                         and making physical interaction possible when needed.
-                        Check out your nearest hub or organize one yourself!{" "}
+                        Check out your nearest hub or organize one yourself!
                     </p>
                     <SmallButton
                         className="Connected-blue-button"
@@ -135,7 +135,7 @@ const ConnectedHome = ({}) => {
                     />
                 </div>
             </div>
-            <div className="BlockSection Seperated">
+            <div className="BlockSection">
                 <div className="BlockSection--left">
                     <h3 className="BlockSection--left__title">Timeline</h3>
                 </div>
