@@ -69,9 +69,9 @@ class VolunteersPage extends PureComponent {
                         {/* <img
                             src={require("../../../assets/images/quotation.png")}
                         /> */}
-                        <span>
+                        <p className="notbolded">
                             - Nora Nummentalo & Berit Aliforsti, Cloakroom 2019
-                        </span>
+                        </p>
                     </div>
                 </div>
                 <SectionImage
