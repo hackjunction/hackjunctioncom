@@ -3,8 +3,8 @@
 .Checkpoint {
     display: flex;
     align-items: center;
-    list-style-type: none;
-    padding: 1em 0;
+
+    padding: 0em 0;
     color: $connected-blue;
     line-height: 1em;
     font-size: 18px;
@@ -34,14 +34,15 @@
 }
 
 .Fillerpoint {
-    height: 30px;
-    list-style-type: none;
-}
+    padding: 0.5em 1em;
 
-.Fillerpoint:before {
-    content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    color: $connected-orange; /* Change the color */
-    font-weight: bold; /* If you want it to be bold */
-    font-size: 2em;
-    margin-left: 0.3em;
+    .Point {
+        border-radius: 50%;
+        height: 0.4em;
+        margin-right: 0.1em;
+        width: 0.4em;
+        background-color: $connected-orange; /* Change the color */
+        font-size: 2em;
+        vertical-align: text-bottom;
+    }
 }

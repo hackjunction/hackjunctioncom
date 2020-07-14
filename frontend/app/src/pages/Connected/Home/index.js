@@ -75,6 +75,7 @@ const ConnectedHome = ({}) => {
                 alt="Header image"
             ></SectionImage>
             <DividerLine />
+
             <BlockSection
                 halfpage
                 title="Introducing Hubs"
@@ -117,6 +118,7 @@ const ConnectedHome = ({}) => {
                 />
             </BlockSection>
             <DividerLine />
+
             <div className="BlockSection Last">
                 <div className="BlockSection--left">
                     <h3 className="BlockSection--left__title">Timeline</h3>

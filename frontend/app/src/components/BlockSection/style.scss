@@ -5,7 +5,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 3em;
+    padding-top: 5em;
+
     height: 100vh;
     @include bp-full {
         padding: 5em;

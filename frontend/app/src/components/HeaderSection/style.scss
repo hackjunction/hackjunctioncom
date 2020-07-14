@@ -7,12 +7,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    padding-top: 5em;
+    justify-content: space-evenly;
     &--title {
         @extend %font-title;
         width: 100%;
         text-align: center;
-        padding: $padding-double;
 
         -webkit-animation: fadein-left 0.5s; /* Safari, Chrome and Opera > 12.1 */
         -moz-animation: fadein-left 0.5s; /* Firefox < 16 */
@@ -31,7 +31,6 @@
         font-size: 18x;
         width: 80%;
         margin-top: 0;
-        margin-bottom: 5%;
         text-align: center;
         display: none;
 
@@ -55,6 +54,9 @@
         @include bp-med {
             flex-direction: row;
         }
+    }
+    img {
+        max-width: 80%;
     }
 }
 
