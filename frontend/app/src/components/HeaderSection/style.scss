@@ -30,7 +30,8 @@
         @extend %font-title;
         font-size: 18x;
         width: 80%;
-        margin: 5%;
+        margin-top: 0;
+        margin-bottom: 5%;
         text-align: center;
         display: none;
 
@@ -42,6 +43,17 @@
 
         @include bp-full {
             display: block;
+        }
+    }
+
+    &--content {
+        display: flex;
+        justify-content: space-evenly;
+        width: 80%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        @include bp-med {
+            flex-direction: row;
         }
     }
 }

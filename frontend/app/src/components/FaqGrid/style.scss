@@ -22,14 +22,11 @@
     justify-content: flex-start;
     border-style: solid;
     border-radius: 0.3em;
-    border-width: 0.2em;
+    border-width: 0.3em;
     border-color: $connected-orange;
     margin-bottom: $padding-base;
-    padding: $padding-base;
-    @include bp-med {
-        width: 49%;
-        align-self: flex-start;
-    }
+    padding: 0.2em;
+    padding-left: 0.6em;
 
     &-expanded {
         .FaqGridItem--answer {
@@ -44,6 +41,7 @@
     &--question {
         @extend %font-title;
         font-weight: bold;
+        cursor: pointer;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -60,7 +58,7 @@
             align-items: center;
             cursor: pointer;
             @include bp-med {
-                display: block;
+                display: none;
             }
         }
     }

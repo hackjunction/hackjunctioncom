@@ -8,7 +8,7 @@ export default ({ children, date, last = false }) => {
                 <div className="Point" />
                 <div className="Content">
                     <div className="Date">{date}</div>
-                    <div>{children}</div>
+                    <div className="DateInfo">{children}</div>
                 </div>
             </div>
             {!last ? (

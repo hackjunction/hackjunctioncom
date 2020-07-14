@@ -5,21 +5,18 @@
     align-items: center;
     list-style-type: none;
     display: flex;
-
-    padding: 1em 0;
+    padding: 0.3em 0;
     color: $connected-blue;
-    line-height: 1em;
-    font-size: 18px;
+    font-size: 1.5em;
 
     .Point {
         border-radius: 50%;
-        height: 0.4em;
+        height: 0.3em;
         margin-right: 0.1em;
-        width: 0.4em;
+        width: 0.3em;
         background-color: $connected-red; /* Change the color */
         font-weight: bold; /* If you want it to be bold */
-        font-size: 6em;
-        vertical-align: text-bottom;
+        font-size: 5em;
     }
 
     .Date {
@@ -29,21 +26,22 @@
         font-size: 18px;
     }
     .DateInfo {
-        padding-left: 1em;
         color: $connected-blue;
-        font-size: 18px;
+        font-size: 0.8em;
     }
 }
 
 .Fillerpoint {
-    height: 30px;
+    height: 1em;
+    margin-left: 0.5em;
     list-style-type: none;
+    align-items: center;
+    display: flex;
 }
 
 .Fillerpoint:before {
     content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
     color: $connected-orange; /* Change the color */
     font-weight: bold; /* If you want it to be bold */
-    font-size: 2em;
-    margin-left: 0.3em;
+    font-size: 1.5em;
 }

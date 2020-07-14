@@ -47,12 +47,8 @@
         height: 100%;
         overflow: hidden;
     }
-
-    &-scrolled {
-        background: $junction-black;
-        padding: 10px;
-        transition: all 0.5s ease-in-out;
-    }
+    padding: 10px;
+    background: $junction-black;
 
     .HeaderMobileRow {
         display: flex;
@@ -75,9 +71,17 @@
         }
     }
     &--icon {
-        margin: 5%;
+        margin: 2%;
         &:hover {
             cursor: pointer;
+        }
+    }
+
+    &--connected {
+        width: 50%;
+        margin-left: 2%;
+        &__image {
+            width: 100%;
         }
     }
     @include bp-med {

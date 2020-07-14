@@ -14,12 +14,15 @@ class BlockSection extends PureComponent {
             extra,
             halfpage,
             inverted,
+            className,
         } = this.props;
         return (
             <div
                 className={`BlockSection ${
                     halfpage ? "BlockSection--half" : null
-                } ${inverted ? "BlockSection--inverted" : null}`}
+                } ${inverted ? "BlockSection--inverted" : null} ${
+                    className ? className : null
+                }`}
             >
                 <div className="BlockSection--left">
                     <h3 className="BlockSection--left__title">{title}</h3>

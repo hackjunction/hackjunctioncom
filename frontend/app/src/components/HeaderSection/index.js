@@ -11,7 +11,9 @@ const HeaderSection = ({ title, body, logo, children }) => {
             {logo && <img src={logo} />}
             {title && <h2 className="HeaderSection--title">{title}</h2>}
             {body && <h3 className="HeaderSection--body">{body}</h3>}
-            {children}
+            {children && (
+                <div className="HeaderSection--content">{children}</div>
+            )}
         </Grid>
     );
 };
