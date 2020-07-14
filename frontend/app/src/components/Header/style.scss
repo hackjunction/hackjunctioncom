@@ -24,6 +24,17 @@
             width: 80px;
         }
     }
+    &--connected {
+        pointer-events: all;
+        width: 12em;
+        cursor: pointer;
+        margin: 1em auto;
+        position: relative;
+
+        &__image {
+            width: 12em;
+        }
+    }
 }
 
 .HeaderMobile {
@@ -31,7 +42,6 @@
     position: fixed;
     width: 100%;
     z-index: 10;
-    background: $junction-black;
     flex-direction: column;
     &--open {
         height: 100%;
@@ -39,7 +49,8 @@
     }
 
     &-scrolled {
-        background: $junction-white;
+        background: $junction-black;
+        padding: 10px;
         transition: all 0.5s ease-in-out;
     }
 

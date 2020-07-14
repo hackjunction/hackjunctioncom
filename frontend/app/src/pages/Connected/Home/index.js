@@ -13,8 +13,7 @@ import CenteredBlock from "../../../components/CenteredBlock";
 import EventCalendar from "../../../components/EventCalendar";
 import BlockSection from "../../../components/BlockSection";
 import Timeline from "../Components/Timeline";
-
-import { spacing } from "@material-ui/system";
+import DividerLine from "../../../components/DividerLine";
 
 import Page from "../../PageHOC";
 import SmallButton from "../../../components/SmallButton";
@@ -52,7 +51,7 @@ const ConnectedHome = ({}) => {
                 <Grid className="Connected--TopContent">
                     <img
                         className="Connected--logo"
-                        src={require("../../../assets/logos/text_black.png")}
+                        src={require("../../../assets/logos/connected_logo.svg")}
                         alt="connected-logo-here"
                     />
                     <h2 className="Connected-subtitle">6-8 November </h2>
@@ -79,61 +78,54 @@ const ConnectedHome = ({}) => {
                     <Divider sm />
                 </Grid>
             </CenteredBlock>
+            <DividerLine />
             <SectionImage
                 imageKey={MEDIA_KEYS.ConnectedHeaderImage}
                 alt="Header image"
             ></SectionImage>
-            <div className="BlockSection">
-                <div className="BlockSection--left">
-                    <h3 className="BlockSection--left__title">
-                        Introducing Hubs
-                    </h3>
-                    <p>
-                        Junction 2020 Connected is a new take on the established
+            <DividerLine />
+            <BlockSection
+                halfpage
+                title="Introducing Hubs"
+                subtitle="Junction 2020 Connected is a new take on the established
                         concept of a hackathon; participants all over the world
                         can join physical locations hosted by Junction and other
-                        organizations, or participate in the event fully online.
-                    </p>
+                        organizations, or participate in the event fully online."
+                extra={
                     <SmallButton
                         className="Connected-blue-button"
                         to
                         text="Learn more about Hubs"
                     />
-                </div>
-                <div className="BlockSection--right">
-                    <img
-                        className="Connected--logo"
-                        src={require("../../../assets/images/photo-hub-visualisation.png")}
-                        alt="connected-logo-here"
-                    />
-                </div>
-            </div>
-            <div className="BlockSection">
-                <div className="BlockSection--left">
-                    <img
-                        className="Connected--logo"
-                        src={require("../../../assets/images/hub_globe.png")}
-                        alt="connected-logo-here"
-                    />
-                </div>
-
-                <div className="BlockSection--right">
-                    <h3 className="BlockSection--left__title">
-                        30 countries, 1 hackathon
-                    </h3>
-                    <p>
-                        The local hubs give the concept of a normal online
+                }
+            >
+                <img
+                    src={require("../../../assets/images/photo-hub-visualisation.png")}
+                    alt="connected-logo-here"
+                />
+            </BlockSection>
+            <BlockSection
+                halfpage
+                inverted
+                title="30 countries, 1 hackathon"
+                subtitle="The local hubs give the concept of a normal online
                         hackathon a twist by increasing the sense of community
                         and making physical interaction possible when needed.
-                        Check out your nearest hub or organize one yourself!
-                    </p>
+                        Check out your nearest hub or organize one yourself!"
+                extra={
                     <SmallButton
                         className="Connected-blue-button"
                         to
                         text="Learn more about Hubs"
                     />
-                </div>
-            </div>
+                }
+            >
+                <img
+                    src={require("../../../assets/images/hub_globe.png")}
+                    alt="connected-logo-here"
+                />
+            </BlockSection>
+            <DividerLine />
             <div className="BlockSection Last">
                 <div className="BlockSection--left">
                     <h3 className="BlockSection--left__title">Timeline</h3>

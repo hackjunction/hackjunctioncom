@@ -1,10 +1,16 @@
-import React from 'react'
-import './style.scss'
+import React from "react";
+import "./style.scss";
 
 const Divider = ({ sm = false, md = false, lg = false }) => {
-	return (
-		<div className={`Divider ${sm ? 'Divider-sm' : ''}${md ? 'Divider-md' : ''}${lg ? 'Divider-lg' : ''}`} />
-	)
-}
+    let classes = "Divider";
+    if (sm) {
+        classes += " Divider-sm";
+    } else if (md) {
+        classes += " Divider-md";
+    } else if (lg) {
+        classes += " Divider-lg";
+    }
+    return <div className={classes} />;
+};
 
-export default Divider
+export default Divider;

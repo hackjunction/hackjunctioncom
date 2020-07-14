@@ -134,9 +134,13 @@
         }
     }
 
-    .NavMenuMobile,
-    .HeaderMobile {
+    .NavMenuMobile {
         background-color: $connected-blue;
+    }
+    .HeaderMobile {
+        &-scrolled {
+            background-color: $connected-blue;
+        }
     }
 
     .Footer {
@@ -199,9 +203,11 @@
         }
     }
 
-    .SectionImage,
-    .BlockSection {
-        border-top: 0.2em solid $connected-blue;
-        border-bottom: 0.2em solid $connected-blue;
+    .DividerLine {
+        background-color: $connected-blue;
     }
+}
+
+.ScrollSnap {
+    scroll-snap-type: y mandatory;
 }

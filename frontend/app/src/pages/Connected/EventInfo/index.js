@@ -5,14 +5,11 @@ import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
 import SectionImage from "../../../components/SectionImage";
-import { Grid, Container, Typography } from "@material-ui/core";
-import CenteredBlock from "../../../components/CenteredBlock";
-import EventCalendar from "../../../components/EventCalendar";
-
 import Page from "../../PageHOC";
-import SmallButton from "../../../components/SmallButton";
 import HeaderSection from "../../../components/HeaderSection";
 import SingleColumnSection from "../../../components/SingleColumnSection";
+import BlockSection from "../../../components/BlockSection";
+import DividerLine from "../../../components/DividerLine";
 
 import Timeline from "../Components/Timeline";
 import FaqSection from "../Components/FaqSection";
@@ -30,11 +27,6 @@ const items = [
             { question: "asd", answer: "asdasd", key: "3" },
             { question: "asd", answer: "asdasd", key: "4" },
             { question: "asd", answer: "asdasd", key: "2" },
-            { question: "asd", answer: "asdasd", key: "3" },
-            { question: "asd", answer: "asdasd", key: "4" },
-            { question: "asd", answer: "asdasd", key: "2" },
-            { question: "asd", answer: "asdasd", key: "3" },
-            { question: "asd", answer: "asdasd", key: "4" },
         ],
     },
     {
@@ -68,7 +60,7 @@ const items = [
 export default ({}) => {
     return (
         <Page
-            className="Connected"
+            className="Connected ScrollSnap"
             pageTitle="Event Info"
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -77,56 +69,61 @@ export default ({}) => {
                 title="Event information"
                 body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
             ></HeaderSection>
+            <DividerLine />
             <SectionImage
                 imageKey={MEDIA_KEYS.homePageHeaderImage}
                 alt="Header image"
             >
                 General information
             </SectionImage>
+            <DividerLine />
             Tähän sisältöö
+            <DividerLine />
             <SectionImage
                 imageKey={MEDIA_KEYS.homePageHeaderImage}
                 alt="Header image"
             >
                 Timeline
             </SectionImage>
-            <div className="TimelineSection">
-                <div className="TimelineSection--left">
-                    <h1>Important dates & timeline</h1>
+            <DividerLine stop />
+            <BlockSection
+                title="Important dates & timeline"
+                extra={
                     <img
                         src={require("../../../assets/images/visu-chains.svg")}
                     />
-                </div>
-                <div className="TimelineSection--right">
-                    <Timeline date="September 1st">
-                        Application period begins
-                    </Timeline>
-                    <Timeline date="October 6th">
-                        Virtual matchmaking begins
-                    </Timeline>
-                    <Timeline date="September 1st">
-                        Application period begins
-                    </Timeline>
-                    <Timeline date="September 1st">
-                        Application period begins
-                    </Timeline>
-                    <Timeline date="September 1st">
-                        Application period begins
-                    </Timeline>
-                    <Timeline date="September 1st">
-                        Application period begins
-                    </Timeline>
-                    <Timeline date="November 6th to 8th" last>
-                        Junction 2020 Connected
-                    </Timeline>
-                </div>
-            </div>
+                }
+            >
+                <Timeline date="September 1st">
+                    Application period begins
+                </Timeline>
+                <Timeline date="October 6th">
+                    Virtual matchmaking begins
+                </Timeline>
+                <Timeline date="September 1st">
+                    Application period begins
+                </Timeline>
+                <Timeline date="September 1st">
+                    Application period begins
+                </Timeline>
+                <Timeline date="September 1st">
+                    Application period begins
+                </Timeline>
+                <Timeline date="September 1st">
+                    Application period begins
+                </Timeline>
+                <Timeline date="November 6th to 8th" last>
+                    Junction 2020 Connected
+                </Timeline>
+            </BlockSection>
+            <DividerLine />
             <SectionImage
                 imageKey={MEDIA_KEYS.homePageHeaderImage}
                 alt="Header image"
             >
                 FAQ
             </SectionImage>
+            <DividerLine stop />
             <SingleColumnSection
                 title="FAQ"
                 subtitle="Our expertise of organising hackathons combined with the
@@ -143,12 +140,14 @@ export default ({}) => {
                     </a>
                 </span>
             </SingleColumnSection>
+            <DividerLine />
             <SectionImage
                 imageKey={MEDIA_KEYS.homePageHeaderImage}
                 alt="Header image"
             >
                 For Partners
             </SectionImage>
+            <DividerLine stop />
             <SingleColumnSection>Tähän sisältöö</SingleColumnSection>
         </Page>
     );

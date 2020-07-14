@@ -27,7 +27,7 @@ const mapStateToPropsInner = (state) => ({
 
 const ConnectedNavMenuInner = connect(mapStateToPropsInner)(NavMenuInner);
 
-const NavMenuMobile = ({ isSidebarOpen }) => {
+const NavMenuMobile = ({ isSidebarOpen, connected }) => {
     return (
         <div>
             <div
@@ -37,7 +37,7 @@ const NavMenuMobile = ({ isSidebarOpen }) => {
             >
                 {isSidebarOpen ? (
                     <>
-                        <ConnectedNavMenuInner />
+                        <ConnectedNavMenuInner connected={connected} />
                         <div className="NavMenuMobile--social">
                             <SocialMediaIcons />
                         </div>
