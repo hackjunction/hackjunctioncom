@@ -29,16 +29,11 @@
         &--First {
             height: 30%;
         }
-        &--Second {
-            height: 10%;
-            background: $junction-green;
-            border: 1px solid $junction-black;
-        }
 
         &--Third {
-            height: 55%;
+            height: 70%;
             text-align: center;
-            padding-bottom: 5%;
+            padding-bottom: 14%;
             p {
                 @extend .WhatWeOfferPage--TopContent;
                 padding: 0 10% 0 10%;
@@ -55,6 +50,11 @@
         height: 100%;
         text-align: center;
         border-top: 1px solid $junction-black;
+
+        &--Expertise {
+            padding: 3% 10% 0 10%;
+        }
+
         &--Hosting {
             height: 100%;
             width: 100%;
