@@ -78,32 +78,44 @@ const ConnectedContent = () => {
             <ConnectedNavLink to="/connected/info" title>
                 Event info
             </ConnectedNavLink>
-            <ConnectedNavLink to="/story">General information</ConnectedNavLink>
-            <ConnectedNavLink to="/story">Schedule</ConnectedNavLink>
-            <ConnectedNavLink to="/story">FAQ</ConnectedNavLink>
-            <ConnectedNavLink to="/story">For partners</ConnectedNavLink>
+            <ConnectedNavLink to="/connected/info/#general">
+                General information
+            </ConnectedNavLink>
+            <ConnectedNavLink to="/connected/info/#timeline">
+                Schedule
+            </ConnectedNavLink>
+            <ConnectedNavLink to="/connected/info/#faq">FAQ</ConnectedNavLink>
+            <ConnectedNavLink to="/connected/info/#partners">
+                For partners
+            </ConnectedNavLink>
 
-            <ConnectedNavLink title to="/partners">
+            <ConnectedNavLink title to="/connected/hubs">
                 Hubs
             </ConnectedNavLink>
-            <ConnectedNavLink to="/partners">Hub locations</ConnectedNavLink>
-            <ConnectedNavLink to="/partners">What is a hub</ConnectedNavLink>
-            <ConnectedNavLink to="/partners">Hub stories</ConnectedNavLink>
+            <ConnectedNavLink to="/connected/hubs">
+                Hub locations
+            </ConnectedNavLink>
+            <ConnectedNavLink to="/connected/hubs">
+                What is a hub
+            </ConnectedNavLink>
+            <ConnectedNavLink to="/connected/hubs">
+                Hub stories
+            </ConnectedNavLink>
 
             <ConnectedNavLink to="/challenges" title>
                 Challenges
             </ConnectedNavLink>
-            <ConnectedNavLink to="/participants">
-                Event partners
-            </ConnectedNavLink>
-            <ConnectedNavLink to="/participants">Challenges</ConnectedNavLink>
+            <ConnectedNavLink to="/partners">Event partners</ConnectedNavLink>
+            <ConnectedNavLink to="/challenges">Challenges</ConnectedNavLink>
 
+            {/*
             <ConnectedNavLink title>Important links</ConnectedNavLink>
             <ConnectedNavLink to="/participants">Registration</ConnectedNavLink>
             <ConnectedNavLink to="/volunteers">Submissions</ConnectedNavLink>
             <ConnectedNavLink to="/volunteers">All projects</ConnectedNavLink>
             <ConnectedNavLink to="/volunteers">Hackerpack</ConnectedNavLink>
             <ConnectedNavLink to="/volunteers">Brella</ConnectedNavLink>
+            */}
         </>
     );
 };
@@ -125,8 +137,10 @@ const MainContent = React.memo(
                     Benefits of a hackathon
                 </ConnectedNavLink>
                 <ConnectedNavLink to="/partners">Our products</ConnectedNavLink>
-                <ConnectedNavLink to="/partners">References</ConnectedNavLink>
-                <ConnectedNavLink to="/partners">FAQ</ConnectedNavLink>
+                <ConnectedNavLink to="/references">References</ConnectedNavLink>
+                <ConnectedNavLink to="/frequently-asked-questions">
+                    FAQ
+                </ConnectedNavLink>
 
                 <ConnectedNavLink to="/events" title>
                     Events

@@ -22,6 +22,7 @@ import CommunityPage from "./Community";
 import BenefitsPage from "./Benefits";
 import WhatWeOfferPage from "./WhatWeOffer";
 import ReferencesPage from "./References";
+import FaqPage from "./FAQ";
 import EventsPage from "./Events";
 
 import BasicPage from "../BasicPage";
@@ -54,6 +55,11 @@ const Junction = () => {
                         component={ParticipantsPage}
                     />
                     <Route exact path="/partners" component={PartnersPage} />
+                    <Route
+                        exact
+                        path="/frequently-asked-questions"
+                        component={FaqPage}
+                    />
                     <Route exact path="/community" component={CommunityPage} />
                     <Route exact path="/concepts" component={ConceptsPage} />
                     <Route exact path="/calendar" component={CalendarPage} />

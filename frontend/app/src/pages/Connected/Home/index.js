@@ -15,7 +15,7 @@ import BlockSection from "../../../components/BlockSection";
 import Timeline from "../Components/Timeline";
 import DividerLine from "../../../components/DividerLine";
 import HeaderSection from "../../../components/HeaderSection";
-
+import SingleColumnSection from "../../../components/SingleColumnSection";
 import Page from "../../PageHOC";
 import SmallButton from "../../../components/SmallButton";
 
@@ -48,6 +48,8 @@ const ConnectedHome = ({}) => {
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.ConnectedHeaderImage}
         >
+            <SingleColumnSection />
+            <DividerLine />
             <HeaderSection
                 logo={require("../../../assets/logos/connected_logo.svg")}
                 title="6-8 November"
@@ -73,6 +75,7 @@ const ConnectedHome = ({}) => {
                 alt="Header image"
             ></SectionImage>
             <DividerLine />
+
             <BlockSection
                 halfpage
                 title="Introducing Hubs"
@@ -89,7 +92,7 @@ const ConnectedHome = ({}) => {
                 }
             >
                 <img
-                    src={require("../../../assets/images/photo-hub-visualisation.png")}
+                    src={require("../../../assets/images/photo-hub-visualisation.svg")}
                     alt="connected-logo-here"
                 />
             </BlockSection>
@@ -110,11 +113,12 @@ const ConnectedHome = ({}) => {
                 }
             >
                 <img
-                    src={require("../../../assets/images/hub_globe.png")}
+                    src={require("../../../assets/images/hub_globe.svg")}
                     alt="connected-logo-here"
                 />
             </BlockSection>
             <DividerLine />
+
             <div className="BlockSection Last">
                 <div className="BlockSection--left">
                     <h3 className="BlockSection--left__title">Timeline</h3>

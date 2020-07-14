@@ -19,13 +19,13 @@ class BlockSection extends PureComponent {
         return (
             <div
                 className={`BlockSection ${
-                    halfpage ? "BlockSection--half" : null
-                } ${inverted ? "BlockSection--inverted" : null} ${
-                    className ? className : null
+                    halfpage ? "BlockSection--half" : ""
+                } ${inverted ? "BlockSection--inverted" : ""} ${
+                    className ? className : ""
                 }`}
             >
                 <div className="BlockSection--left">
-                    <h3 className="BlockSection--left__title">{title}</h3>
+                    <h2 className="BlockSection--left__title">{title}</h2>
                     <Markdown
                         className="BlockSection--left__subtitle"
                         source={subtitle}
