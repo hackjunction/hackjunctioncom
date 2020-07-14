@@ -129,9 +129,6 @@ const ConnectedHome = ({}) => {
                     <Timeline date="October 9th">
                         Application period ends
                     </Timeline>
-                    <Timeline date="October 9th">
-                        Application period ends
-                    </Timeline>
                     <Timeline date="October 18th">
                         Deadline for participants to confirm their place
                     </Timeline>
