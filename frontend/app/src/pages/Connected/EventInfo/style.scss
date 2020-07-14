@@ -1,19 +1,25 @@
 @import "../../../styles/main";
 
 .TimelineSection {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    margin: 2em auto;
-    &--left {
-        width: 40%;
+    .BlockSection--left {
         display: none;
         @include bp-med {
             display: flex;
             flex-direction: column;
         }
     }
-    &--right {
-        width: 40%;
+    .BlockSection--right {
+        width: 100%;
+        margin: auto;
+        display: flex;
+
+        @include bp-med {
+            width: 60%;
+        }
+    }
+
+    .Connected-chains {
+        height: 70%;
+        margin-top: 5%;
     }
 }

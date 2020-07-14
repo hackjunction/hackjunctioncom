@@ -79,8 +79,8 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                             className="HeaderMobile--connected"
                         >
                             <img
-                                className="HeaderMobile--connected_image"
-                                src={require("../../assets/logos/connected_logo.svg")}
+                                className="HeaderMobile--connected__image"
+                                src={require("../../assets/logos/header-j2020c-logo.svg")}
                                 alt="Junction 2020 Connected logo"
                             />
                         </Link>

@@ -10,6 +10,7 @@ import HeaderSection from "../../../components/HeaderSection";
 import SingleColumnSection from "../../../components/SingleColumnSection";
 import BlockSection from "../../../components/BlockSection";
 import DividerLine from "../../../components/DividerLine";
+import SmallButton from "../../../components/SmallButton";
 
 import Timeline from "../Components/Timeline";
 import FaqSection from "../Components/FaqSection";
@@ -68,7 +69,21 @@ export default ({}) => {
             <HeaderSection
                 title="Event information"
                 body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
-            ></HeaderSection>
+            >
+                <SmallButton
+                    className="Connected-blue-button"
+                    text="General information"
+                />
+                <SmallButton
+                    className="Connected-blue-button"
+                    text="Schedule"
+                />
+                <SmallButton className="Connected-blue-button" text="FAQ" />
+                <SmallButton
+                    className="Connected-blue-button"
+                    text="For partners"
+                />
+            </HeaderSection>
             <DividerLine />
             <SectionImage
                 imageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -87,9 +102,11 @@ export default ({}) => {
             </SectionImage>
             <DividerLine stop />
             <BlockSection
+                className="TimelineSection"
                 title="Important dates & timeline"
                 extra={
                     <img
+                        className="Connected-chains"
                         src={require("../../../assets/images/visu-chains.svg")}
                     />
                 }
@@ -116,6 +133,10 @@ export default ({}) => {
                     Junction 2020 Connected
                 </Timeline>
             </BlockSection>
+            <SingleColumnSection
+                title="Schedule of the weekend"
+                halfpage
+            ></SingleColumnSection>
             <DividerLine />
             <SectionImage
                 imageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -125,20 +146,27 @@ export default ({}) => {
             </SectionImage>
             <DividerLine stop />
             <SingleColumnSection
-                title="FAQ"
                 subtitle="Our expertise of organising hackathons combined with the
                     power of a highly-customizable platform for events makes
                     hosting diverse events possible."
                 center
             >
                 <FaqSection items={items} />
-                <span>
+            </SingleColumnSection>
+            <SingleColumnSection center halfpage>
+                <div>
                     Didn’t find what you were looking for? Our team is happy to
-                    help you with anything and everything, just{" "}
-                    <a href="mailto:hello@hackjunction.com">
-                        shoot us a message!
-                    </a>
-                </span>
+                    help you with anything and everything, just shoot us a
+                    message!
+                    <div>
+                        <a href="mailto:hello@hackjunction.com">
+                            <SmallButton
+                                className="Connected-blue-button"
+                                text="Contact us"
+                            />
+                        </a>
+                    </div>
+                </div>
             </SingleColumnSection>
             <DividerLine />
             <SectionImage

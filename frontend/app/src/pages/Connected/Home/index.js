@@ -14,6 +14,7 @@ import EventCalendar from "../../../components/EventCalendar";
 import BlockSection from "../../../components/BlockSection";
 import Timeline from "../Components/Timeline";
 import DividerLine from "../../../components/DividerLine";
+import HeaderSection from "../../../components/HeaderSection";
 
 import Page from "../../PageHOC";
 import SmallButton from "../../../components/SmallButton";
@@ -47,43 +48,32 @@ const ConnectedHome = ({}) => {
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.ConnectedHeaderImage}
         >
-            <CenteredBlock>
-                <Grid className="Connected--TopContent">
-                    <img
-                        className="Connected--logo"
-                        src={require("../../../assets/logos/connected_logo.svg")}
-                        alt="connected-logo-here"
-                    />
-                    <h2 className="Connected-subtitle">6-8 November </h2>
+            <HeaderSection
+                logo={require("../../../assets/logos/connected_logo.svg")}
+                title="6-8 November"
+                body="A hackathon like no other, gathering people all over the
+                    world to simultaneously hack in both physical locations and
+                    online."
+            >
+                <SmallButton
+                    className="Connected-button"
+                    to
+                    text="Junction App"
+                />
 
-                    <h3 className="Connected-subtitle">
-                        A hackathon like no other, gathering people all over the
-                        world to simultaneously hack in both physical locations
-                        and online.
-                    </h3>
-                    <Divider sm />
-                    <Grid spacing={6} direction="row">
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="Junction App"
-                        />
-
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="Partner with us"
-                        />
-                    </Grid>
-                    <Divider sm />
-                </Grid>
-            </CenteredBlock>
+                <SmallButton
+                    className="Connected-button"
+                    to
+                    text="Partner with us"
+                />
+            </HeaderSection>
             <DividerLine />
             <SectionImage
                 imageKey={MEDIA_KEYS.ConnectedHeaderImage}
                 alt="Header image"
             ></SectionImage>
             <DividerLine />
+
             <BlockSection
                 halfpage
                 title="Introducing Hubs"
@@ -126,6 +116,7 @@ const ConnectedHome = ({}) => {
                 />
             </BlockSection>
             <DividerLine />
+
             <div className="BlockSection Last">
                 <div className="BlockSection--left">
                     <h3 className="BlockSection--left__title">Timeline</h3>
