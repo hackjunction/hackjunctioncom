@@ -33,11 +33,15 @@ const ConnectedHome = ({}) => {
                     online."
             >
                 <div className="Button-row">
-                    <Button className="Button-small" to text="Junction App" />
+                    <Button
+                        className="Button-small"
+                        to="https://app.hackjunction.com"
+                        text="Junction App"
+                    />
 
                     <Button
                         className="Button-small"
-                        to
+                        to="/partners"
                         text="Partner with us"
                     />
                 </div>

@@ -26,7 +26,6 @@ export default ({}) => {
             >
                 <Button className="Button-default" text="Hub locations" />
                 <Button className="Button-default" text="What is a hub" />
-
                 <Button className="Button-default" text="Hub stories" />
             </HeaderSection>
             <DividerLine />

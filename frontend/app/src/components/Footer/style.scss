@@ -2,10 +2,11 @@
 
 .Footer {
     flex-direction: column;
+    display: -webkit-flex;
+
     @include bp-full {
         scroll-snap-stop: normal;
         scroll-snap-align: end;
-        display: -webkit-flex;
         flex-direction: row;
     }
 
@@ -71,7 +72,6 @@
 
         &-second {
             margin: auto;
-
             margin-top: 5%;
             margin-left: 15%;
             display: none;

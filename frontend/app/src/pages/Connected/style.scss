@@ -5,11 +5,6 @@
 
     .ConnectedContent {
         background-color: $connected-peach;
-
-        padding-top: 5%; // Prevents content to hide under mobile menu
-        @include bp-med {
-            padding-top: 0;
-        }
     }
     .Connected--TopContent {
         align-content: center;
@@ -118,7 +113,7 @@
 
     .Footer {
         background: $connected-peach;
-        border-top: 4px solid $connected-blue;
+        border-top: 0.2em solid $connected-blue;
 
         h2 {
             color: $connected-orange;

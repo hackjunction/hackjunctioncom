@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.scss";
 
+import { Link, Element, animateScroll as scroll } from "react-scroll";
+
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
@@ -308,8 +310,28 @@ export default ({}) => {
                         text="General Information"
                     />
                     <Button className="Button-default" text="For Partners" />*/}
-                    <Button className="Button-default" text="Schedule" />
-                    <Button className="Button-default" text="FAQ" />
+
+                    <Link
+                        activeClass="active"
+                        to="timeline"
+                        spy={true}
+                        smooth={true}
+                        offset={50}
+                        duration={500}
+                    >
+                        <Button className="Button-default" text="Schedule" />
+                    </Link>
+
+                    <Link
+                        activeClass="active"
+                        to="faq"
+                        spy={true}
+                        smooth={true}
+                        offset={50}
+                        duration={500}
+                    >
+                        <Button className="Button-default" text="FAQ" />
+                    </Link>
                 </div>
             </HeaderSection>
             <DividerLine />
@@ -322,7 +344,7 @@ export default ({}) => {
                 Timeline
             </SectionImage>
             <DividerLine />
-
+            <Element name="timeline" />
             <BlockSection
                 className="TimelineSection ScrollSnapElem"
                 title="Important dates & timeline"
@@ -370,8 +392,8 @@ export default ({}) => {
             >
                 FAQ
             </SectionImage>
-
             <DividerLine />
+            <Element name="faq" />
             <SingleColumnSection
                 subtitle="Our expertise of organising hackathons combined with the
                     power of a highly-customizable platform for events makes
