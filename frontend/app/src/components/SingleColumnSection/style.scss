@@ -31,4 +31,9 @@
     &--half {
         height: 50vh;
     }
+
+    &--nolimit {
+        height: auto;
+        max-height: unset;
+    }
 }

@@ -5,12 +5,14 @@
     width: 100%;
 
     &-stop {
-        scroll-snap-stop: normal;
-        &--start {
-            scroll-snap-align: start;
-        }
-        &--end {
-            scroll-snap-align: end;
+        @include bp-med {
+            scroll-snap-stop: normal;
+            &--start {
+                scroll-snap-align: start;
+            }
+            &--end {
+                scroll-snap-align: end;
+            }
         }
     }
 }

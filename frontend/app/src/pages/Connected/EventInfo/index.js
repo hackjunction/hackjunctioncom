@@ -28,37 +28,45 @@ const items = [
             {
                 question: "What is Junction 2020 Connected?",
                 answer:
-                    "Junction 2020 Connected is a new take on the hackathon world - an online hackathon with physical locations distributed around the world. Bring your team to the local hub and work on the global challenges provided by Junction partners, and compete for the grand prize!",
+                    "Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online.",
                 key: "2",
             },
             {
-                question: "How do I attend Junction 2020 Connected?",
+                question: "How can I attend Junction 2020 Connected?",
                 answer:
-                    "When the application period opens on the 1st of September, head to the Junction App and register to Junction 2020 Connected.",
+                    "**Apply to the event in Junction App during the application period, which takes place from 1st of September to 9th of October.** You'll need to submit basic information about your background, experience and motivation. You can apply either alone or as a team. You will apply with the same application to both the hackathon itself and the hubs nearby your home town.",
                 key: "3",
             },
             {
                 question: "Does it cost to attend?",
                 answer:
-                    "Of course not, this hackathon is completely free for participants!",
+                    "Nope! The event is free of charge for all accepted participants.",
                 key: "4",
             },
             {
                 question: "Who can attend Junction 2020 Connected?",
-                answer: "Anyone!",
+                answer:
+                    "Junction 2020 Connected is for anyone and everyone passionate about creating with techonology.",
                 key: "5",
             },
             {
-                question:
-                    "When and where will Junction 2020 Connected take place?",
+                question: "Who can attend Junction 2020 Connected?",
                 answer:
-                    "Junction 2020 Connected will take place all over the world on the 6th to the 8th of November.",
+                    "1 to 5 people - we suggest having a minimum of 3 people in a team.",
                 key: "6",
             },
             {
                 question: "Who are the people behind Junction?",
-                answer: "That's a mystery.",
+                answer:
+                    "Junction is run by a student and volunteer-based team, passionate about organizing the best hackathons in the world!",
                 key: "7",
+            },
+            {
+                question:
+                    "How can I get the latest news and updates on Junction 2020 Connected??",
+                answer:
+                    "Subscribe to our newsletter and follow us on social media **@hackjunction** to get the latest news and updates!",
+                key: "8",
             },
         ],
     },
@@ -66,101 +74,216 @@ const items = [
         title: "Schedule",
         questions: [
             {
-                question:
-                    "When and where will Junction 2020 Connected take place?",
+                question: "What is Junction?",
                 answer:
-                    "Junction 2020 Connected will take place all over the world on the 6th to the 8th of November.",
+                    "Junction is a global tech community, organizing hackathons and tech events around the year and around the world offline and online. Junction 2019 is our flagship event - Europe’s leading hackathon, organized for the fifth time this year!",
                 key: "1",
             },
             {
-                question: "When is the application period?",
+                question: "What is Junction 2020 Connected?",
                 answer:
-                    "The application period starts on the 1st of September and ends on the 30th of September, in short, the application period is in September.",
+                    "Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online.",
                 key: "2",
             },
             {
-                question: "When will I know if I got accepted?",
-                answer: "asdasd",
+                question: "How can I attend Junction 2020 Connected?",
+                answer:
+                    "**Apply to the event in Junction App during the application period, which takes place from 1st of September to 9th of October.** You'll need to submit basic information about your background, experience and motivation. You can apply either alone or as a team. You will apply with the same application to both the hackathon itself and the hubs nearby your home town.",
                 key: "3",
             },
             {
-                question:
-                    "How are time zones handled in Junction 2020 Connected?",
+                question: "Does it cost to attend?",
                 answer:
-                    "The whole event follows the same time zone, and everything happens simultaenously around the world.",
+                    "Nope! The event is free of charge for all accepted participants.",
                 key: "4",
             },
-        ],
-    },
-
-    {
-        title: "Submissions",
-        questions: [
             {
-                question: "Who owns the intellectual property of a hack?",
+                question: "Who can attend Junction 2020 Connected?",
                 answer:
-                    "Always the team who created the project - not Junction nor our partner companies.",
-                key: "1",
+                    "Junction 2020 Connected is for anyone and everyone passionate about creating with techonology.",
+                key: "5",
             },
             {
-                question: "Can I submit more than one project?",
-                answer: "asdasd",
-                key: "2",
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "1 to 5 people - we suggest having a minimum of 3 people in a team.",
+                key: "6",
             },
             {
-                question: "Can I submit my project to multiple challenges?",
-                answer: "asdasd",
-                key: "3",
+                question: "Who are the people behind Junction?",
+                answer:
+                    "Junction is run by a student and volunteer-based team, passionate about organizing the best hackathons in the world!",
+                key: "7",
             },
-        ],
-    },
-    {
-        title: "Hubs",
-        questions: [
             {
                 question:
-                    "I live in country X, but I would like to travel to a hub in country Y. Is this possible?",
+                    "How can I get the latest news and updates on Junction 2020 Connected??",
                 answer:
-                    "If the restrictions in the two countries allow you to travel there and you're accepted to the hub, then yes, it is possible!",
-                key: "1",
-            },
-            {
-                question: "Can I organize a hub?",
-                answer:
-                    "Of course! Shoot us a message at hello(at)hackjunction.com and we'll roll you into the loop.",
-                key: "2",
-            },
-            {
-                question: "Why do you have to separately apply for some hubs?",
-                answer:
-                    "Due to limited space and availability, participants have to apply for hubs.",
-                key: "3",
-            },
-            {
-                question: "What is the difference between the hubs?",
-                answer:
-                    "The location of course, and what the organizers on location can offer you.",
-                key: "4",
+                    "Subscribe to our newsletter and follow us on social media **@hackjunction** to get the latest news and updates!",
+                key: "8",
             },
         ],
     },
-
     {
         title: "Online",
         questions: [
             {
-                question:
-                    "If I attend the event online, will I get the same possibilities to interact with other participants?",
+                question: "What is Junction?",
                 answer:
-                    "Yes! We'll be using an online event software where you can join other participants and partners for a good time.",
+                    "Junction is a global tech community, organizing hackathons and tech events around the year and around the world offline and online. Junction 2019 is our flagship event - Europe’s leading hackathon, organized for the fifth time this year!",
                 key: "1",
             },
             {
-                question:
-                    "If I attend the event online, will I get the same possibilities to interact with other partners?",
+                question: "What is Junction 2020 Connected?",
                 answer:
-                    "Yes! We'll have virtual partner booths for you to enjoy.",
+                    "Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online.",
                 key: "2",
+            },
+            {
+                question: "How can I attend Junction 2020 Connected?",
+                answer:
+                    "**Apply to the event in Junction App during the application period, which takes place from 1st of September to 9th of October.** You'll need to submit basic information about your background, experience and motivation. You can apply either alone or as a team. You will apply with the same application to both the hackathon itself and the hubs nearby your home town.",
+                key: "3",
+            },
+            {
+                question: "Does it cost to attend?",
+                answer:
+                    "Nope! The event is free of charge for all accepted participants.",
+                key: "4",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is for anyone and everyone passionate about creating with techonology.",
+                key: "5",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "1 to 5 people - we suggest having a minimum of 3 people in a team.",
+                key: "6",
+            },
+            {
+                question: "Who are the people behind Junction?",
+                answer:
+                    "Junction is run by a student and volunteer-based team, passionate about organizing the best hackathons in the world!",
+                key: "7",
+            },
+            {
+                question:
+                    "How can I get the latest news and updates on Junction 2020 Connected??",
+                answer:
+                    "Subscribe to our newsletter and follow us on social media **@hackjunction** to get the latest news and updates!",
+                key: "8",
+            },
+        ],
+    },
+    {
+        title: "Submissions",
+        questions: [
+            {
+                question: "What is Junction?",
+                answer:
+                    "Junction is a global tech community, organizing hackathons and tech events around the year and around the world offline and online. Junction 2019 is our flagship event - Europe’s leading hackathon, organized for the fifth time this year!",
+                key: "1",
+            },
+            {
+                question: "What is Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online.",
+                key: "2",
+            },
+            {
+                question: "How can I attend Junction 2020 Connected?",
+                answer:
+                    "**Apply to the event in Junction App during the application period, which takes place from 1st of September to 9th of October.** You'll need to submit basic information about your background, experience and motivation. You can apply either alone or as a team. You will apply with the same application to both the hackathon itself and the hubs nearby your home town.",
+                key: "3",
+            },
+            {
+                question: "Does it cost to attend?",
+                answer:
+                    "Nope! The event is free of charge for all accepted participants.",
+                key: "4",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is for anyone and everyone passionate about creating with techonology.",
+                key: "5",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "1 to 5 people - we suggest having a minimum of 3 people in a team.",
+                key: "6",
+            },
+            {
+                question: "Who are the people behind Junction?",
+                answer:
+                    "Junction is run by a student and volunteer-based team, passionate about organizing the best hackathons in the world!",
+                key: "7",
+            },
+            {
+                question:
+                    "How can I get the latest news and updates on Junction 2020 Connected??",
+                answer:
+                    "Subscribe to our newsletter and follow us on social media **@hackjunction** to get the latest news and updates!",
+                key: "8",
+            },
+        ],
+    },
+
+    {
+        title: "Hubs",
+        questions: [
+            {
+                question: "What is Junction?",
+                answer:
+                    "Junction is a global tech community, organizing hackathons and tech events around the year and around the world offline and online. Junction 2019 is our flagship event - Europe’s leading hackathon, organized for the fifth time this year!",
+                key: "1",
+            },
+            {
+                question: "What is Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online.",
+                key: "2",
+            },
+            {
+                question: "How can I attend Junction 2020 Connected?",
+                answer:
+                    "**Apply to the event in Junction App during the application period, which takes place from 1st of September to 9th of October.** You'll need to submit basic information about your background, experience and motivation. You can apply either alone or as a team. You will apply with the same application to both the hackathon itself and the hubs nearby your home town.",
+                key: "3",
+            },
+            {
+                question: "Does it cost to attend?",
+                answer:
+                    "Nope! The event is free of charge for all accepted participants.",
+                key: "4",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is for anyone and everyone passionate about creating with techonology.",
+                key: "5",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "1 to 5 people - we suggest having a minimum of 3 people in a team.",
+                key: "6",
+            },
+            {
+                question: "Who are the people behind Junction?",
+                answer:
+                    "Junction is run by a student and volunteer-based team, passionate about organizing the best hackathons in the world!",
+                key: "7",
+            },
+            {
+                question:
+                    "How can I get the latest news and updates on Junction 2020 Connected??",
+                answer:
+                    "Subscribe to our newsletter and follow us on social media **@hackjunction** to get the latest news and updates!",
+                key: "8",
             },
         ],
     },
@@ -169,7 +292,7 @@ const items = [
 export default ({}) => {
     return (
         <Page
-            className="Connected"
+            className="Connected ConnectedContent"
             pageTitle="Event Info"
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -230,10 +353,12 @@ export default ({}) => {
                     Junction 2020 Connected
                 </Timeline>
             </BlockSection>
+            {/* Not relevant yet
             <SingleColumnSection
                 title="Schedule of the weekend"
                 halfpage
             ></SingleColumnSection>
+            */}
             <DividerLine />
             <SectionImage
                 image={{
@@ -249,10 +374,9 @@ export default ({}) => {
                     power of a highly-customizable platform for events makes
                     hosting diverse events possible."
                 center
+                nolimit
             >
                 <FaqSection items={items} />
-            </SingleColumnSection>
-            <SingleColumnSection center halfpage>
                 <div>
                     Didn’t find what you were looking for? Our team is happy to
                     help you with anything and everything, just shoot us a
@@ -267,7 +391,6 @@ export default ({}) => {
                     </div>
                 </div>
             </SingleColumnSection>
-            <DividerLine stop />
         </Page>
     );
 };

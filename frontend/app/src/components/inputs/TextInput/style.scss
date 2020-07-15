@@ -3,8 +3,11 @@
 .TextInput {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    box-sizing: border-box;
 
+    @include bp-full {
+        padding: 0 3em 0 0em;
+    }
     ::placeholder {
         color: $junction-black;
         font-style: normal;

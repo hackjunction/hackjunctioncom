@@ -9,17 +9,19 @@ export default ({ items }) => {
     console.log(open);
     return (
         <div className="FaqSection">
-            <div className="FaqSection--buttons">
-                {items.map((section) => (
-                    <Button
-                        className={`Button-default ${
-                            open === section.title ? "selected" : ""
-                        }`}
-                        onClick={() => toggleQuestion(section.title)}
-                        text={section.title}
-                    />
-                ))}
-            </div>
+            {items.length > 1 && (
+                <div className="FaqSection--buttons">
+                    {items.map((section) => (
+                        <Button
+                            className={`Button-default ${
+                                open === section.title ? "selected" : ""
+                            }`}
+                            onClick={() => toggleQuestion(section.title)}
+                            text={section.title}
+                        />
+                    ))}
+                </div>
+            )}
             {items.map((section) => (
                 <div
                     className={`FaqQuestion--section ${

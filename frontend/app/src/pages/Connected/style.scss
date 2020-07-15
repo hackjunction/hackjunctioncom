@@ -3,6 +3,13 @@
     background-color: $connected-peach;
     color: $connected-blue;
 
+    .ConnectedContent {
+        background-color: $connected-peach;
+        padding-top: 5%; // Prevents content to hide under mobile menu
+        @include bp-med {
+            padding-top: 0;
+        }
+    }
     .Connected--TopContent {
         align-content: center;
         text-align: center;

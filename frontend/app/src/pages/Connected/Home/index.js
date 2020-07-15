@@ -11,14 +11,13 @@ import Timeline from "../Components/Timeline";
 import DividerLine from "../../../components/DividerLine";
 import HeaderSection from "../../../components/HeaderSection";
 
-import SingleColumnSection from "../../../components/SingleColumnSection";
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
 
 const ConnectedHome = ({}) => {
     return (
         <Page
-            className="Connected"
+            className="Connected ConnectedContent ConnectedHome"
             pageTitle="Hack the Future"
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.ConnectedHeaderImage}
@@ -61,7 +60,7 @@ const ConnectedHome = ({}) => {
                 extra={
                     <Button
                         className="Button-default"
-                        to
+                        to="/connected/hubs"
                         text="Learn more about Hubs"
                     />
                 }
@@ -82,8 +81,8 @@ const ConnectedHome = ({}) => {
                 extra={
                     <Button
                         className="Button-default"
-                        to
-                        text="Learn more about Hubs"
+                        to="/connected/hubs"
+                        text="Hub locations"
                     />
                 }
             >
@@ -93,31 +92,24 @@ const ConnectedHome = ({}) => {
                 />
             </BlockSection>
             <DividerLine stop />
-            <div className="BlockSection ">
-                <div className="BlockSection--left">
-                    <h3 className="BlockSection--left__title">Timeline</h3>
-                </div>
-                <div className="BlockSection--right">
-                    <Timeline date="September 1st">
-                        Application period begins
-                    </Timeline>
-                    <Timeline date="October 1st">
-                        Virtual matchmaking begins
-                    </Timeline>
-                    <Timeline date="October 9th">
-                        Application period ends
-                    </Timeline>
-                    <Timeline date="October 18th">
-                        Deadline for participants to confirm their place
-                    </Timeline>
-                    <Timeline date="November 6th">
-                        Junction 2020 Connected begins
-                    </Timeline>
-                    <Timeline date="November 8th" last>
-                        Junction 2020 Connected ends
-                    </Timeline>
-                </div>
-            </div>
+            <BlockSection title="Timeline">
+                <Timeline date="September 1st">
+                    Application period begins
+                </Timeline>
+                <Timeline date="October 1st">
+                    Virtual matchmaking begins
+                </Timeline>
+                <Timeline date="October 9th">Application period ends</Timeline>
+                <Timeline date="October 18th">
+                    Deadline for participants to confirm their place
+                </Timeline>
+                <Timeline date="November 6th">
+                    Junction 2020 Connected begins
+                </Timeline>
+                <Timeline date="November 8th" last>
+                    Junction 2020 Connected ends
+                </Timeline>
+            </BlockSection>
         </Page>
     );
 };
