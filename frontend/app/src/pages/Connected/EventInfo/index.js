@@ -71,14 +71,21 @@ export default ({}) => {
                 body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
             >
                 <div className="Button-row">
-                    <Button className="Button-default" text="Timeline" />
+                    <Button
+                        className="Button-default"
+                        text="General Information"
+                    />
+                    <Button className="Button-default" text="Schedule" />
                     <Button className="Button-default" text="FAQ" />
+                    <Button className="Button-default" text="For Partners" />
                 </div>
             </HeaderSection>
             <DividerLine />
             <SectionImage
-                imageKey={MEDIA_KEYS.homePageHeaderImage}
-                alt="Header image"
+                image={{
+                    url: require("../../../assets/images/connected/info/timeline.png"),
+                }}
+                alt="Timeline"
             >
                 Timeline
             </SectionImage>
@@ -121,8 +128,10 @@ export default ({}) => {
             ></SingleColumnSection>
             <DividerLine />
             <SectionImage
-                imageKey={MEDIA_KEYS.homePageHeaderImage}
-                alt="Header image"
+                image={{
+                    url: require("../../../assets/images/connected/info/faq.png"),
+                }}
+                alt="FAQ"
             >
                 FAQ
             </SectionImage>

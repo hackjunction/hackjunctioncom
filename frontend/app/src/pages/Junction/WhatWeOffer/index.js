@@ -37,7 +37,7 @@ class WhatWeOfferPage extends PureComponent {
     render() {
         return (
             <Page
-                className="WhatWeOfferPage"
+                className="WhatWeOfferPage Junction-Default"
                 pageTitle="Services"
                 metaDescKey={KEYS.WhatWeOfferPageSubtitle}
                 ogImageKey={MEDIA_KEYS.WhatWeOfferPageHeaderImage}

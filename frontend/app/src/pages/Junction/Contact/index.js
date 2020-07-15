@@ -27,20 +27,12 @@ export default () => {
 Need to get in touch with us? Drop us a line, we're all ears."
             >
                 <div>
-                    <Button
-                        className="Default-button-small"
-                        to
-                        text="Contact us"
-                    />
+                    <Button className="Button-small" to text="Contact us" />
+
+                    <Button className="Button-small" to text="Finland Team" />
 
                     <Button
-                        className="Default-button-small"
-                        to
-                        text="Finland Team"
-                    />
-
-                    <Button
-                        className="Default-button-small"
+                        className="Button-small"
                         to
                         text="JunctionX Teams"
                     />

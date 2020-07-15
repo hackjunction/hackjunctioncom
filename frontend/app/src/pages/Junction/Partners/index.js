@@ -55,18 +55,18 @@ class PartnersPage extends PureComponent {
             >
                 <ImgBlock
                     topic="Innovation through hackathons"
-                    link="ADDLINKHERE"
+                    link="/why"
                     image={images.benefits}
                 />
                 <ImgBlock
                     topic="What we offer"
-                    link="ADDLINKHERE"
+                    link="/services"
                     left
                     image={images.offer}
                 />
                 <ImgBlock
                     topic="References"
-                    link="ADDLINKHERE"
+                    link="/references"
                     image={images.references}
                 />
                 <ImgBlock
