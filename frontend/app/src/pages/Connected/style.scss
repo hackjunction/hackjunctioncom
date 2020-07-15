@@ -65,17 +65,14 @@
                 span.toHome {
                     color: $connected-peach;
                 }
-
-                &-item {
-                    color: $connected-peach;
-                }
-                &-item:hover {
-                    opacity: 1;
-                    color: $junction-blue;
-                }
-
+                &-item,
                 &-title {
                     color: $connected-peach;
+                }
+                &-item:hover,
+                &-title:hover {
+                    opacity: 1;
+                    color: $junction-blue;
                 }
             }
         }

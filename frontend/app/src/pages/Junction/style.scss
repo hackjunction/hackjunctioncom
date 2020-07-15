@@ -15,16 +15,14 @@
         background-color: $junction-black;
         &--inner {
             &__menu {
-                &-item {
-                    color: $junction-white;
-                }
-                &-item:hover {
-                    opacity: 1;
-                    color: $junction-blue;
-                }
-
+                &-item,
                 &-title {
                     color: $junction-white;
+                }
+                &-item:hover,
+                &-title:hover {
+                    opacity: 1;
+                    color: $junction-blue;
                 }
             }
         }
