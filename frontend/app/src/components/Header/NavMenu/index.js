@@ -128,15 +128,17 @@ const MainContent = React.memo(
                     About us
                 </ConnectedNavLink>
                 <ConnectedNavLink to="/story">Our story</ConnectedNavLink>
-                <ConnectedNavLink to="/story">Contact us</ConnectedNavLink>
+                <ConnectedNavLink to="/contact">Contact us</ConnectedNavLink>
 
                 <ConnectedNavLink title to="/partners">
                     For partners
                 </ConnectedNavLink>
-                <ConnectedNavLink to="/partners">
+                <ConnectedNavLink to="/why">
                     Benefits of a hackathon
                 </ConnectedNavLink>
-                <ConnectedNavLink to="/partners">Our products</ConnectedNavLink>
+                <ConnectedNavLink to="/services">
+                    What we offer
+                </ConnectedNavLink>
                 <ConnectedNavLink to="/references">References</ConnectedNavLink>
                 <ConnectedNavLink to="/frequently-asked-questions">
                     FAQ
@@ -151,7 +153,9 @@ const MainContent = React.memo(
                 <ConceptPagesSection concepts={eventConcepts} />
                 <ExtraPagesSection pages={eventPages} />
 
-                <ConnectedNavLink title>Community</ConnectedNavLink>
+                <ConnectedNavLink to="/community" title>
+                    Community
+                </ConnectedNavLink>
                 <ConnectedNavLink to="/participants">
                     For participants
                 </ConnectedNavLink>

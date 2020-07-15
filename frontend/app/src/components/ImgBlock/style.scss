@@ -1,21 +1,15 @@
 .ImgBlock {
     background-color: #fbfbfb;
-    height: 100%;
     width: 100%;
-    overflow: hidden;
-
     .ImgBlock--TopContent {
         display: flex;
         flex-direction: row;
         align-items: center;
         text-align: center;
-        height: 50%;
-        width: 100%;
     }
 
     .ImgBlock--textAndArrowDiv {
         width: 40%;
-        height: 100%;
     }
 
     .ImgBlock--ImageBlock {

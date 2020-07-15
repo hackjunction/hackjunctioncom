@@ -24,6 +24,7 @@ import WhatWeOfferPage from "./WhatWeOffer";
 import ReferencesPage from "./References";
 import FaqPage from "./FAQ";
 import EventsPage from "./Events";
+import JunctionXPage from "./JunctionX";
 
 import BasicPage from "../BasicPage";
 import NotFoundPage from "../NotFound";
@@ -34,16 +35,17 @@ const Junction = () => {
     return (
         <div className="Junction">
             <Header />
-            <div className="App--Content">
+            <div className="App--Content ScrollSnap">
                 <Switch>
                     {/* Static pages */}
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/about" component={AboutPage} />
                     <Route exact path="/story" component={StoryPage} />
                     <Route exact path="/contact" component={ContactPage} />
-                    <Route exact path="/benefits" component={BenefitsPage} />
-                    <Route exact path="/offer" component={WhatWeOfferPage} />
+                    <Route exact path="/why" component={BenefitsPage} />
+                    <Route exact path="/services" component={WhatWeOfferPage} />
                     <Route exact path="/events" component={EventsPage} />
+                    <Route exact path="/junctionx" component={JunctionXPage} />
                     <Route
                         exact
                         path="/references"

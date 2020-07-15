@@ -5,6 +5,9 @@ import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
 import SectionImage from "../../../components/SectionImage";
+import BlockSection from "../../../components/BlockSection";
+import SingleColumnSection from "../../../components/SingleColumnSection";
+import DividerLine from "../../../components/DividerLine";
 
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
@@ -35,101 +38,79 @@ class WhatWeOfferPage extends PureComponent {
         return (
             <Page
                 className="WhatWeOfferPage"
-                pageTitle="Our story"
+                pageTitle="Services"
                 metaDescKey={KEYS.WhatWeOfferPageSubtitle}
                 ogImageKey={MEDIA_KEYS.WhatWeOfferPageHeaderImage}
             >
-                <div className="WhatWeOfferPage--TopContent">
-                    <div className="WhatWeOfferPage--TopContent--First">
-                        <p className="topic">What we offer</p>
-                        <p>Lirum larum</p>
-                    </div>
-                    <div className="WhatWeOfferPage--TopContent--Second">
-                        <img
-                            src={require("../../../assets/images/banner/connected.png")}
-                            width="100%"
-                        />
-                    </div>
-                    <div className="WhatWeOfferPage--TopContent--Third">
-                        <p className="topic-subtitle">
-                            Junction 2020 Connected
-                        </p>
+                <SingleColumnSection halfpage center>
+                    <p className="topic">What we offer</p>
+                    <p>Lirum larum</p>
+                </SingleColumnSection>
+                <DividerLine />
+                <SingleColumnSection halfpage center>
+                    <img
+                        src={require("../../../assets/images/banner/connected.png")}
+                        width="100%"
+                    />
+                    <DividerLine />
+                    <p className="topic-subtitle">Junction 2020 Connected</p>
 
-                        <p>
-                            Junction 2020 Connected is a new take on the
-                            established concept of a hackathon; to compliment
-                            its online aspect, participants all over the world
-                            can join physical locations hosted by Junction and
-                            other organizations. The physical hubs give the
-                            concept of a normal online hackathon a twist by
-                            increasing the sense of community, and making
-                            physical interaction possible when needed.
-                        </p>
-                        <Button
-                            className="Button-default"
-                            to
-                            text="READ MORE"
-                        />
-                    </div>
-                </div>
-                <div className="WhatWeOfferPage--TopContent">
-                    <div className="WhatWeOfferPage--TopContent--Second">
-                        <img
-                            src={require("../../../assets/images/banner/japp.png")}
-                            width="100%"
-                        />
-                    </div>
-                    <div className="WhatWeOfferPage--TopContent--Third">
-                        <p className="topic-subtitle">Junction App</p>
+                    <p>
+                        Junction 2020 Connected is a new take on the established
+                        concept of a hackathon; to compliment its online aspect,
+                        participants all over the world can join physical
+                        locations hosted by Junction and other organizations.
+                        The physical hubs give the concept of a normal online
+                        hackathon a twist by increasing the sense of community,
+                        and making physical interaction possible when needed.
+                    </p>
+                    <Button className="Default-button" to text="READ MORE" />
+                </SingleColumnSection>
+                <DividerLine />
+                <SingleColumnSection halfpage center>
+                    <img
+                        src={require("../../../assets/images/banner/japp.png")}
+                        width="100%"
+                    />
+                    <DividerLine />
+                    <p className="topic-subtitle">Junction App</p>
 
-                        <p>
-                            Junction 2020 Connected is a new take on the
-                            established concept of a hackathon; to compliment
-                            its online aspect, participants all over the world
-                            can join physical locations hosted by Junction and
-                            other organizations. The physical hubs give the
-                            concept of a normal online hackathon a twist by
-                            increasing the sense of community, and making
-                            physical interaction possible when needed.
-                        </p>
-                        <Button
-                            className="Button-default"
-                            to
-                            text="READ MORE"
-                        />
-                    </div>
-                </div>
-                <div className="WhatWeOfferPage--TopContent">
-                    <div className="WhatWeOfferPage--TopContent--Second">
-                        <img
-                            src={require("../../../assets/images/banner/heltech.jpg")}
-                            width="100%"
-                        />
-                    </div>
-                    <div className="WhatWeOfferPage--TopContent--Third">
-                        <p className="topic-subtitle">Hel Tech</p>
+                    <p>
+                        Junction 2020 Connected is a new take on the established
+                        concept of a hackathon; to compliment its online aspect,
+                        participants all over the world can join physical
+                        locations hosted by Junction and other organizations.
+                        The physical hubs give the concept of a normal online
+                        hackathon a twist by increasing the sense of community,
+                        and making physical interaction possible when needed.
+                    </p>
+                    <Button className="Default-button" to text="READ MORE" />
+                </SingleColumnSection>
+                <DividerLine />
+                <SingleColumnSection halfpage center>
+                    <img
+                        src={require("../../../assets/images/banner/heltech.jpg")}
+                        width="100%"
+                    />
+                    <DividerLine />
+                    <p className="topic-subtitle">Hel Tech</p>
 
-                        <p>
-                            Junction 2020 Connected is a new take on the
-                            established concept of a hackathon; to compliment
-                            its online aspect, participants all over the world
-                            can join physical locations hosted by Junction and
-                            other organizations. The physical hubs give the
-                            concept of a normal online hackathon a twist by
-                            increasing the sense of community, and making
-                            physical interaction possible when needed. Hel Tech
-                            is our only monthly meetup, organized on the first
-                            Monday of the month and always discussing the latest
-                            tech. With speakers from all over the
-                        </p>
-                        <Button
-                            className="Button-default"
-                            to
-                            text="READ MORE"
-                        />
-                    </div>
-                </div>
-                <div className="WhatWeOfferPage--Host">
+                    <p>
+                        Junction 2020 Connected is a new take on the established
+                        concept of a hackathon; to compliment its online aspect,
+                        participants all over the world can join physical
+                        locations hosted by Junction and other organizations.
+                        The physical hubs give the concept of a normal online
+                        hackathon a twist by increasing the sense of community,
+                        and making physical interaction possible when needed.
+                        Hel Tech is our only monthly meetup, organized on the
+                        first Monday of the month and always discussing the
+                        latest tech. With speakers from all over the
+                    </p>
+                    <Button className="Default-button" to text="READ MORE" />
+                </SingleColumnSection>
+                <DividerLine stop />
+                <SingleColumnSection>
                     <h1>Hosting an event on our platform</h1>
                     <div className="WhatWeOfferPage--Host--Hosting">
                         <div className="WhatWeOfferPage--Host--Hosting--card">
@@ -199,11 +180,11 @@ class WhatWeOfferPage extends PureComponent {
                         hosting diverse events possible.
                     </div>
                     <Button
-                        className="Button-default button-length"
+                        className="Default-button button-length"
                         to
                         text="CONTACT US FOR MORE INFORMATION"
                     />
-                </div>
+                </SingleColumnSection>
             </Page>
         );
     }

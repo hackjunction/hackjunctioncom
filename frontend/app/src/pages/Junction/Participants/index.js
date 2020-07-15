@@ -6,18 +6,17 @@ import { connect } from "react-redux";
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import HeaderImage from "../../../components/HeaderImage";
-import BasicHeader from "../../../components/HeaderImage/BasicHeader";
-import BlockSection from "../../../components/BlockSection";
+import HeaderSection from "../../../components/HeaderSection";
+import SectionImage from "../../../components/SectionImage";
 import ImageBlockSection from "../../../components/ImageBlockSection";
-import Divider from "../../../components/Divider";
+import DividerLine from "../../../components/DividerLine";
 import Markdown from "../../../components/Markdown";
 import EventCalendar from "../../../components/EventCalendar";
-import NewsLetterForm from "../../../components/NewsLetterForm";
 
 import Page from "../../PageHOC";
 
 import { participantTestimonials } from "../../../redux/testimonials/selectors";
+import SingleColumnSection from "../../../components/SingleColumnSection";
 
 class ParticipantsPage extends PureComponent {
     render() {
@@ -31,39 +30,30 @@ class ParticipantsPage extends PureComponent {
                 metaDescKey={KEYS.participantsPageSubtitle}
                 ogImageKey={MEDIA_KEYS.participantPageHeaderImage}
             >
-                <HeaderImage
-                    imageKey={MEDIA_KEYS.participantPageHeaderImage}
+                <HeaderSection />
+                <DividerLine />
+                <SectionImage
+                    image={{
+                        url: require("../../../assets/images/connected_main.jpg"),
+                    }}
                     alt="Header image"
-                >
-                    <BasicHeader
-                        titleKey={KEYS.participantsPageTitle}
-                        bodyKey={KEYS.participantsPageSubtitle}
-                    />
-                </HeaderImage>
-                <BlockSection
-                    titleKey={KEYS.getHiredTitle}
-                    subtitleKey={KEYS.getHiredSubtitle}
-                >
-                    <Markdown sourceKey={KEYS.getHiredBody} />
-                </BlockSection>
-                <Divider lg />
-                {testimonial ? (
-                    <React.Fragment>
-                        <ImageBlockSection
-                            image={testimonial.image}
-                            imageAlt={testimonial.name}
-                            title={testimonial.name}
-                            subtitle={testimonial.subtitle}
-                        >
-                            <Markdown source={testimonial.quote} />
-                        </ImageBlockSection>
-                        <Divider lg />
-                    </React.Fragment>
-                ) : null}
-                <EventCalendar title="Upcoming events" hideOnEmpty={true} />
-                <Divider lg />
-                <NewsLetterForm />
-                <Divider lg />
+                ></SectionImage>
+                <DividerLine stop />
+                <SingleColumnSection center>
+                    {testimonial ? (
+                        <React.Fragment>
+                            <ImageBlockSection
+                                image={testimonial.image}
+                                imageAlt={testimonial.name}
+                                title={testimonial.name}
+                                subtitle={testimonial.subtitle}
+                            >
+                                <Markdown source={testimonial.quote} />
+                            </ImageBlockSection>
+                        </React.Fragment>
+                    ) : null}
+                    <EventCalendar title="Upcoming events" hideOnEmpty={true} />
+                </SingleColumnSection>
             </Page>
         );
     }

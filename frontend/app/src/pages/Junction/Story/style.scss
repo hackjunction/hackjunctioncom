@@ -1,11 +1,5 @@
 @import "../../../styles/main";
 .StoryPage {
-    background-color: $junction-white;
-    height: 100%;
-    width: 100%;
-    padding: 40px 40px 0 40px;
-    font-family: "Montserrat" !important;
-    text-align: center;
     @include bp-small-only {
         padding: 4px;
     }
@@ -161,16 +155,6 @@
             @include bp-small-only {
                 width: 100%;
                 margin-bottom: 5%;
-            }
-            .h1-2 {
-                padding-left: 80px;
-            }
-            .h1-3 {
-                padding-left: 90px;
-            }
-
-            .h1-5 {
-                padding-left: 45px;
             }
         }
     }

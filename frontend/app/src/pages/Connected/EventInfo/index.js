@@ -27,7 +27,7 @@ const items = [
             { question: "What is a hackathon", answer: "asdasd", key: "2" },
             { question: "asd", answer: "asdasd", key: "3" },
             { question: "asd", answer: "asdasd", key: "4" },
-            { question: "asd", answer: "asdasd", key: "2" },
+            { question: "asd", answer: "asdasd", key: "5" },
         ],
     },
     {
@@ -61,7 +61,7 @@ const items = [
 export default ({}) => {
     return (
         <Page
-            className="Connected ScrollSnap"
+            className="Connected"
             pageTitle="Event Info"
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -70,20 +70,9 @@ export default ({}) => {
                 title="Event information"
                 body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
             >
-                <Button className="Button-default" text="General information" />
-                <Button className="Button-default" text="Schedule" />
-                <Button className="Button-default" text="FAQ" />
-                <Button className="Button-default" text="For partners" />
+                <Button className="Connected-blue-button" text="Timeline" />
+                <Button className="Connected-blue-button" text="FAQ" />
             </HeaderSection>
-            <DividerLine />
-            <SectionImage
-                imageKey={MEDIA_KEYS.homePageHeaderImage}
-                alt="Header image"
-            >
-                General information
-            </SectionImage>
-            <DividerLine />
-            Tähän sisältöö
             <DividerLine />
             <SectionImage
                 imageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -152,22 +141,14 @@ export default ({}) => {
                     <div>
                         <a href="mailto:hello@hackjunction.com">
                             <Button
-                                className="Button-default"
+                                className="Connected-blue-button"
                                 text="Contact us"
                             />
                         </a>
                     </div>
                 </div>
             </SingleColumnSection>
-            <DividerLine />
-            <SectionImage
-                imageKey={MEDIA_KEYS.homePageHeaderImage}
-                alt="Header image"
-            >
-                For Partners
-            </SectionImage>
             <DividerLine stop />
-            <SingleColumnSection>Tähän sisältöö</SingleColumnSection>
         </Page>
     );
 };

@@ -183,10 +183,3 @@
         background-image: url("../../assets/images/connected_main.jpg");
     }
 }
-
-.ScrollSnap {
-    scroll-snap-type: y proximity;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    height: 100vh;
-}

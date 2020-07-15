@@ -10,6 +10,7 @@ const SingleColumnSection = ({
     children,
     center = false,
     halfpage = false,
+    double = false,
 }) => {
     return (
         <div
@@ -17,8 +18,10 @@ const SingleColumnSection = ({
                 halfpage ? "SingleColumnSection--half" : ""
             }`}
         >
-            <h3 className="SingleColumnSection--title">{title}</h3>
-            <p className="SingleColumnSection--subtitle">{subtitle}</p>
+            {title && <h3 className="SingleColumnSection--title">{title}</h3>}
+            {subtitle && (
+                <p className="SingleColumnSection--subtitle">{subtitle}</p>
+            )}
             <div
                 className={`SingleColumnSection--content ${
                     center ? "SingleColumnSection--content-center" : ""

@@ -1,22 +1,14 @@
 @import "../../../styles/main";
 .CommunityPage {
-    background-color: $junction-white;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-
     .CommunityPage--TopContent {
         display: flex;
         flex-direction: row;
         align-items: center;
         text-align: center;
-        height: 50%;
-        width: 100%;
     }
 
     .CommunityPage--textAndArrowDiv {
         width: 40%;
-        height: 100%;
     }
 
     .CommunityPage--ImageBlock {

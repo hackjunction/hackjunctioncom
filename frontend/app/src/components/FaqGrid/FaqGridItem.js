@@ -1,61 +1,25 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import "./style.scss";
 
-import Divider from "../Divider";
 import Markdown from "../Markdown";
 import AnimateHeight from "react-animate-height";
 
-class FaqGridItem extends PureComponent {
-    static propTypes = {
-        question: PropTypes.string,
-        answer: PropTypes.string,
-        key: PropTypes.string,
-    };
+export default ({ question, answer, key }) => {
+    const [open, setOpen] = useState(false);
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            expanded: false,
-        };
-
-        this.toggleExpanded = this.toggleExpanded.bind(this);
-    }
-
-    toggleExpanded() {
-        this.setState({
-            expanded: !this.state.expanded,
-        });
-    }
-
-    render() {
-        const { question, answer } = this.props;
-        const { expanded } = this.state;
-        return (
-            <div
-                className={`FaqGridItem ${
-                    expanded ? "FaqGridItem-expanded" : ""
-                }`}
-                onClick={this.toggleExpanded}
-            >
-                <span className="FaqGridItem--question">
-                    {question}
-                    <i
-                        className="icon-right-open"
-                        onClick={this.setNextMarker}
-                    />
-                </span>
-                <AnimateHeight
-                    duration={300}
-                    height={this.state.expanded ? "auto" : 0}
-                >
-                    <div style={{ height: "30px" }} />
-                    <Markdown className="FaqGridItem--answer" source={answer} />
-                </AnimateHeight>
-            </div>
-        );
-    }
-}
-
-export default FaqGridItem;
+    return (
+        <div
+            className={`FaqGridItem ${open ? "FaqGridItem-expanded" : ""}`}
+            onClick={() => setOpen(!open)}
+        >
+            <span className="FaqGridItem--question">
+                {question}
+                <i className="icon-right-open" onClick={() => setOpen(!open)} />
+            </span>
+            <AnimateHeight duration={300} height={open ? "auto" : 0}>
+                <div style={{ height: "30px" }} />
+                <Markdown className="FaqGridItem--answer" source={answer} />
+            </AnimateHeight>
+        </div>
+    );
+};
