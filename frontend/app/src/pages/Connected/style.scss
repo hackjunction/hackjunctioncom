@@ -5,6 +5,7 @@
 
     .ConnectedContent {
         background-color: $connected-peach;
+
         padding-top: 5%; // Prevents content to hide under mobile menu
         @include bp-med {
             padding-top: 0;
@@ -47,7 +48,7 @@
     .Button-default {
         background-color: $connected-blue;
         border: 3px solid $connected-blue;
-        height: 35px !important;
+
         text-transform: none !important;
         box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
         & > span {

@@ -61,7 +61,7 @@ body {
     justify-content: space-around;
 }
 
-.ScrollSnap {
+/*.ScrollSnap {
     @include bp-full {
         scroll-snap-type: y proximity;
         overflow-y: scroll;
@@ -69,3 +69,4 @@ body {
         height: 100vh;
     }
 }
+*/

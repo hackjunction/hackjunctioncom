@@ -1,4 +1,4 @@
-import React, { PureComponent, Suspense, forwardRef } from "react";
+import React from "react";
 import "./style.scss";
 
 import KEYS from "../../../redux/staticcontent/keys";
@@ -313,6 +313,7 @@ export default ({}) => {
                 Timeline
             </SectionImage>
             <DividerLine stop />
+
             <BlockSection
                 className="TimelineSection"
                 title="Important dates & timeline"
@@ -358,6 +359,7 @@ export default ({}) => {
             >
                 FAQ
             </SectionImage>
+
             <DividerLine stop />
             <SingleColumnSection
                 subtitle="Our expertise of organising hackathons combined with the
