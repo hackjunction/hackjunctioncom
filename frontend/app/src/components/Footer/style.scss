@@ -2,12 +2,12 @@
 
 .Footer {
     flex-direction: column;
-    display: -webkit-flex;
 
     @include bp-full {
         scroll-snap-stop: normal;
         scroll-snap-align: end;
         flex-direction: row;
+        display: -webkit-flex;
     }
 
     &--divider {
