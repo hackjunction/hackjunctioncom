@@ -1,4 +1,4 @@
-@import '../../styles/main';
+@import "../../styles/main";
 
 .Divider {
     height: 1rem;
@@ -17,5 +17,10 @@
     &-lg {
         height: 130px;
         width: 130px;
+    }
+
+    &-line {
+        height: 50px;
+        width: 100%;
     }
 }

@@ -16,7 +16,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = ({ navTitle, toggleSidebar, isSidebarOpen }) => {
+const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
     const [isScrolled, setScrolled] = useState(window.scrollY >= 400);
 
     function handleScroll() {
@@ -43,29 +43,56 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen }) => {
     if (isSidebarOpen) {
         headerClass += " HeaderMobile--open";
     }
+    if (isScrolled) {
+        headerClass += " HeaderMobile-scrolled";
+    }
 
     return (
         <>
-            <header className={`Header ${isScrolled ? "Header-scrolled" : ""}`}>
-                <Link to="/" className="Header--emblem">
-                    <img
-                        className="Header--emblem__image"
-                        src={require("../../assets/logos/emblem_black.png")}
-                        alt="Junction logo"
-                    />
-                </Link>
-                <SocialMediaIcons />
-                <NavMenu />
-            </header>
-            <header className={headerClass}>
-                <div className="HeaderMobileRow">
-                    <Link to="/" className="HeaderMobile--emblem">
+            <header className={`Header ${connected ? "Connected" : ""}`}>
+                {connected ? (
+                    <Link to="/connected" className="Header--connected">
                         <img
-                            className="HeaderMobile--emblem__image"
-                            src={require("../../assets/logos/emblem_white.png")}
+                            className="Header--connected__image"
+                            src={require("../../assets/logos/connected_logo.svg")}
+                            alt="Junction 2020 Connected logo"
+                        />
+                    </Link>
+                ) : (
+                    <Link to="/" className="Header--emblem">
+                        <img
+                            className="Header--emblem__image"
+                            src={require("../../assets/logos/emblem_black.png")}
                             alt="Junction logo"
                         />
                     </Link>
+                )}
+
+                <SocialMediaIcons />
+                <NavMenu connected={connected} />
+            </header>
+            <header className={headerClass}>
+                <div className="HeaderMobileRow">
+                    {connected ? (
+                        <Link
+                            to="/connected"
+                            className="HeaderMobile--connected"
+                        >
+                            <img
+                                className="HeaderMobile--connected__image"
+                                src={require("../../assets/logos/header-j2020c-logo.svg")}
+                                alt="Junction 2020 Connected logo"
+                            />
+                        </Link>
+                    ) : (
+                        <Link to="/" className="HeaderMobile--emblem">
+                            <img
+                                className="HeaderMobile--emblem__image"
+                                src={require("../../assets/logos/emblem_white.png")}
+                                alt="Junction logo"
+                            />
+                        </Link>
+                    )}
                     <div className="HeaderMobile--icon">
                         <FontAwesomeIcon
                             icon={isSidebarOpen ? "times" : "bars"}
@@ -77,7 +104,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen }) => {
                         />
                     </div>
                 </div>
-                <NavMenuMobile />
+                <NavMenuMobile connected={connected} />
             </header>
         </>
     );

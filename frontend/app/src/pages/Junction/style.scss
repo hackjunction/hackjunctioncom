@@ -1,4 +1,89 @@
 @import "../../styles/main";
 .Junction {
     background-color: $junction-white;
+
+    .Header {
+        outline-color: $junction-black;
+        background: $junction-white;
+    }
+
+    .DividerLine {
+        background-color: $junction-black;
+    }
+
+    .NavMenu {
+        background-color: $junction-black;
+        &--inner {
+            &__menu {
+                &-item,
+                &-title {
+                    color: $junction-white;
+                }
+                &-item:hover,
+                &-title:hover {
+                    opacity: 1;
+                    color: $junction-blue;
+                }
+            }
+        }
+    }
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        background-color: $junction-white;
+    }
+
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner::before,
+    .hamburger.is-active .hamburger-inner::after {
+        background-color: $junction-white;
+    }
+
+    .FaqGridItem {
+        border-color: $junction-black;
+        i {
+            color: $junction-black;
+        }
+    }
+
+    .Footer {
+        background: $junction-white;
+        border-top: 4px solid $junction-black;
+
+        &--divider {
+            background-color: $junction-black;
+        }
+        &--left {
+            &-divider {
+                background-color: $junction-black;
+            }
+            &-second {
+                &__FooterLinkList {
+                    span {
+                        a {
+                            color: $junction-black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .Button-small {
+        background-color: $junction-white;
+        border: 3px solid $junction-black;
+        box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
+        & > span {
+            color: $junction-black;
+        }
+    }
+
+    .Button-default {
+        background-color: $junction-white;
+        border: 3px solid $junction-blue;
+        box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
+        & > span {
+            color: $junction-black;
+        }
+    }
 }

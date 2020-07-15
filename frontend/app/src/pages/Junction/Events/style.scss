@@ -1,0 +1,79 @@
+@import "../../../styles/main";
+
+.EventsPage {
+    font-family: "Montserrat";
+    background-color: #fbfbfb;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 7%;
+    @include bp-small-only {
+        padding: 3%;
+    }
+
+    .EventsPage--TopContent {
+        display: flex;
+        height: 50%;
+        width: 100%;
+
+        flex-direction: row;
+        flex-grow: 1;
+        align-items: center;
+        padding-bottom: 12%;
+        text-align: center;
+
+        @include bp-small-only {
+            flex-direction: column;
+        }
+
+        &--last {
+            @extend .EventsPage--TopContent;
+            padding-bottom: unset;
+        }
+    }
+
+    .EventsPage--textAndArrowDiv {
+        width: 50%;
+        height: 100%;
+        p {
+            font-family: "Montserrat";
+            text-align: center;
+            font-size: 14px;
+            line-height: 17px;
+            font-weight: 500;
+        }
+
+        @include bp-small-only {
+            width: 90%;
+        }
+    }
+
+    .EventsPage--ImageBlock {
+        width: 50%;
+        height: 100%;
+        margin-left: 5%;
+        &--left {
+            width: 50%;
+            margin-left: unset;
+            margin-right: 5%;
+            @include bp-small-only {
+                margin: unset;
+                width: 90%;
+            }
+        }
+
+        @include bp-small-only {
+            margin: unset;
+            width: 90%;
+            order: -1;
+        }
+    }
+
+    .topic {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+}

@@ -1,7 +1,11 @@
 @import "../../styles/main";
 .Connected {
     background-color: $connected-peach;
+    color: $connected-blue;
 
+    .ConnectedContent {
+        background-color: $connected-peach;
+    }
     .Connected--TopContent {
         align-content: center;
         text-align: center;
@@ -10,91 +14,176 @@
     .Connected--logo {
         margin: 5% 0;
         align-content: center;
+        max-width: 50em;
+        width: 100%;
+        height: auto;
     }
 
     .Connected-subtitle {
         color: $connected-blue;
         text-align: center;
+        margin: 0em 5em;
     }
-    .Connected-button {
+
+    .Button-small {
         background-color: $connected-orange;
-        text-align: center;
         border: 3px solid $connected-orange;
-        width: 263px;
-        height: 35px;
         box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
-        box-sizing: border-box;
-        border-radius: 33px;
-        font-size: 18px;
-        font-weight: 600;
-        text-transform: none;
-        line-height: 22px;
-        margin: 2px;
         & > span {
             color: $connected-blue;
         }
-    }
-    .Connected-blue-button {
-        background-color: $connected-blue;
-        text-align: center;
-        border: 3px solid $connected-blue;
-        width: 263px;
-        height: 35px;
-        box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
-        box-sizing: border-box;
-        border-radius: 33px;
-        font-size: 18px;
-        font-weight: 600;
-        text-transform: none;
-        line-height: 22px;
-        margin: 2px;
-        & > span {
-            color: $connected-teal;
-        }
-    }
-    .Connected-blue-button {
-        background-color: $connected-blue;
-        text-align: center;
-        border: 3px solid $connected-blue;
-        width: 263px;
-        height: 35px;
-        box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
-        box-sizing: border-box;
-        border-radius: 33px;
-        font-size: 18px;
-        font-weight: 600;
-        text-transform: none;
-        line-height: 22px;
-        margin: 2px;
-        & > span {
-            color: $connected-teal;
+        &.selected {
+            background-color: $connected-blue;
+            color: $connected-red;
+            border-color: $connected-red;
         }
     }
 
-    .Checkpoint {
-        list-style-type: none;
-        padding: 1em 0;
+    // TODO rethink this as .Button-blue or somethingnp
+    .Button-default {
+        background-color: $connected-blue;
+        border: 3px solid $connected-blue;
+
+        text-transform: none !important;
+        box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
+        margin-bottom: 2%;
+        & > span {
+            color: $connected-teal;
+        }
+        &.selected {
+            background-color: $connected-teal;
+            & > span {
+                color: $connected-blue;
+            }
+            border-color: $connected-teal;
+        }
+    }
+
+    .NavMenu {
+        background-color: $connected-blue;
+
+        color: $connected-peach;
+
+        &--inner {
+            &__menu {
+                span.toHome {
+                    color: $connected-peach;
+                }
+                &-item,
+                &-title {
+                    color: $connected-peach;
+                }
+                &-item:hover,
+                &-title:hover {
+                    opacity: 1;
+                    color: $junction-blue;
+                }
+            }
+        }
+
+        .top,
+        .bottom,
+        .left,
+        .right {
+            display: none;
+        }
+
+        &--exit {
+            .hamburger,
+            .hamburger-box,
+            .hamburger-spin {
+                .hamburger-inner,
+                .hamburger-inner::before,
+                .hamburger-inner::after {
+                    background-color: $connected-peach;
+                }
+            }
+        }
+    }
+
+    .NavMenuMobile {
+        background-color: $connected-blue;
+    }
+    .HeaderMobile {
+        background-color: $connected-blue;
+        &-scrolled {
+            background-color: $connected-blue;
+        }
+    }
+
+    .Footer {
+        background: $connected-peach;
+        border-top: 0.2em solid $connected-blue;
+
+        h2 {
+            color: $connected-orange;
+        }
+        &--divider {
+            background-color: $connected-blue;
+        }
+        &--left {
+            &-divider {
+                background-color: $connected-blue;
+            }
+            &-second {
+                &__FooterLinkList {
+                    span {
+                        a {
+                            color: $connected-blue;
+                        }
+                    }
+                }
+            }
+        }
+        .TextInput--inputbox,
+        .DropDown--input,
+        .TextArea--input {
+            border-color: $connected-blue;
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus,
+            &:-webkit-autofill:active {
+                box-shadow: 0 0 0 30px $connected-peach inset !important;
+                -webkit-box-shadow: 0 0 0 30px $connected-peach inset !important;
+            }
+        }
+        .SubmitButton--button {
+            background-color: $connected-blue;
+            .SubmitButton--button__text {
+                color: $connected-peach;
+            }
+        }
+    }
+
+    .ImageHeader > h2 {
+        color: $connected-peach;
+    }
+
+    h1,
+    h2,
+    h3,
+    i,
+    label {
         color: $connected-blue;
-        font-weight: bold;
-        font-size: 18px;
-    }
-    .Checkpoint:before {
-        content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-        color: $connected-red; /* Change the color */
-        font-weight: bold; /* If you want it to be bold */
-        font-size: 6em;
-        vertical-align: text-bottom;
     }
 
-    .Fillerpoint {
-        list-style-type: none;
+    a {
+        color: $connected-orange;
+        p {
+            color: $connected-blue;
+        }
     }
-    .Fillerpoint:before {
-        content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-        color: $connected-orange; /* Change the color */
-        font-weight: bold; /* If you want it to be bold */
-        font-size: 2em;
-        vertical-align: middle;
-        padding: 20px;
+
+    .DividerLine {
+        background-color: $connected-blue;
+    }
+
+    &-parallax {
+        background-attachment: fixed;
+        background-position: center;
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("../../assets/images/connected_main.jpg");
     }
 }

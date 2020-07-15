@@ -1,0 +1,198 @@
+@import "../../../styles/main";
+.JunctionXPage {
+    font-family: "Montserrat";
+    height: 100%;
+    .width {
+        width: 300px;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    &--container {
+        height: 50%;
+        display: flex;
+        flex-direction: row;
+        margin: 6%;
+
+        @include bp-small-only {
+            flex-direction: column;
+            align-items: center;
+            margin: 1%;
+        }
+
+        &--left {
+            width: 35%;
+            text-align: center;
+            @include bp-small-only {
+                width: 100%;
+                padding: 1%;
+            }
+        }
+        &--right {
+            width: 65%;
+            padding: 5%;
+
+            @include bp-small-only {
+                width: 85%;
+                padding: unset;
+                p {
+                    text-align: center;
+                }
+            }
+            img {
+                position: absolute;
+                z-index: 0;
+            }
+            p {
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 18px;
+            }
+
+            span {
+                font-weight: 500;
+            }
+        }
+    }
+
+    &--interestedcontainer {
+        margin: 6%;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        @include bp-small-only {
+            text-align: center;
+            margin-bottom: 5%;
+            width: 80%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        &--wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 2% 0 2% 0;
+            @include bp-small-only {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 5%;
+                width: 100%;
+            }
+        }
+
+        &--left {
+            width: 40%;
+            align-self: flex-start;
+            @include bp-small-only {
+                width: 100%;
+            }
+        }
+        &--right {
+            width: 60%;
+            margin-left: 8%;
+
+            @include bp-small-only {
+                width: 100%;
+                margin-left: unset;
+            }
+            p {
+                font-style: normal;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 22px;
+            }
+        }
+    }
+    &--wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #d1f2ef;
+    }
+
+    &--name {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 0px;
+    }
+
+    &--mail {
+        font-family: "Montserrat";
+        margin: 4px 0 0 0;
+    }
+
+    .circle {
+        width: 300px;
+        height: 302px;
+        background: $junction-white;
+        border-radius: 50%;
+    }
+
+    &--planetwrapper {
+        display: flex;
+        flex-direction: row;
+        margin: 8%;
+
+        @include bp-small-only {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 1%;
+        }
+        p {
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        &--left {
+            width: 50%;
+            @include bp-small-only {
+                width: 95%;
+
+                h2 {
+                    text-align: center;
+                }
+                p {
+                    font-family: Montserrat;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 22px;
+                    text-align: center;
+                }
+            }
+        }
+
+        &--right {
+            width: 60%;
+            @include bp-small-only {
+                display: none;
+            }
+        }
+    }
+
+    .nomargin {
+        margin: 0;
+    }
+
+    .notbolded {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+    }
+}

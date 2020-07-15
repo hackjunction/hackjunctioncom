@@ -1,173 +1,422 @@
-import React, { PureComponent, Suspense } from "react";
+import React from "react";
 import "./style.scss";
+
+import { Link, Element, animateScroll as scroll } from "react-scroll";
 
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
 import SectionImage from "../../../components/SectionImage";
-import { Grid, Container, Typography } from "@material-ui/core";
-import CenteredBlock from "../../../components/CenteredBlock";
-import EventCalendar from "../../../components/EventCalendar";
-
 import Page from "../../PageHOC";
-import SmallButton from "../../../components/SmallButton";
 import HeaderSection from "../../../components/HeaderSection";
-import QuestionGrid from "../../../components/questions/QuestionCard/QuestionCard";
-import QuestionCard from "../../../components/questions/QuestionCard/QuestionCard";
+import SingleColumnSection from "../../../components/SingleColumnSection";
+import BlockSection from "../../../components/BlockSection";
+import DividerLine from "../../../components/DividerLine";
+import Button from "../../../components/Button";
 
-class Challenges extends PureComponent {
-    render() {
-        return (
-            <Page
-                className="HomePage"
-                pageTitle="Hack the Future"
-                metaDescKey={KEYS.whoAreWeBody}
-                ogImageKey={MEDIA_KEYS.homePageHeaderImage}
+import Timeline from "../Components/Timeline";
+import FaqSection from "../Components/FaqSection";
+
+const items = [
+    {
+        title: "General",
+        questions: [
+            {
+                question: "What is Junction?",
+                answer:
+                    "Junction is a global tech community, organizing hackathons and tech events around the year and around the world offline and online. Junction 2019 is our flagship event - Europe’s leading hackathon, organized for the fifth time this year!",
+                key: "1",
+            },
+            {
+                question: "What is Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online.",
+                key: "2",
+            },
+            {
+                question: "How can I attend Junction 2020 Connected?",
+                answer:
+                    "**Apply to the event in Junction App during the application period, which takes place from 1st of September to 9th of October.** You'll need to submit basic information about your background, experience and motivation. You can apply either alone or as a team. You will apply with the same application to both the hackathon itself and the hubs nearby your home town.",
+                key: "3",
+            },
+            {
+                question: "Does it cost to attend?",
+                answer:
+                    "Nope! The event is free of charge for all accepted participants.",
+                key: "4",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is for anyone and everyone passionate about creating with techonology.",
+                key: "5",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "1 to 5 people - we suggest having a minimum of 3 people in a team.",
+                key: "6",
+            },
+            {
+                question: "Who are the people behind Junction?",
+                answer:
+                    "Junction is run by a student and volunteer-based team, passionate about organizing the best hackathons in the world!",
+                key: "7",
+            },
+            {
+                question:
+                    "How can I get the latest news and updates on Junction 2020 Connected??",
+                answer:
+                    "Subscribe to our newsletter and follow us on social media **@hackjunction** to get the latest news and updates!",
+                key: "8",
+            },
+        ],
+    },
+    {
+        title: "Schedule",
+        questions: [
+            {
+                question: "What is Junction?",
+                answer:
+                    "Junction is a global tech community, organizing hackathons and tech events around the year and around the world offline and online. Junction 2019 is our flagship event - Europe’s leading hackathon, organized for the fifth time this year!",
+                key: "1",
+            },
+            {
+                question: "What is Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online.",
+                key: "2",
+            },
+            {
+                question: "How can I attend Junction 2020 Connected?",
+                answer:
+                    "**Apply to the event in Junction App during the application period, which takes place from 1st of September to 9th of October.** You'll need to submit basic information about your background, experience and motivation. You can apply either alone or as a team. You will apply with the same application to both the hackathon itself and the hubs nearby your home town.",
+                key: "3",
+            },
+            {
+                question: "Does it cost to attend?",
+                answer:
+                    "Nope! The event is free of charge for all accepted participants.",
+                key: "4",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is for anyone and everyone passionate about creating with techonology.",
+                key: "5",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "1 to 5 people - we suggest having a minimum of 3 people in a team.",
+                key: "6",
+            },
+            {
+                question: "Who are the people behind Junction?",
+                answer:
+                    "Junction is run by a student and volunteer-based team, passionate about organizing the best hackathons in the world!",
+                key: "7",
+            },
+            {
+                question:
+                    "How can I get the latest news and updates on Junction 2020 Connected??",
+                answer:
+                    "Subscribe to our newsletter and follow us on social media **@hackjunction** to get the latest news and updates!",
+                key: "8",
+            },
+        ],
+    },
+    {
+        title: "Online",
+        questions: [
+            {
+                question: "What is Junction?",
+                answer:
+                    "Junction is a global tech community, organizing hackathons and tech events around the year and around the world offline and online. Junction 2019 is our flagship event - Europe’s leading hackathon, organized for the fifth time this year!",
+                key: "1",
+            },
+            {
+                question: "What is Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online.",
+                key: "2",
+            },
+            {
+                question: "How can I attend Junction 2020 Connected?",
+                answer:
+                    "**Apply to the event in Junction App during the application period, which takes place from 1st of September to 9th of October.** You'll need to submit basic information about your background, experience and motivation. You can apply either alone or as a team. You will apply with the same application to both the hackathon itself and the hubs nearby your home town.",
+                key: "3",
+            },
+            {
+                question: "Does it cost to attend?",
+                answer:
+                    "Nope! The event is free of charge for all accepted participants.",
+                key: "4",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is for anyone and everyone passionate about creating with techonology.",
+                key: "5",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "1 to 5 people - we suggest having a minimum of 3 people in a team.",
+                key: "6",
+            },
+            {
+                question: "Who are the people behind Junction?",
+                answer:
+                    "Junction is run by a student and volunteer-based team, passionate about organizing the best hackathons in the world!",
+                key: "7",
+            },
+            {
+                question:
+                    "How can I get the latest news and updates on Junction 2020 Connected??",
+                answer:
+                    "Subscribe to our newsletter and follow us on social media **@hackjunction** to get the latest news and updates!",
+                key: "8",
+            },
+        ],
+    },
+    {
+        title: "Submissions",
+        questions: [
+            {
+                question: "What is Junction?",
+                answer:
+                    "Junction is a global tech community, organizing hackathons and tech events around the year and around the world offline and online. Junction 2019 is our flagship event - Europe’s leading hackathon, organized for the fifth time this year!",
+                key: "1",
+            },
+            {
+                question: "What is Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online.",
+                key: "2",
+            },
+            {
+                question: "How can I attend Junction 2020 Connected?",
+                answer:
+                    "**Apply to the event in Junction App during the application period, which takes place from 1st of September to 9th of October.** You'll need to submit basic information about your background, experience and motivation. You can apply either alone or as a team. You will apply with the same application to both the hackathon itself and the hubs nearby your home town.",
+                key: "3",
+            },
+            {
+                question: "Does it cost to attend?",
+                answer:
+                    "Nope! The event is free of charge for all accepted participants.",
+                key: "4",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is for anyone and everyone passionate about creating with techonology.",
+                key: "5",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "1 to 5 people - we suggest having a minimum of 3 people in a team.",
+                key: "6",
+            },
+            {
+                question: "Who are the people behind Junction?",
+                answer:
+                    "Junction is run by a student and volunteer-based team, passionate about organizing the best hackathons in the world!",
+                key: "7",
+            },
+            {
+                question:
+                    "How can I get the latest news and updates on Junction 2020 Connected??",
+                answer:
+                    "Subscribe to our newsletter and follow us on social media **@hackjunction** to get the latest news and updates!",
+                key: "8",
+            },
+        ],
+    },
+
+    {
+        title: "Hubs",
+        questions: [
+            {
+                question: "asdadassda is Junction?",
+                answer:
+                    "Junction is a global tech community, organizing hackathons and tech events around the year and around the world offline and online. Junction 2019 is our flagship event - Europe’s leading hackathon, organized for the fifth time this year!",
+                key: "1",
+            },
+            {
+                question: "What is Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online.",
+                key: "2",
+            },
+            {
+                question: "How can I attend Junction 2020 Connected?",
+                answer:
+                    "**Apply to the event in Junction App during the application period, which takes place from 1st of September to 9th of October.** You'll need to submit basic information about your background, experience and motivation. You can apply either alone or as a team. You will apply with the same application to both the hackathon itself and the hubs nearby your home town.",
+                key: "3",
+            },
+            {
+                question: "Does it cost to attend?",
+                answer:
+                    "Nope! The event is free of charge for all accepted participants.",
+                key: "4",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "Junction 2020 Connected is for anyone and everyone passionate about creating with techonology.",
+                key: "5",
+            },
+            {
+                question: "Who can attend Junction 2020 Connected?",
+                answer:
+                    "1 to 5 people - we suggest having a minimum of 3 people in a team.",
+                key: "6",
+            },
+            {
+                question: "Who are the people behind Junction?",
+                answer:
+                    "Junction is run by a student and volunteer-based team, passionate about organizing the best hackathons in the world!",
+                key: "7",
+            },
+            {
+                question:
+                    "How can I get the latest news and updates on Junction 2020 Connected??",
+                answer:
+                    "Subscribe to our newsletter and follow us on social media **@hackjunction** to get the latest news and updates!",
+                key: "8",
+            },
+        ],
+    },
+];
+
+export default ({}) => {
+    return (
+        <Page
+            className="Connected ConnectedContent"
+            pageTitle="Event Info"
+            metaDescKey={KEYS.whoAreWeBody}
+            ogImageKey={MEDIA_KEYS.homePageHeaderImage}
+        >
+            <HeaderSection
+                title="Event information"
+                body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
             >
-                <HeaderSection
-                    title="Event information"
-                    body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
-                >
-                    <Grid spacing={6} direction="row">
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="General"
-                        />
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="Schedule"
-                        />
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="FAQ"
-                        />
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="For Partners"
-                        />
-                    </Grid>
-                </HeaderSection>
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageHeaderImage}
-                    alt="Header image"
-                >
-                    General information
-                </SectionImage>
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageHeaderImage}
-                    alt="Header image"
-                >
-                    Timeline
-                </SectionImage>
-                <Container className="Timeline--outer">
-                    <Grid
-                        container
-                        justify="center"
-                        alignItems="center"
-                        className="EventInfo--Timeline--outer"
+                <div className="Button-row">
+                    {/*
+                    <Button
+                        className="Button-default"
+                        text="General Information"
+                    />
+                    <Button className="Button-default" text="For Partners" />*/}
+
+                    <Link
+                        activeClass="active"
+                        to="timeline"
+                        spy={true}
+                        smooth={true}
+                        offset={50}
+                        duration={500}
                     >
-                        <Grid item className="EventInfo--Timeline--outer--left">
-                            <img
-                                src={require("../../../assets/images/connected-chain.png")}
+                        <Button className="Button-default" text="Schedule" />
+                    </Link>
+
+                    <Link
+                        activeClass="active"
+                        to="faq"
+                        spy={true}
+                        smooth={true}
+                        offset={50}
+                        duration={500}
+                    >
+                        <Button className="Button-default" text="FAQ" />
+                    </Link>
+                </div>
+            </HeaderSection>
+            <DividerLine />
+            <SectionImage
+                image={{
+                    url: require("../../../assets/images/connected/info/timeline.png"),
+                }}
+                alt="Timeline"
+            >
+                Timeline
+            </SectionImage>
+            <DividerLine />
+            <Element name="timeline" />
+            <BlockSection
+                className="TimelineSection ScrollSnapElem"
+                title="Important dates & timeline"
+                extra={
+                    <img
+                        className="Connected-chains"
+                        src={require("../../../assets/images/visu-chains.svg")}
+                    />
+                }
+            >
+                <Timeline date="September 1st">
+                    Application period begins
+                </Timeline>
+                <Timeline date="October 6th">
+                    Virtual matchmaking begins
+                </Timeline>
+                <Timeline date="September 1st">
+                    Application period begins
+                </Timeline>
+                <Timeline date="September 1st">
+                    Application period begins
+                </Timeline>
+                <Timeline date="September 1st">
+                    Application period begins
+                </Timeline>
+                <Timeline date="September 1st">
+                    Application period begins
+                </Timeline>
+                <Timeline date="November 6th to 8th" last>
+                    Junction 2020 Connected
+                </Timeline>
+            </BlockSection>
+            {/* Not relevant yet
+            <SingleColumnSection
+                title="Schedule of the weekend"
+                halfpage
+            ></SingleColumnSection>
+            */}
+            <DividerLine />
+            <SectionImage
+                image={{
+                    url: require("../../../assets/images/connected/info/faq.png"),
+                }}
+                alt="FAQ"
+            >
+                FAQ
+            </SectionImage>
+            <DividerLine />
+            <Element name="faq" />
+            <SingleColumnSection
+                subtitle="Our expertise of organising hackathons combined with the
+                    power of a highly-customizable platform for events makes
+                    hosting diverse events possible."
+                center
+                nolimit
+                className="ScrollSnapElem"
+            >
+                <FaqSection items={items} />
+                <div>
+                    Didn’t find what you were looking for? Our team is happy to
+                    help you with anything and everything, just shoot us a
+                    message!
+                    <div>
+                        <a href="mailto:hello@hackjunction.com">
+                            <Button
+                                className="Button-default"
+                                text="Contact us"
                             />
-                        </Grid>
-
-                        <Grid
-                            item
-                            className="EventInfo--Timeline--outer--right"
-                        >
-                            {/* <span className="EventInfo--circle"></span> */}
-                            Testing
-                        </Grid>
-                    </Grid>
-                </Container>
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageHeaderImage}
-                    alt="Header image"
-                >
-                    FAQ
-                </SectionImage>
-                <HeaderSection
-                    title="FAQ"
-                    body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
-                >
-                    <Grid
-                        container
-                        direction="row"
-                        justify="center"
-                        alignItems="strech"
-                    >
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="General"
-                        />
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="Schedule"
-                        />
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="About partners"
-                        />
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="Submissions"
-                        />
-                    </Grid>
-                </HeaderSection>
-                <Container>
-                    <Grid
-                        container
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                        spacing={3}
-                    >
-                        <QuestionCard number="1" text="WHAT is a hackathon" />
-
-                        <QuestionCard number="2" text="WHAT is a hackathon" />
-
-                        <QuestionCard number="3" text="WHAT is a hackathon" />
-
-                        <QuestionCard number="4" text="WHAT is a hackathon" />
-                    </Grid>
-                    <Grid
-                        container
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                        spacing={3}
-                    >
-                        <Typography>
-                            Didn’t find what you were looking for? Our team is
-                            happy to help you with anything and everything, just
-                            shoot us a message!
-                        </Typography>
-                        <SmallButton
-                            className="Connected-button"
-                            to
-                            text="CONTACT US FOR MORE INFORMATION"
-                        />
-                    </Grid>
-                </Container>
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageHeaderImage}
-                    alt="Header image"
-                >
-                    For Partners
-                </SectionImage>
-                Tähän sisältöö
-            </Page>
-        );
-    }
-}
-
-export default Challenges;
+                        </a>
+                    </div>
+                </div>
+            </SingleColumnSection>
+        </Page>
+    );
+};

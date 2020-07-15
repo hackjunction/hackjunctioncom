@@ -23,6 +23,7 @@
         "@fortawesome/react-fontawesome": "^0.1.11",
         "express": "^4.16.4",
         "path": "^0.12.7",
-        "prerender-node": "^3.2.5"
+        "prerender-node": "^3.2.5",
+        "react-scroll": "^1.8.0"
     }
 }

@@ -17,6 +17,14 @@ import VolunteersPage from "./Volunteers";
 import OrganisersPage from "./Organisers";
 import AboutPage from "./About";
 import StoryPage from "./Story";
+import ContactPage from "./Contact";
+import CommunityPage from "./Community";
+import BenefitsPage from "./Benefits";
+import WhatWeOfferPage from "./WhatWeOffer";
+import ReferencesPage from "./References";
+import FaqPage from "./FAQ";
+import EventsPage from "./Events";
+import JunctionXPage from "./JunctionX";
 
 import BasicPage from "../BasicPage";
 import NotFoundPage from "../NotFound";
@@ -25,20 +33,36 @@ import { withRouter } from "react-router";
 
 const Junction = () => {
     return (
-        <>
+        <div className="Junction">
             <Header />
-            <div className="App--Content">
+            <div className="App--Content ScrollSnap">
                 <Switch>
                     {/* Static pages */}
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/about" component={AboutPage} />
                     <Route exact path="/story" component={StoryPage} />
+                    <Route exact path="/contact" component={ContactPage} />
+                    <Route exact path="/why" component={BenefitsPage} />
+                    <Route exact path="/services" component={WhatWeOfferPage} />
+                    <Route exact path="/events" component={EventsPage} />
+                    <Route exact path="/junctionx" component={JunctionXPage} />
+                    <Route
+                        exact
+                        path="/references"
+                        component={ReferencesPage}
+                    />
                     <Route
                         exact
                         path="/participants"
                         component={ParticipantsPage}
                     />
                     <Route exact path="/partners" component={PartnersPage} />
+                    <Route
+                        exact
+                        path="/frequently-asked-questions"
+                        component={FaqPage}
+                    />
+                    <Route exact path="/community" component={CommunityPage} />
                     <Route exact path="/concepts" component={ConceptsPage} />
                     <Route exact path="/calendar" component={CalendarPage} />
                     <Route exact path="/team" component={TeamPage} />
@@ -61,7 +85,7 @@ const Junction = () => {
                 </Switch>
                 <Footer />
             </div>
-        </>
+        </div>
     );
 };
 

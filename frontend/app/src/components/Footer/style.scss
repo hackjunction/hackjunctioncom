@@ -1,10 +1,26 @@
 @import "../../styles/main";
 
 .Footer {
-    background: $junction-white;
-    border-top: 4px solid $junction-black;
-    display: flex;
     flex-direction: column;
+    display: -webkit-flex;
+
+    @include bp-full {
+        scroll-snap-stop: normal;
+        scroll-snap-align: end;
+        flex-direction: row;
+    }
+
+    &--divider {
+        height: 0.2em;
+        width: 100%;
+
+        @include bp-full {
+            height: auto;
+            width: 0.2em;
+            position: relative;
+            top: -1px;
+        }
+    }
 
     .subscribe-text {
         h2 {
@@ -18,44 +34,50 @@
         margin-right: 40px;
     }
 
-    @include bp-med {
-        flex-direction: row;
-    }
-
-    &--divider {
-        background-color: $junction-black;
-        height: 0.2em;
-        width: 100%;
-
-        @include bp-med {
-            height: 100%;
-            width: 0.4em;
-        }
-    }
-
     &--left {
         display: flex;
         flex-direction: column;
         align-items: center;
-
         justify-content: center;
+        margin-right: 0;
+
+        @include bp-full {
+            width: calc(50% - 0.2em);
+        }
 
         &--margin {
             margin-top: 55px;
         }
 
         &-first {
-            justify-content: center;
+            margin: auto;
+            width: 75%;
+            text-align: center;
+            margin-top: 0;
+
+            @include bp-med {
+                text-align: left;
+                margin-left: 15%;
+            }
         }
 
         &-divider {
-            background-color: $junction-black;
             height: 0.2em;
             width: 100%;
+            display: none;
+            @include bp-full {
+                display: block;
+            }
         }
 
         &-second {
-            margin-top: 54px;
+            margin: auto;
+            margin-top: 5%;
+            margin-left: 15%;
+            display: none;
+            @include bp-full {
+                display: block;
+            }
 
             &__FooterLinkList {
                 display: flex;
@@ -64,7 +86,6 @@
                 span {
                     display: block;
                     a {
-                        color: $junction-black;
                         text-align: center;
                         font-weight: 600;
                         font-size: 16px;
@@ -78,13 +99,43 @@
     &--right {
         display: flex;
         margin: auto;
+        width: 70%;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        @include bp-med {
+            justify-content: flex-start;
+            margin: auto;
+        }
+        @include bp-full {
+            width: 30%;
+            margin: 0 10% 0 10%;
+            align-items: flex-start;
+        }
 
         h2 {
             font-weight: 600;
             font-size: 20px;
             line-height: 24px;
+        }
+    }
+
+    &--mobile {
+        &-links {
+            width: 70%;
+            margin: 5% auto 5% auto;
+            @include bp-full {
+                display: none;
+            }
+        }
+        &-divider {
+            height: 0.2em;
+            background-color: $connected-blue;
+            width: 100%;
+            display: block;
+            @include bp-full {
+                display: none;
+            }
         }
     }
 }

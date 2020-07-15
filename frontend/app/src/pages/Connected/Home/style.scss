@@ -1,0 +1,28 @@
+@import "../../../styles/main";
+
+.ConnectedHome {
+    .HeaderSection {
+        > img {
+            width: 30em;
+        }
+        &--title {
+            font-size: 2.5em;
+        }
+        &--body {
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.5em;
+            font-size: 1.8em;
+        }
+    }
+
+    .TimeLineSection {
+        .BlockSection--left {
+            height: 100%;
+            font-size: 1.5em;
+            text-align: left;
+            align-items: left;
+            width: 50%;
+        }
+    }
+}

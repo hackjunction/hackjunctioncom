@@ -6,7 +6,7 @@ import * as THREE from "three/build/three.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { mapEventsByLongitude } from "../../redux/events/selectors";
 
-import EventCard from "../EventCard";
+import EventTextBox from "../EventTextBox";
 
 import "./style.scss";
 
@@ -157,7 +157,7 @@ const Planet = (props) => {
 
     return (
         <div className={classes.planetContainer}>
-            <EventCard {...eventData} />
+            <EventTextBox {...eventData} />
             <div className={classes.vis} ref={mount} />
         </div>
     );

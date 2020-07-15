@@ -1,39 +1,86 @@
 @import "../../../styles/main";
 .StoryPage {
-    background-color: $junction-white;
-    height: 100%;
-
+    @include bp-small-only {
+        padding: 4px;
+    }
     .StoryPage--TopContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         align-content: center;
-        text-align: center;
         width: 100%;
         height: 50%;
 
-        &--Margin {
-            margin: 5px;
+        @media (max-width: 500px) {
+            flex-direction: column;
+            height: unset;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+        }
+
+        &--Left {
+            width: 100%;
+            margin: 5%;
+
+            @media (max-width: 500px) {
+                width: 95%;
+            }
+
+            p {
+                text-align: center;
+            }
+        }
+
+        &--Right {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            @include bp-small-only {
+                width: 95%;
+                flex-direction: column;
+            }
+            &--Box {
+                height: 50%;
+                width: 25%;
+                background: #d1f2ef;
+                border: 1px solid #d1f2ef;
+                border-radius: 58px;
+
+                margin: 10px;
+                @include bp-small-only {
+                    width: 70%;
+                    flex-direction: column;
+                }
+                h3 {
+                    margin: 3px;
+                    word-spacing: 10px;
+                }
+                h4 {
+                    margin: 10px;
+                }
+            }
+        }
+    }
+    h3 {
+        margin: 3px;
+        word-spacing: 30px;
+        @include bp-small-only {
+            text-align: center;
         }
     }
 
-    .StoryPage--logo {
-        margin: 5% 0;
-        align-content: center;
-    }
-
     p {
+        font-family: "Montserrat" !important;
         font-style: normal;
         font-weight: 500;
-        font-size: 18px;
+        font-size: 14px;
         line-height: 22px;
-        display: flex;
-        align-items: center;
-    }
-
-    p.HomePage-subtitle {
-        text-align: center;
-    }
-
-    .icon {
-        font-size: 100px;
+        @include bp-small-only {
+            text-align: center;
+        }
     }
 
     .topic {
@@ -50,16 +97,65 @@
             font-weight: bold;
             font-size: 30px;
             line-height: 37px;
-            display: flex;
-            text-align: left;
+
+            &--right {
+                @extend .topic-subtitle;
+                text-align: left;
+
+                @include bp-small-only {
+                    text-align: center;
+                }
+            }
         }
     }
 
-    &--box  {
-        background: #d1f2ef;
-        border: 1px solid;
-        width: 267px;
-        height: 124px;
-        border-radius: 58px;
+    .StoryPage--DownContent {
+        width: 100%;
+        display: flex;
+        // flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 500px) {
+            flex-direction: column;
+
+            img {
+                width: 100%;
+            }
+        }
+        &--Left {
+            height: 100%;
+            width: 50%;
+            margin: 5%;
+
+            @include bp-small-only {
+                width: 95%;
+                display: flex;
+                flex-direction: column;
+            }
+            &--Order {
+                @include bp-small-only {
+                    display: flex;
+                    order: -1;
+                    flex-direction: column;
+                }
+            }
+
+            &--Order2 {
+                @include bp-small-only {
+                    display: flex;
+                    order: -2;
+                    flex-direction: column;
+                }
+            }
+        }
+
+        &--Right {
+            height: 95%;
+            width: 50%;
+            @include bp-small-only {
+                width: 100%;
+                margin-bottom: 5%;
+            }
+        }
     }
 }

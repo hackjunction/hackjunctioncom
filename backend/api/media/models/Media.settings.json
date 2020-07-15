@@ -26,7 +26,8 @@
         "errorPageHeaderImage",
         "notFoundPageHeaderImage",
         "interestedInOrganisingImage",
-        "junctionXTimelineImage"
+        "junctionXTimelineImage",
+        "partnerFaqImage"
       ],
       "unique": true
     },

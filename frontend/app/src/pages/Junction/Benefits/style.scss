@@ -1,0 +1,150 @@
+@import "../../../styles/main";
+.BenefitsPage {
+    background-color: $junction-white;
+
+    width: 100%;
+
+    @media (max-width: 500px) {
+        padding: 0px;
+    }
+    .BenefitsPage--TopContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        width: 100%;
+        height: 50vh;
+        padding: 40px;
+
+        p {
+            text-align: center;
+        }
+        @media (max-width: 500px) {
+            flex-direction: column;
+            height: unset;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+        }
+
+        &--Left {
+            width: 65%;
+            margin: 5%;
+            @media (max-width: 500px) {
+                width: 95%;
+            }
+        }
+
+        &--Right {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            @media (max-width: 500px) {
+                width: 95%;
+            }
+            &--Box {
+                width: 50%;
+                height: 40%;
+                background: #d1f2ef;
+                border: 1px solid #d1f2ef;
+                border-radius: 58px;
+                text-align: center;
+                margin: 10px;
+                h3 {
+                    margin: 3px;
+                }
+                h4 {
+                    margin: 10px;
+                }
+            }
+        }
+    }
+
+    p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .topic {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 60px;
+        line-height: 73px;
+        display: flex;
+        justify-content: center;
+        text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
+
+        span {
+            font-weight: bold;
+        }
+
+        &-subtitle {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 37px;
+
+            &--right {
+                @extend .topic-subtitle;
+                text-align: right;
+            }
+        }
+    }
+
+    .BenefitsPage--DownContent {
+        width: 100%;
+        height: 50vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        border-top: solid 3px $junction-black;
+
+        ul {
+            font-weight: bold;
+        }
+
+        span {
+            font-weight: bold;
+        }
+        @media (max-width: 500px) {
+            flex-direction: column;
+
+            img {
+                width: 100%;
+            }
+        }
+        &--Left {
+            width: 50%;
+            margin: 5%;
+            @media (max-width: 500px) {
+                width: 95%;
+            }
+            p {
+                text-align: left;
+            }
+        }
+
+        &--Right {
+            width: 50%;
+            @media (max-width: 500px) {
+                width: 100%;
+            }
+            .h1-2 {
+                padding-left: 80px;
+            }
+            .h1-3 {
+                padding-left: 90px;
+            }
+
+            .h1-5 {
+                padding-left: 45px;
+            }
+        }
+    }
+}

@@ -1,25 +1,27 @@
-.EventInfo {
-    &--Timeline {
-        &--outer {
+@import "../../../styles/main";
+
+.TimelineSection {
+    .BlockSection--left {
+        display: none;
+        @include bp-med {
             height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+        }
+    }
+    .BlockSection--right {
+        width: 100%;
+        margin: auto;
+        display: flex;
 
-            &--left {
-                width: 40%;
-                height: 100%;
-            }
-
-            &--right {
-                width: 60%;
-                height: 100%;
-                background: black;
-            }
+        @include bp-med {
+            width: 60%;
         }
     }
 
-    &--circle {
-        width: 300px;
-        height: 300px;
-        background: red;
-        border-radius: 50%;
+    .Connected-chains {
+        height: 70%;
+        margin-top: 5%;
     }
 }

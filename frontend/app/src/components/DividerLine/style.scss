@@ -1,0 +1,18 @@
+@import "../../styles/main";
+
+.DividerLine {
+    height: 0.2em;
+    width: 100%;
+
+    &-stop {
+        @include bp-med {
+            scroll-snap-stop: normal;
+            &--start {
+                scroll-snap-align: start;
+            }
+            &--end {
+                scroll-snap-align: end;
+            }
+        }
+    }
+}

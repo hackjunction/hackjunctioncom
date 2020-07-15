@@ -1,0 +1,33 @@
+.ImgBlock {
+    background-color: #fbfbfb;
+    width: 100%;
+
+    .ImgBlock--TopContent {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        height: 50vh;
+    }
+
+    .ImgBlock--textAndArrowDiv {
+        width: 40%;
+    }
+
+    .ImgBlock--ImageBlock {
+        width: 60%;
+    }
+
+    .ImgBlock--img {
+        width: 100%;
+    }
+
+    .topic {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 60px;
+        line-height: 73px;
+        text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+}

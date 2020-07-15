@@ -15,9 +15,9 @@ import { withRouter } from "react-router";
 
 const Connected = () => {
     return (
-        <>
-            <Header />
-            <div className="App--Content">
+        <div className="Connected">
+            <Header connected />
+            <div className="App--Content ScrollSnap">
                 <Switch>
                     <Route exact path="/connected" component={ConnectedHome} />
                     <Route exact path="/connected/info" component={EventInfo} />
@@ -31,7 +31,7 @@ const Connected = () => {
                 </Switch>
                 <Footer />
             </div>
-        </>
+        </div>
     );
 };
 

@@ -3,13 +3,20 @@
 .FormRow {
     display: flex;
     flex-direction: column;
-
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
     @include bp-med {
+        width: 90%;
+        justify-content: space-between;
         flex-direction: row;
     }
 
     &--spacer {
         width: 50px;
-        height: 30px;
+        display: none;
+        @include bp-full {
+            display: none;
+        }
     }
 }

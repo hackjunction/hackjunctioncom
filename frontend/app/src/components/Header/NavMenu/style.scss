@@ -33,21 +33,18 @@
 }
 
 .NavMenu {
-    width: 60px;
-    border-radius: 3px;
+    width: 50px;
     pointer-events: all;
-    background-color: $junction-black;
     position: fixed;
-    left: calc(15% - 30px);
-    margin: 10% 0;
+    left: calc(15% - 22px);
+    top: 5%;
     z-index: 3;
     display: none;
     height: auto;
-    min-height: 50%;
-    border-style: solid;
-    border-color: black;
+    min-height: 90%;
     border-width: thin;
     flex-direction: row;
+    border-radius: 0.4em;
     @include bp-med {
         display: flex;
     }
@@ -57,7 +54,10 @@
 
     &--exit {
         height: 100%;
-        margin: 10px 0 0 2px;
+        margin-top: 1em;
+        width: 50px;
+        min-width: 50px;
+        text-align: center;
     }
 
     &-open {
@@ -73,8 +73,8 @@
     .left,
     .right {
         position: absolute;
-        -webkit-animation: 5s linear slidein forwards;
-        animation: 5s linear slidein forwards;
+        -webkit-animation: 3s linear slidein forwards;
+        animation: 3s linear slidein forwards;
     }
     .top {
         top: -3px;
@@ -172,22 +172,27 @@
             display: flex;
             flex-direction: column;
 
+            span.toHome {
+                color: $junction-white;
+                font-size: 1.2em;
+                margin-left: 5%;
+            }
+
             &-item {
-                margin-left: 15%;
+                margin-left: 10%;
                 color: $junction-white;
                 text-decoration: none;
                 font-weight: 600;
-                font-size: 20px;
-                line-height: 28px;
+                font-size: 1.3em;
+                line-height: 1.2em;
             }
-
             &-title {
                 color: $junction-white;
-                line-height: 24px;
+                line-height: 0.8em;
                 font-weight: bold;
-                margin-top: 30px;
-                margin-bottom: 10px;
-                font-size: 20px;
+                margin-top: 1em;
+                margin-bottom: 0.3em;
+                font-size: 1.5em;
                 text-align: left;
             }
         }
@@ -208,6 +213,7 @@
     background-color: transparent;
     border: 0;
     margin: 0;
+    padding: 0;
 
     overflow: visible;
     &:focus {
@@ -220,14 +226,9 @@
 .hamburger.is-active:hover {
     opacity: 0.7;
 }
-.hamburger.is-active .hamburger-inner,
-.hamburger.is-active .hamburger-inner::before,
-.hamburger.is-active .hamburger-inner::after {
-    background-color: $junction-white;
-}
 
 .hamburger-box {
-    width: 40px;
+    width: 2em;
     height: 24px;
     display: inline-block;
     position: relative;
@@ -241,9 +242,8 @@
 .hamburger-inner,
 .hamburger-inner::before,
 .hamburger-inner::after {
-    width: 40px;
+    width: 2em;
     height: 4px;
-    background-color: $junction-white;
     border-radius: 4px;
     position: absolute;
     transition-property: transform;

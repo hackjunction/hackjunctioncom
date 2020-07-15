@@ -4,25 +4,18 @@
     align-self: stretch;
     margin-left: -$padding-page;
     margin-right: -$padding-page;
-    height: 32em;
+    height: 35vh;
     position: relative;
     z-index: 5;
     overflow: hidden;
     transition: height 0.2s ease;
-    background-image: linear-gradient(
-        180deg,
-        rgba(244, 78, 44, 0.62) 0%,
-        rgba(11, 44, 93, 0.36) 100%
-    );
-    border-top: 3px solid $junction-black;
-    border-bottom: 3px solid $junction-black;
 
     @include bp-med {
-        height: 32em;
+        height: 40vh;
     }
 
     @include bp-full {
-        height: 32em;
+        height: 50vh;
     }
 
     &--img {
@@ -34,8 +27,6 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
-        opacity: 0.7;
-        transition: opacity 0.4s ease;
     }
 
     &--content {
@@ -89,7 +80,7 @@
         justify-content: flex-start;
         align-items: flex-end;
         width: 100%;
-        max-width: 650px;
+        max-width: 80%;
         align-self: flex-end;
         margin: 0;
         display: none;

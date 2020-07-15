@@ -1,3 +1,30 @@
+@import "../../../styles/main";
 .PartnersPage {
+    .PartnersPage--TopContent {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+    }
 
+    .PartnersPage--textAndArrowDiv {
+        height: 50vh;
+    }
+
+    .PartnersPage--ImageBlock {
+        width: 100%;
+    }
+
+    &--img {
+        width: 100%;
+    }
+
+    .topic {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 60px;
+        line-height: 73px;
+        text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
+    }
 }

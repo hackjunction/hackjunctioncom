@@ -1,36 +1,12 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import './style.scss';
+import React from "react";
+import "./style.scss";
 
-import FaqGridItem from './FaqGridItem';
+import FaqGridItem from "./FaqGridItem";
 
-class FaqGrid extends PureComponent {
-	static propTypes = {
-		items: PropTypes.arrayOf(PropTypes.shape({
-			question: PropTypes.string,
-			answer: PropTypes.string,
-			key: PropTypes.string,
-		}))
-	}
+export default ({ items }) => {
+    const renderItems = (items) => {
+        return items.map((item) => <FaqGridItem {...item} />);
+    };
 
-	static defaultProps = {
-		items: []
-	}
-
-	renderItems() {
-		const { items } = this.props;
-		return items.map(item => (
-			<FaqGridItem {...item} />
-		))
-	}
-
-	render() {
-		return (
-			<div className="FaqGrid">
-				{this.renderItems()}
-			</div>
-		)
-	}
-}
-
-export default FaqGrid;
+    return <div className="FaqGrid">{renderItems(items)}</div>;
+};
