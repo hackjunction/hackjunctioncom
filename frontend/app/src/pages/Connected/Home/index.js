@@ -10,6 +10,7 @@ import BlockSection from "../../../components/BlockSection";
 import Timeline from "../Components/Timeline";
 import DividerLine from "../../../components/DividerLine";
 import HeaderSection from "../../../components/HeaderSection";
+import HeaderVideo from "../../../components/HeaderVideo";
 
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
@@ -22,7 +23,9 @@ const ConnectedHome = ({}) => {
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.ConnectedHeaderImage}
         >
-            <div className="Connected-parallax">Tähän se animaatio :)</div>
+            <div className="Connected-parallax">
+                <HeaderVideo />
+            </div>
             <DividerLine />
             <HeaderSection
                 className="ScrollSnapElem"
@@ -49,7 +52,7 @@ const ConnectedHome = ({}) => {
             <DividerLine />
             <SectionImage
                 image={{
-                    url: require("../../../assets/images/connected_main.jpg"),
+                    url: require("../../../assets/images/connected/landing.JPG"),
                 }}
                 alt="Junction 2020 Connected"
             />

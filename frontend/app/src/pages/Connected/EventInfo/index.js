@@ -301,7 +301,7 @@ export default ({}) => {
         >
             <HeaderSection
                 title="Event information"
-                body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
+                body="Junction 2020 Connected has the best of both worlds: the spirit of a traditional Junction and the new possibilities online-hackathons have to offer. Happening simultaneously both virtually and physically all over the world, Junction 2020 Connected is the leading hybrid event of the year. Local physical hubs bring the hackathon closer to you and allows the event to adapt to possible Covid-19 restrictions. You'll be able to attend the hackathon from your home couch, but you are also welcome to join our local hubs - all around the world."
             >
                 <div className="Button-row">
                     {/*
@@ -337,44 +337,38 @@ export default ({}) => {
             <DividerLine />
             <SectionImage
                 image={{
-                    url: require("../../../assets/images/connected/info/timeline.png"),
+                    url: require("../../../assets/images/connected/info/timeline.JPG"),
                 }}
                 alt="Timeline"
-            >
-                Timeline
-            </SectionImage>
+            />
             <DividerLine />
             <Element name="timeline" />
             <BlockSection
                 className="TimelineSection ScrollSnapElem"
+                inverted
                 title="Important dates & timeline"
                 extra={
                     <img
                         className="Connected-chains"
-                        src={require("../../../assets/images/visu-chains.svg")}
+                        src={require("../../../assets/images/3part-chain.svg")}
                     />
                 }
             >
                 <Timeline date="September 1st">
                     Application period begins
                 </Timeline>
-                <Timeline date="October 6th">
+                <Timeline date="October 1st">
                     Virtual matchmaking begins
                 </Timeline>
-                <Timeline date="September 1st">
-                    Application period begins
+                <Timeline date="October 9th">Application period ends</Timeline>
+                <Timeline date="October 18th">
+                    Deadline for participants to confirm their place
                 </Timeline>
-                <Timeline date="September 1st">
-                    Application period begins
+                <Timeline date="November 6th">
+                    Junction 2020 Connected begins
                 </Timeline>
-                <Timeline date="September 1st">
-                    Application period begins
-                </Timeline>
-                <Timeline date="September 1st">
-                    Application period begins
-                </Timeline>
-                <Timeline date="November 6th to 8th" last>
-                    Junction 2020 Connected
+                <Timeline date="November 8th" last>
+                    Junction 2020 Connected ends
                 </Timeline>
             </BlockSection>
             {/* Not relevant yet
@@ -386,18 +380,15 @@ export default ({}) => {
             <DividerLine />
             <SectionImage
                 image={{
-                    url: require("../../../assets/images/connected/info/faq.png"),
+                    url: require("../../../assets/images/connected/info/faq.JPG"),
                 }}
                 alt="FAQ"
-            >
-                FAQ
-            </SectionImage>
+            />
             <DividerLine />
             <Element name="faq" />
             <SingleColumnSection
-                subtitle="Our expertise of organising hackathons combined with the
-                    power of a highly-customizable platform for events makes
-                    hosting diverse events possible."
+                title="Frequently asked questions"
+                subtitle="Click to filter frequently asked questions!"
                 center
                 nolimit
                 className="ScrollSnapElem"

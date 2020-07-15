@@ -56,6 +56,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                             className="Header--connected__image"
                             src={require("../../assets/logos/connected_logo.svg")}
                             alt="Junction 2020 Connected logo"
+                            onClick={() => toggleSidebar(false)}
                         />
                     </Link>
                 ) : (
@@ -64,6 +65,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                             className="Header--emblem__image"
                             src={require("../../assets/logos/emblem_black.png")}
                             alt="Junction logo"
+                            onClick={() => toggleSidebar(false)}
                         />
                     </Link>
                 )}
@@ -82,14 +84,20 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                                 className="HeaderMobile--connected__image"
                                 src={require("../../assets/logos/header-j2020c-logo.svg")}
                                 alt="Junction 2020 Connected logo"
+                                onClick={() => toggleSidebar(false)}
                             />
                         </Link>
                     ) : (
-                        <Link to="/" className="HeaderMobile--emblem">
+                        <Link
+                            to="/"
+                            className="HeaderMobile--emblem"
+                            onClick={() => toggleSidebar(false)}
+                        >
                             <img
                                 className="HeaderMobile--emblem__image"
                                 src={require("../../assets/logos/emblem_white.png")}
                                 alt="Junction logo"
+                                onClick={() => toggleSidebar(false)}
                             />
                         </Link>
                     )}

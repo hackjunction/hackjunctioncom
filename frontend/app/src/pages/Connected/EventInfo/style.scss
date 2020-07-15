@@ -1,6 +1,8 @@
 @import "../../../styles/main";
 
 .TimelineSection {
+    width: 80%;
+    margin: auto;
     .BlockSection--left {
         display: none;
         @include bp-med {
@@ -16,12 +18,13 @@
         display: flex;
 
         @include bp-med {
-            width: 60%;
+            width: 50%;
         }
     }
 
     .Connected-chains {
-        height: 70%;
+        max-height: unset;
+        height: 100%;
         margin-top: 5%;
     }
 }

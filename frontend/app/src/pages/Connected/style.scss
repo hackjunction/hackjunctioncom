@@ -2,6 +2,8 @@
 .Connected {
     background-color: $connected-peach;
     color: $connected-blue;
+    display: flex;
+    flex-direction: column;
 
     .ConnectedContent {
         background-color: $connected-peach;
@@ -157,6 +159,7 @@
 
     .ImageHeader > h2 {
         color: $connected-peach;
+        -webkit-text-stroke: 2.5px $connected-blue;
     }
 
     h1,
@@ -179,11 +182,14 @@
     }
 
     &-parallax {
-        background-attachment: fixed;
-        background-position: center;
+        position: relative;
         height: 100vh;
-        background-repeat: no-repeat;
         background-size: cover;
-        background-image: url("../../assets/images/connected_main.jpg");
+
+        video {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
     }
 }

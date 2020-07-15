@@ -26,9 +26,6 @@ body {
     height: 100%;
     overflow-x: hidden;
     background: $junction-white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     @include bp-med {
         flex-direction: row;
     }
@@ -36,7 +33,7 @@ body {
 
 .App--Content {
     background: $junction-white;
-    min-height: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: stretch;

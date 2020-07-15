@@ -1,12 +1,50 @@
 import "./style.scss";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FaqGrid from "../../../../components/FaqGrid";
 import Button from "../../../../components/Button";
+import { useTheme } from "@material-ui/core";
 
 export default ({ items }) => {
-    const [open, toggleQuestion] = useState(items[0].title);
-    console.log(items);
-    console.log(open);
+    const [open, toggleQuestions] = useState([]);
+    const [selected, toggleSelected] = useState(items[0].title);
+
+    useEffect(() => {
+        let titles = [];
+        items.map((item) => titles.push(item.title));
+        toggleQuestions(titles);
+    }, []);
+
+    const renderSections = () => {
+        return (
+            <div>
+                {items.map((section) => (
+                    <div
+                        className={`FaqQuestion--section ${
+                            selected === section.title ? "open" : ""
+                        }`}
+                    >
+                        <h2>{section.title}</h2>
+                        <FaqGrid items={section.questions} />
+                    </div>
+                ))}
+            </div>
+        );
+    };
+
+    const changeFilters = (title) => {
+        const i = open.indexOf(title);
+        console.log("index", i);
+        console.log("init open", open);
+        const newArray = open;
+        if (i > -1) {
+            newArray.splice(i, 1);
+        } else {
+            newArray.push(title);
+        }
+
+        toggleQuestions(newArray);
+    };
+
     return (
         <div className="FaqSection">
             {items.length > 1 && (
@@ -14,24 +52,15 @@ export default ({ items }) => {
                     {items.map((section) => (
                         <Button
                             className={`Button-default ${
-                                open === section.title ? "selected" : ""
+                                selected === section.title ? "selected" : ""
                             }`}
-                            onClick={() => toggleQuestion(section.title)}
+                            onClick={() => toggleSelected(section.title)}
                             text={section.title}
                         />
                     ))}
                 </div>
             )}
-            {items.map((section) => (
-                <div
-                    className={`FaqQuestion--section ${
-                        open === section.title ? "open" : ""
-                    }`}
-                >
-                    <h2>{section.title}</h2>
-                    <FaqGrid items={section.questions} />
-                </div>
-            ))}
+            {renderSections()}
         </div>
     );
 };
