@@ -302,13 +302,14 @@ export default ({}) => {
                 body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
             >
                 <div className="Button-row">
+                    {/*
                     <Button
                         className="Button-default"
                         text="General Information"
                     />
+                    <Button className="Button-default" text="For Partners" />*/}
                     <Button className="Button-default" text="Schedule" />
                     <Button className="Button-default" text="FAQ" />
-                    <Button className="Button-default" text="For Partners" />
                 </div>
             </HeaderSection>
             <DividerLine />

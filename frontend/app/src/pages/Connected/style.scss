@@ -120,6 +120,9 @@
         background: $connected-peach;
         border-top: 4px solid $connected-blue;
 
+        h2 {
+            color: $connected-orange;
+        }
         &--divider {
             background-color: $connected-blue;
         }

@@ -13,4 +13,14 @@
             font-size: 1.8em;
         }
     }
+
+    .TimeLineSection {
+        .BlockSection--left {
+            height: 100%;
+            font-size: 1.5em;
+            text-align: left;
+            align-items: left;
+            width: 50%;
+        }
+    }
 }

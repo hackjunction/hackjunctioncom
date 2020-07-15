@@ -38,8 +38,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 75%;
-        margin: auto;
+        margin-right: 0;
 
         @include bp-full {
             width: calc(50% - 0.2em);
@@ -51,9 +50,12 @@
 
         &-first {
             margin: auto;
+            width: 75%;
+            text-align: center;
             margin-top: 0;
 
             @include bp-med {
+                text-align: left;
                 margin-left: 15%;
             }
         }
@@ -102,12 +104,12 @@
         justify-content: center;
         align-items: center;
         @include bp-med {
-            width: 80%;
+            justify-content: flex-start;
             margin: auto;
         }
         @include bp-full {
-            width: 50%;
-            margin: 2% 5% 0 5%;
+            width: 30%;
+            margin: 0 10% 0 10%;
             align-items: flex-start;
         }
 

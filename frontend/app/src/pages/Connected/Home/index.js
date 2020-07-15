@@ -92,7 +92,7 @@ const ConnectedHome = ({}) => {
                 />
             </BlockSection>
             <DividerLine stop />
-            <BlockSection title="Timeline">
+            <BlockSection title="Timeline" className="TimeLineSection">
                 <Timeline date="September 1st">
                     Application period begins
                 </Timeline>

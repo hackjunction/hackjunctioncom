@@ -4,9 +4,11 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-
+    @include bp-med {
+        flex: 1;
+    }
     @include bp-full {
-        padding: 0 3em 0 0em;
+        flex: unset;
     }
     ::placeholder {
         color: $junction-black;
@@ -24,7 +26,6 @@
     }
 
     &--input {
-        height: 38px;
         background: transparent;
         border: none;
         color: $junction-black;

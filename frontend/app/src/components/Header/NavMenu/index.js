@@ -75,6 +75,9 @@ const ConnectedContent = () => {
                 <FontAwesomeIcon icon="long-arrow-alt-left" size="1x" />
                 <span className="toHome">Back to Junction</span>
             </ConnectedNavLink>
+            <ConnectedNavLink to="/connected" title>
+                Home
+            </ConnectedNavLink>
             <ConnectedNavLink to="/connected/info" title>
                 Event info
             </ConnectedNavLink>

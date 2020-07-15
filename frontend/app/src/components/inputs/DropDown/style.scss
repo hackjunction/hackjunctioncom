@@ -3,8 +3,8 @@
 .DropDown {
     display: flex;
     flex-direction: column;
-
     &--input {
+        font-size: 1em;
         -webkit-appearance: none;
         -moz-appearance: none;
         -o-appearance: none;
