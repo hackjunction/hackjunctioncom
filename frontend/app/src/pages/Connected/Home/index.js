@@ -10,7 +10,6 @@ import BlockSection from "../../../components/BlockSection";
 import Timeline from "../Components/Timeline";
 import DividerLine from "../../../components/DividerLine";
 import HeaderSection from "../../../components/HeaderSection";
-import { Grid } from "@material-ui/core";
 
 import SingleColumnSection from "../../../components/SingleColumnSection";
 import Page from "../../PageHOC";
@@ -33,7 +32,7 @@ const ConnectedHome = ({}) => {
                     world to simultaneously hack in both physical locations and
                     online."
             >
-                <Grid className="Button-row" spacing={12} direction="row">
+                <div className="Button-row">
                     <Button className="Button-small" to text="Junction App" />
 
                     <Button
@@ -41,7 +40,7 @@ const ConnectedHome = ({}) => {
                         to
                         text="Partner with us"
                     />
-                </Grid>
+                </div>
             </HeaderSection>
             <DividerLine />
             <SectionImage

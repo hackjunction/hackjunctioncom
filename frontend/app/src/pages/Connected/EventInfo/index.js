@@ -70,8 +70,10 @@ export default ({}) => {
                 title="Event information"
                 body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
             >
-                <Button className="Connected-blue-button" text="Timeline" />
-                <Button className="Connected-blue-button" text="FAQ" />
+                <div className="Button-row">
+                    <Button className="Button-default" text="Timeline" />
+                    <Button className="Button-default" text="FAQ" />
+                </div>
             </HeaderSection>
             <DividerLine />
             <SectionImage
@@ -141,7 +143,7 @@ export default ({}) => {
                     <div>
                         <a href="mailto:hello@hackjunction.com">
                             <Button
-                                className="Connected-blue-button"
+                                className="Button-default"
                                 text="Contact us"
                             />
                         </a>
