@@ -1,46 +1,9 @@
 @import "../../../styles/main";
+
 .WhatWeOfferPage {
-    background-color: $junction-white;
-    height: 100%;
-    width: 100%;
-
-    @media (max-width: 500px) {
-        padding: 0px;
+    .SingleColumnSection {
+        padding: 0;
     }
-    .WhatWeOfferPage--TopContent {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-
-        p {
-            text-align: center;
-        }
-        @media (max-width: 500px) {
-            flex-direction: column;
-            height: unset;
-            align-items: center;
-            align-content: center;
-            justify-content: center;
-        }
-
-        &--First {
-            height: 30%;
-        }
-
-        &--Third {
-            height: 70%;
-            text-align: center;
-            padding-bottom: 14%;
-            p {
-                @extend .WhatWeOfferPage--TopContent;
-                padding: 0 10% 0 10%;
-            }
-        }
-    }
-
     &--Host {
         display: flex;
         flex-direction: column;

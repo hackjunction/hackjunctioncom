@@ -109,3 +109,10 @@ body {
         }
     }
 }
+
+.ScrollSnap {
+    scroll-snap-type: y proximity;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: 100vh;
+}

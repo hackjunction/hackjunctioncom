@@ -1,11 +1,5 @@
 @import "../../../styles/main";
 .ReferencesPage {
-    background-color: $junction-white;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    font-family: "Montserrat";
-
     .ReferencesPage--TopContent {
         display: flex;
         flex-direction: column;
@@ -40,8 +34,6 @@
         }
 
         &--Third {
-            height: 50%;
-            width: 100%;
             text-align: center;
             padding-bottom: 5%;
             background: $junction-black;

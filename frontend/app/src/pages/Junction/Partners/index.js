@@ -6,21 +6,10 @@ import { connect } from "react-redux";
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import HeaderImage from "../../../components/HeaderImage";
-import BasicHeader from "../../../components/HeaderImage/BasicHeader";
-import BlockSection from "../../../components/BlockSection/";
-import ImageBlockSection from "../../../components/ImageBlockSection/";
 import SingleColumnSection from "../../../components/SingleColumnSection/";
-import BorderedSection from "../../../components/BorderedSection/";
-import ContactForm from "../../../components/ContactForm/";
-import StatBlocks from "../../../components/StatBlocks";
-import Divider from "../../../components/Divider";
-import Markdown from "../../../components/Markdown";
-import PartnerLogoGrid from "../../../components/LinkGrid/PartnerLogoGrid";
-import LinkButton from "../../../components/LinkButton";
+import BlockSection from "../../../components/BlockSection/";
 
 import Page from "../../PageHOC";
-import CenteredBlock from "../../../components/CenteredBlock/index";
 
 import { partnerTestimonials } from "../../../redux/testimonials/selectors";
 import ImgBlock from "../../../components/ImgBlock";
@@ -86,6 +75,7 @@ class PartnersPage extends PureComponent {
                     left
                     image={images.faq}
                 />
+
                 {/* <BlockSection
                     titleKey={KEYS.previousPartnersTitle}
                     subtitleKey={KEYS.previousPartnersSubtitle}

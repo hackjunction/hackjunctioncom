@@ -6,18 +6,16 @@ import { connect } from "react-redux";
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import HeaderImage from "../../../components/HeaderImage";
-import BasicHeader from "../../../components/HeaderImage/BasicHeader";
 import BlockSection from "../../../components/BlockSection";
-import ImageBlockSection from "../../../components/ImageBlockSection";
-import Divider from "../../../components/Divider";
-import Markdown from "../../../components/Markdown";
-import NewsLetterForm from "../../../components/NewsLetterForm";
-import CenteredBlock from "../../../components/CenteredBlock";
+import SectionImage from "../../../components/SectionImage";
+import DividerLine from "../../../components/DividerLine";
 
+import HeaderSection from "../../../components/HeaderSection";
+import SingleColumnSection from "../../../components/SingleColumnSection";
 import Page from "../../PageHOC";
 
 import { volunteerTestimonials } from "../../../redux/testimonials/selectors";
+import { requirePropFactory } from "@material-ui/core";
 
 class VolunteersPage extends PureComponent {
     render() {
@@ -31,41 +29,39 @@ class VolunteersPage extends PureComponent {
                 metaDescKey={KEYS.volunteersPageSubtitle}
                 ogImageKey={MEDIA_KEYS.volunteerPageHeaderImage}
             >
-                <HeaderImage
-                    imageKey={MEDIA_KEYS.volunteerPageHeaderImage}
-                    alt="Header image"
-                >
-                    <BasicHeader
-                        titleKey={KEYS.volunteersPageTitle}
-                        bodyKey={KEYS.volunteersPageSubtitle}
-                    />
-                </HeaderImage>
-                {testimonial ? (
-                    <React.Fragment>
-                        <ImageBlockSection
-                            image={testimonial.image}
-                            imageAlt={testimonial.name}
-                            title={testimonial.name}
-                            subtitle={testimonial.subtitle}
-                        >
-                            <Markdown source={testimonial.quote} />
-                        </ImageBlockSection>
-                        <Divider lg />
-                    </React.Fragment>
-                ) : null}
+                <HeaderSection />
+                <DividerLine />
+                <SectionImage
+                    image={{
+                        url: require("../../../assets/images/connected_main.jpg"),
+                    }}
+                />
+                <DividerLine stop />
                 <BlockSection
+                    halfpage
                     titleKey={KEYS.volunteeringTitle}
                     subtitleKey={KEYS.volunteeringSubtitle}
-                >
-                    <Markdown sourceKey={KEYS.volunteeringBody} />
-                </BlockSection>
-                <Divider lg />
-                <CenteredBlock>
-                    <Markdown sourceKey={KEYS.volunteersPageMidContent} />
-                </CenteredBlock>
-                <Divider lg />
-                <NewsLetterForm />
-                <Divider lg />
+                ></BlockSection>
+                <DividerLine />
+                <SectionImage
+                    image={{
+                        url: require("../../../assets/images/connected_main.jpg"),
+                    }}
+                />
+                <DividerLine stop />
+                <BlockSection
+                    halfpage
+                    titleKey={KEYS.volunteeringTitle}
+                    subtitleKey={KEYS.volunteeringSubtitle}
+                ></BlockSection>
+                <DividerLine />
+                <SectionImage
+                    image={{
+                        url: require("../../../assets/images/connected_main.jpg"),
+                    }}
+                />
+                <DividerLine stop />
+                <SingleColumnSection halfpage center />
             </Page>
         );
     }

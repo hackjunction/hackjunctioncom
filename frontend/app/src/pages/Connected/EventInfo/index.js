@@ -27,7 +27,7 @@ const items = [
             { question: "What is a hackathon", answer: "asdasd", key: "2" },
             { question: "asd", answer: "asdasd", key: "3" },
             { question: "asd", answer: "asdasd", key: "4" },
-            { question: "asd", answer: "asdasd", key: "2" },
+            { question: "asd", answer: "asdasd", key: "5" },
         ],
     },
     {
@@ -61,7 +61,7 @@ const items = [
 export default ({}) => {
     return (
         <Page
-            className="Connected ScrollSnap"
+            className="Connected"
             pageTitle="Event Info"
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -72,27 +72,10 @@ export default ({}) => {
             >
                 <SmallButton
                     className="Connected-blue-button"
-                    text="General information"
-                />
-                <SmallButton
-                    className="Connected-blue-button"
-                    text="Schedule"
+                    text="Timeline"
                 />
                 <SmallButton className="Connected-blue-button" text="FAQ" />
-                <SmallButton
-                    className="Connected-blue-button"
-                    text="For partners"
-                />
             </HeaderSection>
-            <DividerLine />
-            <SectionImage
-                imageKey={MEDIA_KEYS.homePageHeaderImage}
-                alt="Header image"
-            >
-                General information
-            </SectionImage>
-            <DividerLine />
-            Tähän sisältöö
             <DividerLine />
             <SectionImage
                 imageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -168,15 +151,7 @@ export default ({}) => {
                     </div>
                 </div>
             </SingleColumnSection>
-            <DividerLine />
-            <SectionImage
-                imageKey={MEDIA_KEYS.homePageHeaderImage}
-                alt="Header image"
-            >
-                For Partners
-            </SectionImage>
             <DividerLine stop />
-            <SingleColumnSection>Tähän sisältöö</SingleColumnSection>
         </Page>
     );
 };

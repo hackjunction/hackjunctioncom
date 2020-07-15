@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-const DividerLine = ({ stop = false, position = "end" }) => {
+const DividerLine = ({ stop = false, position = "start" }) => {
     let classes = "DividerLine";
     if (stop) {
         classes += ` DividerLine-stop--${position}`;

@@ -5,6 +5,7 @@ import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
 import Page from "../../PageHOC";
+import DividerLine from "../../../components/DividerLine";
 
 const BOTTOM_LINKS = [
     {

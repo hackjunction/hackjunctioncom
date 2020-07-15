@@ -34,15 +34,15 @@ const Junction = () => {
     return (
         <div className="Junction">
             <Header />
-            <div className="App--Content">
+            <div className="App--Content ScrollSnap">
                 <Switch>
                     {/* Static pages */}
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/about" component={AboutPage} />
                     <Route exact path="/story" component={StoryPage} />
                     <Route exact path="/contact" component={ContactPage} />
-                    <Route exact path="/benefits" component={BenefitsPage} />
-                    <Route exact path="/offer" component={WhatWeOfferPage} />
+                    <Route exact path="/why" component={BenefitsPage} />
+                    <Route exact path="/services" component={WhatWeOfferPage} />
                     <Route exact path="/events" component={EventsPage} />
                     <Route
                         exact

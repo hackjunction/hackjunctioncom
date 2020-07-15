@@ -7,6 +7,10 @@
         background: $junction-white;
     }
 
+    .DividerLine {
+        background-color: $junction-black;
+    }
+
     .NavMenu {
         background-color: $junction-black;
         &--inner {
@@ -35,6 +39,13 @@
     .hamburger.is-active .hamburger-inner::before,
     .hamburger.is-active .hamburger-inner::after {
         background-color: $junction-white;
+    }
+
+    .FaqGridItem {
+        border-color: $junction-black;
+        i {
+            color: $junction-black;
+        }
     }
 
     .Footer {
