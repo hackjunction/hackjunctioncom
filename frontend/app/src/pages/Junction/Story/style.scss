@@ -64,4 +64,98 @@
             }
         }
     }
+    h3 {
+        margin: 3px;
+        word-spacing: 30px;
+        @include bp-small-only {
+            text-align: center;
+        }
+    }
+
+    p {
+        font-family: "Montserrat" !important;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        @include bp-small-only {
+            text-align: center;
+        }
+    }
+
+    .topic {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 60px;
+        line-height: 73px;
+        display: flex;
+        justify-content: center;
+        text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
+
+        &-subtitle {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 37px;
+
+            &--right {
+                @extend .topic-subtitle;
+                text-align: left;
+
+                @include bp-small-only {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .StoryPage--DownContent {
+        width: 100%;
+        display: flex;
+        // flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 500px) {
+            flex-direction: column;
+
+            img {
+                width: 100%;
+            }
+        }
+        &--Left {
+            height: 100%;
+            width: 50%;
+            margin: 5%;
+
+            @include bp-small-only {
+                width: 95%;
+                display: flex;
+                flex-direction: column;
+            }
+            &--Order {
+                @include bp-small-only {
+                    display: flex;
+                    order: -1;
+                    flex-direction: column;
+                }
+            }
+
+            &--Order2 {
+                @include bp-small-only {
+                    display: flex;
+                    order: -2;
+                    flex-direction: column;
+                }
+            }
+        }
+
+        &--Right {
+            height: 95%;
+            width: 50%;
+            @include bp-small-only {
+                width: 100%;
+                margin-bottom: 5%;
+            }
+        }
+    }
 }

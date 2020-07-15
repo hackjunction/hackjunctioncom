@@ -1,0 +1,200 @@
+@import "../../../styles/main";
+.VolunteersPage {
+    .width {
+        width: 300px;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    &--container {
+        height: 50%;
+        display: flex;
+        flex-direction: row;
+        margin: 8%;
+
+        @include bp-small-only {
+            flex-direction: column;
+            align-items: center;
+            margin: 1%;
+        }
+
+        &--left {
+            width: 35%;
+            text-align: center;
+            @include bp-small-only {
+                height: 50%;
+                width: 100%;
+                padding: 1%;
+            }
+        }
+        &--right {
+            width: 65%;
+            padding: 5%;
+
+            @include bp-small-only {
+                height: 50%;
+                width: 95%;
+
+                p {
+                    text-align: center;
+                }
+            }
+            img {
+                position: absolute;
+                z-index: 0;
+            }
+            p {
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 18px;
+            }
+
+            span {
+                font-weight: 500;
+            }
+        }
+    }
+
+    &--lowercontainer {
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        margin: 3% 5% 0 5%;
+
+        h3 {
+            font-size: 18px;
+            font-style: italic;
+            font-weight: normal;
+        }
+
+        h1 {
+            font-style: normal;
+        }
+
+        p {
+            font-family: "Montserrat";
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 500;
+        }
+        &--upper {
+            display: flex;
+            flex-direction: row;
+
+            @include bp-small-only {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                p {
+                    text-align: center;
+                }
+            }
+
+            &--left {
+                width: 35%;
+                @include bp-small-only {
+                    width: 100%;
+                    padding: unset;
+                }
+            }
+
+            &--right {
+                width: 65%;
+                padding: 0 3% 3% 3%;
+                @include bp-small-only {
+                    width: 100%;
+                    padding: unset;
+                }
+            }
+        }
+
+        &--down {
+            display: flex;
+            flex-direction: row;
+            @include bp-small-only {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                p {
+                    text-align: center;
+                }
+            }
+            &--left {
+                width: 35%;
+                @include bp-small-only {
+                    width: 100%;
+                    padding: unset;
+                }
+            }
+
+            &--right {
+                width: 65%;
+                padding: 0 3% 3% 3%;
+                @include bp-small-only {
+                    width: 100%;
+                    padding: unset;
+                }
+            }
+        }
+    }
+
+    &--interestedcontainer {
+        height: 50%;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        @include bp-small-only {
+            text-align: center;
+            margin-bottom: 5%;
+            width: 80%;
+        }
+
+        p {
+            text-align: center;
+            font-family: "Montserrat";
+        }
+
+        &--row {
+            display: flex;
+            flex-direction: row;
+            @include bp-small-only {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+    &--wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &--name {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 0px;
+    }
+
+    &--mail {
+        font-family: "Montserrat";
+        margin: 4px 0 0 0;
+    }
+
+    &--veera-box {
+        padding-left: 4%;
+    }
+
+    .notbolded {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+    }
+}
