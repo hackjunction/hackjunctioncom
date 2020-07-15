@@ -1,11 +1,11 @@
 @import "../../styles/main";
 
 .Footer {
-    display: flex;
     flex-direction: column;
-    scroll-snap-stop: normal;
-    scroll-snap-align: end;
     @include bp-full {
+        scroll-snap-stop: normal;
+        scroll-snap-align: end;
+        display: -webkit-flex;
         flex-direction: row;
     }
 
@@ -97,12 +97,12 @@
     &--right {
         display: flex;
         margin: auto;
-        width: 75%;
+        width: 70%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         @include bp-med {
-            width: 50%;
+            width: 80%;
             margin: auto;
         }
         @include bp-full {
@@ -120,7 +120,7 @@
 
     &--mobile {
         &-links {
-            width: 75%;
+            width: 70%;
             margin: 5% auto 5% auto;
             @include bp-full {
                 display: none;

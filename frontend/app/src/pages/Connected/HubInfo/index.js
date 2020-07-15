@@ -15,7 +15,7 @@ import Planet from "../../../components/Planet";
 export default ({}) => {
     return (
         <Page
-            className="Connected"
+            className="Connected ConnectedContent"
             pageTitle="Hub Info"
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.homePageHeaderImage}

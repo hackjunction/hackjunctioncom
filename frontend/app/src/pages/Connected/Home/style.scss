@@ -1,0 +1,16 @@
+.ConnectedHome {
+    .HeaderSection {
+        > img {
+            width: 30em;
+        }
+        &--title {
+            font-size: 2.5em;
+        }
+        &--body {
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.5em;
+            font-size: 1.8em;
+        }
+    }
+}

@@ -7,20 +7,12 @@ import TextArea from "../inputs/TextArea";
 import FormRow from "../inputs/FormRow";
 import SubmitButton from "../inputs/SubmitButton";
 import BlockSection from "../BlockSection";
-import { makeStyles } from "@material-ui/core/styles";
 import { useFormField } from "../../hooks/formhooks";
 import { isEmail } from "../../utils/regex";
 import { minDelay } from "../../utils/misc";
 import KEYS from "../../redux/staticcontent/keys";
 
 import ContactRequestService from "../../services/contactrequests";
-
-const useStyles = makeStyles({
-    inputBox: {
-        border: "3px",
-        border: "3px solid black",
-    },
-});
 
 const ContactForm = () => {
     const fields = {
@@ -107,7 +99,7 @@ const ContactForm = () => {
     function handleFormError(errors) {
         console.log("ERROR", errors);
     }
-    const classes = useStyles();
+
     return (
         <Form
             fields={fields}
@@ -129,7 +121,6 @@ const ContactForm = () => {
                     placeholder="First name"
                     label="First name"
                     {...fields.firstName}
-                    className={classes.inputBox}
                 />
                 <TextInput
                     name="lastName"
@@ -152,14 +143,12 @@ const ContactForm = () => {
                     {...fields.company}
                 />
             </FormRow>
-            <FormRow>
-                <TextArea
-                    name="message"
-                    label="Message"
-                    placeholder="Type your message..."
-                    {...fields.message}
-                />
-            </FormRow>
+            <TextArea
+                name="message"
+                label="Message"
+                placeholder="Type your message..."
+                {...fields.message}
+            />
             <FormRow>
                 <SubmitButton text="Send" />
             </FormRow>

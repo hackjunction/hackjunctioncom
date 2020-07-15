@@ -4,11 +4,19 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
     @include bp-med {
+        width: 100%;
+        justify-content: flex-start;
         flex-direction: row;
     }
 
     &--spacer {
         width: 50px;
+        display: none;
+        @include bp-full {
+            display: none;
+        }
     }
 }
