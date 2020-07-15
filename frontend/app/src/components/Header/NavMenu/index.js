@@ -102,11 +102,11 @@ const ConnectedContent = () => {
                 Hub stories
             </ConnectedNavLink>
 
-            <ConnectedNavLink to="/challenges" title>
+            {/* <ConnectedNavLink to="/challenges" title>
                 Challenges
             </ConnectedNavLink>
             <ConnectedNavLink to="/partners">Event partners</ConnectedNavLink>
-            <ConnectedNavLink to="/challenges">Challenges</ConnectedNavLink>
+            <ConnectedNavLink to="/challenges">Challenges</ConnectedNavLink> */}
 
             {/*
             <ConnectedNavLink title>Important links</ConnectedNavLink>

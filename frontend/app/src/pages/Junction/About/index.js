@@ -52,7 +52,7 @@ class AboutPage extends PureComponent {
                 <ImgBlock
                     topic="Blog"
                     image={require("../../../assets/images/about-blog.png")}
-                    link="ADDREFHERE"
+                    link="https://blog.hackjunction.com/"
                     left
                 />
             </Page>

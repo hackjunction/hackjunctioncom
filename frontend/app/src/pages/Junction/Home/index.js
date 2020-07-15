@@ -35,7 +35,7 @@ export default () => {
 
                     <Button
                         className="Button-small"
-                        to
+                        onClick={"/story"}
                         text="Organize a hackathon"
                     />
 

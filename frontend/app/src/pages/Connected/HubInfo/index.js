@@ -15,7 +15,7 @@ import Planet from "../../../components/Planet";
 export default ({}) => {
     return (
         <Page
-            className="Connected ConnectedContent"
+            className="Connected ConnectedContent Hubs"
             pageTitle="Hub Info"
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -38,15 +38,19 @@ export default ({}) => {
             ></SectionImage>
             <DividerLine stop />
             <SingleColumnSection title="What is a hub" center halfpage>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
+                <p className="align">
+                    A hub is a physical location for all our participants to
+                    enjoy. The world's leading hackathon is usually held Espoo,
+                    Finland, but who says we cannot bring the venue to your
+                    city? We've gathered amazing organizers and spaces for all
+                    accepted applicants to join, from Cambridge to New Delhi. If
+                    you'd like to help us out by organizing a hub in your
+                    co-working space or office, shoot us a mail at
+                    hello(at)hackjunction.com!
+                </p>
+                <p className="align">
+                    So gather your friends, and come join us for an awesome
+                    weekend!
                 </p>
             </SingleColumnSection>
             <DividerLine />
@@ -63,7 +67,7 @@ export default ({}) => {
                 halfpage
                 center
             >
-                <p>
+                <p className="align">
                     The central hub is the origin of the challenges and from
                     where Junction coordinates the world's leading hackathon of
                     2020. The stream-studio connecting all the hubs over the
@@ -88,14 +92,14 @@ export default ({}) => {
                 center
                 halfpage
             >
-                <p>
+                <p className="align">
                     Junction Hubs are locations all over Tellus where you as a
                     participant can apply to join one of our official venues.
                     These are organized by independent remarkable hackathon
                     organizers that we gathered together to join this year's
                     finest online hackathon.
                 </p>
-                <p>
+                <p className="align">
                     Junction Hubs are locations all over Tellus where you as a
                     participant can apply to join one of our official venues.
                     These are organized by independent remarkable hackathon
@@ -117,7 +121,7 @@ export default ({}) => {
                 title="Junction Partner Hubs"
                 subtitle="Offered to you by Junction's official partners"
             >
-                <p>
+                <p className="align">
                     It doesn't just stop at Junction hubs, we even managed to
                     find outstanding partners that opened up their offices for
                     your team to enjoy a weekend full of coding! At these
