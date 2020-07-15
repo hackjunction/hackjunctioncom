@@ -12,6 +12,7 @@ import ImageBlockSection from "../../../components/ImageBlockSection";
 import DividerLine from "../../../components/DividerLine";
 import Markdown from "../../../components/Markdown";
 import EventCalendar from "../../../components/EventCalendar";
+import Button from "../../../components/Button";
 
 import Page from "../../PageHOC";
 
@@ -30,7 +31,23 @@ class ParticipantsPage extends PureComponent {
                 metaDescKey={KEYS.participantsPageSubtitle}
                 ogImageKey={MEDIA_KEYS.participantPageHeaderImage}
             >
-                <HeaderSection />
+                <HeaderSection
+                    title="Take on the challenge."
+                    body="Junction organizes hackathons and other tech events around the year around the world, as well as online. We have something for every skill set and interest, so do not hesitate to explore and get new experiences by participating in Junction's events!"
+                >
+                    {/* <div className="button-wrapper"> */}
+                    {/* <div> */}
+                    <Button
+                        text="Upcoming events"
+                        to
+                        className="Button-default"
+                    />
+                    {/* </div> */}
+                    {/* <div> */}
+                    <Button text="Apply" to className="Button-default" />
+                    {/* </div> */}
+                    {/* </div> */}
+                </HeaderSection>
                 <DividerLine />
                 <SectionImage
                     image={{

@@ -6,6 +6,7 @@ import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
 import Page from "../../PageHOC";
 import DividerLine from "../../../components/DividerLine";
+import ImgBlock from "../../../components/ImgBlock";
 
 const BOTTOM_LINKS = [
     {
@@ -32,63 +33,28 @@ class AboutPage extends PureComponent {
     render() {
         return (
             <Page
-                className="AboutPage"
+                className="ImgBlock"
                 pageTitle="Our story"
                 metaDescKey={KEYS.AboutPageSubtitle}
                 ogImageKey={MEDIA_KEYS.AboutPageHeaderImage}
             >
-                <a href="ADDLINKHERE">
-                    <div className="AboutPage--TopContent">
-                        <div className="AboutPage--textAndArrowDiv">
-                            <h1 className="topic">Our story</h1>
-                            <img
-                                src={require("../../../assets/icons/story_arrow.png")}
-                            />
-                        </div>
-
-                        <div className="AboutPage--ImageBlock">
-                            <img
-                                src={require("../../../assets/images/about-our-story.png")}
-                                width="100%"
-                                height="100%"
-                            />
-                        </div>
-                    </div>
-                </a>
-                <a href="ADDLINKHERE">
-                    <div className="AboutPage--TopContent">
-                        <div className="AboutPage--ImageBlock">
-                            <img
-                                src={require("../../../assets/images/about-contact-us.png")}
-                                width="80%"
-                                height="100%"
-                            />
-                        </div>
-                        <div className="AboutPage--textAndArrowDiv">
-                            <h1 className="topic">Contact us</h1>
-                            <img
-                                src={require("../../../assets/icons/story_arrow.png")}
-                            />
-                        </div>
-                    </div>
-                </a>
-                <a href="ADDLINKHERE">
-                    <div className="AboutPage--TopContent">
-                        <div className="AboutPage--textAndArrowDiv">
-                            <h1 className="topic">Blog</h1>
-                            <img
-                                src={require("../../../assets/icons/story_arrow.png")}
-                            />
-                        </div>
-                        <div className="AboutPage--ImageBlock">
-                            <img
-                                src={require("../../../assets/images/about-blog.png")}
-                                width="80%"
-                                height="100%"
-                            />
-                        </div>
-                    </div>
-                </a>
+                <ImgBlock
+                    topic="Our Story"
+                    image={require("../../../assets/images/about-our-story.png")}
+                    link="/story"
+                    left
+                />
+                <ImgBlock
+                    topic="Contact us"
+                    image={require("../../../assets/images/about-contact-us.png")}
+                    link="/contact"
+                />
+                <ImgBlock
+                    topic="Blog"
+                    image={require("../../../assets/images/about-blog.png")}
+                    link="ADDREFHERE"
+                    left
+                />
             </Page>
         );
     }

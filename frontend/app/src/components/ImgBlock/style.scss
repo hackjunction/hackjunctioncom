@@ -1,11 +1,13 @@
 .ImgBlock {
     background-color: #fbfbfb;
     width: 100%;
+
     .ImgBlock--TopContent {
         display: flex;
         flex-direction: row;
         align-items: center;
         text-align: center;
+        height: 50vh;
     }
 
     .ImgBlock--textAndArrowDiv {
