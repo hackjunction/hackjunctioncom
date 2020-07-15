@@ -51,7 +51,7 @@
         width: 80%;
         align-items: center;
         flex-wrap: wrap;
-        @include bp-med {
+        @include bp-small-only {
             flex-direction: column;
         }
     }

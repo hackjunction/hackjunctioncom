@@ -99,13 +99,6 @@ export default ({}) => {
                     organizers that we gathered together to join this year's
                     finest online hackathon.
                 </p>
-                <p className="align">
-                    Junction Hubs are locations all over Tellus where you as a
-                    participant can apply to join one of our official venues.
-                    These are organized by independent remarkable hackathon
-                    organizers that we gathered together to join this year's
-                    finest online hackathon.
-                </p>
             </SingleColumnSection>
             <DividerLine />
             <SectionImage
