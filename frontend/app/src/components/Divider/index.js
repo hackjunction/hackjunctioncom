@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-const Divider = ({ sm = false, md = false, lg = false }) => {
+const Divider = ({ sm = false, md = false, lg = false, line = false }) => {
     let classes = "Divider";
     if (sm) {
         classes += " Divider-sm";
@@ -9,7 +9,10 @@ const Divider = ({ sm = false, md = false, lg = false }) => {
         classes += " Divider-md";
     } else if (lg) {
         classes += " Divider-lg";
+    } else if (line) {
+        classes += " Divider-line";
     }
+
     return <div className={classes} />;
 };
 

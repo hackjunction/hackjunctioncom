@@ -7,7 +7,7 @@ import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 import SectionImage from "../../../components/SectionImage";
 
 import Page from "../../PageHOC";
-import SmallButton from "../../../components/SmallButton";
+import Button from "../../../components/Button";
 
 const BOTTOM_LINKS = [
     {
@@ -34,7 +34,7 @@ class WhatWeOfferPage extends PureComponent {
     render() {
         return (
             <Page
-                className="WhatWeOfferPage Junction-Default"
+                className="WhatWeOfferPage"
                 pageTitle="Our story"
                 metaDescKey={KEYS.WhatWeOfferPageSubtitle}
                 ogImageKey={MEDIA_KEYS.WhatWeOfferPageHeaderImage}
@@ -65,8 +65,8 @@ class WhatWeOfferPage extends PureComponent {
                             increasing the sense of community, and making
                             physical interaction possible when needed.
                         </p>
-                        <SmallButton
-                            className="Default-button"
+                        <Button
+                            className="Button-default"
                             to
                             text="READ MORE"
                         />
@@ -92,8 +92,8 @@ class WhatWeOfferPage extends PureComponent {
                             increasing the sense of community, and making
                             physical interaction possible when needed.
                         </p>
-                        <SmallButton
-                            className="Default-button"
+                        <Button
+                            className="Button-default"
                             to
                             text="READ MORE"
                         />
@@ -122,8 +122,8 @@ class WhatWeOfferPage extends PureComponent {
                             Monday of the month and always discussing the latest
                             tech. With speakers from all over the
                         </p>
-                        <SmallButton
-                            className="Default-button"
+                        <Button
+                            className="Button-default"
                             to
                             text="READ MORE"
                         />
@@ -198,8 +198,8 @@ class WhatWeOfferPage extends PureComponent {
                         power of a highly-customizable platform for events makes
                         hosting diverse events possible.
                     </div>
-                    <SmallButton
-                        className="Default-button button-length"
+                    <Button
+                        className="Button-default button-length"
                         to
                         text="CONTACT US FOR MORE INFORMATION"
                     />

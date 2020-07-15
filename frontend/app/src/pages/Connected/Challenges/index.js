@@ -8,7 +8,7 @@ import SectionImage from "../../../components/SectionImage";
 import { Grid } from "@material-ui/core";
 
 import Page from "../../PageHOC";
-import SmallButton from "../../../components/SmallButton";
+import Button from "../../../components/Button";
 import HeaderSection from "../../../components/HeaderSection";
 import TrackGrid from "../../../components/TrackGrid";
 import BlockSection from "../../../components/BlockSection";
@@ -137,13 +137,9 @@ class Challenges extends PureComponent {
                     body="The hackathon is divided into tracks based on different industries and themes. All tracks include multiple challenges you can choose to work on during the hackathon: and you can even combine challenges and submit your project to multiple ones!"
                 >
                     <Grid spacing={12} direction="row">
-                        <SmallButton
-                            className="Connected-blue-button"
-                            to
-                            text="Tracks"
-                        />
-                        <SmallButton
-                            className="Connected-blue-button"
+                        <Button className="Button-default" to text="Tracks" />
+                        <Button
+                            className="Button-default"
                             to
                             text="Challenges"
                         />

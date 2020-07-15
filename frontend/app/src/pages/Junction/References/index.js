@@ -5,7 +5,7 @@ import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 import ImgBlock from "../../../components/ImgBlock";
 import Page from "../../PageHOC";
-import SmallButton from "../../../components/SmallButton";
+import Button from "../../../components/Button";
 import Divider from "../../../components/Divider";
 
 const BOTTOM_LINKS = [
@@ -73,7 +73,7 @@ class ReferencesPage extends PureComponent {
     render() {
         return (
             <Page
-                className="ReferencesPage Junction-Default"
+                className="ReferencesPage"
                 pageTitle="Our story"
                 metaDescKey={KEYS.ReferencesPageSubtitle}
                 ogImageKey={MEDIA_KEYS.ReferencesPageHeaderImage}
@@ -96,8 +96,8 @@ class ReferencesPage extends PureComponent {
                             <p className="person-title">
                                 Jussi Mantere, Director of CX & Design at Kesko
                             </p>
-                            <SmallButton
-                                className="Default-button"
+                            <Button
+                                className="Button-default"
                                 to
                                 text="READ MORE"
                             />
@@ -145,8 +145,8 @@ class ReferencesPage extends PureComponent {
                             Passu won Junction 2019’s main prize — such a
                             perfect ending for an amazing adventure!”
                         </p>
-                        <SmallButton
-                            className="Default-button"
+                        <Button
+                            className="Button-default"
                             to
                             text="READ MORE"
                         />
@@ -179,8 +179,8 @@ class ReferencesPage extends PureComponent {
                             addition to improved visualization of various kinds
                             of data relevant to medical professionals.
                         </p>
-                        <SmallButton
-                            className="Default-button"
+                        <Button
+                            className="Button-default"
                             to
                             text="READ MORE"
                         />

@@ -21,44 +21,28 @@
         text-align: center;
         margin: 0em 5em;
     }
-    .Connected-button {
+
+    .Button-small {
         background-color: $connected-orange;
-        text-align: center;
         border: 3px solid $connected-orange;
-        width: 263px;
-        height: 35px;
         box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
-        box-sizing: border-box;
-        border-radius: 33px;
-        font-size: 18px;
-        font-weight: 600;
-        text-transform: none;
-        line-height: 22px;
-        margin: 2px;
         & > span {
             color: $connected-blue;
         }
-
         &.selected {
             background-color: $connected-blue;
             color: $connected-red;
             border-color: $connected-red;
         }
     }
-    .Connected-blue-button {
+
+    // TODO rethink this as .Button-blue or something
+    .Button-default {
         background-color: $connected-blue;
-        text-align: center;
         border: 3px solid $connected-blue;
-        width: 263px;
-        height: 35px;
+        height: 35px !important;
+        text-transform: none !important;
         box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
-        box-sizing: border-box;
-        border-radius: 33px;
-        font-size: 18px;
-        font-weight: 600;
-        text-transform: none;
-        line-height: 22px;
-        margin: 2px;
         & > span {
             color: $connected-teal;
         }
@@ -68,24 +52,6 @@
                 color: $connected-blue;
             }
             border-color: $connected-teal;
-        }
-    }
-    .Connected-blue-button {
-        background-color: $connected-blue;
-        text-align: center;
-        border: 3px solid $connected-blue;
-        width: 263px;
-        height: 35px;
-        box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
-        box-sizing: border-box;
-        border-radius: 33px;
-        font-size: 18px;
-        font-weight: 600;
-        text-transform: none;
-        line-height: 22px;
-        margin: 2px;
-        & > span {
-            color: $connected-teal;
         }
     }
 

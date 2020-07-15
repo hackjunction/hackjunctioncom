@@ -5,7 +5,7 @@ import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 import HeaderSection from "../../../components/HeaderSection";
 import SectionImage from "../../../components/SectionImage";
-import SmallButton from "../../../components/SmallButton";
+import Button from "../../../components/Button";
 import Divider from "../../../components/Divider";
 import Page from "../../PageHOC";
 import TeamCard from "../../../components/TeamCard";
@@ -47,20 +47,16 @@ class ContactPage extends PureComponent {
 Need to get in touch with us? Drop us a line, we're all ears."
                 >
                     <div>
-                        <SmallButton
-                            className="Default-button-small"
-                            to
-                            text="Contact us"
-                        />
+                        <Button className="Button-small" to text="Contact us" />
 
-                        <SmallButton
-                            className="Default-button-small"
+                        <Button
+                            className="Button-small"
                             to
                             text="Finland Team"
                         />
 
-                        <SmallButton
-                            className="Default-button-small"
+                        <Button
+                            className="Button-small"
                             to
                             text="JunctionX Teams"
                         />

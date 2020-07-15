@@ -10,7 +10,7 @@ import HeaderSection from "../../../components/HeaderSection";
 import SingleColumnSection from "../../../components/SingleColumnSection";
 import BlockSection from "../../../components/BlockSection";
 import DividerLine from "../../../components/DividerLine";
-import SmallButton from "../../../components/SmallButton";
+import Button from "../../../components/Button";
 
 import Timeline from "../Components/Timeline";
 import FaqSection from "../Components/FaqSection";
@@ -70,19 +70,10 @@ export default ({}) => {
                 title="Event information"
                 body="TLorem ipsum dolor sit arem lorem ipsum dolor sit amet lorem ipsum dolor sit"
             >
-                <SmallButton
-                    className="Connected-blue-button"
-                    text="General information"
-                />
-                <SmallButton
-                    className="Connected-blue-button"
-                    text="Schedule"
-                />
-                <SmallButton className="Connected-blue-button" text="FAQ" />
-                <SmallButton
-                    className="Connected-blue-button"
-                    text="For partners"
-                />
+                <Button className="Button-default" text="General information" />
+                <Button className="Button-default" text="Schedule" />
+                <Button className="Button-default" text="FAQ" />
+                <Button className="Button-default" text="For partners" />
             </HeaderSection>
             <DividerLine />
             <SectionImage
@@ -160,8 +151,8 @@ export default ({}) => {
                     message!
                     <div>
                         <a href="mailto:hello@hackjunction.com">
-                            <SmallButton
-                                className="Connected-blue-button"
+                            <Button
+                                className="Button-default"
                                 text="Contact us"
                             />
                         </a>

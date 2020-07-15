@@ -9,7 +9,7 @@ import Page from "../../PageHOC";
 import HeaderSection from "../../../components/HeaderSection";
 import SingleColumnSection from "../../../components/SingleColumnSection";
 import DividerLine from "../../../components/DividerLine";
-import SmallButton from "../../../components/SmallButton";
+import Button from "../../../components/Button";
 import Planet from "../../../components/Planet";
 
 export default ({}) => {
@@ -24,19 +24,10 @@ export default ({}) => {
                 title="Hubs"
                 body="Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event online. This global-online approach will make our event more accessible, especially during these unusual times."
             >
-                <SmallButton
-                    className="Connected-blue-button"
-                    text="Hub locations"
-                />
-                <SmallButton
-                    className="Connected-blue-button"
-                    text="What is a hub"
-                />
+                <Button className="Button-default" text="Hub locations" />
+                <Button className="Button-default" text="What is a hub" />
 
-                <SmallButton
-                    className="Connected-blue-button"
-                    text="Hub stories"
-                />
+                <Button className="Button-default" text="Hub stories" />
             </HeaderSection>
             <DividerLine />
             <SectionImage

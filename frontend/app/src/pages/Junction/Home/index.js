@@ -15,7 +15,7 @@ import { spacing } from "@material-ui/system";
 
 import Page from "../../PageHOC";
 import LinkButton from "../../../components/LinkButton/index";
-import SmallButton from "../../../components/SmallButton";
+import Button from "../../../components/Button";
 import HeaderSection from "../../../components/HeaderSection";
 
 const EventsMap = React.lazy(() => import("../../../components/EventsMap"));
@@ -45,7 +45,6 @@ class HomePage extends PureComponent {
     render() {
         return (
             <Page
-                className="Junction-Default"
                 pageTitle="Hack the Future"
                 metaDescKey={KEYS.whoAreWeBody}
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
@@ -55,23 +54,23 @@ class HomePage extends PureComponent {
                         around the world, around the year."
                     logo={require("../../../assets/logos/text_black.png")}
                 >
-                    <SmallButton className="Default-button" text="Read More" />
-                    <Divider sm />
-                    <Grid spacing={12} direction="row">
-                        <SmallButton
-                            className="Default-button-small"
+                    <Button className="Button-default" text="Read More" />
+                    <Divider line />
+                    <Grid className="Button-row" spacing={12} direction="row">
+                        <Button
+                            className="Button-small"
                             to
                             text="Junction App"
                         />
 
-                        <SmallButton
-                            className="Default-button-small"
+                        <Button
+                            className="Button-small"
                             to
                             text="Organize a hackathon"
                         />
 
-                        <SmallButton
-                            className="Default-button-small"
+                        <Button
+                            className="Button-small"
                             to
                             text="Junction 2020 Connected"
                         />

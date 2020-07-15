@@ -59,4 +59,22 @@
             }
         }
     }
+
+    .Button-small {
+        background-color: $junction-white;
+        border: 3px solid $junction-black;
+        box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
+        & > span {
+            color: $junction-black;
+        }
+    }
+
+    .Button-default {
+        background-color: $junction-white;
+        border: 3px solid $junction-blue;
+        box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
+        & > span {
+            color: $junction-black;
+        }
+    }
 }

@@ -10,9 +10,11 @@ import BlockSection from "../../../components/BlockSection";
 import Timeline from "../Components/Timeline";
 import DividerLine from "../../../components/DividerLine";
 import HeaderSection from "../../../components/HeaderSection";
+import { Grid } from "@material-ui/core";
+
 import SingleColumnSection from "../../../components/SingleColumnSection";
 import Page from "../../PageHOC";
-import SmallButton from "../../../components/SmallButton";
+import Button from "../../../components/Button";
 
 const ConnectedHome = ({}) => {
     return (
@@ -31,17 +33,15 @@ const ConnectedHome = ({}) => {
                     world to simultaneously hack in both physical locations and
                     online."
             >
-                <SmallButton
-                    className="Connected-button"
-                    to
-                    text="Junction App"
-                />
+                <Grid className="Button-row" spacing={12} direction="row">
+                    <Button className="Button-small" to text="Junction App" />
 
-                <SmallButton
-                    className="Connected-button"
-                    to
-                    text="Partner with us"
-                />
+                    <Button
+                        className="Button-small"
+                        to
+                        text="Partner with us"
+                    />
+                </Grid>
             </HeaderSection>
             <DividerLine />
             <SectionImage
@@ -60,8 +60,8 @@ const ConnectedHome = ({}) => {
                         can join physical locations hosted by Junction and other
                         organizations, or participate in the event fully online."
                 extra={
-                    <SmallButton
-                        className="Connected-blue-button"
+                    <Button
+                        className="Button-default"
                         to
                         text="Learn more about Hubs"
                     />
@@ -81,8 +81,8 @@ const ConnectedHome = ({}) => {
                         and making physical interaction possible when needed.
                         Check out your nearest hub or organize one yourself!"
                 extra={
-                    <SmallButton
-                        className="Connected-blue-button"
+                    <Button
+                        className="Button-default"
                         to
                         text="Learn more about Hubs"
                     />

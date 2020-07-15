@@ -1,7 +1,7 @@
 import "./style.scss";
 import React, { useState } from "react";
 import FaqGrid from "../../../../components/FaqGrid";
-import SmallButton from "../../../../components/SmallButton";
+import Button from "../../../../components/Button";
 
 export default ({ items }) => {
     const [open, toggleQuestion] = useState(items[0].title);
@@ -11,8 +11,8 @@ export default ({ items }) => {
         <div className="FaqSection">
             <div className="FaqSection--buttons">
                 {items.map((section) => (
-                    <SmallButton
-                        className={`Connected-blue-button ${
+                    <Button
+                        className={`Button-default ${
                             open === section.title ? "selected" : ""
                         }`}
                         onClick={() => toggleQuestion(section.title)}

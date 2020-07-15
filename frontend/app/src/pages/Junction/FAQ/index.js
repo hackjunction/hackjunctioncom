@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import FaqGrid from "../../../components/FaqGrid";
 import SingleColumnSection from "../../../components/SingleColumnSection";
-import SmallButton from "../../../components/SmallButton";
+import Button from "../../../components/Button";
 
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
@@ -35,10 +35,10 @@ export default () => {
                 subtitle="Our expertise of organising hackathons combined with the power of a highly-customizable platform for events makes hosting diverse events possible."
             >
                 <div>
-                    <SmallButton to="/" text="huutis" />
-                    <SmallButton to="/" text="huutis" />
-                    <SmallButton to="/" text="huutis" />
-                    <SmallButton to="/" text="huutis" />
+                    <Button to="/" text="huutis" />
+                    <Button to="/" text="huutis" />
+                    <Button to="/" text="huutis" />
+                    <Button to="/" text="huutis" />
                 </div>
                 <FaqGrid items={items} />
                 <p>
@@ -46,7 +46,7 @@ export default () => {
                     help you with anything and everything, just shoot us a
                     message!
                 </p>
-                <SmallButton to="/" text="huutis" />
+                <Button to="/" text="huutis" />
             </SingleColumnSection>
         </Page>
     );

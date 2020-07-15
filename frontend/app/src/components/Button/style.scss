@@ -1,0 +1,25 @@
+@import "../../styles/main.scss";
+
+//TODO remove Material ui and Importants
+
+.Button-small {
+    text-align: center !important;
+    width: 263px !important;
+    height: 35px !important;
+    box-sizing: border-box !important;
+    border-radius: 33px !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    line-height: 22px !important;
+}
+
+.Button-default {
+    text-align: center !important;
+    width: 263px !important;
+    box-sizing: border-box !important;
+    border-radius: 33px !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    line-height: 22px !important;
+}
