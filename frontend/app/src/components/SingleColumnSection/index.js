@@ -11,13 +11,20 @@ const SingleColumnSection = ({
     center = false,
     halfpage = false,
     nolimit = false,
+    className,
 }) => {
+    let classes = "SingleColumnSection ";
+    if (halfpage) {
+        classes += "SingleColumnSection--half ";
+    }
+    if (nolimit) {
+        classes += "SingleColumnSection--nolimit ";
+    }
+    if (className) {
+        classes += className;
+    }
     return (
-        <div
-            className={`SingleColumnSection ${
-                halfpage ? "SingleColumnSection--half" : ""
-            } ${nolimit ? "SingleColumnSection--nolimit" : ""}`}
-        >
+        <div className={classes}>
             {title && <h3 className="SingleColumnSection--title">{title}</h3>}
             {subtitle && (
                 <p className="SingleColumnSection--subtitle">{subtitle}</p>

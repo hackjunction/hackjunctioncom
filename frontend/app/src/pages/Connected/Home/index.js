@@ -23,8 +23,9 @@ const ConnectedHome = ({}) => {
             ogImageKey={MEDIA_KEYS.ConnectedHeaderImage}
         >
             <div className="Connected-parallax">Tähän se animaatio :)</div>
-            <DividerLine stop />
+            <DividerLine />
             <HeaderSection
+                className="ScrollSnapElem"
                 logo={require("../../../assets/logos/connected_logo.svg")}
                 title="6-8 November"
                 body="A hackathon like no other, gathering people all over the
@@ -48,9 +49,10 @@ const ConnectedHome = ({}) => {
                 }}
                 alt="Junction 2020 Connected"
             />
-            <DividerLine stop />
+            <DividerLine />
 
             <BlockSection
+                className="ScrollSnapElem"
                 halfpage
                 title="Introducing Hubs"
                 subtitle="Junction 2020 Connected is a new take on the established
@@ -91,8 +93,11 @@ const ConnectedHome = ({}) => {
                     alt="connected-logo-here"
                 />
             </BlockSection>
-            <DividerLine stop />
-            <BlockSection title="Timeline" className="TimeLineSection">
+            <DividerLine />
+            <BlockSection
+                title="Timeline"
+                className="TimeLineSection ScrollSnapElem"
+            >
                 <Timeline date="September 1st">
                     Application period begins
                 </Timeline>

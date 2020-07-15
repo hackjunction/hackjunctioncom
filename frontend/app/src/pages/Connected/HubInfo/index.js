@@ -36,8 +36,13 @@ export default ({}) => {
                 }}
                 alt="Stockholm hub"
             ></SectionImage>
-            <DividerLine stop />
-            <SingleColumnSection title="What is a hub" center halfpage>
+            <DividerLine />
+            <SingleColumnSection
+                title="What is a hub"
+                center
+                halfpage
+                className="ScrollSnapElem"
+            >
                 <p className="align">
                     A hub is a physical location for all our participants to
                     enjoy. The world's leading hackathon is usually held Espoo,
@@ -60,12 +65,13 @@ export default ({}) => {
                 }}
                 alt="Helsinki hub"
             />
-            <DividerLine stop />
+            <DividerLine />
             <SingleColumnSection
                 title="Junction Central Hub"
                 subtitle="The organizational hub in Finland"
                 halfpage
                 center
+                className="ScrollSnapElem"
             >
                 <p className="align">
                     The central hub is the origin of the challenges and from
@@ -85,12 +91,13 @@ export default ({}) => {
                 }}
                 alt="Chengdu hub"
             />
-            <DividerLine stop />
+            <DividerLine />
             <SingleColumnSection
                 title="Junction Hubs all over the world"
                 subtitle="Your official Junction location"
                 center
                 halfpage
+                className="ScrollSnapElem"
             >
                 <p className="align">
                     Junction Hubs are locations all over Tellus where you as a
@@ -114,12 +121,13 @@ export default ({}) => {
                 }}
                 alt="Cambridge hub"
             />
-            <DividerLine stop />
+            <DividerLine />
             <SingleColumnSection
                 center
                 halfpage
                 title="Junction Partner Hubs"
                 subtitle="Offered to you by Junction's official partners"
+                className="ScrollSnapElem"
             >
                 <p className="align">
                     It doesn't just stop at Junction hubs, we even managed to

@@ -237,7 +237,7 @@ const items = [
         title: "Hubs",
         questions: [
             {
-                question: "What is Junction?",
+                question: "asdadassda is Junction?",
                 answer:
                     "Junction is a global tech community, organizing hackathons and tech events around the year and around the world offline and online. Junction 2019 is our flagship event - Europe’s leading hackathon, organized for the fifth time this year!",
                 key: "1",
@@ -321,10 +321,10 @@ export default ({}) => {
             >
                 Timeline
             </SectionImage>
-            <DividerLine stop />
+            <DividerLine />
 
             <BlockSection
-                className="TimelineSection"
+                className="TimelineSection ScrollSnapElem"
                 title="Important dates & timeline"
                 extra={
                     <img
@@ -371,13 +371,14 @@ export default ({}) => {
                 FAQ
             </SectionImage>
 
-            <DividerLine stop />
+            <DividerLine />
             <SingleColumnSection
                 subtitle="Our expertise of organising hackathons combined with the
                     power of a highly-customizable platform for events makes
                     hosting diverse events possible."
                 center
                 nolimit
+                className="ScrollSnapElem"
             >
                 <FaqSection items={items} />
                 <div>
