@@ -104,6 +104,12 @@ const ConnectedHome = ({}) => {
             <BlockSection
                 title="Timeline"
                 className="TimeLineSection ScrollSnapElem"
+                extra={
+                    <img
+                        src={require("../../../assets/images/3part-chain.svg")}
+                        alt="connected-logo-here"
+                    />
+                }
             >
                 <Timeline date="September 1st">
                     Application period begins

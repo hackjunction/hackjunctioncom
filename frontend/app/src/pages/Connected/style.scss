@@ -185,7 +185,10 @@
         position: relative;
         height: 100vh;
         background-size: cover;
-
+        display: none;
+        @include bp-full {
+            display: block;
+        }
         video {
             height: 100%;
             width: 100%;

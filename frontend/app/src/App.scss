@@ -69,7 +69,7 @@ body {
 
 .ScrollSnapElem {
     @include bp-med {
-        scroll-snap-stop: always;
+        scroll-snap-stop: normal;
         scroll-snap-align: start;
     }
 }
