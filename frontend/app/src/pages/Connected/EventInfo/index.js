@@ -248,10 +248,10 @@ export default ({}) => {
             />
             <DividerLine />
             <Element name="timeline" id="timeline" />
+
             <BlockSection
                 className="TimelineSection ScrollSnapElem"
                 inverted
-                title="Important dates & timeline"
                 extra={
                     <img
                         className="Connected-chains"
@@ -259,6 +259,7 @@ export default ({}) => {
                     />
                 }
             >
+                <h1 className="TimeLineTitle">Important dates & timeline</h1>
                 <h2 className="MobileTitle">Timeline</h2>
                 <Timeline date="September 1st">
                     Application period begins
