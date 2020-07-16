@@ -275,9 +275,11 @@ export default ({}) => {
             >
                 <FaqSection items={items} />
                 <div>
-                    Didn’t find what you were looking for? Our team is happy to
-                    help you with anything and everything, just shoot us a
-                    message!
+                    <p>
+                        Didn’t find what you were looking for? Our team is happy
+                        to help you with anything and everything, just shoot us
+                        a message!
+                    </p>
                     <div>
                         <a href="mailto:hello@hackjunction.com">
                             <Button

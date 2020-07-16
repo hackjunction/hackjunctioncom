@@ -1,8 +1,7 @@
 @import "../../../styles/main";
 .EventInfo {
     .TimelineSection {
-        width: 80%;
-        margin: auto;
+        width: 90%;
 
         h2 {
             font-size: 2em;
@@ -37,8 +36,7 @@
         }
 
         .Connected-chains {
-            max-height: unset;
-            height: 100%;
+            max-height: 90%;
             margin-top: 5%;
         }
     }

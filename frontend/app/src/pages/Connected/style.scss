@@ -151,6 +151,15 @@
         }
         .SubmitButton--button {
             background-color: $connected-blue;
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                border-width: 3px;
+                border-color: $connected-blue;
+                .SubmitButton--button__text {
+                    color: $connected-blue;
+                }
+            }
             .SubmitButton--button__text {
                 color: $connected-peach;
             }
