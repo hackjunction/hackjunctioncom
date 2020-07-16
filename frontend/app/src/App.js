@@ -15,6 +15,7 @@ import {
     faBars,
     faArrowLeft,
     faLongArrowAltLeft,
+    faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 import PrivacyBanner from "./components/PrivacyBanner";
@@ -28,7 +29,7 @@ import NotFoundPage from "./pages/Connected/NotFound";
 import Connected from "./pages/Connected";
 import Junction from "./pages/Junction";
 
-library.add(fab, faTimes, faBars, faLongArrowAltLeft);
+library.add(fab, faTimes, faBars, faLongArrowAltLeft, faAngleDown);
 
 WebFont.load({
     google: {

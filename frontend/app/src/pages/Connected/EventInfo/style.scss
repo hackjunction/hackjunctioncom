@@ -22,7 +22,7 @@
             @include bp-med {
                 height: 100%;
                 display: flex;
-                justify-content: flex-start;
+                justify-content: center;
                 flex-direction: column;
             }
         }
@@ -41,8 +41,12 @@
             margin-top: 5%;
         }
     }
-    .SingleColumnSection > p {
-        text-align: center;
+    .SingleColumnSection {
+        .ContactUsFaq {
+            p {
+                text-align: center;
+            }
+        }
     }
     .TimeLineTitle {
         width: 100%;

@@ -12,6 +12,10 @@ import DividerLine from "../../../components/DividerLine";
 import HeaderSection from "../../../components/HeaderSection";
 import HeaderVideo from "../../../components/HeaderVideo";
 
+import { Link, Element } from "react-scroll";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
 
@@ -25,9 +29,23 @@ const ConnectedHome = ({}) => {
             ogImageKey={MEDIA_KEYS.ConnectedHeaderImage}
         >
             <div className="Connected-parallax">
+                <Link
+                    activeClass="active"
+                    to="mainContent"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                >
+                    <FontAwesomeIcon
+                        icon="angle-down"
+                        size="4x"
+                        color="#f5d2a2"
+                    />
+                </Link>
                 <HeaderVideo />
             </div>
             <DividerLine />
+            <Element name="mainContent" />
             <HeaderSection
                 className="ScrollSnapElem"
                 logo={require("../../../assets/logos/connected_logo.svg")}

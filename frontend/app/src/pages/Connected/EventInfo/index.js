@@ -285,7 +285,7 @@ export default ({}) => {
                 className="ScrollSnapElem"
             >
                 <FaqSection items={items} />
-                <div>
+                <div className="ContactUsFaq">
                     <p>
                         Didn’t find what you were looking for? Our team is happy
                         to help you with anything and everything, just shoot us

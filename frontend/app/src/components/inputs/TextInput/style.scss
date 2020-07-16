@@ -8,7 +8,7 @@
         flex: 1;
     }
     @include bp-full {
-        flex: unset;
+        margin-right: 1em;
     }
     ::placeholder {
         color: $junction-black;

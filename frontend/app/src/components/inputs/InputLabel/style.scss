@@ -7,13 +7,13 @@
     transform: translateY(10px);
     transition: all 0.2s ease;
     text-align: left;
-
+    margin-bottom: 0.1em;
     &-show {
         opacity: 1;
         transform: translateY(0);
     }
 
-    &-has-mb {
+    &c {
         margin-bottom: 20px;
     }
     &-has-ml {
