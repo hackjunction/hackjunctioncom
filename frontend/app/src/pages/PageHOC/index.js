@@ -28,7 +28,6 @@ const PageHOC = (props) => {
     const canonicalUrl =
         "https://" + window.location.hostname + window.location.pathname;
 
-    console.log("returning pang", canonicalUrl, props);
     return (
         <div className={"Page--wrapper " + className ? className : ""}>
             <Helmet
