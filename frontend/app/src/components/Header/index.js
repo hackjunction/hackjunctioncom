@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.scss";
 
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import NavMenu from "./NavMenu";
 
@@ -12,7 +12,7 @@ import SocialMediaIcons from "../SocialMediaIcons";
 
 import * as NavActions from "../../redux/nav/actions";
 import * as NavSelectors from "../../redux/nav/selectors";
-import MenuIcon from "@material-ui/icons/Menu";
+import { animateScroll as scroll } from "react-scroll";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -39,6 +39,17 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
         };
     });
 
+    const history = useHistory();
+
+    const clickLogo = () => {
+        toggleSidebar(false);
+        if (window.location.pathname === "/") {
+            scroll.scrollToTop();
+        } else {
+            history.push("/");
+        }
+    };
+
     let headerClass = "HeaderMobile";
     if (isSidebarOpen) {
         headerClass += " HeaderMobile--open";
@@ -53,7 +64,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                             className="Header--connected__image"
                             src={require("../../assets/logos/connected_logo.svg")}
                             alt="Junction 2020 Connected logo"
-                            onClick={() => toggleSidebar(false)}
+                            onClick={() => clickLogo()}
                         />
                     </Link>
                 ) : (
@@ -62,7 +73,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                             className="Header--emblem__image"
                             src={require("../../assets/logos/emblem_black.png")}
                             alt="Junction logo"
-                            onClick={() => toggleSidebar(false)}
+                            onClick={() => clickLogo()}
                         />
                     </Link>
                 )}
@@ -78,20 +89,16 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                                 className="HeaderMobile--connected__image"
                                 src={require("../../assets/logos/header-j2020c-logo.svg")}
                                 alt="Junction 2020 Connected logo"
-                                onClick={() => toggleSidebar(false)}
+                                onClick={() => clickLogo()}
                             />
                         </Link>
                     ) : (
-                        <Link
-                            to="/"
-                            className="HeaderMobile--emblem"
-                            onClick={() => toggleSidebar(false)}
-                        >
+                        <Link to="/" className="HeaderMobile--emblem">
                             <img
                                 className="HeaderMobile--emblem__image"
                                 src={require("../../assets/logos/emblem_white.png")}
                                 alt="Junction logo"
-                                onClick={() => toggleSidebar(false)}
+                                onClick={() => clickLogo()}
                             />
                         </Link>
                     )}

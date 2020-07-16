@@ -180,39 +180,6 @@ const items = [
 ];
 
 export default ({}) => {
-    const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent,
-    );
-    const hash = window.location.hash.substr(1);
-    if (hash === "faq") {
-        if (mobile) {
-            /*const timeline = document.getElementById("timelineElement")
-                .clientHeight;
-            console.log("hhh", timeline);*/
-            scroll.scrollTo(4 * 4 + 2.3 * window.innerHeight);
-        } else {
-            scroll.scrollTo(4 * 4 + 2.5 * window.innerHeight);
-        }
-        /*scroller.scrollTo("faq", {
-            duration: 0,
-            delay: 0,
-            smooth: false,
-            offset: 0,
-        });*/
-    } else if (hash === "timeline") {
-        // When opening the page first time, element ID's can't be found
-        if (mobile) {
-            scroll.scrollTo(4 * 4 + 0.85 * window.innerHeight);
-        } else {
-            scroll.scrollTo(2 * 4 + window.innerHeight);
-        }
-        /*scroller.scrollTo("timeline", {
-            duration: 0,
-            delay: 0,
-            smooth: false,
-            offset: 0,
-        });*/
-    }
     return (
         <Page
             className="Connected ConnectedContent EventInfo"
@@ -319,9 +286,11 @@ export default ({}) => {
             >
                 <FaqSection items={items} />
                 <div>
-                    Didn’t find what you were looking for? Our team is happy to
-                    help you with anything and everything, just shoot us a
-                    message!
+                    <p>
+                        Didn’t find what you were looking for? Our team is happy
+                        to help you with anything and everything, just shoot us
+                        a message!
+                    </p>
                     <div>
                         <a href="mailto:hello@hackjunction.com">
                             <Button

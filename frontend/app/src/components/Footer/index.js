@@ -107,7 +107,7 @@ class Footer extends PureComponent {
                         <div className="Footer--left--margin">
                             Designed and developed with{" "}
                             <span role="img" aria-label="love">
-                                💕
+                                🧡
                             </span>{" "}
                             &{" "}
                             <span role="img" aria-label="coffee">
@@ -172,7 +172,7 @@ class Footer extends PureComponent {
                     <div className="Footer--left--margin">
                         Designed and developed with{" "}
                         <span role="img" aria-label="love">
-                            💕
+                            🧡
                         </span>{" "}
                         &{" "}
                         <span role="img" aria-label="coffee">

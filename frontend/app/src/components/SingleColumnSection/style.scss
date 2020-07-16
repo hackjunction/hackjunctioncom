@@ -34,7 +34,10 @@
     }
 
     &--half {
-        height: 50vh;
+        height: auto;
+        @include bp-med {
+            height: 50vh;
+        }
     }
 
     &--nolimit {

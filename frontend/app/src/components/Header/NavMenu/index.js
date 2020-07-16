@@ -9,6 +9,7 @@ import { map } from "lodash-es";
 import { eventconceptsForNav } from "../../../redux/eventconcepts/selectors";
 import { toggleSidebar } from "../../../redux/nav/actions";
 import { isSidebarOpen } from "../../../redux/nav/selectors";
+import { HashLink } from "react-router-hash-link";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -51,20 +52,20 @@ const ConceptPagesSection = React.memo(({ concepts }) => {
 const NavLink = ({ to, children, key, title = false, toggleSidebar }) => {
     if (title) {
         return (
-            <Link to={to} key={key} onClick={() => toggleSidebar(false)}>
+            <HashLink to={to} key={key} onClick={() => toggleSidebar(false)}>
                 <h6 className="NavMenu--inner__menu-title">{children}</h6>
-            </Link>
+            </HashLink>
         );
     }
     return (
-        <Link
+        <HashLink
             className="NavMenu--inner__menu-item"
             to={to}
             key={key}
             onClick={() => toggleSidebar(false)}
         >
             {children}
-        </Link>
+        </HashLink>
     );
 };
 
