@@ -17,12 +17,23 @@
     }
 
     .TimeLineSection {
+        img {
+            display: none;
+            min-height: 80%;
+            margin-top: 5%;
+            @include bp-med {
+                display: block;
+            }
+        }
+
         .BlockSection--left {
             height: 100%;
             font-size: 1.5em;
             text-align: left;
-            align-items: left;
-            width: 50%;
+            width: 100%;
+            @include bp-med {
+                width: 50%;
+            }
         }
     }
 }

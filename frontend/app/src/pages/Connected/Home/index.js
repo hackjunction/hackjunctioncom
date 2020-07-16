@@ -18,6 +18,7 @@ import Button from "../../../components/Button";
 const ConnectedHome = ({}) => {
     return (
         <Page
+            metaDescKey={KEYS.whoAreWeBody}
             className="Connected ConnectedContent ConnectedHome"
             pageTitle="Hack the Future"
             metaDescKey={KEYS.whoAreWeBody}
@@ -69,7 +70,7 @@ const ConnectedHome = ({}) => {
                 extra={
                     <Button
                         className="Button-default"
-                        to="/connected/hubs"
+                        to="/hubs"
                         text="Learn more about Hubs"
                     />
                 }
@@ -90,7 +91,7 @@ const ConnectedHome = ({}) => {
                 extra={
                     <Button
                         className="Button-default"
-                        to="/connected/hubs"
+                        to="/hubs"
                         text="Hub locations"
                     />
                 }

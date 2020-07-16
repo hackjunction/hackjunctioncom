@@ -51,7 +51,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
         <>
             <header className={`Header ${connected ? "Connected" : ""}`}>
                 {connected ? (
-                    <Link to="/connected" className="Header--connected">
+                    <Link to="/" className="Header--connected">
                         <img
                             className="Header--connected__image"
                             src={require("../../assets/logos/connected_logo.svg")}
@@ -76,10 +76,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
             <header className={headerClass}>
                 <div className="HeaderMobileRow">
                     {connected ? (
-                        <Link
-                            to="/connected"
-                            className="HeaderMobile--connected"
-                        >
+                        <Link to="/" className="HeaderMobile--connected">
                             <img
                                 className="HeaderMobile--connected__image"
                                 src={require("../../assets/logos/header-j2020c-logo.svg")}
@@ -105,7 +102,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                         <FontAwesomeIcon
                             icon={isSidebarOpen ? "times" : "bars"}
                             size="2x"
-                            color="white"
+                            color="#f5d2a2"
                             onClick={() =>
                                 toggleSidebar(isSidebarOpen ? false : true)
                             }

@@ -71,31 +71,24 @@ const NavLink = ({ to, children, key, title = false, toggleSidebar }) => {
 const ConnectedContent = () => {
     return (
         <>
-            <ConnectedNavLink to="/" title>
+            <a href="https://hackjunction.com">
                 <FontAwesomeIcon icon="long-arrow-alt-left" size="1x" />
                 <span className="toHome">Back to Junction</span>
-            </ConnectedNavLink>
-            <ConnectedNavLink to="/connected" title>
+            </a>
+            <ConnectedNavLink to="/" title>
                 Home
             </ConnectedNavLink>
-            <ConnectedNavLink to="/connected/info" title>
+            <ConnectedNavLink to="/info" title>
                 Event info
             </ConnectedNavLink>
-            <ConnectedNavLink to="/connected/info/#general">
-                General information
-            </ConnectedNavLink>
-            <ConnectedNavLink to="/connected/info/#timeline">
-                Schedule
-            </ConnectedNavLink>
-            <ConnectedNavLink to="/connected/info/#faq">FAQ</ConnectedNavLink>
-            <ConnectedNavLink to="/connected/info/#partners">
-                For partners
-            </ConnectedNavLink>
+            <ConnectedNavLink to="/info/#timeline">Timeline</ConnectedNavLink>
+            <ConnectedNavLink to="/info/#faq">FAQ</ConnectedNavLink>
 
-            <ConnectedNavLink title to="/connected/hubs">
+            <ConnectedNavLink title to="/hubs">
                 Hubs
             </ConnectedNavLink>
-            <ConnectedNavLink to="/connected/hubs">
+            {/*
+            <ConnectedNavLink to="/hubs">
                 Hub locations
             </ConnectedNavLink>
             <ConnectedNavLink to="/connected/hubs">
@@ -105,7 +98,7 @@ const ConnectedContent = () => {
                 Hub stories
             </ConnectedNavLink>
 
-            {/* <ConnectedNavLink to="/challenges" title>
+            <ConnectedNavLink to="/challenges" title>
                 Challenges
             </ConnectedNavLink>
             <ConnectedNavLink to="/partners">Event partners</ConnectedNavLink>

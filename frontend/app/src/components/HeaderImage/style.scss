@@ -9,13 +9,6 @@
     z-index: 5;
     overflow: hidden;
     transition: height 0.2s ease;
-    background: black;
-    mask-image: url("../../assets/misc/wave-mask.png");
-    mask-size: cover;
-    mask-position: bottom;
-    -webkit-mask-image: url("../../assets/misc/wave-mask.png");
-    -webkit-mask-size: cover;
-    -webkit-mask-position: bottom;
 
     @include bp-med {
         height: 600px;

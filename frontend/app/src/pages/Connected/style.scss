@@ -166,7 +166,10 @@
     h2,
     h3,
     i,
-    label {
+    label,
+    p {
+        font-style: normal;
+        font-family: Montserrat;
         color: $connected-blue;
     }
 
@@ -175,6 +178,10 @@
         p {
             color: $connected-blue;
         }
+    }
+
+    p {
+        font-weight: 400;
     }
 
     .DividerLine {
@@ -187,6 +194,8 @@
         background-size: cover;
         display: none;
         @include bp-full {
+            scroll-snap-type: normal;
+            scroll-snap-align: start;
             display: block;
         }
         video {

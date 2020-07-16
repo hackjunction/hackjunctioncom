@@ -23,7 +23,7 @@ import GlobalLifecycle from "./GlobalLifecycle";
 import config from "./services/config";
 
 import BasicPage from "./pages/BasicPage";
-import NotFoundPage from "./pages/NotFound";
+import NotFoundPage from "./pages/Connected/NotFound";
 
 import Connected from "./pages/Connected";
 import Junction from "./pages/Junction";
@@ -66,7 +66,7 @@ class App extends PureComponent {
                 <div className="App--Main">
                     <Switch>
                         {/*Connected module */}
-                        <Route path="/connected" component={Connected} />
+                        <Route path="/" component={Connected} />
                         {/*Junction Base module */}
                         <Junction />
                     </Switch>
