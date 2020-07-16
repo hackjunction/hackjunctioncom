@@ -223,7 +223,6 @@ export default ({}) => {
                         to="timeline"
                         spy={true}
                         smooth={true}
-                        offset={50}
                         duration={500}
                     >
                         <Button className="Button-default" text="Timeline" />
@@ -234,7 +233,6 @@ export default ({}) => {
                         to="faq"
                         spy={true}
                         smooth={true}
-                        offset={50}
                         duration={500}
                     >
                         <Button className="Button-default" text="FAQ" />

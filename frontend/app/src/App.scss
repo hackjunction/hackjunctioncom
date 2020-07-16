@@ -11,7 +11,6 @@
 html,
 body {
     margin: 0px;
-    height: 100%;
     font-family: $montserrat;
 }
 
@@ -24,6 +23,7 @@ body {
 
 .App--Main {
     height: 100%;
+    flex-direction: column;
     overflow-x: hidden;
     background: $junction-white;
     @include bp-med {
@@ -33,12 +33,11 @@ body {
 
 .App--Content {
     margin-top: 10vh;
-    @include bp-full {
+    @include bp-med {
         margin-top: 0;
     }
     background: $junction-white;
-    display: flex;
-    flex-direction: column;
+
     align-items: stretch;
     z-index: 1;
     @include bp-med {
