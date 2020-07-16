@@ -77,7 +77,6 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                         />
                     </Link>
                 )}
-
                 <SocialMediaIcons />
                 <NavMenu connected={connected} />
             </header>
