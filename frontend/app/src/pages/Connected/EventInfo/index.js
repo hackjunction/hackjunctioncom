@@ -180,24 +180,38 @@ const items = [
 ];
 
 export default ({}) => {
+    const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+    );
     const hash = window.location.hash.substr(1);
     if (hash === "faq") {
-        scroll.scrollTo(4 * 4 + 2.5 * window.innerHeight);
-        scroller.scrollTo("faq", {
+        if (mobile) {
+            /*const timeline = document.getElementById("timelineElement")
+                .clientHeight;
+            console.log("hhh", timeline);*/
+            scroll.scrollTo(4 * 4 + 2.3 * window.innerHeight);
+        } else {
+            scroll.scrollTo(4 * 4 + 2.5 * window.innerHeight);
+        }
+        /*scroller.scrollTo("faq", {
             duration: 0,
             delay: 0,
             smooth: false,
             offset: 0,
-        });
+        });*/
     } else if (hash === "timeline") {
         // When opening the page first time, element ID's can't be found
-        scroll.scrollTo(2 * 4 + window.innerHeight);
-        scroller.scrollTo("timeline", {
+        if (mobile) {
+            scroll.scrollTo(4 * 4 + 0.85 * window.innerHeight);
+        } else {
+            scroll.scrollTo(2 * 4 + window.innerHeight);
+        }
+        /*scroller.scrollTo("timeline", {
             duration: 0,
             delay: 0,
             smooth: false,
             offset: 0,
-        });
+        });*/
     }
     return (
         <Page
@@ -247,8 +261,10 @@ export default ({}) => {
                 alt="Timeline"
             />
             <DividerLine />
-            <Element name="timeline" id="timeline" />
+            <Element class="MobileLink" name="timeline" id="timeline" />
             <BlockSection
+                name="timelineElement"
+                id="timelineElement"
                 className="TimelineSection ScrollSnapElem"
                 inverted
                 title="Important dates & timeline"
@@ -291,8 +307,10 @@ export default ({}) => {
                 alt="FAQ"
             />
             <DividerLine />
-            <Element name="faq" id="faq" />
+            <Element class="MobileLink" name="faq" id="faq" />
             <SingleColumnSection
+                name="faqElement"
+                id="faqElement"
                 title="FAQ"
                 subtitle="Click to filter frequently asked questions!"
                 center

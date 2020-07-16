@@ -43,9 +43,6 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
     if (isSidebarOpen) {
         headerClass += " HeaderMobile--open";
     }
-    if (isScrolled) {
-        headerClass += " HeaderMobile-scrolled";
-    }
 
     return (
         <>

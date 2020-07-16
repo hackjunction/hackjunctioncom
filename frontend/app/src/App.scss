@@ -32,17 +32,19 @@ body {
 }
 
 .App--Content {
-    margin-top: 10vh;
+    position: absolute;
+    //if mobile
+    top: 10vh;
+    overflow-y: scroll;
+    // if not
     @include bp-med {
-        margin-top: 0;
+        top: 0;
     }
-    background: $junction-white;
 
     align-items: stretch;
     z-index: 1;
     @include bp-med {
         flex-basis: 85%;
-        position: absolute;
         left: 15%;
         width: 85%;
     }
@@ -73,5 +75,13 @@ body {
     @include bp-med {
         scroll-snap-stop: normal;
         scroll-snap-align: start;
+    }
+}
+
+.MobileLink {
+    position: relative;
+    top: -10vh;
+    @include bp-med {
+        top: 0;
     }
 }

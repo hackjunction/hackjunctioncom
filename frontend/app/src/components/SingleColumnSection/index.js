@@ -12,6 +12,8 @@ const SingleColumnSection = ({
     halfpage = false,
     nolimit = false,
     className,
+    id,
+    name,
 }) => {
     let classes = "SingleColumnSection ";
     if (halfpage) {
@@ -24,7 +26,7 @@ const SingleColumnSection = ({
         classes += className;
     }
     return (
-        <div className={classes}>
+        <div className={classes} id={id} name={name}>
             {title && <h3 className="SingleColumnSection--title">{title}</h3>}
             {subtitle && (
                 <p className="SingleColumnSection--subtitle">{subtitle}</p>
