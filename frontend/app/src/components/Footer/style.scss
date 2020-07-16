@@ -5,7 +5,7 @@
     height: auto;
 
     // Only needed for Safari(?) :D
-    min-height: 650px;
+    min-height: 500px;
 
     @include bp-full {
         scroll-snap-stop: normal;

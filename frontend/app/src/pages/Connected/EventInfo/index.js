@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-import { Link, Element, animateScroll as scroll } from "react-scroll";
+import { Link, Element } from "react-scroll";
 
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
@@ -197,7 +197,6 @@ export default ({}) => {
                         to="timeline"
                         spy={true}
                         smooth={true}
-                        offset={50}
                         duration={500}
                     >
                         <Button className="Button-default" text="Timeline" />
@@ -208,7 +207,6 @@ export default ({}) => {
                         to="faq"
                         spy={true}
                         smooth={true}
-                        offset={50}
                         duration={500}
                     >
                         <Button className="Button-default" text="FAQ" />

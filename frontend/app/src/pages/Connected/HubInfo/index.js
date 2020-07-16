@@ -10,7 +10,7 @@ import HeaderSection from "../../../components/HeaderSection";
 import SingleColumnSection from "../../../components/SingleColumnSection";
 import DividerLine from "../../../components/DividerLine";
 import Button from "../../../components/Button";
-import Planet from "../../../components/Planet";
+import { Link, Element } from "react-scroll";
 
 export default ({}) => {
     return (
@@ -24,9 +24,33 @@ export default ({}) => {
                 title="Hubs"
                 body="Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event online. This global-online approach will make our event more accessible, especially during these unusual times."
             >
-                <Button className="Button-default" text="Hub locations" />
-                <Button className="Button-default" text="What is a hub" />
-                <Button className="Button-default" text="Hub stories" />
+                <Link
+                    activeClass="active"
+                    to="whatishub"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                >
+                    <Button className="Button-default" text="What is a hub" />
+                </Link>
+                <Link
+                    activeClass="active"
+                    to="central"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                >
+                    <Button className="Button-default" text="Central hub" />
+                </Link>
+                <Link
+                    activeClass="active"
+                    to="hubstories"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                >
+                    <Button className="Button-default" text="Hub locations" />
+                </Link>
             </HeaderSection>
             <DividerLine />
             <SectionImage
@@ -36,6 +60,7 @@ export default ({}) => {
                 alt="Stockholm hub"
             ></SectionImage>
             <DividerLine />
+            <Element name="whatishub" />
             <SingleColumnSection
                 title="What is a hub"
                 center
@@ -65,6 +90,7 @@ export default ({}) => {
                 alt="Helsinki hub"
             />
             <DividerLine />
+            <Element name="central" />
             <SingleColumnSection
                 title="Junction Central Hub"
                 subtitle="The organizational hub in Finland"
@@ -91,6 +117,8 @@ export default ({}) => {
                 alt="Chengdu hub"
             />
             <DividerLine />
+            <Element name="hubstories" />
+
             <SingleColumnSection
                 title="Junction Hubs all over the world"
                 subtitle="Your official Junction location"
