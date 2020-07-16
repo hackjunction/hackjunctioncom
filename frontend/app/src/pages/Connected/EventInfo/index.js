@@ -1,7 +1,14 @@
 import React from "react";
 import "./style.scss";
 
-import { Link, Element, animateScroll as scroll } from "react-scroll";
+import {
+    Link,
+    Element,
+    Events,
+    animateScroll as scroll,
+    scrollSpy,
+    scroller,
+} from "react-scroll";
 
 import KEYS from "../../../redux/staticcontent/keys";
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
@@ -173,6 +180,25 @@ const items = [
 ];
 
 export default ({}) => {
+    const hash = window.location.hash.substr(1);
+    if (hash === "faq") {
+        scroll.scrollTo(4 * 4 + 2.5 * window.innerHeight);
+        scroller.scrollTo("faq", {
+            duration: 0,
+            delay: 0,
+            smooth: false,
+            offset: 0,
+        });
+    } else if (hash === "timeline") {
+        // When opening the page first time, element ID's can't be found
+        scroll.scrollTo(2 * 4 + window.innerHeight);
+        scroller.scrollTo("timeline", {
+            duration: 0,
+            delay: 0,
+            smooth: false,
+            offset: 0,
+        });
+    }
     return (
         <Page
             className="Connected ConnectedContent EventInfo"
