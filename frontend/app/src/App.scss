@@ -25,7 +25,7 @@ body {
     height: 100%;
     flex-direction: column;
     overflow-x: hidden;
-    background: $junction-white;
+    background: $connected-peach;
     @include bp-med {
         flex-direction: row;
     }
@@ -36,8 +36,7 @@ body {
     @include bp-med {
         margin-top: 0;
     }
-    background: $junction-white;
-
+    background: $connected-peach;
     align-items: stretch;
     z-index: 1;
     @include bp-med {

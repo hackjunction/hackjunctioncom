@@ -107,9 +107,17 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         @include bp-med {
             justify-content: flex-start;
             margin: auto;
+        }
+
+        span {
+            text-align: center;
+            @include bp-med {
+                text-align: left;
+            }
         }
         @include bp-full {
             width: 30%;
