@@ -10,6 +10,11 @@ import BlockSection from "../../../components/BlockSection";
 import Timeline from "../Components/Timeline";
 import DividerLine from "../../../components/DividerLine";
 import HeaderSection from "../../../components/HeaderSection";
+import HeaderVideo from "../../../components/HeaderVideo";
+
+import { Link, Element } from "react-scroll";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
@@ -17,13 +22,30 @@ import Button from "../../../components/Button";
 const ConnectedHome = ({}) => {
     return (
         <Page
+            metaDescKey={KEYS.whoAreWeBody}
             className="Connected ConnectedContent ConnectedHome"
             pageTitle="Hack the Future"
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.ConnectedHeaderImage}
         >
-            <div className="Connected-parallax">Tähän se animaatio :)</div>
+            <div className="Connected-parallax">
+                <Link
+                    activeClass="active"
+                    to="mainContent"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                >
+                    <FontAwesomeIcon
+                        icon="angle-down"
+                        size="4x"
+                        color="#f5d2a2"
+                    />
+                </Link>
+                <HeaderVideo />
+            </div>
             <DividerLine />
+            <Element name="mainContent" />
             <HeaderSection
                 className="ScrollSnapElem"
                 logo={require("../../../assets/logos/connected_logo.svg")}
@@ -35,13 +57,13 @@ const ConnectedHome = ({}) => {
                 <div className="Button-row">
                     <Button
                         className="Button-small"
-                        to="https://app.hackjunction.com"
-                        text="Junction App"
+                        to="/info"
+                        text="Event info"
                     />
 
                     <Button
                         className="Button-small"
-                        to="/partners"
+                        to="https://hackjunction.com/partners"
                         text="Partner with us"
                     />
                 </div>
@@ -49,7 +71,7 @@ const ConnectedHome = ({}) => {
             <DividerLine />
             <SectionImage
                 image={{
-                    url: require("../../../assets/images/connected_main.jpg"),
+                    url: require("../../../assets/images/connected/landing.JPG"),
                 }}
                 alt="Junction 2020 Connected"
             />
@@ -66,7 +88,7 @@ const ConnectedHome = ({}) => {
                 extra={
                     <Button
                         className="Button-default"
-                        to="/connected/hubs"
+                        to="/hubs"
                         text="Learn more about Hubs"
                     />
                 }
@@ -87,7 +109,7 @@ const ConnectedHome = ({}) => {
                 extra={
                     <Button
                         className="Button-default"
-                        to="/connected/hubs"
+                        to="/hubs"
                         text="Hub locations"
                     />
                 }
@@ -101,6 +123,12 @@ const ConnectedHome = ({}) => {
             <BlockSection
                 title="Timeline"
                 className="TimeLineSection ScrollSnapElem"
+                extra={
+                    <img
+                        src={require("../../../assets/images/3part-chain.svg")}
+                        alt="connected-logo-here"
+                    />
+                }
             >
                 <Timeline date="September 1st">
                     Application period begins

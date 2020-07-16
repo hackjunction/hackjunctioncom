@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.scss";
 
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import NavMenu from "./NavMenu";
 
@@ -12,7 +12,7 @@ import SocialMediaIcons from "../SocialMediaIcons";
 
 import * as NavActions from "../../redux/nav/actions";
 import * as NavSelectors from "../../redux/nav/selectors";
-import MenuIcon from "@material-ui/icons/Menu";
+import { animateScroll as scroll } from "react-scroll";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -39,23 +39,32 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
         };
     });
 
+    const history = useHistory();
+
+    const clickLogo = () => {
+        toggleSidebar(false);
+        if (window.location.pathname === "/") {
+            scroll.scrollToTop();
+        } else {
+            history.push("/");
+        }
+    };
+
     let headerClass = "HeaderMobile";
     if (isSidebarOpen) {
         headerClass += " HeaderMobile--open";
-    }
-    if (isScrolled) {
-        headerClass += " HeaderMobile-scrolled";
     }
 
     return (
         <>
             <header className={`Header ${connected ? "Connected" : ""}`}>
                 {connected ? (
-                    <Link to="/connected" className="Header--connected">
+                    <Link to="/" className="Header--connected">
                         <img
                             className="Header--connected__image"
                             src={require("../../assets/logos/connected_logo.svg")}
                             alt="Junction 2020 Connected logo"
+                            onClick={() => clickLogo()}
                         />
                     </Link>
                 ) : (
@@ -64,24 +73,22 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                             className="Header--emblem__image"
                             src={require("../../assets/logos/emblem_black.png")}
                             alt="Junction logo"
+                            onClick={() => clickLogo()}
                         />
                     </Link>
                 )}
-
                 <SocialMediaIcons />
                 <NavMenu connected={connected} />
             </header>
             <header className={headerClass}>
                 <div className="HeaderMobileRow">
                     {connected ? (
-                        <Link
-                            to="/connected"
-                            className="HeaderMobile--connected"
-                        >
+                        <Link to="/" className="HeaderMobile--connected">
                             <img
                                 className="HeaderMobile--connected__image"
                                 src={require("../../assets/logos/header-j2020c-logo.svg")}
                                 alt="Junction 2020 Connected logo"
+                                onClick={() => clickLogo()}
                             />
                         </Link>
                     ) : (
@@ -90,6 +97,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                                 className="HeaderMobile--emblem__image"
                                 src={require("../../assets/logos/emblem_white.png")}
                                 alt="Junction logo"
+                                onClick={() => clickLogo()}
                             />
                         </Link>
                     )}
@@ -97,7 +105,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                         <FontAwesomeIcon
                             icon={isSidebarOpen ? "times" : "bars"}
                             size="2x"
-                            color="white"
+                            color="#f5d2a2"
                             onClick={() =>
                                 toggleSidebar(isSidebarOpen ? false : true)
                             }

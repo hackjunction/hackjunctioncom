@@ -9,6 +9,7 @@ import { map } from "lodash-es";
 import { eventconceptsForNav } from "../../../redux/eventconcepts/selectors";
 import { toggleSidebar } from "../../../redux/nav/actions";
 import { isSidebarOpen } from "../../../redux/nav/selectors";
+import { HashLink } from "react-router-hash-link";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -51,51 +52,44 @@ const ConceptPagesSection = React.memo(({ concepts }) => {
 const NavLink = ({ to, children, key, title = false, toggleSidebar }) => {
     if (title) {
         return (
-            <Link to={to} key={key} onClick={() => toggleSidebar(false)}>
+            <HashLink to={to} key={key} onClick={() => toggleSidebar(false)}>
                 <h6 className="NavMenu--inner__menu-title">{children}</h6>
-            </Link>
+            </HashLink>
         );
     }
     return (
-        <Link
+        <HashLink
             className="NavMenu--inner__menu-item"
             to={to}
             key={key}
             onClick={() => toggleSidebar(false)}
         >
             {children}
-        </Link>
+        </HashLink>
     );
 };
 
 const ConnectedContent = () => {
     return (
         <>
-            <ConnectedNavLink to="/" title>
+            <a href="https://hackjunction.com">
                 <FontAwesomeIcon icon="long-arrow-alt-left" size="1x" />
                 <span className="toHome">Back to Junction</span>
-            </ConnectedNavLink>
-            <ConnectedNavLink to="/connected" title>
+            </a>
+            <ConnectedNavLink to="/" title>
                 Home
             </ConnectedNavLink>
-            <ConnectedNavLink to="/connected/info" title>
+            <ConnectedNavLink to="/info" title>
                 Event info
             </ConnectedNavLink>
-            <ConnectedNavLink to="/connected/info/#general">
-                General information
-            </ConnectedNavLink>
-            <ConnectedNavLink to="/connected/info/#timeline">
-                Schedule
-            </ConnectedNavLink>
-            <ConnectedNavLink to="/connected/info/#faq">FAQ</ConnectedNavLink>
-            <ConnectedNavLink to="/connected/info/#partners">
-                For partners
-            </ConnectedNavLink>
+            <ConnectedNavLink to="/info/#timeline">Timeline</ConnectedNavLink>
+            <ConnectedNavLink to="/info/#faq">FAQ</ConnectedNavLink>
 
-            <ConnectedNavLink title to="/connected/hubs">
+            <ConnectedNavLink title to="/hubs">
                 Hubs
             </ConnectedNavLink>
-            <ConnectedNavLink to="/connected/hubs">
+            {/*
+            <ConnectedNavLink to="/hubs">
                 Hub locations
             </ConnectedNavLink>
             <ConnectedNavLink to="/connected/hubs">
@@ -105,7 +99,7 @@ const ConnectedContent = () => {
                 Hub stories
             </ConnectedNavLink>
 
-            {/* <ConnectedNavLink to="/challenges" title>
+            <ConnectedNavLink to="/challenges" title>
                 Challenges
             </ConnectedNavLink>
             <ConnectedNavLink to="/partners">Event partners</ConnectedNavLink>

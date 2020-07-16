@@ -20,14 +20,24 @@
         vertical-align: text-bottom;
     }
 
+    .Content {
+        display: flex;
+        flex-direction: column;
+        @include bp-full {
+            flex-direction: row;
+        }
+    }
+
     .Date {
         white-space: nowrap;
+        display: inline-block;
         color: $connected-blue;
         font-weight: bold;
         font-size: 18px;
+        padding-right: 1em;
     }
     .DateInfo {
-        padding-left: 1em;
+        display: inline-block;
         color: $connected-blue;
         font-size: 18px;
     }

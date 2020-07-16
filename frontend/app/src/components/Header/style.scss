@@ -25,18 +25,21 @@
         }
     }
     &--connected {
-        pointer-events: all;
-        width: 12em;
         display: none;
+        pointer-events: all;
+        width: 100%;
         cursor: pointer;
+        align-items: center;
+        justify-content: center;
         margin: 1em auto;
         position: relative;
         @include bp-full {
-            display: block;
+            display: flex;
         }
 
         &__image {
-            width: 12em;
+            width: 80%;
+            margin: auto;
         }
     }
 }
@@ -46,7 +49,6 @@
     position: fixed;
     right: 0;
     left: 0;
-    top: 0;
     width: 100%;
     z-index: 10;
     flex-direction: column;
@@ -55,6 +57,7 @@
         overflow: hidden;
     }
     padding: 10px;
+    height: 10vh;
     background: $junction-black;
 
     .HeaderMobileRow {

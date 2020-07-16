@@ -5,7 +5,7 @@ import { find } from "lodash-es";
 
 import LoadingPage from "../../Loading";
 import ErrorPage from "../../Error";
-import NotFoundPage from "../../NotFound";
+import NotFoundPage from "../../Connected/NotFound";
 
 import HeaderImage from "../../../components/HeaderImage";
 import LogoHeader from "../../../components/HeaderImage/LogoHeader";

@@ -6,7 +6,7 @@ import "./style.scss";
 
 import LoadingPage from "../../Loading";
 import ErrorPage from "../../Error";
-import NotFoundPage from "../../NotFound";
+import NotFoundPage from "../../Connected/NotFound";
 import Page from "../../PageHOC";
 
 import HeaderImage from "../../../components/HeaderImage";

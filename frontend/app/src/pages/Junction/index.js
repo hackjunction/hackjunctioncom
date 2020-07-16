@@ -27,7 +27,7 @@ import EventsPage from "./Events";
 import JunctionXPage from "./JunctionX";
 
 import BasicPage from "../BasicPage";
-import NotFoundPage from "../NotFound";
+import NotFoundPage from "../Connected/NotFound";
 
 import { withRouter } from "react-router";
 

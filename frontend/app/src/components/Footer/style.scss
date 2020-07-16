@@ -2,6 +2,10 @@
 
 .Footer {
     flex-direction: column;
+    height: auto;
+
+    // Only needed for Safari(?) :D
+    min-height: 500px;
 
     @include bp-full {
         scroll-snap-stop: normal;
@@ -103,9 +107,17 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         @include bp-med {
             justify-content: flex-start;
             margin: auto;
+        }
+
+        span {
+            text-align: center;
+            @include bp-med {
+                text-align: left;
+            }
         }
         @include bp-full {
             width: 30%;

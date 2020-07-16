@@ -2,6 +2,8 @@
 .Connected {
     background-color: $connected-peach;
     color: $connected-blue;
+    display: flex;
+    flex-direction: column;
 
     .ConnectedContent {
         background-color: $connected-peach;
@@ -106,9 +108,6 @@
     }
     .HeaderMobile {
         background-color: $connected-blue;
-        &-scrolled {
-            background-color: $connected-blue;
-        }
     }
 
     .Footer {
@@ -149,6 +148,15 @@
         }
         .SubmitButton--button {
             background-color: $connected-blue;
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                border-width: 3px;
+                border-color: $connected-blue;
+                .SubmitButton--button__text {
+                    color: $connected-blue;
+                }
+            }
             .SubmitButton--button__text {
                 color: $connected-peach;
             }
@@ -157,13 +165,17 @@
 
     .ImageHeader > h2 {
         color: $connected-peach;
+        -webkit-text-stroke: 2.5px $connected-blue;
     }
 
     h1,
     h2,
     h3,
     i,
-    label {
+    label,
+    p {
+        font-style: normal;
+        font-family: Montserrat;
         color: $connected-blue;
     }
 
@@ -174,16 +186,51 @@
         }
     }
 
+    p {
+        font-weight: 400;
+    }
+
     .DividerLine {
         background-color: $connected-blue;
     }
 
     &-parallax {
-        background-attachment: fixed;
-        background-position: center;
+        position: relative;
         height: 100vh;
-        background-repeat: no-repeat;
         background-size: cover;
-        background-image: url("../../assets/images/connected_main.jpg");
+        display: none;
+        @include bp-full {
+            scroll-snap-type: normal;
+            scroll-snap-align: start;
+            display: block;
+        }
+        video {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes jump {
+            0% {
+                bottom: 0;
+            }
+            50% {
+                bottom: 15px;
+            }
+            100% {
+                bottom: 0;
+            }
+        }
+        a {
+            position: absolute;
+            z-index: 100;
+            bottom: 0;
+            margin: 0 50% 0 50%;
+            animation: jump 3s infinite;
+            &:hover {
+                opacity: 0.7;
+                transition: 0.3s ease-in-out;
+            }
+        }
     }
 }

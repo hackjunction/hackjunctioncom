@@ -1,27 +1,54 @@
 @import "../../../styles/main";
+.EventInfo {
+    .TimelineSection {
+        width: 90%;
 
-.TimelineSection {
-    .BlockSection--left {
-        display: none;
-        @include bp-med {
+        h2 {
+            font-size: 2em;
+        }
+
+        .MobileTitle {
+            font-size: 2.5em;
+            display: block;
+            align-self: center;
+            @include bp-med {
+                display: none;
+            }
+            margin-top: 0;
+        }
+
+        .BlockSection--left {
+            display: none;
+            @include bp-med {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+            }
+        }
+        .BlockSection--right {
+            width: 100%;
             height: 100%;
             display: flex;
-            justify-content: flex-start;
-            flex-direction: column;
+
+            @include bp-med {
+                width: 50%;
+            }
+        }
+
+        .Connected-chains {
+            max-height: 90%;
+            margin-top: 5%;
         }
     }
-    .BlockSection--right {
+    .SingleColumnSection {
+        .ContactUsFaq {
+            p {
+                text-align: center;
+            }
+        }
+    }
+    .TimeLineTitle {
         width: 100%;
-        margin: auto;
-        display: flex;
-
-        @include bp-med {
-            width: 60%;
-        }
-    }
-
-    .Connected-chains {
-        height: 70%;
-        margin-top: 5%;
     }
 }

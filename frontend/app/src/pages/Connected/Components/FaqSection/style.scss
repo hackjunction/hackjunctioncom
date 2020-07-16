@@ -3,9 +3,12 @@
 .FaqSection {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     margin-bottom: 5%;
 
+    @include bp-med {
+        width: 70%;
+    }
     &--buttons {
         display: flex;
         justify-content: space-around;

@@ -15,6 +15,7 @@ import {
     faBars,
     faArrowLeft,
     faLongArrowAltLeft,
+    faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 import PrivacyBanner from "./components/PrivacyBanner";
@@ -23,12 +24,12 @@ import GlobalLifecycle from "./GlobalLifecycle";
 import config from "./services/config";
 
 import BasicPage from "./pages/BasicPage";
-import NotFoundPage from "./pages/NotFound";
+import NotFoundPage from "./pages/Connected/NotFound";
 
 import Connected from "./pages/Connected";
 import Junction from "./pages/Junction";
 
-library.add(fab, faTimes, faBars, faLongArrowAltLeft);
+library.add(fab, faTimes, faBars, faLongArrowAltLeft, faAngleDown);
 
 WebFont.load({
     google: {
@@ -66,7 +67,7 @@ class App extends PureComponent {
                 <div className="App--Main">
                     <Switch>
                         {/*Connected module */}
-                        <Route path="/connected" component={Connected} />
+                        <Route path="/" component={Connected} />
                         {/*Junction Base module */}
                         <Junction />
                     </Switch>
