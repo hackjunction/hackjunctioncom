@@ -28,7 +28,7 @@
         }
         .BlockSection--right {
             width: 100%;
-            margin: auto;
+            height: 100%;
             display: flex;
 
             @include bp-med {
@@ -43,5 +43,8 @@
     }
     .SingleColumnSection > p {
         text-align: center;
+    }
+    .TimeLineTitle {
+        width: 100%;
     }
 }
