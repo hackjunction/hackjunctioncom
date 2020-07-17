@@ -50,5 +50,8 @@
     }
     .TimeLineTitle {
         width: 100%;
+        @include bp-small-only {
+            display: none;
+        }
     }
 }
