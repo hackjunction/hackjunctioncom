@@ -38,9 +38,7 @@ const NavMenuMobile = ({ isSidebarOpen, connected }) => {
                 {isSidebarOpen ? (
                     <>
                         <ConnectedNavMenuInner connected={connected} />
-                        <div className="NavMenuMobile--social">
-                            <SocialMediaIcons />
-                        </div>
+                        <SocialMediaIcons />
                     </>
                 ) : null}
             </div>

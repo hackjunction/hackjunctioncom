@@ -57,6 +57,7 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
 
     return (
         <>
+            <SocialMediaIcons />
             <header className={`Header ${connected ? "Connected" : ""}`}>
                 {connected ? (
                     <Link to="/" className="Header--connected">
@@ -77,7 +78,6 @@ const Header = ({ navTitle, toggleSidebar, isSidebarOpen, connected }) => {
                         />
                     </Link>
                 )}
-                <SocialMediaIcons />
                 <NavMenu connected={connected} />
             </header>
             <header className={headerClass}>

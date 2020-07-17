@@ -29,13 +29,6 @@
         transition: all 0.5s ease-in-out;
     }
 
-    &--social {
-        position: fixed;
-        bottom: 5%;
-        margin: 0% 30%;
-        color: $junction-white;
-    }
-
     &--inner {
         transition: all 0.5s ease-in-out;
         margin: 10% 10% 10% 5%;
@@ -62,5 +55,11 @@
                 text-align: center;
             }
         }
+    }
+    .SocialMediaIcons {
+        display: flex;
+        flex-direction: row;
+        width: 95%;
+        place-content: space-around;
     }
 }

@@ -1,3 +1,5 @@
+@import "../../styles/main";
+
 .SocialMediaIcon {
     width: 40px;
     height: 40px;
@@ -12,5 +14,10 @@
         width: 30px;
         height: 30px;
         object-fit: contain;
+    }
+    img {
+        filter: invert(1);
+        filter: invert(46%) sepia(13%) saturate(7498%) hue-rotate(334deg)
+            brightness(109%) contrast(87%);
     }
 }
