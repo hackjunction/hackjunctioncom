@@ -82,7 +82,9 @@ const ConnectedContent = () => {
             <ConnectedNavLink to="/info" title>
                 Event info
             </ConnectedNavLink>
-            <ConnectedNavLink to="/info/#timeline">Timeline</ConnectedNavLink>
+            <ConnectedNavLink to="/info/#timeline">
+                The Junction Jorney
+            </ConnectedNavLink>
             <ConnectedNavLink to="/info/#faq">FAQ</ConnectedNavLink>
 
             <ConnectedNavLink title to="/hubs">

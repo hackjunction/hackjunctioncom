@@ -1,18 +1,18 @@
-import "./style.scss";
-import React, { useState, useEffect } from "react";
-import FaqGrid from "../../../../components/FaqGrid";
-import Button from "../../../../components/Button";
-import { useTheme } from "@material-ui/core";
+import "./style.scss"
+import React, { useState, useEffect } from "react"
+import FaqGrid from "../../../../components/FaqGrid"
+import Button from "../../../../components/Button"
+import { useTheme } from "@material-ui/core"
 
 export default ({ items }) => {
-    const [open, toggleQuestions] = useState([]);
-    const [selected, toggleSelected] = useState(items[0].title);
+    const [open, toggleQuestions] = useState([])
+    const [selected, toggleSelected] = useState(items[0].title)
 
     useEffect(() => {
-        let titles = [];
-        items.map((item) => titles.push(item.title));
-        toggleQuestions(titles);
-    }, []);
+        let titles = []
+        items.map((item) => titles.push(item.title))
+        toggleQuestions(titles)
+    }, [])
 
     const renderSections = () => {
         return (
@@ -28,22 +28,22 @@ export default ({ items }) => {
                     </div>
                 ))}
             </div>
-        );
-    };
+        )
+    }
 
     const changeFilters = (title) => {
-        const i = open.indexOf(title);
-        console.log("index", i);
-        console.log("init open", open);
-        const newArray = open;
+        const i = open.indexOf(title)
+        console.log("index", i)
+        console.log("init open", open)
+        const newArray = open
         if (i > -1) {
-            newArray.splice(i, 1);
+            newArray.splice(i, 1)
         } else {
-            newArray.push(title);
+            newArray.push(title)
         }
 
-        toggleQuestions(newArray);
-    };
+        toggleQuestions(newArray)
+    }
 
     return (
         <div className="FaqSection">
@@ -62,5 +62,6 @@ export default ({ items }) => {
             )}
             {renderSections()}
         </div>
-    );
-};
+    )
+}
+// Tracks and challenges

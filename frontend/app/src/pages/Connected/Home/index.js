@@ -121,7 +121,7 @@ const ConnectedHome = ({}) => {
             </BlockSection>
             <DividerLine />
             <BlockSection
-                title="Timeline"
+                title="Junction Journey"
                 className="TimeLineSection ScrollSnapElem"
                 extra={
                     <img

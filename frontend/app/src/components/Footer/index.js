@@ -68,20 +68,26 @@ class Footer extends PureComponent {
                         <div className="Footer--left-second__FooterLinkList">
                             <div className="FooterListLeft">
                                 <span>
-                                    <Link to="/codeofconduct">
+                                    <a href="https://hackjunction.com/codeofconduct">
                                         Code of Conduct
-                                    </Link>
+                                    </a>
                                 </span>
                                 <span>
-                                    <Link to="/policy">Privacy Policy</Link>
+                                    <a href="https://hackjunction.com/policy">
+                                        Privacy Policy
+                                    </a>
                                 </span>
                                 <span>
-                                    <Link to="/terms">Terms & Conditions</Link>
+                                    <a href="https://hackjunction.com/terms">
+                                        Terms & Conditions
+                                    </a>
                                 </span>
                             </div>
                             <div className="FooterListRight">
                                 <span>
-                                    <Link to="/press">Press kit</Link>
+                                    <a href="https://hackjunction.com/press">
+                                        Press kit
+                                    </a>
                                 </span>
                                 {/* <span>
                                     <Link to="/media">Press kit (fin)</Link>
