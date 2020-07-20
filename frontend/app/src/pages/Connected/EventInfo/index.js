@@ -232,7 +232,7 @@ export default ({}) => {
             <BlockSection
                 name="timelineElement"
                 id="timelineElement"
-                className="TimelineSection ScrollSnapElem"
+                className="TimeLineSection ScrollSnapElem"
                 inverted
                 extra={
                     <img
