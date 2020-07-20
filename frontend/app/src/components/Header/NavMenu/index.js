@@ -1,23 +1,23 @@
-import React from "react";
+import React from "react"
 
-import "./style.scss";
+import "./style.scss"
 
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { map } from "lodash-es";
+import { connect } from "react-redux"
+import { Link } from "react-router-dom"
+import { map } from "lodash-es"
 
-import { eventconceptsForNav } from "../../../redux/eventconcepts/selectors";
-import { toggleSidebar } from "../../../redux/nav/actions";
-import { isSidebarOpen } from "../../../redux/nav/selectors";
-import { HashLink } from "react-router-hash-link";
+import { eventconceptsForNav } from "../../../redux/eventconcepts/selectors"
+import { toggleSidebar } from "../../../redux/nav/actions"
+import { isSidebarOpen } from "../../../redux/nav/selectors"
+import { HashLink } from "react-router-hash-link"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import {
     homePages,
     eventPages,
     communityPages,
-} from "../../../redux/pages/selectors";
+} from "../../../redux/pages/selectors"
 
 const ExtraPagesSection = React.memo(({ pages }) => {
     return map(pages, (page) => {
@@ -29,9 +29,9 @@ const ExtraPagesSection = React.memo(({ pages }) => {
             >
                 {page.navTitle}
             </Link>
-        );
-    });
-});
+        )
+    })
+})
 
 const ConceptPagesSection = React.memo(({ concepts }) => {
     const conceptLinks = map(concepts, (concept) => {
@@ -43,11 +43,11 @@ const ConceptPagesSection = React.memo(({ concepts }) => {
             >
                 {concept.name}
             </Link>
-        );
-    });
+        )
+    })
 
-    return <React.Fragment>{conceptLinks}</React.Fragment>;
-});
+    return <React.Fragment>{conceptLinks}</React.Fragment>
+})
 
 const NavLink = ({ to, children, key, title = false, toggleSidebar }) => {
     if (title) {
@@ -55,7 +55,7 @@ const NavLink = ({ to, children, key, title = false, toggleSidebar }) => {
             <HashLink to={to} key={key} onClick={() => toggleSidebar(false)}>
                 <h6 className="NavMenu--inner__menu-title">{children}</h6>
             </HashLink>
-        );
+        )
     }
     return (
         <HashLink
@@ -66,8 +66,8 @@ const NavLink = ({ to, children, key, title = false, toggleSidebar }) => {
         >
             {children}
         </HashLink>
-    );
-};
+    )
+}
 
 const ConnectedContent = () => {
     return (
@@ -114,8 +114,8 @@ const ConnectedContent = () => {
             <ConnectedNavLink to="/volunteers">Brella</ConnectedNavLink>
             */}
         </>
-    );
-};
+    )
+}
 
 const MainContent = React.memo(
     ({ eventConcepts, homePages, eventPages, communityPages }) => {
@@ -160,9 +160,9 @@ const MainContent = React.memo(
                     For volunteers
                 </ConnectedNavLink>
             </>
-        );
+        )
     },
-);
+)
 
 export const NavMenuInner = ({ connected }) => {
     return (
@@ -175,17 +175,17 @@ export const NavMenuInner = ({ connected }) => {
             <div className="left" />
             <div className="right" />
         </div>
-    );
-};
+    )
+}
 
 const mapStateToPropsInner = (state) => ({
     eventConcepts: eventconceptsForNav(state),
     homePages: homePages(state),
     eventPages: eventPages(state),
     communityPages: communityPages(state),
-});
+})
 
-const ConnectedNavMenuInner = connect(mapStateToPropsInner)(NavMenuInner);
+const ConnectedNavMenuInner = connect(mapStateToPropsInner)(NavMenuInner)
 
 const NavMenu = ({ isSidebarOpen, toggleSidebar, connected }) => {
     return (
@@ -223,17 +223,17 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, connected }) => {
                 )}
             </div>
         </div>
-    );
-};
+    )
+}
 
 const mapStateToProps = (state) => ({
     isSidebarOpen: isSidebarOpen(state),
-});
+})
 
 const mapDispatchToProps = (dispatch) => ({
     toggleSidebar: (open) => dispatch(toggleSidebar(open)),
-});
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(NavMenu)
 
-const ConnectedNavLink = connect(null, mapDispatchToProps)(NavLink);
+const ConnectedNavLink = connect(null, mapDispatchToProps)(NavLink)
