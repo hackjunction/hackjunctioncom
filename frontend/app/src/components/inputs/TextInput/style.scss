@@ -11,7 +11,6 @@
         margin-right: 1em;
     }
     ::placeholder {
-        color: $junction-black;
         font-style: normal;
         font-weight: 600;
         line-height: 17px;
@@ -28,7 +27,6 @@
     &--input {
         background: transparent;
         border: none;
-        color: $junction-black;
         transition: all 0.2s ease;
     }
 
@@ -40,7 +38,6 @@
         padding: 0.4em;
         padding-left: 0.8em;
         transition: all 0.2s ease;
-        color: black;
         outline: none;
         &:-webkit-autofill,
         &:-webkit-autofill:hover,

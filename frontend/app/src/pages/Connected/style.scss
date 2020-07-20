@@ -111,6 +111,9 @@
     }
 
     .Footer {
+        span {
+            color: $connected-blue;
+        }
         background: $connected-peach;
         border-top: 0.2em solid $connected-blue;
 
@@ -138,12 +141,16 @@
         .DropDown--input,
         .TextArea--input {
             border-color: $connected-blue;
+            color: $connected-blue;
             &:-webkit-autofill,
             &:-webkit-autofill:hover,
             &:-webkit-autofill:focus,
             &:-webkit-autofill:active {
                 box-shadow: 0 0 0 30px $connected-peach inset !important;
                 -webkit-box-shadow: 0 0 0 30px $connected-peach inset !important;
+                &::before {
+                    color: $connected-blue;
+                }
             }
         }
         .SubmitButton--button {
@@ -177,6 +184,13 @@
         font-style: normal;
         font-family: Montserrat;
         color: $connected-blue;
+
+        &::before {
+            color: $connected-blue;
+        }
+        &::after {
+            color: $connected-blue;
+        }
     }
 
     a {
