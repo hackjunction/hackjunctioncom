@@ -142,6 +142,10 @@
         .TextArea--input {
             border-color: $connected-blue;
             color: $connected-blue;
+
+            &::placeholder {
+                color: $connected-blue;
+            }
             &:-webkit-autofill,
             &:-webkit-autofill:hover,
             &:-webkit-autofill:focus,
