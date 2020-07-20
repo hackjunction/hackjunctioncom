@@ -1,28 +1,21 @@
-import React from "react";
-import "./style.scss";
+import React from "react"
+import "./style.scss"
 
-import {
-    Link,
-    Element,
-    Events,
-    animateScroll as scroll,
-    scrollSpy,
-    scroller,
-} from "react-scroll";
+import { Link, Element, animateScroll as scroll } from "react-scroll"
 
-import KEYS from "../../../redux/staticcontent/keys";
-import MEDIA_KEYS from "../../../redux/staticmedia/keys";
+import KEYS from "../../../redux/staticcontent/keys"
+import MEDIA_KEYS from "../../../redux/staticmedia/keys"
 
-import SectionImage from "../../../components/SectionImage";
-import Page from "../../PageHOC";
-import HeaderSection from "../../../components/HeaderSection";
-import SingleColumnSection from "../../../components/SingleColumnSection";
-import BlockSection from "../../../components/BlockSection";
-import DividerLine from "../../../components/DividerLine";
-import Button from "../../../components/Button";
+import SectionImage from "../../../components/SectionImage"
+import Page from "../../PageHOC"
+import HeaderSection from "../../../components/HeaderSection"
+import SingleColumnSection from "../../../components/SingleColumnSection"
+import BlockSection from "../../../components/BlockSection"
+import DividerLine from "../../../components/DividerLine"
+import Button from "../../../components/Button"
 
-import Timeline from "../Components/Timeline";
-import FaqSection from "../Components/FaqSection";
+import Timeline from "../Components/Timeline"
+import FaqSection from "../Components/FaqSection"
 
 const items = [
     {
@@ -31,45 +24,66 @@ const items = [
             {
                 question: "What is Junction?",
                 answer:
-                    "Junction is a global tech community, organizing hackathons and tech events around the year and around the world offline and online. Junction 2019 is our flagship event - Europe’s leading hackathon, organized for the fifth time this year!",
+                    "Junction is a global tech community, organizing hackathons and tech events around the year and around the world - both offline and online.",
                 key: "1",
             },
-            { question: "What is a hackathon", answer: "asdasd", key: "2" },
 
             {
                 question: "What is Junction 2020 Connected?",
                 answer:
-                    "Junction 2020 Connected is a new take on the hackathon world - an online hackathon with physical locations distributed around the world. Bring your team to the local hub and work on the global challenges provided by Junction partners, and compete for the grand prize!",
+                    "Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online.",
                 key: "2",
             },
             {
                 question: "How do I attend Junction 2020 Connected?",
                 answer:
-                    "When the application period opens on the 1st of September, head to the Junction App and register to Junction 2020 Connected.",
+                    "The application period takes place from the 1st of September until the 9th of October on our very own, handcrafted Junction App. You can apply either alone or as a team. You can edit your application until the 9th of October, but Junction team will accept the best applicants already during the application period. You'll be informed at the latest within a couple of days after the application deadline whether you're accepted to the hackathon or not. Information about acceptance to hubs will follow later.",
                 key: "3",
             },
             {
                 question: "Does it cost to attend?",
                 answer:
-                    "Of course not, this hackathon is completely free for participants!",
+                    "Nope! The event is free of charge for all accepted participants.Of course not, this hackathon is completely free for participants!",
                 key: "4",
             },
             {
                 question: "Who can attend Junction 2020 Connected?",
-                answer: "Anyone!",
+                answer:
+                    "Junction 2020 Connected is for anyone and everyone passionate about creating with technology.",
                 key: "5",
             },
             {
                 question:
                     "When and where will Junction 2020 Connected take place?",
                 answer:
-                    "Junction 2020 Connected will take place all over the world on the 6th to the 8th of November.",
+                    "The hackathon will take place November 6th to 8th and it will be hosted online, with an addition of physical hacking hubs all around the world.",
                 key: "6",
             },
             {
-                question: "Who are the people behind Junction?",
-                answer: "That's a mystery.",
+                question: "What size can a team be?",
+                answer:
+                    "1 to 5 people - we suggest having a minimum of 3 people in a team. The Junction team will organize matchmaking at the start of the hackathon, so no need to worry if you don't have a team before the event. All team members must be accepted to the hackathon.",
                 key: "7",
+            },
+            {
+                question: "Who are the people behind Junction?",
+                answer:
+                    "Junction is run by a student and volunteer-based team, passionate about organizing the most epic hackathons in the world!",
+                key: "8",
+            },
+            {
+                question:
+                    "How can I get the latest news and updates on Junction 2020 Connected?",
+                answer:
+                    "Subscribe to our newsletter and follow us on social media @hackjunction to get the latest news and updates!",
+                key: "9",
+            },
+            {
+                question:
+                    "What kind of measurements are taken to prevent coronavirus infections?  ",
+                answer:
+                    "For each physical hub, Junction follows the guidelines set by the officials of the country, where the hub is organized. If it's not safe to organize a hub, the hub will cancelled and the corresponding participants will get to participate the event from some other hub or online.  \n In Finland, Junction follows the [guidelines given by the Finnish government](https://valtioneuvosto.fi/en/information-on-coronavirus/current-restrictions). This means that Junction will arrange the Central Hub in accordance with the [instructions given by The Ministry of Education and Culture and the Institute for Health and Welfare](https://minedu.fi/documents/1410845/22330894/Ohje+yleis%C3%B6tilaisuuksiin%2C+yleisiin+kokoontumisiin+ja+julkisten+tilojen+k%C3%A4ytt%C3%B6%C3%B6n/2b13eaca-ab49-9dda-3edf-65cb22fb65ac/Ohje+yleis%C3%B6tilaisuuksiin%2C+yleisiin+kokoontumisiin+ja+julkisten+tilojen+k%C3%A4ytt%C3%B6%C3%B6n.pdf). Here are the key measurements that Junction is going to take in Finland:\n\n- people that feel sick are not allowed to attend\n- possibility to wash or disinfect hands is always available when needed\n- the facilities are cleaned with extra caution and frequency\n- team-specific hacking tables are placed with 1-2 m safety distance to other tables\n- queuing is minimized by distributing people to arrive and leave gradually\n- the unavoidable queuing is arranged in a way that the 1-2 m safety distances can be maintained \n\nJunction is prepared to downsize the Central Hub according to the epidemiological situation - either by not welcoming any participants physically to the event venue or by not taking participants nor partners to the venue and arranging the stream-studio under the 10 people restriction on gatherings.",
+                key: "10",
             },
         ],
     },
@@ -80,26 +94,27 @@ const items = [
                 question:
                     "When and where will Junction 2020 Connected take place?",
                 answer:
-                    "Junction 2020 Connected will take place all over the world on the 6th to the 8th of November.",
+                    "The hackathon will take place November 6th to 8th and it will be all-digital, with an addition of physical hacking hubs all around the world. The Central Hub with 350 participants - where also the main stream-studio and the main partners are located - will be in the Helsinki area.",
                 key: "1",
             },
 
             {
                 question: "When is the application period?",
                 answer:
-                    "The application period starts on the 1st of September and ends on the 30th of September, in short, the application period is in September.",
+                    "The application period takes place from the 1st of September to the 9th of October. ",
                 key: "2",
             },
             {
                 question: "When will I know if I got accepted?",
-                answer: "asdasd",
+                answer:
+                    "Junction team will start the reviewing of the applications already during the application period - and you might be accepted already before the application deadline. You'll be informed a couple of days after the application deadline, at the latest. ",
                 key: "3",
             },
             {
                 question:
                     "How are time zones handled in Junction 2020 Connected?",
                 answer:
-                    "The whole event follows the same time zone, and everything happens simultaenously around the world.",
+                    "The schedule is planned so that the critical program will take place at times, which are the most reasonable for the parts of the world where the most of the hubs are located (UTC+0 - UTC+9). And although allnighters tend to be a part of all hackathon experiences, the live stream content will be available to be watched later for those who prefer sleeping over watching them live at 4 am. ",
                 key: "4",
             },
         ],
@@ -116,13 +131,14 @@ const items = [
                 key: "1",
             },
             {
-                question: "Can I submit more than one project?",
-                answer: "asdasd",
+                question: "What type of projects are expected?",
+                answer:
+                    "The challenges come readymade from our partners, but the projects can be what ever you come up with, ranging from physical hardware prototypes to new games, software and concepts.",
                 key: "2",
             },
             {
-                question: "Can I submit my project to multiple challenges?",
-                answer: "asdasd",
+                question: "What programming language can I use?",
+                answer: "This is completely up to you!",
                 key: "3",
             },
         ],
@@ -134,26 +150,20 @@ const items = [
                 question:
                     "I live in country X, but I would like to travel to a hub in country Y. Is this possible?",
                 answer:
-                    "If the restrictions in the two countries allow you to travel there and you're accepted to the hub, then yes, it is possible!",
+                    "On behalf of Junction, you are free to travel to the moon and back if you want to, but please make sure that you follow all governmental instructions and rules when travelling.",
                 key: "1",
             },
             {
-                question: "Can I organize a hub?",
+                question:
+                    "Does Junction provide accomodation for hub participants?",
                 answer:
-                    "Of course! Shoot us a message at hello(at)hackjunction.com and we'll roll you into the loop.",
+                    "Some of the hubs will be open 24/7, but we recommend you to get your rest outside the hubs. Not outside outside, but trust us, sleeping surrounded by stressed, sweaty hackers does not fill up your batteries that well. ",
                 key: "2",
             },
             {
-                question: "Why do you have to separately apply for some hubs?",
-                answer:
-                    "Due to limited space and availability, participants have to apply for hubs.",
+                question: "Does Junction provide food for hub participants?",
+                answer: "Depending on the hub, yes.",
                 key: "3",
-            },
-            {
-                question: "What is the difference between the hubs?",
-                answer:
-                    "The location of course, and what the organizers on location can offer you.",
-                key: "4",
             },
         ],
     },
@@ -165,19 +175,30 @@ const items = [
                 question:
                     "If I attend the event online, will I get the same possibilities to interact with other participants?",
                 answer:
-                    "Yes! We'll be using an online event software where you can join other participants and partners for a good time.",
+                    "Yes. You can interact with all participants - hacking from any hub or home - on the virtual event platform, Brella. You can conveniently chat and book video calls on the platform with other participants. ",
                 key: "1",
             },
             {
                 question:
                     "If I attend the event online, will I get the same possibilities to interact with other partners?",
                 answer:
-                    "Yes! We'll have virtual partner booths for you to enjoy.",
+                    "Yes. Each partner will have a virtual partner booth in Brella, where you can ask questions from the partner representatives in the public chat or book private video calls with them. Many partner companies are seeking for talents to recruit with the help of Brella's matchmaking system, so partners might wan to book quick recruitment meetings with you as well - especially if you've stated your interest in new opportunities in your profile. ",
                 key: "2",
             },
         ],
     },
-];
+    {
+        title: "Tracks & Challenges",
+        questions: [
+            {
+                question: "How does it work?",
+                answer:
+                    "The hackathon is divided into challenges from our partner companies, and tracks based on different industries and themes. You are free to choose the challenges and track you want to compete in.",
+                key: "1",
+            },
+        ],
+    },
+]
 
 export default ({}) => {
     return (
@@ -302,5 +323,5 @@ export default ({}) => {
                 </div>
             </SingleColumnSection>
         </Page>
-    );
-};
+    )
+}
