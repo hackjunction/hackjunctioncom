@@ -1,17 +1,17 @@
-import React from "react";
-import "./style.scss";
+import React from "react"
+import "./style.scss"
 
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 
-import ConnectedHome from "./Home";
-import EventInfo from "./EventInfo";
-import HubInfo from "./HubInfo";
-import Challenges from "./Challenges";
+import ConnectedHome from "./Home"
+import EventInfo from "./EventInfo"
+import HubInfo from "./HubInfo"
+import Challenges from "./Challenges"
 
-import NotFoundConnected from "./NotFound";
-import { Route, Switch, Redirect } from "react-router-dom";
-import { withRouter } from "react-router";
+import NotFoundConnected from "./NotFound"
+import { Route, Switch } from "react-router-dom"
+import { withRouter } from "react-router"
 
 const Connected = () => {
     return (
@@ -28,7 +28,7 @@ const Connected = () => {
                 <Footer />
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default withRouter(Connected);
+export default withRouter(Connected)

@@ -1,23 +1,23 @@
-import React from "react";
-import "./style.scss";
+import React from "react"
+import "./style.scss"
 
-import KEYS from "../../../redux/staticcontent/keys";
-import MEDIA_KEYS from "../../../redux/staticmedia/keys";
+import KEYS from "../../../redux/staticcontent/keys"
+import MEDIA_KEYS from "../../../redux/staticmedia/keys"
 
-import SectionImage from "../../../components/SectionImage";
+import SectionImage from "../../../components/SectionImage"
+import NewsLetterForm from "../../../components/NewsLetterForm"
+import BlockSection from "../../../components/BlockSection"
+import Timeline from "../Components/Timeline"
+import DividerLine from "../../../components/DividerLine"
+import HeaderSection from "../../../components/HeaderSection"
+import HeaderVideo from "../../../components/HeaderVideo"
 
-import BlockSection from "../../../components/BlockSection";
-import Timeline from "../Components/Timeline";
-import DividerLine from "../../../components/DividerLine";
-import HeaderSection from "../../../components/HeaderSection";
-import HeaderVideo from "../../../components/HeaderVideo";
+import { Link, Element } from "react-scroll"
 
-import { Link, Element } from "react-scroll";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import Page from "../../PageHOC";
-import Button from "../../../components/Button";
+import Page from "../../PageHOC"
+import Button from "../../../components/Button"
 
 const ConnectedHome = ({}) => {
     return (
@@ -121,7 +121,14 @@ const ConnectedHome = ({}) => {
             </BlockSection>
             <DividerLine />
             <BlockSection
-                title="Junction Journey"
+                title="Be the bird"
+                className="TimeLineSection ScrollSnapElem Footer RemoveBorder"
+            >
+                <NewsLetterForm />
+            </BlockSection>
+            <DividerLine />
+            <BlockSection
+                title="The Junction Journey"
                 className="TimeLineSection ScrollSnapElem"
                 extra={
                     <img
@@ -148,7 +155,7 @@ const ConnectedHome = ({}) => {
                 </Timeline>
             </BlockSection>
         </Page>
-    );
-};
+    )
+}
 
-export default ConnectedHome;
+export default ConnectedHome

@@ -1,21 +1,21 @@
-import React from "react";
-import "./style.scss";
+import React from "react"
+import "./style.scss"
 
-import { Link, Element, animateScroll as scroll } from "react-scroll";
+import { Link, Element, animateScroll as scroll } from "react-scroll"
 
-import KEYS from "../../../redux/staticcontent/keys";
-import MEDIA_KEYS from "../../../redux/staticmedia/keys";
+import KEYS from "../../../redux/staticcontent/keys"
+import MEDIA_KEYS from "../../../redux/staticmedia/keys"
 
-import SectionImage from "../../../components/SectionImage";
-import Page from "../../PageHOC";
-import HeaderSection from "../../../components/HeaderSection";
-import SingleColumnSection from "../../../components/SingleColumnSection";
-import BlockSection from "../../../components/BlockSection";
-import DividerLine from "../../../components/DividerLine";
-import Button from "../../../components/Button";
+import SectionImage from "../../../components/SectionImage"
+import Page from "../../PageHOC"
+import HeaderSection from "../../../components/HeaderSection"
+import SingleColumnSection from "../../../components/SingleColumnSection"
+import BlockSection from "../../../components/BlockSection"
+import DividerLine from "../../../components/DividerLine"
+import Button from "../../../components/Button"
 
-import Timeline from "../Components/Timeline";
-import FaqSection from "../Components/FaqSection";
+import Timeline from "../Components/Timeline"
+import FaqSection from "../Components/FaqSection"
 
 const items = [
     {
@@ -198,7 +198,7 @@ const items = [
             },
         ],
     },
-];
+]
 
 export default ({}) => {
     return (
@@ -229,7 +229,7 @@ export default ({}) => {
                     >
                         <Button
                             className="Button-default"
-                            text="Junction Journey"
+                            text="The Junction Journey"
                         />
                     </Link>
 
@@ -265,9 +265,7 @@ export default ({}) => {
                     />
                 }
             >
-                <h1 className="TimeLineTitle">
-                    Important dates & the Junction Journey
-                </h1>
+                <h1 className="TimeLineTitle">The Junction Journey</h1>
                 <h2 className="MobileTitle">the Junction Journey</h2>
                 <Timeline date="September 1st">
                     Application period begins
@@ -328,5 +326,5 @@ export default ({}) => {
                 </div>
             </SingleColumnSection>
         </Page>
-    );
-};
+    )
+}
