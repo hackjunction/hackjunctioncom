@@ -48,4 +48,11 @@
             }
         }
     }
+
+    .RemoveBorder {
+        border-top: unset;
+        h2 {
+            color: $connected-blue;
+        }
+    }
 }
