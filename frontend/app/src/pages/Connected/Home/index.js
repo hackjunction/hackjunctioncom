@@ -42,7 +42,9 @@ const ConnectedHome = ({}) => {
                         color="#f5d2a2"
                     />
                 </Link>
-                <HeaderVideo />
+                <HeaderVideo
+                    src={require("../../../assets/videos/J2020C_Animation_Main.mp4")}
+                />
             </div>
             <DividerLine />
             <Element name="mainContent" />
@@ -121,39 +123,41 @@ const ConnectedHome = ({}) => {
             </BlockSection>
             <DividerLine />
             <BlockSection
-                title="Be the bird"
-                className="TimeLineSection ScrollSnapElem Footer RemoveBorder"
-            >
-                <NewsLetterForm />
-            </BlockSection>
-            {/* <DividerLine />
-            <BlockSection
-                title="The Junction Journey"
-                className="TimeLineSection ScrollSnapElem"
+                halfpage
+                title="Stay connected."
+                subtitle="Sign up and be the first one to hear all the news."
+                className="ScrollSnapElem Footer RemoveBorder"
                 extra={
-                    <img
-                        src={require("../../../assets/images/3part-chain.svg")}
-                        alt="connected-logo-here"
-                    />
+                    <div className="RemoveBorder--flex">
+                        <NewsLetterForm />
+                    </div>
                 }
             >
-                <Timeline date="September 1st">
-                    Application period begins
-                </Timeline>
-                <Timeline date="October 1st">
-                    Virtual matchmaking begins
-                </Timeline>
-                <Timeline date="October 9th">Application period ends</Timeline>
-                <Timeline date="October 18th">
-                    Deadline for participants to confirm their place
-                </Timeline>
-                <Timeline date="November 6th">
-                    Junction 2020 Connected begins
-                </Timeline>
-                <Timeline date="November 8th" last>
-                    Junction 2020 Connected ends
-                </Timeline>
-            </BlockSection> */}
+                <img
+                    src={require("../../../assets/images/3part-chain.svg")}
+                    alt="connected-logo-here"
+                />
+            </BlockSection>
+            <DividerLine />
+
+            <div className="YouTube--wrapper">
+                <div className="YouTube--inside">
+                    <h2>An experience like no other</h2>
+                    <h3>
+                        More information coming very soon. It’s epic, we
+                        promise. While waiting, check out last year’s after
+                        movie.
+                    </h3>
+                    <iframe
+                        style={{
+                            width: "70%",
+                            height: "70%",
+                        }}
+                        src={`https://www.youtube.com/embed/O2BCwUS6B7Q?vq=hd1080`}
+                        frameBorder="0"
+                    />
+                </div>
+            </div>
         </Page>
     )
 }

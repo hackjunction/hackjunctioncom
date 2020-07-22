@@ -1,16 +1,16 @@
-import React from "react";
-import "./style.scss";
+import React from "react"
+import "./style.scss"
 
-import KEYS from "../../../redux/staticcontent/keys";
-import MEDIA_KEYS from "../../../redux/staticmedia/keys";
+import KEYS from "../../../redux/staticcontent/keys"
+import MEDIA_KEYS from "../../../redux/staticmedia/keys"
 
-import SectionImage from "../../../components/SectionImage";
-import Page from "../../PageHOC";
-import HeaderSection from "../../../components/HeaderSection";
-import SingleColumnSection from "../../../components/SingleColumnSection";
-import DividerLine from "../../../components/DividerLine";
-import Button from "../../../components/Button";
-import { Link, Element } from "react-scroll";
+import SectionImage from "../../../components/SectionImage"
+import Page from "../../PageHOC"
+import HeaderSection from "../../../components/HeaderSection"
+import SingleColumnSection from "../../../components/SingleColumnSection"
+import DividerLine from "../../../components/DividerLine"
+import Button from "../../../components/Button"
+import { Link, Element } from "react-scroll"
 
 export default ({}) => {
     return (
@@ -22,7 +22,7 @@ export default ({}) => {
         >
             <HeaderSection
                 title="Hubs"
-                body="Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event online. This global-online approach will make our event more accessible, especially during these unusual times."
+                body="Participants can join physical hacking hubs or participate in the event online. This global-online approach will make our event more accessible for everyone."
             >
                 <Link
                     activeClass="active"
@@ -157,5 +157,5 @@ export default ({}) => {
                 </p>
             </SingleColumnSection>
         </Page>
-    );
-};
+    )
+}
