@@ -132,7 +132,7 @@ class Footer extends PureComponent {
                             hello@hackjunction.com
                         </a>{" "}
                         or fill in the <br></br> contact form, and we’ll get
-                        back to asap!
+                        back to you asap!
                     </span>
                     <ContactForm />
                 </div>
