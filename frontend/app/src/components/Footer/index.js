@@ -1,23 +1,23 @@
-import React, { PureComponent } from "react";
-import "./style.scss";
+import React, { PureComponent } from "react"
+import "./style.scss"
 
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { connect } from "react-redux"
+import { Link } from "react-router-dom"
 
-import ContactForm from "../ContactForm";
-import NewsLetterForm from "../NewsLetterForm";
+import ContactForm from "../ContactForm"
+import NewsLetterForm from "../NewsLetterForm"
 
-import { content as selectContent } from "../../redux/staticcontent/selectors";
-import KEYS from "../../redux/staticcontent/keys";
+import { content as selectContent } from "../../redux/staticcontent/selectors"
+import KEYS from "../../redux/staticcontent/keys"
 import {
     homePages,
     eventPages,
     communityPages,
-} from "../../redux/pages/selectors";
+} from "../../redux/pages/selectors"
 
-import { eventconceptsByPriority } from "../../redux/eventconcepts/selectors";
-import { Typography, Grid } from "@material-ui/core";
-import DividerLine from "../DividerLine";
+import { eventconceptsByPriority } from "../../redux/eventconcepts/selectors"
+import { Typography, Grid } from "@material-ui/core"
+import DividerLine from "../DividerLine"
 
 class Footer extends PureComponent {
     renderConceptLinks(eventConcepts) {
@@ -30,8 +30,8 @@ class Footer extends PureComponent {
                 >
                     {concept.name}
                 </Link>
-            );
-        });
+            )
+        })
     }
 
     renderExtraPageLinks(pages) {
@@ -44,8 +44,8 @@ class Footer extends PureComponent {
                 >
                     {page.navTitle}
                 </Link>
-            );
-        });
+            )
+        })
     }
 
     render() {
@@ -57,7 +57,7 @@ class Footer extends PureComponent {
                         <span>
                             Subscribe to our newsletter to get monthly updates{" "}
                             <br></br>
-                            about what’s happening in the Junction community.{" "}
+                            about what's happening in the Junction community.{" "}
                         </span>
                         <div>
                             <NewsLetterForm />
@@ -127,12 +127,12 @@ class Footer extends PureComponent {
                 <div className="Footer--right">
                     <h2>Contact us</h2>
                     <span>
-                        Send us an email to{" "}
+                        Send us a message to{" "}
                         <a href="mailto:hello@hackjunction.com">
                             hello@hackjunction.com
                         </a>{" "}
-                        or fill in the <br></br> contact form and we’ll get back
-                        to asap!
+                        or fill in the <br></br> contact form, and we’ll get
+                        back to you asap!
                     </span>
                     <ContactForm />
                 </div>
@@ -188,12 +188,12 @@ class Footer extends PureComponent {
                     </div>
                 </div>
             </footer>
-        );
+        )
     }
 }
 
 const mapStateToProps = (state) => {
-    const content = selectContent(state);
+    const content = selectContent(state)
 
     return {
         siteSlogan: content[KEYS.siteSlogan],
@@ -202,7 +202,7 @@ const mapStateToProps = (state) => {
         eventPages: eventPages(state),
         communityPages: communityPages(state),
         eventConcepts: eventconceptsByPriority(state),
-    };
-};
+    }
+}
 
-export default connect(mapStateToProps)(Footer);
+export default connect(mapStateToProps)(Footer)

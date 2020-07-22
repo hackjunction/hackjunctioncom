@@ -1,7 +1,16 @@
 @import "../../../styles/main";
 .TimeLineSection {
     width: 90%;
-    height: auto;
+    height: 100vh;
+
+    img {
+        display: none;
+        min-height: 80%;
+        margin-top: 5%;
+        @include bp-med {
+            display: block;
+        }
+    }
 
     h2 {
         font-size: 2em;

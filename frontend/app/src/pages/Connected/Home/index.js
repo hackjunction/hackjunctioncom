@@ -49,7 +49,7 @@ const ConnectedHome = ({}) => {
             <HeaderSection
                 className="ScrollSnapElem"
                 logo={require("../../../assets/logos/connected_logo.svg")}
-                title="6-8 November"
+                title="November 6-8"
                 body="A hackathon like no other, gathering people all over the
                     world to simultaneously hack in both physical locations and
                     online."
@@ -126,7 +126,7 @@ const ConnectedHome = ({}) => {
             >
                 <NewsLetterForm />
             </BlockSection>
-            <DividerLine />
+            {/* <DividerLine />
             <BlockSection
                 title="The Junction Journey"
                 className="TimeLineSection ScrollSnapElem"
@@ -153,7 +153,7 @@ const ConnectedHome = ({}) => {
                 <Timeline date="November 8th" last>
                     Junction 2020 Connected ends
                 </Timeline>
-            </BlockSection>
+            </BlockSection> */}
         </Page>
     )
 }
