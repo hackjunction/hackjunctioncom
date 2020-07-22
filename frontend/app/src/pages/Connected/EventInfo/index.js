@@ -256,17 +256,16 @@ export default ({}) => {
             <BlockSection
                 name="timelineElement"
                 id="timelineElement"
+                title="The Junction Journey"
                 className="TimeLineSection ScrollSnapElem"
-                inverted
                 extra={
                     <img
-                        className="Connected-chains"
                         src={require("../../../assets/images/3part-chain.svg")}
                     />
                 }
             >
-                <h1 className="TimeLineTitle">The Junction Journey</h1>
-                <h2 className="MobileTitle">the Junction Journey</h2>
+                {/* <h1 className="TimeLineTitle">The Junction Journey</h1>
+                <h2 className="MobileTitle">the Junction Journey</h2> */}
                 <Timeline date="September 1st">
                     Application period begins
                 </Timeline>
@@ -275,14 +274,14 @@ export default ({}) => {
                 </Timeline>
                 <Timeline date="October 9th">Application period ends</Timeline>
                 <Timeline date="October 18th">
-                    Deadline for participants to confirm their place
+                    Attendance confirmation deadline
                 </Timeline>
-                <Timeline date="November 6th">
-                    Junction 2020 Connected begins
+                <Timeline date="November 6th-8th" last>
+                    Junction 2020 Connected
                 </Timeline>
-                <Timeline date="November 8th" last>
+                {/* <Timeline date="November 8th" last>
                     Junction 2020 Connected ends
-                </Timeline>
+                </Timeline> */}
             </BlockSection>
             {/* Not relevant yet
             <SingleColumnSection
