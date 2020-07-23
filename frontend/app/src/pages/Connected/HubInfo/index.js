@@ -69,17 +69,13 @@ export default ({}) => {
             >
                 <p className="align">
                     A hub is a physical location for all our participants to
-                    enjoy. The world's leading hackathon is usually held Espoo,
-                    Finland, but who says we cannot bring the venue to your
-                    city? We've gathered amazing organizers and spaces for all
+                    enjoy. Junction is usually held Espoo, Finland, to where
+                    participants have travelled from all around the world. This
+                    year, we have turned the tables, by bringing the event chez
+                    you. We've gathered amazing organizers and spaces for all
                     accepted applicants to join, from Cambridge to New Delhi. If
-                    you'd like to help us out by organizing a hub in your
-                    co-working space or office, shoot us a mail at
-                    hello(at)hackjunction.com!
-                </p>
-                <p className="align">
-                    So gather your friends, and come join us for an awesome
-                    weekend!
+                    you'd like to join the community by organizing a hub
+                    yourself, shoot us a message at hello(at)hackjunction.com!
                 </p>
             </SingleColumnSection>
             <DividerLine />
@@ -93,7 +89,7 @@ export default ({}) => {
             <Element name="central" />
             <SingleColumnSection
                 title="Junction Central Hub"
-                subtitle="The organizational hub in Finland"
+                subtitle="The organizational hub located in the center of  well Finland"
                 halfpage
                 center
                 className="ScrollSnapElem"
@@ -145,7 +141,7 @@ export default ({}) => {
                 center
                 halfpage
                 title="Junction Partner Hubs"
-                subtitle="Offered to you by Junction's official partners"
+                subtitle="Brought to you by Junction's official partners"
                 className="ScrollSnapElem"
             >
                 <p className="align">
