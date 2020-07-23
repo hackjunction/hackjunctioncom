@@ -5,7 +5,7 @@
     flex-direction: column;
     box-sizing: border-box;
     @include bp-med {
-        flex: 1;
+        // flex: 1;
     }
     @include bp-full {
         margin-right: 1em;

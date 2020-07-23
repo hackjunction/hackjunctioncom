@@ -147,23 +147,37 @@ const items = [
         title: "Hubs",
         questions: [
             {
+                question: "How do I attend a hub during the hackathon?",
+                answer:
+                    "You can either apply to a Junction Hub (organized by a local Junction team), or freely attend a hub hosted by our partners and other community members. You can organize a community hub yourself as well. More information on attending and hosting hubs to come.",
+                key: "1",
+            },
+            {
                 question:
                     "I live in country X, but I would like to travel to a hub in country Y. Is this possible?",
                 answer:
                     "On behalf of Junction, you are free to travel to the moon and back if you want to, but please make sure that you follow all governmental instructions and rules when travelling.",
-                key: "1",
+                key: "2",
+            },
+            {
+                question:
+                    "Are people allowed to participate outside their own home town/state/country?",
+                answer:
+                    "As long as you follow all local, national and international regulations and instructions of that time, yes. To ensure everyone's safety, Junction has the rights to prohibit participants from attending the hubs in case of known risks.",
+                key: "3",
             },
             {
                 question:
                     "Does Junction provide accomodation for hub participants?",
                 answer:
                     "Some of the hubs will be open 24/7, but we recommend you to get your rest outside the hubs. Not outside outside, but trust us, sleeping surrounded by stressed, sweaty hackers does not fill up your batteries that well. ",
-                key: "2",
+                key: "4",
             },
+
             {
                 question: "Does Junction provide food for hub participants?",
                 answer: "Depending on the hub, yes.",
-                key: "3",
+                key: "5",
             },
         ],
     },
@@ -196,6 +210,19 @@ const items = [
                     "The hackathon is divided into challenges from our partner companies, and tracks based on different industries and themes. You are free to choose the challenges and track you want to compete in.",
                 key: "1",
             },
+
+            {
+                question: "I want to know more about the challenges",
+                answer:
+                    "Challenge winners and their prizes are determined by the partner companies. You can submit your project to multiple challenges, which can be on different tracks - this means you can also win multiple challenges, which can be in different tracks.\nThe challenges will be revealed a bit closer to the event.",
+                key: "2",
+            },
+            {
+                question: "I want to know more about the tracks",
+                answer:
+                    "Track winners are determined by peer reviewing. When submitting your project, you need to choose the track you want to compete in - this means you can compete in and win only one track.\nThe tracks will be revealed a bit closer to the event.",
+                key: "3",
+            },
         ],
     },
 ]
@@ -210,7 +237,7 @@ export default ({}) => {
         >
             <HeaderSection
                 title="Event information"
-                body="Junction 2020 Connected has the best of both worlds: the spirit of a traditional Junction and the new possibilities online-hackathons have to offer. Happening simultaneously both virtually and physically all over the world, Junction 2020 Connected is the leading hybrid event of the year. Local physical hubs bring the hackathon closer to you and allows the event to adapt to possible Covid-19 restrictions. You'll be able to attend the hackathon from your home couch, but you are also welcome to join our local hubs - all around the world."
+                body="Happening simultaneously both virtually and physically all over the world, Junction 2020 Connected has the best of both worlds: the spirit of a traditional Junction hackathon with the fresh possibilities that online hackathons have to offer."
             >
                 <div className="Button-row">
                     {/*

@@ -1,16 +1,16 @@
-import React from "react";
-import "./style.scss";
+import React from "react"
+import "./style.scss"
 
-import KEYS from "../../../redux/staticcontent/keys";
-import MEDIA_KEYS from "../../../redux/staticmedia/keys";
+import KEYS from "../../../redux/staticcontent/keys"
+import MEDIA_KEYS from "../../../redux/staticmedia/keys"
 
-import SectionImage from "../../../components/SectionImage";
-import Page from "../../PageHOC";
-import HeaderSection from "../../../components/HeaderSection";
-import SingleColumnSection from "../../../components/SingleColumnSection";
-import DividerLine from "../../../components/DividerLine";
-import Button from "../../../components/Button";
-import { Link, Element } from "react-scroll";
+import SectionImage from "../../../components/SectionImage"
+import Page from "../../PageHOC"
+import HeaderSection from "../../../components/HeaderSection"
+import SingleColumnSection from "../../../components/SingleColumnSection"
+import DividerLine from "../../../components/DividerLine"
+import Button from "../../../components/Button"
+import { Link, Element } from "react-scroll"
 
 export default ({}) => {
     return (
@@ -22,7 +22,7 @@ export default ({}) => {
         >
             <HeaderSection
                 title="Hubs"
-                body="Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event online. This global-online approach will make our event more accessible, especially during these unusual times."
+                body="Participants can join physical hacking hubs or participate in the event online. This global-online approach will make our event more accessible for everyone."
             >
                 <Link
                     activeClass="active"
@@ -99,14 +99,13 @@ export default ({}) => {
                 className="ScrollSnapElem"
             >
                 <p className="align">
-                    The central hub is the origin of the challenges and from
-                    where Junction coordinates the world's leading hackathon of
-                    2020. The stream-studio connecting all the hubs over the
-                    world is located at the central hub. The hub is located in
-                    the Helsinki metropolitan area, Finland and requires an
-                    application to be eligible for attendance. Up to 350
-                    participants hack at the central hub and meet the main
-                    partners there.
+                    The Central hub is from where Junction will coordinate the
+                    world's leading hackathon of 2020 and the stream studio
+                    which connects all the hub will be hosted from at the
+                    central hub. For once, Finland gets to be the center of
+                    anything, as the Central Hub is located in the Helsinki
+                    metropolitan area. To be eligible for attendance, you need
+                    to apply for the hub separately.
                 </p>
             </SingleColumnSection>
             <DividerLine />
@@ -127,11 +126,11 @@ export default ({}) => {
                 className="ScrollSnapElem"
             >
                 <p className="align">
-                    Junction Hubs are locations all over Tellus where you as a
-                    participant can apply to join one of our official venues.
-                    These are organized by independent remarkable hackathon
-                    organizers that we gathered together to join this year's
-                    finest online hackathon.
+                    Junction Hubs are locations all over Tellus, to which you
+                    can apply to or join freely, depending on the hub. These
+                    official hacking centers are organized by independent,
+                    remarkable hackathon organizers who have taken action and
+                    joined to build this year's finest hackathon.
                 </p>
             </SingleColumnSection>
             <DividerLine />
@@ -150,12 +149,11 @@ export default ({}) => {
                 className="ScrollSnapElem"
             >
                 <p className="align">
-                    It doesn't just stop at Junction hubs, we even managed to
-                    find outstanding partners that opened up their offices for
-                    your team to enjoy a weekend full of coding! At these
-                    locations, our partners stand for the physical organisation.
+                    Some of our outstanding partners will open up their work
+                    spaces for your team to enjoy a weekend full of hacking! The
+                    best part? You could be hacking at your future office.
                 </p>
             </SingleColumnSection>
         </Page>
-    );
-};
+    )
+}
