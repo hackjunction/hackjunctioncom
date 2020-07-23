@@ -37,13 +37,13 @@ const items = [
             {
                 question: "How do I attend Junction 2020 Connected?",
                 answer:
-                    "The application period takes place from the 1st of September until the 9th of October on our very own, handcrafted Junction App. You can apply either alone or as a team. You can edit your application until the 9th of October, but Junction team will accept the best applicants already during the application period. You'll be informed at the latest within a couple of days after the application deadline whether you're accepted to the hackathon or not. Information about acceptance to hubs will follow later.",
+                    "The application period takes place from the 1st of September until the 9th of October on our very own, handcrafted [Junction App](https://app.hackjunction.com/events/junction-2020-connected). You can apply either alone or as a team. You can edit your application until the 9th of October, but Junction team will accept the best applicants already during the application period. You'll be informed at the latest within a couple of days after the application deadline whether you're accepted to the hackathon or not. Information about acceptance to hubs will follow later.",
                 key: "3",
             },
             {
                 question: "Does it cost to attend?",
                 answer:
-                    "Nope! The event is free of charge for all accepted participants.Of course not, this hackathon is completely free for participants!",
+                    "Nope! The event is free of charge for all accepted participants.",
                 key: "4",
             },
             {
@@ -329,7 +329,6 @@ export default ({}) => {
                 name="faqElement"
                 id="faqElement"
                 title="FAQ"
-                subtitle="Click to filter frequently asked questions!"
                 center
                 nolimit
                 className="ScrollSnapElem"

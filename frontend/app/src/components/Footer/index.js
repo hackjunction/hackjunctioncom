@@ -55,9 +55,8 @@ class Footer extends PureComponent {
                     <div className="Footer--left-first subscribe-text">
                         <h2>Stay up to date</h2>
                         <span>
-                            Subscribe to our newsletter to get monthly updates{" "}
-                            <br></br>
-                            about what's happening in the Junction community.{" "}
+                            Subscribe to our newsletter to get monthly updates
+                            about what's happening in the Junction community.
                         </span>
                         <div>
                             <NewsLetterForm />
