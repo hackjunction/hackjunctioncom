@@ -49,7 +49,7 @@ const ConnectedHome = ({}) => {
             <DividerLine />
             <Element name="mainContent" />
             <HeaderSection
-                className="ScrollSnapElem"
+                className="ScrollSnapElem wholePage"
                 logo={require("../../../assets/logos/connected_logo.svg")}
                 title="November 6-8"
                 body="A hackathon like no other, gathering people all over the
@@ -111,8 +111,8 @@ const ConnectedHome = ({}) => {
                 extra={
                     <Button
                         className="Button-default"
-                        to="/hubs"
-                        text="Hub locations"
+                        to="/info"
+                        text="Learn more about the event"
                     />
                 }
             >
