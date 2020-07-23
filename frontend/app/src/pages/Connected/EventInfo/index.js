@@ -319,7 +319,7 @@ export default ({}) => {
             <DividerLine />
             <SectionImage
                 image={{
-                    url: require("../../../assets/images/connected/info/faq.JPG"),
+                    url: require("../../../assets/images/connected/info/website6.jpg"),
                 }}
                 alt="FAQ"
             />

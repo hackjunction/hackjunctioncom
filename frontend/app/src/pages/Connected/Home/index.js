@@ -73,7 +73,7 @@ const ConnectedHome = ({}) => {
             <DividerLine />
             <SectionImage
                 image={{
-                    url: require("../../../assets/images/connected/landing.JPG"),
+                    url: require("../../../assets/images/connected/website5.jpg"),
                 }}
                 alt="Junction 2020 Connected"
             />
