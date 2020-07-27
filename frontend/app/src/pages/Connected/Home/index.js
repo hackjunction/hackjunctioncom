@@ -90,8 +90,8 @@ const ConnectedHome = ({}) => {
                 extra={
                     <Button
                         className="Button-default"
-                        to="/hubs"
-                        text="Learn more about Hubs"
+                        to="/info"
+                        text="Learn more about the event"
                     />
                 }
             >
@@ -111,8 +111,8 @@ const ConnectedHome = ({}) => {
                 extra={
                     <Button
                         className="Button-default"
-                        to="/info"
-                        text="Learn more about the event"
+                        to="/hubs"
+                        text="Learn more about Hubs"
                     />
                 }
             >
@@ -121,7 +121,11 @@ const ConnectedHome = ({}) => {
                     alt="connected-logo-here"
                 />
             </BlockSection>
-            <DividerLine />
+            <div className="hide">
+                {" "}
+                <DividerLine />
+            </div>
+
             <BlockSection
                 halfpage
                 title="Stay connected."
@@ -142,11 +146,10 @@ const ConnectedHome = ({}) => {
 
             <div className="YouTube--wrapper">
                 <div className="YouTube--inside">
-                    <h2>An experience like no other</h2>
+                    <h2>An experience like no other.</h2>
                     <h3>
-                        More information coming very soon. It’s epic, we
-                        promise. While waiting, check out last year’s after
-                        movie.
+                        It’s epic, we promise. More information to come. While
+                        waiting, check out last year’s after movie.
                     </h3>
                     <iframe
                         style={{

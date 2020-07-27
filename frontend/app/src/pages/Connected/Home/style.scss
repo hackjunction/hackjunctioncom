@@ -6,7 +6,7 @@
         @include bp-med {
             height: 50vh;
         }
-        > img {
+        img {
             display: none;
             @include bp-med {
                 padding-top: 2%;
@@ -33,7 +33,12 @@
         min-height: unset;
         height: 50vh;
         padding: 0;
-        @media (max-width: 900px) {
+
+        @include bp-small-only {
+            display: none;
+        }
+
+        @include bp-med {
             height: 90vh;
             justify-content: center;
         }
@@ -54,6 +59,10 @@
             -o-transform: rotate(-90deg);
             -ms-transform: rotate(-90deg);
             transform: rotate(-90deg);
+
+            @include bp-small-only {
+                display: none;
+            }
         }
 
         h2 {
@@ -77,7 +86,11 @@
             align-items: center;
             text-align: center;
 
-            @media (max-width: 900px) {
+            iframe {
+                border: 4px solid $connected-orange;
+            }
+
+            @include bp-med {
                 height: 50vh;
                 padding-bottom: 20px;
             }
@@ -100,6 +113,12 @@
 
         h3 {
             font-size: 18px;
+        }
+    }
+
+    .hide {
+        @include bp-small-only {
+            display: none;
         }
     }
 }
