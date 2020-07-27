@@ -18,6 +18,34 @@
         font-weight: bold; /* If you want it to be bold */
         font-size: 6em;
         vertical-align: text-bottom;
+
+        &:hover {
+            border-radius: 50%;
+            height: 0.4em;
+            margin-right: 0.1em;
+            min-width: 0.4em;
+            background-color: $connected-teal;
+            -webkit-animation: fade-in 1.2s both;
+            animation: fade-in 1.2s both;
+            @-webkit-keyframes fade-in {
+                0% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+            @keyframes fade-in {
+                0% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+        }
     }
 
     .Content {
@@ -54,5 +82,32 @@
         background-color: $connected-orange; /* Change the color */
         font-size: 2em;
         vertical-align: text-bottom;
+        &:hover {
+            border-radius: 50%;
+            height: 0.4em;
+            margin-right: 0.1em;
+            width: 0.4em;
+            font-size: 2em;
+            vertical-align: text-bottom;
+            background-color: $connected-teal;
+            -webkit-animation: fade-in 1.2s both;
+            animation: fade-in 1.2s both;
+            @-webkit-keyframes fade-in {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            @keyframes fade-in {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+        }
     }
 }

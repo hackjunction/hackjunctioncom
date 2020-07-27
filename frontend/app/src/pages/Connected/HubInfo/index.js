@@ -40,7 +40,7 @@ export default ({}) => {
                     smooth={true}
                     duration={500}
                 >
-                    <Button className="Button-default" text="Central hub" />
+                    <Button className="Button-default" text="Central Hub" />
                 </Link>
                 <Link
                     activeClass="active"
@@ -95,13 +95,12 @@ export default ({}) => {
                 className="ScrollSnapElem"
             >
                 <p className="align">
-                    The Central hub is from where Junction will coordinate the
-                    world's leading hackathon of 2020 and the stream studio
-                    which connects all the hub will be hosted from at the
-                    central hub. For once, Finland gets to be the center of
-                    anything, as the Central Hub is located in the Helsinki
-                    metropolitan area. To be eligible for attendance, you need
-                    to apply for the hub separately.
+                    The Central Hub is from where Junction will coordinate the
+                    world's leading hackathon of 2020 and from where the stream
+                    studio connecting all of the hubs will be hosted. For once,
+                    Finland gets to be the center of something, as the hub is
+                    located in the Helsinki metropolitan area. To attend, you
+                    need to apply for the hub separately.
                 </p>
             </SingleColumnSection>
             <DividerLine />
@@ -126,7 +125,7 @@ export default ({}) => {
                     can apply to or join freely, depending on the hub. These
                     official hacking centers are organized by independent,
                     remarkable hackathon organizers who have taken action and
-                    joined to build this year's finest hackathon.
+                    joined us to build this year's finest hackathon.
                 </p>
             </SingleColumnSection>
             <DividerLine />
@@ -147,7 +146,9 @@ export default ({}) => {
                 <p className="align">
                     Some of our outstanding partners will open up their work
                     spaces for your team to enjoy a weekend full of hacking! The
-                    best part? You could be hacking at your future office.
+                    best part? You could be hacking at your future office. Find
+                    out more about the partner hubs closer to the application
+                    period.
                 </p>
             </SingleColumnSection>
         </Page>

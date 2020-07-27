@@ -237,7 +237,7 @@ export default ({}) => {
         >
             <HeaderSection
                 title="Event information"
-                body="Happening simultaneously both virtually and physically all over the world, Junction 2020 Connected has the best of both worlds: the spirit of a traditional Junction hackathon with the fresh possibilities that online hackathons have to offer."
+                body="Happening simultaneously both virtually and physically, Junction 2020 Connected has the best of both worlds: the spirit of a traditional Junction hackathon with the fresh possibilities that online hackathons have to offer."
             >
                 <div className="Button-row">
                     {/*
@@ -296,8 +296,8 @@ export default ({}) => {
                 <Timeline date="September 1st">
                     Application period begins
                 </Timeline>
-                <Timeline date="October 1st">
-                    Virtual matchmaking begins
+                <Timeline date="September H2">
+                    Virtual event platform opens
                 </Timeline>
                 <Timeline date="October 9th">Application period ends</Timeline>
                 <Timeline date="October 18th">
@@ -319,7 +319,7 @@ export default ({}) => {
             <DividerLine />
             <SectionImage
                 image={{
-                    url: require("../../../assets/images/connected/info/faq.JPG"),
+                    url: require("../../../assets/images/connected/info/website6.jpg"),
                 }}
                 alt="FAQ"
             />
