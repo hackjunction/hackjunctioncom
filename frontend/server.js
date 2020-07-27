@@ -1,6 +1,6 @@
-var express = require('express'),
+var express = require("express"),
     app = express(),
-    path = require('path'),
+    path = require("path"),
     port = process.env.PORT || 3000;
 
 //Prerender
@@ -9,38 +9,38 @@ app.use(
      * and making the prerender service do a lot of work and cost us a lot of moneys. Test these rules with a regex tester before deploy,
      * like this one: https://regex101.com/
      */
-    require('prerender-node')
-        .set('prerenderToken', process.env.PRERENDER_TOKEN)
+    require("prerender-node")
+        .set("prerenderToken", process.env.PRERENDER_TOKEN)
         .whitelisted([
             /** Match root route (empty string) */
-            '^(?![sS])',
+            "^(?![sS])",
             /** Match root route with trailing slash */
-            '///ig',
+            "///ig",
             /** Match static routes exactly */
-            '^/story$',
-            '^/calendar$',
-            '^/team$',
-            '^/partners$',
-            '^/participants$',
-            '^/volunteers$',
-            '^/organizers$',
-            '^/policy$',
-            '^/press$',
-            '^/team$',
-            '^/press$',
-            '^/media$',
+            "^/story$",
+            "^/calendar$",
+            "^/team$",
+            "^/partners$",
+            "^/participants$",
+            "^/volunteers$",
+            "^/organizers$",
+            "^/policy$",
+            "^/press$",
+            "^/team$",
+            "^/press$",
+            "^/media$",
             /** Match dynamic routes so that they allow stuff to come after, e.g. /concepts/junction-x */
-            '^/concepts',
-            '^/online'
-        ])
+            "^/concepts",
+            "^/online",
+        ]),
 );
 
 // Serve any static files
-app.use(express.static(path.join(__dirname, 'app/build')));
+app.use(express.static(path.join(__dirname, "app/build")));
 
 // Handle React routing, return all requests to React app
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'app/build', 'index.html'));
+app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "app/build", "index.html"));
 });
 
 app.listen(port);
