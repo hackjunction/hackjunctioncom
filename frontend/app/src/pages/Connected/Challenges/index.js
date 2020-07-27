@@ -128,7 +128,7 @@ class Challenges extends PureComponent {
         return (
             <Page
                 className="Connected"
-                pageTitle="Hack the Future"
+                pageTitle="Junction 2020 Connected"
                 metaDescKey={KEYS.whoAreWeBody}
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >

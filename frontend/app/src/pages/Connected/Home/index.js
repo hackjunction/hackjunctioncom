@@ -1,30 +1,30 @@
-import React from "react"
-import "./style.scss"
+import React from "react";
+import "./style.scss";
 
-import KEYS from "../../../redux/staticcontent/keys"
-import MEDIA_KEYS from "../../../redux/staticmedia/keys"
+import KEYS from "../../../redux/staticcontent/keys";
+import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import SectionImage from "../../../components/SectionImage"
-import NewsLetterForm from "../../../components/NewsLetterForm"
-import BlockSection from "../../../components/BlockSection"
-import Timeline from "../Components/Timeline"
-import DividerLine from "../../../components/DividerLine"
-import HeaderSection from "../../../components/HeaderSection"
-import HeaderVideo from "../../../components/HeaderVideo"
+import SectionImage from "../../../components/SectionImage";
+import NewsLetterForm from "../../../components/NewsLetterForm";
+import BlockSection from "../../../components/BlockSection";
+import Timeline from "../Components/Timeline";
+import DividerLine from "../../../components/DividerLine";
+import HeaderSection from "../../../components/HeaderSection";
+import HeaderVideo from "../../../components/HeaderVideo";
 
-import { Link, Element } from "react-scroll"
+import { Link, Element } from "react-scroll";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Page from "../../PageHOC"
-import Button from "../../../components/Button"
+import Page from "../../PageHOC";
+import Button from "../../../components/Button";
 
 const ConnectedHome = ({}) => {
     return (
         <Page
             metaDescKey={KEYS.whoAreWeBody}
             className="Connected ConnectedContent ConnectedHome"
-            pageTitle="Hack the Future"
+            pageTitle="Junction 2020 Connected"
             metaDescKey={KEYS.whoAreWeBody}
             ogImageKey={MEDIA_KEYS.ConnectedHeaderImage}
         >
@@ -162,7 +162,7 @@ const ConnectedHome = ({}) => {
                 </div>
             </div>
         </Page>
-    )
-}
+    );
+};
 
-export default ConnectedHome
+export default ConnectedHome;
