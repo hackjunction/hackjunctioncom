@@ -70,6 +70,28 @@ const ConnectedHome = ({}) => {
                     />
                 </div>
             </HeaderSection>
+            <HeaderSection
+                className="ScrollSnapElem wholePage"
+                logo={require("../../../assets/logos/connected_logo.svg")}
+                title="November 6-8"
+                body="A hackathon like no other, gathering people all over the
+                    world to simultaneously hack in both physical locations and
+                    online."
+            >
+                <div className="Button-row">
+                    <Button
+                        className="Button-small"
+                        to="/info"
+                        text="Event info"
+                    />
+
+                    <Button
+                        className="Button-small"
+                        to="https://hackjunction.com/partners"
+                        text="Partner with us"
+                    />
+                </div>
+            </HeaderSection>
             <DividerLine />
             <SectionImage
                 image={{
