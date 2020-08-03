@@ -31,6 +31,9 @@ const BOTTOM_LINKS = [
 
 class AboutPage extends PureComponent {
     render() {
+
+
+
         return (
             <Page
                 className="ImgBlock"
