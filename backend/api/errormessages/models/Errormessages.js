@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `Staticcontent` model.
+ * Lifecycle callbacks for the `Errormessages` model.
  */
 
 module.exports = {

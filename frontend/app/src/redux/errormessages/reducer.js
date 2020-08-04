@@ -13,7 +13,7 @@ export const initialState = {
 export default function reducer(state = initialState, action) {
 
 	switch (action.type) {
-		case ActionTypes.UPDATE_ERRORS: {
+		case ActionTypes.UPDATE_ERROR_MESSAGES: {
 			return handle(state, action, {
 				start: prevState => ({ ...prevState, loading: true, error: false }),
 				finish: prevState => ({ ...prevState, loading: false }),

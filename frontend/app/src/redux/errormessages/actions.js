@@ -1,17 +1,17 @@
 import * as ActionTypes from './actionTypes'
-import StaticContentService from '../../services/errors'
-import { contentShouldUpdate } from './selectors'
+import ErrorMessagesService from '../../services/errormessages'
+import { errorMessagesShouldUpdate } from './selectors'
 
-export const updateErrormessages = () => (dispatch, getState) => {
-	if (!contentShouldUpdate(getState())) {
+export const updateErrorMessages = () => (dispatch, getState) => {
+	if (!errorMessagesShouldUpdate(getState())) {
 		return
 	}
 
 	dispatch({
-		type: ActionTypes.UPDATE_STATIC_CONTENT,
-		promise: StaticContentService.getAll(),
+		type: ActionTypes.UPDATE_ERROR_MESSAGES,
+		promise: ErrorMessagesService.getAll(),
 		meta: {
-			onFailure: (e) => console.log('Error updating static content', e)
+			onFailure: (e) => console.log('Error updating error messages', e)
 		}
 	})
 }

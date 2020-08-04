@@ -1,1 +1,1 @@
-export const UPDATE_ERRORS = 'errors/UPDATE';
+export const UPDATE_ERROR_MESSAGES = 'errormessages/UPDATE';

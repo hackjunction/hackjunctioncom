@@ -3,7 +3,7 @@ import config from './config'
 
 const URL = config.API_BASE_URL + '/api/errormessages'
 
-const ErrorService = {
+const ErrorMessagesService = {
 
 	count: () => {
 		return axios.get(`${URL}/count`);
@@ -18,4 +18,4 @@ const ErrorService = {
 	}
 }
 
-export default ErrorService
+export default ErrorMessagesService
