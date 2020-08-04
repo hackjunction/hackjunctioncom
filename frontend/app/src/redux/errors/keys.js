@@ -1,5 +1,5 @@
-const CONTENT_KEYS = {
+const ERROR_KEYS = {
 	404:"404"
 };
 
-export default CONTENT_KEYS;
+export default ERROR_KEYS;
