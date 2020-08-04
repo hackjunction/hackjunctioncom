@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/api/errors",
-      "handler": "Errors.find",
+      "path": "/api/errormessages",
+      "handler": "Errormessages.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/api/errors/count",
-      "handler": "Errors.count",
+      "path": "/api/errormessages/count",
+      "handler": "Errormessages.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/api/errors/:_id",
-      "handler": "Errors.findOne",
+      "path": "/api/errormessages/:_id",
+      "handler": "Errormessages.findOne",
       "config": {
         "policies": []
       }

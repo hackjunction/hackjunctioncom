@@ -2,7 +2,7 @@ import * as ActionTypes from './actionTypes'
 import StaticContentService from '../../services/errors'
 import { contentShouldUpdate } from './selectors'
 
-export const updateErrors = () => (dispatch, getState) => {
+export const updateErrormessages = () => (dispatch, getState) => {
 	if (!contentShouldUpdate(getState())) {
 		return
 	}

@@ -4,8 +4,8 @@ import "./style.scss";
 import Page from "../../PageHOC";
 
 import { connect } from "react-redux";
-import ERROR_KEYS from "../../../redux/errors/keys";
-import { content as errors } from "../../../redux/errors/selectors";
+import ERROR_KEYS from "../../../redux/errormessages/keys";
+import { content as errormessages } from "../../../redux/errormessages/selectors";
 
 import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 import HeaderSection from "../../../components/HeaderSection";
@@ -28,7 +28,8 @@ const NotFound = (props) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-    const content = errors(state);
+    const content = errormessages(state);
+    console.log(state);
     return {
         eNotFound: content[ERROR_KEYS["404"]] || ownProps.eNotFound
     };

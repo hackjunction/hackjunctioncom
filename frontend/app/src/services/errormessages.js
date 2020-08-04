@@ -1,7 +1,7 @@
 import axios from './jsonAxios'
 import config from './config'
 
-const URL = config.API_BASE_URL + '/api/errors'
+const URL = config.API_BASE_URL + '/api/errormessages'
 
 const ErrorService = {
 
