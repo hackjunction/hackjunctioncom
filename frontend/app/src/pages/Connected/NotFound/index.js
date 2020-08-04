@@ -18,9 +18,8 @@ const NotFound = (props) => {
             metaDesc="This page does not exist"
         >
             <HeaderSection
-                title={JSON.stringify(props)}
-                //title={props.eNotFound.title}
-                //body={props.eNotFound.content}
+                title={props.eNotFound.title}
+                body={props.eNotFound.content}
             >
                 <a href="/">Back to Connected frontpage</a>
             </HeaderSection>
