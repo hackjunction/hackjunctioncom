@@ -1,0 +1,27 @@
+{
+  "connection": "default",
+  "collectionName": "errors",
+  "info": {
+    "name": "errors",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "richtext"
+    },
+    "content": {
+      "default": "",
+      "type": "richtext"
+    },
+    "key": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
+    }
+  }
+}

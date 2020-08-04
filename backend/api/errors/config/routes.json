@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/errors",
+      "handler": "Errors.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/errors/count",
+      "handler": "Errors.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/errors/:_id",
+      "handler": "Errors.findOne",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

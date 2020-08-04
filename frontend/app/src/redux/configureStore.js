@@ -12,6 +12,7 @@ const persistConfig = {
 	key: 'hackjunctioncom',
 	storage,
 	whitelist: [
+		'errors',
 		'staticcontent',
 		'staticmedia',
 		'events',
