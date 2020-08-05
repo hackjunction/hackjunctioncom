@@ -25,6 +25,7 @@ import config from "./services/config";
 
 import BasicPage from "./pages/BasicPage";
 import NotFoundPage from "./pages/Connected/NotFound";
+import CookieConsent from "react-cookie-consent";
 
 import Connected from "./pages/Connected";
 import Junction from "./pages/Junction";
@@ -71,6 +72,10 @@ class App extends PureComponent {
                         {/*Junction Base module */}
                         <Junction />
                     </Switch>
+                    <CookieConsent>
+                        This website uses cookies to enhance the user
+                        experience. Please read our privacy policy for details.
+                    </CookieConsent>
                 </div>
                 <ScrollToTop />
                 <GlobalLifecycle />
