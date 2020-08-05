@@ -168,7 +168,7 @@ const mapStateToProps = (state) => {
         headerBody: content["ConnectedHomeHeaderBody"],
         headerButton1: content["ConnectedHomeHeaderButton1"],
         headerButton2: content["ConnectedHomeHeaderButton2"],
-        sectionTitle1: content["ConnectedHomeSectiont1Title"],
+        sectionTitle1: content["ConnectedHomeSection1Title"],
         sectionBody1: content["ConnectedHomeSection1Body"],
         section1Button1: content["ConnectedHomeSection1Button1"],
         sectionTitle2: content["ConnectedHomeSection2Title"],
