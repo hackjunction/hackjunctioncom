@@ -14,12 +14,12 @@ const NotFound = (props) => {
     return (
         <Page
             className="NotFoundConnected"
-            pageTitle="404"
-            metaDesc="This page does not exist"
+            pageTitle={props.eNotFound.title}
+            metaDesc={props.eNotFound.message}
         >
             <HeaderSection
                 title={props.eNotFound.title}
-                body={props.eNotFound.content}
+                body={props.eNotFound.message}
             >
                 <a href="/">Back to Connected frontpage</a>
             </HeaderSection>
@@ -29,7 +29,6 @@ const NotFound = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
     const content = errormessages(state);
-    console.log(content);
     return {
         eNotFound: content[ERROR_KEYS["404"]] || ownProps.eNotFound
     };

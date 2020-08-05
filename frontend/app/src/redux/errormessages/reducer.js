@@ -1,14 +1,12 @@
-import * as ActionTypes from './actionTypes'
+import * as ActionTypes from './actionTypes';
 import { handle } from 'redux-pack';
-import { map } from 'lodash-es';
 
-export const initialState = {
-	keys: [],
-	data: {},
+const initialState = {
+	data: [],
 	loading: false,
 	error: false,
-	lastUpdate: 0,
-}
+	lastUpdate: 0
+};
 
 export default function reducer(state = initialState, action) {
 
@@ -20,17 +18,15 @@ export default function reducer(state = initialState, action) {
 				failure: prevState => ({ ...prevState, error: true }),
 				success: prevState => {
 
-					const data = {}
-					const keys = map(action.payload, ({ key, content }) => {
-						data[key.trim()] = content;
-						return key.trim();
-					});
+					const data = {};
+					action.payload.forEach((item, index) => {
+						data[item.key] = item;
+					})
 
 					return {
 						...prevState,
 						data,
-						keys,
-						lastUpdate: Date.now()
+						lastUpdate: Date.now()	
 					}
 				},
 			})
