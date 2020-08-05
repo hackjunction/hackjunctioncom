@@ -7,14 +7,14 @@ import config from '../../services/config';
  */
 const ERROR_MESSAGES_UPDATE_INTERVAL = config.IS_DEBUG ? 15 * 1000 : 10 * 60 * 1000; //15 seconds (debug/development) / 10 minutes (production)
 
-export const content = state => state.errormessages.data;
-export const contentKeys = state => state.errormessages.keys;
-export const contentLoading = state => state.errormessages.loading;
-export const contentError = state => state.errormessages.error;
-export const contentUpdated = state => state.errormessages.lastUpdate;
+export const errormessages = state => state.errormessages.data;
+export const errormessagesKeys = state => state.errormessages.keys;
+export const errormessagesLoading = state => state.errormessages.loading;
+export const errormessagesError = state => state.errormessages.error;
+export const errormessagesUpdated = state => state.errormessages.lastUpdate;
 
 export const errorMessagesShouldUpdate = createSelector(
-	contentUpdated,
+	errormessagesUpdated,
 	updated => {
 		return Date.now() - updated > ERROR_MESSAGES_UPDATE_INTERVAL;
 	}
