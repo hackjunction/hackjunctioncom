@@ -55,9 +55,7 @@ const ConnectedHome = (props) => {
                 className="ScrollSnapElem wholePage"
                 logo={require("../../../assets/logos/connected_logo.svg")}
                 title={props.headerTitle}
-                body="A hackathon like no other, gathering people all over the
-                    world to simultaneously hack in both physical locations and
-                    online."
+                body={props.headerBody}
             >
                 <div className="Button-row">
                     <Button
@@ -172,7 +170,8 @@ const mapStateToProps = (state, ownProps) => {
     const content = selectContent(state);
 
     return {
-        headerTitle: content["ConnectedHomeHeaderTitle"] || ownProps.headerTitle
+        headerTitle: content["ConnectedHomeHeaderTitle"] || ownProps.headerTitle,
+        headerBody: content["ConnectedHomeHeaderBody"] || ownProps.headerBody
     };
 };
 
