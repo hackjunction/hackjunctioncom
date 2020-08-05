@@ -30,7 +30,7 @@ const NotFound = (props) => {
 const mapStateToProps = (state, ownProps) => {
     const content = errormessages(state);
     return {
-        eNotFound: content[ERROR_KEYS["404"]] || ownProps.eNotFound
+        eNotFound: content[ERROR_KEYS["404"]] || ownProps.eNotFound || {title:"404", message:"Page not found"}
     };
 };
 
