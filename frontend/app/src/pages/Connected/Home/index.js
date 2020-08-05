@@ -12,6 +12,9 @@ import DividerLine from "../../../components/DividerLine";
 import HeaderSection from "../../../components/HeaderSection";
 import HeaderVideo from "../../../components/HeaderVideo";
 
+import { content as selectContent } from "../../../redux/staticcontent/selectors";
+import { connect } from "react-redux";
+
 import { Link, Element } from "react-scroll";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,7 +22,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
 
-const ConnectedHome = ({}) => {
+const ConnectedHome = (props) => {
     return (
         <Page
             metaDescKey={KEYS.whoAreWeBody}
@@ -51,7 +54,7 @@ const ConnectedHome = ({}) => {
             <HeaderSection
                 className="ScrollSnapElem wholePage"
                 logo={require("../../../assets/logos/connected_logo.svg")}
-                title="November 6-8"
+                title={props.headerTitle}
                 body="A hackathon like no other, gathering people all over the
                     world to simultaneously hack in both physical locations and
                     online."
@@ -165,4 +168,12 @@ const ConnectedHome = ({}) => {
     );
 };
 
-export default ConnectedHome;
+const mapStateToProps = (state, ownProps) => {
+    const content = selectContent(state);
+
+    return {
+        headerTitle: content["ConnectedHomeHeaderTitle"] || ownProps.headerTitle
+    };
+};
+
+export default connect(mapStateToProps)(ConnectedHome);
