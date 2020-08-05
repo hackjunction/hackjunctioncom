@@ -61,13 +61,13 @@ const ConnectedHome = (props) => {
                     <Button
                         className="Button-small"
                         to="/info"
-                        text="Event info"
+                        text={props.headerButton1}
                     />
 
                     <Button
                         className="Button-small"
                         to="https://hackjunction.com/partners"
-                        text="Partner with us"
+                        text={props.headerButton2}
                     />
                 </div>
             </HeaderSection>
@@ -83,16 +83,13 @@ const ConnectedHome = (props) => {
             <BlockSection
                 className="ScrollSnapElem"
                 halfpage
-                title="Introducing Hubs"
-                subtitle="Junction 2020 Connected is a new take on the established
-                        concept of a hackathon; participants all over the world
-                        can join physical locations hosted by Junction and other
-                        organizations, or participate in the event fully online."
+                title={props.sectionTitle1}
+                subtitle={props.sectionBody1}
                 extra={
                     <Button
                         className="Button-default"
                         to="/info"
-                        text="Learn more about the event"
+                        text={props.section1Button1}
                     />
                 }
             >
@@ -104,16 +101,13 @@ const ConnectedHome = (props) => {
             <BlockSection
                 halfpage
                 inverted
-                title="30 countries, 1 hackathon"
-                subtitle="The local hubs give the concept of a normal online
-                        hackathon a twist by increasing the sense of community
-                        and making physical interaction possible when needed.
-                        Check out your nearest hub or organize one yourself!"
+                title={props.sectionTitle2}
+                subtitle={props.sectionBody2}
                 extra={
                     <Button
                         className="Button-default"
                         to="/hubs"
-                        text="Learn more about Hubs"
+                        text={props.section2Button1}
                     />
                 }
             >
@@ -166,12 +160,20 @@ const ConnectedHome = (props) => {
     );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     const content = selectContent(state);
 
     return {
-        headerTitle: content["ConnectedHomeHeaderTitle"] || ownProps.headerTitle,
-        headerBody: content["ConnectedHomeHeaderBody"] || ownProps.headerBody
+        headerTitle: content["ConnectedHomeHeaderTitle"],
+        headerBody: content["ConnectedHomeHeaderBody"],
+        headerButton1: content["ConnectedHomeHeaderButton1"],
+        headerButton2: content["ConnectedHomeHeaderButton2"],
+        sectionTitle1: content["ConnectedHomeSectiont1Title"],
+        sectionBody1: content["ConnectedHomeSection1Body"],
+        section1Button1: content["ConnectedHomeSection1Button1"],
+        sectionTitle2: content["ConnectedHomeSection2Title"],
+        sectionBody2: content["ConnectedHomeSection2Body"],
+        section2Button1: content["ConnectedHomeSection2Button1"],
     };
 };
 
