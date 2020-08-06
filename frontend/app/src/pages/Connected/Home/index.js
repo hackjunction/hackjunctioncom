@@ -167,9 +167,8 @@ const mapStateToProps = (state) => {
     
     for (let key of Object.keys(textsJSON))
     {
-        let varName = key.replace("ConnectedHome", "");
         //Find key in strapi if exists, else use fallback in texts.json
-        contentTexts[varName] = content[key] || textsJSON[key];
+        contentTexts[key] = content[textsJSON.prefix+key] || textsJSON[textsJSON.prefix+key];
     }
 
     return contentTexts;
