@@ -12,6 +12,9 @@ import DividerLine from "../../../components/DividerLine";
 import HeaderSection from "../../../components/HeaderSection";
 import HeaderVideo from "../../../components/HeaderVideo";
 
+import { content as selectContent } from "../../../redux/staticcontent/selectors";
+import { connect } from "react-redux";
+
 import { Link, Element } from "react-scroll";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,7 +22,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
 
-const ConnectedHome = ({}) => {
+const textsJSON = require("./texts.json");
+
+const ConnectedHome = (props) => {
     return (
         <Page
             metaDescKey={KEYS.whoAreWeBody}
@@ -51,22 +56,20 @@ const ConnectedHome = ({}) => {
             <HeaderSection
                 className="ScrollSnapElem wholePage"
                 logo={require("../../../assets/logos/connected_logo.svg")}
-                title="November 6-8"
-                body="A hackathon like no other, gathering people all over the
-                    world to simultaneously hack in both physical locations and
-                    online."
+                title={props.HeaderTitle}
+                body={props.HeaderBody}
             >
                 <div className="Button-row">
                     <Button
                         className="Button-small"
                         to="/info"
-                        text="Event info"
+                        text={props.HeaderButton1}
                     />
 
                     <Button
                         className="Button-small"
                         to="https://hackjunction.com/partners"
-                        text="Partner with us"
+                        text={props.HeaderButton2}
                     />
                 </div>
             </HeaderSection>
@@ -82,16 +85,13 @@ const ConnectedHome = ({}) => {
             <BlockSection
                 className="ScrollSnapElem"
                 halfpage
-                title="Introducing Hubs"
-                subtitle="Junction 2020 Connected is a new take on the established
-                        concept of a hackathon; participants all over the world
-                        can join physical locations hosted by Junction and other
-                        organizations, or participate in the event fully online."
+                title={props.Section1Title}
+                subtitle={props.Section1Body}
                 extra={
                     <Button
                         className="Button-default"
                         to="/info"
-                        text="Learn more about the event"
+                        text={props.Section1Button1}
                     />
                 }
             >
@@ -103,16 +103,13 @@ const ConnectedHome = ({}) => {
             <BlockSection
                 halfpage
                 inverted
-                title="30 countries, 1 hackathon"
-                subtitle="The local hubs give the concept of a normal online
-                        hackathon a twist by increasing the sense of community
-                        and making physical interaction possible when needed.
-                        Check out your nearest hub or organize one yourself!"
+                title={props.Section2Title}
+                subtitle={props.Section2Body}
                 extra={
                     <Button
                         className="Button-default"
                         to="/hubs"
-                        text="Learn more about Hubs"
+                        text={props.Section2Button1}
                     />
                 }
             >
@@ -128,8 +125,8 @@ const ConnectedHome = ({}) => {
 
             <BlockSection
                 halfpage
-                title="Stay connected."
-                subtitle="Sign up and be the first one to hear all the news."
+                title={props.Section3Title}
+                subtitle={props.Section3Body}
                 className="ScrollSnapElem Footer RemoveBorder"
                 extra={
                     <div className="RemoveBorder--flex">
@@ -146,17 +143,16 @@ const ConnectedHome = ({}) => {
 
             <div className="YouTube--wrapper">
                 <div className="YouTube--inside">
-                    <h2>An experience like no other.</h2>
+                    <h2>{props.YouTubeWrapperTitle}</h2>
                     <h3>
-                        It’s epic, we promise. More information to come. While
-                        waiting, check out last year’s after movie.
+                        {props.YouTubeWrapperBody}
                     </h3>
                     <iframe
                         style={{
                             width: "70%",
                             height: "70%",
                         }}
-                        src={`https://www.youtube.com/embed/O2BCwUS6B7Q?vq=hd1080`}
+                        src={props.YouTubeWrapperLink}
                         frameBorder="0"
                     />
                 </div>
@@ -165,4 +161,17 @@ const ConnectedHome = ({}) => {
     );
 };
 
-export default ConnectedHome;
+const mapStateToProps = (state) => {
+    const content = selectContent(state);
+    let contentTexts = {}
+    
+    for (let key of Object.keys(textsJSON))
+    {
+        //Find key in strapi if exists, else use fallback in texts.json
+        contentTexts[key] = content[textsJSON.prefix+key] || textsJSON[textsJSON.prefix+key];
+    }
+
+    return contentTexts;
+};
+
+export default connect(mapStateToProps)(ConnectedHome);

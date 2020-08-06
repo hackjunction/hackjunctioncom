@@ -1,18 +1,24 @@
-import React from "react"
-import "./style.scss"
+import React from "react";
+import "./style.scss";
 
-import KEYS from "../../../redux/staticcontent/keys"
-import MEDIA_KEYS from "../../../redux/staticmedia/keys"
+import KEYS from "../../../redux/staticcontent/keys";
+import MEDIA_KEYS from "../../../redux/staticmedia/keys";
 
-import SectionImage from "../../../components/SectionImage"
-import Page from "../../PageHOC"
-import HeaderSection from "../../../components/HeaderSection"
-import SingleColumnSection from "../../../components/SingleColumnSection"
-import DividerLine from "../../../components/DividerLine"
-import Button from "../../../components/Button"
-import { Link, Element } from "react-scroll"
+import { content as selectContent } from "../../../redux/staticcontent/selectors";
+import { connect } from "react-redux";
 
-export default ({}) => {
+import SectionImage from "../../../components/SectionImage";
+import Page from "../../PageHOC";
+import HeaderSection from "../../../components/HeaderSection";
+import SingleColumnSection from "../../../components/SingleColumnSection";
+import DividerLine from "../../../components/DividerLine";
+import Button from "../../../components/Button";
+import { Link, Element } from "react-scroll";
+
+const textsJSON = require("./texts.json");
+
+
+const HubInfo = (props) => {
     return (
         <Page
             className="Connected ConnectedContent Hubs"
@@ -21,8 +27,8 @@ export default ({}) => {
             ogImageKey={MEDIA_KEYS.homePageHeaderImage}
         >
             <HeaderSection
-                title="Hubs"
-                body="Participants can join physical hacking hubs or participate in the event online. This global-online approach will make our event more accessible for everyone."
+                title={props.HeaderTitle}
+                body={props.HeaderBody}
             >
                 <Link
                     activeClass="active"
@@ -62,21 +68,12 @@ export default ({}) => {
             <DividerLine />
             <Element name="whatishub" />
             <SingleColumnSection
-                title="What is a hub"
+                title={props.Section1Title}
                 center
                 halfpage
                 className="ScrollSnapElem"
             >
-                <p className="align">
-                    A hub is a physical location for all our participants to
-                    enjoy. Junction is usually held Espoo, Finland, to where
-                    participants have travelled from all around the world. This
-                    year, we have turned the tables, by bringing the event chez
-                    you. We've gathered amazing organizers and spaces for all
-                    accepted applicants to join, from Cambridge to New Delhi. If
-                    you'd like to join the community by organizing a hub
-                    yourself, shoot us a message at hello(at)hackjunction.com!
-                </p>
+                <p className="align">{props.Section1body}</p>
             </SingleColumnSection>
             <DividerLine />
             <SectionImage
@@ -88,20 +85,13 @@ export default ({}) => {
             <DividerLine />
             <Element name="central" />
             <SingleColumnSection
-                title="Junction Central Hub"
-                subtitle="The organizational hub located in the center of  well Finland"
+                title={props.Section2Title}
+                subtitle={props.Section2Subtitle}
                 halfpage
                 center
                 className="ScrollSnapElem"
             >
-                <p className="align">
-                    The Central Hub is from where Junction will coordinate the
-                    world's leading hackathon of 2020 and from where the stream
-                    studio connecting all of the hubs will be hosted. For once,
-                    Finland gets to be the center of something, as the hub is
-                    located in the Helsinki metropolitan area. To attend, you
-                    need to apply for the hub separately.
-                </p>
+                <p className="align">{props.Section2Body}</p>
             </SingleColumnSection>
             <DividerLine />
             <SectionImage
@@ -114,19 +104,13 @@ export default ({}) => {
             <Element name="hubstories" />
 
             <SingleColumnSection
-                title="Junction Hubs all over the world"
-                subtitle="Your official Junction location"
+                title={props.Section3Title}
+                subtitle={props.Section3Subtitle}
                 center
                 halfpage
                 className="ScrollSnapElem"
             >
-                <p className="align">
-                    Junction Hubs are locations all over Tellus, to which you
-                    can apply to or join freely, depending on the hub. These
-                    official hacking centers are organized by independent,
-                    remarkable hackathon organizers who have taken action and
-                    joined us to build this year's finest hackathon.
-                </p>
+                <p className="align">{props.Section3Body}</p>
             </SingleColumnSection>
             <DividerLine />
             <SectionImage
@@ -139,18 +123,28 @@ export default ({}) => {
             <SingleColumnSection
                 center
                 halfpage
-                title="Junction Partner Hubs"
-                subtitle="Brought to you by Junction's official partners"
+                title={props.Section4Title}
+                subtitle={props.Section4Subtitle}
                 className="ScrollSnapElem"
             >
-                <p className="align">
-                    Some of our outstanding partners will open up their work
-                    spaces for your team to enjoy a weekend full of hacking! The
-                    best part? You could be hacking at your future office. Find
-                    out more about the partner hubs closer to the application
-                    period.
-                </p>
+                <p className="align">{props.Section4Body}</p>
             </SingleColumnSection>
         </Page>
     )
 }
+
+
+const mapStateToProps = (state) => {
+    const content = selectContent(state);
+    let contentTexts = {}
+    
+    for (let key of Object.keys(textsJSON))
+    {
+        //Find key in strapi if exists, else use fallback in texts.json
+        contentTexts[key] = content[textsJSON.prefix+key] || textsJSON[textsJSON.prefix+key];
+    }
+
+    return contentTexts;
+};
+
+export default connect(mapStateToProps)(HubInfo);
