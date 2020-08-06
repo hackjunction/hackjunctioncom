@@ -22,6 +22,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
 
+const textsJSON = require("./texts.json");
+
 const ConnectedHome = (props) => {
     return (
         <Page
@@ -54,20 +56,20 @@ const ConnectedHome = (props) => {
             <HeaderSection
                 className="ScrollSnapElem wholePage"
                 logo={require("../../../assets/logos/connected_logo.svg")}
-                title={props.headerTitle}
-                body={props.headerBody}
+                title={props.HeaderTitle}
+                body={props.HeaderBody}
             >
                 <div className="Button-row">
                     <Button
                         className="Button-small"
                         to="/info"
-                        text={props.headerButton1}
+                        text={props.HeaderButton1}
                     />
 
                     <Button
                         className="Button-small"
                         to="https://hackjunction.com/partners"
-                        text={props.headerButton2}
+                        text={props.HeaderButton2}
                     />
                 </div>
             </HeaderSection>
@@ -83,13 +85,13 @@ const ConnectedHome = (props) => {
             <BlockSection
                 className="ScrollSnapElem"
                 halfpage
-                title={props.sectionTitle1}
-                subtitle={props.sectionBody1}
+                title={props.Section1Title}
+                subtitle={props.Section1Body}
                 extra={
                     <Button
                         className="Button-default"
                         to="/info"
-                        text={props.section1Button1}
+                        text={props.Section1Button1}
                     />
                 }
             >
@@ -101,13 +103,13 @@ const ConnectedHome = (props) => {
             <BlockSection
                 halfpage
                 inverted
-                title={props.sectionTitle2}
-                subtitle={props.sectionBody2}
+                title={props.Section2Title}
+                subtitle={props.Section2Body}
                 extra={
                     <Button
                         className="Button-default"
                         to="/hubs"
-                        text={props.section2Button1}
+                        text={props.Section2Button1}
                     />
                 }
             >
@@ -123,8 +125,8 @@ const ConnectedHome = (props) => {
 
             <BlockSection
                 halfpage
-                title="Stay connected."
-                subtitle="Sign up and be the first one to hear all the news."
+                title={props.Section3Title}
+                subtitle={props.Section3Body}
                 className="ScrollSnapElem Footer RemoveBorder"
                 extra={
                     <div className="RemoveBorder--flex">
@@ -141,17 +143,16 @@ const ConnectedHome = (props) => {
 
             <div className="YouTube--wrapper">
                 <div className="YouTube--inside">
-                    <h2>An experience like no other.</h2>
+                    <h2>{props.YouTubeWrapperTitle}</h2>
                     <h3>
-                        It’s epic, we promise. More information to come. While
-                        waiting, check out last year’s after movie.
+                        {props.YouTubeWrapperBody}
                     </h3>
                     <iframe
                         style={{
                             width: "70%",
                             height: "70%",
                         }}
-                        src={`https://www.youtube.com/embed/O2BCwUS6B7Q?vq=hd1080`}
+                        src={props.YouTubeWrapperLink}
                         frameBorder="0"
                     />
                 </div>
@@ -162,19 +163,16 @@ const ConnectedHome = (props) => {
 
 const mapStateToProps = (state) => {
     const content = selectContent(state);
+    let contentTexts = {}
+    
+    for (let key of Object.keys(textsJSON))
+    {
+        let varName = key.replace("ConnectedHome", "");
+        //Find key in strapi if exists, else use fallback in texts.json
+        contentTexts[varName] = content[key] || textsJSON[key];
+    }
 
-    return {
-        headerTitle: content["ConnectedHomeHeaderTitle"],
-        headerBody: content["ConnectedHomeHeaderBody"],
-        headerButton1: content["ConnectedHomeHeaderButton1"],
-        headerButton2: content["ConnectedHomeHeaderButton2"],
-        sectionTitle1: content["ConnectedHomeSection1Title"],
-        sectionBody1: content["ConnectedHomeSection1Body"],
-        section1Button1: content["ConnectedHomeSection1Button1"],
-        sectionTitle2: content["ConnectedHomeSection2Title"],
-        sectionBody2: content["ConnectedHomeSection2Body"],
-        section2Button1: content["ConnectedHomeSection2Button1"],
-    };
+    return contentTexts;
 };
 
 export default connect(mapStateToProps)(ConnectedHome);
