@@ -11,7 +11,16 @@
   "attributes": {
     "category": {
       "default": "",
-      "type": "string"
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "General",
+        "Schedule",
+        "Submissions",
+        "Hubs",
+        "Online",
+        "Tracks & Challenges"
+      ]
     },
     "question": {
       "default": "",
