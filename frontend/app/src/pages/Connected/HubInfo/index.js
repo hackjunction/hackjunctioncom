@@ -73,7 +73,7 @@ const HubInfo = (props) => {
                 halfpage
                 className="ScrollSnapElem"
             >
-                <p className="align">{props.Section1body}</p>
+                <p className="align">{props.Section1Body}</p>
             </SingleColumnSection>
             <DividerLine />
             <SectionImage
