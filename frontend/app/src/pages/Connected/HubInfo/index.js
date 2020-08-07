@@ -37,7 +37,7 @@ const HubInfo = (props) => {
                     smooth={true}
                     duration={500}
                 >
-                    <Button className="Button-default" text="What is a hub" />
+                    <Button className="Button-default" text={props.HeaderButton1} />
                 </Link>
                 <Link
                     activeClass="active"
@@ -46,7 +46,7 @@ const HubInfo = (props) => {
                     smooth={true}
                     duration={500}
                 >
-                    <Button className="Button-default" text="Central Hub" />
+                    <Button className="Button-default" text={props.HeaderButton2} />
                 </Link>
                 <Link
                     activeClass="active"
@@ -55,7 +55,7 @@ const HubInfo = (props) => {
                     smooth={true}
                     duration={500}
                 >
-                    <Button className="Button-default" text="Hub locations" />
+                    <Button className="Button-default" text={props.HeaderButton3} />
                 </Link>
             </HeaderSection>
             <DividerLine />
@@ -141,7 +141,7 @@ const mapStateToProps = (state) => {
     for (let key of Object.keys(textsJSON))
     {
         //Find key in strapi if exists, else use fallback in texts.json
-        contentTexts[key] = content[textsJSON.prefix+key] || textsJSON[key];
+        contentTexts[key] = content[textsJSON.prefix+key] || textsJSON[textsJSON.prefix+key];
     }
 
     return contentTexts;
