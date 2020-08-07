@@ -63,13 +63,13 @@ const ConnectedHome = (props) => {
                     <Button
                         className="Button-small"
                         to="/info"
-                        text={props.HeaderButton1}
+                        text="Event info"
                     />
 
                     <Button
                         className="Button-small"
                         to="https://hackjunction.com/partners"
-                        text={props.HeaderButton2}
+                        text="Partner with us"
                     />
                 </div>
             </HeaderSection>
@@ -91,7 +91,7 @@ const ConnectedHome = (props) => {
                     <Button
                         className="Button-default"
                         to="/info"
-                        text={props.Section1Button1}
+                        text="Learn more about the event"
                     />
                 }
             >
@@ -109,7 +109,7 @@ const ConnectedHome = (props) => {
                     <Button
                         className="Button-default"
                         to="/hubs"
-                        text={props.Section2Button1}
+                        text="Learn more about hubs"
                     />
                 }
             >
