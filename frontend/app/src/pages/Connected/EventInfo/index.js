@@ -17,75 +17,13 @@ import Button from "../../../components/Button"
 import Timeline from "../Components/Timeline"
 import FaqSection from "../Components/FaqSection"
 
-const items = [
+import { connect } from "react-redux";
+import { faq as selectQuestions } from "../../../redux/faq/selectors";
+
+const itemsOld = [
     {
         title: "General",
-        questions: [
-            {
-                question: "What is Junction?",
-                answer:
-                    "Junction is a global tech community, organizing hackathons and tech events around the year and around the world - both offline and online.",
-                key: "1",
-            },
-
-            {
-                question: "What is Junction 2020 Connected?",
-                answer:
-                    "Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online.",
-                key: "2",
-            },
-            {
-                question: "How do I attend Junction 2020 Connected?",
-                answer:
-                    "The application period takes place from the 1st of September until the 9th of October on our very own, handcrafted [Junction App](https://app.hackjunction.com/events/junction-2020-connected). You can apply either alone or as a team. You can edit your application until the 9th of October, but Junction team will accept the best applicants already during the application period. You'll be informed at the latest within a couple of days after the application deadline whether you're accepted to the hackathon or not. Information about acceptance to hubs will follow later.",
-                key: "3",
-            },
-            {
-                question: "Does it cost to attend?",
-                answer:
-                    "Nope! The event is free of charge for all accepted participants.",
-                key: "4",
-            },
-            {
-                question: "Who can attend Junction 2020 Connected?",
-                answer:
-                    "Junction 2020 Connected is for anyone and everyone passionate about creating with technology.",
-                key: "5",
-            },
-            {
-                question:
-                    "When and where will Junction 2020 Connected take place?",
-                answer:
-                    "The hackathon will take place November 6th to 8th and it will be hosted online, with an addition of physical hacking hubs all around the world.",
-                key: "6",
-            },
-            {
-                question: "What size can a team be?",
-                answer:
-                    "1 to 5 people - we suggest having a minimum of 3 people in a team. The Junction team will organize matchmaking at the start of the hackathon, so no need to worry if you don't have a team before the event. All team members must be accepted to the hackathon.",
-                key: "7",
-            },
-            {
-                question: "Who are the people behind Junction?",
-                answer:
-                    "Junction is run by a student and volunteer-based team, passionate about organizing the most epic hackathons in the world!",
-                key: "8",
-            },
-            {
-                question:
-                    "How can I get the latest news and updates on Junction 2020 Connected?",
-                answer:
-                    "Subscribe to our newsletter and follow us on social media @hackjunction to get the latest news and updates!",
-                key: "9",
-            },
-            {
-                question:
-                    "What kind of measurements are taken to prevent coronavirus infections?  ",
-                answer:
-                    "For each physical hub, Junction follows the guidelines set by the officials of the country, where the hub is organized. If it's not safe to organize a hub, the hub will cancelled and the corresponding participants will get to participate the event from some other hub or online.  \n In Finland, Junction follows the [guidelines given by the Finnish government](https://valtioneuvosto.fi/en/information-on-coronavirus/current-restrictions). This means that Junction will arrange the Central Hub in accordance with the [instructions given by The Ministry of Education and Culture and the Institute for Health and Welfare](https://minedu.fi/documents/1410845/22330894/Ohje+yleis%C3%B6tilaisuuksiin%2C+yleisiin+kokoontumisiin+ja+julkisten+tilojen+k%C3%A4ytt%C3%B6%C3%B6n/2b13eaca-ab49-9dda-3edf-65cb22fb65ac/Ohje+yleis%C3%B6tilaisuuksiin%2C+yleisiin+kokoontumisiin+ja+julkisten+tilojen+k%C3%A4ytt%C3%B6%C3%B6n.pdf). Here are the key measurements that Junction is going to take in Finland:\n\n- people that feel sick are not allowed to attend\n- possibility to wash or disinfect hands is always available when needed\n- the facilities are cleaned with extra caution and frequency\n- team-specific hacking tables are placed with 1-2 m safety distance to other tables\n- queuing is minimized by distributing people to arrive and leave gradually\n- the unavoidable queuing is arranged in a way that the 1-2 m safety distances can be maintained \n\nJunction is prepared to downsize the Central Hub according to the epidemiological situation - either by not welcoming any participants physically to the event venue or by not taking participants nor partners to the venue and arranging the stream-studio under the 10 people restriction on gatherings.",
-                key: "10",
-            },
-        ],
+        questions: [],
     },
     {
         title: "Schedule",
@@ -227,7 +165,7 @@ const items = [
     },
 ]
 
-export default ({}) => {
+const EventInfo = (props) => {
     return (
         <Page
             className="Connected ConnectedContent EventInfo"
@@ -333,7 +271,7 @@ export default ({}) => {
                 nolimit
                 className="ScrollSnapElem"
             >
-                <FaqSection items={items} />
+                <FaqSection items={props.items} />
                 <div className="ContactUsFaq">
                     <p>
                         Didn’t find what you were looking for? Our team is happy
@@ -353,3 +291,16 @@ export default ({}) => {
         </Page>
     )
 }
+
+const mapStateToProps = (state, ownProps) => {
+    var items = itemsOld;
+    var questions = selectQuestions(state);
+    console.log(state);
+    console.log(questions);
+
+    return {
+        items: items
+    };
+};
+
+export default connect(mapStateToProps)(EventInfo)

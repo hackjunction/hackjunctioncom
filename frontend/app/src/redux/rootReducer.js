@@ -3,6 +3,7 @@ import { combineReducers } from 'redux'
 // Import the reducer from each module here, and add it to the combined reducer
 import nav from './nav/reducer'
 import staticcontent from './staticcontent/reducer'
+import faq from './faq/reducer'
 import staticmedia from './staticmedia/reducer'
 import events from './events/reducer'
 import eventconcepts from './eventconcepts/reducer'
@@ -18,6 +19,7 @@ import misc from './misc/reducer'
 
 export default () => combineReducers({
 	nav,
+	faq,
 	staticcontent,
 	staticmedia,
 	events,

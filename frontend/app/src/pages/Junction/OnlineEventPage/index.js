@@ -242,7 +242,7 @@ class OnlineEventPage extends PureComponent {
                     subtitle="Frequently asked questions"
                 >
                     <Divider sm />
-                    <FaqGrid items={event.faqs} />
+                    <FaqGrid items={event.faq} />
                 </SingleColumnSection>
                 <Divider lg />
                 <SingleColumnSection center>
