@@ -10,7 +10,7 @@
   },
   "attributes": {
     "category": {
-      "default": "",
+      "default": "General",
       "type": "enumeration",
       "required": true,
       "enum": [
