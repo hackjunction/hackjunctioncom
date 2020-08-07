@@ -1,5 +1,5 @@
 import * as ActionTypes from './actionTypes'
-import FAQService from '../../services/faqs'
+import FAQService from '../../services/faq'
 import { contentShouldUpdate } from './selectors'
 
 export const updateFAQ = () => (dispatch, getState) => {

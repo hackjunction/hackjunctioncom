@@ -1,1 +1,1 @@
-export const UPDATE_FAQ = 'faqs/UPDATE';
+export const UPDATE_FAQ = 'faq/UPDATE';
