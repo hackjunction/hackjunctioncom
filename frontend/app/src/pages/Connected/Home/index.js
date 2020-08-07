@@ -168,7 +168,7 @@ const mapStateToProps = (state) => {
     for (let key of Object.keys(textsJSON))
     {
         //Find key in strapi if exists, else use fallback in texts.json
-        contentTexts[key] = content[textsJSON.prefix+key] || textsJSON[textsJSON.prefix+key];
+        contentTexts[key] = content[textsJSON.prefix+key] || textsJSON[key];
     }
 
     return contentTexts;
