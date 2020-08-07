@@ -37,7 +37,7 @@ const HubInfo = (props) => {
                     smooth={true}
                     duration={500}
                 >
-                    <Button className="Button-default" text={props.HeaderButton1} />
+                    <Button className="Button-default" text="What is a hub"/>
                 </Link>
                 <Link
                     activeClass="active"
@@ -46,7 +46,7 @@ const HubInfo = (props) => {
                     smooth={true}
                     duration={500}
                 >
-                    <Button className="Button-default" text={props.HeaderButton2} />
+                    <Button className="Button-default" text="Central hub" />
                 </Link>
                 <Link
                     activeClass="active"
@@ -55,7 +55,7 @@ const HubInfo = (props) => {
                     smooth={true}
                     duration={500}
                 >
-                    <Button className="Button-default" text={props.HeaderButton3} />
+                    <Button className="Button-default" text="Hub locations" />
                 </Link>
             </HeaderSection>
             <DividerLine />
