@@ -1,1 +1,1 @@
-export const UPDATE_STATIC_CONTENT = 'staticcontent/UPDATE';
+export const UPDATE_FAQ = 'faqs/UPDATE';

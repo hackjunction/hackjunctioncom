@@ -1,17 +1,17 @@
 import * as ActionTypes from './actionTypes'
-import StaticContentService from '../../services/staticcontent'
+import FAQService from '../../services/faqs'
 import { contentShouldUpdate } from './selectors'
 
-export const updateStaticContent = () => (dispatch, getState) => {
-	if (!contentShouldUpdate(getState())) {
+export const updateFAQ = () => (dispatch, getState) => {
+	if (!FAQShouldUpdate(getState())) {
 		return
 	}
 
 	dispatch({
-		type: ActionTypes.UPDATE_STATIC_CONTENT,
-		promise: StaticContentService.getAll(),
+		type: ActionTypes.UPDATE_FAQ,
+		promise: FAQService.getAll(),
 		meta: {
-			onFailure: (e) => console.log('Error updating static content', e)
+			onFailure: (e) => console.log('Error updating FAQ', e)
 		}
 	})
 }
