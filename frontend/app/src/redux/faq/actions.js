@@ -1,9 +1,9 @@
 import * as ActionTypes from './actionTypes'
 import FAQService from '../../services/faq'
-import { contentShouldUpdate } from './selectors'
+import { faqShouldUpdate } from './selectors'
 
 export const updateFAQ = () => (dispatch, getState) => {
-	if (!FAQShouldUpdate(getState())) {
+	if (!faqShouldUpdate(getState())) {
 		return
 	}
 
