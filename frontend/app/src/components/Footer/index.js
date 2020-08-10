@@ -1,23 +1,23 @@
-import React, { PureComponent } from "react"
-import "./style.scss"
+import React, { PureComponent } from "react";
+import "./style.scss";
 
-import { connect } from "react-redux"
-import { Link } from "react-router-dom"
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-import ContactForm from "../ContactForm"
-import NewsLetterForm from "../NewsLetterForm"
+import ContactForm from "../ContactForm";
+import NewsLetterForm from "../NewsLetterForm";
 
-import { content as selectContent } from "../../redux/staticcontent/selectors"
-import KEYS from "../../redux/staticcontent/keys"
+import { content as selectContent } from "../../redux/staticcontent/selectors";
+import KEYS from "../../redux/staticcontent/keys";
 import {
     homePages,
     eventPages,
     communityPages,
-} from "../../redux/pages/selectors"
+} from "../../redux/pages/selectors";
 
-import { eventconceptsByPriority } from "../../redux/eventconcepts/selectors"
-import { Typography, Grid } from "@material-ui/core"
-import DividerLine from "../DividerLine"
+import { eventconceptsByPriority } from "../../redux/eventconcepts/selectors";
+import { Typography, Grid } from "@material-ui/core";
+import DividerLine from "../DividerLine";
 
 class Footer extends PureComponent {
     renderConceptLinks(eventConcepts) {
@@ -30,8 +30,8 @@ class Footer extends PureComponent {
                 >
                     {concept.name}
                 </Link>
-            )
-        })
+            );
+        });
     }
 
     renderExtraPageLinks(pages) {
@@ -44,8 +44,8 @@ class Footer extends PureComponent {
                 >
                     {page.navTitle}
                 </Link>
-            )
-        })
+            );
+        });
     }
 
     render() {
@@ -140,18 +140,27 @@ class Footer extends PureComponent {
                     <div className="Footer--left-second__FooterLinkList">
                         <div className="FooterListLeft">
                             <span>
-                                <Link to="/codeofconduct">Code of Conduct</Link>
+                                {/* use Link when the CoC PP and TC are on same site */}
+                                <a href="https://hackjunction.com/codeofconduct">
+                                    Code of Conduct
+                                </a>
                             </span>
                             <span>
-                                <Link to="/policy">Privacy Policy</Link>
+                                <a href="https://hackjunction.com/policy">
+                                    Privacy Policy
+                                </a>
                             </span>
                             <span>
-                                <Link to="/terms">Terms & Conditions</Link>
+                                <a href="https://hackjunction.com/terms">
+                                    Terms & Conditions
+                                </a>
                             </span>
                         </div>
                         <div className="FooterListRight">
                             <span>
-                                <Link to="/press">Press kit</Link>
+                                <a href="https://hackjunction.com/press">
+                                    Press kit
+                                </a>
                             </span>
                             {/* <span>
                                     <Link to="/media">Press kit (fin)</Link>
@@ -187,12 +196,12 @@ class Footer extends PureComponent {
                     </div>
                 </div>
             </footer>
-        )
+        );
     }
 }
 
 const mapStateToProps = (state) => {
-    const content = selectContent(state)
+    const content = selectContent(state);
 
     return {
         siteSlogan: content[KEYS.siteSlogan],
@@ -201,7 +210,7 @@ const mapStateToProps = (state) => {
         eventPages: eventPages(state),
         communityPages: communityPages(state),
         eventConcepts: eventconceptsByPriority(state),
-    }
-}
+    };
+};
 
-export default connect(mapStateToProps)(Footer)
+export default connect(mapStateToProps)(Footer);
