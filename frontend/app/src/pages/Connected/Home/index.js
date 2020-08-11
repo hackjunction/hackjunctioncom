@@ -144,9 +144,7 @@ const ConnectedHome = (props) => {
             <div className="YouTube--wrapper">
                 <div className="YouTube--inside">
                     <h2>{props.YouTubeWrapperTitle}</h2>
-                    <h3>
-                        {props.YouTubeWrapperBody}
-                    </h3>
+                    <h3>{props.YouTubeWrapperBody}</h3>
                     <iframe
                         style={{
                             width: "70%",
@@ -163,10 +161,8 @@ const ConnectedHome = (props) => {
 
 const mapStateToProps = (state) => {
     const content = selectContent(state);
-    let contentTexts = {}
-    
-    for (let key of Object.keys(textsJSON))
-    {
+    let contentTexts = {};
+    for (let key of Object.keys(textsJSON)) {
         //Find key in strapi if exists, else use fallback in texts.json
         contentTexts[key] = content[textsJSON.prefix+key] || textsJSON[key];
     }
