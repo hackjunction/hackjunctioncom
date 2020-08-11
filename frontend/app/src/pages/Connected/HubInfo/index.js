@@ -37,7 +37,7 @@ const HubInfo = (props) => {
                     smooth={true}
                     duration={500}
                 >
-                    <Button className="Button-default" text="What is a hub" />
+                    <Button className="Button-default" text="What is a hub"/>
                 </Link>
                 <Link
                     activeClass="active"
@@ -73,7 +73,7 @@ const HubInfo = (props) => {
                 halfpage
                 className="ScrollSnapElem"
             >
-                <p className="align">{props.Section1body}</p>
+                <p className="align">{props.Section1Body}</p>
             </SingleColumnSection>
             <DividerLine />
             <SectionImage
@@ -141,7 +141,7 @@ const mapStateToProps = (state) => {
     for (let key of Object.keys(textsJSON))
     {
         //Find key in strapi if exists, else use fallback in texts.json
-        contentTexts[key] = content[textsJSON.prefix+key] || textsJSON[textsJSON.prefix+key];
+        contentTexts[key] = content[textsJSON.prefix+key] || textsJSON[key];
     }
 
     return contentTexts;
