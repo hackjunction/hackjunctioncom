@@ -29,7 +29,7 @@
     },
     "onlineevents": {
       "collection": "onlineevent",
-      "via": "faqs"
+      "via": "faq"
     }
   }
 }
