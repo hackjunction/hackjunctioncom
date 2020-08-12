@@ -1,7 +1,7 @@
 import axios from './jsonAxios'
 import config from './config'
 
-const URL = config.API_BASE_URL + '/api/faq'
+const URL = config.API_BASE_URL + '/faqs'
 
 const FAQService = {
 
