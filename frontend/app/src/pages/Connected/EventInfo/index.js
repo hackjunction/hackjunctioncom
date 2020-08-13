@@ -20,12 +20,12 @@ import FaqSection from "../Components/FaqSection"
 import { connect } from "react-redux";
 import { faq as selectQuestions } from "../../../redux/faq/selectors";
 
-const itemsOld = [
+const items = [
     {
         title: "General",
         questions: [],
     },
-    {
+    /*{
         title: "Schedule",
         questions: [
             {
@@ -162,8 +162,8 @@ const itemsOld = [
                 key: "3",
             },
         ],
-    },
-]
+    },*/
+];
 
 const EventInfo = (props) => {
     return (
@@ -293,14 +293,47 @@ const EventInfo = (props) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    var items = itemsOld;
     var questions = selectQuestions(state);
-    console.log(state);
-    console.log(questions);
-
+    items.key = "items"
+    //Loop through questions in strapi
+    for (let q of questions)
+    {
+        //Loop through categories in legacy code
+        for(let cat of items)
+        {
+            //If category already exist and question not in category
+            if(cat.title == q.category && !checkQInCat(q, cat))
+            {
+                console.log(cat.title+" found, pushing '"+q.question+"' in category '"+q.category+"'");
+                cat.questions.push(q);
+            }
+            /*else if(!checkQInCat(q, cat) && cat.title != q.category)
+            {
+                let lastCategory = items[items.length - 1];
+                if (!checkQInCat(q, lastCategory) && !checkQInCat(q, cat))
+                {
+                    //Push question in last category, supposed to be misc, if it's not, well shit
+                    lastCategory.questions.push(q);
+                }
+            }*/
+        }
+    }
+    console.log("Items:");
+    console.log(items);
     return {
         items: items
     };
 };
+
+const checkQInCat = (q, cat) => {
+    for (let catQ of cat.questions)
+    {
+        if (catQ.key == q.key)
+        {
+            return true;
+        }
+    }
+    return false;
+}
 
 export default connect(mapStateToProps)(EventInfo)
