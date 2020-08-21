@@ -30,7 +30,7 @@
 }
 
 .TrackItem.open {
-    overflow-y: scroll;
+    //overflow-y: scroll;
     scrollbar-width: thin; /* "auto" or "thin"  */
     scrollbar-color: $connected-blue; /* scroll thumb & track */
     animation-name: card-flip;
