@@ -37,7 +37,7 @@
 }
 
 .TrackItem.open::-webkit-scrollbar {
-    width: 12px; /* width of the entire scrollbar */
+    width: 5px; /* width of the entire scrollbar */
 }
 
 .TrackItem.open::-webkit-scrollbar-track {
@@ -45,9 +45,9 @@
 }
 
 .TrackItem.open::-webkit-scrollbar-thumb {
-    background-color: transparent; /* color of the scroll thumb */
+    background-color: $connected-blue; /* color of the scroll thumb */
     border-radius: 20px; /* roundness of the scroll thumb */
-    border: 3px solid $connected-red; /* creates padding around scroll thumb */
+    border: 3px solid $connected-blue; /* creates padding around scroll thumb */
 }
 
 .TrackItem {
