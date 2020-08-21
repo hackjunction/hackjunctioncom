@@ -5,24 +5,15 @@ import Markdown from "../Markdown";
 import { requirePropFactory } from "@material-ui/core";
 
 const TrackItem = ({ item }) => {
-    const { title, desc, logos, key } = item;
+    const { title, desc, fulldesc, logos, key } = item;
     const [open, toggleOpen] = useState(false);
-    const word = [
-        "wordmark_J",
-        "wordmark_U",
-        "wordmark_N",
-        "wordmark_C",
-        "emblem_black",
-        "wordmark_T",
-        "wordmark_I",
-        "wordmark_O",
-        "wordmark_N",
-    ];
+
     if (open) {
         return (
             <div className="TrackItem open" onClick={() => toggleOpen(!open)}>
-                <div className="TrackItem--number">
-                    <img src={require(`../../assets/logos/${word[key]}.svg`)} />
+                <div className="TrackItem--text">
+                    <span className="TrackItem--title">{title}</span>
+                    <p className="TrackItem--description">{fulldesc}</p>
                 </div>
             </div>
         );
