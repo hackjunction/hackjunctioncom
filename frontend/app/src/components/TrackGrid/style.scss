@@ -33,6 +33,9 @@
     overflow-y: scroll;
     scrollbar-width: thin; /* "auto" or "thin"  */
     scrollbar-color: $connected-blue; /* scroll thumb & track */
+    animation-name: card-flip;
+    animation-duration: 0.75s;
+    max-height: 17rem;
 }
 
 .TrackItem.open > .TrackItem--text {
@@ -52,6 +55,24 @@
     background-color: $connected-blue; /* color of the scroll thumb */
     border-radius: 20px; /* roundness of the scroll thumb */
     border: 3px solid $connected-blue; /* creates padding around scroll thumb */
+}
+
+@keyframes card-flip {
+    0% {
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+    25% {
+        transform: translate(0%, -10%) scale(1.05);
+        box-shadow: 0px 1em 1em #5103;
+    }
+    50% {
+        transform: rotate3d(0, 1, 0, 90deg) translate(0%, -10%) scale(1.05);
+        box-shadow: 0px 1em 1em #5103;
+    }
+    75% {
+        transform: rotate3d(0, 1, 0, 0deg) translate(0%, -10%) scale(1.05);
+        box-shadow: 0px 1em 1em #5103;
+    }
 }
 
 .TrackItem {
@@ -74,7 +95,7 @@
     padding: $padding-base;
     padding-top: 2rem;
     overflow: hidden;
-
+    background-color: $connected-peach;
     &--text {
         display: flex;
         flex-direction: column;
