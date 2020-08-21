@@ -31,9 +31,13 @@
 
 .TrackItem.open {
     overflow-y: scroll;
-    max-height: 17rem;
     scrollbar-width: thin; /* "auto" or "thin"  */
-    scrollbar-color: $connected-red; /* scroll thumb & track */
+    scrollbar-color: $connected-blue; /* scroll thumb & track */
+}
+
+.TrackItem.open > .TrackItem--text {
+    align-self: center;
+    width: 100%;
 }
 
 .TrackItem.open::-webkit-scrollbar {
@@ -60,6 +64,7 @@
     user-select: none;
     display: flex;
     height: 100%;
+    max-height: 17rem;
     flex-direction: column;
     border-color: $connected-red;
     justify-content: space-between;
