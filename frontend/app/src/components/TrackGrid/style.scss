@@ -29,6 +29,11 @@
     }
 }
 
+.TrackItem.open {
+    overflow-y: scroll;
+    max-height: 17rem;
+}
+
 .TrackItem {
     cursor: pointer;
     -webkit-touch-callout: none;
@@ -47,6 +52,7 @@
     border-width: 0.3rem;
     padding: $padding-base;
     padding-top: 2rem;
+    overflow: hidden;
 
     &--text {
         display: flex;
