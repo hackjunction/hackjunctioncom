@@ -29,13 +29,16 @@
     }
 }
 
+.TrackItem.flip {
+    //Please set animation duration in TrackItem.js
+    animation-name: card-flip;
+    max-height: 17rem;
+}
+
 .TrackItem.open {
     //overflow-y: scroll;
     scrollbar-width: thin; /* "auto" or "thin"  */
     scrollbar-color: $connected-blue; /* scroll thumb & track */
-    animation-name: card-flip;
-    animation-duration: 0.75s;
-    max-height: 17rem;
 }
 
 .TrackItem.open > .TrackItem--text {
