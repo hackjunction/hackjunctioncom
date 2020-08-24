@@ -6,7 +6,7 @@ import { requirePropFactory } from "@material-ui/core";
 
 const TrackItem = ({ item }) => {
     //Animation duration
-    const aDur = 0.75
+    const aDur = 0.6
     const { title, background, desc, fulldesc, logos, key } = item
     const [open, toggleOpen] = useState(false)
 
