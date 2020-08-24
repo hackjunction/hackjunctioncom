@@ -7,6 +7,7 @@ import { requirePropFactory } from "@material-ui/core";
 const TrackItem = ({ item }) => {
     //Animation duration
     const aDur = 0.75
+    const cardBG = 'url("./card.png") !important'
     const { title, desc, fulldesc, logos, key } = item
     const [open, toggleOpen] = useState(false)
 
@@ -27,7 +28,7 @@ const TrackItem = ({ item }) => {
 
     if (open) {
         return (
-            <div className="TrackItem open flip" style={{ animationDuration: aDur + "s" }} onAnimationEnd={(e) => flipStyle(e, false)} onClick={(e) => flipCard(e)}>
+            <div className="TrackItem open flip" style={{ backgroundImage: cardBG, animationDuration: aDur + "s" }} onAnimationEnd={(e) => flipStyle(e, false)} onClick={(e) => flipCard(e)}>
                 <div className="TrackItem--text">
                     <span className="TrackItem--title">{title}</span>
                     <p className="TrackItem--description">{fulldesc}</p>
@@ -36,7 +37,7 @@ const TrackItem = ({ item }) => {
         )
     }
     return (
-        <div className="TrackItem closed flip" style={{animationDuration: aDur + "s"}} onAnimationEnd={(e) => flipStyle(e, false)} onClick={(e) => flipCard(e)}>
+        <div className="TrackItem closed flip" style={{ backgroundImage: cardBG, animationDuration: aDur + "s"}} onAnimationEnd={(e) => flipStyle(e, false)} onClick={(e) => flipCard(e)}>
             <div className="TrackItem--text">
                 <span className="TrackItem--title">{title}</span>
                 <p className="TrackItem--description">{desc}</p>
