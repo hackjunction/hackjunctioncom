@@ -99,6 +99,9 @@
     padding-top: 2rem;
     overflow: hidden;
     background-color: $connected-peach;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     &--text {
         display: flex;
         flex-direction: column;
