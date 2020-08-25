@@ -44,8 +44,7 @@ function ChallengeGrid({ items }) {
     return (
         <>
             <div className="FilterButtons">
-                <p>Filtteri description tähän</p>
-                <h3>Click to filter challenges by spesifics:</h3>
+                <h3>Click to filter challenges by specifics:</h3>
                 {renderButtons()}
             </div>
             <div className="ChallengeGrid">{renderItems(items)}</div>
