@@ -1,40 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
+import Button from "../Button"
 import "./style.scss";
 
-import GridItem from "./GridItem";
+import ChallengeItem from "./ChallengeItem";
 
 function ChallengeGrid({ items }) {
     const distincttags = [...new Set(items.map((x) => x.tags).flat())];
 
-    const [selected, setSelected] = useState(distincttags);
+    const [selected, setSelected] = useState('');
 
     const renderItems = (items) => {
         const filtered = items.filter((item) =>
-            item.tags.some((a) => selected.includes(a)),
+            item.tags.some((a) => {return(selected == a || selected == '')}),
         );
-        return filtered.map((item) => <GridItem {...item} />);
+        return filtered.map((item) => <ChallengeItem {...{ item }} />);
     };
 
     const renderButtons = () => {
         const newselection = (key) => {
-            let newarray = [];
-            if (selected.includes(key)) {
-                newarray = selected.filter((item) => item !== key);
+            if (selected == key) {
+                setSelected('');
             } else {
-                newarray = [...selected, key];
+                setSelected(key);
             }
-            return newarray;
+            return selected;
         };
 
         return (
             distincttags &&
             distincttags.flat().map((tag) => (
-                <button
-                    key={tag}
-                    onClick={() => setSelected(newselection(tag))}
-                >
-                    {tag}
-                </button>
+                <Button
+                    className={`Button-default ${ 
+                        selected == tag ? "selected" : ""
+                    }`}
+                    text={tag}
+                    onClick={() => newselection(tag)}
+
+                />
             ))
         );
     };
