@@ -9,7 +9,6 @@
     margin: 5% 10%;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-row-gap: 1%;
     align-items: center;
     grid-auto-rows: 1fr;
 
@@ -80,6 +79,7 @@
 
 .TrackItem {
     cursor: pointer;
+    margin-top: 5%;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
