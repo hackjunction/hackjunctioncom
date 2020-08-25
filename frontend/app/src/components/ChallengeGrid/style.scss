@@ -87,8 +87,9 @@
     -ms-user-select: none;
     user-select: none;
     display: flex;
-    height: 100%;
+    height: 17rem;
     max-height: 17rem;
+    min-height: 17rem;
     flex-direction: column;
     border-color: $connected-red;
     justify-content: space-between;
@@ -103,10 +104,6 @@
     background-position: center;
     background-size: contain;
     &--text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
         text-align: center;
         align-self: center;
 

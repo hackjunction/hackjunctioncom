@@ -9,6 +9,8 @@ import { Link, Element } from "react-scroll";
 import SectionImage from "../../../components/SectionImage";
 import { Grid } from "@material-ui/core";
 
+import "../../../components/HeaderSection/style.scss";
+
 import Page from "../../PageHOC";
 import Button from "../../../components/Button";
 import HeaderSection from "../../../components/HeaderSection";
@@ -26,7 +28,7 @@ const challenges = [
             require("../../../assets/logos/emblem_black.png"),
             require("../../../assets/logos/emblem_black.png"),
         ],
-        background: 'url("/card.png")',
+        background: 'none',
         tags: ["api"],
         key: 0,
     },
@@ -35,7 +37,7 @@ const challenges = [
         desc: "Track description can be quite lengthy",
         fulldesc: "Lorem ipsum dolor sit amet , consectetur adipiscing elit. Nam tempor dui a lacus ultricies luctus. Nullam vitae mauris et nulla gravida efficitur. In tincidunt purus id justo mollis ornare. Quisque venenatis nisi ac molestie dignissim. Donec fermentum facilisis ligula a blandit. Suspendisse velit elit, dignissim sed efficitur non, pharetra nec est. In iaculis lacus et sem semper sollicitudin. Nam elementum, erat id tempor condimentum, lectus ligula ultricies elit, sit amet commodo eros purus et neque. Proin tincidunt luctus orci, ornare vestibulum purus placerat sed. Aliquam erat volutpat. In hac habitasse platea dictumst. Praesent efficitur ante velit, vitae pharetra felis feugiat eget. In lacinia tempus nisl, in interdum risus ornare eu. Duis imperdiet urna turpis, vitae venenatis risus commodo vitae. ",
         logos: [],
-        background: 'url("/card.png")',
+        background: 'none',
         tags: ["technologies"],
         key: 1,
     },
@@ -48,7 +50,7 @@ const challenges = [
 
             require("../../../assets/logos/emblem_black.png"),
         ],
-        background: 'url("/card.png")',
+        background: 'none',
         tags: ["jam"],
         key: 2,
     },
@@ -57,7 +59,7 @@ const challenges = [
         desc: "Are you intelligent? Do you know something about frameworks? Great.",
         fulldesc: "Lorem ipsum dolor sit amet , consectetur adipiscing elit. Nam tempor dui a lacus ultricies luctus. Nullam vitae mauris et nulla gravida efficitur. In tincidunt purus id justo mollis ornare. Quisque venenatis nisi ac molestie dignissim. Donec fermentum facilisis ligula a blandit. Suspendisse velit elit, dignissim sed efficitur non, pharetra nec est. In iaculis lacus et sem semper sollicitudin. Nam elementum, erat id tempor condimentum, lectus ligula ultricies elit, sit amet commodo eros purus et neque. Proin tincidunt luctus orci, ornare vestibulum purus placerat sed. Aliquam erat volutpat. In hac habitasse platea dictumst. Praesent efficitur ante velit, vitae pharetra felis feugiat eget. In lacinia tempus nisl, in interdum risus ornare eu. Duis imperdiet urna turpis, vitae venenatis risus commodo vitae. ",
         logos: [require("../../../assets/logos/emblem_black.png")],
-        background: 'url("/card.png")',
+        background: 'none',
         tags: ["frameworks"],
         key: 3,
     },
@@ -69,7 +71,7 @@ const challenges = [
             require("../../../assets/logos/emblem_black.png"),
             require("../../../assets/logos/emblem_black.png"),
         ],
-        background: 'url("/card.png")',
+        background: 'none',
         tags: ["vitun hyvä", "ebin"],
         key: 4,
     },
@@ -78,7 +80,7 @@ const challenges = [
         desc: "Track description can be quite lengthy",
         fulldesc: "Lorem ipsum dolor sit amet , consectetur adipiscing elit. Nam tempor dui a lacus ultricies luctus. Nullam vitae mauris et nulla gravida efficitur. In tincidunt purus id justo mollis ornare. Quisque venenatis nisi ac molestie dignissim. Donec fermentum facilisis ligula a blandit. Suspendisse velit elit, dignissim sed efficitur non, pharetra nec est. In iaculis lacus et sem semper sollicitudin. Nam elementum, erat id tempor condimentum, lectus ligula ultricies elit, sit amet commodo eros purus et neque. Proin tincidunt luctus orci, ornare vestibulum purus placerat sed. Aliquam erat volutpat. In hac habitasse platea dictumst. Praesent efficitur ante velit, vitae pharetra felis feugiat eget. In lacinia tempus nisl, in interdum risus ornare eu. Duis imperdiet urna turpis, vitae venenatis risus commodo vitae. ",
         logos: [],
-        background: 'url("/card.png")',
+        background: 'none',
         tags: ["vitun hyvä", "ebin"],
         key: 5,
     },
@@ -90,7 +92,7 @@ const challenges = [
             require("../../../assets/logos/emblem_black.png"),
             require("../../../assets/logos/emblem_black.png"),
         ],
-        background: 'url("/card.png")',
+        background: 'none',
         tags: ["vitun hyvä", "ebin"],
         key: 6,
     },
@@ -99,7 +101,7 @@ const challenges = [
         desc: "Track description can be quite lengthy",
         fulldesc: "Lorem ipsum dolor sit amet , consectetur adipiscing elit. Nam tempor dui a lacus ultricies luctus. Nullam vitae mauris et nulla gravida efficitur. In tincidunt purus id justo mollis ornare. Quisque venenatis nisi ac molestie dignissim. Donec fermentum facilisis ligula a blandit. Suspendisse velit elit, dignissim sed efficitur non, pharetra nec est. In iaculis lacus et sem semper sollicitudin. Nam elementum, erat id tempor condimentum, lectus ligula ultricies elit, sit amet commodo eros purus et neque. Proin tincidunt luctus orci, ornare vestibulum purus placerat sed. Aliquam erat volutpat. In hac habitasse platea dictumst. Praesent efficitur ante velit, vitae pharetra felis feugiat eget. In lacinia tempus nisl, in interdum risus ornare eu. Duis imperdiet urna turpis, vitae venenatis risus commodo vitae. ",
         logos: [require("../../../assets/logos/emblem_black.png")],
-        background: 'url("/card.png")',
+        background: 'none',
         tags: ["vitun hyvä"],
         key: 7,
     },
@@ -112,7 +114,7 @@ const challenges = [
             require("../../../assets/logos/emblem_black.png"),
             require("../../../assets/logos/emblem_black.png"),
         ],
-        background: 'url("/card.png")',
+        background: 'none',
         tags: ["ebin"],
         key: 8,
     },
@@ -261,7 +263,7 @@ class Challenges extends PureComponent {
                 >
                     Challenges
                 </SectionImage>
-
+                <h2 className="HeaderSection--body ChallengeSubtitle">Here are the challenges for Junction 2020 Connected.</h2>
                 <Element class="MobileLink" name="challenges" id="challenges" />
                 <ChallengeGrid items={challenges} />
             </Page>
