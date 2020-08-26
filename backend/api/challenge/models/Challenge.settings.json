@@ -21,6 +21,10 @@
       "default": "",
       "type": "string"
     },
+    "tags": {
+      "default": "",
+      "type": "string"
+    },
     "long_text": {
       "default": "",
       "type": "string"
