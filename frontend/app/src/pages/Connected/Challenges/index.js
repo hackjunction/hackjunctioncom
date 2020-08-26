@@ -119,7 +119,7 @@ const challenges = [
         key: 8,
     },
 ];
-
+/*
 const tracks = [
     {
         title: "Api Management",
@@ -212,7 +212,7 @@ const tracks = [
         key: 8,
     },
 ];
-
+*/
 class Challenges extends PureComponent {
     render() {
         return (
@@ -223,9 +223,11 @@ class Challenges extends PureComponent {
                 ogImageKey={MEDIA_KEYS.homePageHeaderImage}
             >
                 <HeaderSection
-                    title="Tracks & Challenges"
-                    body="The hackathon is divided into tracks based on different industries and themes. All tracks include multiple challenges you can choose to work on during the hackathon: and you can even combine challenges and submit your project to multiple ones!"
+                    title={/*"Tracks & "+*/"Challenges"}
+                    //body="The hackathon is divided into tracks based on different industries and themes. All tracks include multiple challenges you can choose to work on during the hackathon: and you can even combine challenges and submit your project to multiple ones!"
+                    body="The hackathon is divided into challenges based on different industries and themes. You can choose to work on multiple challenges during the hackathon: and you can even combine them and submit your project to multiple ones!"
                 >
+                    {/*
                     <Grid spacing={12} direction="row">
                         <Link
                             activeClass="active"
@@ -246,7 +248,9 @@ class Challenges extends PureComponent {
                             <Button className="Button-default" text="Challenges" />                                
                         </Link>
                     </Grid>
+                    */}
                 </HeaderSection>
+                {/*
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
@@ -256,13 +260,15 @@ class Challenges extends PureComponent {
 
                 <Element class="MobileLink" name="tracks" id="tracks" />
                 <TrackGrid items={tracks} />
-
+                */}
+                {/*
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
                 >
                     Challenges
                 </SectionImage>
+                */}
                 <h2 className="HeaderSection--body ChallengeSubtitle">Here are the challenges for Junction 2020 Connected.</h2>
                 <Element class="MobileLink" name="challenges" id="challenges" />
                 <ChallengeGrid items={challenges} />
