@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux'
 
 // Import the reducer from each module here, and add it to the combined reducer
 import nav from './nav/reducer'
