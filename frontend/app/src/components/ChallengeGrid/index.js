@@ -5,16 +5,9 @@ import "./style.scss";
 import ChallengeItem from "./ChallengeItem";
 
 function ChallengeGrid({ items }) {
-    const distincttags = [...new Set(items.map((x) => x.tags).flat())];
+    const distincttags = [...new Set(items.map((x) => x.tags).flat())].sort();
 
     const [selected, setSelected] = useState('');
-
-    const renderItems = (items) => {
-        const filtered = items.filter((item) =>
-            item.tags.some((a) => {return(selected == a || selected == '')}),
-        );
-        return filtered.map((item) => <ChallengeItem {...{ item }} />);
-    };
 
     const renderButtons = () => {
         const newselection = (key) => {
@@ -47,7 +40,11 @@ function ChallengeGrid({ items }) {
                 <h3>Click to filter challenges by specifics:</h3>
                 {renderButtons()}
             </div>
-            <div className="ChallengeGrid">{renderItems(items)}</div>
+            <div className="ChallengeGrid">{
+                items.map(item => {
+                    return item.tags.some((a) => {return(selected == a || selected == '')}) ? <ChallengeItem {...{ item }} /> : null
+                })
+            }</div>
         </>
     );
 }
