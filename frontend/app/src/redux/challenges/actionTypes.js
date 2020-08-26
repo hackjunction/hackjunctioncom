@@ -1,1 +1,1 @@
-export const UPDATE_CHALLENGES = "challenges/UPDATE";
+export const UPDATE_CHALLENGES = 'challenges/UPDATE'
