@@ -1,0 +1,41 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "track",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "uniqueId": {
+      "default": "",
+      "type": "string"
+    },
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "shorttext": {
+      "default": "",
+      "type": "string"
+    },
+    "long_text": {
+      "default": "",
+      "type": "string"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "cardbackground": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

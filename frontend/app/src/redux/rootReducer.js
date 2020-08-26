@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux";
 
 // Import the reducer from each module here, and add it to the combined reducer
 import nav from './nav/reducer'
@@ -15,6 +15,7 @@ import stories from './stories/reducer'
 import teammembers from './teammembers/reducer'
 import testimonials from './testimonials/reducer'
 import onlineevents from './onlineevents/reducer'
+import challenges from './challenges/reducer'
 import misc from './misc/reducer'
 
 export default () => combineReducers({
@@ -31,6 +32,7 @@ export default () => combineReducers({
 	stories,
 	teammembers,
 	testimonials,
-	onlineevents,
+    onlineevents,
+    challenges,
 	misc
 });

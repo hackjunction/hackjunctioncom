@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/tracks",
+      "handler": "Track.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/tracks/count",
+      "handler": "Track.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/tracks/:_id",
+      "handler": "Track.findOne",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

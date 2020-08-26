@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/challenges",
+      "handler": "Challenge.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/challenges/count",
+      "handler": "Challenge.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/challenges/:_id",
+      "handler": "Challenge.findOne",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
