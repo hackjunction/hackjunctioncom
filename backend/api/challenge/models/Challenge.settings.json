@@ -9,11 +9,33 @@
     "timestamps": true
   },
   "attributes": {
-        "name": {
+    "uniqueId": {
+      "default": "",
       "type": "string"
     },
-    "description": {
-      "type": "text"
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "shorttext": {
+      "default": "",
+      "type": "string"
+    },
+    "long_text": {
+      "default": "",
+      "type": "string"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "cardbackground": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }
