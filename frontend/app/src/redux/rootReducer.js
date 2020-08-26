@@ -14,6 +14,9 @@ import stories from './stories/reducer'
 import teammembers from './teammembers/reducer'
 import testimonials from './testimonials/reducer'
 import onlineevents from './onlineevents/reducer'
+import tracks from './tracks/reducer'
+import challenges from './challenges/reducer'
+
 import misc from './misc/reducer'
 
 export default () =>
@@ -32,4 +35,6 @@ export default () =>
     testimonials,
     onlineevents,
     misc,
+    tracks,
+    challenges,
   })

@@ -27,6 +27,8 @@ const persistConfig = {
     'challenges',
     'onlineevents',
     'misc',
+    'tracks',
+    'challenges',
   ],
   stateReconciler: autoMergeLevel2,
 }
