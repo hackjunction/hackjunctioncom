@@ -7,7 +7,7 @@ import { requirePropFactory } from "@material-ui/core";
 const ChallengeItem = ({ item }) => {
     //Animation duration
     const aDur = 0.6
-    const { title, background, desc, fulldesc, logos, key } = item
+    const { name, cardbackground, shorttext, long_text, icon, tags, key } = item
     const [open, toggleOpen] = useState(false)
 
     const flipStyle = (e, state) => {
@@ -29,23 +29,20 @@ const ChallengeItem = ({ item }) => {
         return (
             <div className="ChallengeItem open flip" style={{ animationDuration: aDur + "s" }} onAnimationEnd={(e) => flipStyle(e, false)} onClick={(e) => flipCard(e)}>
                 <div className="ChallengeItem--text">
-                    <span className="ChallengeItem--title">{title}</span>
-                    <p className="ChallengeItem--description">{fulldesc}</p>
+                    <span className="ChallengeItem--title">{name}</span>
+                    <p className="ChallengeItem--description">{long_text}</p>
                 </div>
             </div>
         )
     }
     return (
-        <div className="ChallengeItem closed flip" style={{ backgroundImage: background, animationDuration: aDur + "s"}} onAnimationEnd={(e) => flipStyle(e, false)} onClick={(e) => flipCard(e)}>
+        <div className="ChallengeItem closed flip" style={{ backgroundImage: cardbackground, animationDuration: aDur + "s"}} onAnimationEnd={(e) => flipStyle(e, false)} onClick={(e) => flipCard(e)}>
             <div className="ChallengeItem--text">
-                <span className="ChallengeItem--title">{title}</span>
-                <p className="ChallengeItem--description">{desc}</p>
+                <span className="ChallengeItem--title">{name}</span>
+                <p className="ChallengeItem--description">{shorttext}</p>
             </div>
             <div className="ChallengeItem--logowpr">
-                {logos &&
-                    logos.map((logo) => (
-                        <img className="ChallengeItem--logo" src={logo} />
-                    ))}
+                {icon}
             </div>
         </div >
     );

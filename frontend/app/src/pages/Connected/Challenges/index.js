@@ -18,7 +18,10 @@ import TrackGrid from "../../../components/TrackGrid";
 import BlockSection from "../../../components/BlockSection";
 import ChallengeGrid from "../../../components/ChallengeGrid";
 
-const challenges = [
+import { challenges as selectChallenges } from "../../../redux/challenges/selectors"
+import {connect} from "react-redux"
+
+/*const challenges = [
     {
         title: "Api Management",
         desc: "Track description can be quite lengthy",
@@ -118,7 +121,7 @@ const challenges = [
         tags: ["ebin"],
         key: 8,
     },
-];
+];*/
 /*
 const tracks = [
     {
@@ -257,7 +260,7 @@ class Challenges extends PureComponent {
                 >
                     Tracks
                 </SectionImage>
-
+    
                 <Element class="MobileLink" name="tracks" id="tracks" />
                 <TrackGrid items={tracks} />
                 */}
@@ -271,10 +274,19 @@ class Challenges extends PureComponent {
                 */}
                 <h2 className="HeaderSection--body ChallengeSubtitle">Here are the challenges for Junction 2020 Connected.</h2>
                 <Element class="MobileLink" name="challenges" id="challenges" />
-                <ChallengeGrid items={challenges} />
+                <ChallengeGrid items={Object.values(this.props.challenges)} />
             </Page>
-        );
+        );      
     }
 }
 
-export default Challenges;
+function MapStateToProps(state, ownProps)
+{
+    var challenges = selectChallenges(state)
+    console.log(challenges);
+    return{
+        challenges: challenges
+    }
+}
+
+export default connect(MapStateToProps)(Challenges)
