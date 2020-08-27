@@ -9,6 +9,10 @@
     "timestamps": true
   },
   "attributes": {
+    "category": {
+      "default": "",
+      "type": "string"
+    },
     "question": {
       "default": "",
       "type": "string"
@@ -25,7 +29,7 @@
     },
     "onlineevents": {
       "collection": "onlineevent",
-      "via": "faqs"
+      "via": "faq"
     }
   }
 }

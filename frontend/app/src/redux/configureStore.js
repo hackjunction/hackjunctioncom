@@ -13,6 +13,7 @@ const persistConfig = {
 	storage,
 	whitelist: [
 		'staticcontent',
+		'faq',
 		'staticmedia',
 		'events',
 		'eventconcepts',
