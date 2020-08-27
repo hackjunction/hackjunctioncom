@@ -1,5 +1,5 @@
 import * as ActionTypes from './actionTypes'
-import ChallengeService from '../../services/challenges'
+import ChallengeService from '../../services/challenge'
 import { challengesShouldUpdate } from './selectors'
 
 /**
@@ -12,7 +12,7 @@ export const updateChallenges = () => (dispatch, getState) => {
   }
 
   dispatch({
-    type: ActionTypes.UPDATE_TRACKS,
+    type: ActionTypes.UPDATE_CHALLENGES,
     promise: ChallengeService.getAll(),
     meta: {
       onFailure: (e) => console.log('Error updating challenges', e),

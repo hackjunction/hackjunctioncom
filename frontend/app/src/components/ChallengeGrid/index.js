@@ -5,7 +5,7 @@ import "./style.scss";
 import ChallengeItem from "./ChallengeItem";
 
 function ChallengeGrid({ items }) {
-    const distincttags = [...new Set(items.map((x) => x.tags).flat())].sort();
+    const distincttags = [...new Set(items.map((x) => x.tags.split(', ')).flat())].sort();
 
     const [selected, setSelected] = useState('');
 
@@ -42,7 +42,8 @@ function ChallengeGrid({ items }) {
             </div>
             <div className="ChallengeGrid">{
                 items.map(item => {
-                    return item.tags.some((a) => {return(selected == a || selected == '')}) ? <ChallengeItem {...{ item }} /> : null
+                    console.log(item);
+                    return item.tags.split(', ').some((a) => {return(selected == a || selected == '')}) ? <ChallengeItem {...{ item }} /> : null
                 })
             }</div>
         </>
