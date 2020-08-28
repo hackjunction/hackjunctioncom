@@ -7,11 +7,15 @@ import { requirePropFactory } from "@material-ui/core";
 const ChallengeItem = ({ item }) => {
     //Animation duration
     const aDur = 0.6
-    const { name, shorttext, long_text, icon, tags, key } = item
-    var {cardbackground} = item
+    const { name, shorttext, long_text, tags, key } = item
+    var {cardbackground, icon} = item
     if (!cardbackground)
     {
         cardbackground = {url:""}
+    }
+    if (!icon)
+    {
+        icon = {url:""}
     }
     const [open, toggleOpen] = useState(false)
 
