@@ -276,7 +276,7 @@ class Challenges extends PureComponent {
                     Challenges
                 </SectionImage>
                 */}
-                <SectionImage imageKey={MEDIA_KEYS.homePageHeaderImage} alt="Header image"/>
+                <SectionImage imageKey={MEDIA_KEYS.connectedChallengesImage} alt="Header image"/>
                 <Element class="MobileLink" name="challenges" id="challenges" />
                 <ChallengeGrid items={Object.values(this.props.challenges)} />
             </Page>

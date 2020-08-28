@@ -27,7 +27,8 @@
         "notFoundPageHeaderImage",
         "interestedInOrganisingImage",
         "junctionXTimelineImage",
-        "partnerFaqImage"
+        "partnerFaqImage",
+        "connectedChallengesImage"
       ],
       "unique": true
     },
