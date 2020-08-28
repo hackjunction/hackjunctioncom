@@ -47,7 +47,7 @@ const ChallengeItem = ({ item }) => {
                 <p className="ChallengeItem--description">{shorttext}</p>
             </div>
             <div className="ChallengeItem--logowpr">
-                <img src={icon.url}/>
+                <img class="ChallengeIco" src={icon.url}/>
             </div>
         </div >
     );
