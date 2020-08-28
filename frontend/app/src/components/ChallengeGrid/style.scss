@@ -5,6 +5,12 @@
   text-align: center;
 }
 
+.ChallengeGridTitle {
+  margin-top: 7%;
+  margin-bottom: 5%;
+  color: $connected-red !important;
+}
+
 .ChallengeGrid {
   margin: 5% 10%;
   display: grid;
@@ -29,10 +35,6 @@
     grid-row-gap: 2%;
     grid-auto-rows: 1fr;
   }
-}
-
-.ChallengeIco {
-  height: 5rem;
 }
 
 .ChallengeItem.flip {

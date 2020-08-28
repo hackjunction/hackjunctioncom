@@ -228,7 +228,7 @@ class Challenges extends PureComponent {
                 <HeaderSection
                     title={/*"Tracks & "+*/"Challenges"}
                     //body="The hackathon is divided into tracks based on different industries and themes. All tracks include multiple challenges you can choose to work on during the hackathon: and you can even combine challenges and submit your project to multiple ones!"
-                    body="The hackathon is divided into challenges based on different industries and themes. You can choose to work on multiple challenges during the hackathon: and you can even combine them and submit your project to multiple ones!"
+                    body="Here are the challenges for Junction 2020 Connected. All challenges can be solved both online and offline. More challenges are announced during the application period and all the way until the event, so stay tuned."
                 >
                     {/*
                     <Grid spacing={12} direction="row">
@@ -252,6 +252,10 @@ class Challenges extends PureComponent {
                         </Link>
                     </Grid>
                     */}
+                    <Grid spacing={12} direction="row">
+                        <Button className="Button-default" to="/info" text="Event info" />
+                        <Button className="Button-default" to text="Apply here!"/>
+                    </Grid>
                 </HeaderSection>
                 {/*
                 <SectionImage
@@ -272,7 +276,7 @@ class Challenges extends PureComponent {
                     Challenges
                 </SectionImage>
                 */}
-                <h2 className="HeaderSection--body ChallengeSubtitle">Here are the challenges for Junction 2020 Connected.</h2>
+                <SectionImage imageKey={MEDIA_KEYS.homePageHeaderImage} alt="Header image"/>
                 <Element class="MobileLink" name="challenges" id="challenges" />
                 <ChallengeGrid items={Object.values(this.props.challenges)} />
             </Page>

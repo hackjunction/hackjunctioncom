@@ -87,6 +87,8 @@ const ConnectedContent = () => {
             </ConnectedNavLink>
             <ConnectedNavLink to="/info/#faq">FAQ</ConnectedNavLink>
 
+            <ConnectedNavLink title to="/challenges">Challenges</ConnectedNavLink>
+
             <ConnectedNavLink title to="/hubs">
                 Hubs
             </ConnectedNavLink>

@@ -37,7 +37,7 @@ function ChallengeGrid({ items }) {
     return (
         <>
             <div className="FilterButtons">
-                <h3>Click to filter challenges by specifics:</h3>
+                <h2 class="ChallengeGridTitle">Click to filter challenges by specifics:</h2>
                 {renderButtons()}
             </div>
             <div className="ChallengeGrid">{
