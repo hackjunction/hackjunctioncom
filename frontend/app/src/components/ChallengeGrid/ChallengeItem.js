@@ -7,7 +7,12 @@ import { requirePropFactory } from "@material-ui/core";
 const ChallengeItem = ({ item }) => {
     //Animation duration
     const aDur = 0.6
-    const { name, cardbackground, shorttext, long_text, icon, tags, key } = item
+    const { name, shorttext, long_text, icon, tags, key } = item
+    var {cardbackground} = item
+    if (!cardbackground)
+    {
+        cardbackground = {url:""}
+    }
     const [open, toggleOpen] = useState(false)
 
     const flipStyle = (e, state) => {
@@ -36,13 +41,13 @@ const ChallengeItem = ({ item }) => {
         )
     }
     return (
-        <div className="ChallengeItem closed flip" style={{ backgroundImage: cardbackground, animationDuration: aDur + "s"}} onAnimationEnd={(e) => flipStyle(e, false)} onClick={(e) => flipCard(e)}>
+        <div className="ChallengeItem closed flip" style={{ backgroundImage: "url("+cardbackground.url+")", animationDuration: aDur + "s"}} onAnimationEnd={(e) => flipStyle(e, false)} onClick={(e) => flipCard(e)}>
             <div className="ChallengeItem--text">
                 <span className="ChallengeItem--title">{name}</span>
                 <p className="ChallengeItem--description">{shorttext}</p>
             </div>
             <div className="ChallengeItem--logowpr">
-                {icon}
+                <img src={icon.url}/>
             </div>
         </div >
     );
