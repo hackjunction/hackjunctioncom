@@ -8,6 +8,7 @@ import { updateFAQ } from './redux/faq/actions';
 import { updateStaticMedia } from './redux/staticmedia/actions';
 import { updateTestimonials } from './redux/testimonials/actions';
 import { updateOnlineEvents } from './redux/onlineevents/actions';
+import { updateChallenges } from './redux/challenges/actions';
 import { toggleSidebar } from './redux/nav/actions';
 
 
@@ -27,6 +28,7 @@ class GlobalLifecycle extends React.Component {
         this.props.updatePages();
         this.props.updateTestimonials();
         this.props.updateOnlineEvents();
+        this.props.updateChallenges();
     }
 
     render() {
@@ -44,6 +46,7 @@ const mapDispatchToProps = dispatch => ({
     updatePages: () => dispatch(updatePages()),
     updateTestimonials: () => dispatch(updateTestimonials()),
     updateOnlineEvents: () => dispatch(updateOnlineEvents()),
+    updateChallenges: () => dispatch(updateChallenges()),
     toggleSidebar: (open) => dispatch(toggleSidebar(open))
 });
 

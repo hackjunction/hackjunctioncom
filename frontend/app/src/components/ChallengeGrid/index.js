@@ -1,40 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
+import Button from "../Button"
 import "./style.scss";
 
-import GridItem from "./GridItem";
+import ChallengeItem from "./ChallengeItem";
 
 function ChallengeGrid({ items }) {
-    const distincttags = [...new Set(items.map((x) => x.tags).flat())];
+    const distincttags = [...new Set(items.map((x) => x.tags.split(', ')).flat())].sort();
 
-    const [selected, setSelected] = useState(distincttags);
-
-    const renderItems = (items) => {
-        const filtered = items.filter((item) =>
-            item.tags.some((a) => selected.includes(a)),
-        );
-        return filtered.map((item) => <GridItem {...item} />);
-    };
+    const [selected, setSelected] = useState('');
 
     const renderButtons = () => {
         const newselection = (key) => {
-            let newarray = [];
-            if (selected.includes(key)) {
-                newarray = selected.filter((item) => item !== key);
+            if (selected == key) {
+                setSelected('');
             } else {
-                newarray = [...selected, key];
+                setSelected(key);
             }
-            return newarray;
+            return selected;
         };
 
         return (
             distincttags &&
             distincttags.flat().map((tag) => (
-                <button
-                    key={tag}
-                    onClick={() => setSelected(newselection(tag))}
-                >
-                    {tag}
-                </button>
+                <Button
+                    className={`Button-default ${ 
+                        selected == tag ? "selected" : ""
+                    }`}
+                    text={tag}
+                    onClick={() => newselection(tag)}
+
+                />
             ))
         );
     };
@@ -42,11 +37,15 @@ function ChallengeGrid({ items }) {
     return (
         <>
             <div className="FilterButtons">
-                <p>Filtteri description tähän</p>
-                <h3>Click to filter challenges by spesifics:</h3>
+                <h3>Click to filter challenges by specifics:</h3>
                 {renderButtons()}
             </div>
-            <div className="ChallengeGrid">{renderItems(items)}</div>
+            <div className="ChallengeGrid">{
+                items.map(item => {
+                    console.log(item);
+                    return item.tags.split(', ').some((a) => {return(selected == a || selected == '')}) ? <ChallengeItem {...{ item }} /> : null
+                })
+            }</div>
         </>
     );
 }

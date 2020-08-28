@@ -1,66 +1,158 @@
-@import "../../styles/main";
+@import '../../styles/main';
 
 .FilterButtons {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .ChallengeGrid {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin: 5% 10%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  //grid-row-gap: 1%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  grid-auto-rows: 1fr;
 
-    @include bp-custom(800px) {
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
+  @include bp-med {
+    margin: 5%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 7%;
+    grid-row-gap: 2%;
+    grid-auto-rows: 1fr;
+  }
+  @include bp-full {
+    margin: 5%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 7%;
+    grid-row-gap: 2%;
+    grid-auto-rows: 1fr;
+  }
 }
 
-.GridItem {
-    width: 100%;
-    max-width: 470px;
+.ChallengeIco {
+  height: 5rem;
+}
+
+.ChallengeItem.flip {
+  //Please set animation duration in ChallengeItem.js
+  animation-name: card-flip;
+  max-height: 17rem;
+}
+
+.ChallengeItem.open {
+  //overflow-y: scroll;
+  scrollbar-width: thin; /* "auto" or "thin"  */
+  scrollbar-color: $connected-blue; /* scroll thumb & track */
+}
+
+.ChallengeItem.open > .ChallengeItem--text {
+  align-self: center;
+  width: 100%;
+}
+
+.ChallengeItem.open::-webkit-scrollbar {
+  width: 5px; /* width of the entire scrollbar */
+}
+
+.ChallengeItem.open::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+
+.ChallengeItem.open::-webkit-scrollbar-thumb {
+  background-color: $connected-blue; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid $connected-blue; /* creates padding around scroll thumb */
+}
+
+@keyframes card-flip {
+  0% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  25% {
+    transform: translate(0%, -10%) scale(1.05);
+    box-shadow: 0px 1em 1em #5103;
+  }
+  50% {
+    transform: rotate3d(0, 1, 0, 90deg) translate(0%, -10%) scale(1.05);
+    box-shadow: 0px 1em 1em #5103;
+  }
+  75% {
+    transform: rotate3d(0, 1, 0, 0deg) translate(0%, -10%) scale(1.05);
+    box-shadow: 0px 1em 1em #5103;
+  }
+}
+
+.ChallengeItem {
+  cursor: pointer;
+  margin-top: 5%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  height: 17rem;
+  max-height: 17rem;
+  min-height: 17rem;
+  flex-direction: column;
+  border-color: $connected-red;
+  justify-content: space-between;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 0.3rem;
+  padding: $padding-base;
+  padding-top: 2rem;
+  overflow: hidden;
+  background-color: $connected-peach;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  &--text {
+    text-align: center;
+    align-self: center;
+
+    @include bp-full {
+      text-align: left;
+      align-items: left;
+      align-self: flex-end;
+      width: 65%;
+    }
+
+    span.ChallengeItem--title {
+      @extend %font-title;
+      color: $connected-blue;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      line-height: normal;
+      align-self: flex-start;
+    }
+
+    p.ChallengeItem--description {
+      color: $connected-blue;
+      line-height: normal;
+      margin-bottom: 0;
+      align-self: flex-start;
+    }
+  }
+
+  &--logowpr {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background: rgba(#4bcccc, 0.27);
-    background: linear-gradient(
-        145deg,
-        rgba(#4bcccc, 0.35) 0%,
-        rgba(#03061e, 0.42) 100%
-    );
-    margin-bottom: $padding-base;
-    border-radius: 10px;
-    padding: $padding-double;
-
-    @include bp-custom(800px) {
-        width: 49%;
-        align-self: flex-start;
+    width: 100%;
+    justify-content: space-evenly;
+    img.ChallengeItem--logo {
+      width: 20%;
     }
+  }
 
-    &--title {
-        @extend %font-title;
-        font-weight: bold;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        font-size: 18px;
-
-        i {
-            transform: rotateZ(0deg);
-            transition: 0.2s transform ease;
-            color: #bebebe;
-            font-size: 2em;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            @media screen and (max-width: 400px) {
-                display: none;
-            }
-        }
-    }
+  &--number {
+    width: 30%;
+    flex: 1 1 30%;
+    font-family: Lato;
+    font-size: 100px;
+    font-weight: 900;
+  }
 }
