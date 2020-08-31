@@ -112,6 +112,19 @@ const HubInfo = (props) => {
             >
                 <p className="align">{props.Section3Body}</p>
             </SingleColumnSection>
+            <SingleColumnSection
+                title={props.Section3CitiesTitle}
+                center
+                halfpage
+                className="ScrollSnapElem"
+            >
+                <div class="citiesGrid">
+                    {props.Section3Cities.split(", ").map((city) => {
+                        return <p class="citiesText">{city}</p>
+                    })}
+                </div>
+                <Button className="Button-default cityButton" text="Apply here!" />
+            </SingleColumnSection>
             <DividerLine />
             <SectionImage
                 image={{
