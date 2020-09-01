@@ -1,3 +1,5 @@
+@import "../../../styles/main.scss";
+
 .Hubs {
     p {
         width: 80%;
@@ -7,4 +9,31 @@
     .align {
         text-align: center;
     }
+}
+
+.citiesGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 35px;
+    align-content: space-between;
+    //grid-gap: 5px;
+    margin-bottom: 1.25em;
+}
+
+.citiesText {
+    color: $connected-orange !important;
+    font-size: 1.5em;
+    margin: 0px;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-weight: bold !important;
+}
+
+.citiesText:last-child {
+    grid-column: 2/2;
+}
+
+.cityButton {
+    margin-bottom: 50em;
 }
