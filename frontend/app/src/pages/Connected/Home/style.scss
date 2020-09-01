@@ -123,6 +123,7 @@
   }
   .PartnerSection {
     height: auto;
+    background: #6da99e;
   }
   .logoBGR {
     background: #6da99e;
@@ -155,6 +156,11 @@
         width: calc(33.3333% - 2rem);
       }
     }
+    .BIGLOGO {
+      display: block;
+      width: 20em;
+    }
+
     .logoIMG {
       display: block;
       width: 10em;

@@ -153,6 +153,43 @@ const ConnectedHome = (props) => {
         <div className="logoBGR">
           <div class="logoContainer">
             <img
+              className="BIGLOGO"
+              src={require('../../../assets/logos/partner/genelec_BW.png')}
+              alt="connected-logo-here"
+            />
+          </div>
+          <div class="logoContainer">
+            <img
+              className="BIGLOGO"
+              src={require('../../../assets/logos/partner/espoo_BW.png')}
+              alt="connected-logo-here"
+            />
+          </div>
+          <div class="logoContainer">
+            <img
+              className="BIGLOGO"
+              src={require('../../../assets/logos/partner/bf_BW.png')}
+              alt="connected-logo-here"
+            />
+          </div>
+          <div class="logoContainer">
+            <img
+              className="BIGLOGO"
+              src={require('../../../assets/logos/partner/hkscan_BW.png')}
+              alt="connected-logo-here"
+            />
+          </div>
+          <div class="logoContainer">
+            <img
+              className="BIGLOGO"
+              src={require('../../../assets/logos/partner/smartly_BW.png')}
+              alt="connected-logo-here"
+            />
+          </div>
+        </div>
+        <div class="logoBGR">
+          <div class="logoContainer">
+            <img
               className="logoIMG"
               src={require('../../../assets/logos/partner/aito_BW.png')}
               alt="connected-logo-here"
@@ -175,27 +212,6 @@ const ConnectedHome = (props) => {
           <div class="logoContainer">
             <img
               className="logoIMG"
-              src={require('../../../assets/logos/partner/espoo_BW.png')}
-              alt="connected-logo-here"
-            />
-          </div>
-          <div class="logoContainer">
-            <img
-              className="logoIMG"
-              src={require('../../../assets/logos/partner/genelec_BW.png')}
-              alt="connected-logo-here"
-            />
-          </div>
-          <div class="logoContainer">
-            <img
-              className="logoIMG"
-              src={require('../../../assets/logos/partner/hkscan_BW.png')}
-              alt="connected-logo-here"
-            />
-          </div>
-          <div class="logoContainer">
-            <img
-              className="logoIMG"
               src={require('../../../assets/logos/partner/rovio_BW.png')}
               alt="connected-logo-here"
             />
@@ -203,21 +219,7 @@ const ConnectedHome = (props) => {
           <div class="logoContainer">
             <img
               className="logoIMG"
-              src={require('../../../assets/logos/partner/smartly_BW.png')}
-              alt="connected-logo-here"
-            />
-          </div>
-          <div class="logoContainer">
-            <img
-              className="logoIMG"
               src={require('../../../assets/logos/partner/dfence_BW.png')}
-              alt="connected-logo-here"
-            />
-          </div>
-          <div class="logoContainer">
-            <img
-              className="logoIMG"
-              src={require('../../../assets/logos/partner/bf_BW.png')}
               alt="connected-logo-here"
             />
           </div>
