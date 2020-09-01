@@ -1,65 +1,65 @@
-@import "../../../styles/main";
+@import '../../../styles/main';
 .TimeLineSection {
-    width: 90%;
-    height: 100vh;
+  width: 90%;
+  height: auto;
 
-    img {
-        display: none;
-        min-height: 80%;
-        margin-top: 5%;
-        @include bp-med {
-            display: block;
-        }
+  img {
+    display: none;
+    min-height: 80%;
+    margin-top: 5%;
+    @include bp-med {
+      display: block;
     }
+  }
 
-    h2 {
-        font-size: 2em;
-    }
+  h2 {
+    font-size: 2em;
+  }
 
-    .MobileTitle {
-        font-size: 2.5em;
-        display: block;
-        align-self: center;
-        @include bp-med {
-            display: none;
-        }
-        margin-top: 0;
+  .MobileTitle {
+    font-size: 2.5em;
+    display: block;
+    align-self: center;
+    @include bp-med {
+      display: none;
     }
+    margin-top: 0;
+  }
 
-    .BlockSection--left {
-        display: none;
-        @include bp-med {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-        }
+  .BlockSection--left {
+    display: none;
+    @include bp-med {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
     }
-    .BlockSection--right {
-        width: 100%;
-        height: 100%;
-        display: flex;
+  }
+  .BlockSection--right {
+    width: 100%;
+    height: 100%;
+    display: flex;
 
-        @include bp-med {
-            width: 50%;
-        }
+    @include bp-med {
+      width: 50%;
     }
+  }
 
-    .Connected-chains {
-        max-height: 90%;
-        margin-top: 5%;
-    }
+  .Connected-chains {
+    max-height: 90%;
+    margin-top: 5%;
+  }
 }
 .SingleColumnSection {
-    .ContactUsFaq {
-        p {
-            text-align: center;
-        }
+  .ContactUsFaq {
+    p {
+      text-align: center;
     }
+  }
 }
 .TimeLineTitle {
-    width: 100%;
-    @include bp-small-only {
-        display: none;
-    }
+  width: 100%;
+  @include bp-small-only {
+    display: none;
+  }
 }
