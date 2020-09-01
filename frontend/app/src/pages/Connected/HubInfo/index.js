@@ -37,7 +37,7 @@ const HubInfo = (props) => {
                     smooth={true}
                     duration={500}
                 >
-                    <Button className="Button-default" text="What is a hub"/>
+                    <Button className="Button-default" text="What is a Hub"/>
                 </Link>
                 <Link
                     activeClass="active"
