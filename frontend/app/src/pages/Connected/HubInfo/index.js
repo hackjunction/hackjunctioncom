@@ -14,6 +14,7 @@ import SingleColumnSection from '../../../components/SingleColumnSection'
 import DividerLine from '../../../components/DividerLine'
 import Button from '../../../components/Button'
 import { Link, Element } from 'react-scroll'
+import LinkButton from '../../../components/LinkButton'
 
 const textsJSON = require('./texts.json')
 
@@ -119,7 +120,12 @@ const HubInfo = (props) => {
             return <p class="citiesText">{city}</p>
           })}
         </div>
-        <Button className="Button-default cityButton" text="Apply here!" />
+        <LinkButton
+          className="Button-default cityButton"
+          isExternal
+          to={'https://app.hackjunction.com/events/junction-2020-connected'}
+          text="Apply here"
+        />
       </SingleColumnSection>
       <DividerLine />
       <SectionImage

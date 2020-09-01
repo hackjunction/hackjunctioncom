@@ -13,6 +13,7 @@ import SingleColumnSection from '../../../components/SingleColumnSection'
 import BlockSection from '../../../components/BlockSection'
 import DividerLine from '../../../components/DividerLine'
 import Button from '../../../components/Button'
+import LinkButton from '../../../components/LinkButton'
 
 import Timeline from '../Components/Timeline'
 import FaqSection from '../Components/FaqSection'
@@ -77,7 +78,12 @@ const EventInfo = (props) => {
           >
             <Button className="Button-default" text="The Junction Journey" />
           </Link>
-
+          <LinkButton
+            className="Button-default cityButton"
+            isExternal
+            to={'https://app.hackjunction.com/events/junction-2020-connected'}
+            text="Apply here"
+          />
           <Link
             activeClass="active"
             to="faq"
