@@ -152,76 +152,99 @@ const ConnectedHome = (props) => {
       <HeaderSection className="ScrollSnapElem PartnerSection" title="Partners">
         <div className="logoBGR">
           <div class="logoContainer">
-            <img
-              className="BIGLOGO"
-              src={require('../../../assets/logos/partner/genelec_BW.png')}
-              alt="connected-logo-here"
-            />
+            <a href="https://www.genelec.com/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/genelec_BW.png')}
+                alt="connected-logo-here"
+              />
+            </a>
           </div>
           <div class="logoContainer">
-            <img
-              className="BIGLOGO"
-              src={require('../../../assets/logos/partner/espoo_BW.png')}
-              alt="connected-logo-here"
-            />
+            <a href="https://www.espoo.fi/en-US" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/espoo_BW.png')}
+                alt="connected-logo-here"
+              />
+            </a>
           </div>
           <div class="logoContainer">
-            <img
-              className="BIGLOGO"
-              src={require('../../../assets/logos/partner/bf_BW.png')}
-              alt="connected-logo-here"
-            />
+            <a
+              href="https://www.businessfinland.fi/suomalaisille-asiakkaille/etusivu/"
+              target="_blank"
+            >
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/bf_BW.png')}
+                alt="connected-logo-here"
+              />
+            </a>
           </div>
           <div class="logoContainer">
-            <img
-              className="BIGLOGO"
-              src={require('../../../assets/logos/partner/hkscan_BW.png')}
-              alt="connected-logo-here"
-            />
+            <a href="https://www.hkscan.com/en/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/hkscan_BW.png')}
+                alt="connected-logo-here"
+              />
+            </a>
           </div>
           <div class="logoContainer">
-            <img
-              className="BIGLOGO"
-              src={require('../../../assets/logos/partner/smartly_BW.png')}
-              alt="connected-logo-here"
-            />
+            <a href="https://www.smartly.io/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/smartly_BW.png')}
+                alt="connected-logo-here"
+              />
+            </a>
           </div>
         </div>
         <div class="logoBGR">
           <div class="logoContainer">
-            <img
-              className="logoIMG"
-              src={require('../../../assets/logos/partner/aito_BW.png')}
-              alt="connected-logo-here"
-            />
+            <a href="https://aito.ai/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/partner/aito_BW.png')}
+                alt="connected-logo-here"
+              />
+            </a>
           </div>
           <div class="logoContainer">
-            <img
-              className="logoIMG"
-              src={require('../../../assets/logos/partner/brella_BW.png')}
-              alt="connected-logo-here"
-            />
+            <a href="https://www.brella.io/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/partner/brella_BW.png')}
+                alt="connected-logo-here"
+              />
+            </a>
           </div>
           <div class="logoContainer">
-            <img
-              className="logoIMG"
-              src={require('../../../assets/logos/partner/columbiaroad_BW.png')}
-              alt="connected-logo-here"
-            />
+            <a href="https://www.columbiaroad.com/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/partner/columbiaroad_BW.png')}
+                alt="connected-logo-here"
+              />
+            </a>
           </div>
           <div class="logoContainer">
-            <img
-              className="logoIMG"
-              src={require('../../../assets/logos/partner/rovio_BW.png')}
-              alt="connected-logo-here"
-            />
+            <a href="https://www.rovio.com/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/partner/rovio_BW.png')}
+                alt="connected-logo-here"
+              />
+            </a>
           </div>
           <div class="logoContainer">
-            <img
-              className="logoIMG"
-              src={require('../../../assets/logos/partner/dfence_BW.png')}
-              alt="connected-logo-here"
-            />
+            <a href="https://www.d-fence.fi/home" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/partner/dfence_BW.png')}
+                alt="connected-logo-here"
+              />
+            </a>
           </div>
         </div>
       </HeaderSection>
