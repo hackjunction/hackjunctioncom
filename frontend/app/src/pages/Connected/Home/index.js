@@ -41,6 +41,7 @@ const ConnectedHome = (props) => {
           smooth={true}
           duration={500}
         >
+          <p>Apply now!</p>
           <FontAwesomeIcon icon="angle-down" size="4x" color="#f5d2a2" />
         </Link>
         <HeaderVideo
@@ -56,23 +57,19 @@ const ConnectedHome = (props) => {
         body={props.HeaderBody}
       >
         <div className="Button-row">
-        <Button
+          <Button
             className="Button-small Button-apply"
             to="https://app.hackjunction.com/events/junction-2020-connected"
             text="Apply Here"
-        />
+          />
 
-        <Button
-            className="Button-small"
-            to="/info"
-            text="Event info"
-        />
+          <Button className="Button-small" to="/info" text="Event info" />
 
-        <Button
+          <Button
             className="Button-small"
             to="https://hackjunction.com/partners"
             text="Partner with us"
-        />
+          />
         </div>
       </HeaderSection>
       <DividerLine />
