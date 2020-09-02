@@ -166,3 +166,15 @@
     }
   }
 }
+
+.Button-apply {
+  background-color: $connected-blue !important;
+}
+
+.Button-apply:hover {
+  background-color: $connected-peach !important;
+}
+
+.Button-apply > span {
+  color: $connected-orange !important;
+}
