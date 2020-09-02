@@ -121,48 +121,16 @@
       display: none;
     }
   }
-  .PartnerSection {
-    height: auto;
-    background: #6da99e;
-  }
-  .logoBGR {
-    background: #6da99e;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    .logoContainer {
-      margin: 1rem;
-      align-self: center;
-      text-align: -webkit-center;
-      text-align: -moz-center;
-    }
-    @media screen and (min-width: 1000px) {
-      .logoContainer {
-        width: calc(100% / 3);
-      }
-    }
-    @media screen and (min-width: 600px) {
-      .logoContainer {
-        width: calc(50% - 2rem);
-      }
-    }
+}
 
-    @media screen and (min-width: 1000px) {
-      .logoContainer {
-        width: calc(33.3333% - 2rem);
-      }
-    }
-    .BIGLOGO {
-      display: block;
-      width: 15em;
-    }
+.Button-apply {
+  background-color: $connected-blue !important;
+}
 
-    .logoIMG {
-      display: block;
-      width: 8em;
-    }
-  }
+.Button-apply:hover {
+  background-color: $connected-peach !important;
+}
+
+.Button-apply > span {
+  color: $connected-orange !important;
 }
