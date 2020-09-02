@@ -56,13 +56,23 @@ const ConnectedHome = (props) => {
         body={props.HeaderBody}
       >
         <div className="Button-row">
-          <Button className="Button-small" to="/info" text="Event info" />
+        <Button
+            className="Button-small Button-apply"
+            to="https://app.hackjunction.com/events/junction-2020-connected"
+            text="Apply Here"
+        />
 
-          <Button
+        <Button
+            className="Button-small"
+            to="/info"
+            text="Event info"
+        />
+
+        <Button
             className="Button-small"
             to="https://hackjunction.com/partners"
             text="Partner with us"
-          />
+        />
         </div>
       </HeaderSection>
       <DividerLine />
