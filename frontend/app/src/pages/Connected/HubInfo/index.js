@@ -71,7 +71,9 @@ const HubInfo = (props) => {
         halfpage
         className="ScrollSnapElem"
       >
-        <p className="align">{props.Section1Body}</p>
+      <div className="markdownCenter">
+        <Markdown source={props.Section1Body}/>
+      </div>
       </SingleColumnSection>
       <DividerLine />
       <SectionImage
@@ -89,7 +91,9 @@ const HubInfo = (props) => {
         center
         className="ScrollSnapElem"
       >
-        <p className="align">{props.Section2Body}</p>
+      <div className="markdownCenter">
+        <Markdown source={props.Section2Body}/>
+      </div>
       </SingleColumnSection>
       <DividerLine />
       <SectionImage
@@ -145,7 +149,9 @@ const HubInfo = (props) => {
         subtitle={props.Section4Subtitle}
         className="ScrollSnapElem"
       >
-        <p className="align">{props.Section4Body}</p>
+      <div className="markdownCenter">
+        <Markdown source={props.Section4Body}/>
+      </div>
       </SingleColumnSection>
     </Page>
   )
