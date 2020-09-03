@@ -2,7 +2,7 @@
 
 .HeaderSection {
   width: 100%;
-  height: 50vh;
+  height: auto;
   z-index: 3;
   display: flex;
   align-items: center;
@@ -31,7 +31,7 @@
     margin: 0;
     text-align: center;
     display: none;
-
+    padding: 3% 5% 5% 5%;
     -webkit-animation: fadein-bottom 0.8s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein-bottom 0.8s; /* Firefox < 16 */
     -ms-animation: fadein-bottom 0.8s; /* Internet Explorer */
@@ -44,6 +44,7 @@
   }
 
   &--content {
+    padding-bottom: 1%;
     display: flex;
     justify-content: space-evenly;
     width: 80%;

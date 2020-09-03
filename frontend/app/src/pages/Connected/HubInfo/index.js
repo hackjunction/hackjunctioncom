@@ -15,7 +15,7 @@ import DividerLine from '../../../components/DividerLine'
 import Button from '../../../components/Button'
 import { Link, Element } from 'react-scroll'
 import LinkButton from '../../../components/LinkButton'
-import Markdown from "../../../components/Markdown"
+import Markdown from '../../../components/Markdown'
 
 const textsJSON = require('./texts.json')
 
@@ -67,13 +67,14 @@ const HubInfo = (props) => {
       <Element name="whatishub" />
       <SingleColumnSection
         title={props.Section1Title}
+        subtitle={props.Section1Subtitle}
         center
         halfpage
         className="ScrollSnapElem"
       >
-      <div className="markdownCenter">
-        <Markdown source={props.Section1Body}/>
-      </div>
+        <div className="markdownCenter">
+          <Markdown source={props.Section1Body} />
+        </div>
       </SingleColumnSection>
       <DividerLine />
       <SectionImage
@@ -91,9 +92,9 @@ const HubInfo = (props) => {
         center
         className="ScrollSnapElem"
       >
-      <div className="markdownCenter">
-        <Markdown source={props.Section2Body}/>
-      </div>
+        <div className="markdownCenter">
+          <Markdown source={props.Section2Body} />
+        </div>
       </SingleColumnSection>
       <DividerLine />
       <SectionImage
@@ -112,9 +113,9 @@ const HubInfo = (props) => {
         halfpage
         className="ScrollSnapElem HubSections"
       >
-      <div className="markdownCenter">
-        <Markdown source={props.Section3Body}/>
-      </div>
+        <div className="markdownCenter">
+          <Markdown source={props.Section3Body} />
+        </div>
       </SingleColumnSection>
       <SingleColumnSection
         title={props.Section3CitiesTitle}
@@ -149,9 +150,9 @@ const HubInfo = (props) => {
         subtitle={props.Section4Subtitle}
         className="ScrollSnapElem"
       >
-      <div className="markdownCenter">
-        <Markdown source={props.Section4Body}/>
-      </div>
+        <div className="markdownCenter">
+          <Markdown source={props.Section4Body} />
+        </div>
       </SingleColumnSection>
     </Page>
   )

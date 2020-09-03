@@ -4,7 +4,7 @@
   .HeaderSection {
     height: 90vh;
     @include bp-med {
-      height: 50vh;
+      height: auto;
     }
     img {
       display: none;
