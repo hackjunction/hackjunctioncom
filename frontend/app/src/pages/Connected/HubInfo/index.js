@@ -15,6 +15,7 @@ import DividerLine from '../../../components/DividerLine'
 import Button from '../../../components/Button'
 import { Link, Element } from 'react-scroll'
 import LinkButton from '../../../components/LinkButton'
+import Markdown from "../../../components/Markdown"
 
 const textsJSON = require('./texts.json')
 
@@ -107,7 +108,7 @@ const HubInfo = (props) => {
         halfpage
         className="ScrollSnapElem HubSections"
       >
-        <p className="align">{props.Section3Body}</p>
+        <Markdown className="align" source={props.Section3Body}/>
       </SingleColumnSection>
       <SingleColumnSection
         title={props.Section3CitiesTitle}
