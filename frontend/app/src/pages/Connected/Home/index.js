@@ -31,7 +31,7 @@ const ConnectedHome = (props) => {
       className="Connected ConnectedContent ConnectedHome"
       pageTitle="Junction 2020 Connected"
       metaDescKey={KEYS.whoAreWeBody}
-      ogImageKey={MEDIA_KEYS.ConnectedHeaderImage}
+      ogImageKey={MEDIA_KEYS.homePageHeaderImage}
     >
       <div className="Connected-parallax">
         <Link
