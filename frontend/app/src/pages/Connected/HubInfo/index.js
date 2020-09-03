@@ -108,7 +108,9 @@ const HubInfo = (props) => {
         halfpage
         className="ScrollSnapElem HubSections"
       >
-        <Markdown className="align" source={props.Section3Body}/>
+      <div className="markdownCenter">
+        <Markdown source={props.Section3Body}/>
+      </div>
       </SingleColumnSection>
       <SingleColumnSection
         title={props.Section3CitiesTitle}

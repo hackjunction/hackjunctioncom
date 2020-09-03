@@ -41,3 +41,16 @@
 .cityButton {
   margin-bottom: 50em;
 }
+
+/*### UGLY HACKS TO GET MARKDOWN TO BEHAVE ###*/
+.markdownCenter > div {
+  align-self: center !important;
+  width: 80% !important;
+  margin-left: 10% !important;
+}
+
+.markdownCenter > div > * {
+  align-self: center !important;
+  width: 100% !important;
+}
+/*### END OF UGLY HACKS ###*/
