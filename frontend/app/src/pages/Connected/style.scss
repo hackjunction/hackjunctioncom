@@ -1,254 +1,265 @@
-@import "../../styles/main";
+@import '../../styles/main';
 .Connected {
+  background-color: $connected-peach;
+  color: $connected-blue;
+  display: flex;
+  flex-direction: column;
+
+  .ConnectedContent {
     background-color: $connected-peach;
+  }
+  .Connected--TopContent {
+    align-content: center;
+    text-align: center;
+  }
+
+  .Connected--logo {
+    margin: 5% 0;
+    align-content: center;
+    max-width: 50em;
+    width: 100%;
+    height: auto;
+  }
+
+  .Connected-subtitle {
     color: $connected-blue;
-    display: flex;
-    flex-direction: column;
+    text-align: center;
+    margin: 0em 5em;
+  }
 
-    .ConnectedContent {
-        background-color: $connected-peach;
+  .Button-small {
+    background-color: $connected-orange;
+    border: 3px solid $connected-orange;
+    box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
+    & > span {
+      color: $connected-blue;
     }
-    .Connected--TopContent {
-        align-content: center;
-        text-align: center;
+    &.selected {
+      background-color: $connected-blue;
+      color: $connected-red;
+      border-color: $connected-red;
     }
+  }
 
-    .Connected--logo {
-        margin: 5% 0;
-        align-content: center;
-        max-width: 50em;
-        width: 100%;
-        height: auto;
-    }
+  // TODO rethink this as .Button-blue or somethingnp
+  .Button-default {
+    background-color: $connected-blue;
+    border: 3px solid $connected-blue;
 
-    .Connected-subtitle {
+    text-transform: none !important;
+    box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
+    margin-bottom: 2%;
+    & > span {
+      color: $connected-teal;
+    }
+    &.selected {
+      background-color: $connected-teal;
+      & > span {
         color: $connected-blue;
-        text-align: center;
-        margin: 0em 5em;
+      }
+      border-color: $connected-teal;
+    }
+  }
+
+  .NavMenu {
+    background-color: $connected-blue;
+
+    color: $connected-peach;
+
+    &--inner {
+      &__menu {
+        span.toHome {
+          color: $connected-peach;
+        }
+        &-item,
+        &-title {
+          color: $connected-peach;
+        }
+        &-item:hover,
+        &-title:hover {
+          opacity: 1;
+          color: $connected-teal;
+        }
+      }
     }
 
-    .Button-small {
-        background-color: $connected-orange;
-        border: 3px solid $connected-orange;
-        box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
-        & > span {
-            color: $connected-blue;
-        }
-        &.selected {
-            background-color: $connected-blue;
-            color: $connected-red;
-            border-color: $connected-red;
-        }
+    .top,
+    .bottom,
+    .left,
+    .right {
+      display: none;
     }
 
-    // TODO rethink this as .Button-blue or somethingnp
-    .Button-default {
+    &--exit {
+      .hamburger,
+      .hamburger-box,
+      .hamburger-spin {
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+          background-color: $connected-peach;
+        }
+      }
+    }
+  }
+
+  .NavMenuMobile {
+    background-color: $connected-blue;
+  }
+  .HeaderMobile {
+    background-color: $connected-blue;
+  }
+
+  .Footer {
+    span {
+      color: $connected-blue;
+    }
+    background: $connected-peach;
+    border-top: 0.2em solid $connected-blue;
+
+    h2 {
+      color: $connected-orange;
+    }
+    &--divider {
+      background-color: $connected-blue;
+    }
+    &--left {
+      &-divider {
         background-color: $connected-blue;
-        border: 3px solid $connected-blue;
-
-        text-transform: none !important;
-        box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
-        margin-bottom: 2%;
-        & > span {
-            color: $connected-teal;
-        }
-        &.selected {
-            background-color: $connected-teal;
-            & > span {
-                color: $connected-blue;
+      }
+      &-second {
+        &__FooterLinkList {
+          span {
+            a {
+              color: $connected-blue;
             }
-            border-color: $connected-teal;
+          }
         }
+      }
     }
+    .TextInput--inputbox,
+    .DropDown--input,
+    .TextArea--input {
+      border-color: $connected-blue;
+      color: $connected-blue;
 
-    .NavMenu {
-        background-color: $connected-blue;
-
-        color: $connected-peach;
-
-        &--inner {
-            &__menu {
-                span.toHome {
-                    color: $connected-peach;
-                }
-                &-item,
-                &-title {
-                    color: $connected-peach;
-                }
-                &-item:hover,
-                &-title:hover {
-                    opacity: 1;
-                    color: $connected-teal;
-                }
-            }
-        }
-
-        .top,
-        .bottom,
-        .left,
-        .right {
-            display: none;
-        }
-
-        &--exit {
-            .hamburger,
-            .hamburger-box,
-            .hamburger-spin {
-                .hamburger-inner,
-                .hamburger-inner::before,
-                .hamburger-inner::after {
-                    background-color: $connected-peach;
-                }
-            }
-        }
-    }
-
-    .NavMenuMobile {
-        background-color: $connected-blue;
-    }
-    .HeaderMobile {
-        background-color: $connected-blue;
-    }
-
-    .Footer {
-        span {
-            color: $connected-blue;
-        }
-        background: $connected-peach;
-        border-top: 0.2em solid $connected-blue;
-
-        h2 {
-            color: $connected-orange;
-        }
-        &--divider {
-            background-color: $connected-blue;
-        }
-        &--left {
-            &-divider {
-                background-color: $connected-blue;
-            }
-            &-second {
-                &__FooterLinkList {
-                    span {
-                        a {
-                            color: $connected-blue;
-                        }
-                    }
-                }
-            }
-        }
-        .TextInput--inputbox,
-        .DropDown--input,
-        .TextArea--input {
-            border-color: $connected-blue;
-            color: $connected-blue;
-
-            &::placeholder {
-                color: $connected-blue;
-            }
-            &:-webkit-autofill,
-            &:-webkit-autofill:hover,
-            &:-webkit-autofill:focus,
-            &:-webkit-autofill:active {
-                box-shadow: 0 0 0 30px $connected-peach inset !important;
-                -webkit-box-shadow: 0 0 0 30px $connected-peach inset !important;
-                &::before {
-                    color: $connected-blue;
-                }
-            }
-        }
-        .SubmitButton--button {
-            background-color: $connected-blue;
-            &:hover,
-            &:focus {
-                background-color: transparent;
-                border-width: 3px;
-                border-color: $connected-blue;
-                .SubmitButton--button__text {
-                    color: $connected-blue;
-                }
-            }
-            .SubmitButton--button__text {
-                color: $connected-peach;
-            }
-        }
-    }
-
-    .ImageHeader > h2 {
-        color: $connected-peach;
-        -webkit-text-stroke: 2.5px $connected-blue;
-    }
-
-    h1,
-    h2,
-    h3,
-    i,
-    label,
-    p {
-        font-style: normal;
-        font-family: Montserrat;
+      &::placeholder {
         color: $connected-blue;
-
+      }
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        box-shadow: 0 0 0 30px $connected-peach inset !important;
+        -webkit-box-shadow: 0 0 0 30px $connected-peach inset !important;
         &::before {
-            color: $connected-blue;
+          color: $connected-blue;
         }
-        &::after {
-            color: $connected-blue;
-        }
+      }
     }
-
-    a {
-        color: $connected-orange;
-        p {
-            color: $connected-blue;
+    .SubmitButton--button {
+      background-color: $connected-blue;
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        border-width: 3px;
+        border-color: $connected-blue;
+        .SubmitButton--button__text {
+          color: $connected-blue;
         }
+      }
+      .SubmitButton--button__text {
+        color: $connected-peach;
+      }
     }
+  }
 
+  .ImageHeader > h2 {
+    color: $connected-peach;
+    -webkit-text-stroke: 2.5px $connected-blue;
+  }
+
+  h1,
+  h2,
+  h3,
+  i,
+  label,
+  p {
+    font-style: normal;
+    font-family: Montserrat;
+    color: $connected-blue;
+
+    &::before {
+      color: $connected-blue;
+    }
+    &::after {
+      color: $connected-blue;
+    }
+  }
+
+  a {
+    color: $connected-orange;
     p {
-        font-weight: 400;
+      color: $connected-blue;
+    }
+  }
+
+  p {
+    font-weight: 400;
+  }
+
+  .DividerLine {
+    background-color: $connected-blue;
+  }
+
+  &-parallax {
+    position: relative;
+    height: 50vh;
+    background-size: cover;
+
+    @include bp-full {
+      height: 100vh;
+      scroll-snap-type: normal;
+      scroll-snap-align: start;
+    }
+    video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
 
-    .DividerLine {
-        background-color: $connected-blue;
+    @keyframes jump {
+      0% {
+        bottom: 0;
+      }
+      50% {
+        bottom: 15px;
+      }
+      100% {
+        bottom: 0;
+      }
     }
-
-    &-parallax {
-        position: relative;
-        height: 50vh;
-        background-size: cover;
-        display: block;
-        @include bp-full {
-            height: 100vh;
-            scroll-snap-type: normal;
-            scroll-snap-align: start;
-        }
-        video {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        @keyframes jump {
-            0% {
-                bottom: 0;
-            }
-            50% {
-                bottom: 15px;
-            }
-            100% {
-                bottom: 0;
-            }
-        }
-        a {
-            position: absolute;
-            z-index: 100;
-            bottom: 0;
-            margin: 0 50% 0 calc(50% - 20px);
-            animation: jump 3s infinite;
-            &:hover {
-                opacity: 0.7;
-                transition: 0.3s ease-in-out;
-            }
-        }
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      z-index: 100;
+      bottom: 0;
+      width: 100%;
+      animation: jump 3s infinite;
+      &:hover {
+        opacity: 0.7;
+        transition: 0.3s ease-in-out;
+      }
+      p {
+        color: $connected-peach;
+        font-size: 2em;
+        font-family: Montserrat;
+        font-weight: 600;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+      }
     }
+  }
 }
