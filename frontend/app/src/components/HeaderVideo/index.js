@@ -17,17 +17,14 @@ const Video = ({ onLoad, src }) => {
     >
       <MediaQuery maxWidth={600}>
         <source type="video/mp4" src={src} />
-        <source type="video/webp" src={src} />
       </MediaQuery>
       <MediaQuery minWidth={601}>
         <MediaQuery maxWidth={900}>
           <source type="video/mp4" src={src} />
-          <source type="video/webp" src={src} />
         </MediaQuery>
       </MediaQuery>
       <MediaQuery minWidth={901}>
         <source type="video/mp4" src={src} />
-        <source type="video/webp" src={src} />
       </MediaQuery>
     </video>
   )
