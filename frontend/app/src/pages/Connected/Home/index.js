@@ -45,7 +45,7 @@ const ConnectedHome = (props) => {
           <FontAwesomeIcon icon="angle-down" size="4x" color="#f5d2a2" />
         </Link>
         <HeaderVideo
-          src={require('../../../assets/videos/J2020C_Animation_Main.mp4')}
+          src={require('../../../assets/videos/J2020C_Animation_Main.webm')}
         />
       </div>
       <DividerLine />
