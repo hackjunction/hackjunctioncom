@@ -98,7 +98,7 @@ const EventInfo = (props) => {
       <DividerLine />
       <SectionImage
         image={{
-          url: require('../../../assets/images/connected/info/timeline.JPG'),
+          url: require('../../../assets/images/connected/info/timeline.webp'),
         }}
         alt="Junction Journey"
       />
@@ -137,7 +137,7 @@ const EventInfo = (props) => {
       <DividerLine />
       <SectionImage
         image={{
-          url: require('../../../assets/images/connected/info/website6.jpg'),
+          url: require('../../../assets/images/connected/info/website6.webp'),
         }}
         alt="FAQ"
       />
