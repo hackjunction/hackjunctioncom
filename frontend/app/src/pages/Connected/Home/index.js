@@ -44,9 +44,17 @@ const ConnectedHome = (props) => {
           <p>Apply now!</p>
           <FontAwesomeIcon icon="angle-down" size="4x" color="#f5d2a2" />
         </Link>
-        <HeaderVideo
-          src={require('../../../assets/videos/J2020C_Animation_Main.webm')}
-        />
+        <video autoPlay loop muted playsInline className="HeaderVideo--video">
+          <source
+            src={require('../../../assets/videos/J2020C_Animation_Main.webm')}
+            type="video/webm"
+          ></source>
+          <source
+            src={require('../../../assets/videos/J2020C_Animation_Main.mp4')}
+            type="video/mp4"
+          ></source>
+          Your browser does not support the video tag.
+        </video>
       </div>
       <DividerLine />
       <Element name="mainContent" />
