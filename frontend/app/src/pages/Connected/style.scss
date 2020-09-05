@@ -254,11 +254,14 @@
       }
       p {
         color: $connected-peach;
-        font-size: 2em;
+        font-size: 1.5em;
         font-family: Montserrat;
         font-weight: 600;
         letter-spacing: 4px;
         text-transform: uppercase;
+        @include bp-full {
+          font-size: 2em;
+        }
       }
     }
   }

@@ -59,7 +59,7 @@ const HubInfo = (props) => {
       <DividerLine />
       <SectionImage
         image={{
-          url: require('../../../assets/images/hubs/Stockholm_hub.JPG'),
+          url: require('../../../assets/images/hubs/Stockholm_hub.webp'),
         }}
         alt="Stockholm hub"
       ></SectionImage>
@@ -79,7 +79,7 @@ const HubInfo = (props) => {
       <DividerLine />
       <SectionImage
         image={{
-          url: require('../../../assets/images/hubs/Helsinki_hub.JPG'),
+          url: require('../../../assets/images/hubs/Helsinki_hub.webp'),
         }}
         alt="Helsinki hub"
       />
@@ -99,7 +99,7 @@ const HubInfo = (props) => {
       <DividerLine />
       <SectionImage
         image={{
-          url: require('../../../assets/images/hubs/Chengdu_hub.JPG'),
+          url: require('../../../assets/images/hubs/Chengdu_hub.webp'),
         }}
         alt="Chengdu hub"
       />
@@ -138,7 +138,7 @@ const HubInfo = (props) => {
       <DividerLine />
       <SectionImage
         image={{
-          url: require('../../../assets/images/hubs/Cambridge_hub.JPG'),
+          url: require('../../../assets/images/hubs/Cambridge_hub.webp'),
         }}
         alt="Cambridge hub"
       />
