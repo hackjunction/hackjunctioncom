@@ -58,6 +58,12 @@ const ConnectedHome = (props) => {
       </div>
       <DividerLine />
       <Element name="mainContent" />
+      <div className="Apply-overlay">
+        The applications are now open!{' '}
+        <a href="https://app.hackjunction.com/events/junction-2020-connected/register">
+          Apply here! 😎
+        </a>
+      </div>
       <HeaderSection
         className="ScrollSnapElem wholePage"
         logo={require('../../../assets/logos/connected_logo.svg')}
