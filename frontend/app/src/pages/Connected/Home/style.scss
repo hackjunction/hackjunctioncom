@@ -5,13 +5,15 @@
     position: fixed;
     top: 0;
     left: 10%;
-    height: 3%;
     width: 90%;
-    background-color: $connected-teal;
+    height: 3%;
+    text-align: center;
+    background-color: $connected-blue;
     color: $connected-peach;
     z-index: 10;
-    text-align: center;
     font-weight: 600;
+
+    border-radius: 3px 0 0 3px;
   }
   .HeaderSection {
     height: 90vh;
