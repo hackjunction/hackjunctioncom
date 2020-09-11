@@ -18,8 +18,8 @@
   @include bp-med {
     margin: 5%;
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 7%;
-    grid-row-gap: 2%;
+    // grid-column-gap: 7%;
+    // grid-row-gap: 2%;
     grid-auto-rows: 1fr;
   }
   @include bp-full {
@@ -32,7 +32,8 @@
 }
 
 .ChallengeIco {
-  height: 5rem;
+  max-height: 5rem;
+  max-width: 80%;
 }
 
 .ChallengeItem.flip {
@@ -45,25 +46,17 @@
   //overflow-y: scroll;
   scrollbar-width: thin; /* "auto" or "thin"  */
   scrollbar-color: $connected-blue; /* scroll thumb & track */
-}
-
-.ChallengeItem.open > .ChallengeItem--text {
-  align-self: center;
-  width: 100%;
-}
-
-.ChallengeItem.open::-webkit-scrollbar {
-  width: 5px; /* width of the entire scrollbar */
-}
-
-.ChallengeItem.open::-webkit-scrollbar-track {
-  background: transparent; /* color of the tracking area */
-}
-
-.ChallengeItem.open::-webkit-scrollbar-thumb {
-  background-color: $connected-blue; /* color of the scroll thumb */
-  border-radius: 20px; /* roundness of the scroll thumb */
-  border: 3px solid $connected-blue; /* creates padding around scroll thumb */
+  span.ChallengeItem--title {
+    @extend %font-title;
+    color: $connected-blue;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    line-height: normal;
+    align-self: center;
+    text-align: center;
+    align-self: center;
+  }
 }
 
 @keyframes card-flip {
@@ -94,9 +87,22 @@
   -ms-user-select: none;
   user-select: none;
   display: flex;
-  height: 17rem;
-  max-height: 17rem;
-  min-height: 17rem;
+  height: 20em;
+  width: 20em;
+  max-height: 20em;
+  min-height: 20em;
+  @include bp-med {
+    height: 20em;
+    width: 20em;
+    max-height: 20em;
+    min-height: 20em;
+  }
+  @include bp-full {
+    height: 20em;
+    width: 20em;
+    max-height: 20em;
+    min-height: 20em;
+  }
   flex-direction: column;
   border-color: $connected-red;
   justify-content: space-between;
@@ -110,15 +116,16 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  text-align: center;
   &--text {
     text-align: center;
     align-self: center;
 
     @include bp-full {
-      text-align: left;
-      align-items: left;
-      align-self: flex-end;
-      width: 65%;
+      text-align: center;
+      align-items: center;
+      align-self: center;
+      width: 100%;
     }
 
     span.ChallengeItem--title {
@@ -126,16 +133,19 @@
       color: $connected-blue;
       font-weight: bold;
       text-transform: uppercase;
-      font-size: 1.3rem;
+      font-size: 2rem;
       line-height: normal;
-      align-self: flex-start;
+      align-self: center;
+      text-align: center;
+      align-self: center;
     }
 
     p.ChallengeItem--description {
       color: $connected-blue;
       line-height: normal;
       margin-bottom: 0;
-      align-self: flex-start;
+      text-align: center;
+      align-self: center;
     }
   }
 
