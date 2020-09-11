@@ -28,7 +28,6 @@ const ChallengeItem = ({ item }) => {
         {
             return
         }
-        let style = window.getComputedStyle(e.currentTarget)
         let duration = aDur * 1000
         flipStyle(e, true);
         setTimeout(()=>toggleOpen(!open), duration/2)
@@ -38,7 +37,7 @@ const ChallengeItem = ({ item }) => {
         return (
             <div className="ChallengeItem open flip" style={{ animationDuration: aDur + "s" }} onAnimationEnd={(e) => flipStyle(e, false)} onClick={(e) => flipCard(e)}>
                 <div className="ChallengeItem--text">
-                    <span className="ChallengeItem--title">{name}</span>
+                    <span className="ChallengeItem--title">{shorttext}</span>
                     <p className="ChallengeItem--description">{long_text}</p>
                 </div>
             </div>
