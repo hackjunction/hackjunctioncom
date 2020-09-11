@@ -35,12 +35,15 @@ const ChallengeItem = ({ item }) => {
 
     if (open) {
         return (
-            <div className="ChallengeItem open flip" style={{ animationDuration: aDur + "s" }} onAnimationEnd={(e) => flipStyle(e, false)} onClick={(e) => flipCard(e)}>
+            <div className="ChallengeItem open flip" style={{animationDuration: aDur + "s"}} onAnimationEnd={(e) => flipStyle(e, false)} onClick={(e) => flipCard(e)}>
                 <div className="ChallengeItem--text">
                     <span className="ChallengeItem--title">{shorttext}</span>
                     <p className="ChallengeItem--description">{long_text}</p>
                 </div>
-            </div>
+                <div className="ChallengeItem--logowpr">
+                    <img class="ChallengeIco" src={icon.url}/>
+                </div>
+            </div >
         )
     }
     return (
