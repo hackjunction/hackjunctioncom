@@ -1,25 +1,26 @@
-import React, { PureComponent, Suspense } from "react";
-import "./style.scss";
+import React, { PureComponent, Suspense } from 'react'
+import './style.scss'
 
-import KEYS from "../../../redux/staticcontent/keys";
-import MEDIA_KEYS from "../../../redux/staticmedia/keys";
+import KEYS from '../../../redux/staticcontent/keys'
+import MEDIA_KEYS from '../../../redux/staticmedia/keys'
 
-import { Link, Element } from "react-scroll";
+import { Link, Element } from 'react-scroll'
 
-import SectionImage from "../../../components/SectionImage";
-import { Grid } from "@material-ui/core";
+import SectionImage from '../../../components/SectionImage'
+import { Grid } from '@material-ui/core'
 
-import "../../../components/HeaderSection/style.scss";
+import '../../../components/HeaderSection/style.scss'
 
-import Page from "../../PageHOC";
-import Button from "../../../components/Button";
-import HeaderSection from "../../../components/HeaderSection";
-import TrackGrid from "../../../components/TrackGrid";
-import BlockSection from "../../../components/BlockSection";
-import ChallengeGrid from "../../../components/ChallengeGrid";
+import DividerLine from '../../../components/DividerLine'
+import Page from '../../PageHOC'
+import Button from '../../../components/Button'
+import HeaderSection from '../../../components/HeaderSection'
+import TrackGrid from '../../../components/TrackGrid'
+import BlockSection from '../../../components/BlockSection'
+import ChallengeGrid from '../../../components/ChallengeGrid'
 
-import { challenges as selectChallenges } from "../../../redux/challenges/selectors"
-import {connect} from "react-redux"
+import { challenges as selectChallenges } from '../../../redux/challenges/selectors'
+import { connect } from 'react-redux'
 
 /*const challenges = [
     {
@@ -217,43 +218,29 @@ const tracks = [
 ];
 */
 class Challenges extends PureComponent {
-    render() {
-        return (
-            <Page
-                className="Connected"
-                pageTitle="Junction 2020 Connected"
-                metaDescKey={KEYS.whoAreWeBody}
-                ogImageKey={MEDIA_KEYS.homePageHeaderImage}
-            >
-                <HeaderSection
-                    title={/*"Tracks & "+*/"Challenges"}
-                    //body="The hackathon is divided into tracks based on different industries and themes. All tracks include multiple challenges you can choose to work on during the hackathon: and you can even combine challenges and submit your project to multiple ones!"
-                    body="The hackathon is divided into challenges based on different industries and themes. You can choose to work on multiple challenges during the hackathon: and you can even combine them and submit your project to multiple ones!"
-                >
-                    {/*
-                    <Grid spacing={12} direction="row">
-                        <Link
-                            activeClass="active"
-                            to="tracks"
-                            spy={true}
-                            smooth={true}
-                            duration={500}
-                        >
-                            <Button className="Button-default" text="Tracks" />                                
-                        </Link>
-                        <Link
-                            activeClass="active"
-                            to="challenges"
-                            spy={true}
-                            smooth={true}
-                            duration={500}
-                        >
-                            <Button className="Button-default" text="Challenges" />                                
-                        </Link>
-                    </Grid>
-                    */}
-                </HeaderSection>
-                {/*
+  render() {
+    return (
+      <Page
+        className="Connected"
+        pageTitle="Junction 2020 Connected"
+        metaDescKey={KEYS.whoAreWeBody}
+        ogImageKey={MEDIA_KEYS.homePageHeaderImage}
+      >
+        <HeaderSection
+          title={/*"Tracks & "+*/ 'Challenges'}
+          //body="The hackathon is divided into tracks based on different industries and themes. All tracks include multiple challenges you can choose to work on during the hackathon: and you can even combine challenges and submit your project to multiple ones!"
+          body="The hackathon is divided into challenges based on different industries and themes. You can choose to work on multiple challenges during the hackathon: and you can even combine them and submit your project to multiple ones!"
+        >
+          <Grid spacing={12} direction="row">
+            <Button
+              className="Button-small Button-apply"
+              to="https://app.hackjunction.com/events/junction-2020-connected"
+              text="Apply Here"
+            />
+            <Button className="Button-small" to="/info" text="Event info" />
+          </Grid>
+        </HeaderSection>
+        {/*
                 <SectionImage
                     imageKey={MEDIA_KEYS.homePageHeaderImage}
                     alt="Header image"
@@ -264,29 +251,31 @@ class Challenges extends PureComponent {
                 <Element class="MobileLink" name="tracks" id="tracks" />
                 <TrackGrid items={tracks} />
                 */}
-                {/*
-                <SectionImage
-                    imageKey={MEDIA_KEYS.homePageHeaderImage}
-                    alt="Header image"
-                >
-                    Challenges
-                </SectionImage>
-                */}
-                <h2 className="HeaderSection--body ChallengeSubtitle">Here are the challenges for Junction 2020 Connected.</h2>
-                <Element class="MobileLink" name="challenges" id="challenges" />
-                <ChallengeGrid items={Object.values(this.props.challenges)} />
-            </Page>
-        );      
-    }
+        <DividerLine />
+        <SectionImage
+          image={{
+            url: require('../../../assets/images/Junction2019-Saturday-IljaSmelich-SeveralTracks1.png'),
+          }}
+          alt="Junction 2020 Connected"
+        />
+        <DividerLine />
+        <h2 className="HeaderSection--body ChallengeSubtitle">
+          Here are the challenges for Junction 2020 Connected. Click the cards
+          to read more about each challenge.
+        </h2>
+        <Element class="MobileLink" name="challenges" id="challenges" />
+        <ChallengeGrid items={Object.values(this.props.challenges)} />
+      </Page>
+    )
+  }
 }
 
-function MapStateToProps(state, ownProps)
-{
-    var challenges = selectChallenges(state)
-    console.log(challenges);
-    return{
-        challenges: challenges
-    }
+function MapStateToProps(state, ownProps) {
+  var challenges = selectChallenges(state)
+  console.log(challenges)
+  return {
+    challenges: challenges,
+  }
 }
 
 export default connect(MapStateToProps)(Challenges)
