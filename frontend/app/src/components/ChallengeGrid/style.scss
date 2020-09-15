@@ -15,18 +15,16 @@
   align-items: center;
   grid-auto-rows: 1fr;
   align-self: center;
+  width: 93%;
+  justify-items: center;
   @include bp-med {
     margin: 5%;
     grid-template-columns: repeat(2, 1fr);
-    // grid-column-gap: 7%;
-    // grid-row-gap: 2%;
     grid-auto-rows: 1fr;
   }
   @include bp-full {
     margin: 5%;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 7%;
-    grid-row-gap: 2%;
     grid-auto-rows: 1fr;
   }
 }

@@ -1,29 +1,29 @@
 $bp-small: 600px;
 $bp-med: 900px;
-$bp-large: 1000px;
+$bp-large: 1200px;
 
 @mixin bp-small-only {
-    @media (max-width: $bp-med - 1) {
-        @content;
-    }
+  @media (max-width: $bp-med - 1) {
+    @content;
+  }
 }
 
 @mixin bp-med {
-    @media (min-width: $bp-med) {
-        @content;
-    }
+  @media (min-width: $bp-med) {
+    @content;
+  }
 }
 
 @mixin bp-full {
-    @media (min-width: $bp-large) {
-        @content;
-    }
+  @media (min-width: $bp-large) {
+    @content;
+  }
 }
 
 @mixin bp-custom($size) {
-    @media (min-width: $size) {
-        @content; 
-    }
+  @media (min-width: $size) {
+    @content;
+  }
 }
 
 $padding-base: 10px;
