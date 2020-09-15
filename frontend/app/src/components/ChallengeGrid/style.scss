@@ -14,7 +14,7 @@
   justify-content: flex-start;
   align-items: center;
   grid-auto-rows: 1fr;
-
+  align-self: center;
   @include bp-med {
     margin: 5%;
     grid-template-columns: repeat(2, 1fr);
