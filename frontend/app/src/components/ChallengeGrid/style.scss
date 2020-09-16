@@ -30,8 +30,11 @@
 }
 
 .ChallengeIco {
+  object-fit: contain;
   max-height: 5rem;
   max-width: 80%;
+  width: auto;
+  height: auto;
 }
 
 .ChallengeItem.flip {
