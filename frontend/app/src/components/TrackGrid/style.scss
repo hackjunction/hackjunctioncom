@@ -1,155 +1,155 @@
-@import "../../styles/main";
+@import '../../styles/main';
 
 .FilterButtons {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .TrackGrid {
-    margin: 5% 10%;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    align-items: center;
-    grid-auto-rows: 1fr;
+  margin: 5% 10%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  align-items: center;
+  grid-auto-rows: 1fr;
 
-    @include bp-med {
-        margin: 5%;
-        grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 7%;
-        grid-row-gap: 2%;
-        grid-auto-rows: 1fr;
-    }
-    @include bp-full {
-        margin: 5%;
-        grid-template-columns: repeat(3, 1fr);
-        grid-column-gap: 7%;
-        grid-row-gap: 2%;
-        grid-auto-rows: 1fr;
-    }
+  @include bp-med {
+    margin: 5%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 7%;
+    grid-row-gap: 2%;
+    grid-auto-rows: 1fr;
+  }
+  @include bp-full {
+    margin: 5%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 7%;
+    grid-row-gap: 2%;
+    grid-auto-rows: 1fr;
+  }
 }
 
 .TrackItem.flip {
-    //Please set animation duration in TrackItem.js
-    animation-name: card-flip;
-    max-height: 17rem;
+  //Please set animation duration in TrackItem.js
+  animation-name: card-flip;
+  max-height: 17rem;
 }
 
 .TrackItem.open {
-    //overflow-y: scroll;
-    scrollbar-width: thin; /* "auto" or "thin"  */
-    scrollbar-color: $connected-blue; /* scroll thumb & track */
+  //overflow-y: scroll;
+  scrollbar-width: thin; /* "auto" or "thin"  */
+  scrollbar-color: $connected-blue; /* scroll thumb & track */
 }
 
 .TrackItem.open > .TrackItem--text {
-    align-self: center;
-    width: 100%;
+  align-self: center;
+  width: 100%;
 }
 
 .TrackItem.open::-webkit-scrollbar {
-    width: 5px; /* width of the entire scrollbar */
+  width: 5px; /* width of the entire scrollbar */
 }
 
 .TrackItem.open::-webkit-scrollbar-track {
-    background: transparent; /* color of the tracking area */
+  background: transparent; /* color of the tracking area */
 }
 
 .TrackItem.open::-webkit-scrollbar-thumb {
-    background-color: $connected-blue; /* color of the scroll thumb */
-    border-radius: 20px; /* roundness of the scroll thumb */
-    border: 3px solid $connected-blue; /* creates padding around scroll thumb */
+  background-color: $connected-blue; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid $connected-blue; /* creates padding around scroll thumb */
 }
 
 @keyframes card-flip {
-    0% {
-        transform: rotate3d(0, 1, 0, 0deg);
-    }
-    25% {
-        transform: translate(0%, -10%) scale(1.05);
-        box-shadow: 0px 1em 1em #5103;
-    }
-    50% {
-        transform: rotate3d(0, 1, 0, 90deg) translate(0%, -10%) scale(1.05);
-        box-shadow: 0px 1em 1em #5103;
-    }
-    75% {
-        transform: rotate3d(0, 1, 0, 0deg) translate(0%, -10%) scale(1.05);
-        box-shadow: 0px 1em 1em #5103;
-    }
+  0% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  25% {
+    transform: translate(0%, -10%) scale(1.05);
+    box-shadow: 0px 1em 1em #5103;
+  }
+  50% {
+    transform: rotate3d(0, 1, 0, 90deg) translate(0%, -10%) scale(1.05);
+    box-shadow: 0px 1em 1em #5103;
+  }
+  75% {
+    transform: rotate3d(0, 1, 0, 0deg) translate(0%, -10%) scale(1.05);
+    box-shadow: 0px 1em 1em #5103;
+  }
 }
 
 .TrackItem {
-    cursor: pointer;
-    margin-top: 5%;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  cursor: pointer;
+  margin-top: 5%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  height: 17rem;
+  max-height: 17rem;
+  min-height: 17rem;
+  flex-direction: column;
+  border-color: $connected-red;
+  justify-content: space-between;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 0.3rem;
+  padding: $padding-base;
+  padding-top: 1rem;
+  overflow: hidden;
+  background-color: $connected-peach;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  &--text {
     display: flex;
-    height: 17rem;
-    max-height: 17rem;
-    min-height: 17rem;
     flex-direction: column;
-    border-color: $connected-red;
-    justify-content: space-between;
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 0.3rem;
-    padding: $padding-base;
-    padding-top: 2rem;
-    overflow: hidden;
-    background-color: $connected-peach;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    &--text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        text-align: center;
-        align-self: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    align-self: center;
 
-        @include bp-full {
-            text-align: left;
-            align-items: left;
-            align-self: flex-end;
-            width: 65%;
-        }
-
-        span.TrackItem--title {
-            @extend %font-title;
-            color: $connected-blue;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 1.3rem;
-            line-height: normal;
-            align-self: flex-start;
-        }
-
-        p.TrackItem--description {
-            color: $connected-blue;
-            line-height: normal;
-            margin-bottom: 0;
-            align-self: flex-start;
-        }
+    @include bp-full {
+      text-align: left;
+      align-items: left;
+      align-self: flex-end;
+      width: 65%;
     }
 
-    &--logowpr {
-        display: flex;
-        width: 100%;
-        justify-content: space-evenly;
-        img.TrackItem--logo {
-            width: 20%;
-        }
+    span.TrackItem--title {
+      @extend %font-title;
+      color: $connected-blue;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      line-height: normal;
+      align-self: flex-start;
     }
 
-    &--number {
-        width: 30%;
-        flex: 1 1 30%;
-        font-family: Lato;
-        font-size: 100px;
-        font-weight: 900;
+    p.TrackItem--description {
+      color: $connected-blue;
+      line-height: normal;
+      margin-bottom: 0;
+      align-self: flex-start;
     }
+  }
+
+  &--logowpr {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    img.TrackItem--logo {
+      width: 20%;
+    }
+  }
+
+  &--number {
+    width: 30%;
+    flex: 1 1 30%;
+    font-family: Lato;
+    font-size: 100px;
+    font-weight: 900;
+  }
 }
