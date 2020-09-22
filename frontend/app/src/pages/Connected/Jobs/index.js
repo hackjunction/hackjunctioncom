@@ -15,11 +15,8 @@ import DividerLine from '../../../components/DividerLine'
 import Page from '../../PageHOC'
 import Button from '../../../components/Button'
 import HeaderSection from '../../../components/HeaderSection'
-import TrackGrid from '../../../components/TrackGrid'
 import BlockSection from '../../../components/BlockSection'
-import ChallengeGrid from '../../../components/ChallengeGrid'
 
-import { challenges as selectChallenges } from '../../../redux/challenges/selectors'
 import { connect } from 'react-redux'
 
 class Jobs extends PureComponent {
