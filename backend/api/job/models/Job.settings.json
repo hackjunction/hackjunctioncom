@@ -17,7 +17,7 @@
       "default": "",
       "type": "string"
     },
-    "date": {
+    "endDate": {
       "default": "",
       "type": "date"
     },
