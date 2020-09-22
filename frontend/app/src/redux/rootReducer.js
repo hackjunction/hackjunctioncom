@@ -4,6 +4,7 @@ import { combineReducers } from 'redux'
 import nav from './nav/reducer'
 import staticcontent from './staticcontent/reducer'
 import faq from './faq/reducer'
+import job from './job/reducer'
 import staticmedia from './staticmedia/reducer'
 import events from './events/reducer'
 import eventconcepts from './eventconcepts/reducer'
@@ -21,6 +22,7 @@ import misc from './misc/reducer'
 export default () => combineReducers({
 	nav,
 	faq,
+	job,
 	staticcontent,
 	staticmedia,
 	events,

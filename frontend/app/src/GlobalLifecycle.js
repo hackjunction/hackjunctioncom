@@ -5,6 +5,7 @@ import { updateEventConcepts } from './redux/eventconcepts/actions';
 import { updatePages } from './redux/pages/actions';
 import { updateStaticContent } from './redux/staticcontent/actions';
 import { updateFAQ } from './redux/faq/actions';
+import { updateJobs } from './redux/job/actions';
 import { updateStaticMedia } from './redux/staticmedia/actions';
 import { updateTestimonials } from './redux/testimonials/actions';
 import { updateOnlineEvents } from './redux/onlineevents/actions';
@@ -23,6 +24,7 @@ class GlobalLifecycle extends React.Component {
         /** Dispatch updates that affect the whole page */
         this.props.updateStaticContent();
         this.props.updateFAQ();
+        this.props.updateJobs();
         this.props.updateStaticMedia();
         this.props.updateEventConcepts();
         this.props.updatePages();
@@ -41,6 +43,7 @@ const mapStateToProps = state => ({});
 const mapDispatchToProps = dispatch => ({
     updateStaticContent: () => dispatch(updateStaticContent()),
     updateFAQ: () => dispatch(updateFAQ()),
+    updateJobs: ()=> dispatch(updateJobs()),
     updateStaticMedia: () => dispatch(updateStaticMedia()),
     updateEventConcepts: () => dispatch(updateEventConcepts()),
     updatePages: () => dispatch(updatePages()),
