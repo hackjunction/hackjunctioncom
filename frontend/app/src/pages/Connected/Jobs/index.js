@@ -1,4 +1,4 @@
-import React, { PureComponent, Suspense } from 'react'
+import React, { PureComponent, Suspense, useEffect, useState } from 'react'
 import './style.scss'
 
 import KEYS from '../../../redux/staticcontent/keys'
@@ -17,10 +17,12 @@ import Button from '../../../components/Button'
 import HeaderSection from '../../../components/HeaderSection'
 import BlockSection from '../../../components/BlockSection'
 
+import { job as selectJobs } from '../../../redux/job/selectors'
+
 import { connect } from 'react-redux'
 
-class Jobs extends PureComponent {
-  render() {
+const Jobs = (props)=> {
+    console.log(props);
     return (
       <Page
         className="Connected"
@@ -35,11 +37,6 @@ class Jobs extends PureComponent {
         </HeaderSection>
       </Page>
     )
-  }
 }
 
-function MapStateToProps(state, ownProps) {
-  return {}
-}
-
-export default connect(MapStateToProps)(Jobs)
+export default connect((state) => ({ jobs: selectJobs(state) }))(Jobs)

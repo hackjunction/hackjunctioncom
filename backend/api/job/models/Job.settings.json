@@ -19,7 +19,7 @@
     },
     "endDate": {
       "default": "",
-      "type": "date"
+      "type": "string"
     },
     "location": {
       "default": "",
