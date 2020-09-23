@@ -15,6 +15,7 @@ import DividerLine from '../../../components/DividerLine'
 import Page from '../../PageHOC'
 import Button from '../../../components/Button'
 import HeaderSection from '../../../components/HeaderSection'
+import JobItem from '../../../components/JobItem'
 import BlockSection from '../../../components/BlockSection'
 
 import { job as selectJobs } from '../../../redux/job/selectors'
@@ -35,6 +36,7 @@ const Jobs = (props)=> {
           body="Interested in getting hired by one of our partners? Good, because they are looking for more people. More job listings are added all of the time, so stay tuned!"
         >
         </HeaderSection>
+        {props.jobs.map(job => <JobItem job={job}/>)}
       </Page>
     )
 }

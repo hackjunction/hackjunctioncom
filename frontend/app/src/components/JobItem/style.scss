@@ -1,0 +1,47 @@
+@import '../../styles/main';
+
+.JobItem {
+  width: 50%;
+  align-self: center;
+  border-style: solid;
+  border-radius: 0.5em;
+  border-width: 0.25em;
+  border-color: $connected-orange;
+  margin-bottom: $padding-base;
+
+  padding: 0.2em;
+  padding-left: 0.6em;
+
+  &-expanded {
+    .JobItem--desc {
+      display: initial;
+    }
+
+    .JobItem--title i {
+      transform: rotateZ(90deg);
+    }
+  }
+
+  &--title {
+    @extend %font-title;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: $connected-blue;
+    i {
+      display: block;
+      transform: rotateZ(0deg);
+      transition: 0.2s transform ease;
+      color: $connected-teal;
+      font-size: 2em;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}
