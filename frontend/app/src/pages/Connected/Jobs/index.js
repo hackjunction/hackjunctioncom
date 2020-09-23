@@ -23,7 +23,6 @@ import { job as selectJobs } from '../../../redux/job/selectors'
 import { connect } from 'react-redux'
 
 const Jobs = ({jobs})=> {
-    console.log(props);
     return (
       <Page
         className="Connected"
