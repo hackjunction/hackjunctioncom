@@ -12,12 +12,16 @@ import Typography from "@material-ui/core/Typography"
 
 const useStyles = makeStyles({
     root: {
-        margin: "10em 2em 10em 5em",
         background: "#D1F2EF",
-        border: "4px solid #0B2C5D",
         boxSizing: "border-box",
-        borderRadius: "5px",
-        boxShadow: "none",
+        borderstyle: "solid",
+        bordercolor: "#6da99e",
+        borderRadius: "45px",
+        padding: "20px",
+        margin: "10em 2em 10em 5em",
+        fontfamily: "Arial",
+        webkitboxshadow: "0px 10px 13px - 7px #000000, 0px 2px 0px 6px rgba(0, 0, 0, 0)",
+        boxShadow: "0px 10px 13px - 7px #000000, 0px 2px 0px 6px rgba(0, 0, 0, 0)",
     },
     name: {
         fontFamily: "Montserrat",
