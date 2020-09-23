@@ -13,8 +13,8 @@ import Typography from "@material-ui/core/Typography"
 const useStyles = makeStyles({
     root: {
         margin: "10em 2em 10em 5em",
-        background: "#FFFF00",
-        border: "4px solid #000000",
+        background: "#D1F2EF",
+        border: "4px solid #0B2C5D",
         boxSizing: "border-box",
         borderRadius: "5px",
         boxShadow: "none",
