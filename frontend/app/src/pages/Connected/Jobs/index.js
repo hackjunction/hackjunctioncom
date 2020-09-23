@@ -22,7 +22,7 @@ import { job as selectJobs } from '../../../redux/job/selectors'
 
 import { connect } from 'react-redux'
 
-const Jobs = (props)=> {
+const Jobs = ({jobs})=> {
     console.log(props);
     return (
       <Page
@@ -36,7 +36,7 @@ const Jobs = (props)=> {
           body="Interested in getting hired by one of our partners? Good, because they are looking for more people. More job listings are added all of the time, so stay tuned!"
         >
         </HeaderSection>
-        {props.jobs.map(job => <JobItem job={job}/>)}
+        {jobs.map(job => <JobItem job={job}/>)}
       </Page>
     )
 }
