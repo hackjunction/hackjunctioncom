@@ -23,7 +23,7 @@ export default (props) => {
             <AnimateHeight duration={300} height={open ? "auto" : 0}>
                 <div style={{ height: "30px" }} />
                 <Markdown className="JobItem--desc" source={desc} />
-                <a href={link}>Learn More &gt;</a>
+                <a href={link} target="blank">Learn More &gt;</a>
             </AnimateHeight>
         </div>
     );
