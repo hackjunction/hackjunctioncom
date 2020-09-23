@@ -12,7 +12,7 @@ import "./style.scss"
 
 const useStyles = makeStyles({
     planetContainer: {
-        background: "#FBFBFB",
+        background: "#F5D2A2",
         display: "flex",
         flexDirection: "row",
     },
@@ -33,7 +33,7 @@ const Planet = (props) => {
         const raycaster = new THREE.Raycaster()
         const mouse = new THREE.Vector2()
         const { events } = props
-        let width = (window.screen.width * 0.95) / 3
+        let width = (window.screen.width * 1) / 3
         let height = width
 
         const scene = new THREE.Scene()
@@ -55,7 +55,7 @@ const Planet = (props) => {
 
         const handleResize = () => {
             console.log("resixiing")
-            let width = (window.screen.width * 0.95) / 3
+            let width = (window.screen.width * 1) / 3
             let height = width
             console.log(height, width)
             renderer.setSize(width, height, true)

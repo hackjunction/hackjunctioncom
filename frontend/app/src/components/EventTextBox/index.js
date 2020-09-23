@@ -1,20 +1,20 @@
-import React from "react";
+import React from "react"
 
-import "./style.scss";
+import "./style.scss"
 
-import KEYS from "../../redux/staticcontent/keys";
-import Markdown from "../Markdown";
+import KEYS from "../../redux/staticcontent/keys"
+import Markdown from "../Markdown"
 
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles"
+import Card from "@material-ui/core/Card"
+import CardContent from "@material-ui/core/CardContent"
+import Typography from "@material-ui/core/Typography"
 
 const useStyles = makeStyles({
     root: {
         margin: "10em 2em 10em 5em",
-        background: "#232323",
-        border: "4px solid #FBFBFB",
+        background: "#FFFF00",
+        border: "4px solid #000000",
         boxSizing: "border-box",
         borderRadius: "5px",
         boxShadow: "none",
@@ -37,7 +37,7 @@ const useStyles = makeStyles({
         lineHeight: "17px",
         display: "flex",
         alignItems: "center",
-        color: "#FBFBFB",
+        color: "#F5D2A2",
     },
     body: {
         fontFamily: "Montserrat",
@@ -47,13 +47,13 @@ const useStyles = makeStyles({
         lineHeight: "22px",
         display: "flex",
         alignItems: "center",
-        color: "#FBFBFB",
+        color: "#F5D2A2",
     },
-});
+})
 
 const EventTextBox = (eventData) => {
-    const classes = useStyles();
-    console.log("event data is", eventData, eventData.name);
+    const classes = useStyles()
+    console.log("event data is", eventData, eventData.name)
     return eventData?.name ? (
         <Card className={classes.root}>
             <CardContent>
@@ -83,8 +83,8 @@ const EventTextBox = (eventData) => {
             </CardContent>
         </Card>
     ) : (
-        <Markdown className={"blackText"} sourceKey={KEYS.whoAreWeGlobal} />
-    );
-};
+            <Markdown className={"blackText"} sourceKey={KEYS.whoAreWeGlobal} />
+        )
+}
 
-export default EventTextBox;
+export default EventTextBox
