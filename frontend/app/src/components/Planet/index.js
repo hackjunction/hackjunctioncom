@@ -12,10 +12,9 @@ import "./style.scss"
 
 const useStyles = makeStyles({
     planetContainer: {
-        background: "#ef7d50",
+        background: "#FBFBFB",
         display: "flex",
         flexDirection: "row",
-        // #ef7d50;
     },
     vis: {
         width: "100% ",
@@ -23,7 +22,6 @@ const useStyles = makeStyles({
         float: "right",
     },
 })
-
 const Planet = (props) => {
     const classes = useStyles()
     const mount = useRef(null)
@@ -35,7 +33,7 @@ const Planet = (props) => {
         const raycaster = new THREE.Raycaster()
         const mouse = new THREE.Vector2()
         const { events } = props
-        let width = (window.screen.width * 1.3) / 3
+        let width = (window.screen.width * 0.95) / 3
         let height = width
 
         const scene = new THREE.Scene()
@@ -47,18 +45,17 @@ const Planet = (props) => {
             0.2,
             RADIUS * 10,
         )
-        camera.position.z = 35
+        camera.position.z = 30
 
         const renderer = new THREE.WebGLRenderer({ antialias: true })
 
         const controls = new OrbitControls(camera, renderer.domElement)
         controls.enableZoom = false
-
         renderer.setSize(width, height)
 
         const handleResize = () => {
             console.log("resixiing")
-            let width = (window.screen.width * 0.85) / 3
+            let width = (window.screen.width * 0.95) / 3
             let height = width
             console.log(height, width)
             renderer.setSize(width, height, true)
