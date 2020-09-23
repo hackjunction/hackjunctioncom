@@ -33,18 +33,15 @@
     }
   }
 
-  .JobItem--head {
-    width: 100%;
-    height: 10em;
-    display: flex;
-    flex-direction: row;
+  &--head {
+    width: 90%;
+    overflow-x: wrap;
   }
 
-  .JobItem--image {
+  &--image {
     height: 10em;
     width: 12em;
-    display: flex;
-    flex-direction: row;
+    display: inline-block;
   }
 
   &--title {
@@ -61,7 +58,7 @@
   &--title-container {
     margin-top: 1em;
     margin-left: 3em;
-    display: block;
+    display: inline-block;
   }
 
   &--date {
