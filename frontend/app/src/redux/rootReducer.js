@@ -17,22 +17,24 @@ import testimonials from './testimonials/reducer'
 import onlineevents from './onlineevents/reducer'
 import challenges from './challenges/reducer'
 import misc from './misc/reducer'
+import hubs from './hubs/reducer'
 
 export default () => combineReducers({
-	nav,
-	faq,
-	staticcontent,
-	staticmedia,
-	events,
-	eventconcepts,
-	kpis,
-	pages,
-	partners,
-	socialmedias,
-	stories,
-	teammembers,
-	testimonials,
+    nav,
+    faq,
+    staticcontent,
+    staticmedia,
+    events,
+    eventconcepts,
+    kpis,
+    pages,
+    partners,
+    socialmedias,
+    stories,
+    teammembers,
+    testimonials,
     onlineevents,
     challenges,
-	misc
-});
+    misc,
+    hubs
+})

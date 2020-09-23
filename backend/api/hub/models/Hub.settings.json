@@ -1,0 +1,28 @@
+{
+    "connection": "default",
+    "collectionName": "hub",
+    "info": {
+        "name": "hub",
+        "description": ""
+    },
+    "options": {
+        "timestamps": [
+            "createdAt",
+            "updatedAt"
+        ]
+    },
+    "attributes": {
+        "name": {
+            "default": "",
+            "type": "string"
+        },
+        "coordinates": {
+            "default": "",
+            "type": "string"
+        },
+        "desc": {
+            "default": "",
+            "type": "string"
+        }
+    }
+}

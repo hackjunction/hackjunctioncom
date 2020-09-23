@@ -1,0 +1,28 @@
+{
+    "routes": [
+        {
+            "method": "GET",
+            "path": "/api/hubs",
+            "handler": "Hub.find",
+            "config": {
+                "policies": []
+            }
+        },
+        {
+            "method": "GET",
+            "path": "/api/hubs/count",
+            "handler": "Hub.count",
+            "config": {
+                "policies": []
+            }
+        },
+        {
+            "method": "GET",
+            "path": "/api/hubs/:_id",
+            "handler": "Hub.findOne",
+            "config": {
+                "policies": []
+            }
+        }
+    ]
+}

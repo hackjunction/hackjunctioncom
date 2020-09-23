@@ -1,0 +1,1 @@
+export const UPDATE_HUB = 'hubs/UPDATE';
