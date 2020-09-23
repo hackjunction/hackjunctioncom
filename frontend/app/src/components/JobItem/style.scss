@@ -1,25 +1,50 @@
-@import '../../styles/main';
+@import "../../styles/main";
 
 .JobItem {
-  width: 90%;
+  width: 75%;
   align-self: center;
-  border-style: solid;
-  border-radius: 0.5em;
-  border-width: 0.25em;
-  border-color: $connected-orange;
-  margin-bottom: $padding-base;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 2em;
+  padding: 2.5%;
+  padding-bottom: 0.5%;
+  border-radius: 2em;
 
-  padding: 0.2em;
-  padding-left: 0.6em;
+  &--arrow::before {
+    display: block;
+    color: $connected-orange !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 0%;
+    height: 0%;
+    font-size: 300%;
+    transform: rotate(90deg);
+    text-align: center;
+    transition: 0.2s transform ease;
+    cursor: pointer;
+  }
 
   &-expanded {
     .JobItem--desc {
       display: initial;
     }
 
-    .JobItem--title i {
-      transform: rotateZ(90deg);
+    .JobItem--arrow::before {
+      transform: rotate(-90deg);
     }
+  }
+
+  .JobItem--head {
+    width: 100%;
+    height: 10em;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .JobItem--image {
+    height: 10em;
+    width: 12em;
+    display: flex;
+    flex-direction: row;
   }
 
   &--title {
@@ -29,19 +54,48 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 200%;
     color: $connected-blue;
-    i {
-      display: block;
-      transform: rotateZ(0deg);
-      transition: 0.2s transform ease;
-      color: $connected-teal;
-      font-size: 2em;
-      width: 30px;
-      height: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-    }
+  }
+
+  &--title-container {
+    margin-top: 1em;
+    margin-left: 3em;
+    display: block;
+  }
+
+  &--date {
+    transition: 0.2s opacity ease;
+    color: $connected-red;
+    font-weight: bold;
+  }
+
+  &--desc {
+    margin-left: 15em;
+  }
+
+  &--desc > * {
+    font-weight: bold !important;
+  }
+
+  &--date-container {
+    display: inline-block;
+    width: 12em;
+  }
+
+  &--desc-container {
+    display: inline-block;
+    margin-top: -1em;
+    margin-left: 3em;
+    width: 65%;
+  }
+
+  &--link {
+    color: $connected-blue !important;
+    font-weight: bold;
+    font-size: 125%;
+    white-space: nowrap;
+    margin-left: 1.5%;
+    text-decoration: underline;
   }
 }
