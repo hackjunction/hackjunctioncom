@@ -1,4 +1,4 @@
-@import "../../styles/main";
+@import '../../styles/main';
 
 .JobItem {
   width: 75%;
@@ -39,7 +39,6 @@
   }
 
   &--image {
-    height: 10em;
     width: 12em;
     display: inline-block;
   }
