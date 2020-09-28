@@ -206,6 +206,15 @@ const ConnectedHome = (props) => {
             </a>
           </div>
           <div class="logoContainer">
+            <a href="https://www.pauliggroup.com/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/Paulig_Logo-V-C_neg_SLOGAN_large.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
             <a href="https://www.smartly.io/" target="_blank">
               <img
                 className="BIGLOGO"
