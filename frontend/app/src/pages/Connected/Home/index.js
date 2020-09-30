@@ -269,6 +269,15 @@ const ConnectedHome = (props) => {
             </a>
           </div>
           <div class="logoContainer">
+            <a href="https://www.op.fi/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/partner/op_orange-white.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
             <a href="https://www.columbiaroad.com/" target="_blank">
               <img
                 className="logoIMG"
