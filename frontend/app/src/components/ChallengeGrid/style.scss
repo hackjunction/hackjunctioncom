@@ -36,6 +36,56 @@
   width: auto;
   height: auto;
 }
+.InsightImg {
+  object-fit: contain;
+  max-height: 15rem;
+  max-width: 75%;
+  width: auto;
+  height: auto;
+  margin-left: 5em;
+  display: none;
+  @include bp-med {
+    display: flex;
+  }
+  @include bp-full {
+    display: flex;
+  }
+}
+
+.ChallengeIco.open {
+  object-fit: contain;
+  max-height: 1rem;
+  width: auto;
+  height: auto;
+  float: left;
+}
+
+.close {
+  position: absolute;
+  right: 32px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
 
 .ChallengeItem.flip {
   //Please set animation duration in ChallengeItem.js
@@ -44,9 +94,35 @@
 }
 
 .ChallengeItem.open {
-  //overflow-y: scroll;
+  background-color: $connected-Erin-peach;
+  overflow-y: scroll;
+  z-index: 100;
   scrollbar-width: thin; /* "auto" or "thin"  */
   scrollbar-color: $connected-blue; /* scroll thumb & track */
+  position: fixed;
+  bottom: 30%;
+  right: 30%;
+  height: auto;
+  width: 50%;
+  max-height: auto;
+  min-height: auto;
+  @include bp-med {
+    height: 90%;
+    width: 50%;
+    max-height: 90%;
+    min-height: 90%;
+    bottom: 5%;
+    right: 15%;
+  }
+  @include bp-full {
+    height: 90%;
+    width: 50%;
+    max-height: 90%;
+    min-height: 90%;
+    bottom: 5%;
+    right: 15%;
+  }
+
   span.ChallengeItem--title {
     @extend %font-title;
     color: $connected-blue;
@@ -87,33 +163,30 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  display: flex;
-  height: 20em;
+  // display: flex;
+  height: 30em;
   width: 20em;
-  max-height: 20em;
-  min-height: 20em;
+  max-height: 30em;
+  min-height: 30em;
   @include bp-med {
-    height: 20em;
+    height: 30em;
     width: 20em;
-    max-height: 20em;
-    min-height: 20em;
+    max-height: 30em;
+    min-height: 30em;
   }
   @include bp-full {
-    height: 20em;
+    height: 30em;
     width: 20em;
-    max-height: 20em;
-    min-height: 20em;
+    max-height: 30em;
+    min-height: 30em;
   }
   flex-direction: column;
-  border-color: $connected-red;
   justify-content: space-between;
   border-radius: 10px;
-  border-style: solid;
-  border-width: 0.3rem;
   padding: $padding-base;
   padding-top: 1rem;
   overflow: hidden;
-  background-color: $connected-peach;
+  background-color: $connected-Erin-orange;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -127,6 +200,26 @@
       align-items: center;
       align-self: center;
       width: 100%;
+    }
+
+    .ChallengeItem--subsection {
+      display: none;
+      @include bp-med {
+        display: flex;
+      }
+      @include bp-full {
+        display: flex;
+      }
+
+      .ChallengeItem--left {
+        font-weight: bold;
+        width: 20%;
+      }
+      .ChallengeItem--right {
+        font-size: 0.8em;
+        width: 75%;
+        margin-left: 0.8em;
+      }
     }
 
     span.ChallengeItem--title {
@@ -165,5 +258,49 @@
     font-family: Lato;
     font-size: 100px;
     font-weight: 900;
+  }
+  &.corner {
+    cursor: pointer;
+    &::before {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      background: $connected-Erin-peach;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 50px * 1.4;
+      height: 50px * 1.4;
+      position: absolute;
+      right: 50px * -0.7;
+      bottom: 50px * -0.7;
+      background: $connected-peach;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+    }
+    &:hover {
+      &::before {
+        width: 50px * 1.3;
+        height: 50px * 1.3;
+      }
+      &::after {
+        width: 50px * 1.8;
+        height: 50px * 1.8;
+        right: 50px * -0.9;
+        bottom: 50px * -0.9;
+      }
+    }
   }
 }

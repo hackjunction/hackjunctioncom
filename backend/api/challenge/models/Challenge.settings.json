@@ -13,6 +13,10 @@
       "default": "",
       "type": "string"
     },
+    "company": {
+      "default": "",
+      "type": "string"
+    },
     "name": {
       "default": "",
       "type": "string"
@@ -21,11 +25,37 @@
       "default": "",
       "type": "string"
     },
-    "tags": {
-      "default": "",
-      "type": "string"
-    },
     "long_text": {
+      "default": "",
+      "type": "richtext"
+    },
+    "thechallenge": {
+      "default": "",
+      "type": "richtext"
+    },
+    "insights": {
+      "default": "",
+      "type": "richtext"
+    },
+    "price": {
+      "default": "",
+      "type": "richtext"
+    },
+    "judging": {
+      "default": "",
+      "type": "richtext"
+    },
+    "aboutcompany": {
+      "default": "",
+      "type": "richtext"
+    },
+    "insightimage": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "tags": {
       "default": "",
       "type": "string"
     },
