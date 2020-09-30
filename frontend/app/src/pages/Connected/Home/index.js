@@ -7,10 +7,9 @@ import MEDIA_KEYS from '../../../redux/staticmedia/keys'
 import SectionImage from '../../../components/SectionImage'
 import NewsLetterForm from '../../../components/NewsLetterForm'
 import BlockSection from '../../../components/BlockSection'
-import Timeline from '../Components/Timeline'
+
 import DividerLine from '../../../components/DividerLine'
 import HeaderSection from '../../../components/HeaderSection'
-import HeaderVideo from '../../../components/HeaderVideo'
 
 import { content as selectContent } from '../../../redux/staticcontent/selectors'
 import { connect } from 'react-redux'
@@ -21,19 +20,54 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Page from '../../PageHOC'
 import Button from '../../../components/Button'
+//HELMET
+import { Helmet } from 'react-helmet'
 
 const textsJSON = require('./texts.json')
 
 const ConnectedHome = (props) => {
   return (
     <Page
-      metaDescKey={KEYS.whoAreWeBody}
+      //   metaDescKey={KEYS.whoAreWeBody}
       className="Connected ConnectedContent ConnectedHome"
       pageTitle="Junction 2020 Connected"
-      metaDescKey={KEYS.whoAreWeBody}
-      ogImageKey={MEDIA_KEYS.homePageHeaderImage}
+      //   metaDescKey={KEYS.whoAreWeBody}
+      //   ogImageKey={MEDIA_KEYS.homePageHeaderImage}
     >
       <div className="Connected-parallax">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>"Junction 2020 Connected"</title>
+          <meta
+            name="keywords"
+            content="junction 2020 connected, connected, junction, junction 2020"
+          />
+          <meta name="title" content="Junction 2020 Connected" />
+          <meta property="og:title" content="Junction 2020 Connected" />
+          <meta name="twitter:title" content="Junction 2020 Connected" />
+          <meta
+            name="description"
+            content="Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online."
+          />
+          <meta
+            property="og:description"
+            content="Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online."
+          />
+          <meta
+            name="twitter:description"
+            content="Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online."
+          />
+
+          <meta name="og:type" content="website" />
+          <meta
+            property="og:image"
+            content={require('../../../assets/images/photo-hub-visualisation.svg')}
+          />
+          <meta
+            name="twitter:image"
+            content={require('../../../assets/images/photo-hub-visualisation.svg')}
+          />
+        </Helmet>
         <Link
           activeClass="active"
           to="mainContent"
