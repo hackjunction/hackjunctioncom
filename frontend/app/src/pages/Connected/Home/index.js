@@ -287,10 +287,19 @@ const ConnectedHome = (props) => {
             </a>
           </div>
           <div class="logoContainer">
-            <a href="https://www.justai.nl//" target="_blank">
+            <a href="https://www.justai.nl/" target="_blank">
               <img
                 className="logoIMG"
                 src={require('../../../assets/logos/partner/justai_white.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://www.hus.fi/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/partner/hus_white.png')}
                 alt="connected-logo-here"
               />
             </a>
