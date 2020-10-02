@@ -84,7 +84,7 @@ const ChallengeItem = ({ item }) => {
             </div>
             {insightimage && <img class="InsightImg" src={insightimage.url} />}
             <div className="ChallengeItem--subsection">
-              <p className="ChallengeItem--left">The Price</p>
+              <p className="ChallengeItem--left">The Prize</p>
               <p className="ChallengeItem--right">{price}</p>
             </div>
             <div className="ChallengeItem--subsection">
