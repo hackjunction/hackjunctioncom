@@ -296,10 +296,10 @@ const ConnectedHome = (props) => {
             </a>
           </div>
           <div class="logoContainer">
-            <a href="https://www.justai.nl/" target="_blank">
+            <a href="https://www.rovio.com/" target="_blank">
               <img
                 className="logoIMG"
-                src={require('../../../assets/logos/partner/justai_white.png')}
+                src={require('../../../assets/logos/partner/rovio_BW.png')}
                 alt="connected-logo-here"
               />
             </a>
@@ -314,10 +314,10 @@ const ConnectedHome = (props) => {
             </a>
           </div>
           <div class="logoContainer">
-            <a href="https://www.rovio.com/" target="_blank">
+            <a href="https://www.justai.nl/" target="_blank">
               <img
                 className="logoIMG"
-                src={require('../../../assets/logos/partner/rovio_BW.png')}
+                src={require('../../../assets/logos/partner/justai_white.png')}
                 alt="connected-logo-here"
               />
             </a>
