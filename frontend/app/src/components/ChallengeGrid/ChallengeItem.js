@@ -73,27 +73,36 @@ const ChallengeItem = ({ item }) => {
             ></span>
             <span className="ChallengeItem--title">{name}</span>
             <p className="ChallengeItem--description">{shorttext}</p>
-            <p className="ChallengeItem--description">{long_text}</p>
+            <Markdown
+              className="ChallengeItem--description"
+              source={long_text}
+            />
             <div className="ChallengeItem--subsection">
               <p className="ChallengeItem--left">The Challenge</p>
-              <p className="ChallengeItem--right">{thechallenge}</p>
+              <Markdown
+                className="ChallengeItem--right"
+                source={thechallenge}
+              />
             </div>
             <div className="ChallengeItem--subsection">
               <p className="ChallengeItem--left">Insights</p>
-              <p className="ChallengeItem--right">{insights}</p>
+              <Markdown className="ChallengeItem--right" source={insights} />
             </div>
             {insightimage && <img class="InsightImg" src={insightimage.url} />}
             <div className="ChallengeItem--subsection">
               <p className="ChallengeItem--left">The Prize</p>
-              <p className="ChallengeItem--right">{price}</p>
+              <Markdown className="ChallengeItem--right" source={price} />
             </div>
             <div className="ChallengeItem--subsection">
               <p className="ChallengeItem--left">Judging Criteria</p>
-              <p className="ChallengeItem--right">{judging}</p>
+              <Markdown className="ChallengeItem--right" source={judging} />
             </div>
             <div className="ChallengeItem--subsection">
               <p className="ChallengeItem--left">About the company</p>
-              <p className="ChallengeItem--right">{aboutcompany}</p>
+              <Markdown
+                className="ChallengeItem--right"
+                source={aboutcompany}
+              />
             </div>
           </div>
         </div>
