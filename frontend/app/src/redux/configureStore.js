@@ -15,6 +15,7 @@ const persistConfig = {
         "staticcontent",
         "staticmedia",
         "faq",
+        "job",      
         "events",
         "eventconcepts",
         "kpis",

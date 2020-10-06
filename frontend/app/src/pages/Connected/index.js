@@ -8,6 +8,7 @@ import ConnectedHome from "./Home"
 import EventInfo from "./EventInfo"
 import HubInfo from "./HubInfo"
 import Challenges from "./Challenges"
+import Jobs from "./Jobs"
 
 import NotFoundConnected from "./NotFound"
 import { Route, Switch } from "react-router-dom"
@@ -23,6 +24,7 @@ const Connected = () => {
                     <Route exact path="/info" component={EventInfo} />
                     <Route exact path="/hubs" component={HubInfo} />
                     <Route exact path="/challenges" component={Challenges} />
+                    <Route exact path="/jobs" component={Jobs} />
                     <Route path="/*" component={NotFoundConnected} />
                 </Switch>
                 <Footer />
