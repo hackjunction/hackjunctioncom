@@ -115,17 +115,17 @@
       color: $connected-blue;
     }
     background: $connected-peach;
-    border-top: 0.2em solid $connected-blue;
+    border-top: 0.1em solid  rgb(236,185,140);
 
     h2 {
       color: $connected-orange;
     }
     &--divider {
-      background-color: $connected-blue;
+      background-color: rgb(236,185,140);
     }
     &--left {
       &-divider {
-        background-color: $connected-blue;
+        background-color:  rgb(236,185,140);
       }
       &-second {
         &__FooterLinkList {
@@ -209,7 +209,7 @@
   }
 
   .DividerLine {
-    background-color: $connected-blue;
+    background-color: rgb(236,185,140);
   }
 
   &-parallax {
