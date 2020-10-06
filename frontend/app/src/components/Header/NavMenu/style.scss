@@ -33,15 +33,15 @@
 }
 
 .NavMenu {
-    width: 50px;
+    width: 30px;
     pointer-events: all;
     position: fixed;
-    left: calc(15% - 22px);
-    top: 5%;
+    left: calc(15% - 14px);
+    top: 15%;
     z-index: 3;
     display: none;
     height: auto;
-    min-height: 90%;
+    min-height: 70%;
     border-width: thin;
     flex-direction: row;
     border-radius: 0.4em;
@@ -214,6 +214,7 @@
     border: 0;
     margin: 0;
     padding: 0;
+    margin-left: -21px;
 
     overflow: visible;
     &:focus {
@@ -228,7 +229,7 @@
 }
 
 .hamburger-box {
-    width: 2em;
+    width: 1.25em;
     height: 24px;
     display: inline-block;
     position: relative;
@@ -242,7 +243,7 @@
 .hamburger-inner,
 .hamburger-inner::before,
 .hamburger-inner::after {
-    width: 2em;
+    width: 1.25em;
     height: 4px;
     border-radius: 4px;
     position: absolute;
@@ -270,8 +271,7 @@
     transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
 }
 .hamburger--spin .hamburger-inner::after {
-    transition: bottom 0.1s 0.25s ease-in,
-        transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
 .hamburger--spin.is-active .hamburger-inner {
@@ -287,6 +287,5 @@
 .hamburger--spin.is-active .hamburger-inner::after {
     bottom: 0;
     transform: rotate(-90deg);
-    transition: bottom 0.1s ease-out,
-        transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
