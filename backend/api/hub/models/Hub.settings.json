@@ -1,28 +1,32 @@
 {
-    "connection": "default",
-    "collectionName": "hub",
-    "info": {
-        "name": "hub",
-        "description": ""
+  "connection": "default",
+  "collectionName": "hub",
+  "info": {
+    "name": "hub",
+    "description": ""
+  },
+  "options": {
+    "timestamps": ["createdAt", "updatedAt"]
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
     },
-    "options": {
-        "timestamps": [
-            "createdAt",
-            "updatedAt"
-        ]
+    "latitude": {
+      "default": "",
+      "type": "decimal"
     },
-    "attributes": {
-        "name": {
-            "default": "",
-            "type": "string"
-        },
-        "coordinates": {
-            "default": "",
-            "type": "string"
-        },
-        "desc": {
-            "default": "",
-            "type": "string"
-        }
+    "longitude": {
+      "default": "",
+      "type": "decimal"
+    },
+    "desc": {
+      "default": "",
+      "type": "string"
+    },
+    "showOnMap": {
+      "type": "boolean"
     }
+  }
 }
