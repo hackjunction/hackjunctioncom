@@ -23,7 +23,7 @@
     },
     "desc": {
       "default": "",
-      "type": "string"
+      "type": "richtext"
     },
     "showOnMap": {
       "type": "boolean"

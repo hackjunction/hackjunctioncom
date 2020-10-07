@@ -13,7 +13,6 @@ import DividerLine from '../../../components/DividerLine'
 import HeaderSection from '../../../components/HeaderSection'
 
 import HeaderVideo from '../../../components/HeaderVideo'
-import Planet from '../../../components/Planet'
 
 import { content as selectContent } from '../../../redux/staticcontent/selectors'
 import { connect } from 'react-redux'
@@ -166,9 +165,6 @@ const ConnectedHome = (props) => {
           src={require('../../../assets/images/hub_globe.svg')}
           alt="connected-logo-here"
         />
-      </BlockSection>
-      <BlockSection>
-        <Planet />
       </BlockSection>
       <div className="hide">
         {' '}
