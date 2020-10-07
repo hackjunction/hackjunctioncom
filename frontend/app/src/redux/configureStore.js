@@ -29,24 +29,25 @@ const persistConfig = {
         "challenges",
         "onlineevents",
         "misc",
+        "hubs",
     ],
     stateReconciler: autoMergeLevel2,
-};
+}
 
 const persistedReducer = persistReducer(persistConfig, createRootReducer())
 
 export default (preloadedState) => {
-  const store = createStore(
-    persistedReducer,
-    preloadedState,
-    composeWithDevTools(
-      applyMiddleware(
-        thunk,
-        reduxPackMiddleware
-        // ... other middlewares ...
-      )
+    const store = createStore(
+        persistedReducer,
+        preloadedState,
+        composeWithDevTools(
+            applyMiddleware(
+                thunk,
+                reduxPackMiddleware
+                // ... other middlewares ...
+            )
+        )
     )
-  )
-  const persistor = persistStore(store)
-  return { store, persistor }
+    const persistor = persistStore(store)
+    return { store, persistor }
 }

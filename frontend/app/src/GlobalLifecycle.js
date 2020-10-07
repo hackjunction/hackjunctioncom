@@ -1,10 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 
 import { updateEventConcepts } from './redux/eventconcepts/actions';
 import { updatePages } from './redux/pages/actions';
 import { updateStaticContent } from './redux/staticcontent/actions';
 import { updateFAQ } from './redux/faq/actions';
+import { updateHUB } from './redux/hubs/actions'
 import { updateJobs } from './redux/job/actions';
 import { updateStaticMedia } from './redux/staticmedia/actions';
 import { updateTestimonials } from './redux/testimonials/actions';
@@ -22,27 +23,30 @@ import { toggleSidebar } from './redux/nav/actions';
 class GlobalLifecycle extends React.Component {
     async componentDidMount() {
         /** Dispatch updates that affect the whole page */
-        this.props.updateStaticContent();
-        this.props.updateFAQ();
+
+        this.props.updateStaticContent()
+        this.props.updateFAQ()
+        this.props.updateHUB()
         this.props.updateJobs();
-        this.props.updateStaticMedia();
-        this.props.updateEventConcepts();
-        this.props.updatePages();
-        this.props.updateTestimonials();
-        this.props.updateOnlineEvents();
-        this.props.updateChallenges();
+        this.props.updateStaticMedia()
+        this.props.updateEventConcepts()
+        this.props.updatePages()
+        this.props.updateTestimonials()
+        this.props.updateOnlineEvents()
+        this.props.updateChallenges()
     }
 
     render() {
-        return null;
+        return null
     }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({
     updateStaticContent: () => dispatch(updateStaticContent()),
     updateFAQ: () => dispatch(updateFAQ()),
+    updateHUB: () => dispatch(updateHUB()),
     updateJobs: ()=> dispatch(updateJobs()),
     updateStaticMedia: () => dispatch(updateStaticMedia()),
     updateEventConcepts: () => dispatch(updateEventConcepts()),
@@ -51,11 +55,11 @@ const mapDispatchToProps = dispatch => ({
     updateOnlineEvents: () => dispatch(updateOnlineEvents()),
     updateChallenges: () => dispatch(updateChallenges()),
     toggleSidebar: (open) => dispatch(toggleSidebar(open))
-});
+})
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(GlobalLifecycle);
+)(GlobalLifecycle)
 
 

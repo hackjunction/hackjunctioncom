@@ -16,6 +16,7 @@ import Button from '../../../components/Button'
 import { Link, Element } from 'react-scroll'
 import LinkButton from '../../../components/LinkButton'
 import Markdown from '../../../components/Markdown'
+import Planet from '../../../components/Planet'
 
 const textsJSON = require('./texts.json')
 
@@ -123,6 +124,7 @@ const HubInfo = (props) => {
         halfpage
         className="ScrollSnapElem HubSections"
       >
+        <Planet />
         <div class="citiesGrid">
           {props.Section3Cities.split(', ').map((city) => {
             return <p class="citiesText">{city}</p>

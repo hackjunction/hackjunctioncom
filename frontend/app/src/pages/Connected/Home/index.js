@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
 
 import KEYS from '../../../redux/staticcontent/keys'
 import MEDIA_KEYS from '../../../redux/staticmedia/keys'
+import { updateEvents } from '../../../redux/events/actions'
 
 import SectionImage from '../../../components/SectionImage'
 import NewsLetterForm from '../../../components/NewsLetterForm'
@@ -10,6 +11,8 @@ import BlockSection from '../../../components/BlockSection'
 
 import DividerLine from '../../../components/DividerLine'
 import HeaderSection from '../../../components/HeaderSection'
+
+import HeaderVideo from '../../../components/HeaderVideo'
 
 import { content as selectContent } from '../../../redux/staticcontent/selectors'
 import { connect } from 'react-redux'
@@ -26,6 +29,10 @@ import { Helmet } from 'react-helmet'
 const textsJSON = require('./texts.json')
 
 const ConnectedHome = (props) => {
+  useEffect(() => {
+    props.updateEvents()
+  })
+
   return (
     <Page
       //   metaDescKey={KEYS.whoAreWeBody}
@@ -163,7 +170,6 @@ const ConnectedHome = (props) => {
         {' '}
         <DividerLine />
       </div>
-
       <BlockSection
         halfpage
         title={props.Section3Title}
@@ -348,4 +354,8 @@ const mapStateToProps = (state) => {
   return contentTexts
 }
 
-export default connect(mapStateToProps)(ConnectedHome)
+const mapDispatchToProps = (dispatch) => ({
+  updateEvents: () => dispatch(updateEvents()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ConnectedHome)

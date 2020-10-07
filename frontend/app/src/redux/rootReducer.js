@@ -18,6 +18,7 @@ import testimonials from './testimonials/reducer'
 import onlineevents from './onlineevents/reducer'
 import challenges from './challenges/reducer'
 import misc from './misc/reducer'
+import hubs from './hubs/reducer'
 
 export default () => combineReducers({
 	nav,
@@ -34,7 +35,8 @@ export default () => combineReducers({
 	stories,
 	teammembers,
 	testimonials,
-    onlineevents,
-    challenges,
-	misc
-});
+  onlineevents,
+  challenges,
+  misc,
+  hubs
+})
