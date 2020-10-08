@@ -15,11 +15,11 @@ const useStyles = makeStyles({
     background: '#F5D2A2',
     display: 'flex',
     flexDirection: 'row',
+    width: '100%',
   },
   vis: {
-    width: '100% ',
-    position: 'static',
-    float: 'right',
+    width: 'auto',
+    marginLeft: 'auto',
   },
 })
 const Planet = (props) => {
@@ -45,20 +45,23 @@ const Planet = (props) => {
       0.2,
       RADIUS * 10
     )
-    camera.position.z = 30
-
+    camera.position.set(0, 0, 30)
     const renderer = new THREE.WebGLRenderer({ antialias: true })
 
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.enableZoom = false
     controls.enablePan = false
+    // Dumb but works
+    controls.autoRotate = true
+    controls.autoRotateSpeed = -1000.0
+    controls.update()
+    controls.autoRotate = false
+
     renderer.setSize(width, height)
 
     const handleResize = () => {
-      console.log('resixiing')
       let width = (window.screen.width * 0.85) / 3
       let height = width
-      console.log(height, width)
       renderer.setSize(width, height, true)
       camera.aspect = width / height
       camera.updateProjectionMatrix()
@@ -139,6 +142,7 @@ const Planet = (props) => {
 
     const animate = () => {
       hover()
+      controls.update()
       renderer.render(scene, camera)
       requestAnimationFrame(animate)
     }

@@ -12,17 +12,23 @@ import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles({
   root: {
+    float: 'left',
+    width: '50%',
     background: '#D1F2EF',
     boxSizing: 'border-box',
     borderstyle: 'solid',
     bordercolor: '#6da99e',
     borderRadius: '45px',
     padding: '20px',
-    margin: '10em 2em 10em 5em',
+    margin: '10em 0em 10em 0em',
     fontfamily: 'Arial',
     webkitboxshadow:
       '0px 10px 13px - 7px #000000, 0px 2px 0px 6px rgba(0, 0, 0, 0)',
     boxShadow: '0px 10px 13px - 7px #000000, 0px 2px 0px 6px rgba(0, 0, 0, 0)',
+  },
+  content: {
+    float: 'left',
+    width: '100%',
   },
   name: {
     fontFamily: 'Montserrat',
@@ -61,7 +67,7 @@ const EventTextBox = (hubData) => {
   console.log('event data is', hubData, hubData.name)
   return hubData?.name ? (
     <Card className={classes.root}>
-      <CardContent>
+      <CardContent className={classes.content}>
         <Typography className={classes.name} color="textSecondary" gutterBottom>
           {hubData.name}
         </Typography>
