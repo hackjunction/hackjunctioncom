@@ -147,6 +147,7 @@ const HubInfo = (props) => {
         alt="Cambridge hub"
       />
       <DividerLine />
+      {/*
       <SingleColumnSection
         center
         halfpage
@@ -158,6 +159,7 @@ const HubInfo = (props) => {
           <Markdown source={props.Section4Body} />
         </div>
       </SingleColumnSection>
+      */}
     </Page>
   )
 }
