@@ -38,13 +38,13 @@ const ConnectedHome = (props) => {
       //   metaDescKey={KEYS.whoAreWeBody}
       className="Connected ConnectedContent ConnectedHome"
       pageTitle="Junction 2020 Connected"
-      //   metaDescKey={KEYS.whoAreWeBody}
-      //   ogImageKey={MEDIA_KEYS.homePageHeaderImage}
+    //   metaDescKey={KEYS.whoAreWeBody}
+    //   ogImageKey={MEDIA_KEYS.homePageHeaderImage}
     >
       <div className="Connected-parallax">
         <Helmet>
           <meta charSet="utf-8" />
-          <title>"Junction 2020 Connected"</title>
+          <title>Junction 2020 Connected</title>
           <meta
             name="keywords"
             content="junction 2020 connected, connected, junction, junction 2020"
