@@ -124,7 +124,9 @@ const HubInfo = (props) => {
         halfpage
         className="ScrollSnapElem HubSections"
       >
-        <Planet />
+        <div class="planetDiv">
+          <Planet />
+        </div>
         <div class="citiesGrid">
           {props.Section3Cities.split(', ').map((city) => {
             return <p class="citiesText">{city}</p>

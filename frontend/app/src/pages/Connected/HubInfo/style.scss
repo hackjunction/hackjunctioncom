@@ -15,6 +15,12 @@
   height: auto;
 }
 
+.planetDiv {
+  @include bp-small-only {
+    display: none;
+  }
+}
+
 .citiesGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
