@@ -123,10 +123,9 @@
   }
   .PartnerSection {
     height: auto;
-    background: #6da99e;
+    background: $connected-blue;
   }
   .logoBGR {
-    background: #6da99e;
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
@@ -177,4 +176,8 @@
 
 .Button-apply > span {
   color: $connected-orange !important;
+}
+
+.partnerHeading {
+  color: $connected-peach !important;
 }
