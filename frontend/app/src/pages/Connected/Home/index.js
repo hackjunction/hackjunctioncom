@@ -38,8 +38,8 @@ const ConnectedHome = (props) => {
       //   metaDescKey={KEYS.whoAreWeBody}
       className="Connected ConnectedContent ConnectedHome"
       pageTitle="Junction 2020 Connected"
-    //   metaDescKey={KEYS.whoAreWeBody}
-    //   ogImageKey={MEDIA_KEYS.homePageHeaderImage}
+      //   metaDescKey={KEYS.whoAreWeBody}
+      //   ogImageKey={MEDIA_KEYS.homePageHeaderImage}
     >
       <div className="Connected-parallax">
         <Helmet>
@@ -192,6 +192,7 @@ const ConnectedHome = (props) => {
         <div className="YouTube--inside">
           <h2>{props.YouTubeWrapperTitle}</h2>
           <h3>{props.YouTubeWrapperBody}</h3>
+          <h4>{props.YouTubeWrapperSubBody}</h4>
           <iframe
             style={{
               width: '70%',
