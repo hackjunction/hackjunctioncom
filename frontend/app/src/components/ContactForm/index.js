@@ -1,103 +1,103 @@
-import React, { useState } from "react";
-import "./style.scss";
+import React, { useState } from "react"
+import "./style.scss"
 
-import Form from "../inputs/Form";
-import TextInput from "../inputs/TextInput";
-import TextArea from "../inputs/TextArea";
-import FormRow from "../inputs/FormRow";
-import SubmitButton from "../inputs/SubmitButton";
-import BlockSection from "../BlockSection";
-import { useFormField } from "../../hooks/formhooks";
-import { isEmail } from "../../utils/regex";
-import { minDelay } from "../../utils/misc";
-import KEYS from "../../redux/staticcontent/keys";
+import Form from "../inputs/Form"
+import TextInput from "../inputs/TextInput"
+import TextArea from "../inputs/TextArea"
+import FormRow from "../inputs/FormRow"
+import SubmitButton from "../inputs/SubmitButton"
+import BlockSection from "../BlockSection"
+import { useFormField } from "../../hooks/formhooks"
+import { isEmail } from "../../utils/regex"
+import { minDelay } from "../../utils/misc"
+import KEYS from "../../redux/staticcontent/keys"
 
-import ContactRequestService from "../../services/contactrequests";
+import ContactRequestService from "../../services/contactrequests"
 
 const ContactForm = () => {
     const fields = {
         firstName: {
             ...useFormField("", (value) => {
                 if (!value || value.length === 0) {
-                    return "This field is required";
+                    return "This field is required"
                 }
 
                 if (value.length > 100) {
-                    return "That's a pretty long name... Something shorter, please.";
+                    return "That's a pretty long name... Something shorter, please."
                 }
 
-                return null;
+                return null
             }),
         },
         lastName: {
             ...useFormField("", (value) => {
                 if (!value || value.length === 0) {
-                    return "This field is required";
+                    return "This field is required"
                 }
 
                 if (value.length > 100) {
-                    return "That's a pretty long name... Something shorter, please.";
+                    return "That's a pretty long name... Something shorter, please."
                 }
 
-                return null;
+                return null
             }),
         },
         email: {
             ...useFormField("", (value) => {
                 if (!isEmail(value)) {
-                    return "This is not a valid email";
+                    return "This is not a valid email"
                 }
 
-                return null;
+                return null
             }),
         },
         company: {
             ...useFormField("", (value) => {
                 if (!value || value.length === 0) {
-                    return "This field is required";
+                    return "This field is required"
                 }
 
                 if (value.length > 100) {
-                    return "That's a pretty long company name... Something shorter, please.";
+                    return "That's a pretty long company name... Something shorter, please."
                 }
             }),
         },
         message: {
             ...useFormField("", (value) => {
                 if (!value || value.length === 0) {
-                    return "Please enter a message :)";
+                    return "Please enter a message :)"
                 }
 
                 if (value.length > 500) {
-                    return "Message can be at most 500 characters";
+                    return "Message can be at most 500 characters"
                 }
 
-                return null;
+                return null
             }),
         },
-    };
+    }
 
-    const [formLoading, setFormLoading] = useState(false);
-    const [formError, setFormError] = useState(false);
-    const [formSuccess, setFormSuccess] = useState(false);
+    const [formLoading, setFormLoading] = useState(false)
+    const [formError, setFormError] = useState(false)
+    const [formSuccess, setFormSuccess] = useState(false)
 
     async function handleFormSuccess(data) {
-        setFormLoading(true);
+        setFormLoading(true)
 
         minDelay(ContactRequestService.create(data), 1000)
             .then((res) => {
-                setFormSuccess(true);
-                setFormLoading(false);
+                setFormSuccess(true)
+                setFormLoading(false)
             })
             .catch((e) => {
-                console.log("Form error", e);
-                setFormError(true);
-                setFormLoading(false);
-            });
+                console.log("Form error", e)
+                setFormError(true)
+                setFormLoading(false)
+            })
     }
 
     function handleFormError(errors) {
-        console.log("ERROR", errors);
+        console.log("ERROR", errors)
     }
 
     return (
@@ -118,42 +118,42 @@ const ContactForm = () => {
             <FormRow>
                 <TextInput
                     name="firstName"
-                    placeholder="First name"
-                    label="First name"
+                    placeholder="الاسم الاول"
+                    label="الاسم الاول"
                     {...fields.firstName}
                 />
                 <TextInput
                     name="lastName"
-                    placeholder="Last name"
-                    label="Last name"
+                    placeholder="اسم العائلة"
+                    label="اسم العائلة"
                     {...fields.lastName}
                 />
             </FormRow>
             <FormRow>
                 <TextInput
                     name="email"
-                    placeholder="Email"
-                    label="Email"
+                    placeholder="البريد الإلكتروني"
+                    label="البريد الإلكتروني"
                     {...fields.email}
                 />
                 <TextInput
                     name="company"
-                    placeholder="Company"
-                    label="Company"
+                    placeholder="شركة"
+                    label="شركة"
                     {...fields.company}
                 />
             </FormRow>
             <TextArea
                 name="message"
-                label="Message"
-                placeholder="Type your message..."
+                label="رسالة"
+                placeholder="اكتب رسالتك"
                 {...fields.message}
             />
             <FormRow>
-                <SubmitButton text="Send" />
+                <SubmitButton text="بعث" />
             </FormRow>
         </Form>
-    );
-};
+    )
+}
 
-export default ContactForm;
+export default ContactForm

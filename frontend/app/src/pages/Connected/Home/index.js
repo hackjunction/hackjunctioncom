@@ -82,7 +82,7 @@ const ConnectedHome = (props) => {
           smooth={true}
           duration={500}
         >
-          <p>Apply now!</p>
+          <p>!قدم الآن</p>
           <FontAwesomeIcon icon="angle-down" size="4x" color="#f5d2a2" />
         </Link>
         <video autoPlay loop muted playsInline className="HeaderVideo--video">
@@ -105,19 +105,31 @@ const ConnectedHome = (props) => {
         title={props.HeaderTitle}
         body={props.HeaderBody}
       >
+        <h3 dir="rtl" lang="ar">
+
+          في المملكة العربية السعودية
+          Junction Hackathon <br />
+          الآن وبعد عدة أعوام من النجاحت عالميا، الآن نفخر بتواجدنا في المملكة العربية السعودية من خلال شركاء النجاح
+          <br />
+          TechFlipp
+          ومساحة العمل المشتركة
+          67I22
+
+        </h3>
+
         <div className="Button-row">
           <Button
             className="Button-small Button-apply"
             to="https://app.hackjunction.com/events/junction-2020-connected"
-            text="Apply Here"
+            text="سجل الآن"
           />
 
-          <Button className="Button-small" to="/info" text="Event info" />
+          <Button className="Button-small" to="/info" text="معلومات عن الحدث" />
 
           <Button
             className="Button-small"
             to="https://hackjunction.com/partners"
-            text="Partner with us"
+            text="كن شريكا"
           />
         </div>
       </HeaderSection>
@@ -139,7 +151,7 @@ const ConnectedHome = (props) => {
           <Button
             className="Button-default"
             to="/info"
-            text="Learn more about the event"
+            text="أعرف المزيد عن الحدث"
           />
         }
       >
@@ -157,8 +169,20 @@ const ConnectedHome = (props) => {
           <Button
             className="Button-default"
             to="/hubs"
-            text="Learn more about hubs"
+            text="أعرف المزيد عن المحليين"
           />
+        }
+        partner_extra={
+          <h3>
+            TechFlipp
+            وباستضافة مساحة العمل المشتركة
+            22|67
+            ينطلق
+            Junction Connected
+            بالتعاون مع
+            <br />
+            من الرياض، المملكة العربية السعودية والعالم في نفس الوقت في السادس من نوفمبر 2020
+          </h3>
         }
       >
         <img
@@ -205,7 +229,7 @@ const ConnectedHome = (props) => {
       <DividerLine />
 
       <HeaderSection className="ScrollSnapElem PartnerSection" title="Partners">
-        <h2 className="partnerHeading">Main Partners</h2>
+        <h2 className="partnerHeading">الشركاء الرئيسيون</h2>
         <div className="logoBGR">
           <div class="logoContainer">
             <a href="https://www.genelec.com/" target="_blank">
@@ -265,7 +289,7 @@ const ConnectedHome = (props) => {
             </a>
           </div>
         </div>
-        <h2 className="partnerHeading">Online Partners</h2>
+        <h2 className="partnerHeading">شركاء عبر الإنترنت</h2>
         <div class="logoBGR">
           <div class="logoContainer">
             <a href="https://aito.ai/" target="_blank">

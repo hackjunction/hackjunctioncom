@@ -1,9 +1,9 @@
-import React, { PureComponent } from "react";
-import "./style.scss";
-import { connect } from "react-redux";
+import React, { PureComponent } from "react"
+import "./style.scss"
+import { connect } from "react-redux"
 
-import Markdown from "../Markdown";
-import { content as selectContent } from "../../redux/staticcontent/selectors";
+import Markdown from "../Markdown"
+import { content as selectContent } from "../../redux/staticcontent/selectors"
 
 class BlockSection extends PureComponent {
     render() {
@@ -12,17 +12,16 @@ class BlockSection extends PureComponent {
             subtitle,
             children,
             extra,
+            partner_extra,
             halfpage,
             inverted,
             className,
-        } = this.props;
+        } = this.props
         return (
             <div
-                className={`BlockSection ${
-                    halfpage ? "BlockSection--half" : ""
-                } ${inverted ? "BlockSection--inverted" : ""} ${
-                    className ? className : ""
-                }`}
+                className={`BlockSection ${halfpage ? "BlockSection--half" : ""
+                    } ${inverted ? "BlockSection--inverted" : ""} ${className ? className : ""
+                    }`}
             >
                 <div className="BlockSection--left">
                     <h2 className="BlockSection--left__title">{title}</h2>
@@ -30,23 +29,24 @@ class BlockSection extends PureComponent {
                         className="BlockSection--left__subtitle"
                         source={subtitle}
                     />
+                    {partner_extra}
                     {extra}
                 </div>
                 <div className="BlockSection--right">{children}</div>
             </div>
-        );
+        )
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const { titleKey, subtitleKey } = ownProps;
+    const { titleKey, subtitleKey } = ownProps
 
-    const content = selectContent(state);
+    const content = selectContent(state)
 
     return {
         title: content[titleKey] || ownProps.title,
         subtitle: content[subtitleKey] || ownProps.subtitle,
-    };
-};
+    }
+}
 
-export default connect(mapStateToProps)(BlockSection);
+export default connect(mapStateToProps)(BlockSection)

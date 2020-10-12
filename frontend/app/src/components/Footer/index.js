@@ -1,23 +1,23 @@
-import React, { PureComponent } from "react";
-import "./style.scss";
+import React, { PureComponent } from "react"
+import "./style.scss"
 
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { connect } from "react-redux"
+import { Link } from "react-router-dom"
 
-import ContactForm from "../ContactForm";
-import NewsLetterForm from "../NewsLetterForm";
+import ContactForm from "../ContactForm"
+import NewsLetterForm from "../NewsLetterForm"
 
-import { content as selectContent } from "../../redux/staticcontent/selectors";
-import KEYS from "../../redux/staticcontent/keys";
+import { content as selectContent } from "../../redux/staticcontent/selectors"
+import KEYS from "../../redux/staticcontent/keys"
 import {
     homePages,
     eventPages,
     communityPages,
-} from "../../redux/pages/selectors";
+} from "../../redux/pages/selectors"
 
-import { eventconceptsByPriority } from "../../redux/eventconcepts/selectors";
-import { Typography, Grid } from "@material-ui/core";
-import DividerLine from "../DividerLine";
+import { eventconceptsByPriority } from "../../redux/eventconcepts/selectors"
+import { Typography, Grid } from "@material-ui/core"
+import DividerLine from "../DividerLine"
 
 class Footer extends PureComponent {
     renderConceptLinks(eventConcepts) {
@@ -30,8 +30,8 @@ class Footer extends PureComponent {
                 >
                     {concept.name}
                 </Link>
-            );
-        });
+            )
+        })
     }
 
     renderExtraPageLinks(pages) {
@@ -44,8 +44,8 @@ class Footer extends PureComponent {
                 >
                     {page.navTitle}
                 </Link>
-            );
-        });
+            )
+        })
     }
 
     render() {
@@ -53,10 +53,9 @@ class Footer extends PureComponent {
             <footer className="Footer">
                 <div className="Footer--left">
                     <div className="Footer--left-first subscribe-text">
-                        <h2>Stay up to date</h2>
+                        <h2>ابقى على تواصل</h2>
                         <span>
-                            Subscribe to our newsletter to get monthly updates
-                            about what's happening in the Junction community.
+                            سجل الآن في نشرتنا البريدية ليصلك تحديث شهري حول ما يحدث في مجتمع جانكشن
                         </span>
                         <div>
                             <NewsLetterForm />
@@ -68,24 +67,24 @@ class Footer extends PureComponent {
                             <div className="FooterListLeft">
                                 <span>
                                     <a href="https://hackjunction.com/codeofconduct">
-                                        Code of Conduct
+                                        ميثاق اخلاقيات العمل
                                     </a>
                                 </span>
                                 <span>
                                     <a href="https://hackjunction.com/policy">
-                                        Privacy Policy
+                                        سياسة الخصوصية
                                     </a>
                                 </span>
                                 <span>
                                     <a href="https://hackjunction.com/terms">
-                                        Terms & Conditions
+                                        الشروط والأحكام
                                     </a>
                                 </span>
                             </div>
                             <div className="FooterListRight">
                                 <span>
                                     <a href="https://hackjunction.com/press">
-                                        Press kit
+                                        أدوات النشر
                                     </a>
                                 </span>
                                 {/* <span>
@@ -96,7 +95,7 @@ class Footer extends PureComponent {
                                         href="https://www.flickr.com/photos/151708924@N07/albums/"
                                         alt="flickr"
                                     >
-                                        Photo Gallery
+                                        مكتبة الصور
                                     </a>
                                 </span>
                                 <span>
@@ -104,13 +103,13 @@ class Footer extends PureComponent {
                                         href="https://blog.hackjunction.com"
                                         alt="medium"
                                     >
-                                        Blog
+                                        المدونة
                                     </a>
                                 </span>
                             </div>
                         </div>
-                        <div className="Footer--left--margin">
-                            Designed and developed with{" "}
+                        <div className="Footer--left--margin" dir="rtl" lang="ar">
+                            {" "}تم تصميمه وتطويره باستخدام
                             <span role="img" aria-label="love">
                                 🧡
                             </span>{" "}
@@ -118,20 +117,21 @@ class Footer extends PureComponent {
                             <span role="img" aria-label="coffee">
                                 ☕
                             </span>{" "}
-                            by the Junction Team.
+                            بواسطة
+                            Junction Team.
                         </div>
                     </div>
                 </div>
                 <div className="Footer--divider" />
                 <div className="Footer--right">
-                    <h2>Contact us</h2>
-                    <span>
-                        Send us a message to{" "}
+                    <h2>أتصل بنا</h2>
+                    <span dir="rtl">
+
+                        {" "}ارسل لنا رسالة على البريد
                         <a href="mailto:hello@hackjunction.com">
                             hello@hackjunction.com
                         </a>{" "}
-                        or fill in the <br></br> contact form, and we’ll get
-                        back to you asap!
+                        أو قم بتعبئة هذا النموذج، سنتواصل معك في اقرب فرصة
                     </span>
                     <ContactForm />
                 </div>
@@ -196,12 +196,12 @@ class Footer extends PureComponent {
                     </div>
                 </div>
             </footer>
-        );
+        )
     }
 }
 
 const mapStateToProps = (state) => {
-    const content = selectContent(state);
+    const content = selectContent(state)
 
     return {
         siteSlogan: content[KEYS.siteSlogan],
@@ -210,7 +210,7 @@ const mapStateToProps = (state) => {
         eventPages: eventPages(state),
         communityPages: communityPages(state),
         eventConcepts: eventconceptsByPriority(state),
-    };
-};
+    }
+}
 
-export default connect(mapStateToProps)(Footer);
+export default connect(mapStateToProps)(Footer)
