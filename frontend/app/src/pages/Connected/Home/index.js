@@ -11,6 +11,7 @@ import BlockSection from '../../../components/BlockSection'
 
 import DividerLine from '../../../components/DividerLine'
 import HeaderSection from '../../../components/HeaderSection'
+import Grid from '@material-ui/core/Grid'
 
 import HeaderVideo from '../../../components/HeaderVideo'
 
@@ -204,6 +205,18 @@ const ConnectedHome = (props) => {
         </div>
       </div>
       <DividerLine />
+      {/* <HeaderSection
+        title="Challenges"
+        body="The hackathon is divided into challenges based on different industries and themes. You can choose to work on multiple challenges during the hackathon: and you can even combine them and submit your project to multiple ones!"
+      >
+        <Grid spacing={12} direction="row">
+          <Button
+            className="Button-default"
+            to="https://app.hackjunction.com/events/junction-2020-connected"
+            text="See the Challenges"
+          />
+        </Grid>
+      </HeaderSection> */}
 
       <HeaderSection className="ScrollSnapElem PartnerSection" title="Partners">
         <h2 className="partnerHeading">Main Partners</h2>
@@ -217,6 +230,17 @@ const ConnectedHome = (props) => {
               />
             </a>
           </div>
+
+          <div class="logoContainer">
+            <a href="https://www.hkscan.com/en/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/hkscan.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+
           <div class="logoContainer">
             <a href="https://www.espoo.fi/en-US" target="_blank">
               <img
@@ -226,6 +250,17 @@ const ConnectedHome = (props) => {
               />
             </a>
           </div>
+
+          <div class="logoContainer">
+            <a href="https://www.smartly.io/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/smartly.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+
           <div class="logoContainer">
             <a
               href="https://www.businessfinland.fi/suomalaisille-asiakkaille/etusivu/"
@@ -238,15 +273,7 @@ const ConnectedHome = (props) => {
               />
             </a>
           </div>
-          <div class="logoContainer">
-            <a href="https://www.hkscan.com/en/" target="_blank">
-              <img
-                className="BIGLOGO"
-                src={require('../../../assets/logos/partner/hkscan.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+
           <div class="logoContainer">
             <a href="https://www.pauliggroup.com/" target="_blank">
               <img
@@ -256,18 +283,19 @@ const ConnectedHome = (props) => {
               />
             </a>
           </div>
+
           <div class="logoContainer">
-            <a href="https://www.smartly.io/" target="_blank">
+            <a href="https://www.aalto.fi/en/" target="_blank">
               <img
                 className="BIGLOGO"
-                src={require('../../../assets/logos/partner/smartly.png')}
+                src={require('../../../assets/logos/partner/aalto.png')}
                 alt="connected-logo-here"
               />
             </a>
           </div>
         </div>
         <h2 className="partnerHeading">Online Partners</h2>
-        <div class="logoBGR">
+        <div class="logoBGR-small">
           <div class="logoContainer">
             <a href="https://aito.ai/" target="_blank">
               <img
@@ -305,6 +333,25 @@ const ConnectedHome = (props) => {
             </a>
           </div>
           <div class="logoContainer">
+            <a href="https://just-ai.com/en/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/partner/just ai.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+
+          <div class="logoContainer">
+            <a href="https://www.d-fence.fi/home" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/partner/defence.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
             <a href="https://www.rovio.com/" target="_blank">
               <img
                 className="logoIMG"
@@ -323,19 +370,88 @@ const ConnectedHome = (props) => {
             </a>
           </div>
           <div class="logoContainer">
-            <a href="https://just-ai.com/en/" target="_blank">
+            <a href="https://www.oph.fi/en" target="_blank">
               <img
                 className="logoIMG"
-                src={require('../../../assets/logos/partner/just ai.png')}
+                src={require('../../../assets/logos/partner/opetus.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+        </div>
+        <h2 className="partnerHeading">Supporting Partners</h2>
+        <div class="logoBGR-small">
+          <div class="logoContainer">
+            <a
+              href="https://www.teknologforeningen.fi/?lang=en"
+              target="_blank"
+            >
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/tf.png')}
                 alt="connected-logo-here"
               />
             </a>
           </div>
           <div class="logoContainer">
-            <a href="https://www.d-fence.fi/home" target="_blank">
+            <a href="https://urbanmill.org/" target="_blank">
               <img
                 className="logoIMG"
-                src={require('../../../assets/logos/partner/defence.png')}
+                src={require('../../../assets/logos/supporting/urban mill-.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://www.tek.fi/en" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/tek .png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://atkins.fi/en/frontpage/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/atkins.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://techflipp.com/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/techflipp.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://www.sture.fi/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/sture.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://hackkosice.com/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/hack k.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="http://www.enklaavi.fi/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/eenklaavi.png')}
                 alt="connected-logo-here"
               />
             </a>
