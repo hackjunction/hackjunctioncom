@@ -26,44 +26,27 @@
       font-weight: 600;
       line-height: 1.5em;
     }
+    .Button-row {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .chainRow {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+  }
+
+  .challengesImage {
+    width: 80%;
+    margin: auto;
+    margin-top: 10%;
   }
 
   .RemoveBorder {
     border-top: unset;
-    min-height: unset;
-    height: 50vh;
-    padding: 0;
-
-    @include bp-small-only {
-      display: none;
-    }
-
-    @include bp-med {
-      height: 90vh;
-      justify-content: center;
-    }
-
-    &--transform {
-      -webkit-transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-      transform: rotate(-90deg);
-    }
-
-    img {
-      @extend .RemoveBorder--transform;
-
-      -webkit-transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-      transform: rotate(-90deg);
-
-      @include bp-small-only {
-        display: none;
-      }
-    }
+    border-bottom: unset;
 
     h2 {
       color: $connected-blue;
@@ -91,7 +74,12 @@
       }
 
       @include bp-med {
-        height: 100vh;
+        height: 50vh;
+        padding-bottom: 20px;
+      }
+
+      @include bp-full {
+        height: 80vh;
         padding-bottom: 20px;
       }
 
@@ -132,9 +120,31 @@
       display: none;
     }
   }
+
+  .NewsLetter {
+    padding: 10% 10% 0 10%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &--content {
+      width: 60%;
+    }
+    img.Chain-2part {
+      position: absolute;
+      z-index: 10;
+      right: 10%;
+      bottom: -30%;
+    }
+  }
+
   .PartnerSection {
     height: auto;
     background: $connected-blue;
+
+    .HeaderSection--content {
+      display: flex;
+      flex-direction: column;
+    }
   }
   .logoBGR {
     justify-content: center;
