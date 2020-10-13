@@ -50,7 +50,7 @@
     box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
     margin-bottom: 2%;
     & > span {
-      color: $connected-teal;
+      color: $connected-peach;
     }
     &.selected {
       background-color: $connected-teal;
@@ -125,7 +125,7 @@
     }
     &--left {
       &-divider {
-        background-color:  $connected-line;
+        background-color: $connected-line;
       }
       &-second {
         &__FooterLinkList {

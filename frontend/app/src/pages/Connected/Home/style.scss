@@ -87,7 +87,7 @@
       text-align: center;
 
       iframe {
-        border: 4px solid $connected-orange;
+        border-radius: 34px;
       }
 
       @include bp-med {
@@ -101,7 +101,18 @@
       }
 
       h3 {
-        font-weight: 400;
+        font-size: 1.5em;
+        font-weight: 600;
+      }
+      h4 {
+        color: $connected-blue;
+        font-weight: 600;
+        margin-bottom: 6%;
+      }
+
+      &--challengesButton {
+        background: $connected-blue !important;
+        color: $connected-teal !important;
       }
     }
   }
@@ -152,6 +163,46 @@
     @media screen and (min-width: 1000px) {
       .logoContainer {
         width: calc(33.3333% - 2rem);
+      }
+    }
+    .BIGLOGO {
+      display: block;
+      width: 15em;
+    }
+
+    .logoIMG {
+      display: block;
+      width: 8em;
+    }
+  }
+
+  .logoBGR-small {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    .logoContainer {
+      margin: 1rem;
+      align-self: center;
+      text-align: -webkit-center;
+      text-align: -moz-center;
+    }
+    @media screen and (min-width: 1000px) {
+      .logoContainer {
+        width: calc(100% / 4);
+      }
+    }
+    @media screen and (min-width: 600px) {
+      .logoContainer {
+        width: calc(50% - 2rem);
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+      .logoContainer {
+        width: calc(25% - 2rem);
       }
     }
     .BIGLOGO {
