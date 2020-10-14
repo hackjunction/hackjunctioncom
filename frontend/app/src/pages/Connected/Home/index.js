@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.scss'
 
 import { updateEvents } from '../../../redux/events/actions'
@@ -21,7 +21,33 @@ import Button from '../../../components/Button'
 //HELMET
 import { Helmet } from 'react-helmet'
 
+import HubSelector from '../Components/HubSelector'
+
 const textsJSON = require('./texts.json')
+
+const hubs = [
+  {
+    name: 'Chengdu',
+    country: 'China',
+    address: 'Chengduroad 1',
+    contact: 'Eero Kere',
+    timezone: '+0800',
+  },
+  {
+    name: 'Budapest',
+    country: 'Hungary',
+    address: 'Budapestalley 1',
+    contact: 'Mari Rautanen',
+    timezone: '+0200',
+  },
+  {
+    name: 'Moscow',
+    country: 'Russia',
+    address: 'Moscowstreet 1',
+    contact: 'Virva Brax',
+    timezone: '+0300',
+  },
+]
 
 const ConnectedHome = (props) => {
   useEffect(() => {
@@ -70,30 +96,53 @@ const ConnectedHome = (props) => {
             content={require('../../../assets/images/photo-hub-visualisation.svg')}
           />
         </Helmet>
-        <Link
-          activeClass="active"
-          to="mainContent"
-          spy={true}
-          smooth={true}
-          duration={500}
-        >
-          <p>Apply now!</p>
-          <FontAwesomeIcon icon="angle-down" size="4x" color="#f5d2a2" />
-        </Link>
-        <video autoPlay loop muted playsInline className="HeaderVideo--video">
-          <source
-            src={require('../../../assets/videos/J2020C_Animation_Main.webm')}
-            type="video/webm"
-          ></source>
-          <source
-            src={require('../../../assets/videos/J2020C_Animation_Main.mp4')}
-            type="video/mp4"
-          ></source>
-          Your browser does not support the video tag.
-        </video>
+
+        <img
+          className="bigChain-1"
+          src={require('../../../assets/images/bigchain-1.svg')}
+          alt="Big Chain"
+        />
+        <div className="Connected-parallax--content">
+          <img
+            className="Connected-parallax--content-connectedLogo"
+            src={require('../../../assets/logos/connected_logo.svg')}
+            alt="Connected logo"
+          />
+          <p className="Connected-parallax--content-overTheWorld">
+            ALL OVER THE WORLD
+          </p>
+          <h2 className="Connected-parallax--content-eventDates">
+            NOVEMBER 6-8
+          </h2>
+          <img
+            className="Connected-parallax--content-computer"
+            src={require('../../../assets/images/computer.svg')}
+            alt="computer"
+          />
+
+          <p className="Connected-parallax--content-hackTheFuture">
+            HACK THE FUTURE
+          </p>
+        </div>
+        <img
+          className="bigChain-2"
+          src={require('../../../assets/images/bigchain-2.svg')}
+          alt="Big Chain 2"
+        />
+        <img
+          className="smallChain-1"
+          src={require('../../../assets/images/smallchain-1.svg')}
+          alt="Small Chain"
+        />
+        <img
+          className="smallChain-2"
+          src={require('../../../assets/images/smallchain-2.svg')}
+          alt="Small Chain 2"
+        />
       </div>
 
       <Element name="mainContent" />
+
       <HeaderSection className="wholePage" body={props.HeaderBody}>
         <div className="Button-row">
           <Button
@@ -149,11 +198,13 @@ const ConnectedHome = (props) => {
           text="Learn more about hubs"
         />
       </HeaderSection>
-      <img
-        src={require('../../../assets/images/hub_globe.svg')}
-        alt="connected-logo-here"
-      />
-
+      <div className="HubSection">
+        <HubSelector hubs={hubs} />
+        <img
+          src={require('../../../assets/images/hub_map.svg')}
+          alt="Hubs on map"
+        />
+      </div>
       <div className="YouTube--wrapper">
         <div className="YouTube--inside">
           <h2>{props.YouTubeWrapperTitle}</h2>
@@ -169,25 +220,26 @@ const ConnectedHome = (props) => {
           />
         </div>
       </div>
-      <HeaderSection
-        className="RemoveBorder"
-        title="Challenges"
-        body="The hackathon is divided into challenges based on different industries and themes. You can choose to work on multiple challenges during the hackathon: and you can even combine them and submit your project to multiple ones!"
-      >
-        <Grid spacing={12} direction="row">
-          <Button
-            className="Button-default"
-            to="https://app.hackjunction.com/events/junction-2020-connected"
-            text="See the Challenges"
-          />
-        </Grid>
-      </HeaderSection>
-      <img
-        className="challengesImage"
-        src={require('../../../assets/images/challenges_frontpage.png')}
-        alt="challenges_frontpage"
-      />
-      <div className="Footer NewsLetter">
+      <div className="challengesSection">
+        <h1>Challenges</h1>
+        <h3>
+          The hackathon is divided into challenges based on different industries
+          and themes. You can choose to work on multiple challenges during the
+          hackathon: and you can even combine them and submit your project to
+          multiple ones!
+        </h3>
+        <Button
+          className="Button-default"
+          to="https://app.hackjunction.com/events/junction-2020-connected"
+          text="See the Challenges"
+        />
+        <img
+          className="challengesImage"
+          src={require('../../../assets/images/challenges_frontpage.png')}
+          alt="challenges_frontpage"
+        />
+      </div>
+      <div className="NewsLetter">
         <h1>{props.Section3Title}</h1>
         <p>{props.Section3Body}</p>
         <div className="RemoveBorder--flex NewsLetter--content">

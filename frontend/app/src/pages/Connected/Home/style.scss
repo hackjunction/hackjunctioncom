@@ -1,6 +1,7 @@
 @import '../../../styles/main';
 
 .ConnectedHome {
+  overflow-x: hidden;
   .HeaderSection {
     height: 90vh;
     @include bp-med {
@@ -35,13 +36,8 @@
   .chainRow {
     display: flex;
     flex-direction: row;
-    margin: auto;
-  }
-
-  .challengesImage {
-    width: 80%;
-    margin: auto;
-    margin-top: 10%;
+    margin: 5% 0 5% 0;
+    justify-content: space-evenly;
   }
 
   .RemoveBorder {
@@ -121,12 +117,35 @@
     }
   }
 
+  .challengesSection {
+    margin: 2% 10%;
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+
+    .challengesImage {
+      width: 80%;
+      margin: auto;
+      margin-top: 5%;
+      border-radius: 2em;
+      object-fit: cover;
+
+      height: 20em;
+
+      @include bp-full {
+        height: 25em;
+      }
+    }
+  }
+
   .NewsLetter {
     padding: 10% 10% 0 10%;
     display: flex;
     flex-direction: column;
     position: relative;
     &--content {
+      margin-top: 2%;
       width: 60%;
     }
     img.Chain-2part {
@@ -134,6 +153,35 @@
       z-index: 10;
       right: 10%;
       bottom: -30%;
+    }
+
+    .FormRow {
+      display: flex;
+      justify-content: left;
+      margin-top: 0.5em;
+    }
+
+    input.TextInput--inputbox,
+    select.DropDown--input {
+      margin-right: 2em;
+      border-color: $connected-blue;
+      color: $connected-teal;
+      color: $connected-teal;
+      padding: 0.6em;
+      padding-left: 0.9em;
+      max-width: 10em;
+
+      &::placeholder {
+        color: $connected-teal;
+      }
+    }
+
+    button.SubmitButton--button {
+      background-color: $connected-orange;
+
+      span.SubmitButton--button__text {
+        color: $connected-blue;
+      }
     }
   }
 
@@ -223,6 +271,54 @@
     .logoIMG {
       display: block;
       width: 8em;
+    }
+  }
+
+  .HubSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10%;
+    .HubListElem {
+      margin: 0;
+      &.visible {
+        .HubName {
+          color: $connected-teal;
+        }
+        .HubDetails {
+          display: block;
+        }
+
+        .LocalTime {
+          display: inline-block;
+          color: $connected-teal;
+        }
+      }
+
+      .LocalTime {
+        display: none;
+      }
+
+      .HubName {
+        color: $connected-orange;
+        text-decoration: underline;
+        margin-right: 0.3em;
+        font-size: 1.7em;
+        margin-bottom: 0.2em;
+        display: inline-block;
+      }
+
+      .HubDetails {
+        display: none;
+        p {
+          color: $connected-teal;
+        }
+
+        &--country {
+          margin: 0;
+          font-size: 1.3em;
+        }
+      }
     }
   }
 }
