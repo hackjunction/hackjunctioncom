@@ -28,11 +28,20 @@
   }
 
   .Button-small {
-    background-color: $connected-orange;
-    border: 3px solid $connected-orange;
+    background-color: $connected-blue;
+    border: 3px solid $connected-blue;
     box-shadow: 2px 4px 4px rgba(35, 35, 35, 0.15);
+
+    &:hover {
+      background-color: $connected-teal;
+      border: 3px solid $connected-teal;
+    }
+
     & > span {
-      color: $connected-blue;
+      color: $connected-peach;
+      &:hover {
+        color: $connected-blue;
+      }
     }
     &.selected {
       background-color: $connected-blue;
