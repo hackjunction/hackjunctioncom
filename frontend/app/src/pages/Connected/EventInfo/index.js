@@ -115,12 +115,11 @@ const EventInfo = (props) => {
                 <h2 className="MobileTitle">the Junction Journey</h2> */}
         <Timeline date="September 1st">Application period begins</Timeline>
         <Timeline date="September 30th">Brella opens for participants</Timeline>
-        <Timeline date="October 9th">Application period ends</Timeline>
         <Timeline date="October 9th">Matchmaking in Brella opens</Timeline>
-        <Timeline date="October 18th">
-          Attendance confirmation deadline
-        </Timeline>
+        <Timeline date="October 28th">Hub Application Deadline</Timeline>
+        <Timeline date="November 1st">Hub Confirmation Deadline</Timeline>
         <Timeline date="November 2nd">Hel Tech</Timeline>
+        <Timeline date="November 4th">Application Deadline</Timeline>
         <Timeline date="November 6th-8th" last>
           Junction 2020 Connected
         </Timeline>
