@@ -18,11 +18,8 @@ class BlockSection extends PureComponent {
             className,
         } = this.props
         return (
-            <div
-                className={`BlockSection ${halfpage ? "BlockSection--half" : ""
-                    } ${inverted ? "BlockSection--inverted" : ""} ${className ? className : ""
-                    }`}
-            >
+            <div className={`BlockSection ${halfpage ? "BlockSection--half" : ""} 
+                ${inverted ? "BlockSection--inverted" : ""} ${className ? className : ""}`}>
                 <div className="BlockSection--left">
                     <h2 className="BlockSection--left__title">{title}</h2>
                     <Markdown

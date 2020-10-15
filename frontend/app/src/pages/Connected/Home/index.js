@@ -106,17 +106,47 @@ const ConnectedHome = (props) => {
         body={props.HeaderBody}
       >
         <h3 dir="rtl" lang="ar">
-          Junction Hackathon
           في المملكة العربية السعودية
+          Junction Hackathon
           <br />
           الآن وبعد عدة أعوام من النجاحت عالميا، الآن نفخر بتواجدنا في المملكة العربية السعودية من خلال شركاء النجاح
           <br />
           TechFlipp
           ومساحة العمل المشتركة
           67I22
-
         </h3>
-
+        <div className="logoBGR">
+          <div class="logoContainer">
+            <a href="https://www.6722.space/en" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/6722.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://coworkhubs.com/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/coworkhubs.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a
+              href="https://techflipp.com/"
+              target="_blank"
+            >
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/techflipp.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+        </div>
         <div className="Button-row">
           <Button
             className="Button-small Button-apply"
@@ -169,19 +199,20 @@ const ConnectedHome = (props) => {
           <Button
             className="Button-default"
             to="/hubs"
-            text="أعرف المزيد عن الشركاء"
+            text="أعرف المزيد عن المحليين"
           />
         }
         partner_extra={
-          <h3 dir="rtl">
-            ينطلق
-            Junction Connected
-            من الرياض، المملكة العربية السعودية والعالم في نفس الوقت في السادس من نوفمبر 2020
-            بالتعاون مع
+          <h3>
             TechFlipp
             وباستضافة مساحة العمل المشتركة
             22|67
-            </h3>
+            ينطلق
+            Junction Connected
+            بالتعاون مع
+            <br />
+            من الرياض، المملكة العربية السعودية والعالم في نفس الوقت في السادس من نوفمبر 2020
+          </h3>
         }
       >
         <img
