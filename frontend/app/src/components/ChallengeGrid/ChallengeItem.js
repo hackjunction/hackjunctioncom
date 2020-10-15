@@ -20,6 +20,7 @@ const ChallengeItem = ({ item }) => {
     insightimage,
     tags,
     key,
+    support,
   } = item
   var { cardbackground, icon } = item
   if (!cardbackground) {
@@ -28,103 +29,92 @@ const ChallengeItem = ({ item }) => {
   if (!icon) {
     icon = { url: '' }
   }
-  const [open, toggleOpen] = useState(false)
-  const [clicable, toggleClicable] = useState(true)
+  //   const [open, toggleOpen] = useState(false)
+  //   const [clicable, toggleClicable] = useState(true)
 
-  const flipStyle = (e, state) => {
-    e.currentTarget.classList.toggle('flip', state)
-    e.currentTarget.doneAnimating = !state
-  }
-  const flipCard = (e) => {
-    console.log('===', clicable)
-    if (!clicable) {
-      return
-    }
-    let duration = aDur * 1000
-    flipStyle(e, true)
-    setTimeout(() => toggleOpen(!open), duration / 2)
-  }
+  //   const flipStyle = (e, state) => {
+  //     e.currentTarget.classList.toggle('flip', state)
+  //     e.currentTarget.doneAnimating = !state
+  //   }
+  //   const flipCard = (e) => {
+  //     console.log('===', clicable)
+  //     if (!clicable) {
+  //       return
+  //     }
+  //     let duration = aDur * 1000
+  //     flipStyle(e, true)
+  //     setTimeout(() => toggleOpen(!open), duration / 2)
+  //   }
 
-  if (open) {
-    return (
-      <div className="Blur" onClick={(e) => flipCard(e)}>
-        <div
-          className="ChallengeItem open flip"
-          style={{ animationDuration: aDur + 's' }}
-          onAnimationEnd={(e) => flipStyle(e, false)}
-          onMouseEnter={(e) => {
-            toggleClicable(false)
-          }}
-          onMouseLeave={(e) => {
-            toggleClicable(true)
-          }}
-        >
-          <div className="ChallengeItem--text">
-            <img class="ChallengeIco open" src={icon.url} />
-            <span
-              href="#"
-              class="close"
-              onMouseEnter={(e) => {
-                toggleClicable(true)
-              }}
-              onMouseLeave={(e) => {
-                toggleClicable(false)
-              }}
-            ></span>
-            <span className="ChallengeItem--title">{name}</span>
-            <p className="ChallengeItem--description">{shorttext}</p>
-            <Markdown
-              className="ChallengeItem--description"
-              source={long_text}
-            />
-            <div className="ChallengeItem--subsection">
-              <p className="ChallengeItem--left">The Challenge</p>
-              <Markdown
-                className="ChallengeItem--right"
-                source={thechallenge}
-              />
-            </div>
-            <div className="ChallengeItem--subsection">
-              <p className="ChallengeItem--left">Insights</p>
-              <Markdown className="ChallengeItem--right" source={insights} />
-            </div>
-            {insightimage && <img class="InsightImg" src={insightimage.url} />}
-            <div className="ChallengeItem--subsection">
-              <p className="ChallengeItem--left">The Prize</p>
-              <Markdown className="ChallengeItem--right" source={price} />
-            </div>
-            <div className="ChallengeItem--subsection">
-              <p className="ChallengeItem--left">Judging Criteria</p>
-              <Markdown className="ChallengeItem--right" source={judging} />
-            </div>
-            <div className="ChallengeItem--subsection">
-              <p className="ChallengeItem--left">About the company</p>
-              <Markdown
-                className="ChallengeItem--right"
-                source={aboutcompany}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  //   if (open) {
   return (
-    <div
-      className="ChallengeItem closed flip"
-      style={{
-        backgroundImage: 'url(' + cardbackground.url + ')',
-        animationDuration: aDur + 's',
-      }}
-      onAnimationEnd={(e) => flipStyle(e, false)}
-      onClick={(e) => flipCard(e)}
-    >
-      <div className="ChallengeItem--logowpr">
-        <img class="ChallengeIco" src={icon.url} />
-      </div>
-      <div className="ChallengeItem--text">
-        <span className="ChallengeItem--title">{name}</span>
-        <p className="ChallengeItem--description">{shorttext}</p>
+    <div className="ChallengeItem">
+      <div className="ChallengeItem--head">
+        <img className="ChallengeItem--image" src={icon.url} />
+        <div className="ChallengeItem--title-container">
+          <span className="ChallengeItem--title">{name}</span>
+        </div>
+        <div className="ChallengeItem--shorttext-container">
+          <span className="ChallengeItem--shorttext"> {shorttext}</span>
+        </div>
+        <div className="ChallengeItem--longtext-container">
+          <span className="ChallengeItem--longtext"> {long_text}</span>
+        </div>
+        <div className="ChallengeItem--subsection">
+          <span className="ChallengeItem--subsection-left">The Challenge</span>
+          <Markdown
+            className="ChallengeItem--subsection-right"
+            source={thechallenge}
+          />
+        </div>
+        <div className="ChallengeItem--subsection">
+          <span className="ChallengeItem--subsection-left"> Insights</span>
+          <Markdown
+            className="ChallengeItem--subsection-right"
+            source={insights}
+          />
+        </div>
+
+        {support && (
+          <div className="ChallengeItem--subsection">
+            <span className="ChallengeItem--subsection-left"> Support</span>
+            <Markdown
+              className="ChallengeItem--subsection-right"
+              source={support}
+            />
+          </div>
+        )}
+        {/* {insightimage && <img class="InsightImg" src={insightimage.url} />} */}
+
+        <div className="ChallengeItem--subsection">
+          <span className="ChallengeItem--subsection-left"> The Prize</span>
+          <Markdown
+            className="ChallengeItem--subsection-right"
+            source={price}
+          />
+        </div>
+
+        <div className="ChallengeItem--subsection">
+          <span className="ChallengeItem--subsection-left">
+            {' '}
+            Judging Criteria
+          </span>
+          <Markdown
+            className="ChallengeItem--subsection-right"
+            source={judging}
+          />
+        </div>
+
+        <div className="ChallengeItem--subsection">
+          <span className="ChallengeItem--subsection-left">
+            {' '}
+            About the company
+          </span>
+          <Markdown
+            className="ChallengeItem--subsection-right"
+            source={aboutcompany}
+          />
+        </div>
       </div>
     </div>
   )
