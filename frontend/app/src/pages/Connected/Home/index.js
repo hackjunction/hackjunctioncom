@@ -106,9 +106,9 @@ const ConnectedHome = (props) => {
         body={props.HeaderBody}
       >
         <h3 dir="rtl" lang="ar">
-
+          Junction Hackathon
           في المملكة العربية السعودية
-          Junction Hackathon <br />
+          <br />
           الآن وبعد عدة أعوام من النجاحت عالميا، الآن نفخر بتواجدنا في المملكة العربية السعودية من خلال شركاء النجاح
           <br />
           TechFlipp
@@ -169,20 +169,19 @@ const ConnectedHome = (props) => {
           <Button
             className="Button-default"
             to="/hubs"
-            text="أعرف المزيد عن المحليين"
+            text="أعرف المزيد عن الشركاء"
           />
         }
         partner_extra={
-          <h3>
+          <h3 dir="rtl">
+            ينطلق
+            Junction Connected
+            من الرياض، المملكة العربية السعودية والعالم في نفس الوقت في السادس من نوفمبر 2020
+            بالتعاون مع
             TechFlipp
             وباستضافة مساحة العمل المشتركة
             22|67
-            ينطلق
-            Junction Connected
-            بالتعاون مع
-            <br />
-            من الرياض، المملكة العربية السعودية والعالم في نفس الوقت في السادس من نوفمبر 2020
-          </h3>
+            </h3>
         }
       >
         <img

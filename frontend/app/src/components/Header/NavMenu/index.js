@@ -74,27 +74,27 @@ const ConnectedContent = () => {
     <>
       <a href="https://hackjunction.com">
         <FontAwesomeIcon icon="long-arrow-alt-left" size="1x" />
-        <span className="toHome">Back to Junction</span>
+        <span className="toHome">العودة إلى الصفحة الرئيسية</span>
       </a>
       <ConnectedNavLink to="/" title>
-        Home
+        الصفحة الرئيسية
       </ConnectedNavLink>
       <ConnectedNavLink to="/info" title>
-        Event info
+        معلومات عن الحدث
       </ConnectedNavLink>
       <ConnectedNavLink to="/info/#timeline">
-        The Junction Journey
+        The Junction رحلة
       </ConnectedNavLink>
-      <ConnectedNavLink to="/info/#faq">FAQ</ConnectedNavLink>
+      <ConnectedNavLink to="/info/#faq">أسئلة مكررة</ConnectedNavLink>
 
       <ConnectedNavLink title to="/hubs">
-        Hubs
+        مراكز الاستضافة
       </ConnectedNavLink>
       <ConnectedNavLink title to="/challenges">
-        Challenges
+        التحديات
       </ConnectedNavLink>
       <ConnectedNavLink title to="/jobs">
-        Jobs
+        وظائف
       </ConnectedNavLink>
       {/*
             <ConnectedNavLink to="/hubs">
@@ -191,15 +191,13 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, connected }) => {
   return (
     <div className="NavMenuWrapper">
       <div
-        className={`NavMenuOverlay ${
-          isSidebarOpen ? 'NavMenuOverlay-open' : ''
-        }`}
+        className={`NavMenuOverlay ${isSidebarOpen ? 'NavMenuOverlay-open' : ''
+          }`}
         onClick={() => toggleSidebar(false)}
       />
       <div
-        className={`NavMenu ${isSidebarOpen ? 'NavMenu-open' : ''} ${
-          connected ? 'Connected' : 'Junction'
-        }`}
+        className={`NavMenu ${isSidebarOpen ? 'NavMenu-open' : ''} ${connected ? 'Connected' : 'Junction'
+          }`}
       >
         <div className="NavMenu--exit">
           <button

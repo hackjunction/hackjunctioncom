@@ -109,7 +109,7 @@ class Footer extends PureComponent {
                             </div>
                         </div>
                         <div className="Footer--left--margin" dir="rtl" lang="ar">
-                            {" "}تم تصميمه وتطويره باستخدام
+                            {" "}تم تصميمه وتطويره
                             <span role="img" aria-label="love">
                                 🧡
                             </span>{" "}
