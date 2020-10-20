@@ -60,10 +60,10 @@ const ChallengeItem = ({ item }) => {
           }}
         >
           <div className="ChallengeItem--text">
-            <img class="ChallengeIco open" src={icon.url} />
+            <img className="ChallengeIco open" src={icon.url} />
             <span
               href="#"
-              class="close"
+              className="close"
               onMouseEnter={(e) => {
                 toggleClicable(true)
               }}
@@ -88,7 +88,9 @@ const ChallengeItem = ({ item }) => {
               <p className="ChallengeItem--left">Insights</p>
               <Markdown className="ChallengeItem--right" source={insights} />
             </div>
-            {insightimage && <img class="InsightImg" src={insightimage.url} />}
+            {insightimage && (
+              <img className="InsightImg" src={insightimage.url} />
+            )}
             <div className="ChallengeItem--subsection">
               <p className="ChallengeItem--left">The Prize</p>
               <Markdown className="ChallengeItem--right" source={price} />
@@ -120,7 +122,7 @@ const ChallengeItem = ({ item }) => {
       onClick={(e) => flipCard(e)}
     >
       <div className="ChallengeItem--logowpr">
-        <img class="ChallengeIco" src={icon.url} />
+        <img className="ChallengeIco" src={icon.url} />
       </div>
       <div className="ChallengeItem--text">
         <span className="ChallengeItem--title">{name}</span>

@@ -211,8 +211,8 @@ const NavMenu = ({ isSidebarOpen, toggleSidebar, connected }) => {
             onClick={() => toggleSidebar(isSidebarOpen ? false : true)}
             type="button"
           >
-            <span class="hamburger-box">
-              <span class="hamburger-inner"></span>
+            <span className="hamburger-box">
+              <span className="hamburger-inner"></span>
             </span>
           </button>
         </div>

@@ -30,7 +30,7 @@ const HubInfo = (props) => {
     >
       <HeaderSection title={props.HeaderTitle} body={props.HeaderBody}>
         <Link
-          activeClass="active"
+          activeclassName="active"
           to="whatishub"
           spy={true}
           smooth={true}
@@ -39,7 +39,7 @@ const HubInfo = (props) => {
           <Button className="Button-default" text="What is a Hub" />
         </Link>
         <Link
-          activeClass="active"
+          activeclassName="active"
           to="central"
           spy={true}
           smooth={true}
@@ -48,7 +48,7 @@ const HubInfo = (props) => {
           <Button className="Button-default" text="Central Hub" />
         </Link>
         <Link
-          activeClass="active"
+          activeclassName="active"
           to="hubstories"
           spy={true}
           smooth={true}
@@ -71,7 +71,6 @@ const HubInfo = (props) => {
         subtitle={props.Section1Subtitle}
         center
         halfpage
-        className="ScrollSnapElem"
       >
         <div className="markdownCenter">
           <Markdown source={props.Section1Body} />
@@ -91,7 +90,6 @@ const HubInfo = (props) => {
         subtitle={props.Section2Subtitle}
         halfpage
         center
-        className="ScrollSnapElem"
       >
         <div className="markdownCenter">
           <Markdown source={props.Section2Body} />
@@ -112,7 +110,7 @@ const HubInfo = (props) => {
         subtitle={props.Section3Subtitle}
         center
         halfpage
-        className="ScrollSnapElem HubSections"
+        className="HubSections"
       >
         <div className="markdownCenter">
           <Markdown source={props.Section3Body} />
@@ -122,14 +120,14 @@ const HubInfo = (props) => {
         title={props.Section3CitiesTitle}
         center
         halfpage
-        className="ScrollSnapElem HubSections"
+        className="HubSections"
       >
-        <div class="planetDiv">
+        <div className="planetDiv">
           <Planet />
         </div>
-        <div class="citiesGrid">
+        <div className="citiesGrid">
           {props.Section3Cities.split(', ').map((city) => {
-            return <p class="citiesText">{city}</p>
+            return <p className="citiesText">{city}</p>
           })}
         </div>
         <LinkButton
@@ -153,7 +151,7 @@ const HubInfo = (props) => {
         halfpage
         title={props.Section4Title}
         subtitle={props.Section4Subtitle}
-        className="ScrollSnapElem"
+
       >
         <div className="markdownCenter">
           <Markdown source={props.Section4Body} />

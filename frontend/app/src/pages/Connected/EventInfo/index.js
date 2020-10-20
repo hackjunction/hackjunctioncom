@@ -70,7 +70,7 @@ const EventInfo = (props) => {
                     <Button className="Button-default" text="For Partners" />*/}
 
           <Link
-            activeClass="active"
+            activeclassName="active"
             to="timeline"
             spy={true}
             smooth={true}
@@ -85,7 +85,7 @@ const EventInfo = (props) => {
             text="Apply here"
           />
           <Link
-            activeClass="active"
+            activeclassName="active"
             to="faq"
             spy={true}
             smooth={true}
@@ -103,12 +103,12 @@ const EventInfo = (props) => {
         alt="Junction Journey"
       />
       <DividerLine />
-      <Element class="MobileLink" name="timeline" id="timeline" />
+      <Element className="MobileLink" name="timeline" id="timeline" />
       <BlockSection
         name="timelineElement"
         id="timelineElement"
         title="The Junction Journey"
-        className="TimeLineSection ScrollSnapElem"
+        className="TimeLineSection"
         extra={<img src={require('../../../assets/images/3part-chain.svg')} />}
       >
         {/* <h1 className="TimeLineTitle">The Junction Journey</h1>
@@ -141,14 +141,13 @@ const EventInfo = (props) => {
         alt="FAQ"
       />
       <DividerLine />
-      <Element class="MobileLink" name="faq" id="faq" />
+      <Element className="MobileLink" name="faq" id="faq" />
       <SingleColumnSection
         name="faqElement"
         id="faqElement"
         title="FAQ"
         center
         nolimit
-        className="ScrollSnapElem"
       >
         <FaqSection items={props.items} />
         <div className="ContactUsFaq">

@@ -1,18 +1,22 @@
 import React, { useState } from 'react'
 import moment from 'moment'
+import { connect } from 'react-redux'
+
+import { mapHubs } from '../../../../redux/hubs/selectors'
 
 const HubSelector = ({ hubs }) => {
-  const [selectedHub, changeHub] = useState(hubs[0].name)
+  console.log(hubs)
+  const [selectedHub, changeHub] = useState(hubs?.[0].id)
 
   return (
     <div>
-      {hubs.map((hub) => (
+      {hubs?.map((hub) => (
         <div
           className={
-            selectedHub === hub.name ? 'HubListElem visible' : 'HubListElem'
+            selectedHub === hub.id ? 'HubListElem visible' : 'HubListElem'
           }
         >
-          <div className="HubName" onClick={() => changeHub(hub.name)}>
+          <div className="HubName" onClick={() => changeHub(hub.id)}>
             {hub.name}
           </div>
           <div className="LocalTime">
@@ -32,4 +36,8 @@ const HubSelector = ({ hubs }) => {
   )
 }
 
-export default HubSelector
+const mapStateToProps = (state) => ({
+  hubs: mapHubs(state),
+})
+
+export default connect(mapStateToProps)(HubSelector)

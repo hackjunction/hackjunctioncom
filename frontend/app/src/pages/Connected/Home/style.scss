@@ -2,8 +2,15 @@
 
 .ConnectedHome {
   overflow-x: hidden;
+
+  .HubInfo {
+    p.centered {
+      margin: 5% 10%;
+    }
+  }
   .HeaderSection {
     height: 90vh;
+
     @include bp-med {
       height: auto;
     }
@@ -34,10 +41,13 @@
   }
 
   .chainRow {
-    display: flex;
-    flex-direction: row;
-    margin: 5% 0 5% 0;
-    justify-content: space-evenly;
+    display: none;
+    @include bp-med {
+      display: flex;
+      flex-direction: row;
+      margin: 5% 0 5% 0;
+      justify-content: space-evenly;
+    }
   }
 
   .RemoveBorder {
@@ -276,9 +286,17 @@
 
   .HubSection {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     margin: 10%;
+    justify-content: center;
+    text-align: center;
+
+    @include bp-med {
+      text-align: left;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
     .HubListElem {
       margin: 0;
       &.visible {
@@ -286,6 +304,10 @@
           color: $connected-teal;
         }
         .HubDetails {
+          p  {
+            text-align: left;
+          }
+          text-align: left;
           display: block;
         }
 
@@ -311,6 +333,7 @@
       .HubDetails {
         display: none;
         p {
+          text-align: left;
           color: $connected-teal;
         }
 
@@ -319,6 +342,21 @@
           font-size: 1.3em;
         }
       }
+    }
+  }
+
+  .hubsIllustration {
+    display: none;
+    @include bp-med {
+      margin: 5% auto;
+      display: block;
+    }
+  }
+
+  .hubsIllustrationMobile {
+    display: block;
+    @include bp-med {
+      display: none;
     }
   }
 }
