@@ -4,8 +4,10 @@
   overflow-x: hidden;
 
   .HubInfo {
-    p.centered {
+    p.centered,
+    h1.centered {
       margin: 5% 10%;
+      text-align: center;
     }
   }
   .HeaderSection {
@@ -157,18 +159,35 @@
     &--content {
       margin-top: 2%;
       width: 60%;
+      @include bp-small-only {
+        width: 100%;
+        margin-bottom: 15vh;
+      }
     }
     img.Chain-2part {
       position: absolute;
       z-index: 10;
       right: 10%;
       bottom: -30%;
+      @include bp-small-only {
+        height: 25vh;
+        bottom: -15%;
+        right: 5%;
+      }
     }
 
     .FormRow {
       display: flex;
       justify-content: left;
       margin-top: 0.5em;
+      @include bp-small-only {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    h1 {
+      text-align: left;
     }
 
     input.TextInput--inputbox,
@@ -183,6 +202,11 @@
 
       &::placeholder {
         color: $connected-teal;
+      }
+
+      @include bp-small-only {
+        width: 100%;
+        max-width: unset;
       }
     }
 
@@ -355,6 +379,7 @@
 
   .hubsIllustrationMobile {
     display: block;
+    margin: auto;
     @include bp-med {
       display: none;
     }
