@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "challenge",
   "info": {
     "name": "challenge",
     "description": ""
@@ -70,6 +70,9 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "support": {
+      "type": "richtext"
     }
   }
 }
