@@ -43,7 +43,7 @@ export default (props) => {
         <div className="JobItem--desc-container">
           <Markdown className="JobItem--desc" source={desc} />
         </div>
-        <a className="JobItem--link" href={link} target="blank">
+        <a class="JobItem--link" href={link} target="blank">
           Read More &gt;
         </a>
       </AnimateHeight>
