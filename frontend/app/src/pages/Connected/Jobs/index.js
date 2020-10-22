@@ -39,10 +39,10 @@ const Jobs = (props) => {
         body="Interested in getting hired by one of our partners? Good, because they are looking for more people. More job listings are added all of the time, so stay tuned!"
       ></HeaderSection>
       {!company
-        ? props.jobs.map((job) => <JobItem job={job} />)
+        ? props.jobs.map((job) => <JobItem key={job.uniqueId} job={job} />)
         : props.jobs
             .filter((p) => p.company.toLowerCase() === company.toLowerCase())
-            .map((job) => <JobItem job={job} />)}
+            .map((job) => <JobItem key={job.uniqueId} job={job} />)}
     </Page>
   )
 }
