@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "job",
   "info": {
     "name": "job",
     "description": ""
@@ -13,6 +13,7 @@
       "default": "",
       "type": "string"
     },
+
     "title": {
       "default": "",
       "type": "string"
@@ -32,11 +33,36 @@
     "image": {
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": true
     },
     "link": {
       "default": "",
       "type": "string"
+    },
+    "company": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "smartly",
+        "genelec",
+        "hkscan",
+        "espoo",
+        "businessfinland",
+        "paulig",
+        "aalto",
+        "aito",
+        "brella",
+        "op",
+        "columbiaroad",
+        "justai",
+        "dfence",
+        "rovio",
+        "hus",
+        "cgi",
+        "motiva",
+        "oph"
+      ]
     }
   }
 }

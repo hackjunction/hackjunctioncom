@@ -5,7 +5,6 @@ import Markdown from '../Markdown'
 import AnimateHeight from 'react-animate-height'
 
 export default (props) => {
-  console.log(props.image)
   const { title, location, desc, image, endDate, link } = props.job
   console.log(`${title} == ${props.title}: ${title == props.title}`)
   const [open, setOpen] = useState(false)
