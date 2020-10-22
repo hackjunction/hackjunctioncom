@@ -13,6 +13,19 @@ import './style.scss'
 const Jobs = (props) => {
   console.log(props)
   const { company } = useParams()
+  console.log('company :>> ', company)
+  const toProperCase = (s) => {
+    return s.toLowerCase().replace(/^(.)|\s(.)/g, function ($1) {
+      return $1.toUpperCase()
+    })
+  }
+
+  const titleCase = () => {
+    if (company !== undefined) return toProperCase(company)
+    else {
+      return 'Partners'
+    }
+  }
 
   return (
     <Page
@@ -22,13 +35,13 @@ const Jobs = (props) => {
       ogImageKey={MEDIA_KEYS.homePageHeaderImage}
     >
       <HeaderSection
-        title={!company ? 'Jobs from Partners' : `Jobs from ${company}`}
+        title={`Jobs from ${titleCase()}`}
         body="Interested in getting hired by one of our partners? Good, because they are looking for more people. More job listings are added all of the time, so stay tuned!"
       ></HeaderSection>
       {!company
         ? props.jobs.map((job) => <JobItem job={job} />)
         : props.jobs
-            .filter((p) => p.company === company)
+            .filter((p) => p.company.toLowerCase() === company.toLowerCase())
             .map((job) => <JobItem job={job} />)}
     </Page>
   )
