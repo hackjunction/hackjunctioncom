@@ -9,7 +9,6 @@ import EventInfo from './EventInfo'
 import HubInfo from './HubInfo'
 import Challenges from './Challenges'
 import Jobs from './Jobs'
-import CompanyJobs from './CompanyJobs'
 
 import NotFoundConnected from './NotFound'
 import { Route, Switch } from 'react-router-dom'
