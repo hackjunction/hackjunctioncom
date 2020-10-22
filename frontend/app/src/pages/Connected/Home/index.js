@@ -283,6 +283,35 @@ const ConnectedHome = (props) => {
               />
             </a>
           </div>
+          <div class="logoContainer">
+            <a href="https://www.motiva.fi/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/motiva.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+
+          <div class="logoContainer">
+            <a href="https://www.op.fi/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/op.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+
+          <div class="logoContainer">
+            <a href="https://www.cgi.fi/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/cgi.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
 
           <div class="logoContainer">
             <a href="https://www.aalto.fi/en/" target="_blank">
@@ -314,15 +343,7 @@ const ConnectedHome = (props) => {
               />
             </a>
           </div>
-          <div class="logoContainer">
-            <a href="https://www.op.fi/" target="_blank">
-              <img
-                className="logoIMG"
-                src={require('../../../assets/logos/partner/op.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+
           <div class="logoContainer">
             <a href="https://www.columbiaroad.com/" target="_blank">
               <img
@@ -452,6 +473,15 @@ const ConnectedHome = (props) => {
               <img
                 className="logoIMG"
                 src={require('../../../assets/logos/supporting/eenklaavi.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://hackyeah.pl/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/hackyeah.png')}
                 alt="connected-logo-here"
               />
             </a>
