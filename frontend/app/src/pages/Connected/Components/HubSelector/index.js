@@ -6,7 +6,7 @@ import { mapHubs } from '../../../../redux/hubs/selectors'
 
 const HubSelector = ({ hubs }) => {
   console.log(hubs)
-  const [selectedHub, changeHub] = useState(hubs?.[0].id)
+  const [selectedHub, changeHub] = useState(hubs?.[0]?.id)
 
   return (
     <div>

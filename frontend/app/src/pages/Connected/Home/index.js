@@ -236,7 +236,7 @@ const ConnectedHome = (props) => {
         </p>
         <Button
           className="Button-default"
-          to="https://app.hackjunction.com/events/junction-2020-connected"
+          to="/challenges"
           text="See the Challenges"
         />
         <img
