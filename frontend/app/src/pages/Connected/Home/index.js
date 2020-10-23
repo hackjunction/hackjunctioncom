@@ -331,6 +331,44 @@ const ConnectedHome = (props) => {
                 />
               </a>
             </div>
+            <div class="logoContainer">
+              <a href="https://www.pauliggroup.com/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/paulig.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
+            <div class="logoContainer">
+              <a href="https://www.motiva.fi/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/motiva.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
+
+            <div class="logoContainer">
+              <a href="https://www.op.fi/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/op.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
+
+            <div class="logoContainer">
+              <a href="https://www.cgi.fi/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/cgi.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
 
             <div className="logoContainer">
               <a href="https://www.aalto.fi/en/" target="_blank">
@@ -346,8 +384,8 @@ const ConnectedHome = (props) => {
 
         <h2 className="partnerHeading">Online Partners</h2>
         <div className="partnerTier">
-          <div className="logoBGR-small">
-            <div className="logoContainer">
+          <div class="logoBGR-small">
+            <div class="logoContainer">
               <a href="https://aito.ai/" target="_blank">
                 <img
                   className="logoIMG"
@@ -356,7 +394,7 @@ const ConnectedHome = (props) => {
                 />
               </a>
             </div>
-            <div className="logoContainer">
+            <div class="logoContainer">
               <a href="https://www.brella.io/" target="_blank">
                 <img
                   className="logoIMG"
@@ -365,16 +403,8 @@ const ConnectedHome = (props) => {
                 />
               </a>
             </div>
-            <div className="logoContainer">
-              <a href="https://www.op.fi/" target="_blank">
-                <img
-                  className="logoIMG"
-                  src={require('../../../assets/logos/partner/op.png')}
-                  alt="connected-logo-here"
-                />
-              </a>
-            </div>
-            <div className="logoContainer">
+
+            <div class="logoContainer">
               <a href="https://www.columbiaroad.com/" target="_blank">
                 <img
                   className="logoIMG"
@@ -383,7 +413,7 @@ const ConnectedHome = (props) => {
                 />
               </a>
             </div>
-            <div className="logoContainer">
+            <div class="logoContainer">
               <a href="https://just-ai.com/en/" target="_blank">
                 <img
                   className="logoIMG"
@@ -510,6 +540,15 @@ const ConnectedHome = (props) => {
                 />
               </a>
             </div>
+          </div>
+          <div class="logoContainer">
+            <a href="https://hackyeah.pl/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/hackyeah.png')}
+                alt="connected-logo-here"
+              />
+            </a>
           </div>
         </div>
       </HeaderSection>

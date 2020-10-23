@@ -33,6 +33,11 @@
     }
   }
 
+  &--location {
+    color: $connected-blue;
+    font-weight: 600;
+  }
+
   &--head {
     width: 90%;
     overflow-x: wrap;
@@ -75,6 +80,10 @@
     p {
       text-align: justify;
       text-justify: inter-word;
+    }
+
+    li {
+      color: $connected-blue;
     }
   }
 

@@ -24,6 +24,7 @@ const Connected = () => {
           <Route exact path="/info" component={EventInfo} />
           <Route exact path="/hubs" component={HubInfo} />
           <Route exact path="/challenges" component={Challenges} />
+          <Route exact path="/jobs/:company" component={Jobs} />
           <Route exact path="/jobs" component={Jobs} />
           <Route path="/*" component={NotFoundConnected} />
         </Switch>
