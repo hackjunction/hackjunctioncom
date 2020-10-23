@@ -70,7 +70,7 @@ const EventInfo = (props) => {
                     <Button className="Button-default" text="For Partners" />*/}
 
           <Link
-            activeclassName="active"
+            activeClass="active"
             to="timeline"
             spy={true}
             smooth={true}
@@ -85,7 +85,7 @@ const EventInfo = (props) => {
             text="Apply here"
           />
           <Link
-            activeclassName="active"
+            activeClass="active"
             to="faq"
             spy={true}
             smooth={true}

@@ -60,7 +60,7 @@ const ChallengeItem = ({ item }) => {
           }}
         >
           <div className="ChallengeItem--text">
-            <img className="ChallengeIco open" src={icon.url} />
+            <img class="ChallengeIco open" src={icon.url} />
             <span
               href="#"
               className="close"
@@ -88,9 +88,7 @@ const ChallengeItem = ({ item }) => {
               <p className="ChallengeItem--left">Insights</p>
               <Markdown className="ChallengeItem--right" source={insights} />
             </div>
-            {insightimage && (
-              <img className="InsightImg" src={insightimage.url} />
-            )}
+            {insightimage && <img class="InsightImg" src={insightimage.url} />}
             <div className="ChallengeItem--subsection">
               <p className="ChallengeItem--left">The Prize</p>
               <Markdown className="ChallengeItem--right" source={price} />

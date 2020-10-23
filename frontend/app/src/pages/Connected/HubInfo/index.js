@@ -30,7 +30,7 @@ const HubInfo = (props) => {
     >
       <HeaderSection title={props.HeaderTitle} body={props.HeaderBody}>
         <Link
-          activeclassName="active"
+          activeClass="active"
           to="whatishub"
           spy={true}
           smooth={true}
@@ -39,7 +39,7 @@ const HubInfo = (props) => {
           <Button className="Button-default" text="What is a Hub" />
         </Link>
         <Link
-          activeclassName="active"
+          activeClass="active"
           to="central"
           spy={true}
           smooth={true}
@@ -48,7 +48,7 @@ const HubInfo = (props) => {
           <Button className="Button-default" text="Central Hub" />
         </Link>
         <Link
-          activeclassName="active"
+          activeClass="active"
           to="hubstories"
           spy={true}
           smooth={true}
