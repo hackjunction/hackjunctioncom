@@ -540,15 +540,15 @@ const ConnectedHome = (props) => {
                 />
               </a>
             </div>
-          </div>
-          <div class="logoContainer">
-            <a href="https://hackyeah.pl/" target="_blank">
-              <img
-                className="logoIMG"
-                src={require('../../../assets/logos/supporting/hackyeah.png')}
-                alt="connected-logo-here"
-              />
-            </a>
+            <div class="logoContainer">
+              <a href="https://hackyeah.pl/" target="_blank">
+                <img
+                  className="logoIMG"
+                  src={require('../../../assets/logos/supporting/hackyeah.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </HeaderSection>
