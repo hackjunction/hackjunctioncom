@@ -16,7 +16,7 @@ export default (props) => {
       onClick={() => setOpen(!open)}
     >
       <div className="JobItem--head">
-        <img className="JobItem--image" src={image.url} />
+        <img class="JobItem--image" src={image.url} />
         <div className="JobItem--title-container">
           <span className="JobItem--title">{title}</span>
           <span className="JobItem--location">{location}</span>

@@ -120,7 +120,7 @@ const ChallengeItem = ({ item }) => {
       onClick={(e) => flipCard(e)}
     >
       <div className="ChallengeItem--logowpr">
-        <img className="ChallengeIco" src={icon.url} />
+        <img class="ChallengeIco" src={icon.url} />
       </div>
       <div className="ChallengeItem--text">
         <span className="ChallengeItem--title">{name}</span>
