@@ -29,6 +29,10 @@
   align-content: space-between;
   //grid-gap: 5px;
   margin-bottom: 1.25em;
+
+  @include bp-small-only {
+    grid-template-columns: auto;
+  }
 }
 
 .citiesText {
@@ -39,6 +43,10 @@
   margin-left: 25px;
   margin-right: 25px;
   font-weight: bold !important;
+
+  @include bp-small-only {
+    font-size: 1em;
+  }
 }
 
 .citiesText:last-child {
