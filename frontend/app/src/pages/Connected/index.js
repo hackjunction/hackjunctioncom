@@ -9,6 +9,7 @@ import EventInfo from './EventInfo'
 import HubInfo from './HubInfo'
 import Challenges from './Challenges'
 import Jobs from './Jobs'
+import Arabic from './Arabic'
 
 import NotFoundConnected from './NotFound'
 import { Route, Switch } from 'react-router-dom'
@@ -26,6 +27,7 @@ const Connected = () => {
           <Route exact path="/challenges" component={Challenges} />
           <Route exact path="/jobs/:company" component={Jobs} />
           <Route exact path="/jobs" component={Jobs} />
+          <Route exact path="/arabic" component={Arabic} />
           <Route path="/*" component={NotFoundConnected} />
         </Switch>
         <Footer />
