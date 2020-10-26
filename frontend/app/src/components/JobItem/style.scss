@@ -66,6 +66,12 @@
     width: 80%;
   }
 
+  &--date-container {
+    margin-left: 3em;
+    display: inline-block;
+    width: 12em;
+  }
+
   &--date {
     transition: 0.2s opacity ease;
     color: $connected-red;
@@ -74,12 +80,17 @@
 
   &--desc {
     margin-left: 15em;
+
     strong {
       font-family: 'Montserrat';
     }
     p {
       text-align: justify;
       text-justify: inter-word;
+
+      @include bp-small-only {
+        text-align: left;
+      }
     }
 
     li {
@@ -91,16 +102,12 @@
   //     font-weight: bold !important;
   //   }
 
-  &--date-container {
-    display: inline-block;
-    width: 12em;
-  }
-
   &--desc-container {
     display: inline-block;
     margin-top: -1em;
     margin-left: 3em;
     width: 65%;
+    // margin-bottom: 1em;
   }
 
   &--link {
@@ -109,5 +116,6 @@
     font-size: 125%;
     white-space: nowrap;
     margin-left: 1.5%;
+    // margin-top: 1em;
   }
 }
