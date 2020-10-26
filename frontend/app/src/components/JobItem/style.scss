@@ -57,6 +57,10 @@
     justify-content: space-between;
     font-size: 200%;
     color: $connected-blue;
+
+    @include bp-small-only {
+      font-size: 175%;
+    }
   }
 
   &--title-container {
@@ -64,12 +68,20 @@
     margin-left: 3em;
     display: inline-block;
     width: 80%;
+    @include bp-small-only {
+      margin-left: 1em;
+      margin-right: 1em;
+      width: auto;
+    }
   }
 
   &--date-container {
     margin-left: 3em;
     display: inline-block;
     width: 12em;
+    @include bp-small-only {
+      margin-left: 1em;
+    }
   }
 
   &--date {
@@ -107,6 +119,11 @@
     margin-top: -1em;
     margin-left: 3em;
     width: 65%;
+    @include bp-small-only {
+      margin-left: 1em;
+      margin-right: 1em;
+      width: auto;
+    }
     // margin-bottom: 1em;
   }
 
