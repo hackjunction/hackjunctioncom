@@ -215,14 +215,7 @@ const ConnectedHome = (props) => {
           <div className="YouTube--inside">
             <h2>{props.YouTubeWrapperTitle}</h2>
             <h3>{props.YouTubeWrapperBody}</h3>
-            <iframe
-              style={{
-                width: '70%',
-                height: '70%',
-              }}
-              src={props.YouTubeWrapperLink}
-              frameBorder="0"
-            />
+            <iframe src={props.YouTubeWrapperLink} frameBorder="0" />
           </div>
         </div>
       </div>

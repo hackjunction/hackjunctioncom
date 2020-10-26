@@ -69,8 +69,7 @@
       padding: 20px;
     }
     &--inside {
-      height: 50vh;
-      width: 90%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -78,10 +77,16 @@
       text-align: center;
 
       iframe {
+        width: 100%;
+        height: 30vh;
         border-radius: 34px;
       }
 
       @include bp-med {
+        iframe {
+          height: 50vh;
+        }
+        width: 90%;
         height: 50vh;
         padding-bottom: 20px;
       }
