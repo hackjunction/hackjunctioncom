@@ -478,6 +478,33 @@ const ConnectedHome = (props) => {
             </a>
           </div>
           <div class="logoContainer">
+            <a href="http://trapfactory.fi/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/trapfactory.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="http://fiksuruoka.fi/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/fiksuruoka.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://www.6722.space/en" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/67-22.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
             <a href="https://hackyeah.pl/" target="_blank">
               <img
                 className="logoIMG"
