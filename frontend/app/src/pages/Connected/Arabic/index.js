@@ -433,7 +433,7 @@ const Arabic = (props) => {
             </a>
           </div>
         </div>
-        <h2 className="partnerHeading">Supporting Partners</h2>
+        <h2 className="partnerHeading">الشركاء الداعمون</h2>
         <div class="logoBGR-small">
           <div class="logoContainer">
             <a
