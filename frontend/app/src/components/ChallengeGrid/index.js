@@ -47,7 +47,7 @@ function ChallengeGrid({ items }) {
           return item.tags.split(', ').some((a) => {
             return selected == a || selected == ''
           }) ? (
-            <ChallengeItem {...{ item }} />
+            <ChallengeItem {...{ item }} key={item.id} />
           ) : null
         })}
       </div>
