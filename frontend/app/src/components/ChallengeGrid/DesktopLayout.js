@@ -11,8 +11,8 @@ const DesktopLayout = (props) => {
   //   if (!cardbackground) {
   //     cardbackground = { url: '' }
   //   }
-  if (!props.icon) {
-    props.icon = { url: '' }
+  if (!props.cardbackground) {
+    props.cardbackground = { url: '' }
   }
   //   const [open, toggleOpen] = useState(false)
   //   const [clicable, toggleClicable] = useState(true)
@@ -35,7 +35,7 @@ const DesktopLayout = (props) => {
   return (
     <div className="ChallengeItem">
       <div className="ChallengeItem--head">
-        <img className="ChallengeItem--image" src={props.icon.url} />
+        <img className="ChallengeItem--image" src={props.cardbackground.url} />
         <div className="ChallengeItem--title-container">
           <span className="ChallengeItem--title">{props.name}</span>
         </div>
@@ -43,7 +43,10 @@ const DesktopLayout = (props) => {
           <span className="ChallengeItem--shorttext"> {props.shorttext}</span>
         </div>
         <div className="ChallengeItem--longtext-container">
-          <span className="ChallengeItem--longtext"> {props.long_text}</span>
+          <Markdown
+            className="ChallengeItem--longtext"
+            source={props.long_text}
+          />
         </div>
         <div className="ChallengeItem--subsection">
           <span className="ChallengeItem--subsection-left">The Challenge</span>
@@ -52,13 +55,15 @@ const DesktopLayout = (props) => {
             source={props.thechallenge}
           />
         </div>
-        <div className="ChallengeItem--subsection">
-          <span className="ChallengeItem--subsection-left"> Insights</span>
-          <Markdown
-            className="ChallengeItem--subsection-right"
-            source={props.insights}
-          />
-        </div>
+        {props.insights && (
+          <div className="ChallengeItem--subsection">
+            <span className="ChallengeItem--subsection-left"> Insights</span>
+            <Markdown
+              className="ChallengeItem--subsection-right"
+              source={props.insights}
+            />
+          </div>
+        )}
 
         {props.support && (
           <div className="ChallengeItem--subsection">
@@ -70,25 +75,28 @@ const DesktopLayout = (props) => {
           </div>
         )}
         {/* {insightimage && <img class="InsightImg" src={insightimage.url} />} */}
+        {props.price && (
+          <div className="ChallengeItem--subsection">
+            <span className="ChallengeItem--subsection-left"> The Prize</span>
+            <Markdown
+              className="ChallengeItem--subsection-right"
+              source={props.price}
+            />
+          </div>
+        )}
 
-        <div className="ChallengeItem--subsection">
-          <span className="ChallengeItem--subsection-left"> The Prize</span>
-          <Markdown
-            className="ChallengeItem--subsection-right"
-            source={props.price}
-          />
-        </div>
-
-        <div className="ChallengeItem--subsection">
-          <span className="ChallengeItem--subsection-left">
-            {' '}
-            Judging Criteria
-          </span>
-          <Markdown
-            className="ChallengeItem--subsection-right"
-            source={props.judging}
-          />
-        </div>
+        {props.judging && (
+          <div className="ChallengeItem--subsection">
+            <span className="ChallengeItem--subsection-left">
+              {' '}
+              Judging Criteria
+            </span>
+            <Markdown
+              className="ChallengeItem--subsection-right"
+              source={props.judging}
+            />
+          </div>
+        )}
 
         <div className="ChallengeItem--subsection">
           <span className="ChallengeItem--subsection-left">

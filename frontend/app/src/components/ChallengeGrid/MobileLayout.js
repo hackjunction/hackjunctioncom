@@ -10,12 +10,12 @@ const MobileLayout = (props) => {
   //Animation duration
 
   //   var { cardbackground, icon } = item
-  //   if (!cardbackground) {
-  //     cardbackground = { url: '' }
-  //   }
-  if (!props.icon) {
-    props.icon = { url: '' }
+  if (!props.cardbackground) {
+    props.cardbackground = { url: '' }
   }
+  //   if (!props.cardbackground) {
+  //     props.cardbackground = { url: '' }
+  //   }
   const [open, setOpen] = useState(false)
   //   const [clicable, toggleClicable] = useState(true)
 
@@ -54,7 +54,7 @@ const MobileLayout = (props) => {
     <div className="MobileItem" onClick={() => setOpen(true)}>
       <Element class="MobileLink" name={props.company} id={props.company} />
       <div className="MobileItem--head">
-        <img className="MobileItem--image" src={props.icon.url} />
+        <img className="MobileItem--image" src={props.cardbackground.url} />
         <div className="MobileItem--title-container">
           <span className="MobileItem--title">{props.name}</span>
         </div>
@@ -75,14 +75,15 @@ const MobileLayout = (props) => {
                 source={props.thechallenge}
               />
             </div>
-            <div className="MobileItem--subsection">
-              <span className="MobileItem--subsection-left"> Insights</span>
-              <Markdown
-                className="MobileItem--subsection-right"
-                source={props.insights}
-              />
-            </div>
-
+            {props.insights && (
+              <div className="MobileItem--subsection">
+                <span className="MobileItem--subsection-left"> Insights</span>
+                <Markdown
+                  className="MobileItem--subsection-right"
+                  source={props.insights}
+                />
+              </div>
+            )}
             {props.support && (
               <div className="MobileItem--subsection">
                 <span className="MobileItem--subsection-left"> Support</span>
@@ -93,25 +94,28 @@ const MobileLayout = (props) => {
               </div>
             )}
             {/* {insightimage && <img class="InsightImg" src={insightimage.url} />} */}
+            {props.price && (
+              <div className="MobileItem--subsection">
+                <span className="MobileItem--subsection-left"> The Prize</span>
+                <Markdown
+                  className="MobileItem--subsection-right"
+                  source={props.price}
+                />
+              </div>
+            )}
 
-            <div className="MobileItem--subsection">
-              <span className="MobileItem--subsection-left"> The Prize</span>
-              <Markdown
-                className="MobileItem--subsection-right"
-                source={props.price}
-              />
-            </div>
-
-            <div className="MobileItem--subsection">
-              <span className="MobileItem--subsection-left">
-                {' '}
-                Judging Criteria
-              </span>
-              <Markdown
-                className="MobileItem--subsection-right"
-                source={props.judging}
-              />
-            </div>
+            {props.judging && (
+              <div className="MobileItem--subsection">
+                <span className="MobileItem--subsection-left">
+                  {' '}
+                  Judging Criteria
+                </span>
+                <Markdown
+                  className="MobileItem--subsection-right"
+                  source={props.judging}
+                />
+              </div>
+            )}
 
             <div className="MobileItem--subsection">
               <span className="MobileItem--subsection-left">
