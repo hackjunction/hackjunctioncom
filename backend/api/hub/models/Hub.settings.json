@@ -13,6 +13,10 @@
       "default": "",
       "type": "string"
     },
+    "country": {
+      "default": "",
+      "type": "string"
+    },
     "latitude": {
       "default": "",
       "type": "decimal"
@@ -20,6 +24,14 @@
     "longitude": {
       "default": "",
       "type": "decimal"
+    },
+    "timezone": {
+      "default": "",
+      "type": "decimal"
+    },
+    "contact": {
+      "default": "",
+      "type": "string"
     },
     "desc": {
       "default": "",

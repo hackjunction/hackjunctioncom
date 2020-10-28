@@ -248,7 +248,7 @@ class Challenges extends PureComponent {
                     Tracks
                 </SectionImage>
     
-                <Element class="MobileLink" name="tracks" id="tracks" />
+                <Element className="MobileLink" name="tracks" id="tracks" />
                 <TrackGrid items={tracks} />
                 */}
         <DividerLine />
@@ -263,7 +263,7 @@ class Challenges extends PureComponent {
           Here are the challenges for Junction 2020 Connected. Click the cards
           to read more about each challenge.
         </h2>
-        <Element class="MobileLink" name="challenges" id="challenges" />
+        <Element className="MobileLink" name="challenges" id="challenges" />
         <ChallengeGrid items={Object.values(this.props.challenges)} />
       </Page>
     )

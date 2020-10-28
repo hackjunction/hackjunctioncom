@@ -1,19 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.scss'
 
-import KEYS from '../../../redux/staticcontent/keys'
-import MEDIA_KEYS from '../../../redux/staticmedia/keys'
 import { updateEvents } from '../../../redux/events/actions'
 
 import SectionImage from '../../../components/SectionImage'
 import NewsLetterForm from '../../../components/NewsLetterForm'
 import BlockSection from '../../../components/BlockSection'
-
-import DividerLine from '../../../components/DividerLine'
+import { Grid } from '@material-ui/core'
 import HeaderSection from '../../../components/HeaderSection'
-import Grid from '@material-ui/core/Grid'
-
-import HeaderVideo from '../../../components/HeaderVideo'
 
 import { content as selectContent } from '../../../redux/staticcontent/selectors'
 import { connect } from 'react-redux'
@@ -27,7 +21,33 @@ import Button from '../../../components/Button'
 //HELMET
 import { Helmet } from 'react-helmet'
 
+import HubSelector from '../Components/HubSelector'
+
 const textsJSON = require('./texts.json')
+
+const hubs = [
+  {
+    name: 'Chengdu',
+    country: 'China',
+    address: 'Chengduroad 1',
+    contact: 'Eero Kere',
+    timezone: '+0800',
+  },
+  {
+    name: 'Budapest',
+    country: 'Hungary',
+    address: 'Budapestalley 1',
+    contact: 'Mari Rautanen',
+    timezone: '+0200',
+  },
+  {
+    name: 'Moscow',
+    country: 'Russia',
+    address: 'Moscowstreet 1',
+    contact: 'Virva Brax',
+    timezone: '+0300',
+  },
+]
 
 const ConnectedHome = (props) => {
   useEffect(() => {
@@ -39,8 +59,8 @@ const ConnectedHome = (props) => {
       //   metaDescKey={KEYS.whoAreWeBody}
       className="Connected ConnectedContent ConnectedHome"
       pageTitle="Junction 2020 Connected"
-    //   metaDescKey={KEYS.whoAreWeBody}
-    //   ogImageKey={MEDIA_KEYS.homePageHeaderImage}
+      //   metaDescKey={KEYS.whoAreWeBody}
+      //   ogImageKey={MEDIA_KEYS.homePageHeaderImage}
     >
       <div className="Connected-parallax">
         <Helmet>
@@ -76,330 +96,365 @@ const ConnectedHome = (props) => {
             content={require('../../../assets/images/photo-hub-visualisation.svg')}
           />
         </Helmet>
-        <Link
-          activeClass="active"
-          to="mainContent"
-          spy={true}
-          smooth={true}
-          duration={500}
-        >
-          <p>Apply now!</p>
-          <FontAwesomeIcon icon="angle-down" size="4x" color="#f5d2a2" />
-        </Link>
-        <video autoPlay loop muted playsInline className="HeaderVideo--video">
-          <source
-            src={require('../../../assets/videos/J2020C_Animation_Main.webm')}
-            type="video/webm"
-          ></source>
-          <source
-            src={require('../../../assets/videos/J2020C_Animation_Main.mp4')}
-            type="video/mp4"
-          ></source>
-          Your browser does not support the video tag.
-        </video>
+
+        <img
+          className="bigChain-1"
+          src={require('../../../assets/images/bigchain-1.svg')}
+          alt="Big Chain"
+        />
+        <div className="Connected-parallax--content">
+          <img
+            className="Connected-parallax--content-connectedLogo"
+            src={require('../../../assets/logos/connected_logo.svg')}
+            alt="Connected logo"
+          />
+          <p className="Connected-parallax--content-overTheWorld">
+            ALL OVER THE WORLD
+          </p>
+          <h2 className="Connected-parallax--content-eventDates">
+            NOVEMBER 6-8
+          </h2>
+          <img
+            className="Connected-parallax--content-computer"
+            src={require('../../../assets/images/computer.svg')}
+            alt="computer"
+          />
+
+          <p className="Connected-parallax--content-hackTheFuture">
+            HACK THE FUTURE
+          </p>
+        </div>
+        <img
+          className="bigChain-2"
+          src={require('../../../assets/images/bigchain-2.svg')}
+          alt="Big Chain 2"
+        />
+        <img
+          className="smallChain-1"
+          src={require('../../../assets/images/smallchain-1.svg')}
+          alt="Small Chain"
+        />
+        <img
+          className="smallChain-2"
+          src={require('../../../assets/images/smallchain-2.svg')}
+          alt="Small Chain 2"
+        />
       </div>
-      <DividerLine />
-      <Element name="mainContent" />
-      <HeaderSection
-        className="ScrollSnapElem wholePage"
-        logo={require('../../../assets/logos/connected_logo.svg')}
-        title={props.HeaderTitle}
-        body={props.HeaderBody}
-      >
+      <div className="HubInfo">
+        <Element name="mainContent" />
+
+        <p className="centered">{props.HeaderBody}</p>
         <div className="Button-row">
           <Button
             className="Button-small Button-apply"
             to="https://app.hackjunction.com/events/junction-2020-connected"
             text="Apply Here"
           />
-
-          <Button className="Button-small" to="/info" text="Event info" />
-
+          <Button className="Button-small" to="/info" text="Event Info" />
           <Button
             className="Button-small"
             to="https://hackjunction.com/partners"
-            text="Partner with us"
+            text="Partner With Us"
           />
         </div>
-      </HeaderSection>
-      <DividerLine />
-      <SectionImage
-        image={{
-          url: require('../../../assets/images/connected/website5.webp'),
-        }}
-        alt="Junction 2020 Connected"
-      />
-      <DividerLine />
 
-      <BlockSection
-        className="ScrollSnapElem"
-        halfpage
-        title={props.Section1Title}
-        subtitle={props.Section1Body}
-        extra={
-          <Button
-            className="Button-default"
-            to="/info"
-            text="Learn more about the event"
+        <div className="chainRow">
+          <img
+            className=""
+            src={require('../../../assets/images/chain-left.svg')}
+            alt="chain-left"
           />
-        }
-      >
-        <img
-          src={require('../../../assets/images/photo-hub-visualisation.svg')}
-          alt="connected-logo-here"
-        />
-      </BlockSection>
-      <BlockSection
-        halfpage
-        inverted
-        title={props.Section2Title}
-        subtitle={props.Section2Body}
-        extra={
-          <Button
-            className="Button-default"
-            to="/hubs"
-            text="Learn more about hubs"
+          <img
+            className=""
+            src={require('../../../assets/logos/emblem_black.svg')}
+            alt="chain-left"
           />
-        }
-      >
-        <img
-          src={require('../../../assets/images/hub_globe.svg')}
-          alt="connected-logo-here"
+          <img
+            className=""
+            src={require('../../../assets/images/chain-right.svg')}
+            alt="chain-right"
+          />
+        </div>
+
+        <h1>{props.Section1Title}</h1>
+        <p className="centered">{props.Section1Body}</p>
+        <Button
+          className="Button-default"
+          to="/info"
+          text="Learn more about the event"
         />
-      </BlockSection>
-      <div className="hide">
-        {' '}
-        <DividerLine />
-      </div>
-      <BlockSection
-        halfpage
-        title={props.Section3Title}
-        subtitle={props.Section3Body}
-        className="ScrollSnapElem Footer RemoveBorder"
-        extra={
-          <div className="RemoveBorder--flex">
-            <NewsLetterForm />
+
+        <img
+          className="hubsIllustration"
+          src={require('../../../assets/images/hubs_illustration.svg')}
+          alt="hubs-illustration"
+        />
+        <img
+          className="hubsIllustrationMobile"
+          src={require('../../../assets/images/hubs_illustration_mobile.svg')}
+          alt="hubs-illustration"
+        />
+
+        <h1>{props.Section2Title}</h1>
+        <p className="centered">{props.Section2Body}</p>
+
+        <Button
+          className="Button-default"
+          to="/hubs"
+          text="Learn more about hubs"
+        />
+
+        <div className="HubSection">
+          <HubSelector />
+          <img
+            src={require('../../../assets/images/hub_map.svg')}
+            alt="Hubs on map"
+          />
+        </div>
+        <div className="YouTube--wrapper">
+          <div className="YouTube--inside">
+            <h2>{props.YouTubeWrapperTitle}</h2>
+            <h3>{props.YouTubeWrapperBody}</h3>
+            <iframe src={props.YouTubeWrapperLink} frameBorder="0" />
           </div>
-        }
-      >
-        <img
-          src={require('../../../assets/images/3part-chain.svg')}
-          alt="connected-logo-here"
-        />
-      </BlockSection>
-      <DividerLine />
-
-      <div className="YouTube--wrapper">
-        <div className="YouTube--inside">
-          <h2>{props.YouTubeWrapperTitle}</h2>
-          <h3>{props.YouTubeWrapperBody}</h3>
-          <h4>{props.YouTubeWrapperSubBody}</h4>
-          <iframe
-            style={{
-              width: '70%',
-              height: '70%',
-            }}
-            src={props.YouTubeWrapperLink}
-            frameBorder="0"
-          />
         </div>
       </div>
-      <DividerLine />
-      {/* <HeaderSection
-        title="Challenges"
-        body="The hackathon is divided into challenges based on different industries and themes. You can choose to work on multiple challenges during the hackathon: and you can even combine them and submit your project to multiple ones!"
-      >
-        <Grid spacing={12} direction="row">
-          <Button
-            className="Button-default"
-            to="https://app.hackjunction.com/events/junction-2020-connected"
-            text="See the Challenges"
-          />
-        </Grid>
-      </HeaderSection> */}
+      <div className="challengesSection">
+        <h1>Challenges</h1>
+        <p>
+          The hackathon is divided into challenges based on different industries
+          and themes. You can choose to work on multiple challenges during the
+          hackathon: and you can even combine them and submit your project to
+          multiple ones!
+        </p>
+        <Button
+          className="Button-default"
+          to="/challenges"
+          text="See the Challenges"
+        />
+        <img
+          className="challengesImage"
+          src={require('../../../assets/images/challenges_frontpage.png')}
+          alt="challenges_frontpage"
+        />
+      </div>
+      <div className="NewsLetter">
+        <h1>{props.Section3Title}</h1>
+        <p>{props.Section3Body}</p>
+        <div className="RemoveBorder--flex NewsLetter--content">
+          <NewsLetterForm />
+        </div>
+        <img
+          className="Chain-2part"
+          src={require('../../../assets/images/2part-chain.svg')}
+          alt="2part-chain"
+        />
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#0B2C5D"
+          fill-opacity="1"
+          d="M0,96L48,122.7C96,149,192,203,288,224C384,245,480,235,576,202.7C672,171,768,117,864,85.3C960,53,1056,43,1152,53.3C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+        ></path>
+      </svg>
 
-      <HeaderSection className="ScrollSnapElem PartnerSection" title="Partners">
+      <HeaderSection className="PartnerSection">
         <h2 className="partnerHeading">Main Partners</h2>
-        <div className="logoBGR">
-          <div class="logoContainer">
-            <a href="https://www.genelec.com/" target="_blank">
-              <img
-                className="BIGLOGO"
-                src={require('../../../assets/logos/partner/genelec.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+        <div className="partnerTier">
+          <div className="logoBGR">
+            <div className="logoContainer">
+              <a href="https://www.genelec.com/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/genelec.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
 
-          <div class="logoContainer">
-            <a href="https://www.hkscan.com/en/" target="_blank">
-              <img
-                className="BIGLOGO"
-                src={require('../../../assets/logos/partner/hkscan.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+            <div className="logoContainer">
+              <a href="https://www.hkscan.com/en/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/hkscan.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
 
-          <div class="logoContainer">
-            <a href="https://www.espoo.fi/en-US" target="_blank">
-              <img
-                className="BIGLOGO"
-                src={require('../../../assets/logos/partner/espoo.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+            <div className="logoContainer">
+              <a href="https://www.espoo.fi/en-US" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/espoo.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
 
-          <div class="logoContainer">
-            <a href="https://www.smartly.io/" target="_blank">
-              <img
-                className="BIGLOGO"
-                src={require('../../../assets/logos/partner/smartly.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+            <div className="logoContainer">
+              <a href="https://www.smartly.io/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/smartly.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
 
-          <div class="logoContainer">
-            <a
-              href="https://www.businessfinland.fi/suomalaisille-asiakkaille/etusivu/"
-              target="_blank"
-            >
-              <img
-                className="BIGLOGO"
-                src={require('../../../assets/logos/partner/business finland.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+            <div className="logoContainer">
+              <a
+                href="https://www.businessfinland.fi/suomalaisille-asiakkaille/etusivu/"
+                target="_blank"
+              >
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/business finland.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
 
-          <div class="logoContainer">
-            <a href="https://www.pauliggroup.com/" target="_blank">
-              <img
-                className="BIGLOGO"
-                src={require('../../../assets/logos/partner/paulig.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
-          <div class="logoContainer">
-            <a href="https://www.motiva.fi/" target="_blank">
-              <img
-                className="BIGLOGO"
-                src={require('../../../assets/logos/partner/motiva.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+            <div className="logoContainer">
+              <a href="https://www.pauliggroup.com/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/paulig.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
+            <div class="logoContainer">
+              <a href="https://www.pauliggroup.com/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/paulig.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
+            <div class="logoContainer">
+              <a href="https://www.motiva.fi/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/motiva.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
 
-          <div class="logoContainer">
-            <a href="https://www.op.fi/" target="_blank">
-              <img
-                className="BIGLOGO"
-                src={require('../../../assets/logos/partner/op.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+            <div class="logoContainer">
+              <a href="https://www.op.fi/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/op.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
 
-          <div class="logoContainer">
-            <a href="https://www.cgi.fi/" target="_blank">
-              <img
-                className="BIGLOGO"
-                src={require('../../../assets/logos/partner/cgi.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+            <div class="logoContainer">
+              <a href="https://www.cgi.fi/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/cgi.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
 
-          <div class="logoContainer">
-            <a href="https://www.aalto.fi/en/" target="_blank">
-              <img
-                className="BIGLOGO"
-                src={require('../../../assets/logos/partner/aalto.png')}
-                alt="connected-logo-here"
-              />
-            </a>
+            <div className="logoContainer">
+              <a href="https://www.aalto.fi/en/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/aalto.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
           </div>
         </div>
+
         <h2 className="partnerHeading">Online Partners</h2>
-        <div class="logoBGR-small">
-          <div class="logoContainer">
-            <a href="https://aito.ai/" target="_blank">
-              <img
-                className="logoIMG"
-                src={require('../../../assets/logos/partner/aito.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
-          <div class="logoContainer">
-            <a href="https://www.brella.io/" target="_blank">
-              <img
-                className="logoIMG"
-                src={require('../../../assets/logos/partner/brella.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+        <div className="partnerTier">
+          <div class="logoBGR-small">
+            <div class="logoContainer">
+              <a href="https://aito.ai/" target="_blank">
+                <img
+                  className="logoIMG"
+                  src={require('../../../assets/logos/partner/aito.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
+            <div class="logoContainer">
+              <a href="https://www.brella.io/" target="_blank">
+                <img
+                  className="logoIMG"
+                  src={require('../../../assets/logos/partner/brella.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
 
-          <div class="logoContainer">
-            <a href="https://www.columbiaroad.com/" target="_blank">
-              <img
-                className="logoIMG"
-                src={require('../../../assets/logos/partner/columbia road.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
-          <div class="logoContainer">
-            <a href="https://just-ai.com/en/" target="_blank">
-              <img
-                className="logoIMG"
-                src={require('../../../assets/logos/partner/just ai.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+            <div class="logoContainer">
+              <a href="https://www.columbiaroad.com/" target="_blank">
+                <img
+                  className="logoIMG"
+                  src={require('../../../assets/logos/partner/columbia road.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
+            <div class="logoContainer">
+              <a href="https://just-ai.com/en/" target="_blank">
+                <img
+                  className="logoIMG"
+                  src={require('../../../assets/logos/partner/just ai.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
 
-          <div class="logoContainer">
-            <a href="https://www.d-fence.fi/home" target="_blank">
-              <img
-                className="logoIMG"
-                src={require('../../../assets/logos/partner/defence.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
-          <div class="logoContainer">
-            <a href="https://www.rovio.com/" target="_blank">
-              <img
-                className="logoIMG"
-                src={require('../../../assets/logos/partner/rovio.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
-          <div class="logoContainer">
-            <a href="https://www.hus.fi/" target="_blank">
-              <img
-                className="logoIMG"
-                src={require('../../../assets/logos/partner/hus.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
-          <div class="logoContainer">
-            <a href="https://www.oph.fi/en" target="_blank">
-              <img
-                className="logoIMG"
-                src={require('../../../assets/logos/partner/opetus.png')}
-                alt="connected-logo-here"
-              />
-            </a>
+            <div className="logoContainer">
+              <a href="https://www.d-fence.fi/home" target="_blank">
+                <img
+                  className="logoIMG"
+                  src={require('../../../assets/logos/partner/defence.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
+            <div className="logoContainer">
+              <a href="https://www.rovio.com/" target="_blank">
+                <img
+                  className="logoIMG"
+                  src={require('../../../assets/logos/partner/rovio.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
+            <div className="logoContainer">
+              <a href="https://www.hus.fi/" target="_blank">
+                <img
+                  className="logoIMG"
+                  src={require('../../../assets/logos/partner/hus.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
+            <div className="logoContainer">
+              <a href="https://www.oph.fi/en" target="_blank">
+                <img
+                  className="logoIMG"
+                  src={require('../../../assets/logos/partner/opetus.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
           </div>
         </div>
+
         <h2 className="partnerHeading">Supporting Partners</h2>
         <div class="logoBGR-small">
           <div class="logoContainer">

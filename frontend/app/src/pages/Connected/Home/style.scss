@@ -1,8 +1,18 @@
 @import '../../../styles/main';
 
 .ConnectedHome {
+  overflow-x: hidden;
+
+  .HubInfo {
+    p.centered,
+    h1.centered {
+      margin: 5% 10%;
+      text-align: center;
+    }
+  }
   .HeaderSection {
     height: 90vh;
+
     @include bp-med {
       height: auto;
     }
@@ -26,44 +36,25 @@
       font-weight: 600;
       line-height: 1.5em;
     }
+    .Button-row {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .chainRow {
+    display: none;
+    @include bp-med {
+      display: flex;
+      flex-direction: row;
+      margin: 5% 0 5% 0;
+      justify-content: space-evenly;
+    }
   }
 
   .RemoveBorder {
     border-top: unset;
-    min-height: unset;
-    height: 50vh;
-    padding: 0;
-
-    @include bp-small-only {
-      display: none;
-    }
-
-    @include bp-med {
-      height: 90vh;
-      justify-content: center;
-    }
-
-    &--transform {
-      -webkit-transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-      transform: rotate(-90deg);
-    }
-
-    img {
-      @extend .RemoveBorder--transform;
-
-      -webkit-transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-      transform: rotate(-90deg);
-
-      @include bp-small-only {
-        display: none;
-      }
-    }
+    border-bottom: unset;
 
     h2 {
       color: $connected-blue;
@@ -78,8 +69,7 @@
       padding: 20px;
     }
     &--inside {
-      height: 100vh;
-      width: 90%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -87,11 +77,22 @@
       text-align: center;
 
       iframe {
+        width: 100%;
+        height: 30vh;
         border-radius: 34px;
       }
 
       @include bp-med {
-        height: 100vh;
+        iframe {
+          height: 50vh;
+        }
+        width: 90%;
+        height: 50vh;
+        padding-bottom: 20px;
+      }
+
+      @include bp-full {
+        height: 80vh;
         padding-bottom: 20px;
       }
 
@@ -132,9 +133,109 @@
       display: none;
     }
   }
+
+  .challengesSection {
+    margin: 2% 10%;
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+
+    p {
+      text-align: center;
+    }
+
+    .challengesImage {
+      width: 80%;
+      margin: auto;
+      margin-top: 5%;
+      border-radius: 2em;
+      object-fit: cover;
+
+      height: 20em;
+
+      @include bp-full {
+        height: 25em;
+      }
+    }
+  }
+
+  .NewsLetter {
+    padding: 10% 10% 0 10%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &--content {
+      margin-top: 2%;
+      width: 60%;
+      @include bp-small-only {
+        width: 100%;
+        margin-bottom: 15vh;
+      }
+    }
+    img.Chain-2part {
+      position: absolute;
+      z-index: 10;
+      right: 10%;
+      bottom: -30%;
+      @include bp-small-only {
+        height: 25vh;
+        bottom: -15%;
+        right: 5%;
+      }
+    }
+
+    .FormRow {
+      display: flex;
+      justify-content: left;
+      margin-top: 0.5em;
+      @include bp-small-only {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    h1 {
+      text-align: left;
+    }
+
+    input.TextInput--inputbox,
+    select.DropDown--input {
+      margin-right: 2em;
+      border-color: $connected-blue;
+      color: $connected-teal;
+      color: $connected-teal;
+      padding: 0.6em;
+      padding-left: 0.9em;
+      max-width: 10em;
+
+      &::placeholder {
+        color: $connected-teal;
+      }
+
+      @include bp-small-only {
+        width: 100%;
+        max-width: unset;
+      }
+    }
+
+    button.SubmitButton--button {
+      background-color: $connected-orange;
+
+      span.SubmitButton--button__text {
+        color: $connected-blue;
+      }
+    }
+  }
+
   .PartnerSection {
     height: auto;
     background: $connected-blue;
+
+    .HeaderSection--content {
+      display: flex;
+      flex-direction: column;
+    }
   }
   .logoBGR {
     justify-content: center;
@@ -213,6 +314,91 @@
     .logoIMG {
       display: block;
       width: 8em;
+    }
+  }
+
+  .HubSection {
+    display: flex;
+    flex-direction: column;
+    margin: 10%;
+    justify-content: center;
+    text-align: center;
+
+    @include bp-med {
+      text-align: left;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    .HubListElem {
+      margin: 0;
+      &.visible {
+        .HubName {
+          cursor: default;
+          color: $connected-teal;
+        }
+        .HubDetails {
+          p  {
+            text-align: left;
+          }
+          text-align: left;
+          display: block;
+        }
+
+        .LocalTime {
+          display: inline-block;
+          color: $connected-teal;
+          @include bp-small-only {
+            display: none;
+          }
+        }
+      }
+
+      .LocalTime {
+        display: none;
+      }
+
+      .HubName {
+        cursor: pointer;
+        color: $connected-orange;
+        text-decoration: underline;
+        margin-right: 0.3em;
+        font-size: 1.7em;
+        margin-bottom: 0.2em;
+        display: inline-block;
+      }
+
+      .HubDetails {
+        display: none;
+        p {
+          color: $connected-teal;
+          @include bp-small-only {
+            text-align: center;
+          }
+          text-align: left;
+        }
+
+        &--country {
+          margin: 0;
+          font-size: 1.3em;
+        }
+      }
+    }
+  }
+
+  .hubsIllustration {
+    display: none;
+    @include bp-med {
+      margin: 5% auto;
+      display: block;
+    }
+  }
+
+  .hubsIllustrationMobile {
+    display: block;
+    margin: auto;
+    @include bp-med {
+      display: none;
     }
   }
 }

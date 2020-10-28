@@ -1,100 +1,100 @@
-@import "../../styles/main";
+@import '../../styles/main';
 
 .Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  pointer-events: none;
+  width: 15%;
+  height: 100%;
+  z-index: 10;
+  outline-style: solid;
+  outline-width: normal;
+  transition: all 0.2s ease;
+  @include bp-med {
+    display: flex;
+  }
+  &--emblem {
+    pointer-events: all;
+    width: 20px;
+    cursor: pointer;
     position: fixed;
-    top: 0;
-    left: 0;
+    &__image {
+      width: 80px;
+    }
+  }
+  &--connected {
     display: none;
-    pointer-events: none;
-    width: 15%;
-    height: 100%;
-    z-index: 10;
-    outline-style: solid;
-    outline-width: normal;
-    transition: all 0.2s ease;
-    @include bp-med {
-        display: flex;
+    pointer-events: all;
+    width: 100%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    margin: 1em auto;
+    position: relative;
+    @include bp-full {
+      display: flex;
     }
-    &--emblem {
-        pointer-events: all;
-        width: 20px;
-        cursor: pointer;
-        position: fixed;
-        &__image {
-            width: 80px;
-        }
-    }
-    &--connected {
-        display: none;
-        pointer-events: all;
-        width: 100%;
-        cursor: pointer;
-        align-items: center;
-        justify-content: center;
-        margin: 1em auto;
-        position: relative;
-        @include bp-full {
-            display: flex;
-        }
 
-        &__image {
-            width: 80%;
-            margin: auto;
-        }
+    &__image {
+      width: 80%;
+      margin: auto;
     }
+  }
 }
 
 .HeaderMobile {
+  display: flex;
+  position: fixed;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  flex-direction: column;
+  &--open {
+    height: 100%;
+    overflow: hidden;
+  }
+  padding: 10px;
+  height: auto;
+  background: $junction-black;
+
+  .HeaderMobileRow {
     display: flex;
-    position: fixed;
-    right: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    flex-direction: column;
-    &--open {
-        height: 100%;
-        overflow: hidden;
+    flex-direction: row;
+    justify-content: space-between;
+    > a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    padding: 10px;
-    height: 10vh;
-    background: $junction-black;
+  }
 
-    .HeaderMobileRow {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        > a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    }
+  &--emblem {
+    pointer-events: all;
+    cursor: pointer;
 
-    &--emblem {
-        pointer-events: all;
-        cursor: pointer;
+    &__image {
+      margin-left: 10%;
+      width: 50px;
+    }
+  }
+  &--icon {
+    margin: 2%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 
-        &__image {
-            margin-left: 10%;
-            width: 50px;
-        }
+  &--connected {
+    width: 50%;
+    margin-left: 25%;
+    &__image {
+      width: 100%;
     }
-    &--icon {
-        margin: 2%;
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    &--connected {
-        width: 50%;
-        margin-left: 25%;
-        &__image {
-            width: 100%;
-        }
-    }
-    @include bp-med {
-        display: none;
-    }
+  }
+  @include bp-med {
+    display: none;
+  }
 }

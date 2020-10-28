@@ -7,6 +7,7 @@
 
   .ConnectedContent {
     background-color: $connected-peach;
+    text-align: center;
   }
   .Connected--TopContent {
     align-content: center;
@@ -137,14 +138,29 @@
         }
       }
     }
+
+    .FormRow {
+      display: flex;
+      justify-content: left;
+      margin-top: 0.5em;
+      width: 100%;
+    }
+
+    .TextInput--inputbox,
+    .DropDown--input {
+      max-width: 10em;
+    }
+
     .TextInput--inputbox,
     .DropDown--input,
     .TextArea--input {
       border-color: $connected-blue;
-      color: $connected-blue;
+      color: $connected-teal;
+      padding: 0.6em;
+      padding-left: 0.9em;
 
       &::placeholder {
-        color: $connected-blue;
+        color: $connected-teal;
       }
       &:-webkit-autofill,
       &:-webkit-autofill:hover,
@@ -159,6 +175,7 @@
     }
     .SubmitButton--button {
       background-color: $connected-blue;
+
       &:hover,
       &:focus {
         background-color: transparent;
@@ -169,7 +186,8 @@
         }
       }
       .SubmitButton--button__text {
-        color: $connected-peach;
+        color: $connected-red;
+        padding: 3em 1em 3em 1em;
       }
     }
   }
@@ -213,55 +231,155 @@
   }
 
   &-parallax {
+    background-image: url('../../assets/images/chainoutlines.svg');
+    background-repeat: repeat;
+    background-position: center;
+    height: 90vh;
     position: relative;
-    height: 50vh;
-    background-size: cover;
+    border-bottom: 0.1em solid $connected-line;
+    margin-bottom: 10%;
 
-    @include bp-full {
+    @include bp-med {
       height: 100vh;
-      scroll-snap-type: normal;
-      scroll-snap-align: start;
-    }
-    video {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
     }
 
-    @keyframes jump {
-      0% {
-        bottom: 0;
-      }
-      50% {
-        bottom: 15px;
-      }
-      100% {
-        bottom: 0;
-      }
-    }
-    a {
+    &--content {
+      box-shadow: -10px 10px $connected-blue, 1px -1px $connected-blue,
+        -0.5px -1px $connected-blue, 1px 0.5px $connected-blue;
+      text-align: center;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      position: absolute;
-      z-index: 100;
-      bottom: 0;
-      width: 100%;
-      animation: jump 3s infinite;
-      &:hover {
-        opacity: 0.7;
-        transition: 0.3s ease-in-out;
+      justify-content: space-evenly;
+      background-color: $connected-peach;
+      position: relative;
+      z-index: 3;
+      margin: 10%;
+
+      border-radius: 1em;
+
+      @include bp-small-only {
+        margin-top: 15vh;
+        padding: 6%;
       }
-      p {
-        color: $connected-peach;
-        font-size: 1.5em;
-        font-family: Montserrat;
-        font-weight: 600;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        @include bp-full {
-          font-size: 2em;
+
+      @include bp-med {
+        padding: 3em;
+        width: 28em;
+        margin: auto;
+        margin-top: 5%;
+      }
+
+      @include bp-full {
+        width: 30em;
+      }
+
+      h2,
+      h1 {
+        margin: 0;
+      }
+
+      &-connectedLogo {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 2em;
+        @include bp-med {
+          width: 80%;
         }
+      }
+
+      &-hackTheFuture {
+        letter-spacing: -1px;
+        text-shadow: -3px 3px $connected-blue;
+        font-family: Montserrat;
+        font-weight: 600 !important;
+        font-size: 3em;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        line-height: 1.2em;
+        -webkit-text-fill-color: $connected-peach;
+        color: $connected-blue;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $connected-blue;
+        @include bp-med {
+          font-size: 4em;
+        }
+      }
+
+      &-overTheWorld {
+        text-align: center;
+        margin: 0;
+        font-size: 1em;
+        @include bp-med {
+          font-size: 1.3em;
+        }
+      }
+
+      &-eventDates {
+        font-size: 1.5em;
+        @include bp-med {
+          font-size: inherit;
+        }
+      }
+
+      &-computer {
+        width: 50%;
+        margin: 10% auto;
+        @include bp-med {
+          width: 40%;
+        }
+      }
+    }
+
+    .chainOutlines {
+      overflow: hidden;
+      height: 100%;
+    }
+    .smallChain-1 {
+      position: absolute;
+      height: 20vh;
+      z-index: 2;
+      display: none;
+      @include bp-med {
+        display: block;
+        top: 0;
+        right: 8%;
+      }
+    }
+    .smallChain-2 {
+      position: absolute;
+      height: 20vh;
+      z-index: 2;
+      display: none;
+      @include bp-med {
+        right: 0;
+        bottom: 0;
+        display: block;
+      }
+    }
+    .bigChain-1 {
+      height: 60vh;
+      position: absolute;
+      z-index: 3;
+      top: -5%;
+      left: -20%;
+      @include bp-med {
+        height: 80vh;
+        top: 0;
+        left: 0;
+      }
+    }
+    .bigChain-2 {
+      height: 60vh;
+      overflow: visible;
+      position: absolute;
+      z-index: 4;
+      right: -30%;
+      bottom: -10%;
+      @include bp-med {
+        height: 80vh;
+        right: 0;
+        bottom: -10%;
       }
     }
   }
