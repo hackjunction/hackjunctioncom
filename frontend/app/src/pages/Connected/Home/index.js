@@ -39,8 +39,8 @@ const ConnectedHome = (props) => {
       //   metaDescKey={KEYS.whoAreWeBody}
       className="Connected ConnectedContent ConnectedHome"
       pageTitle="Junction 2020 Connected"
-      //   metaDescKey={KEYS.whoAreWeBody}
-      //   ogImageKey={MEDIA_KEYS.homePageHeaderImage}
+    //   metaDescKey={KEYS.whoAreWeBody}
+    //   ogImageKey={MEDIA_KEYS.homePageHeaderImage}
     >
       <div className="Connected-parallax">
         <Helmet>
@@ -509,6 +509,24 @@ const ConnectedHome = (props) => {
               <img
                 className="logoIMG"
                 src={require('../../../assets/logos/supporting/hackyeah.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://hackyeah.pl/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/hackyeah.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://swwekenya.com/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/swwe.png')}
                 alt="connected-logo-here"
               />
             </a>
