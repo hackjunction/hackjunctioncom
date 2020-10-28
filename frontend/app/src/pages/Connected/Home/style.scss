@@ -218,22 +218,15 @@
 }
 
 .Button-apply {
-  background-color: $connected-teal !important;
-  border: 3px solid $connected-teal !important;
+  background-color: $connected-blue !important;
 }
 
 .Button-apply:hover {
-  background-color: $connected-blue !important;
-  border: 3px solid $connected-blue !important;
-  color: $connected-peach !important;
+  background-color: $connected-peach !important;
 }
 
 .Button-apply > span {
-  color: $connected-blue !important;
-
-  &:hover {
-    color: $connected-peach !important;
-  }
+  color: $connected-orange !important;
 }
 
 .partnerHeading {

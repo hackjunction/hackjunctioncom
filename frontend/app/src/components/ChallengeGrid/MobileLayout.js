@@ -66,7 +66,10 @@ const MobileLayout = (props) => {
             className={`MobileItem-hidden ${open ? 'MobileItem-expanded' : ''}`}
           >
             <div className="MobileItem--longtext-container">
-              <span className="MobileItem--longtext"> {props.long_text}</span>
+              <Markdown className="MobileItem--longtext">
+                {' '}
+                source={props.long_text}
+              </Markdown>
             </div>
             <div className="MobileItem--subsection">
               <span className="MobileItem--subsection-left">The Challenge</span>

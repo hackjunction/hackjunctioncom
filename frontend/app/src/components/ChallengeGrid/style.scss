@@ -465,10 +465,12 @@
   }
 
   &--image {
+    margin: 2em 0 2em 0;
     // margin-left: 3em;
-    object-fit: cover;
+
     width: 12em;
     height: 8em;
+    object-fit: cover;
     display: inline-block;
   }
 
@@ -493,8 +495,7 @@
     margin-top: 1em;
     // margin-left: 3em;
     // display: inline-block;
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: left;
   }
   &--shorttext {
     color: $connected-blue;
@@ -558,8 +559,7 @@
     margin-top: 2.5em;
     // margin-left: 3em;
     // display: inline-block;
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: left;
   }
 
   &--longtext {
@@ -592,7 +592,7 @@
     &-right {
       margin-top: 1em;
       p {
-        text-align: justify;
+        text-align: left;
         font-style: normal;
         font-weight: normal;
         font-size: 13px;

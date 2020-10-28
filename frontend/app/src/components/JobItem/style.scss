@@ -33,6 +33,11 @@
     }
   }
 
+  &--location {
+    color: $connected-blue;
+    font-weight: 600;
+  }
+
   &--head {
     width: 90%;
     overflow-x: wrap;
@@ -58,6 +63,7 @@
     margin-top: 1em;
     margin-left: 3em;
     display: inline-block;
+    width: 80%;
   }
 
   &--date {
@@ -68,11 +74,22 @@
 
   &--desc {
     margin-left: 15em;
+    strong {
+      font-family: 'Montserrat';
+    }
+    p {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    li {
+      color: $connected-blue;
+    }
   }
 
-  &--desc > * {
-    font-weight: bold !important;
-  }
+  //   &--desc > * {
+  //     font-weight: bold !important;
+  //   }
 
   &--date-container {
     display: inline-block;
@@ -92,6 +109,5 @@
     font-size: 125%;
     white-space: nowrap;
     margin-left: 1.5%;
-    text-decoration: underline;
   }
 }

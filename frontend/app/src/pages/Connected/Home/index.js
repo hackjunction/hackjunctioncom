@@ -36,12 +36,46 @@ const ConnectedHome = (props) => {
 
   return (
     <Page
-      metaDescKey={KEYS.whoAreWeConnectedBody}
+      //   metaDescKey={KEYS.whoAreWeBody}
       className="Connected ConnectedContent ConnectedHome"
       pageTitle="Junction 2020 Connected"
-      ogImageKey={MEDIA_KEYS.connectedHeaderImage}
+      //   metaDescKey={KEYS.whoAreWeBody}
+      //   ogImageKey={MEDIA_KEYS.homePageHeaderImage}
     >
       <div className="Connected-parallax">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Junction 2020 Connected</title>
+          <meta
+            name="keywords"
+            content="junction 2020 connected, connected, junction, junction 2020"
+          />
+          <meta name="title" content="Junction 2020 Connected" />
+          <meta property="og:title" content="Junction 2020 Connected" />
+          <meta name="twitter:title" content="Junction 2020 Connected" />
+          <meta
+            name="description"
+            content="Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online."
+          />
+          <meta
+            property="og:description"
+            content="Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online."
+          />
+          <meta
+            name="twitter:description"
+            content="Junction 2020 Connected is a new take on the established concept of a hackathon; participants all over the world can join physical locations hosted by Junction and other organizations, or participate in the event fully online."
+          />
+
+          <meta name="og:type" content="website" />
+          <meta
+            property="og:image"
+            content={require('../../../assets/images/photo-hub-visualisation.svg')}
+          />
+          <meta
+            name="twitter:image"
+            content={require('../../../assets/images/photo-hub-visualisation.svg')}
+          />
+        </Helmet>
         <Link
           activeClass="active"
           to="mainContent"
@@ -249,6 +283,35 @@ const ConnectedHome = (props) => {
               />
             </a>
           </div>
+          <div class="logoContainer">
+            <a href="https://www.motiva.fi/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/motiva.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+
+          <div class="logoContainer">
+            <a href="https://www.op.fi/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/op.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+
+          <div class="logoContainer">
+            <a href="https://www.cgi.fi/" target="_blank">
+              <img
+                className="BIGLOGO"
+                src={require('../../../assets/logos/partner/cgi.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
 
           <div class="logoContainer">
             <a href="https://www.aalto.fi/en/" target="_blank">
@@ -280,15 +343,7 @@ const ConnectedHome = (props) => {
               />
             </a>
           </div>
-          <div class="logoContainer">
-            <a href="https://www.op.fi/" target="_blank">
-              <img
-                className="logoIMG"
-                src={require('../../../assets/logos/partner/op.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
+
           <div class="logoContainer">
             <a href="https://www.columbiaroad.com/" target="_blank">
               <img
@@ -418,6 +473,15 @@ const ConnectedHome = (props) => {
               <img
                 className="logoIMG"
                 src={require('../../../assets/logos/supporting/eenklaavi.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://hackyeah.pl/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/hackyeah.png')}
                 alt="connected-logo-here"
               />
             </a>
