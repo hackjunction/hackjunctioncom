@@ -465,10 +465,10 @@
   }
 
   &--image {
-    margin: 2em 0 2em 0;
     // margin-left: 3em;
-
+    object-fit: cover;
     width: 12em;
+    height: 8em;
     display: inline-block;
   }
 
