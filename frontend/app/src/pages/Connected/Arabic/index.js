@@ -102,8 +102,8 @@ const Arabic = (props) => {
       <HeaderSection
         className="ScrollSnapElem wholePage"
         logo={require('../../../assets/logos/connected_logo.svg')}
-        title={props.HeaderTitle}
-        body={props.HeaderBody}
+        title="من 6 إلى 8 نوفمبر"
+        body="هاكثون كما لم يحدث من قبل، حيث يجتمع المشاركون من كافة أنحاء العالم لحضور اكبر تحدي تقني في العالم في نفس الوقت، افتراضيا وعلى أرض الواقع"
       >
         <h3 dir="rtl" lang="ar">
           Junction Hackathon في المملكة العربية السعودية
@@ -170,8 +170,8 @@ const Arabic = (props) => {
       <BlockSection
         className="ScrollSnapElem"
         halfpage
-        title={props.Section1Title}
-        subtitle={props.Section1Body}
+        title="مقدمة عن الهاكثون"
+        subtitle="هو تطبيق جديدة لمفهوم الهاكثون المتعارف عليه، المشاركون من كافة أنحاء العالم سيكون باستطاعتهم المشاركة على أرض الواقع في أماكن الإستضافة التى وفرتها جانكشن وشركائها في الدول المشاركة، أو باستطاعتهم المشاركة افتراضيا عبر منصاتنا على الإنترنت"
         extra={
           <Button
             className="Button-default"
@@ -188,8 +188,8 @@ const Arabic = (props) => {
       <BlockSection
         halfpage
         inverted
-        title={props.Section2Title}
-        subtitle={props.Section2Body}
+        title="ثلاثون دولة، هاكثون واحد"
+        subtitle="شركائنا المحليين في الدول المستضيفة ساهموا في اضافة تحول جديد ل مفهوم الهاكثون الإفتراضي، عبر زيادة لمسة المشاركة الجماعية وجعل التفاعل على أرض الواقع متاحا للمشاركين عند الحاجة"
         extra={
           <Button
             className="Button-default"
@@ -216,8 +216,8 @@ const Arabic = (props) => {
       </div>
       <BlockSection
         halfpage
-        title={props.Section3Title}
-        subtitle={props.Section3Body}
+        title="ابق على اطلاع"
+        subtitle="سجل الآن لتصلك نشرة اخبارنا ولتكون أول من يعرف عن مفاجئاتنا"
         className="ScrollSnapElem Footer RemoveBorder"
         extra={
           <div className="RemoveBorder--flex">
@@ -234,8 +234,11 @@ const Arabic = (props) => {
 
       <div className="YouTube--wrapper">
         <div className="YouTube--inside">
-          <h2>{props.YouTubeWrapperTitle}</h2>
-          <h3>{props.YouTubeWrapperBody}</h3>
+          <h2>تجربة ليس لها مثيل</h2>
+          <h3>
+            هي ملحمة عالمية، نعدك بذلك، أثناء الإنتظار، شاهد هذا الفيديو المسجل
+            لحدث العام الماضي
+          </h3>
           <iframe
             style={{
               width: '70%',
@@ -430,7 +433,7 @@ const Arabic = (props) => {
             </a>
           </div>
         </div>
-        <h2 className="partnerHeading">Supporting Partners</h2>
+        <h2 className="partnerHeading">الشركاء الداعمون</h2>
         <div class="logoBGR-small">
           <div class="logoContainer">
             <a
