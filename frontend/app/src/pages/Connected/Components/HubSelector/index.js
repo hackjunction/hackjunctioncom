@@ -19,9 +19,11 @@ const HubSelector = ({ hubs }) => {
           <div className="HubName" onClick={() => changeHub(hub.id)}>
             {hub.name}
           </div>
+          {/**
           <div className="LocalTime">
-            {moment().utcOffset(hub.timezone).format('h:mm a')}
+            {moment(moment(), 'h:mm a').utcOffset(hub.timezone)}{' '}
           </div>
+           */}
           <div className="HubDetails">
             <p className="HubDetails--country">{hub.country}</p>
             <p className="HubDetails--address">
