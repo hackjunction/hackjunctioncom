@@ -1,0 +1,234 @@
+@import '../../../styles/main';
+
+.ConnectedHome {
+  .HeaderSection {
+    height: 90vh;
+    @include bp-med {
+      height: auto;
+    }
+    img {
+      display: none;
+      @include bp-med {
+        padding-top: 2%;
+        display: block;
+      }
+      width: 30em;
+    }
+    &--title {
+      font-size: 2em;
+    }
+    &--body {
+      display: block;
+      @include bp-med {
+        font-size: 1.5em;
+      }
+      font-style: normal;
+      font-weight: 600;
+      line-height: 1.5em;
+    }
+  }
+
+  .RemoveBorder {
+    border-top: unset;
+    min-height: unset;
+    height: 50vh;
+    padding: 0;
+
+    @include bp-small-only {
+      display: none;
+    }
+
+    @include bp-med {
+      height: 90vh;
+      justify-content: center;
+    }
+
+    &--transform {
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+    }
+
+    img {
+      @extend .RemoveBorder--transform;
+
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+
+      @include bp-small-only {
+        display: none;
+      }
+    }
+
+    h2 {
+      color: $connected-blue;
+    }
+  }
+
+  .YouTube {
+    &--wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    &--inside {
+      height: 100vh;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      iframe {
+        border-radius: 34px;
+      }
+
+      @include bp-med {
+        height: 100vh;
+        padding-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 2em;
+        margin: 0;
+      }
+
+      h3 {
+        font-size: 1.5em;
+        font-weight: 600;
+      }
+      h4 {
+        color: $connected-blue;
+        font-weight: 600;
+        margin-bottom: 6%;
+      }
+
+      &--challengesButton {
+        background: $connected-blue !important;
+        color: $connected-teal !important;
+      }
+    }
+  }
+
+  .wholePage {
+    h2 {
+      color: #6da99e;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+  }
+
+  .hide {
+    @include bp-small-only {
+      display: none;
+    }
+  }
+  .PartnerSection {
+    height: auto;
+    background: $connected-blue;
+  }
+  .logoBGR {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    .logoContainer {
+      margin: 1rem;
+      align-self: center;
+      text-align: -webkit-center;
+      text-align: -moz-center;
+    }
+    @media screen and (min-width: 1000px) {
+      .logoContainer {
+        width: calc(100% / 3);
+      }
+    }
+    @media screen and (min-width: 600px) {
+      .logoContainer {
+        width: calc(50% - 2rem);
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+      .logoContainer {
+        width: calc(33.3333% - 2rem);
+      }
+    }
+    .BIGLOGO {
+      display: block;
+      width: 15em;
+    }
+
+    .logoIMG {
+      display: block;
+      width: 8em;
+    }
+  }
+
+  .logoBGR-small {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    .logoContainer {
+      margin: 1rem;
+      align-self: center;
+      text-align: -webkit-center;
+      text-align: -moz-center;
+    }
+    @media screen and (min-width: 1000px) {
+      .logoContainer {
+        width: calc(100% / 4);
+      }
+    }
+    @media screen and (min-width: 600px) {
+      .logoContainer {
+        width: calc(50% - 2rem);
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+      .logoContainer {
+        width: calc(25% - 2rem);
+      }
+    }
+    .BIGLOGO {
+      display: block;
+      width: 15em;
+    }
+
+    .logoIMG {
+      display: block;
+      width: 8em;
+    }
+  }
+}
+
+.Button-apply {
+  background-color: $connected-blue !important;
+}
+
+.Button-apply:hover {
+  background-color: $connected-peach !important;
+}
+
+.Button-apply > span {
+  color: $connected-orange !important;
+}
+
+.partnerHeading {
+  color: $connected-peach !important;
+}

@@ -456,92 +456,135 @@ const ConnectedHome = (props) => {
         </div>
 
         <h2 className="partnerHeading">Supporting Partners</h2>
-        <div className="partnerTier">
-          <div className="logoBGR-small">
-            <div className="logoContainer">
-              <a
-                href="https://www.teknologforeningen.fi/?lang=en"
-                target="_blank"
-              >
-                <img
-                  className="logoIMG"
-                  src={require('../../../assets/logos/supporting/tf.png')}
-                  alt="connected-logo-here"
-                />
-              </a>
-            </div>
-            <div className="logoContainer">
-              <a href="https://urbanmill.org/" target="_blank">
-                <img
-                  className="logoIMG"
-                  src={require('../../../assets/logos/supporting/urban mill-.png')}
-                  alt="connected-logo-here"
-                />
-              </a>
-            </div>
-            <div className="logoContainer">
-              <a href="https://www.tek.fi/en" target="_blank">
-                <img
-                  className="logoIMG"
-                  src={require('../../../assets/logos/supporting/tek .png')}
-                  alt="connected-logo-here"
-                />
-              </a>
-            </div>
-            <div className="logoContainer">
-              <a href="https://atkins.fi/en/frontpage/" target="_blank">
-                <img
-                  className="logoIMG"
-                  src={require('../../../assets/logos/supporting/atkins.png')}
-                  alt="connected-logo-here"
-                />
-              </a>
-            </div>
-            <div className="logoContainer">
-              <a href="https://techflipp.com/" target="_blank">
-                <img
-                  className="logoIMG"
-                  src={require('../../../assets/logos/supporting/techflipp.png')}
-                  alt="connected-logo-here"
-                />
-              </a>
-            </div>
-            <div className="logoContainer">
-              <a href="https://www.sture.fi/" target="_blank">
-                <img
-                  className="logoIMG"
-                  src={require('../../../assets/logos/supporting/sture.png')}
-                  alt="connected-logo-here"
-                />
-              </a>
-            </div>
-            <div className="logoContainer">
-              <a href="https://hackkosice.com/" target="_blank">
-                <img
-                  className="logoIMG"
-                  src={require('../../../assets/logos/supporting/hack k.png')}
-                  alt="connected-logo-here"
-                />
-              </a>
-            </div>
-            <div className="logoContainer">
-              <a href="http://www.enklaavi.fi/" target="_blank">
-                <img
-                  className="logoIMG"
-                  src={require('../../../assets/logos/supporting/eenklaavi.png')}
-                  alt="connected-logo-here"
-                />
-              </a>
-            </div>
-            <div class="logoContainer">
-              <a href="https://hackyeah.pl/" target="_blank">
-                <img
-                  className="logoIMG"
-                  src={require('../../../assets/logos/supporting/hackyeah.png')}
-                  alt="connected-logo-here"
-                />
-              </a>
-            </div>
+        <div class="logoBGR-small">
+          <div class="logoContainer">
+            <a
+              href="https://www.teknologforeningen.fi/?lang=en"
+              target="_blank"
+            >
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/tf.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://urbanmill.org/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/urban mill-.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://www.tek.fi/en" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/tek .png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://atkins.fi/en/frontpage/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/atkins.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://techflipp.com/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/techflipp.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://www.sture.fi/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/sture.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://hackkosice.com/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/hack k.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="http://www.enklaavi.fi/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/eenklaavi.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="http://trapfactory.fi/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/trapfactory.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="http://fiksuruoka.fi/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/fiksuruoka.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://www.6722.space/en" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/67-22.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://hackyeah.pl/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/hackyeah.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://hackyeah.pl/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/hackyeah.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://swwekenya.com/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/swwe.png')}
+                alt="connected-logo-here"
+              />
+            </a>
           </div>
         </div>
       </HeaderSection>
