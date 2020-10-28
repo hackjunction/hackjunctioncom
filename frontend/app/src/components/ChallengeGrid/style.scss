@@ -13,6 +13,15 @@
   top: 0px;
   left: 0px;
 }
+.FirefoxBlur {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(105,105,105, 0.90);
+    z-index: 99;
+    top: 0px;
+    left: 0px;
+}
 
 .FilterButtons {
   width: 100%;
