@@ -70,6 +70,10 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "priority": {
+      "default": 0,
+      "type": "integer"
     }
   }
 }
