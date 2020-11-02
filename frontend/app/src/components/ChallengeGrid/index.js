@@ -42,7 +42,7 @@ function ChallengeGrid({ items }) {
                 {renderButtons()}
     </div>*/}
       <div className="ChallengeGrid">
-        {items.map((item) => {
+        {items.sort((a,b)=>b.priority-a.priority).map((item) => {
           console.log(item)
           return item.tags.split(', ').some((a) => {
             return selected == a || selected == ''

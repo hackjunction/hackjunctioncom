@@ -11,9 +11,9 @@ const DesktopLayout = (props) => {
   //   if (!cardbackground) {
   //     cardbackground = { url: '' }
   //   }
-  if (!props.cardbackground) {
-    props.cardbackground = { url: '' }
-  }
+  //if (!props.cardbackground) {
+  //  props.cardbackground = { url: '' }
+  //}
   //   const [open, toggleOpen] = useState(false)
   //   const [clicable, toggleClicable] = useState(true)
 
@@ -35,7 +35,7 @@ const DesktopLayout = (props) => {
   return (
     <div className="ChallengeItem">
       <div className="ChallengeItem--head">
-        <img className="ChallengeItem--image" src={props.cardbackground.url} />
+        <img className="ChallengeItem--image" src={props.cardbackground?props.cardbackground.url:""} />
         <div className="ChallengeItem--title-container">
           <span className="ChallengeItem--title">{props.name}</span>
         </div>
