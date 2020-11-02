@@ -578,7 +578,7 @@ const ConnectedHome = (props) => {
             </a>
           </div>
           <div class="logoContainer">
-            <a href="https://www.facebook.com/CELECUSTHB/.com/" target="_blank">
+            <a href="https://www.facebook.com/CELECUSTHB" target="_blank">
               <img
                 className="logoIMG"
                 src={require('../../../assets/logos/supporting/celec.png')}
