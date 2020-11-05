@@ -365,6 +365,16 @@ const ConnectedHome = (props) => {
               </a>
             </div>
 
+           <div className="logoContainer">
+              <a href="https://www.tampere.fi/" target="_blank">
+                <img
+                  className="BIGLOGO"
+                  src={require('../../../assets/logos/partner/tampere.png')}
+                  alt="connected-logo-here"
+                />
+              </a>
+            </div>
+
             <div className="logoContainer">
               <a href="https://avp.aalto.fi/" target="_blank">
                 <img
@@ -374,7 +384,6 @@ const ConnectedHome = (props) => {
                 />
               </a>
             </div>
-
           </div>
         </div>
 
