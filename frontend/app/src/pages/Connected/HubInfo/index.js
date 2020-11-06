@@ -130,12 +130,6 @@ const HubInfo = (props) => {
             return <p className="citiesText">{city}</p>
           })}
         </div>
-        <LinkButton
-          className="Button-default cityButton"
-          isExternal
-          to={'https://app.hackjunction.com/events/junction-2020-connected'}
-          text="Apply here"
-        />
       </SingleColumnSection>
       <DividerLine />
       <SectionImage

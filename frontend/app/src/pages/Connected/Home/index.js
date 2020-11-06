@@ -97,6 +97,15 @@ const ConnectedHome = (props) => {
           />
         </Helmet>
 
+        <div className="Hero-Youtube">
+          <h1>Live Stream</h1>
+          <iframe
+            src="https://www.youtube.com/embed/48Oq4ah6yDE"
+            frameBorder="0"
+          />
+        </div>
+
+        {/*
         <img
           className="bigChain-1"
           src={require('../../../assets/images/bigchain-1.svg')}
@@ -139,7 +148,9 @@ const ConnectedHome = (props) => {
           src={require('../../../assets/images/smallchain-2.svg')}
           alt="Small Chain 2"
         />
+            */}
       </div>
+
       <div className="HubInfo">
         <Element name="mainContent" />
 
@@ -147,14 +158,14 @@ const ConnectedHome = (props) => {
         <div className="Button-row">
           <Button
             className="Button-small Button-apply"
-            to="https://app.hackjunction.com/events/junction-2020-connected"
-            text="Apply Here"
+            to="https://next.brella.io/events/connected/"
+            text="Brella"
           />
           <Button className="Button-small" to="/info" text="Event Info" />
           <Button
             className="Button-small"
-            to="https://hackjunction.com/partners"
-            text="Partner With Us"
+            to="https://app.hackjunction.com"
+            text="Junction App"
           />
         </div>
 

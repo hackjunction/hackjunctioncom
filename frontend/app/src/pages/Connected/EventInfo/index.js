@@ -81,8 +81,8 @@ const EventInfo = (props) => {
           <LinkButton
             className="Button-default cityButton"
             isExternal
-            to={'https://app.hackjunction.com/events/junction-2020-connected'}
-            text="Apply here"
+            to={'https://next.brella.io/events/connected/'}
+            text="Brella"
           />
           <Link
             activeClass="active"
