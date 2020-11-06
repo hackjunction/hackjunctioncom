@@ -1,0 +1,63 @@
+[
+  {
+    "day": "friday",
+    "name": "Livestream",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "16:00",
+    "ends": "17:00"
+  },
+  {
+    "day": "friday",
+    "name": "Hacking start",
+    "location": "Worldwide",
+    "color": "Green",
+    "starts": "17:00"
+  },
+  {
+    "day": "friday",
+    "name": "Partners available for questions & monitoring",
+    "location": "Brella",
+    "color": "Purple",
+    "starts": "16:00",
+    "ends": "21:00"
+  },
+  {
+    "day": "friday",
+    "name": "Teambuilding",
+    "location": "Zoom",
+    "color": "Purple",
+    "starts": "16:00",
+    "ends": "17:00"
+  },
+  {
+    "day": "friday",
+    "name": "Interview with Printify",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "18:00",
+    "ends": "18:30"
+  },
+  {
+    "day": "friday",
+    "name": "Draft Submission DL",
+    "location": "Junction App",
+    "color": "Green",
+    "starts": "17:00"
+  },
+  {
+    "day": "friday",
+    "name": "Interview with Printify",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "18:00",
+    "ends": "18:30"
+  },
+  {
+    "day": "friday",
+    "name": "Draft Submission DL",
+    "location": "Junction App",
+    "color": "Green",
+    "starts": "17:00"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "Schedule"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "day": {
+      "enum": ["friday", "saturday", "sunday"],
+      "type": "enumeration"
+    },
+    "color": {
+      "enum": ["Orange", "Green", "Purple", ""],
+      "type": "enumeration"
+    },
+    "name": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "starts": {
+      "type": "string"
+    },
+    "ends": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    }
+  },
+  "connection": "default",
+  "collectionName": "schedules"
+}

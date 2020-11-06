@@ -1,0 +1,32 @@
+@import '../../styles/main';
+
+.VerticalText {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  margin-top: 40px;
+  @include bp-med {
+    margin-top: 0;
+  }
+  &Title {
+    font-size: 30px;
+    line-height: 34px;
+    font-family: Montserrat;
+    text-align: center;
+    min-height: 50px;
+    margin-bottom: 10px;
+
+    * {
+      text-align: center;
+    }
+
+    @include bp-full {
+      min-height: 70px;
+    }
+  }
+  &Content {
+    * {
+      text-align: center !important;
+    }
+  }
+}

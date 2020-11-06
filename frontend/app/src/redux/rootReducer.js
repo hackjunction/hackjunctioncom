@@ -17,26 +17,29 @@ import teammembers from './teammembers/reducer'
 import testimonials from './testimonials/reducer'
 import onlineevents from './onlineevents/reducer'
 import challenges from './challenges/reducer'
+import schedules from './schedules/reducer'
 import misc from './misc/reducer'
 import hubs from './hubs/reducer'
 
-export default () => combineReducers({
-	nav,
-	faq,
-	job,
-	staticcontent,
-	staticmedia,
-	events,
-	eventconcepts,
-	kpis,
-	pages,
-	partners,
-	socialmedias,
-	stories,
-	teammembers,
-	testimonials,
-  onlineevents,
-  challenges,
-  misc,
-  hubs
-})
+export default () =>
+  combineReducers({
+    nav,
+    faq,
+    job,
+    staticcontent,
+    staticmedia,
+    events,
+    eventconcepts,
+    kpis,
+    pages,
+    partners,
+    socialmedias,
+    stories,
+    schedules,
+    teammembers,
+    testimonials,
+    onlineevents,
+    challenges,
+    misc,
+    hubs,
+  })

@@ -1,0 +1,12 @@
+@import '../../styles/main';
+.verticalSection {
+  display: flex;
+  //justify-content: flex-start;
+  //align-content: flex-start;
+  flex-direction: column;
+  max-width: 980px;
+  margin: 0 auto;
+  @include bp-med {
+    flex-direction: row;
+  }
+}
