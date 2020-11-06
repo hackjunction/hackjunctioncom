@@ -98,7 +98,7 @@ const ConnectedHome = (props) => {
         </Helmet>
 
         <div className="Hero-Youtube">
-          <h1>Live Stream</h1>
+          <h1>We are live!</h1>
           <iframe
             src="https://www.youtube.com/embed/48Oq4ah6yDE"
             frameBorder="0"
@@ -161,7 +161,7 @@ const ConnectedHome = (props) => {
             to="https://next.brella.io/events/connected/"
             text="Brella"
           />
-          <Button className="Button-small" to="/info" text="Event Info" />
+          <Button className="Button-small" to="/live" text="Program" />
           <Button
             className="Button-small"
             to="https://app.hackjunction.com"

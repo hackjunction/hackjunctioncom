@@ -420,11 +420,12 @@
 }
 
 .Hero-Youtube {
-  margin-top: 40%;
+  margin-top: 20vh;
   height: 20vh;
   iframe {
-    width: 100%;
+    width: 95%;
     height: 40vh;
+    border-radius: 1.5em;
   }
 
   @include bp-med {
@@ -434,6 +435,8 @@
     height: 100vh;
     margin-top: 0;
     iframe {
+      border-radius: 0;
+
       width: 100%;
       height: 100vh;
     }
