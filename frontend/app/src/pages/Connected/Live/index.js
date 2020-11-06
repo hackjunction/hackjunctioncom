@@ -42,12 +42,12 @@ const Live = () => {
       <BasicSection title="Friday" subtitle="">
         <Schedules date="friday" />
       </BasicSection>
-      <SingleColumnSection>
+      <BasicSection title="Saturday">
         <Schedules date="saturday" />
-      </SingleColumnSection>
-      <SingleColumnSection>
+      </BasicSection>
+      <BasicSection title="Sunday">
         <Schedules date="sunday" />
-      </SingleColumnSection>
+      </BasicSection>
     </Page>
   )
 }

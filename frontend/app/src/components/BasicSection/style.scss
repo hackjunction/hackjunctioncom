@@ -6,6 +6,7 @@
   justify-content: flex-start;
   align-items: center;
   margin-top: 50px;
+  margin-bottom: 100px;
 
   @include bp-full {
     flex-direction: column;
@@ -15,7 +16,6 @@
 
   &--left {
     width: 100%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,7 +29,7 @@
       margin: 0;
       padding-bottom: 20px;
       font-size: 40px;
-      text-align: center;
+      text-align: left;
       word-break: break-word;
 
       @include bp-full {
@@ -55,7 +55,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 10px;
 
     @include bp-full {
       //   margin-left: 25px;
