@@ -98,8 +98,9 @@ const ConnectedHome = (props) => {
         </Helmet>
 
         <div className="Hero-Youtube">
+          <h1>Live Stream</h1>
           <iframe
-            src="https://www.youtube.com/watch?v=48Oq4ah6yDE&feature=youtu.be"
+            src="https://www.youtube.com/embed/48Oq4ah6yDE"
             frameBorder="0"
           />
         </div>
