@@ -234,8 +234,8 @@ class Challenges extends PureComponent {
           <Grid spacing={12} direction="row">
             <Button
               className="Button-small Button-apply"
-              to="https://app.hackjunction.com/events/junction-2020-connected"
-              text="Apply Here"
+              to="https://next.brella.io/events/connected/"
+              text="Brella"
             />
             <Button className="Button-small" to="/info" text="Event info" />
           </Grid>
