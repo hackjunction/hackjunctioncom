@@ -1,0 +1,78 @@
+@import '../../styles/main';
+.BottomDiv {
+  height: 20px;
+  background: red;
+}
+
+.Schedules {
+  width: 90%;
+
+  @include bp-full {
+    margin-top: 0px;
+    width: 50vh;
+  }
+}
+.Schedule {
+  display: flex;
+  flex-direction: row;
+
+  //  height: 100px !important;
+  &Item {
+    &Left,
+    &Right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    &Left {
+      width: 60px !important;
+    }
+    &Right {
+      margin-top: 5px;
+      width: 70%;
+      //   @include bp-custom(400px) {
+      //     max-width: 200px;
+      //   }
+      //   @include bp-custom(500px) {
+      //     max-width: 450px;
+      //   }
+    }
+    &Top,
+    &Bot {
+      font-family: 'Lato';
+      font-size: 16px;
+      line-height: 24px;
+      @include bp-custom(500px) {
+        font-size: 18px;
+      }
+    }
+    &Top {
+      font-weight: bold;
+      color: $connected-blue;
+    }
+    &Bot {
+      color: $connected-orange;
+    }
+  }
+  &Divider {
+    &Green,
+    &Purple,
+    &Orange {
+      width: 2px;
+      border-radius: 2px;
+      margin-right: 10px;
+
+      align-self: center;
+      height: 40px;
+    }
+    &Green {
+      background: rgba(58, 175, 103, 1);
+    }
+    &Purple {
+      background: rgba(178, 0, 183, 1);
+    }
+    &Orange {
+      background: rgba(243, 129, 0, 1);
+    }
+  }
+}

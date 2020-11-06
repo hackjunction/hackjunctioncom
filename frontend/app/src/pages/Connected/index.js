@@ -10,6 +10,7 @@ import HubInfo from './HubInfo'
 import Challenges from './Challenges'
 import Jobs from './Jobs'
 import Arabic from './Arabic'
+import Live from './Live'
 
 import NotFoundConnected from './NotFound'
 import { Route, Switch } from 'react-router-dom'
@@ -28,6 +29,7 @@ const Connected = () => {
           <Route exact path="/jobs/:company" component={Jobs} />
           <Route exact path="/jobs" component={Jobs} />
           <Route exact path="/arabic" component={Arabic} />
+          <Route exact path="/live" component={Live} />
           <Route path="/*" component={NotFoundConnected} />
         </Switch>
         <Footer />

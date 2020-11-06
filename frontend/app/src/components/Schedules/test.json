@@ -1,0 +1,215 @@
+[
+  {
+    "day": "friday",
+    "name": "Livestream",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "16:00",
+    "ends": "17:00"
+  },
+  {
+    "day": "friday",
+    "name": "Hacking start",
+    "location": "Worldwide",
+    "color": "Green",
+    "starts": "17:00"
+  },
+  {
+    "day": "friday",
+    "name": "Partners available for questions & monitoring",
+    "location": "Brella",
+    "color": "Purple",
+    "starts": "16:00",
+    "ends": "21:00"
+  },
+  {
+    "day": "friday",
+    "name": "Teambuilding",
+    "location": "Zoom",
+    "color": "Purple",
+    "starts": "16:00",
+    "ends": "17:00"
+  },
+  {
+    "day": "friday",
+    "name": "Interview with Printify",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "18:00",
+    "ends": "18:30"
+  },
+  {
+    "day": "friday",
+    "name": "Draft Submission DL",
+    "location": "Junction App",
+    "color": "Green",
+    "starts": "17:00"
+  },
+  {
+    "day": "friday",
+    "name": "Interview with Printify",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "18:00",
+    "ends": "18:30"
+  },
+  {
+    "day": "saturday",
+    "name": "Partners available for mentoring",
+    "location": "Brella",
+    "color": "Purple",
+    "starts": "08:00",
+    "ends": "22:00"
+  },
+  {
+    "day": "saturday",
+    "name": "Introduction to Chengdu, the Land of Abundance",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "08:30",
+    "ends": "09:00"
+  },
+  {
+    "day": "saturday",
+    "name": "Online recruitment meeting slots available",
+    "location": "Brella",
+    "color": "Purple",
+    "starts": "09:00",
+    "ends": "21:00"
+  },
+  {
+    "day": "saturday",
+    "name": "Checkup broadcast",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "10:00",
+    "ends": "10:30"
+  },
+  {
+    "day": "saturday",
+    "name": "Coffee Moments by Paulig - Junction Memorylane",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "10:30",
+    "ends": "10:50"
+  },
+  {
+    "day": "saturday",
+    "name": "Hel Tech // HOW TO ATTRACT INTERNATIONAL TALENTS TO FINLAND",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "11:30",
+    "ends": "13:00"
+  },
+  {
+    "day": "saturday",
+    "name": "Coffee Moments by Paulig - Aaltoes",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "13:15",
+    "ends": "13:30"
+  },
+  {
+    "day": "saturday",
+    "name": "'How to pitch your project' by Mike Bradshaw",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "13:30",
+    "ends": "13:45"
+  },
+  {
+    "day": "saturday",
+    "name": "Walk-throughs & Interviews at Junction Hubs over the world",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "14:30",
+    "ends": "15:30"
+  },
+  {
+    "day": "saturday",
+    "name": "Coffee Moments by Paulig - Droppe",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "16:45",
+    "ends": "16:00"
+  },
+  {
+    "day": "saturday",
+    "name": "Why are School 21 students fond of hackathons?",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "17:30",
+    "ends": "17:50"
+  },
+  {
+    "day": "saturday",
+    "name": "Coffee Moments by Paulig - Art of Pitching",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "18:15",
+    "ends": "18:30"
+  },
+  {
+    "day": "saturday",
+    "name": "Sam Aaron: Interview + Performance",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "19:00",
+    "ends": "20:30"
+  },
+  {
+    "day": "saturday",
+    "name": "Algiers Hub Broadcast",
+    "location": "Zoom",
+    "color": "Purple",
+    "starts": "21:45",
+    "ends": "22:00"
+  },
+  {
+    "day": "sunday",
+    "name": "Submission DL countdown broadcast and instructions for reviewing.",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "08:50",
+    "ends": "09:15"
+  },
+  {
+    "day": "sunday",
+    "name": "Final Submission Deadline",
+    "location": "Junction App",
+    "color": "Green",
+    "starts": "09:00"
+  },
+  {
+    "day": "sunday",
+    "name": "Partner & Peer Review",
+    "location": "Junction App",
+    "color": "Green",
+    "starts": "09:15",
+    "ends": "14:30"
+  },
+  {
+    "day": "sunday",
+    "name": "Kiuas Accelerator - Project continuity possibilities",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "13:30",
+    "ends": "14:00"
+  },
+  {
+    "day": "sunday",
+    "name": "Closing Ceremony",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "15:00",
+    "ends": "17:00"
+  },
+  {
+    "day": "sunday",
+    "name": "Virtual Afterparty by Genelec: Windows95man performance",
+    "location": "Main Stream",
+    "color": "Orange",
+    "starts": "17:00",
+    "ends": "18:00"
+  }
+]

@@ -1,0 +1,72 @@
+@import '../../styles/main';
+
+.BasicSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+
+  @include bp-full {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    @include bp-full {
+      align-items: center;
+    }
+
+    &__title {
+      margin: 0;
+      padding-bottom: 20px;
+      font-size: 40px;
+      text-align: left;
+      word-break: break-word;
+
+      @include bp-full {
+        text-align: left;
+      }
+    }
+
+    &__subtitle {
+      * {
+        text-align: center !important;
+      }
+
+      @include bp-full {
+        * {
+          text-align: left !important;
+        }
+      }
+    }
+  }
+
+  &--right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+
+    @include bp-full {
+      //   margin-left: 25px;
+      margin-top: 0;
+    }
+    * {
+      white-space: pre-wrap;
+    }
+
+    & > p {
+      margin: 0;
+    }
+  }
+}
