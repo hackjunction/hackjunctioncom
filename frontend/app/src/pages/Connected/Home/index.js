@@ -468,6 +468,24 @@ const ConnectedHome = (props) => {
         <h2 className="partnerHeading">Supporting Partners</h2>
         <div class="logoBGR-small">
           <div class="logoContainer">
+            <a href="https://techchill.co/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/techchill.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
+            <a href="https://printify.com/" target="_blank">
+              <img
+                className="logoIMG"
+                src={require('../../../assets/logos/supporting/printify.png')}
+                alt="connected-logo-here"
+              />
+            </a>
+          </div>
+          <div class="logoContainer">
             <a
               href="https://www.teknologforeningen.fi/?lang=en"
               target="_blank"
@@ -592,15 +610,6 @@ const ConnectedHome = (props) => {
               <img
                 className="logoIMG"
                 src={require('../../../assets/logos/supporting/celec.png')}
-                alt="connected-logo-here"
-              />
-            </a>
-          </div>
-          <div class="logoContainer">
-            <a href="https://techchill.co/" target="_blank">
-              <img
-                className="logoIMG"
-                src={require('../../../assets/logos/supporting/techchill.png')}
                 alt="connected-logo-here"
               />
             </a>
