@@ -21,7 +21,7 @@
         "@fortawesome/free-brands-svg-icons": "^5.13.1",
         "@fortawesome/free-solid-svg-icons": "^5.13.1",
         "@fortawesome/react-fontawesome": "^0.1.11",
-        "express": "^4.16.4",
+        "express": "^4.17.3",
         "path": "^0.12.7",
         "prerender-node": "^3.2.5",
         "react-scroll": "^1.8.0"
